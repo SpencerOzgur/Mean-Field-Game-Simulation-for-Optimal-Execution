@@ -22,3 +22,19 @@ Latent Markov chain representing the hidden market regime.
 
 **Notes**  
 Two-state chain used in replication.
+
+
+## 2. Unimpacted Price Process
+$`dFt = A_tdt + \sigma dW_t`$
+
+**Interpretation**
+Price prior to adjuction for impact
+
+**Code location**  
+`src/mfg_replication/simulation.py`
+
+**Function**  
+`simulate_fundamental_price(latent_path, params)
+
+**Notes**  
+Discrete-time Euler approximation used in simulation.
