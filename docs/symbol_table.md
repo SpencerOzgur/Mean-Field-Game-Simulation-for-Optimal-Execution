@@ -1,15 +1,21 @@
-$`S_t`$      : Impacted Midprice
+#Symbol Table
 
-$`F_t`$      : Unimpacted Midprice
+$`S_t`$        : Impacted Midprice
 
-$`\nu_t`$    : Continuous Trading Rate
+$`F_t`$        : Unimpacted Midprice
 
-$`A_t`$      : Mean Excess Drift
+$`\nu_t`$      : Continuous Trading Rate
 
-$`Q_t^j`$    : Inventory Holding of agent $`j`$
+$`A_t`$        : Mean Excess Drift
 
-$`\bar{\nu}`$: Total Order Flow
+$`Q_t^j`$      : Inventory Holding of agent $`j`$
 
-$`\lambda`$  : Price Impact Parameter
+$`\bar{\nu}_t`$: Total Order Flow
 
-$`\Theta_t`$ : Latent Markov Chain
+$`\lambda`$    : Price Impact Parameter
+
+$`\Theta_t`$   : Latent Markov Chain
+
+$`\pi_t^k`$    : Posterier Belief
+
+$`\bar{Q}_t^k`$: Mean Inventory
