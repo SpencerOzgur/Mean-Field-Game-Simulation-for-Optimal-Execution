@@ -19,3 +19,7 @@ $`\Theta_t`$   : Latent Markov Chain
 $`\pi_t^k`$    : Posterier Belief
 
 $`\bar{Q}_t^k`$: Mean Inventory
+
+$`W_t`$        : Brownian Motion
+
+$`\sigma`$     : Volatility
