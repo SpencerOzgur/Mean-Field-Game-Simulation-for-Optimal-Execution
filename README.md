@@ -1,1 +1,1 @@
-Original Paper by Phillipe Casgrain and Sebastian Jaimungal
+The objective of this project is to replicate and simulate the results of "Algorithmic Trading in Competitive Markets with Mean Field Games by Phillipe Casgrain and Sebastian Jaimungal and explore multiple extentions.
