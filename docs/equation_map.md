@@ -9,9 +9,9 @@ Its purpose is to make the implementation reproducible and to clarify which equa
 ## 1. Latent State Process
 
 **Equation**
-\[
-\Theta_{t+\Delta t} \sim P(\Theta_t, \cdot)
-\]
+$`
+\Theta_{t+\Delta t} \sim P(\Theta_t, \cdot)`$
+
 
 **Interpretation**  
 Latent Markov chain representing the hidden market regime.
@@ -30,9 +30,9 @@ Two-state chain used in replication.
 ## 2. Unimpacted Price Process
 
 **Equation**
-\[
+$`
 dF_t = A_t\,dt + \sigma dW_t
-\]
+`$
 
 **Interpretation**  
 Fundamental price driven by latent drift and exogenous noise, without price impact.
@@ -51,9 +51,9 @@ Discrete-time Euler approximation used.
 ## 3. Mean Field Trading Rate
 
 **Equation**
-\[
+$`
 \bar{\nu}_t = \frac{1}{N} \sum_{i=1}^N \nu_t^i
-\]
+`$
 
 **Interpretation**  
 Average trading rate across all agents.
@@ -69,9 +69,9 @@ Average trading rate across all agents.
 ## 4. Impacted Midprice
 
 **Equation**
-\[
+`$
 dS_t = (A_t + \lambda \bar{\nu}_t)\,dt + \sigma dW_t
-\]
+$`
 
 **Interpretation**  
 Observed midprice including both latent drift and price impact from aggregate order flow.
@@ -87,9 +87,9 @@ Observed midprice including both latent drift and price impact from aggregate or
 ## 5. Inventory Dynamics
 
 **Equation**
-\[
+`$
 dQ_t^i = \nu_t^i dt
-\]
+$`
 
 **Interpretation**  
 Agent inventory evolves according to its trading rate.
@@ -105,9 +105,9 @@ Agent inventory evolves according to its trading rate.
 ## 6. Trading Control (Approximation)
 
 **Equation**
-\[
+`$
 \nu_t^i = -\beta_k Q_t^i - \zeta_k \bar{Q}_t^k + \gamma_k \hat{A}_t
-\]
+$`
 
 **Interpretation**  
 Feedback control combining:
@@ -129,11 +129,11 @@ Approximation to full MFG optimal strategy used for initial replication.
 ## 7. Posterior Update (Filtering)
 
 **Equation**
-\[
+`$
 \pi_{t+\Delta t}(m) \propto 
 \mathbb{P}(\Delta S_t \mid \Theta_t = m)\,
 \sum_{\ell} P_{\ell m}\pi_t(\ell)
-\]
+$`
 
 **Interpretation**  
 Bayesian update of latent-state belief based on observed price changes.
@@ -152,9 +152,9 @@ Each subpopulation maintains its own posterior.
 ## 8. Filtered Signal
 
 **Equation**
-\[
+`$
 \hat{A}_t = \mathbb{E}[A_t \mid \mathcal{F}_t^S]
-\]
+$`
 
 **Interpretation**  
 Filtered estimate of latent drift used in trading decisions.
