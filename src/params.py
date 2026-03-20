@@ -16,4 +16,5 @@ simulation_params = SimulationParams(
     A1=1.0,
     A0=-1.0,
     lambda_=0.5,
+    S0=100
 )
