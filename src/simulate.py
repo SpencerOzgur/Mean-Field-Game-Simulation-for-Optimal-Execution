@@ -48,17 +48,40 @@ def simulate_fundamental_path(latent_path:np.ndarray, params:SimulationParams) -
 
     return sim_path
 
-def simulate_impacted_price(F_t:np.ndarray, params:SimulationParams) -> np.ndarray:
+def simulate_impacted_price(F_t: np.ndarray,
+                            nu_hat: np.ndarray,
+                            params: SimulationParams) -> np.ndarray:
     """
-    :param F_t: Unimpacted Stock Price
-    :param params: Simulation parameters
-    :return: Impacted Stock Price
+    Permanent linear price impact:
+        S_t = F_t - lambda * int_0^t nu_s ds
+
+    Sign convention:
+        nu_hat > 0 means selling, which depresses price.
     """
+    if params.T <= 0:
+        raise ValueError("T must be positive")
+    if params.N <= 0:
+        raise ValueError("N must be positive")
+
+    F_t = np.asarray(F_t, dtype=np.float64)
+    nu_hat = np.asarray(nu_hat, dtype=np.float64)
+
+    if F_t.ndim != 1:
+        raise ValueError("F_t must be 1-D")
+    if nu_hat.ndim != 1:
+        raise ValueError("nu_hat must be 1-D")
+    if len(F_t) != params.N + 1:
+        raise ValueError("F_t must have length N+1")
+    if len(nu_hat) != params.N:
+        raise ValueError("nu_hat must have length N")
+    if not np.all(np.isfinite(F_t)):
+        raise ValueError("F_t must be finite")
+    if not np.all(np.isfinite(nu_hat)):
+        raise ValueError("nu_hat must be finite")
 
     dt = params.T / params.N
-    t_grid = np.linspace(0, params.T, params.N + 1)
-    nu_hat = np.sin(t_grid) # Placeholder
-    cumulative_impact = np.zeros(params.N + 1)
-    cumulative_impact[1:] = np.cumsum(nu_hat[:-1]) * dt
+    cumulative_impact = np.zeros(params.N + 1, dtype=np.float64)
+    cumulative_impact[1:] = np.cumsum(nu_hat) * dt
+
     total_impact = params.lambda_ * cumulative_impact
-    return F_t + total_impact
+    return F_t - total_impact

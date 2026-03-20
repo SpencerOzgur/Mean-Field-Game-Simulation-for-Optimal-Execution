@@ -8,6 +8,11 @@ class ControlParams():
     Q0: float
 
 def validate_controls(nu_hat: np.ndarray, params: ControlParams):
+    """
+    :param nu_hat: mean-field control
+    :param params: control parameters
+    :return: validated controls
+    """
     if np.ndim(nu_hat) != 1:
         raise ValueError('nu_hat must be a 1-D array')
     if len(nu_hat) != params.N:
@@ -18,6 +23,10 @@ def validate_controls(nu_hat: np.ndarray, params: ControlParams):
     return nu_hat
 
 def zero_control(params: ControlParams):
+    """
+    :param params: control parameters
+    :return: zero control
+    """
     if params.T <= 0:
         raise ValueError('T must be positive')
     if params.N <= 0:
@@ -26,6 +35,10 @@ def zero_control(params: ControlParams):
     return np.zeros(params.N, dtype=np.float64)
 
 def constant_liquidation_control(params: ControlParams):
+    """
+    :param params: control parameters
+    :return: guarateed liquidation control
+    """
     if params.T <= 0:
         raise ValueError('T must be positive')
     if params.N <= 0:
@@ -35,6 +48,11 @@ def constant_liquidation_control(params: ControlParams):
     return np.full(params.N, rate, dtype=np.float64)
 
 def simulate_inventory(nu_hat: np.ndarray, params: ControlParams):
+    """
+    :param nu_hat: mean field control
+    :param params: control parameters
+    :return: inventory
+    """
     if params.T <= 0:
         raise ValueError('T must be positive')
     if params.N <= 0:
