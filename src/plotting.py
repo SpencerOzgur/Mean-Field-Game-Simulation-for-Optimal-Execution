@@ -158,8 +158,8 @@ def plot_unimpacted_and_impacted(
     plt.show()
 
 
-def plot_filter_results(F_t, latent_path, latent_params, sim_params):
-    posterior = filtering.filter_prob_state_1(F_t, latent_params, sim_params)
+def plot_fundamental_filter_results(F_t, latent_path, latent_params, sim_params):
+    posterior = filtering.filter_fundamental_prob_state_1(F_t, latent_params, sim_params)
 
     t = np.linspace(0, sim_params.T, sim_params.N + 1)
 
@@ -174,4 +174,57 @@ def plot_filter_results(F_t, latent_path, latent_params, sim_params):
     plt.ylim(-0.1, 1.1)
     plt.legend()
     plt.title("Filtering vs True Latent State")
+    plt.show()
+
+def plot_impacted_filter_results(S_t, impact, latent_path, latent_params, sim_params):
+    posterior = filtering.filter_impacted_prob_state_1(
+        S_t, latent_params, sim_params, impact
+    )
+
+    t = np.linspace(0, sim_params.T, sim_params.N + 1)
+
+    plt.figure(figsize=(10,5))
+
+    # posterior
+    plt.plot(t, posterior, label="P(Theta=1 | data, impacted)", color="green")
+
+    # latent (step plot)
+    plt.step(t, latent_path, where='post',
+             label="True State", color="red", alpha=0.5)
+
+    plt.ylim(-0.1, 1.1)
+    plt.legend()
+    plt.title("Impacted Filtering vs True Latent State")
+    plt.show()
+
+def plot_fundamental_vs_impacted(F_t, S_t, impact,
+                                latent_path,
+                                latent_params,
+                                sim_params):
+
+    posterior_F = filtering.filter_fundamental_prob_state_1(
+        F_t, latent_params, sim_params
+    )
+
+    posterior_S = filtering.filter_impacted_prob_state_1(
+        S_t, latent_params, sim_params, impact
+    )
+
+    t = np.linspace(0, sim_params.T, sim_params.N + 1)
+
+    plt.figure(figsize=(12,6))
+
+    # fundamental
+    plt.plot(t, posterior_F, label="Fundamental Filter", color="blue")
+
+    # impacted
+    plt.plot(t, posterior_S, label="Impacted Filter", color="green", linestyle="--")
+
+    # latent
+    plt.step(t, latent_path, where='post',
+             label="True State", color="red", alpha=0.5)
+
+    plt.ylim(-0.1, 1.1)
+    plt.legend()
+    plt.title("Fundamental vs Impacted Filtering")
     plt.show()
