@@ -1,41 +1,83 @@
-# Objective:
+# Algorithmic Trading via Mean Field Games
 
-The goal of this project is to replicate the simulated results of
-“Algorithmic Trading in Competitive Markets with Mean Field Games”
-by Philippe Casgrain and Sebastian Jaimungal, and to analyze the behavior of heterogeneous agents trading under latent market signals and endogenous price impact.
-
-Following replication, the project explores extensions such as model misspecification, finite-population effects, and sensitivity to market impact.
-
-
-# Replication Targets:
-## Inventory Dynamics
- - Heterogeneous agents with different urgancy levels
- - Subpopulation mean inventory vs individual trajectories
-## Price Decomposition
-  - Impacted vs. unimpacted price
-  - Influence of aggregate order flow
-## Posterier Filtering of Latent State
-  - Estimation of hidden market regimes
-  - Differences in beliefs accross agent subpopulations
-
-
-# Model Overview:
-## Latent Market
-  - Hidden Markov model underlying price dynamics
-## Price Dynamics
-  - Midprice Evolves from order flow and latent factors
-  - Agent Trades directly impact prices
-## Agent Behavior
-  - Continuous Trading at controlled rate
-  - Strategy depends on inventory signals, interaction with mean field
 ## Objective
-  - Utility function balancing profits, risk, liquiation costs
-## Nash Equilibrium
-  - Nash Equilibrium is approximated through MFG Framework
+
+This project replicates and extends the results of:
+
+> *Algorithmic Trading in Competitive Markets with Mean Field Games*  
+> Philippe Casgrain & Sebastian Jaimungal
+
+The focus is on simulating **heterogeneous agents** trading under:
+- latent market regimes
+- endogenous price impact
+- mean-field interactions
+
+After replication, the project explores:
+- model misspecification
+- finite-population effects
+- sensitivity to impact parameters
+
+---
+
+## Model Components
+
+### Latent Market
+- Hidden Markov model driving drift
+- Regime switching between bullish/bearish states
+
+### Price Dynamics
+- Fundamental price:
+  \[
+  dF_t = A_t dt + \sigma dW_t
+  \]
+
+- Impacted price:
+  \[
+  S_t = F_t + \lambda \int_0^t \bar{\nu}_s ds
+  \]
+
+### Agent Behavior
+- Continuous trading rate \( \nu_t \)
+- Depends on:
+  - filtered drift estimate
+  - inventory level
+  - risk aversion (\(\kappa\))
+
+### Objective
+Agents minimize:
+- inventory risk
+- execution cost
+- deviation from optimal liquidation
+
+### Equilibrium
+- Mean-field fixed point via aggregate order flow
+
+---
+
+## 🔁 Replication Targets
+
+### 1. Inventory Dynamics
+- Heterogeneous urgency levels
+- Subpopulation vs aggregate inventory
+
+### 2. Price Decomposition
+- Fundamental vs impacted price
+- Effect of aggregate order flow
+
+### 3. Posterior Filtering
+- Estimation of latent regime
+- Belief differences across agents
+
+---
 
 
-# Repo Structure:
-- src- Core Simulation
-- docs- Mathematical documentation of paper/model
-- notebooks- Experiments, debugging
-- results- Figures and Outputs
+## Setup
+
+```bash
+git clone
+cd
+
+python -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
