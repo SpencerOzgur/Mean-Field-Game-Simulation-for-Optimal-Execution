@@ -77,14 +77,9 @@ for i, sp in enumerate(SubPops):
         prior=[1 - sp.prior, sp.prior],
     )
 
-plotting.plot_fundamental_vs_impacted_posteriors(
-    pi_fund_k=pi_k,
-    pi_imp_k=pi_imp_k,
-    latent_path=latent_path,
-    sim_params=simulation_params,
-    subpops=SubPops
-)
+
 plotting.plot_unimpacted_and_impacted(F_t=Ft, S_t=St, latent_path=latent_path, sim_params=simulation_params)
+
 
 plotting.plot_estimated_drifts(
     A_hat_k=A_hat_k,

@@ -3,14 +3,13 @@ import latent
 import filtering
 import numpy as np
 import matplotlib.pyplot as plt
-
+import time
 from pathlib import Path
 
 OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output" / "figure"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 def _save_fig(name: str):
-    import time
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     filepath = OUTPUT_DIR / f"{name}_{timestamp}.png"
     plt.savefig(filepath, dpi=300, bbox_inches="tight")

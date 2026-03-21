@@ -11,6 +11,22 @@ class SubPopParams:
     Q0: float
     kappa: float
 
+SubPop1 = SubPopParams(
+    name='SubPop1',
+    weight=0.5,
+    prior=0.2,
+    Q0=1.0,
+    kappa=0.5
+)
+
+SubPop2 = SubPopParams(
+    name='SubPop2',
+    weight=0.5,
+    prior=0.2,
+    Q0=1.0,
+    kappa=0.5
+)
+
 
 latent_params = LatentParams(
     T=1.0,
