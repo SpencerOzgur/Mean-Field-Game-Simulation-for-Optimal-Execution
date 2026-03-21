@@ -70,6 +70,32 @@ Agents minimize:
 
 ---
 
+## Running Experiments
+
+All model parameters are defined in src/params.py
+
+You can modify the following:
+
+- **Latent parameters**
+  - `lambda01`, `lambda10`: regime switching rates
+  - `theta0`: initial latent state
+
+- **Simulation parameters**
+  - `sigma`: volatility
+  - `A1`, `A0`: drift values for each regime
+  - `lambda_`: price impact strength
+
+- **Control parameters**
+  - `Q0`: initial inventory
+  - `T`, `N`: time horizon and discretization
+
+- **Subpopulation parameters**
+  - `prior`: initial belief about regime
+  - `kappa`: sensitivity to alpha
+  - `weight`: contribution to aggregate flow
+
+
+---
 
 ## Setup
 
