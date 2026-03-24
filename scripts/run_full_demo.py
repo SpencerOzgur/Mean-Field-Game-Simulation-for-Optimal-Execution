@@ -8,10 +8,13 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 import latent
+import numpy as np
 import simulate
 import filtering
 import control
 import plotting
+import equilibrium
+import pipelines
 from params import (
     latent_params,
     simulation_params,
@@ -26,14 +29,14 @@ def make_default_subpops() -> list[SubPopParams]:
     """
     return [
         SubPopParams(
-            name="SubPop1",
+            name="Optimistic",
             weight=0.5,
             prior=0.8,
             Q0=1.0,
             kappa=0.5,
         ),
         SubPopParams(
-            name="SubPop2",
+            name="Pessimistic",
             weight=0.5,
             prior=0.2,
             Q0=1.0,
@@ -102,66 +105,61 @@ def maybe_plot(plot_fn, *args, **kwargs) -> None:
 def main() -> None:
     np.random.seed(42)
 
-    subpops = make_default_subpops()
-    validate_subpops(subpops)
-    print_run_summary(subpops)
-
+    subpops = pipelines.make_default_subpops()
     K = len(subpops)
+
     HAS_IMPACTED_FILTER = hasattr(filtering, "filter_impacted_prob_state_1")
     print(f"Impacted filtering enabled: {HAS_IMPACTED_FILTER}")
 
-    # 1. Simulate common latent market environment
-    latent_path = latent.simulate_latent_path(params=latent_params)
-    F_t = simulate.simulate_fundamental_path(
-        latent_path=latent_path,
-        params=simulation_params,
+    # 1. Build latent path, fundamental price, posteriors, and filtered drifts
+    signal_results = pipelines.build_filtered_signals(
+        subpops=subpops,
+        latent_params=latent_params,
+        sim_params=simulation_params,
+        seed=42,
     )
 
-    # 2. Filter subpopulation beliefs and compute estimated drifts
-    pi_fund_k = np.empty((K, simulation_params.N + 1), dtype=np.float64)
-    A_hat_k = np.empty((K, simulation_params.N + 1), dtype=np.float64)
-    nu_hat_k = np.empty((K, simulation_params.N), dtype=np.float64)
+    latent_path = signal_results["latent_path"]
+    F_t = signal_results["F_t"]
+    pi_fund_k = signal_results["pi_k"]
+    A_hat_k = signal_results["A_hat_k"]
 
-    for i, sp in enumerate(subpops):
-        pi_fund_k[i] = filtering.filter_fundamental_prob_state_1(
-            F_t=F_t,
-            latent_params=latent_params,
-            sim_params=simulation_params,
-            prior=[1.0 - sp.prior, sp.prior],
-        )
+    # 2. Solve mean-field fixed point
+    weights = np.array([sp.weight for sp in subpops], dtype=np.float64)
 
-        A_hat_k[i] = (
-            pi_fund_k[i] * simulation_params.A1
-            + (1.0 - pi_fund_k[i]) * simulation_params.A0
-        )
-
-        local_control_params = control.ControlParams(
+    param_list = [
+        control.EquilibriumControlParams(
             T=control_params.T,
             N=control_params.N,
             Q0=sp.Q0,
+            a=1.0,
+            phi=0.05,
+            psi=5.0,
+            lam=simulation_params.lambda_,
         )
+        for sp in subpops
+    ]
 
-        nu_hat_k[i] = control.alpha_inventory_control(
-            A_hat_k[i, :-1],
-            params=local_control_params,
-            kappa=sp.kappa,
-        )
+    A_hat_list = [A_hat_k[i, :-1] for i in range(K)]
 
-    # 3. Aggregate order flow across subpopulations
-    nu_bar = np.zeros(simulation_params.N, dtype=np.float64)
-    for i, sp in enumerate(subpops):
-        nu_bar += sp.weight * nu_hat_k[i]
+    nu_list, q_list, nu_bar = equilibrium.solve_mean_field_fixed_point(
+        A_hat_list=A_hat_list,
+        weights=weights,
+        param_list=param_list,
+    )
 
-    # 4. Simulate impacted price
+    nu_hat_k = np.array(nu_list)
+    q_hat_k = np.array(q_list)
+
+    # 3. Simulate impacted price
     S_t = simulate.simulate_impacted_price(
         F_t=F_t,
         nu_hat=nu_bar,
         params=simulation_params,
     )
 
-    # 5. Core replication plots
-    maybe_plot(
-        plotting.plot_unimpacted_and_impacted,
+    # 4. Core plots
+    plotting.plot_unimpacted_and_impacted(
         F_t=F_t,
         S_t=S_t,
         latent_path=latent_path,
@@ -169,16 +167,14 @@ def main() -> None:
         show_latent=True,
     )
 
-    maybe_plot(
-        plotting.plot_fundamental_posteriors,
+    plotting.plot_fundamental_posteriors(
         pi_k=pi_fund_k,
         latent_path=latent_path,
         sim_params=simulation_params,
         subpops=subpops,
     )
 
-    maybe_plot(
-        plotting.plot_estimated_drifts,
+    plotting.plot_estimated_drifts(
         A_hat_k=A_hat_k,
         latent_path=latent_path,
         sim_params=simulation_params,
@@ -187,30 +183,27 @@ def main() -> None:
         A1=simulation_params.A1,
     )
 
-    maybe_plot(
-        plotting.plot_controls_subpops,
+    plotting.plot_controls_subpops(
         nu_hat_k=nu_hat_k,
         nu_bar=nu_bar,
         sim_params=simulation_params,
         subpops=subpops,
     )
 
-    maybe_plot(
-        plotting.plot_inventories_subpops,
-        nu_hat_k=nu_hat_k,
+    plotting.plot_inventories_subpops(
+        q_hat_k=q_hat_k,
         sim_params=simulation_params,
         subpops=subpops,
         q_bar=True,
     )
 
-    maybe_plot(
-        plotting.plot_price_distortion,
+    plotting.plot_price_distortion(
         F_t=F_t,
         S_t=S_t,
         sim_params=simulation_params,
     )
 
-    # 6. Optional impacted filtering block
+    # 5. Optional impacted filtering block
     if HAS_IMPACTED_FILTER:
         pi_imp_k = np.empty((K, simulation_params.N + 1), dtype=np.float64)
 
@@ -223,16 +216,14 @@ def main() -> None:
                 prior=[1.0 - sp.prior, sp.prior],
             )
 
-        maybe_plot(
-            plotting.plot_impacted_posteriors,
+        plotting.plot_impacted_posteriors(
             pi_imp_k=pi_imp_k,
             latent_path=latent_path,
             sim_params=simulation_params,
             subpops=subpops,
         )
 
-        maybe_plot(
-            plotting.plot_fundamental_vs_impacted_posteriors,
+        plotting.plot_fundamental_vs_impacted_posteriors(
             pi_fund_k=pi_fund_k,
             pi_imp_k=pi_imp_k,
             latent_path=latent_path,
