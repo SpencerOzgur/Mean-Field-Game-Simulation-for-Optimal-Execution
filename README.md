@@ -272,6 +272,98 @@ This repository is intended as a research-oriented simulation framework rather t
 
 ---
 
+# Quantitative Results
+
+The simulation framework generates quantitative diagnostics across:
+- price impact dynamics
+- inventory liquidation behavior
+- posterior filtering distortion
+- mean-field equilibrium convergence
+
+The following results were generated from the baseline heterogeneous-agent experiment.
+
+---
+
+## Price Impact Metrics
+
+| Metric | Value |
+|---|---:|
+| Terminal Fundamental Price | 100.1459 |
+| Terminal Impacted Price | 100.0959 |
+| Terminal Price Distortion | -0.0500 |
+| Mean Absolute Price Distortion | 0.0207 |
+| Maximum Absolute Price Distortion | 0.0500 |
+
+### Interpretation
+The endogenous impact term produces a persistent deviation between the fundamental and impacted market prices. Aggregate execution pressure generated an average distortion of approximately 2.1 bps throughout the simulation horizon.
+
+---
+
+## Inventory Dynamics Metrics
+
+| Metric | Value |
+|---|---:|
+| Terminal Aggregate Inventory | 0.0000 |
+| Mean Terminal Individual Inventory | 0.0300 |
+| Std. Terminal Individual Inventory | 0.0425 |
+| Mean Individual Trading Volume | 0.9988 |
+| Std. Individual Trading Volume | 0.0726 |
+
+### Interpretation
+The aggregate population successfully liquidates inventory by terminal time while preserving heterogeneous liquidation trajectories across individual agents.
+
+---
+
+## Control & Execution Metrics
+
+| Metric | Value |
+|---|---:|
+| Mean Aggregate Trading Rate | 1.0000 |
+| Maximum Aggregate Trading Rate | 3.1346 |
+| Aggregate Trading Volume | 1.0000 |
+
+### Subpopulation Comparison
+
+| Metric | SubPop1 | SubPop2 |
+|---|---:|---:|
+| Risk Aversion $\kappa$ | 0.5 | 2.0 |
+| Mean Trading Rate | 1.0000 | 1.0000 |
+| Maximum Trading Rate | 1.9421 | 4.3272 |
+| Posterior Distortion | 0.2232 | 0.2260 |
+
+### Interpretation
+Higher-risk-aversion agents exhibit significantly larger peak trading intensities despite maintaining similar aggregate liquidation volumes.
+
+---
+
+## Posterior Filtering Diagnostics
+
+| Metric | Value |
+|---|---:|
+| Mean Fundamental Posterior | 0.6473 |
+| Mean Impacted Posterior | 0.4228 |
+| Mean Absolute Posterior Difference | 0.2246 |
+| Maximum Absolute Posterior Difference | 0.6112 |
+
+### Interpretation
+Endogenous market impact materially alters latent-state inference. Filtering under impacted observations produces substantial posterior distortion relative to the fundamental process.
+
+---
+
+## Mean-Field Equilibrium Convergence
+
+| Metric | Value |
+|---|---:|
+| Initial Fixed-Point Error | 0.1000 |
+| Final Fixed-Point Error | 0.0010 |
+| Error Reduction Factor | 100× |
+| Picard Iterations | 7 |
+
+### Interpretation
+The iterative fixed-point procedure demonstrates stable contraction behavior and converges to the prescribed tolerance within seven iterations.
+
+---
+
 # References
 
 1. Casgrain, P., & Jaimungal, S.
@@ -290,5 +382,3 @@ This repository is intended as a research-oriented simulation framework rather t
 **Spencer Ozgur**
 M.S. Financial Engineering — Columbia University
 B.S. Computer Science — Arizona State University
-
-```
