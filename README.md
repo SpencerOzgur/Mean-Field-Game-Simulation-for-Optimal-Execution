@@ -1,7 +1,7 @@
 # Mean-Field Game Simulation for Optimal Execution
 
 <p align="center">
-  <img src="figures/mfg_banner.png" width="100%">
+  <img src="assets/mfg_banner.png" width="100%">
 </p>
 
 <p align="center">
@@ -144,7 +144,7 @@ figures/
 * risk-aversion sensitivity
 
 <p align="center">
-  <img src="figures/inventory_paths.png" width="85%">
+  <img src="assets/inventory_paths.png" width="85%">
 </p>
 
 ---
@@ -156,7 +156,7 @@ figures/
 * aggregate execution pressure
 
 <p align="center">
-  <img src="figures/impacted_price.png" width="85%">
+  <img src="assets/impacted_price.png" width="85%">
 </p>
 
 ---
@@ -168,7 +168,7 @@ figures/
 * filtering under noisy observations
 
 <p align="center">
-  <img src="figures/posterior_filter.png" width="85%">
+  <img src="assets/posterior_filter.png" width="85%">
 </p>
 
 ---
