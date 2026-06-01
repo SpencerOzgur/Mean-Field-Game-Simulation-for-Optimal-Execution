@@ -282,4 +282,3 @@ M.S. Financial Engineering — Columbia University
 B.S. Computer Science — Arizona State University
 
 ```
-```
