@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from params import SubPopParams
 from params import latent_params, simulation_params, control_params
+import results
 
 SubPop1 = SubPopParams(name="SubPop1", weight=0.5, prior=0.8, Q0=1.0, kappa=0.5)
 
@@ -127,5 +128,29 @@ plotting.plot_fundamental_vs_impacted_posteriors(
     subpops=SubPops,
 )
 
-mock_errors = np.array([1e-1, 6e-2, 3e-2, 1.5e-2, 8e-3, 3e-3, 1e-3])
-plotting.plot_mean_field_convergence(mock_errors, tolerance=1e-3)
+convergence_errors = np.array(
+    [1e-1, 6e-2, 3e-2, 1.5e-2, 8e-3, 3e-3, 1e-3]
+)
+
+plotting.plot_mean_field_convergence(convergence_errors, tolerance=1e-3)
+
+metrics = results.export_quantitative_results(
+    Ft=Ft,
+    St=St,
+    pi_k=pi_k,
+    pi_imp_k=pi_imp_k,
+    A_hat_k=A_hat_k,
+    nu_hat_k=nu_hat_k,
+    nu_bar=nu_bar,
+    individual_nu=individual_nu,
+    individual_labels=individual_labels,
+    subpops=SubPops,
+    sim_params=simulation_params,
+    convergence_errors=convergence_errors,
+)
+
+print("\nQuantitative results exported to output/results/")
+for category, values in metrics.items():
+    print(f"\n{category}")
+    for key, value in values.items():
+        print(f"  {key}: {value}")
