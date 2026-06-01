@@ -85,8 +85,12 @@ def main():
         print()
 
     print("Interpretation:")
-    print("  In the FBSDE solver, kappa can be used to scale the running inventory penalty phi.")
-    print("  Larger kappa means stronger inventory aversion and typically faster liquidation.")
+    print(
+        "  In the FBSDE solver, kappa can be used to scale the running inventory penalty phi."
+    )
+    print(
+        "  Larger kappa means stronger inventory aversion and typically faster liquidation."
+    )
     print("  This is not the same role kappa played in the toy alpha-inventory rule.")
     print("Done.")
 

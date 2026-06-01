@@ -93,9 +93,13 @@ def main():
         print()
 
     print("Interpretation:")
-    print("  Here kappa scales the running inventory penalty via phi_eff = phi_base * kappa.")
+    print(
+        "  Here kappa scales the running inventory penalty via phi_eff = phi_base * kappa."
+    )
     print("  In the current regime, if the outputs barely move with kappa,")
-    print("  that suggests the equilibrium is relatively insensitive to inventory aversion.")
+    print(
+        "  that suggests the equilibrium is relatively insensitive to inventory aversion."
+    )
     print()
 
     print("Monotonicity check (informal):")

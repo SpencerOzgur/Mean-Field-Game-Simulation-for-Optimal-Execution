@@ -2,16 +2,19 @@ from dataclasses import dataclass
 import numpy as np
 import random
 
+
 @dataclass(frozen=True)
 class LatentParams:
     """
     parameters for latent markov chain
     """
+
     T: float
     N: int
     lambda01: float
     lambda10: float
     theta0: int
+
 
 def build_transition_matrix(dt: float, params: LatentParams) -> np.ndarray:
     """
@@ -21,10 +24,10 @@ def build_transition_matrix(dt: float, params: LatentParams) -> np.ndarray:
     """
 
     if dt < 0:
-        raise ValueError('dt must be non-negative')
+        raise ValueError("dt must be non-negative")
 
     if params.lambda01 < 0 or params.lambda10 < 0:
-        raise ValueError('lambdas must be non-negative')
+        raise ValueError("lambdas must be non-negative")
 
     s = params.lambda01 + params.lambda10
 
@@ -38,10 +41,8 @@ def build_transition_matrix(dt: float, params: LatentParams) -> np.ndarray:
     p10 = params.lambda10 / s * (1 - e)
     p11 = params.lambda01 / s + params.lambda10 / s * e
 
-    return np.array([
-        [p00, p01],
-        [p10, p11]
-    ])
+    return np.array([[p00, p01], [p10, p11]])
+
 
 def simulate_latent_path(params: LatentParams) -> np.ndarray:
     """
@@ -49,7 +50,7 @@ def simulate_latent_path(params: LatentParams) -> np.ndarray:
     :return: simulated latent path theta
     """
     if params.theta0 != 0 and params.theta0 != 1:
-        raise ValueError('theta0 must be 0 or 1')
+        raise ValueError("theta0 must be 0 or 1")
 
     theta = np.empty(params.N + 1, dtype=np.int8)
     theta[0] = params.theta0
@@ -66,6 +67,7 @@ def simulate_latent_path(params: LatentParams) -> np.ndarray:
             theta[i + 1] = 1 - curr
     return theta
 
+
 def simlate_N_latent_paths(params: LatentParams, N_paths: int) -> np.ndarray:
     """
     :param params: Latent parameters
@@ -73,9 +75,9 @@ def simlate_N_latent_paths(params: LatentParams, N_paths: int) -> np.ndarray:
     :return: list of simulated latent paths
     """
     if params.N <= 0:
-        raise ValueError('N must be positive')
+        raise ValueError("N must be positive")
     if N_paths <= 0:
-        raise ValueError('N_paths must be positive')
+        raise ValueError("N_paths must be positive")
 
     simulated_paths = np.empty((N_paths, params.N + 1), dtype=np.int8)
     for i in range(N_paths):

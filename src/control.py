@@ -1,11 +1,13 @@
 import numpy as np
 from dataclasses import dataclass
 
+
 @dataclass
-class ControlParams():
+class ControlParams:
     T: float
     N: int
     Q0: float
+
 
 @dataclass(frozen=True)
 class EquilibriumControlParams:
@@ -17,6 +19,7 @@ class EquilibriumControlParams:
     lam: float
     psi: float
 
+
 def validate_controls(nu_hat: np.ndarray, params: ControlParams):
     """
     :param nu_hat: mean-field control
@@ -24,13 +27,14 @@ def validate_controls(nu_hat: np.ndarray, params: ControlParams):
     :return: validated controls
     """
     if np.ndim(nu_hat) != 1:
-        raise ValueError('nu_hat must be a 1-D array')
+        raise ValueError("nu_hat must be a 1-D array")
     if len(nu_hat) != params.N:
-        raise ValueError('nu_hat must be size N')
+        raise ValueError("nu_hat must be size N")
     if not np.all(np.isfinite(nu_hat)):
-        raise ValueError('nu_hat must be finite')
+        raise ValueError("nu_hat must be finite")
 
     return nu_hat
+
 
 def zero_control(params: ControlParams):
     """
@@ -38,11 +42,12 @@ def zero_control(params: ControlParams):
     :return: zero control
     """
     if params.T <= 0:
-        raise ValueError('T must be positive')
+        raise ValueError("T must be positive")
     if params.N <= 0:
-        raise ValueError('N must be positive')
+        raise ValueError("N must be positive")
 
     return np.zeros(params.N, dtype=np.float64)
+
 
 def constant_liquidation_control(params: ControlParams):
     """
@@ -50,12 +55,13 @@ def constant_liquidation_control(params: ControlParams):
     :return: guarateed liquidation control
     """
     if params.T <= 0:
-        raise ValueError('T must be positive')
+        raise ValueError("T must be positive")
     if params.N <= 0:
-        raise ValueError('N must be positive')
+        raise ValueError("N must be positive")
 
     rate = params.Q0 / params.T
     return np.full(params.N, rate, dtype=np.float64)
+
 
 def simulate_inventory(nu_hat: np.ndarray, params: ControlParams):
     """
@@ -64,9 +70,9 @@ def simulate_inventory(nu_hat: np.ndarray, params: ControlParams):
     :return: inventory
     """
     if params.T <= 0:
-        raise ValueError('T must be positive')
+        raise ValueError("T must be positive")
     if params.N <= 0:
-        raise ValueError('N must be positive')
+        raise ValueError("N must be positive")
 
     dt = params.T / params.N
     sim_inv = np.empty(params.N + 1, dtype=np.float64)
@@ -75,9 +81,10 @@ def simulate_inventory(nu_hat: np.ndarray, params: ControlParams):
         sim_inv[i + 1] = sim_inv[i] - nu_hat[i] * dt
     return sim_inv
 
-def alpha_inventory_control(A_hat: np.ndarray,
-                            params: ControlParams,
-                            kappa: float) -> np.ndarray:
+
+def alpha_inventory_control(
+    A_hat: np.ndarray, params: ControlParams, kappa: float
+) -> np.ndarray:
     """
     Toy Control
     Baseline liquidation rule:
@@ -114,6 +121,7 @@ def alpha_inventory_control(A_hat: np.ndarray,
         nu_hat[i] = nu
         Q = Q - nu * dt
     return nu_hat
+
 
 def equilibrium_control_stepwise_heuristic(
     A_hat: np.ndarray,
@@ -180,11 +188,9 @@ def equilibrium_control_stepwise_heuristic(
 
         inventory_feedback = (2.0 * params.phi + terminal_liquidation) * q_frac
 
-        raw_nu_frac = (
-                              -A_hat[i]
-                              - params.lam * nu_bar_frac
-                              + inventory_feedback
-                      ) / (2.0 * params.a)
+        raw_nu_frac = (-A_hat[i] - params.lam * nu_bar_frac + inventory_feedback) / (
+            2.0 * params.a
+        )
 
         raw_nu = raw_nu_frac * q_scale
         raw_nu = max(raw_nu, 0.0)

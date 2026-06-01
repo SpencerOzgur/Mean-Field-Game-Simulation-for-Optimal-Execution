@@ -80,10 +80,7 @@ def print_run_summary(subpops: list[SubPopParams]) -> None:
         f"A0={simulation_params.A0}, A1={simulation_params.A1}, "
         f"lambda_={simulation_params.lambda_}"
     )
-    print(
-        f"LatentParams: "
-        f"{latent_params}"
-    )
+    print(f"LatentParams: " f"{latent_params}")
     print(
         f"ControlParams: T={control_params.T}, N={control_params.N}, Q0={control_params.Q0}"
     )

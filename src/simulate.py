@@ -7,6 +7,7 @@ class SimulationParams:
     """
     Parameters for a simulation.
     """
+
     T: float
     N: int
     sigma: float
@@ -15,7 +16,8 @@ class SimulationParams:
     S0: float
     lambda_: float
 
-def latent_to_drift(latent_path:np.ndarray, params:SimulationParams) -> np.ndarray:
+
+def latent_to_drift(latent_path: np.ndarray, params: SimulationParams) -> np.ndarray:
     """
     :param latent_path: simulated latent path
     :param params: simulation parameters
@@ -26,7 +28,10 @@ def latent_to_drift(latent_path:np.ndarray, params:SimulationParams) -> np.ndarr
         raise ValueError("latent_path must consist of 0 and 1")
     return np.where(latent_path == 0, params.A0, params.A1)
 
-def simulate_fundamental_path(latent_path:np.ndarray, params:SimulationParams) -> np.ndarray:
+
+def simulate_fundamental_path(
+    latent_path: np.ndarray, params: SimulationParams
+) -> np.ndarray:
     """
     :param latent_path: simulated latent path
     :param params: simulation parameters
@@ -35,7 +40,7 @@ def simulate_fundamental_path(latent_path:np.ndarray, params:SimulationParams) -
     if params.T <= 0:
         raise ValueError("T must be positive")
     if params.N <= 0:
-        raise ValueError('N must be positive')
+        raise ValueError("N must be positive")
 
     dt = params.T / params.N
     drift = latent_to_drift(latent_path, params)
@@ -47,9 +52,10 @@ def simulate_fundamental_path(latent_path:np.ndarray, params:SimulationParams) -
 
     return sim_path
 
-def simulate_impacted_price(F_t: np.ndarray,
-                            nu_hat: np.ndarray,
-                            params: SimulationParams) -> np.ndarray:
+
+def simulate_impacted_price(
+    F_t: np.ndarray, nu_hat: np.ndarray, params: SimulationParams
+) -> np.ndarray:
     """
     Permanent linear price impact:
         S_t = F_t - lambda * int_0^t nu_s ds

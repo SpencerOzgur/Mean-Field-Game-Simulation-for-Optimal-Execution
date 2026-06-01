@@ -63,8 +63,7 @@ def main() -> None:
         )
 
         A_hat_k[i] = (
-            pi_k[i] * simulation_params.A1
-            + (1.0 - pi_k[i]) * simulation_params.A0
+            pi_k[i] * simulation_params.A1 + (1.0 - pi_k[i]) * simulation_params.A0
         )
 
         local_control_params = control.ControlParams(

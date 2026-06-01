@@ -57,10 +57,7 @@ def main():
             sim_params=simulation_params,
             prior=[1.0 - sp.prior, sp.prior],
         )
-        A_hat_k[i] = (
-            pi * simulation_params.A1
-            + (1.0 - pi) * simulation_params.A0
-        )
+        A_hat_k[i] = pi * simulation_params.A1 + (1.0 - pi) * simulation_params.A0
 
     agent_counts = [5, 10, 20, 50, 100]
 

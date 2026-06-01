@@ -13,13 +13,15 @@ def test_latent_to_drift_shape():
 def test_latent_to_drift_values():
     latent_path = np.array([0, 1, 0, 1, 1], dtype=np.int8)
     drift = simulate.latent_to_drift(latent_path, simulation_params)
-    expected = np.array([
-        simulation_params.A0,
-        simulation_params.A1,
-        simulation_params.A0,
-        simulation_params.A1,
-        simulation_params.A1,
-    ])
+    expected = np.array(
+        [
+            simulation_params.A0,
+            simulation_params.A1,
+            simulation_params.A0,
+            simulation_params.A1,
+            simulation_params.A1,
+        ]
+    )
     assert np.allclose(drift, expected)
 
 
@@ -75,6 +77,7 @@ def test_simulate_impacted_price_equals_fundamental_when_no_trading():
     )
 
     assert np.allclose(S_t, F_t)
+
 
 def test_simulate_impacted_price_matches_manual_construction():
     latent_path = latent.simulate_latent_path(params=latent_params)

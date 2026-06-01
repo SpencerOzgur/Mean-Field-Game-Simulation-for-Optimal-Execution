@@ -97,10 +97,7 @@ def build_filtered_signals(
             prior=[1.0 - sp.prior, sp.prior],
         )
 
-        A_hat_k[i] = (
-            pi_k[i] * sim_params.A1
-            + (1.0 - pi_k[i]) * sim_params.A0
-        )
+        A_hat_k[i] = pi_k[i] * sim_params.A1 + (1.0 - pi_k[i]) * sim_params.A0
 
     return {
         "latent_path": latent_path,

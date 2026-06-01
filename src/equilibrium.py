@@ -74,6 +74,7 @@ def solve_mean_field_fixed_point(
 
     return nu_list, q_list, nu_bar
 
+
 def equilibrium_control_fbsde(
     A_hat: np.ndarray,
     nu_bar: np.ndarray,

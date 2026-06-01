@@ -7,17 +7,20 @@ from pathlib import Path
 OUTPUT_DIR = Path(__file__).resolve().parents[1] / "output" / "figure"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+
 def _save_fig(name: str):
     timestamp = time.strftime("%Y%m%d-%H%M%S")
     filepath = OUTPUT_DIR / f"{name}_{timestamp}.png"
     plt.savefig(filepath, dpi=300, bbox_inches="tight")
     plt.close()
 
+
 def plot_unimpacted(
     F_t: np.ndarray,
     latent_path: np.ndarray,
     sim_params: simulate.SimulationParams,
-    show_latent: bool = True) -> None:
+    show_latent: bool = True,
+) -> None:
     """
     Plot the unimpacted price path, with optional latent-drift overlay.
     """
@@ -66,7 +69,8 @@ def plot_impacted(
     S_t: np.ndarray,
     latent_path: np.ndarray,
     sim_params: simulate.SimulationParams,
-    show_latent: bool = True) -> None:
+    show_latent: bool = True,
+) -> None:
     """
     Plot the impacted price path, with optional latent-drift overlay.
     """
@@ -109,12 +113,14 @@ def plot_impacted(
     plt.tight_layout()
     _save_fig("Impacted_Price_Path")
 
+
 def plot_unimpacted_and_impacted(
     F_t: np.ndarray,
     S_t: np.ndarray,
     latent_path: np.ndarray,
     sim_params: simulate.SimulationParams,
-    show_latent: bool = True) -> None:
+    show_latent: bool = True,
+) -> None:
     """
     Plot both fundamental and impacted price paths together.
     """
@@ -162,7 +168,6 @@ def plot_unimpacted_and_impacted(
     _save_fig("Fundamental_vs_Impacted_Price")
 
 
-
 def plot_fundamental_posteriors(pi_k, latent_path, sim_params, subpops):
     """
     Plot the posteriors of fundamental path.
@@ -171,7 +176,7 @@ def plot_fundamental_posteriors(pi_k, latent_path, sim_params, subpops):
     plt.figure(figsize=(10, 5))
     for i, sp in enumerate(subpops):
         plt.plot(t, pi_k[i], label=f"{sp.name} posterior")
-    plt.step(t, latent_path, where='post', label="True State", color="black", alpha=0.5)
+    plt.step(t, latent_path, where="post", label="True State", color="black", alpha=0.5)
     plt.ylim(-0.1, 1.1)
     plt.legend()
     plt.title("Fundamental Filtering vs True Latent State")
@@ -183,13 +188,13 @@ def plot_fundamental_posteriors(pi_k, latent_path, sim_params, subpops):
 
 def plot_impacted_posteriors(pi_imp_k, latent_path, sim_params, subpops):
     """
-     Plot the posteriors of impacted path.
+    Plot the posteriors of impacted path.
     """
     t = np.linspace(0, sim_params.T, sim_params.N + 1)
     plt.figure(figsize=(10, 5))
     for i, sp in enumerate(subpops):
         plt.plot(t, pi_imp_k[i], label=f"{sp.name} impacted posterior")
-    plt.step(t, latent_path, where='post', label="True State", color="black", alpha=0.5)
+    plt.step(t, latent_path, where="post", label="True State", color="black", alpha=0.5)
     plt.ylim(-0.1, 1.1)
     plt.legend()
     plt.title("Impacted Filtering vs True Latent State")
@@ -199,7 +204,9 @@ def plot_impacted_posteriors(pi_imp_k, latent_path, sim_params, subpops):
     _save_fig("Impacted_Posteriors")
 
 
-def plot_fundamental_vs_impacted_posteriors(pi_fund_k, pi_imp_k, latent_path, sim_params, subpops):
+def plot_fundamental_vs_impacted_posteriors(
+    pi_fund_k, pi_imp_k, latent_path, sim_params, subpops
+):
     """
     Plot fundamental vs impacted posteriors for subpopulations
     """
@@ -207,8 +214,8 @@ def plot_fundamental_vs_impacted_posteriors(pi_fund_k, pi_imp_k, latent_path, si
     plt.figure(figsize=(12, 6))
     for i, sp in enumerate(subpops):
         plt.plot(t, pi_fund_k[i], label=f"{sp.name} fundamental")
-        plt.plot(t, pi_imp_k[i], linestyle='--', label=f"{sp.name} impacted")
-    plt.step(t, latent_path, where='post', label="True State", color="black", alpha=0.4)
+        plt.plot(t, pi_imp_k[i], linestyle="--", label=f"{sp.name} impacted")
+    plt.step(t, latent_path, where="post", label="True State", color="black", alpha=0.4)
     plt.ylim(-0.1, 1.1)
     plt.legend()
     plt.title("Fundamental vs Impacted Filtering by Subpopulation")
@@ -216,6 +223,7 @@ def plot_fundamental_vs_impacted_posteriors(pi_fund_k, pi_imp_k, latent_path, si
     plt.ylabel("Posterior Probability")
     plt.tight_layout()
     _save_fig("Fundamental_vs_Impacted_Posteriors")
+
 
 def plot_estimated_drifts(A_hat_k, latent_path, sim_params, subpops, A0, A1):
     """
@@ -226,10 +234,10 @@ def plot_estimated_drifts(A_hat_k, latent_path, sim_params, subpops, A0, A1):
 
     plt.figure(figsize=(12, 6))
 
-    plt.step(t, true_drift, where='post', label='True Drift', color='black', alpha=0.7)
+    plt.step(t, true_drift, where="post", label="True Drift", color="black", alpha=0.7)
 
     for i, sp in enumerate(subpops):
-        plt.plot(t, A_hat_k[i], label=f'{sp.name} estimated drift')
+        plt.plot(t, A_hat_k[i], label=f"{sp.name} estimated drift")
 
     plt.legend()
     plt.title("Estimated Drift by Subpopulation")
@@ -237,6 +245,7 @@ def plot_estimated_drifts(A_hat_k, latent_path, sim_params, subpops, A0, A1):
     plt.ylabel("Drift")
     plt.tight_layout()
     _save_fig("Estimated_Drifts")
+
 
 def plot_controls_subpops(nu_hat_k, nu_bar, sim_params, subpops):
     """
@@ -247,9 +256,11 @@ def plot_controls_subpops(nu_hat_k, nu_bar, sim_params, subpops):
     plt.figure(figsize=(12, 6))
 
     for i, sp in enumerate(subpops):
-        plt.plot(t, nu_hat_k[i], label=f'{sp.name} control')
+        plt.plot(t, nu_hat_k[i], label=f"{sp.name} control")
 
-    plt.plot(t, nu_bar, label='Aggregate control', color='black', linestyle='--', linewidth=2)
+    plt.plot(
+        t, nu_bar, label="Aggregate control", color="black", linestyle="--", linewidth=2
+    )
 
     plt.legend()
     plt.title("Trading Rates by Subpopulation")
@@ -257,6 +268,7 @@ def plot_controls_subpops(nu_hat_k, nu_bar, sim_params, subpops):
     plt.ylabel("Trading Rate")
     plt.tight_layout()
     _save_fig("SubPop_Controls")
+
 
 def plot_inventories_subpops(q_hat_k, sim_params, subpops, q_bar=False):
     q_hat_k = np.asarray(q_hat_k, dtype=np.float64)
@@ -296,6 +308,7 @@ def plot_inventories_subpops(q_hat_k, sim_params, subpops, q_bar=False):
     plt.tight_layout()
     _save_fig("Inventory_Path_by_SubPop")
 
+
 def plot_price_distortion(F_t, S_t, sim_params):
     """
     Plot how much price is distorted by mean-field
@@ -304,8 +317,8 @@ def plot_price_distortion(F_t, S_t, sim_params):
     distortion = S_t - F_t
 
     plt.figure(figsize=(12, 5))
-    plt.plot(t, distortion, label='S_t - F_t')
-    plt.axhline(0.0, color='black', linestyle='--', alpha=0.6)
+    plt.plot(t, distortion, label="S_t - F_t")
+    plt.axhline(0.0, color="black", linestyle="--", alpha=0.6)
 
     plt.legend()
     plt.title("Price Distortion from Market Impact")
@@ -313,6 +326,7 @@ def plot_price_distortion(F_t, S_t, sim_params):
     plt.ylabel("Distortion")
     plt.tight_layout()
     _save_fig("Price_Distortion")
+
 
 def plot_individual_vs_mean_inventory(
     agent_inventories,
