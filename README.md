@@ -196,6 +196,16 @@ Mean-Field-Game-Simulation-for-Optimal-Execution/
 
 ---
 
+## 4. Mean-Field Fixed-Point Convergence
+
+* iterative equilibrium computation
+* Picard fixed-point convergence
+* numerical stability diagnostics
+
+<p align="center">
+  <img src="assets/mean_field_convergence.png" width="75%">
+</p>
+
 # Installation
 
 ## Clone Repository
