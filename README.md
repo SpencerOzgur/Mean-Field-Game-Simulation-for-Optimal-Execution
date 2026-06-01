@@ -139,13 +139,6 @@ Mean-Field-Game-Simulation-for-Optimal-Execution/
 │   ├── run_latent_demo.py       # Latent regime demo
 │   ├── run_population_demo.py   # Population heterogeneity demo
 │   └── run_subpop_demo.py       # Subpopulation analysis demo
-├── tests/
-│   ├── conftest.py
-│   ├── test_control.py
-│   ├── test_filtering.py
-│   ├── test_latent.py
-│   ├── test_population.py
-│   └── test_simulation.py
 ├── docs/
 │   ├── equation_map.md      # Mathematical notation reference
 │   ├── parameter_table.md   # Parameter definitions and defaults
