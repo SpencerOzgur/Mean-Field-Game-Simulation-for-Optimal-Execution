@@ -115,23 +115,46 @@ The current implementation uses:
 
 # Repository Structure
 
-```text
-src/
-├── control.py          # execution control laws
-├── equilibrium.py      # mean-field fixed-point solver
-├── filtering.py        # posterior filtering
-├── latent.py           # hidden Markov dynamics
-├── simulate.py         # price simulation engine
-├── population.py       # heterogeneous agent populations
-├── plotting.py         # visualization utilities
-└── params.py           # global model parameters
-
-figures/
-├── inventory_paths.png
-├── impacted_price.png
-├── posterior_filter.png
-└── equilibrium_flow.png
-````
+```
+Mean-Field-Game-Simulation-for-Optimal-Execution/
+├── src/
+│   ├── main.py              # Entry point
+│   ├── params.py            # Model parameter configuration
+│   ├── latent.py            # Hidden Markov latent drift dynamics
+│   ├── filtering.py         # Posterior belief filtering
+│   ├── control.py           # Optimal control computation
+│   ├── equilibrium.py       # Mean-field equilibrium solver
+│   ├── population.py        # Heterogeneous agent population
+│   ├── simulate.py          # Simulation engine
+│   ├── pipelines.py         # End-to-end experiment pipelines
+│   └── plotting.py          # Visualization utilities
+├── experiments/
+│   ├── verify_filtering.py      # Posterior filter validation
+│   ├── verify_mean_field.py     # MFG equilibrium convergence check
+│   ├── verify_price_impact.py   # Price impact decomposition test
+│   └── verify_sensitivity.py   # Risk-aversion parameter sweep
+├── scripts/
+│   ├── run_full_demo.py         # Full simulation pipeline
+│   ├── run_control_demo.py      # Control dynamics demo
+│   ├── run_latent_demo.py       # Latent regime demo
+│   ├── run_population_demo.py   # Population heterogeneity demo
+│   └── run_subpop_demo.py       # Subpopulation analysis demo
+├── tests/
+│   ├── conftest.py
+│   ├── test_control.py
+│   ├── test_filtering.py
+│   ├── test_latent.py
+│   ├── test_population.py
+│   └── test_simulation.py
+├── docs/
+│   ├── equation_map.md      # Mathematical notation reference
+│   ├── parameter_table.md   # Parameter definitions and defaults
+│   └── symbol_table.md      # Symbol glossary
+├── assets/                  # README figures
+├── output/figure/           # Generated simulation plots
+├── requirements.txt
+└── README.md
+```
 
 ---
 
@@ -170,20 +193,6 @@ figures/
 <p align="center">
   <img src="assets/posterior_filter.png" width="85%">
 </p>
-
----
-
-# Research Directions
-
-Planned extensions include:
-
-* nonlinear impact functions
-* deep learning approximations for MFG equilibria
-* finite-player convergence analysis
-* stochastic control comparisons
-* calibration to empirical market microstructure data
-* reinforcement learning execution policies
-* robustness under latent-state misspecification
 
 ---
 
@@ -270,15 +279,7 @@ This repository is intended as a research-oriented simulation framework rather t
 
 **Spencer Ozgur**
 M.S. Financial Engineering — Columbia University
-B.S. Computer Science & Mathematics — Arizona State University
-
-Interested in:
-
-* quantitative research
-* stochastic control
-* market microstructure
-* algorithmic trading
-* machine learning for finance
+B.S. Computer Science — Arizona State University
 
 ```
 ```
