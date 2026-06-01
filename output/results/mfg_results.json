@@ -1,55 +1,55 @@
 {
     "price_metrics": {
-        "terminal_fundamental_price": 100.2221100488575,
-        "terminal_impacted_price": 100.17216325148632,
-        "terminal_price_distortion": -0.049946797371177354,
-        "mean_absolute_price_distortion": 0.02480524365791786,
-        "max_absolute_price_distortion": 0.049946797371177354
+        "terminal_fundamental_price": 100.14591529813825,
+        "terminal_impacted_price": 100.09591529813825,
+        "terminal_price_distortion": -0.04999999999999716,
+        "mean_absolute_price_distortion": 0.020685482294549234,
+        "max_absolute_price_distortion": 0.04999999999999716
     },
     "inventory_metrics": {
-        "terminal_aggregate_inventory": 0.0010640525763687203,
-        "mean_terminal_individual_inventory": 0.03051864956880844,
-        "std_terminal_individual_inventory": 0.04285628388098816,
-        "mean_individual_trading_volume": 0.9977620698279569,
-        "std_individual_trading_volume": 0.0726016135992399
+        "terminal_aggregate_inventory": 0.0,
+        "mean_terminal_individual_inventory": 0.02997074260313128,
+        "std_terminal_individual_inventory": 0.04248944214176631,
+        "mean_individual_trading_volume": 0.9988203037718933,
+        "std_individual_trading_volume": 0.07263205902448272
     },
     "control_metrics": {
-        "mean_aggregate_trading_rate": 0.9989359474236312,
-        "max_aggregate_trading_rate": 4.255743551835464,
-        "min_aggregate_trading_rate": 0.2534645931914068,
-        "aggregate_trading_volume": 0.9989359474236312
+        "mean_aggregate_trading_rate": 1.0000000000000007,
+        "max_aggregate_trading_rate": 3.1346358963566034,
+        "min_aggregate_trading_rate": 0.0,
+        "aggregate_trading_volume": 1.0000000000000007
     },
     "filtering_metrics": {
-        "mean_fundamental_posterior": 0.6322376696921842,
-        "mean_impacted_posterior": 0.39266557134863933,
-        "mean_absolute_posterior_difference": 0.23957209834354484,
-        "max_absolute_posterior_difference": 0.7143537263275356
+        "mean_fundamental_posterior": 0.6473400710740359,
+        "mean_impacted_posterior": 0.4227726826708258,
+        "mean_absolute_posterior_difference": 0.22456738840321006,
+        "max_absolute_posterior_difference": 0.6111900334870796
     },
     "SubPop1_metrics": {
         "prior": 0.8,
         "kappa": 0.5,
         "weight": 0.5,
         "initial_inventory": 1.0,
-        "terminal_inventory": 0.0004256210308998991,
-        "total_trading_volume": 0.999574378969099,
-        "mean_trading_rate": 0.999574378969099,
-        "max_trading_rate": 2.4439097904124285,
-        "mean_posterior_fundamental": 0.6547543986207532,
-        "mean_posterior_impacted": 0.41582930839011867,
-        "posterior_distortion": 0.23892509023063457
+        "terminal_inventory": 0.0,
+        "total_trading_volume": 1.0000000000000007,
+        "mean_trading_rate": 1.0000000000000007,
+        "max_trading_rate": 1.942095006632822,
+        "mean_posterior_fundamental": 0.6728280480127122,
+        "mean_posterior_impacted": 0.4496690671328529,
+        "posterior_distortion": 0.22315898087985944
     },
     "SubPop2_metrics": {
         "prior": 0.2,
         "kappa": 2.0,
         "weight": 0.5,
         "initial_inventory": 1.0,
-        "terminal_inventory": 0.0017024841218357418,
-        "total_trading_volume": 0.9982975158781635,
-        "mean_trading_rate": 0.9982975158781635,
-        "max_trading_rate": 6.0675773132585,
-        "mean_posterior_fundamental": 0.6097209407636152,
-        "mean_posterior_impacted": 0.36950183430716,
-        "posterior_distortion": 0.24021910645645514
+        "terminal_inventory": 0.0,
+        "total_trading_volume": 1.0000000000000004,
+        "mean_trading_rate": 1.0000000000000004,
+        "max_trading_rate": 4.3271767860803845,
+        "mean_posterior_fundamental": 0.6218520941353596,
+        "mean_posterior_impacted": 0.39587629820879877,
+        "posterior_distortion": 0.22597579592656067
     },
     "mean_field_convergence": {
         "initial_error": 0.1,
