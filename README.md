@@ -71,9 +71,9 @@ S_t = F_t + \lambda \int_0^t \bar{\nu}_s ds
 $$
 
 where:
-- \(F_t\): fundamental price
-- \(\lambda\): impact coefficient
-- \(\bar{\nu}_t\): mean trading rate
+- $$F_t$$: fundamental price
+- $$\lambda$$: impact coefficient
+- $$\bar{\nu}_t$$: mean trading rate
 
 ---
 
@@ -225,7 +225,7 @@ pip install -r requirements.txt
 ## Run Main Experiment
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 ---
