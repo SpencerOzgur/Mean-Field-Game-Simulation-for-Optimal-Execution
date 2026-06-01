@@ -41,7 +41,42 @@ for i, sp in enumerate(SubPops):
 
 nu_bar = SubPop1.weight * nu_hat_k[0] + SubPop2.weight * nu_hat_k[1]
 
-St = simulate.simulate_impacted_price(F_t=Ft, nu_hat=nu_bar, params=simulation_params)
+St = simulate.simulate_impacted_price(
+    F_t=Ft,
+    nu_hat=nu_bar,
+    params=simulation_params,
+)
+
+# --- Simulate individual agent controls around each subpopulation ---
+rng = np.random.default_rng(42)
+n_agents_per_subpop = 50
+
+individual_nu = []
+individual_labels = []
+
+for i, sp in enumerate(SubPops):
+    for _ in range(n_agents_per_subpop):
+        # Small heterogeneity around each subpopulation
+        Q0_i = rng.normal(loc=sp.Q0, scale=0.08)
+        kappa_i = rng.normal(loc=sp.kappa, scale=0.15 * sp.kappa)
+
+        Q0_i = max(Q0_i, 0.05)
+        kappa_i = max(kappa_i, 0.05)
+
+        nu_i = control.alpha_inventory_control(
+            A_hat_k[i, :-1],
+            params=control.ControlParams(
+                T=control_params.T,
+                N=control_params.N,
+                Q0=Q0_i,
+            ),
+            kappa=kappa_i,
+        )
+
+        individual_nu.append(nu_i)
+        individual_labels.append(sp.name)
+
+individual_nu = np.array(individual_nu)
 
 pi_imp_k = np.empty((len(SubPops), simulation_params.N + 1))
 
@@ -73,8 +108,13 @@ plotting.plot_controls_subpops(
     nu_hat_k=nu_hat_k, nu_bar=nu_bar, sim_params=simulation_params, subpops=SubPops
 )
 
-plotting.plot_inventories_subpops(
-    nu_hat_k=nu_hat_k, sim_params=simulation_params, subpops=SubPops, q_bar=True
+plotting.plot_individual_inventory_paths(
+    individual_nu=individual_nu,
+    individual_labels=individual_labels,
+    nu_hat_k=nu_hat_k,
+    nu_bar=nu_bar,
+    sim_params=simulation_params,
+    subpops=SubPops,
 )
 
 plotting.plot_price_distortion(F_t=Ft, S_t=St, sim_params=simulation_params)
@@ -86,3 +126,6 @@ plotting.plot_fundamental_vs_impacted_posteriors(
     sim_params=simulation_params,
     subpops=SubPops,
 )
+
+mock_errors = np.array([1e-1, 6e-2, 3e-2, 1.5e-2, 8e-3, 3e-3, 1e-3])
+plotting.plot_mean_field_convergence(mock_errors, tolerance=1e-3)
