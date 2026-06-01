@@ -1,109 +1,284 @@
-# Algorithmic Trading via Mean Field Games
+# Mean-Field Game Simulation for Optimal Execution
 
-## Objective
+<p align="center">
+  <img src="figures/mfg_banner.png" width="100%">
+</p>
 
-This project replicates and extends the results of:
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.12-blue.svg">
+  <img src="https://img.shields.io/badge/status-active-success.svg">
+  <img src="https://img.shields.io/badge/focus-quantitative%20finance-black.svg">
+  <img src="https://img.shields.io/badge/topic-mean--field%20games-purple.svg">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg">
+</p>
 
-> *Algorithmic Trading in Competitive Markets with Mean Field Games*  
-> Philippe Casgrain & Sebastian Jaimungal
+---
 
-The focus is on simulating **heterogeneous agents** trading under:
+## Overview
+
+This repository implements a simulation framework for studying **optimal execution in competitive markets** using **Mean-Field Games (MFGs)** under latent market dynamics.
+
+The project is inspired by:
+
+> Philippe Casgrain & Sebastian Jaimungal  
+> *Algorithmic Trading in Competitive Markets with Mean Field Games*
+
+The framework models:
+- heterogeneous trading agents
 - latent market regimes
 - endogenous price impact
-- mean-field interactions
+- posterior filtering
+- aggregate equilibrium interactions
 
-After replication, the project explores:
-- model misspecification
+The long-term objective is to analyze how strategic execution changes under:
+- imperfect information
 - finite-population effects
-- sensitivity to impact parameters
+- parameter misspecification
+- varying market impact regimes
 
 ---
 
-## Model Components
+# Mathematical Framework
 
-### Latent Market
-- Hidden Markov model driving drift
-- Regime switching between bullish/bearish states
+## Latent Market Dynamics
 
-### Price Dynamics
-- Fundamental price:
-  $`
-  dF_t = A_t dt + \sigma dW_t
-  `$
+A hidden Markov process governs the latent drift state:
 
-- Impacted price:
-  $`
-  S_t = F_t + \lambda \int_0^t \bar{\nu}_s ds
-  `$
+$$
+A_t \in \{A_0, A_1\}
+$$
 
-### Agent Behavior
-- Continuous trading rate $`\nu_t`$
-- Depends on:
-  - filtered drift estimate
-  - inventory level
-  - risk aversion $`\kappa`$
+with regime switching intensities:
 
-### Objective
-Agents minimize:
+$$
+\lambda_{01}, \lambda_{10}
+$$
+
+The fundamental asset evolves as:
+
+$$
+dF_t = A_t dt + \sigma dW_t
+$$
+
+---
+
+## Impacted Market Price
+
+Agents collectively generate endogenous price impact through aggregate order flow:
+
+$$
+S_t = F_t + \lambda \int_0^t \bar{\nu}_s ds
+$$
+
+where:
+- \(F_t\): fundamental price
+- \(\lambda\): impact coefficient
+- \(\bar{\nu}_t\): mean trading rate
+
+---
+
+## Agent Control Problem
+
+Each agent chooses a continuous trading rate:
+
+$$
+\nu_t
+$$
+
+based on:
+- filtered belief of latent drift
+- inventory level
+- risk aversion
+- aggregate market behavior
+
+The control objective penalizes:
 - inventory risk
 - execution cost
-- deviation from optimal liquidation
-
-### Equilibrium
-- Mean-field fixed point via aggregate order flow
+- terminal inventory
+- deviation from equilibrium liquidation
 
 ---
 
-## Replication Targets
+## Mean-Field Equilibrium
 
-### 1. Inventory Dynamics
-- Heterogeneous urgency levels
-- Subpopulation vs aggregate inventory
+The equilibrium is determined through a fixed-point interaction between:
+1. individual optimal controls
+2. aggregate market flow
+3. endogenous impacted prices
 
-### 2. Price Decomposition
-- Fundamental vs impacted price
-- Effect of aggregate order flow
-
-### 3. Posterior Filtering
-- Estimation of latent regime
-- Belief differences across agents
+The current implementation uses:
+- finite-agent simulation
+- iterative mean-field approximation
+- posterior filtering for latent state estimation
 
 ---
 
-## Running Experiments
+# Repository Structure
 
-All model parameters are defined in src/params.py
+```text
+src/
+├── control.py          # execution control laws
+├── equilibrium.py      # mean-field fixed-point solver
+├── filtering.py        # posterior filtering
+├── latent.py           # hidden Markov dynamics
+├── simulate.py         # price simulation engine
+├── population.py       # heterogeneous agent populations
+├── plotting.py         # visualization utilities
+└── params.py           # global model parameters
 
-You can modify the following:
-
-- **Latent parameters**
-  - `lambda01`, `lambda10`: regime switching rates
-  - `theta0`: initial latent state
-
-- **Simulation parameters**
-  - `sigma`: volatility
-  - `A1`, `A0`: drift values for each regime
-  - `lambda_`: price impact strength
-
-- **Control parameters**
-  - `Q0`: initial inventory
-  - `T`, `N`: time horizon and discretization
-
-- **Subpopulation parameters**
-  - `prior`: initial belief about regime
-  - `kappa`: sensitivity to alpha
-  - `weight`: contribution to aggregate flow
-
+figures/
+├── inventory_paths.png
+├── impacted_price.png
+├── posterior_filter.png
+└── equilibrium_flow.png
+````
 
 ---
 
-## Setup
+# Current Experiments
+
+## 1. Inventory Dynamics
+
+* heterogeneous liquidation behavior
+* aggregate vs subpopulation inventory trajectories
+* risk-aversion sensitivity
+
+<p align="center">
+  <img src="figures/inventory_paths.png" width="85%">
+</p>
+
+---
+
+## 2. Price Impact Decomposition
+
+* fundamental vs impacted prices
+* endogenous market impact
+* aggregate execution pressure
+
+<p align="center">
+  <img src="figures/impacted_price.png" width="85%">
+</p>
+
+---
+
+## 3. Posterior Filtering
+
+* latent regime estimation
+* belief dispersion across agents
+* filtering under noisy observations
+
+<p align="center">
+  <img src="figures/posterior_filter.png" width="85%">
+</p>
+
+---
+
+# Research Directions
+
+Planned extensions include:
+
+* nonlinear impact functions
+* deep learning approximations for MFG equilibria
+* finite-player convergence analysis
+* stochastic control comparisons
+* calibration to empirical market microstructure data
+* reinforcement learning execution policies
+* robustness under latent-state misspecification
+
+---
+
+# Installation
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution.git
 cd Mean-Field-Game-Simulation-for-Optimal-Execution
+```
 
+## Create Environment
+
+```bash
 python -m venv venv
 source venv/bin/activate
+```
 
+## Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+---
+
+# Running Simulations
+
+## Run Main Experiment
+
+```bash
+python main.py
+```
+
+---
+
+# Parameter Configuration
+
+All model parameters are configured in:
+
+```text
+src/params.py
+```
+
+Key configurable components include:
+
+| Category        | Parameters                         |
+| --------------- | ---------------------------------- |
+| Latent Dynamics | `lambda01`, `lambda10`, `A0`, `A1` |
+| Simulation      | `sigma`, `lambda_`                 |
+| Execution       | `Q0`, `T`, `N`                     |
+| Subpopulations  | `prior`, `kappa`, `weight`         |
+
+---
+
+# Numerical Methods
+
+The implementation currently combines:
+
+* hidden Markov filtering
+* finite-agent simulation
+* iterative mean-field approximation
+* discretized stochastic dynamics
+
+This repository is intended as a research-oriented simulation framework rather than a production trading system.
+
+---
+
+# References
+
+1. Casgrain, P., & Jaimungal, S.
+   *Algorithmic Trading in Competitive Markets with Mean Field Games*
+
+2. Carmona, R., Delarue, F.
+   *Probabilistic Theory of Mean Field Games*
+
+3. Guéant, O.
+   *The Financial Mathematics of Market Liquidity*
+
+---
+
+# Author
+
+**Spencer Ozgur**
+M.S. Financial Engineering — Columbia University
+B.S. Computer Science & Mathematics — Arizona State University
+
+Interested in:
+
+* quantitative research
+* stochastic control
+* market microstructure
+* algorithmic trading
+* machine learning for finance
+
+```
+```
