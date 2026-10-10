@@ -253,6 +253,26 @@ def summarize(runs: pd.DataFrame) -> pd.DataFrame:
     return out.reset_index()
 
 
+def parse_market(items: List[str]) -> Dict:
+    """['num_value_agents=25', 'mm_pov=0.01'] -> {'num_value_agents': 25, 'mm_pov': 0.01}"""
+    import inspect
+    valid = set(inspect.signature(rmsc04.build_config).parameters)
+    out = {}
+    for item in items:
+        key, _, raw = item.partition("=")
+        if key not in valid:
+            raise SystemExit(f"--market: unknown key '{key}'. Valid: {sorted(valid)}")
+        for cast in (int, float):
+            try:
+                out[key] = cast(raw)
+                break
+            except ValueError:
+                continue
+        else:
+            out[key] = raw
+    return out
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--strategy", default="twap", choices=sorted(STRATEGIES))
@@ -268,10 +288,13 @@ def main():
     p.add_argument("--slices", type=int, default=30)
     p.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
     p.add_argument("--out", default="results/sweep")
+    p.add_argument("--market", nargs="*", default=[], metavar="KEY=VALUE",
+                   help="override rmsc04.build_config args, e.g. num_value_agents=25 mm_pov=0.01")
     a = p.parse_args()
 
     logging.getLogger("abides").setLevel(logging.WARNING)
     exp = Experiment(
+        market_kwargs=parse_market(a.market),
         strategy=a.strategy,
         seeds=list(range(a.seed_offset, a.seed_offset + a.seeds)),
         pct=a.pct,
