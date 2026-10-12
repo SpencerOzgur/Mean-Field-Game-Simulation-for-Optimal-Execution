@@ -26,6 +26,8 @@ from abides_markets.agents import TradingAgent
 from abides_markets.messages.query import QuerySpreadResponseMsg
 from abides_markets.orders import Side
 
+from abides_exp.events import report_fill
+
 NS = 10**9
 
 
@@ -114,6 +116,7 @@ class ScriptedTrader(TradingAgent):
         super().order_executed(order)
         self.fills.append((self.current_time, order.quantity, order.fill_price,
                            "buy" if order.side.is_bid() else "sell"))
+        report_fill(self, order)
 
     # --- accounting ---------------------------------------------------------
     def position(self) -> int:

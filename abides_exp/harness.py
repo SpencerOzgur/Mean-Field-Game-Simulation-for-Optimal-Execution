@@ -39,6 +39,12 @@ import numpy as np
 import pandas as pd
 
 from abides_core import abides
+
+
+def unique_log_dir() -> str:
+    # ABIDES names log folders by the second; parallel runs can collide
+    import os, uuid
+    return f"runs/{os.getpid()}_{uuid.uuid4().hex[:12]}"
 from abides_core.utils import str_to_ns
 from abides_markets.configs import rmsc04
 from abides_markets.utils import config_add_agents
@@ -72,6 +78,8 @@ class Experiment:
 # Single simulation
 # ---------------------------------------------------------------------------
 def _simulate(seed: int, strategy: str, qty: int, sch: Schedule, market_kwargs: Dict):
+    market_kwargs = dict(market_kwargs)
+    impact_lambda = float(market_kwargs.pop("impact_lambda", 0.0))
     cfg = rmsc04.build_config(
         seed=seed,
         end_time=sch.end_time,
@@ -80,6 +88,9 @@ def _simulate(seed: int, strategy: str, qty: int, sch: Schedule, market_kwargs: 
         log_orders=False,          # big speed and memory win; we track fills ourselves
         **market_kwargs,
     )
+    from abides_exp.events import set_impact, shift_fundamental
+    shift_fundamental(cfg, lambda t: 0.0)       # RNG-neutral; enables permanent impact
+    set_impact(cfg, impact_lambda, TICKER)
     agent = STRATEGIES[strategy](
         id=len(cfg["agents"]),
         symbol=TICKER,
@@ -91,7 +102,7 @@ def _simulate(seed: int, strategy: str, qty: int, sch: Schedule, market_kwargs: 
         random_state=np.random.RandomState(seed + 1),
     )
     cfg = config_add_agents(cfg, [agent])  # rebuilds the latency model
-    end_state = abides.run(cfg)
+    end_state = abides.run(cfg, log_dir=unique_log_dir())
     book = end_state["agents"][0].order_books[TICKER]
     mkt_open = end_state["agents"][0].mkt_open
     return book, agent, mkt_open
@@ -256,7 +267,7 @@ def summarize(runs: pd.DataFrame) -> pd.DataFrame:
 def parse_market(items: List[str]) -> Dict:
     """['num_value_agents=25', 'mm_pov=0.01'] -> {'num_value_agents': 25, 'mm_pov': 0.01}"""
     import inspect
-    valid = set(inspect.signature(rmsc04.build_config).parameters)
+    valid = set(inspect.signature(rmsc04.build_config).parameters) | {"impact_lambda"}
     out = {}
     for item in items:
         key, _, raw = item.partition("=")
@@ -289,7 +300,8 @@ def main():
     p.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
     p.add_argument("--out", default="results/sweep")
     p.add_argument("--market", nargs="*", default=[], metavar="KEY=VALUE",
-                   help="override rmsc04.build_config args, e.g. num_value_agents=25 mm_pov=0.01")
+                   help="override rmsc04.build_config args, e.g. num_value_agents=25 mm_pov=0.01; "
+                        "impact_lambda=5 adds permanent impact (bps per 10k shares)")
     a = p.parse_args()
 
     logging.getLogger("abides").setLevel(logging.WARNING)

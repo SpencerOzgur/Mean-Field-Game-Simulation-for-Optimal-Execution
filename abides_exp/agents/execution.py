@@ -21,6 +21,8 @@ from abides_markets.messages.query import (
 )
 from abides_markets.orders import Side
 
+from abides_exp.events import report_fill
+
 
 class ExecutionAgent(TradingAgent):
     needs_volume = False  # set True to receive market volume over the last interval
@@ -134,6 +136,7 @@ class ExecutionAgent(TradingAgent):
     def order_executed(self, order) -> None:
         super().order_executed(order)  # keeps holdings and cash correct
         self.fills.append((self.current_time, order.quantity, order.fill_price))
+        report_fill(self, order)       # permanent impact, if the oracle has it
 
 
 class TWAPAgent(ExecutionAgent):

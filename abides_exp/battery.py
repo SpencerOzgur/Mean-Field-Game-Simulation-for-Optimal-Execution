@@ -7,6 +7,7 @@ Usage (repo root, inside .venv-abides):
   python -m abides_exp.battery --only spoofing flash_crash --seeds 50
   python -m abides_exp.battery --seeds 30 --market num_value_agents=50     # other market
   python -m abides_exp.battery --list
+  python -m abides_exp.battery --lambdas 0 1 5 20 --seeds 30 --out results/lambda_sweep
 
 Outputs in --out (default results/battery/):
   <scenario>/runs.csv    one row per seed: all scalar metrics (see METRICS below)
@@ -41,6 +42,12 @@ import numpy as np
 import pandas as pd
 
 from abides_core import abides
+
+
+def unique_log_dir() -> str:
+    # ABIDES names log folders by the second; parallel runs can collide
+    import os, uuid
+    return f"runs/{os.getpid()}_{uuid.uuid4().hex[:12]}"
 
 from abides_exp.agents.execution import ExecutionAgent
 from abides_exp.agents.scripted import ScriptedTrader
@@ -97,7 +104,7 @@ def _exec_stats(agent: ExecutionAgent) -> Dict:
 
 def _run(scenario: str, seed: int, treated: bool, market: Dict, params: Dict):
     cfg, h = SCENARIOS[scenario](seed, treated, market, params or None)
-    end_state = abides.run(cfg)
+    end_state = abides.run(cfg, log_dir=unique_log_dir())
     ex = end_state["agents"][0]
     mkt_open = ex.mkt_open
     end_s = (cfg["stop_time"] - mkt_open) // NS
@@ -288,6 +295,145 @@ def plot(out_dir, paths_by, info_by, summ):
     plt.close(fig)
 
 
+def run_battery(names, seeds, market, out, workers, quiet=False):
+    """Run every (scenario, seed) pair; write per-scenario files, summary and figure."""
+    os.makedirs(out, exist_ok=True)
+    tasks = [(n, s, market, {}) for n in names for s in seeds]
+    print(f"{len(names)} scenarios x {len(seeds)} seeds = {len(tasks)} pairs ({2 * len(tasks)} simulations)")
+    rows, paths_by, info_by = [], defaultdict(list), {}
+    t0 = time.time()
+    with mp.get_context("spawn").Pool(workers, maxtasksperchild=8) as pool:
+        for i, (row, paths, info) in enumerate(pool.imap_unordered(run_pair, tasks), 1):
+            rows.append(row)
+            paths_by[row["scenario"]].append(paths)
+            info_by[row["scenario"]] = info
+            if i % max(1, len(tasks) // 20) == 0 or i == len(tasks):
+                print(f"  {i}/{len(tasks)} pairs ({time.time() - t0:.0f}s)")
+
+    all_runs = pd.DataFrame(rows)
+    for name in names:
+        d = os.path.join(out, name)
+        os.makedirs(d, exist_ok=True)
+        r = all_runs[all_runs.scenario == name].dropna(axis=1, how="all").sort_values("seed")
+        r.to_csv(os.path.join(d, "runs.csv"), index=False)
+        paths_by[name] = pd.concat(paths_by[name], ignore_index=True).sort_values(["seed", "t_s"])
+        paths_by[name].to_csv(os.path.join(d, "paths.csv"), index=False)
+    summ = summarize(all_runs)
+    summ.to_csv(os.path.join(out, "summary.csv"), index=False)
+    with open(os.path.join(out, "meta.json"), "w") as f:
+        json.dump({"seeds": seeds, "market": market, "grid_s": GRID_S, "end_time": END_TIME,
+                   "scenarios": {n: {k: v for k, v in info_by[n].items()} for n in names}},
+                  f, indent=2, default=str)
+    plot(out, {n: paths_by[n] for n in names}, info_by, summ)
+
+    bad = all_runs[all_runs.pre_start_max_abs_bps > 1e-9]
+    if len(bad):
+        print(f"\nWARNING: {len(bad)} pairs diverge before their window starts:")
+        print(bad.groupby("scenario").size().to_string())
+    leak = all_runs[all_runs.pnl_sum_check.abs() > 1.0]
+    if len(leak):
+        print(f"\nWARNING: PnL changes do not sum to zero in {len(leak)} pairs (check accounting)")
+
+    if not quiet:
+        show = summ[summ.metric.isin(KEY_METRICS + SHOW_EXTRA)]
+        show = show.assign(v=show["mean"].round(2).astype(str) + " ± " + show["ci95"].round(2).astype(str))
+        table = show.pivot(index="metric", columns="scenario", values="v").reindex(columns=names)
+        with pd.option_context("display.width", 250, "display.max_columns", 30, "display.max_colwidth", 16):
+            print("\n" + table.fillna("").to_string())
+    print(f"\nDone in {time.time() - t0:.0f}s. Results in {out}/")
+    return all_runs, summ
+
+
+SHOW_EXTRA = ["subject_shortfall_bps", "subject_pnl_usd", "victim_extra_cost_bps", "spoof_push_bps",
+              "time_to_50pct_s", "time_to_90pct_s", "trough_bps", "half_recovery_s", "settled_gap_bps",
+              "subject_fill_rate", "subject_market_fill_rate", "one_sided_t", "one_sided_b"]
+
+# Metrics tracked across lambda in a sweep (scenario, metric, label)
+SWEEP_METRICS = [
+    ("exec_twap", "subject_shortfall_bps", "TWAP shortfall (bps)"),
+    ("exec_ac", "subject_shortfall_bps", "Almgren-Chriss shortfall (bps)"),
+    ("exec_pov", "subject_shortfall_bps", "POV shortfall (bps)"),
+    ("exec_passive", "subject_shortfall_bps", "Passive shortfall (bps)"),
+    ("exec_twap", "dmid_post30_bps", "TWAP price effect 30 min after (bps)"),
+    ("spoofing", "subject_pnl_usd", "Spoofer PnL ($)"),
+    ("momentum_ignition", "subject_pnl_usd", "Igniter PnL ($)"),
+    ("predatory", "subject_pnl_usd", "Predator PnL ($)"),
+    ("predatory", "victim_extra_cost_bps", "Victim extra cost (bps)"),
+    ("flash_crash", "dmid_mean_bps", "Flash crash mean price effect (bps)"),
+    ("flash_crash", "dmid_post30_bps", "Flash crash price 30 min after (bps)"),
+    ("flash_crash", "subject_market_fill_rate", "Fire seller fill rate"),
+]
+
+
+def sweep_table(sweep: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for scen, metric, label in SWEEP_METRICS:
+        d = sweep[(sweep.scenario == scen) & (sweep.metric == metric)]
+        if d.empty:
+            continue
+        row = {"measure": label}
+        for _, r in d.sort_values("lambda").iterrows():
+            row[f"λ={r['lambda']:g}"] = f"{r['mean']:.2f} ± {r['ci95']:.2f}"
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
+def plot_sweep(out, sweep: pd.DataFrame):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    INK, INK_2, GRID, SURF = "#1f1f1e", "#5f5e5a", "#e6e5e1", "#fcfcfb"
+    CAT = ["#2a78d6", "#e8743b", "#19a979", "#945ecf"]  # fixed categorical order
+    plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False,
+                         "axes.edgecolor": INK_2, "xtick.color": INK_2, "ytick.color": INK_2,
+                         "text.color": INK, "axes.labelcolor": INK,
+                         "figure.facecolor": SURF, "axes.facecolor": SURF})
+    panels = [
+        ("A. Execution cost by strategy", "shortfall (bps)",
+         [("exec_twap", "subject_shortfall_bps", "TWAP"), ("exec_ac", "subject_shortfall_bps", "Almgren-Chriss"),
+          ("exec_pov", "subject_shortfall_bps", "POV"), ("exec_passive", "subject_shortfall_bps", "Passive")]),
+        ("B. Lasting price effect, 30 min after", "Δ mid vs baseline (bps)",
+         [("exec_twap", "dmid_post30_bps", "TWAP 12k sale"), ("flash_crash", "dmid_post30_bps", "Flash crash")]),
+        ("C. Do manipulators profit?", "PnL ($)",
+         [("spoofing", "subject_pnl_usd", "Spoofer"), ("momentum_ignition", "subject_pnl_usd", "Igniter"),
+          ("predatory", "subject_pnl_usd", "Predator")]),
+        ("D. Cost the predator imposes on its victim", "victim extra cost (bps)",
+         [("predatory", "victim_extra_cost_bps", "TWAP victim")]),
+    ]
+    lams = sorted(sweep["lambda"].unique())
+    span = max(lams) - min(lams) or 1.0
+    fig, axes = plt.subplots(1, 4, figsize=(17, 3.9))
+    for p_i, (ax, (title, ylab, series)) in enumerate(zip(axes, panels)):
+        ax.axhline(0, color=INK_2, lw=0.7)
+        # Reference lines: what linear permanent impact alone predicts for a 12k-share sale
+        lx = np.array([min(lams), max(lams)])
+        if p_i == 0:
+            ax.plot(lx, 0.6 * lx, ls="--", color=INK_2, lw=1, label="theory: λ × 1.2 / 2")
+        if p_i == 1:
+            ax.plot(lx, -1.2 * lx, ls="--", color=INK_2, lw=1, label="theory, 12k sale: −λ × 1.2")
+        for k, (scen, metric, label) in enumerate(series):
+            d = sweep[(sweep.scenario == scen) & (sweep.metric == metric)].sort_values("lambda")
+            if d.empty:
+                continue
+            x = d["lambda"].values + (k - (len(series) - 1) / 2) * 0.012 * span
+            ax.errorbar(x, d["mean"], yerr=d["ci95"], color=CAT[k], marker="o", ms=6, lw=2,
+                        capsize=0, elinewidth=1.5, markeredgecolor=SURF, markeredgewidth=1.5, label=label)
+        ax.set_xticks(lams)
+        ax.set_xticklabels([f"{v:g}" for v in lams])
+        ax.set_xlabel("λ, permanent impact (bps per 10k shares)")
+        ax.set_ylabel(ylab)
+        ax.set_title(title, loc="left", fontsize=10)
+        ax.grid(axis="y", color=GRID, lw=0.7)
+        if len(ax.get_legend_handles_labels()[0]) > 1:
+            ax.legend(frameon=False, fontsize=8)
+    fig.suptitle("How results change as trading gets permanent price impact (mean ± 95% CI)",
+                 x=0.01, ha="left", fontsize=11, fontweight="bold")
+    fig.tight_layout()
+    fig.savefig(os.path.join(out, "lambda_sweep.png"), dpi=170, facecolor=SURF)
+    plt.close(fig)
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--only", nargs="*", default=None, help="subset of scenarios")
@@ -295,6 +441,9 @@ def main():
     p.add_argument("--seed-offset", type=int, default=0)
     p.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) - 1))
     p.add_argument("--market", nargs="*", default=[], metavar="KEY=VALUE")
+    p.add_argument("--lambdas", nargs="*", type=float, default=None,
+                   help="permanent-impact sweep: run the battery once per lambda (bps per 10k "
+                        "shares of our agents' net flow), e.g. --lambdas 0 1 5 20")
     p.add_argument("--out", default="results/battery")
     p.add_argument("--list", action="store_true")
     a = p.parse_args()
@@ -310,56 +459,26 @@ def main():
     if bad:
         raise SystemExit(f"unknown scenarios {bad}; use --list")
     logging.getLogger("abides").setLevel(logging.WARNING)
-    os.makedirs(a.out, exist_ok=True)
-
     seeds = list(range(a.seed_offset, a.seed_offset + a.seeds))
-    tasks = [(n, s, market, {}) for n in names for s in seeds]
-    print(f"{len(names)} scenarios x {len(seeds)} seeds = {len(tasks)} pairs ({2 * len(tasks)} simulations)")
-    rows, paths_by, info_by = [], defaultdict(list), {}
+
+    if not a.lambdas:
+        run_battery(names, seeds, market, a.out, a.workers)
+        return
+
+    # Lambda sweep: same scenarios and seeds at each impact level
     t0 = time.time()
-    with mp.get_context("spawn").Pool(a.workers, maxtasksperchild=8) as pool:
-        for i, (row, paths, info) in enumerate(pool.imap_unordered(run_pair, tasks), 1):
-            rows.append(row)
-            paths_by[row["scenario"]].append(paths)
-            info_by[row["scenario"]] = info
-            if i % max(1, len(tasks) // 20) == 0 or i == len(tasks):
-                print(f"  {i}/{len(tasks)} pairs ({time.time() - t0:.0f}s)")
-
-    all_runs = pd.DataFrame(rows)
-    for name in names:
-        d = os.path.join(a.out, name)
-        os.makedirs(d, exist_ok=True)
-        r = all_runs[all_runs.scenario == name].dropna(axis=1, how="all").sort_values("seed")
-        r.to_csv(os.path.join(d, "runs.csv"), index=False)
-        paths_by[name] = pd.concat(paths_by[name], ignore_index=True).sort_values(["seed", "t_s"])
-        paths_by[name].to_csv(os.path.join(d, "paths.csv"), index=False)
-    summ = summarize(all_runs)
-    summ.to_csv(os.path.join(a.out, "summary.csv"), index=False)
-    with open(os.path.join(a.out, "meta.json"), "w") as f:
-        json.dump({"seeds": seeds, "market": market, "grid_s": GRID_S, "end_time": END_TIME,
-                   "scenarios": {n: {k: v for k, v in info_by[n].items()} for n in names}},
-                  f, indent=2, default=str)
-    plot(a.out, {n: paths_by[n] for n in names}, info_by, summ)
-
-    bad = all_runs[all_runs.pre_start_max_abs_bps > 1e-9]
-    if len(bad):
-        print(f"\nWARNING: {len(bad)} pairs diverge before their window starts:")
-        print(bad.groupby("scenario").size().to_string())
-    leak = all_runs[all_runs.pnl_sum_check.abs() > 1.0]
-    if len(leak):
-        print(f"\nWARNING: PnL changes do not sum to zero in {len(leak)} pairs (check accounting)")
-
-    show = summ[summ.metric.isin(KEY_METRICS + ["subject_shortfall_bps", "subject_pnl_usd",
-                                                 "victim_extra_cost_bps", "spoof_push_bps",
-                                                 "time_to_50pct_s", "time_to_90pct_s",
-                                                 "trough_bps", "half_recovery_s", "settled_gap_bps",
-                                                 "subject_fill_rate", "subject_market_fill_rate",
-                                                 "one_sided_t", "one_sided_b"])]
-    show = show.assign(v=show["mean"].round(2).astype(str) + " ± " + show["ci95"].round(2).astype(str))
-    table = show.pivot(index="metric", columns="scenario", values="v").reindex(columns=names)
-    with pd.option_context("display.width", 250, "display.max_columns", 30, "display.max_colwidth", 16):
-        print("\n" + table.fillna("").to_string())
-    print(f"\nDone in {time.time() - t0:.0f}s. Results in {a.out}/")
+    parts = []
+    for lam in a.lambdas:
+        print(f"\n=== lambda = {lam:g} bps per 10k shares ===")
+        _, summ = run_battery(names, seeds, {**market, "impact_lambda": lam},
+                              os.path.join(a.out, f"lambda_{lam:g}"), a.workers, quiet=True)
+        parts.append(summ.assign(**{"lambda": lam}))
+    sweep = pd.concat(parts, ignore_index=True)
+    sweep.to_csv(os.path.join(a.out, "sweep_summary.csv"), index=False)
+    plot_sweep(a.out, sweep)
+    with pd.option_context("display.width", 250, "display.max_columns", 30):
+        print("\n" + sweep_table(sweep).to_string(index=False))
+    print(f"\nSweep done in {time.time() - t0:.0f}s. Results in {a.out}/ (lambda_sweep.png, sweep_summary.csv)")
 
 
 if __name__ == "__main__":

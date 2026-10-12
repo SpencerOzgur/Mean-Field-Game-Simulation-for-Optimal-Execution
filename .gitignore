@@ -27,3 +27,4 @@ build/
 Thumbs.db
 .venv-abides/
 external/
+log/

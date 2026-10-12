@@ -30,7 +30,7 @@ from abides_exp.agents.scripted import (
     predator_script,
     spoof_script,
 )
-from abides_exp.events import jump_offset, shift_fundamental, withdraw_market_makers
+from abides_exp.events import jump_offset, set_impact, shift_fundamental, withdraw_market_makers
 
 TICKER = "ABM"
 NS = 10**9
@@ -42,12 +42,15 @@ EVENT_AT = 1800
 
 
 def _base(seed: int, market: Dict):
+    market = dict(market)
+    impact_lambda = float(market.pop("impact_lambda", 0.0))  # bps per 10k shares, ours only
     cfg = rmsc04.build_config(seed=seed, end_time=END_TIME, ticker=TICKER,
                               stdout_log_level="WARNING", log_orders=False, **market)
     mkt_open = cfg["agents"][0].mkt_open
     # Every run uses ShiftedOracle (zero offset unless an event sets one). Swapping the
     # class does not touch the oracle's RNG, so baselines are unaffected.
     shift_fundamental(cfg, lambda t: 0.0)
+    set_impact(cfg, impact_lambda, TICKER)
     return cfg, mkt_open
 
 
