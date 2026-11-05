@@ -1,0 +1,767 @@
+<title>Simulator Decision Study Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a sticky contents rail beside one reading column; tables and figures run full width of the column. Same identity as the meeting page. */
+:root {
+  --bg: #f6f7f8; --surface: #ffffff; --ink: #1b2330; --ink-2: #4a5566; --ink-3: #6b7686; --rule: #dfe3e8; --grid: #e9ecf0;
+  --accent: #1f5f8b; --hawkes: #2f6fb5; --abides: #c2571a; --trades: #3b8552; --real: #6b7280;
+  --good: #2e7d4f; --warn: #9a6a00; --bad: #b23a3a; --tint: #eef3f8;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161c; --surface: #1a2029; --ink: #e6eaf0; --ink-2: #b5bfcc; --ink-3: #8f9aa8; --rule: #2c3440; --grid: #252c36;
+    --accent: #7fb3dd; --hawkes: #6fa4e6; --abides: #ec8c55; --trades: #6fbf86; --real: #a3abb7;
+    --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161c; --surface: #1a2029; --ink: #e6eaf0; --ink-2: #b5bfcc; --ink-3: #8f9aa8; --rule: #2c3440; --grid: #252c36;
+  --accent: #7fb3dd; --hawkes: #6fa4e6; --abides: #ec8c55; --trades: #6fbf86; --real: #a3abb7;
+  --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+.shell { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 80px; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 40px; }
+@media (max-width: 960px) { .shell { grid-template-columns: minmax(0, 1fr); } nav.rail { position: static !important; max-height: none !important; } }
+nav.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); align-self: start; max-height: calc(100vh - 40px); overflow: auto; font-size: 13.5px; }
+nav.rail .lbl { font-family: var(--font-data); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+nav.rail ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+nav.rail a { color: var(--ink-2); text-decoration: none; display: block; padding: 3px 8px; border-radius: 4px; }
+nav.rail a:hover, nav.rail a:focus-visible { background: var(--tint); color: var(--ink); outline: none; }
+nav.rail ol ol { padding-left: 12px; }
+nav.rail ol ol a { font-size: 12.5px; color: var(--ink-3); }
+main { min-width: 0; }
+header.top { display: grid; gap: 10px; padding-bottom: 26px; border-bottom: 1px solid var(--rule); margin-bottom: 10px; }
+.eyebrow { font-family: var(--font-data); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font-family: var(--font-display); font-weight: 650; font-size: clamp(30px, 4.4vw, 42px); line-height: 1.12; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 650; font-size: 28px; line-height: 1.2; margin: 60px 0 10px; text-wrap: balance; padding-top: 14px; border-top: 1px solid var(--rule); }
+h3 { font-size: 18px; font-weight: 600; margin: 32px 0 6px; text-wrap: balance; }
+h4 { font-size: 15px; font-weight: 600; margin: 20px 0 4px; color: var(--ink-2); }
+p { margin: 0 0 14px; max-width: 74ch; }
+.lede { font-size: 18.5px; color: var(--ink-2); max-width: 70ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: var(--ink-3); }
+.meta b { color: var(--ink-2); font-weight: 500; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+ul, ol.plain { margin: 0 0 14px; padding-left: 22px; max-width: 76ch; } li { margin: 4px 0; }
+.answer { border-left: 3px solid var(--accent); padding: 10px 16px; background: var(--tint); border-radius: 0 6px 6px 0; margin: 14px 0 18px; max-width: 82ch; }
+.answer p:last-child { margin-bottom: 0; }
+.tbl { overflow-x: auto; margin: 12px 0 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 7px 11px; text-align: left; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); font-size: 12.5px; }
+thead th { position: sticky; top: 0; background: var(--surface); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; font-family: var(--font-data); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 13px; }
+td.mono { font-family: var(--font-data); font-size: 12.5px; }
+tr.sub td { background: var(--tint); font-weight: 600; font-size: 12.5px; color: var(--ink-2); }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: baseline; }
+.chip { display: inline-block; font-size: 12px; font-weight: 500; padding: 0 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.chip.yes { color: var(--good); } .chip.no { color: var(--bad); } .chip.mid { color: var(--warn); } .chip.run { color: var(--accent); }
+.hi { color: var(--bad); font-weight: 600; } .ok { color: var(--good); font-weight: 600; } .lo { color: var(--warn); font-weight: 600; }
+figure { margin: 18px 0 26px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 16px 10px; }
+figcaption { font-size: 14px; color: var(--ink-2); margin-top: 6px; max-width: 86ch; }
+figcaption b { color: var(--ink); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+.panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px 22px; }
+.panel { min-width: 0; } .panel h4 { margin: 0 0 4px; }
+.svgwrap { overflow-x: auto; }
+svg text { font-family: var(--font-body); }
+.tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 12.5px; padding: 6px 9px; border-radius: 5px; max-width: 320px; line-height: 1.4; z-index: 10; }
+.note { font-size: 13.5px; color: var(--ink-3); max-width: 86ch; }
+.mono { font-family: var(--font-data); font-size: 12.5px; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; font-size: 14px; margin: 8px 0 16px; }
+.kv dt { color: var(--ink-3); } .kv dd { margin: 0; }
+details { margin: 10px 0 18px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); padding: 8px 14px; }
+details summary { cursor: pointer; font-weight: 600; font-size: 14.5px; color: var(--ink-2); }
+details[open] summary { margin-bottom: 8px; }
+.timeline { display: grid; gap: 0; margin: 12px 0 20px; border-left: 2px solid var(--rule); padding-left: 18px; max-width: 86ch; }
+.timeline .ev { position: relative; padding: 4px 0 12px; }
+.timeline .ev::before { content: ""; position: absolute; left: -24px; top: 11px; width: 10px; height: 10px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.timeline .when { font-family: var(--font-data); font-size: 12px; color: var(--ink-3); }
+@media (max-width: 520px) { th, td { padding: 6px 7px; } body { font-size: 15px; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 20px; }
+</style>
+
+<div class="shell">
+<nav class="rail" aria-label="Contents">
+  <div class="lbl">Contents</div>
+  <ol>
+    <li><a href="#status">0 Status now</a></li>
+    <li><a href="#summary">1 Summary</a></li>
+    <li><a href="#questions">2 Questions and plan</a></li>
+    <li><a href="#data">3 Data</a></li>
+    <li><a href="#sims">4 Simulators</a></li>
+    <li><a href="#task">5 Task and strategies</a></li>
+    <li><a href="#metrics">6 Measures</a></li>
+    <li><a href="#validation">7 Validation</a></li>
+    <li><a href="#goal1">8 Goal 1 results</a>
+      <ol><li><a href="#g1-dis">Disagreement</a></li><li><a href="#g1-hyp">Pre-registered tests</a></li><li><a href="#g1-mech">Mechanism</a></li><li><a href="#g1-rob">Robustness</a></li><li><a href="#g1-li">LOB-Impact</a></li><li><a href="#g1-abides">ABIDES diagnosis</a></li><li><a href="#g1-trades">TRADES</a></li></ol></li>
+    <li><a href="#goal2">9 Goal 2 design</a></li>
+    <li><a href="#goal2r">10 Goal 2 results</a>
+      <ol><li><a href="#g2-first">First markets</a></li><li><a href="#g2-conf">Confirmatory test</a></li><li><a href="#g2-markets">Market by market</a></li><li><a href="#g2-why">Why TWAP wins</a></li><li><a href="#g2-rules">Decision rules</a></li><li><a href="#g2-profile">Validation profile</a></li><li><a href="#g2-spec">Misspecification</a></li></ol></li>
+    <li><a href="#explore">11 Literature checks</a></li>
+    <li><a href="#a6">11b Oracle, ablation, transfer</a></li>
+    <li><a href="#claims">12 What we can claim</a></li>
+    <li><a href="#limits">13 Limitations</a></li>
+    <li><a href="#log">14 Deviations and corrections</a></li>
+    <li><a href="#files">15 Files</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="top">
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 5 November 2026, 5 pm</div>
+  <h1>Do realistic market simulators give reliable execution advice?</h1>
+  <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
+  <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
+</header>
+
+<section id="status">
+<h2>0 Status now</h2>
+<h3>Running</h3>
+<div class="tbl"><table><thead><tr><th>Work</th><th>Where</th><th>State</th><th>Expected</th></tr></thead><tbody>
+<tr><td><b>Goal 2 at 100 decision seeds</b> (addendum 7): 70 more seeds for each of the 29 candidates in all 26 markets, 52,780 policy runs, so candidates are compared with the oracle at equal power</td><td>Kaggle <a href="https://www.kaggle.com/code/gaurav73/seeds100-1">seeds100-1</a>, <a href="https://www.kaggle.com/code/gaurav73/seeds100-2">-2</a>, <a href="https://www.kaggle.com/code/gaurav73/seeds100-3">-3</a>, <a href="https://www.kaggle.com/code/gaurav73/seeds100-4">-4</a>, <a href="https://www.kaggle.com/code/gaurav73/seeds100-5">-5</a></td><td><span class="chip run">running</span> since 14:55</td><td>About 21:00</td></tr>
+<tr><td>Second half of the same work (shards 6–10)</td><td>Kaggle seeds100-6 to seeds100-10</td><td><span class="chip mid">queued</span> launch automatically as slots free (Kaggle runs at most five at once)</td><td>Early 6 November</td></tr>
+</tbody></table></div>
+<p class="note">The Kaggle notebooks are private to the project account. After the runs: the pre-registered 100-seed analyses (oracle comparison, C1–C4 as secondary, correlations and selection regret, refitted decision rules, well-specified against misspecified), an update of this report, and a commit to the GitHub branch.</p>
+<h3>Done since the last update</h3>
+<ul>
+<li>Positive control, mechanism ablation and out-of-family rules (section 11b): the oracle failed at 30 seeds because the decisions are under-powered or flat, not because the pipeline is biased.</li>
+<li>Design addendum 7 written and checksummed before any of the 100-seed runs existed.</li>
+<li>Code, pre-registrations and summary results committed and pushed to GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (raw simulation outputs are kept out and can be regenerated).</li>
+</ul>
+<h3>Next</h3>
+<div class="tbl"><table><thead><tr><th>Item</th><th>Depends on</th></tr></thead><tbody>
+<tr><td>Read Goal 2 at 100 seeds: does removing sampling noise change which measures predict good advice, and does any rule then beat TWAP?</td><td>The running Kaggle work</td></tr>
+<tr><td>Manuscript around the three questions: reproducing markets (partly), ranking strategies (often not: flat or under-powered decisions, missing mechanisms), choosing a simulator from observable validation (no)</td><td>The 100-seed results</td></tr>
+<tr><td>Decide whether to add the earlier paper drafts and planning notes to the repository</td><td>Your decision</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="summary">
+<h2>1 Summary</h2>
+<div class="answer">
+<p><b>Three questions, three answers.</b> (A) Can simulators reproduce real market behaviour? Partly: some match observational statistics, none passes the intervention tests. (B) Can they rank execution strategies? Often not, for two reasons: the decisions are flat or under-powered (even the true generator fails at our sample size) and, in the agent-mix markets, the mechanism is missing. (C) Can observable validation tell which simulator to trust? No: a substantive negative result. Reframed question: under what conditions does predictive error turn into poor decisions, and can validation detect those conditions before optimisation?</p>
+<p><b>Main thesis.</b> Observational market realism does not identify simulators that give reliable execution advice. The only property associated with better advice is how well a simulator reproduces the market's response to the specific trade, and that association is weak: it did not survive a pre-registered confirmatory test. Optimising over a simulator whose mechanism differs from the market's makes decisions worse than plain TWAP.</p>
+</div>
+<ol class="plain">
+<li><b>Realistic simulators disagree.</b> On three Nasdaq stocks, simulators with similar realism scores recommend opposite strategies: the original Hawkes model says "sell at once", the original ABIDES model says "spread the order out" (gap 4.6 to 7.6 bps, replicated under pre-registration on CSCO and MSFT).</li>
+<li><b>The disagreement has a measurable cause.</b> The decision weighs two costs: selling at once (book depth) and selling gradually (impact of the trader's own order). No simulator gets both right, and which simulator gets impact right depends on the real-data benchmark used.</li>
+<li><b>Realism does not predict decision quality.</b> In 26 synthetic markets where the true best strategy is known, no realism score from LOB-Bench or from LOB-Impact's free-run phase predicts low regret. This held in a confirmatory test on ten randomly drawn markets.</li>
+<li><b>Impact accuracy helps a little.</b> Accuracy on the trader's own impact correlates +0.24 [0.01, 0.30] with good advice over the first ten markets, but the primary confirmatory test on ten new markets was not met (+0.15 [−0.03, 0.28]).</li>
+<li><b>Optimisation amplifies misspecification.</b> Picking the cheapest predicted strategy selects the most flattering errors (over-promise of 10.4 bps against 1.6 bps for a typical strategy). Where the market lies outside the simulators' family, this is significantly worse than TWAP (+3.75 bps); inside it, it tends to beat TWAP (−1.96 bps, not significant). Conservative rules remove the damage but, tuned on misspecified markets, also never leave TWAP.</li>
+</ol>
+</section>
+
+<section id="questions">
+<h2>2 Questions and plan</h2>
+<div class="kv">
+<dt>Goal 1</dt><dd>Does market realism translate into reliable execution decisions? Do simulators that look similarly realistic on real data recommend the same strategy?</dd>
+<dt>Goal 2</dt><dd>Develop and validate a decision-aware evaluation: which kinds of realism predict good decisions, in markets where the right answer is known?</dd>
+</div>
+<h3>Pre-registration timeline</h3>
+<p>Each plan was written and checksummed (SHA-256) before the results it governs existed. Checksums are recorded in <span class="mono">simrel/reports/*.sha256</span>.</p>
+<div class="timeline">
+<div class="ev"><div class="when">31 Oct 2026</div><b>Confirmatory replication on CSCO and MSFT</b> (H1–H5): preregistration_confirmatory.md, SHA-256 1f74a210…; addendum 1 on seed counts.</div>
+<div class="ev"><div class="when">31 Oct 2026</div><b>Goal 2 design</b>: four reference markets, 29 candidates, analyses A1–A4 (goal2_design.md).</div>
+<div class="ev"><div class="when">1 Nov 2026</div><b>LOB-Impact design</b>: two flavours of metric, Goal 1 analyses G1.1–G1.3, Goal 2 analyses B1–B4 (lob_impact_design.md).</div>
+<div class="ev"><div class="when">2 Nov 2026</div><b>Addendum 1</b>: ABIDES rollouts fitted into the trading day. <b>Addendum 2</b>: validation against the reference tool, ABIDES diagnosis, three-level bootstrap. <b>Addendum 3</b>: six designed markets and the viability rule.</div>
+<div class="ev"><div class="when">3 Nov 2026</div><b>Addendum 4</b>: ten randomly drawn markets and confirmatory hypotheses C1–C4. <b>Addendum 5</b>: error diagnostic, conservative decision rules (A1–A3) frozen on the first ten markets, validation profile (B1–B3), well-specified markets (C).</div>
+<div class="ev"><div class="when">4 Nov 2026</div><b>Exploratory literature checks</b> (not pre-registered): schedules against signals, Bayesian shrinkage, hidden liquidity, synthetic metaorders, a queue-reactive candidate.</div>
+<div class="ev"><div class="when">5 Nov 2026</div><b>Addendum 6</b>: oracle positive control, mechanism ablation, out-of-family rules (section 11b). <b>Addendum 7</b>: every candidate rerun at 100 decision seeds (running).</div>
+</div>
+</section>
+
+<section id="data">
+<h2>3 Data</h2>
+<ul>
+<li><b>Source.</b> Public Nasdaq TotalView-ITCH 5.0 sample days, rebuilt into LOBSTER format (messages and a ten-level book after every message), keeping only events that change the visible ten levels plus all executions.</li>
+<li><b>Days.</b> Fit days 2019-01-30, 2019-03-27, 2019-07-30, 2019-08-30, 2019-10-18; held-out days 2019-10-30, 2019-12-30, 2020-01-30. Simulators learn only from fit days; realism is scored on held-out days.</li>
+<li><b>Windows.</b> Ten-minute windows from 09:45 to 15:45 (36 per day), labelled high or low on volatility, volume and trend by median splits. A slice is usable if it has at least four fit and four held-out windows: INTC 7 slices, CSCO 5, MSFT 6.</li>
+<li><b>Discovery and confirmation.</b> All exploration was done on INTC; CSCO (primary) and MSFT (secondary) were run once under the pre-registration.</li>
+</ul>
+<h3>LOB-Impact calibration (INTC, visible stream)</h3>
+<p>The protocol's child order is the day's median market-order size; children are spaced dN = 9/φ messages apart (10% participation), φ being the share of market orders in the message stream.</p>
+<div class="tbl"><table><thead><tr><th>Day</th><th class="num">φ</th><th class="num">dN (messages)</th><th class="num">Child (shares)</th><th class="num">Visible volume</th></tr></thead><tbody>
+<tr><td>2019-01-30</td><td class="num">0.0107</td><td class="num">837</td><td class="num">200</td><td class="num">5,296,725</td></tr>
+<tr><td>2019-03-27</td><td class="num">0.0079</td><td class="num">1,145</td><td class="num">200</td><td class="num">3,833,008</td></tr>
+<tr><td>2019-07-30</td><td class="num">0.0115</td><td class="num">786</td><td class="num">100</td><td class="num">3,100,486</td></tr>
+<tr><td>2019-08-30</td><td class="num">0.0101</td><td class="num">887</td><td class="num">100</td><td class="num">3,385,189</td></tr>
+<tr><td>2019-10-18</td><td class="num">0.0121</td><td class="num">742</td><td class="num">100</td><td class="num">3,216,813</td></tr>
+<tr><td>2019-10-30</td><td class="num">0.0143</td><td class="num">630</td><td class="num">100</td><td class="num">3,056,287</td></tr>
+<tr><td>2019-12-30</td><td class="num">0.0117</td><td class="num">772</td><td class="num">100</td><td class="num">2,455,612</td></tr>
+<tr><td>2020-01-30</td><td class="num">0.0104</td><td class="num">864</td><td class="num">100</td><td class="num">3,487,690</td></tr>
+</tbody></table></div>
+<p class="note">Market orders are about 1% of 2019 Nasdaq messages, so a 100-child LOB-Impact metaorder spans about 85,000 messages (10–40 minutes). Hidden orders execute 12–14% of volume (20–24% on the bid side).</p>
+</section>
+
+<section id="sims">
+<h2>4 Simulators</h2>
+<div class="tbl"><table><thead><tr><th>Version</th><th>Family</th><th>Mechanism</th><th>Fitted to</th></tr></thead><tbody>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes original</td><td>Statistical point process</td><td>Six order types (limit, market, cancel by side) that excite each other through exponential kernels; marks (sizes, price levels) from empirical distributions; branching ratio capped at 0.9</td><td>Maximum likelihood on each slice's fit windows</td></tr>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes queue</td><td>Hawkes + state</td><td>Adds cancellations that follow the queue at the best price; best order-book realism score</td><td>As above, with best-queue sizes</td></tr>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes refill</td><td>Hawkes + state</td><td>Adds spread closing, gap filling and fast-plus-slow (multi-timescale) kernels, so the book refills realistically</td><td>As above</td></tr>
+<tr><td><span class="dot" style="background:var(--abides)"></span>ABIDES original</td><td>Agent-based (J.P. Morgan, f9cbe51)</td><td>Noise, value (anchored to an exogenous fundamental), market-maker and momentum agents</td><td>Simulated moments over a 60-configuration grid, per slice</td></tr>
+<tr><td><span class="dot" style="background:var(--abides)"></span>ABIDES calibrated</td><td>Agent-based + quoting</td><td>Adds 50 quoting agents whose rates, price levels, sizes and quote lifetimes (by level) come from the fit days</td><td>Fit-day statistics</td></tr>
+<tr><td><span class="dot" style="background:var(--trades)"></span>TRADES</td><td>Generative (diffusion, DeepMarket 8f1f89b)</td><td>Transformer-based diffusion model generating messages conditioned on recent history</td><td>Trained on a Kaggle GPU (INTC, case study only)</td></tr>
+</tbody></table></div>
+<details><summary>Further versions used in robustness checks</summary>
+<ul>
+<li>Hawkes refits leaving out one fit day (5 refits per version).</li>
+<li>Stability caps 0.8 and 0.95 instead of 0.9.</li>
+<li>Impact-calibrated Hawkes (market-order excitation rescaled on fit days, at constant branching).</li>
+<li>ABIDES second and third best grid configurations; ABIDES-calibrated with momentum agents; ABIDES-calibrated with volatility recalibrated to fit-day 5-second volatility.</li>
+<li>TRADES with 10 DDIM sampling steps instead of 1; a second training seed (failed to learn, validation loss 3.00 against 0.888).</li>
+</ul>
+</details>
+</section>
+
+<section id="task">
+<h2>5 Task and strategies</h2>
+<ul>
+<li><b>Goal 1 task.</b> Sell 10% (and 30%) of the slice's typical ten-minute volume within ten minutes, in 20 decisions of 30 seconds, using market orders. Cost: implementation shortfall against the arrival mid, in bps. Each run is paired with an unperturbed twin on the same seed.</li>
+<li><b>Goal 2 task.</b> Sell 5% or 15% of the reference market's mean volume over ten minutes in 20 decisions.</li>
+<li><b>Decision statistic.</b> D = cost(TWAP) − cost(sell at once). Positive: the simulator advises selling at once; negative: it advises patience.</li>
+</ul>
+<div class="tbl"><table><thead><tr><th>Strategy</th><th>What it does</th><th>Kind</th></tr></thead><tbody>
+<tr><td class="mono">P0_twap</td><td>Equal child orders every slice</td><td>schedule</td></tr>
+<tr><td class="mono">P1_immediate</td><td>Everything at the first decision</td><td>schedule</td></tr>
+<tr><td class="mono">P2_front_b2, P2_front_b4</td><td>Front-loaded schedules of two steepnesses</td><td>schedule</td></tr>
+<tr><td class="mono">P3_back_b-2</td><td>Back-loaded schedule</td><td>schedule</td></tr>
+<tr><td class="mono">P4_pov_1x, P4_pov_2x</td><td>Participate at 1× and 2× the observed market volume</td><td>adaptive schedule</td></tr>
+<tr><td class="mono">P5_liquidity</td><td>Trades more when depth at the best is high</td><td>adaptive schedule</td></tr>
+<tr><td class="mono">P6_signal_momentum, P6_signal_reversal</td><td>Speed up or slow down with the recent price move</td><td>signal</td></tr>
+<tr><td class="mono">P7_risk_0.5, P7_risk_2</td><td>Risk-averse schedules (two risk-aversion levels)</td><td>schedule</td></tr>
+</tbody></table></div>
+<p class="note">Goal 1 confirmatory runs used the subset TWAP, immediate, liquidity and signal momentum; Goal 2 used all twelve.</p>
+</section>
+
+<section id="metrics">
+<h2>6 Measures</h2>
+<h3>Realism flavour (observational)</h3>
+<ul>
+<li><b>LOB-Bench</b> (ICML 2025, @276baf3): 21 default statistics compared by L1 (order book); conditional statistics; five return and volatility statistics by Wasserstein (price); LOB-Bench's impact score.</li>
+<li><b>Trade response:</b> mean price change ten seconds after the market's own aggressive orders.</li>
+<li><b>LOB-Impact phase 1</b> (ICAIF 2026): trade-sign memory γ, Hurst exponent H, response ratio R(100)/R(1), free drift, from free runs.</li>
+</ul>
+<h3>Counterfactual flavour (interventional)</h3>
+<ul>
+<li><b>LOB-Impact phases 2–3:</b> a standard 100-child metaorder (median child size, 10% participation, buy and sell pooled); build-up exponent δ (signed binned estimator, day-clustered bootstrap), amplitude Y, peak impact, relaxation (end over peak after 100 cooling windows), visible over blind attribution (Hawkes only).</li>
+<li><b>Metaorder impact error (ours, task-specific):</b> the simulator's TWAP peak impact against the market's own, at the task's order size.</li>
+<li><b>Validation profile</b> (addendum 5): immediate-execution cost, TWAP impact, relaxation after TWAP, conditional price response, and, in synthetic markets only, cost-ranking accuracy.</li>
+</ul>
+<h3>Real-data checks (Goal 1)</h3>
+<ul>
+<li><b>Cost of selling at once:</b> walk the real held-out book (an upper bound; hidden liquidity lowers it by 7–17%).</li>
+<li><b>TWAP impact:</b> against the square-root law band (literature constants) and against impact measured on our own trades with synthetic metaorders.</li>
+</ul>
+</section>
+
+<section id="validation">
+<h2>7 Validation</h2>
+<div class="tbl"><table><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody>
+<tr><td>Our LOB-Bench scoring against LOB-Bench's code, on its public GOOG sample</td><td><span class="chip yes">identical</span> zero difference on all 21 statistics</td></tr>
+<tr><td>LOB-Impact estimators (our port) against the published tool, on the same 72 INTC rollouts</td><td><span class="chip yes">passed</span> every count and point estimate identical; interval differences explained (bootstrap stream order, n against n−1, detection taken at the largest impact rather than the end); no Goal 1 verdict changes</td></tr>
+<tr><td>Reproducibility</td><td><span class="chip yes">exact</span> 72 rollouts regenerated on a laptop from their seeds reproduce the Kaggle records bit for bit</td></tr>
+<tr><td>Hawkes goodness of fit</td><td>Held-out log-likelihood gain 2.38 (single kernel) and 3.52 (multi-timescale) nats per event, equal to in-sample (no overfitting); Kolmogorov–Smirnov 0.48 and 0.38 (misspecified: 73% of real events arrive within 1 ms of the previous one)</td></tr>
+<tr><td>Planted laws for the LOB-Impact estimators</td><td>Exponents 0.5, 0.7, 1.0 recovered within 0.03 (small downward bias, as in the paper); amplitudes 0.5, 1, 2 recovered; noise gives no law</td></tr>
+<tr><td>Robustness to refitting</td><td>Five leave-one-day-out refits never change the advice of Hawkes-original or Hawkes-refill</td></tr>
+</tbody></table></div>
+<figure>
+  <div class="svgwrap"><svg id="native" role="img" aria-label="LOB-Bench native protocol scores"></svg></div>
+  <figcaption><b>LOB-Bench's own test on held-out INTC</b> (500 real messages of context, 500 generated, mean L1, lower is more realistic). LOB-Bench's published baseline, run on our data, scores 0.38 against 0.50 on its leaderboard (different year and data source; the leaderboard's best model, LobS5, scores 0.13). Hawkes and calibrated ABIDES score as well as real data from other days.</figcaption>
+</figure>
+</section>
+
+<section id="goal1">
+<h2>8 Goal 1 results: real data</h2>
+<h3 id="g1-dis">Simulators disagree</h3>
+<figure>
+  <div class="legend"><span><span class="dot" style="background:var(--hawkes)"></span>Hawkes versions</span><span><span class="dot" style="background:var(--abides)"></span>ABIDES versions</span><span class="note">dot: estimate; line: 95% interval (seeds resampled within slices)</span></div>
+  <div class="panels" id="dpanels"></div>
+  <figcaption><b>Decision statistic D at 10% size</b> (TWAP minus sell-at-once cost, bps). The original Hawkes and ABIDES models sit on opposite sides on all three stocks.</figcaption>
+</figure>
+<div class="tbl"><table><thead><tr><th>D, bps</th><th class="num">INTC 10%</th><th class="num">INTC 30%</th><th class="num">CSCO 10%</th><th class="num">CSCO 30%</th><th class="num">MSFT 10%</th><th class="num">MSFT 30%</th></tr></thead><tbody>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes original</td><td class="num">+3.53</td><td class="num">+4.83</td><td class="num">+2.20</td><td class="num">+4.87</td><td class="num">+2.23</td><td class="num">+4.30</td></tr>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes queue</td><td class="num">+21.50</td><td class="num">+34.88</td><td class="num">+8.82</td><td class="num">+20.83</td><td class="num">+0.03</td><td class="num">+1.66</td></tr>
+<tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes refill</td><td class="num">+0.35</td><td class="num">+0.05</td><td class="num">+0.93</td><td class="num">+0.84</td><td class="num">−0.49</td><td class="num">−0.64</td></tr>
+<tr><td><span class="dot" style="background:var(--abides)"></span>ABIDES original</td><td class="num">−4.10</td><td class="num">−1.43</td><td class="num">−4.95</td><td class="num">−3.30</td><td class="num">−2.36</td><td class="num">−2.09</td></tr>
+<tr><td><span class="dot" style="background:var(--abides)"></span>ABIDES calibrated</td><td class="num">−0.74</td><td class="num">−3.36</td><td class="num">−0.74</td><td class="num">−2.97</td><td class="num">+0.09</td><td class="num">−0.75</td></tr>
+</tbody></table></div>
+
+<h3 id="g1-hyp">Pre-registered tests (H1–H5)</h3>
+<div class="tbl"><table><thead><tr><th>Hypothesis</th><th>INTC (discovery)</th><th>CSCO (primary)</th><th>MSFT (secondary)</th></tr></thead><tbody>
+<tr><td><b>H1</b> Original Hawkes and ABIDES disagree (opposite signs, gap ≥ 2 bps)</td><td><span class="chip yes">holds</span> gap 7.63</td><td><span class="chip yes">holds</span> 7.15</td><td><span class="chip yes">holds</span> 4.59</td></tr>
+<tr><td><b>H2</b> The queue version improves order-book realism and moves advice towards selling at once</td><td><span class="chip yes">holds</span> L1 0.187 vs 0.285; ΔD +17.97</td><td><span class="chip yes">holds</span> 0.177 vs 0.211; +6.61 [2.07, 11.26]</td><td><span class="chip no">fails</span> 0.220 vs 0.264; −2.21 [−4.74, 0.37]</td></tr>
+<tr><td><b>H3</b> Refill versions of Hawkes and ABIDES agree within ±1 bp (90% interval inside the margin)</td><td><span class="chip no">fails</span> +1.09 [0.29, 1.95]</td><td><span class="chip no">fails</span> +1.66 [1.11, 2.20]</td><td><span class="chip mid">inconclusive</span> −0.57 [−2.80, 1.52]</td></tr>
+<tr><td><b>H4</b> No impact score within twice the real-data floor</td><td><span class="chip yes">holds</span> floor 0.70; 2.53–4.83</td><td><span class="chip yes">holds</span> 0.78; 2.51–4.32</td><td><span class="chip yes">holds</span> 1.49; 4.22–9.68</td></tr>
+<tr><td><b>H5</b> Better order-book score goes with more extreme advice</td><td><span class="chip yes">holds</span> Spearman −0.90</td><td><span class="chip yes">holds</span> −1.00</td><td><span class="chip yes">holds</span> −0.20</td></tr>
+</tbody></table></div>
+<p class="note">Exploratory 30% size: H3 differences +3.41 (INTC) and +3.81 (CSCO). The earlier hint that improved simulators converge (H3) did not replicate. Deviation: base versions ran 60 seeds by a runner default; the tests use the pre-registered 20.</p>
+
+<h3 id="g1-mech">Mechanism: two costs, neither right everywhere</h3>
+<h4>Cost of selling at once (bps; real band: hidden-liquidity lower bound to visible-book upper bound)</h4>
+<div class="tbl"><table><thead><tr><th></th><th class="num">INTC 10%</th><th class="num">INTC 30%</th><th class="num">CSCO 10%</th><th class="num">CSCO 30%</th><th class="num">MSFT 10%</th><th class="num">MSFT 30%</th></tr></thead><tbody>
+<tr class="sub"><td>Real (band)</td><td class="num">3.50–4.16</td><td class="num">7.80–8.92</td><td class="num">2.46–2.88</td><td class="num">5.22–6.35</td><td class="num">3.60–4.01</td><td class="num">5.07–5.34</td></tr>
+<tr><td>Hawkes original</td><td class="num lo">2.91</td><td class="num lo">6.06</td><td class="num lo">2.37</td><td class="num lo">4.82</td><td class="num ok">3.67</td><td class="num hi">10.42</td></tr>
+<tr><td>Hawkes queue</td><td class="num hi">6.83</td><td class="num hi">19.14</td><td class="num hi">4.31</td><td class="num hi">10.10</td><td class="num hi">5.70</td><td class="num hi">14.90</td></tr>
+<tr><td>Hawkes refill</td><td class="num lo">1.72</td><td class="num lo">3.43</td><td class="num lo">1.58</td><td class="num lo">2.73</td><td class="num lo">1.82</td><td class="num lo">3.56</td></tr>
+<tr><td>ABIDES original</td><td class="num hi">7.55</td><td class="num hi">11.13</td><td class="num hi">8.90</td><td class="num hi">12.82</td><td class="num hi">5.05</td><td class="num hi">7.65</td></tr>
+<tr><td>ABIDES calibrated</td><td class="num lo">2.02</td><td class="num lo">5.69</td><td class="num lo">2.12</td><td class="num ok">5.34</td><td class="num ok">3.60</td><td class="num hi">9.15</td></tr>
+</tbody></table></div>
+<p class="note">Red: above the real band (too expensive); amber: below (too cheap); green: inside.</p>
+<h4>TWAP peak impact (bps) against two real-data benchmarks</h4>
+<div class="tbl"><table><thead><tr><th></th><th class="num">INTC 10%</th><th class="num">INTC 30%</th><th class="num">CSCO 10%</th><th class="num">CSCO 30%</th><th class="num">MSFT 10%</th><th class="num">MSFT 30%</th></tr></thead><tbody>
+<tr class="sub"><td>Literature square-root band</td><td class="num">0.9–4.4</td><td class="num">1.5–7.7</td><td class="num">0.9–4.4</td><td class="num">1.5–7.7</td><td class="num">0.9–4.4</td><td class="num">1.5–7.7</td></tr>
+<tr class="sub"><td>Measured, synthetic metaorders</td><td class="num">5.8</td><td class="num">8.5</td><td class="num">5.6</td><td class="num">8.0</td><td class="num">6.5</td><td class="num">10.4</td></tr>
+<tr><td>Hawkes original</td><td class="num">8.2</td><td class="num">16.5</td><td class="num">7.4</td><td class="num">18.0</td><td class="num">12.1</td><td class="num">29.1</td></tr>
+<tr><td>Hawkes queue</td><td class="num">56.8</td><td class="num">102.3</td><td class="num">32.2</td><td class="num">73.2</td><td class="num">23.6</td><td class="num">42.7</td></tr>
+<tr><td>Hawkes refill</td><td class="num">2.3</td><td class="num">3.8</td><td class="num">2.0</td><td class="num">3.9</td><td class="num">3.6</td><td class="num">6.4</td></tr>
+<tr><td>ABIDES original</td><td class="num">1.6</td><td class="num">4.0</td><td class="num">1.4</td><td class="num">3.2</td><td class="num">3.0</td><td class="num">6.1</td></tr>
+<tr><td>ABIDES calibrated</td><td class="num">0.4</td><td class="num">2.3</td><td class="num">0.5</td><td class="num">2.2</td><td class="num">4.7</td><td class="num">13.6</td></tr>
+</tbody></table></div>
+<div class="answer"><p>Against the literature band, Hawkes-refill and ABIDES-original fall inside on all six stock-size cases and Hawkes-original is 2–3 times too high. Against impact measured on our own trades, Hawkes-original is closest (1.3–1.9× at 10%) and Hawkes-refill about half. The ranking of versions is the same under both benchmarks; which one counts as "right" is not. Growth from 10% to 30% (square-root law: ×1.73): refill 1.66–1.91, Hawkes-original 2.21–2.42, ABIDES-original 1.85–2.47, ABIDES-calibrated 2.96–5.23.</p></div>
+<p>The resulting advice follows from the two errors: ABIDES-original prices selling at once 1.3–3.1 times too high and so advises patience; Hawkes-original makes gradual selling move the price strongly and so advises selling at once; Hawkes-refill gets gradual impact low and selling at once too cheap, and is nearly indifferent.</p>
+
+<h3 id="g1-rob">Robustness (INTC, 10%)</h3>
+<div class="tbl"><table><thead><tr><th>Check</th><th class="num">D (bps)</th><th>Reading</th></tr></thead><tbody>
+<tr><td>Hawkes original, five refits leaving out one fit day</td><td class="num">+2.2 to +4.9 (sd 1.02)</td><td>Always "sell at once"</td></tr>
+<tr><td>Hawkes refill, five refits</td><td class="num">+0.17 to +0.95 (sd 0.31)</td><td>Always near indifferent</td></tr>
+<tr><td>ABIDES original, 2nd and 3rd best configurations</td><td class="num">−4.64 to −4.10 (sd 0.28)</td><td>Always "patience"</td></tr>
+<tr><td>Hawkes original, stability cap 0.8 / 0.9 / 0.95</td><td class="num">+0.97 / +3.53 / +6.21</td><td><span class="chip no">sensitive</span> the cap is not identified by the data, yet scales the advice sixfold</td></tr>
+<tr><td>Hawkes refill, cap 0.8 / 0.9 / 0.95</td><td class="num">+0.18 / +0.35 / +1.45</td><td>Less sensitive</td></tr>
+<tr><td>ABIDES calibrated with realistic volatility (5-s volatility 1.22 against 1.51 real; was 0.13)</td><td class="num">+4.00 [−3.29, +10.83]</td><td><span class="chip no">flips</span> in 6 of 7 slices; its earlier patience came from a too-calm price</td></tr>
+</tbody></table></div>
+
+<h3 id="g1-li">LOB-Impact on the five versions</h3>
+<p>64 rollouts per arm and side (paper: 1,024 over 20 days), all eight days. Claim ladder C1–C5 with the paper's criteria: C1 flow balance (γ, H, drift within 0.10, 0.02, 5 ticks of the real stream); C2 law identified and impact detected; C3 visible over blind ≥ 3; C4 square-root law (|δ−0.5| ≤ 0.10 and Y in [0.5, 1]); C5 relaxation at or below the Obizhaeva–Wang kernel (0.87). ✓ pass, ✗ fail, · not decidable.</p>
+<div class="tbl"><table><thead><tr><th>Stock</th><th>Version</th><th class="num">γ</th><th class="num">H</th><th class="num">δ</th><th class="num">Y</th><th class="num">Peak bps</th><th class="num">End/peak</th><th class="num">v/b</th><th>C1–C5</th></tr></thead><tbody id="li-table"></tbody></table></div>
+<p class="note">Real streams: γ = 1.83 / 0.77 / 1.97 and H = 0.51 / 0.50 / 0.54 for INTC / CSCO / MSFT. LOB-Impact peak impact ranks the versions as our square-root check does (rank correlation 0.9 on each stock) and lines up with D (1.0, 1.0, 0.5); LOB-Bench order-book scores run the other way (−1.0 to −0.2).</p>
+
+<h3 id="g1-abides">Why ABIDES does not react</h3>
+<div class="tbl"><table><thead><tr><th>Peak impact after 100 children, bps (± s.e.), INTC</th><th class="num">Normal child, own clock</th><th class="num">Normal, real-time spacing</th><th class="num">5× child, own clock</th><th class="num">5×, real-time spacing</th></tr></thead><tbody>
+<tr><td>ABIDES original</td><td class="num">−0.4 ± 0.7</td><td class="num">0.6 ± 0.9</td><td class="num">0.7 ± 0.9</td><td class="num">1.8 ± 0.8</td></tr>
+<tr><td>ABIDES calibrated</td><td class="num">0.5 ± 0.5</td><td class="num">0.2 ± 0.5</td><td class="num ok">2.5 ± 0.6</td><td class="num ok">2.4 ± 0.6</td></tr>
+<tr><td>Hawkes original (comparison)</td><td class="num">16.4 ± 3.6</td><td class="num">—</td><td class="num">—</td><td class="num">57 ± 9</td></tr>
+</tbody></table></div>
+<p>The clock adaptation is not the cause. ABIDES-calibrated's deep book absorbs 100-share children (direct jump 0.00 bps); with 5× children impact appears. ABIDES-original reverts every displacement (+2.2 bps of direct jumps undone by −2.2 bps between children), because its value agents trade towards a fundamental price our orders cannot move. Across simulators, 100-share children move the mid directly in only 1–8% of cases; Hawkes impact builds between children (+19 to +25 bps per metaorder).</p>
+
+<h3 id="g1-trades">TRADES case study</h3>
+<p>In the one window TRADES covers, its realism score was close to ABIDES-original's (0.47 against 0.44) and the two disagreed by mean cost; the TRADES result was driven by occasional collapses of one side of its book, and by median it preferred front-loading. Ten sampling steps instead of one scored worse on LOB-Bench (0.555 against 0.483), and a second training seed failed to learn. TRADES is reported as a case study only.</p>
+</section>
+
+<section id="goal2">
+<h2>9 Goal 2 design: markets with known answers</h2>
+<p>Each reference market is a simulator whose rules we wrote, so every strategy's true expected cost can be computed (300 seeds per strategy and size). Candidate simulators see only six 30-minute observable episodes (event log and quotes), are fitted, scored for realism against twelve held-out reference windows, and asked for a recommendation (30 seeds). Regret is the true cost of the recommendation minus the true best.</p>
+<h3>The 26 reference markets</h3>
+<div class="tbl"><table><thead><tr><th>Set</th><th>Markets</th><th>How they were made</th></tr></thead><tbody>
+<tr><td>Original (4)</td><td class="mono">R1a qr resilient, R1b qr fragile, R2a am anchored, R2b am trending</td><td>Two queue-reactive markets (order flow responds to queue sizes) and two agent-mix markets (noise traders, fundamentalists, trend followers with a hidden regime, liquidity providers who flee one-sided flow)</td></tr>
+<tr><td>Designed (6)</td><td class="mono">R1c thin, R1d momentum, R1e deep, R2c anchor, R2d toxic, R2e calm</td><td>One mechanism dial changed each (addendum 3)</td></tr>
+<tr><td>Randomly drawn (10)</td><td class="mono">R1s01–R1s05, R2s01–R2s05</td><td>Parameters drawn log-uniformly from fixed ranges with seed 20261103; first five viable per family kept; all ten first draws were viable (addendum 4)</td></tr>
+<tr><td>Well-specified (6)</td><td class="mono">W1–W6</td><td>Built from the candidates' own Hawkes family: designs h_k1 and h_c_f_m_k1 as fitted to R1a, R1b and R2a (addendum 5)</td></tr>
+</tbody></table></div>
+<details><summary>Parameters of the ten randomly drawn markets</summary>
+<div class="tbl"><table id="sampled-params"><thead><tr><th>Market</th><th>Parameters</th></tr></thead><tbody></tbody></table></div>
+</details>
+<h3>The 29 candidate simulators per market</h3>
+<ul>
+<li><b>Hawkes family (28):</b> every combination of spread closing, gap filling and multi-timescale kernels (8 structures), each with market-order excitation scaled 0.5, 1 or 2 (24), plus stability caps 0.8 and 0.95 for the plain and the full structure (4).</li>
+<li><b>ABIDES (1):</b> calibrated to each market on an 18-point grid by simulated moments.</li>
+<li><b>Exploratory 30th:</b> a queue-reactive simulator (section 11).</li>
+</ul>
+<h3>Inference</h3>
+<p>The 29 designs recur in every market, there are few markets, and each recommendation rests on 30 seeds. All Goal 2 intervals come from a three-level bootstrap (2,000 resamples): markets with replacement; designs with replacement, shared across markets; seeds within each market and design, from which predicted costs, recommendations, regret and the metaorder measure are recomputed. Realism and LOB-Impact scores are held fixed. Exact ties in predicted costs go to the first strategy by name in every code path.</p>
+</section>
+
+<section id="goal2r">
+<h2>10 Goal 2 results</h2>
+<h3 id="g2-first">Which measures predict good advice</h3>
+<figure>
+  <div class="legend"><span><span class="dot" style="background:var(--ink-3)"></span>realism scores</span><span><span class="dot" style="background:var(--accent)"></span>counterfactual scores</span><span class="note">rank correlation with regret (positive: a better score goes with lower regret), 95% interval from the three-level bootstrap</span></div>
+  <div class="panels" id="corr-panels"></div>
+  <figcaption><b>Three sets of markets.</b> The first four markets, the first ten (original and designed), and the ten randomly drawn markets of the confirmatory test. Realism scores never predict good advice. The task-specific metaorder measure is positive in all three sets but its interval includes zero in the confirmatory set.</figcaption>
+</figure>
+<div class="tbl"><table><thead><tr><th>Mean regret (bps) of the simulator chosen by…</th><th class="num">First 4</th><th class="num">First 10</th><th class="num">Drawn 10</th></tr></thead><tbody>
+<tr class="sub"><td>Always TWAP (no simulator)</td><td class="num">1.52</td><td class="num">1.89</td><td class="num">2.10</td></tr>
+<tr><td>Best metaorder impact (ours)</td><td class="num">1.94</td><td class="num">2.56</td><td class="num">2.75</td></tr>
+<tr><td>Best LOB-Impact peak impact</td><td class="num">5.65</td><td class="num">4.21</td><td class="num">2.44</td></tr>
+<tr><td>Best LOB-Bench order book</td><td class="num">6.89</td><td class="num">3.86</td><td class="num">5.41</td></tr>
+<tr><td>Best LOB-Bench price statistics</td><td class="num">6.53</td><td class="num">5.65</td><td class="num">3.66</td></tr>
+<tr><td>Best LOB-Bench impact score</td><td class="num">7.99</td><td class="num">6.99</td><td class="num">5.81</td></tr>
+<tr><td>Median simulator</td><td class="num">6.69</td><td class="num">5.33</td><td class="num">—</td></tr>
+</tbody></table></div>
+
+<h3 id="g2-conf">Confirmatory test on ten randomly drawn markets</h3>
+<div class="tbl"><table><thead><tr><th>Hypothesis (addendum 4)</th><th class="num">Result</th><th>Verdict</th></tr></thead><tbody>
+<tr><td><b>C1</b> (primary) Metaorder impact accuracy predicts good advice</td><td class="num">+0.15 [−0.03, 0.28]</td><td><span class="chip no">not confirmed</span> positive in 94% of resamples</td></tr>
+<tr><td><b>C2</b> Choosing by it beats choosing by LOB-Bench order book</td><td class="num">−2.66 [−4.75, +0.03]</td><td><span class="chip no">not confirmed</span> narrowly</td></tr>
+<tr><td><b>C3</b> No realism measure predicts good advice</td><td class="num">all intervals include or fall below 0</td><td><span class="chip yes">holds</span> trade response −0.16 [−0.29, −0.03]</td></tr>
+<tr><td><b>C4</b> Choosing by metaorder impact against always TWAP</td><td class="num">+0.64 [−0.20, +1.94]</td><td><span class="chip mid">TWAP not beaten</span></td></tr>
+</tbody></table></div>
+<p class="note">Not pre-registered as confirmatory: choosing by LOB-Impact peak impact rather than order book, −2.97 [−4.72, −0.005] in the drawn markets.</p>
+
+<h3 id="g2-markets">Market by market</h3>
+<figure>
+  <div class="legend"><span><span class="dot" style="background:var(--good)"></span>always TWAP</span><span><span class="dot" style="background:var(--accent)"></span>chosen by metaorder impact</span><span><span class="dot" style="background:var(--ink-3)"></span>chosen by LOB-Bench order book</span><span><span class="dot" style="background:var(--bad)"></span>median simulator</span></div>
+  <div class="svgwrap"><svg id="markets" role="img" aria-label="Regret by market"></svg></div>
+  <figcaption><b>Regret in each of the 26 markets</b> (bps, mean of the two order sizes). Queue-reactive markets have small regrets for everything; agent-mix markets are where simulators go badly wrong; in the well-specified Hawkes-built markets the median simulator often beats TWAP.</figcaption>
+</figure>
+<details><summary>Table: best strategy and regret per market</summary>
+<div class="tbl"><table id="market-table"><thead><tr><th>Market</th><th>Set</th><th>True best strategy (5% and 15% sizes)</th><th class="num">TWAP</th><th class="num">By metaorder</th><th class="num">By order book</th><th class="num">Median simulator</th></tr></thead><tbody></tbody></table></div>
+</details>
+
+<h3 id="g2-why">Why TWAP wins: predicted against true gains</h3>
+<figure>
+  <div class="svgwrap"><svg id="bias" role="img" aria-label="Predicted and true gain over TWAP by strategy"></svg></div>
+  <figcaption><b>Predicted against true gain over TWAP, by strategy</b> (first ten markets, 29 simulators). Simulators think selling at once is as cheap as TWAP; it is 8 bps worse, their most frequent pick (133 of 576) and never the best. They undervalue signal reversal, the true best in 10 of 20 cells.</figcaption>
+</figure>
+<ul>
+<li><b>Shared and idiosyncratic error:</b> 29% of the error variance is shared by the simulators; 71% is specific to a simulator.</li>
+<li><b>Ranking before selection is poor:</b> median rank correlation of predicted and true costs over the 12 strategies is 0.22 (queue-reactive 0.42, agent-mix 0.02).</li>
+<li><b>Selection amplifies error (the optimizer's curse):</b> the chosen strategy's over-promise is +10.4 bps against +1.6 bps for a typical strategy. Promised and delivered gains of non-TWAP picks correlate −0.34; only 23% of them beat TWAP.</li>
+<li><b>Oracle:</b> removing the shared bias (using the truth) would give 1.62 bps against TWAP's 1.89.</li>
+</ul>
+
+<h3 id="g2-rules">Experiment A: deviate from TWAP only when confident</h3>
+<p>Choose alternative a only if D̂<sub>a</sub> − k σ̂<sub>a</sub> &gt; 0, else TWAP. σ̂ combines between-simulator disagreement, seed error and each strategy's historical error on the training markets (which captures error that all simulators share). k was chosen on the first ten markets and frozen (3 for the ensemble and per-simulator rules, 0.5 for the bias-corrected variant); tested on the drawn markets only.</p>
+<div class="tbl"><table><thead><tr><th>Rule</th><th class="num">Training (first 10)</th><th class="num">Test (drawn 10)</th></tr></thead><tbody>
+<tr><td>Ensemble, cheapest predicted strategy</td><td class="num">5.67</td><td class="num">5.83</td></tr>
+<tr><td>Each simulator alone, cheapest predicted</td><td class="num">4.77</td><td class="num">4.34</td></tr>
+<tr><td>Ensemble, gated, k = 3</td><td class="num">1.89</td><td class="num">2.10 (always TWAP)</td></tr>
+<tr><td>Ensemble, gated and bias-corrected, k = 0.5</td><td class="num">1.88</td><td class="num">2.26</td></tr>
+<tr><td>Per simulator, gated, k = 3 (k = 1)</td><td class="num">1.89 (2.72)</td><td class="num">2.10 (2.39)</td></tr>
+<tr class="sub"><td>Always TWAP</td><td class="num">1.89</td><td class="num">2.10</td></tr>
+</tbody></table></div>
+<p>A1 (gated minus ungated ensemble) −3.73 [−6.33, −0.96] and A3 (per simulator) −2.24 [−3.81, −0.69] are confirmed; A2: the gated rule equals TWAP exactly, because it never deviated.</p>
+
+<h3 id="g2-profile">Experiment B: a decision-relevant validation profile</h3>
+<div class="tbl"><table><thead><tr><th>Correlation with regret, drawn markets</th><th class="num">Estimate [95%]</th></tr></thead><tbody>
+<tr><td>TWAP impact error</td><td class="num">+0.15 [−0.07, 0.27]</td></tr>
+<tr><td>Immediate-execution cost error</td><td class="num">−0.01 [−0.12, 0.11]</td></tr>
+<tr><td>Relaxation error</td><td class="num">+0.09 [−0.06, 0.17]</td></tr>
+<tr><td>Conditional price response error</td><td class="num">−0.07 [−0.17, 0.08]</td></tr>
+<tr><td>Profile (mean rank of the four)</td><td class="num">+0.05 [−0.10, 0.16]</td></tr>
+<tr><td>Cost-ranking accuracy (oracle, synthetic only)</td><td class="num">+0.60</td></tr>
+</tbody></table></div>
+<p>B1 (profile minus TWAP impact alone) −0.10 [−0.17, +0.05]: <span class="chip no">not supported</span>. Ranking accuracy, which needs the truth, predicts strongly: the information exists, but none of the observable checks captures it.</p>
+
+<h3 id="g2-spec">Experiment C: is the problem misspecification?</h3>
+<figure>
+  <div class="svgwrap"><svg id="spec" role="img" aria-label="Regret in well-specified and misspecified markets"></svg></div>
+  <figcaption><b>Mean regret by rule</b> in the 6 markets the simulators' Hawkes family can represent and in the 20 it cannot.</figcaption>
+</figure>
+<div class="tbl"><table><thead><tr><th></th><th class="num">Well-specified (6)</th><th class="num">Misspecified (20)</th></tr></thead><tbody>
+<tr><td>Ensemble's cheapest strategy minus TWAP (exploratory)</td><td class="num ok">−1.96 [−5.05, +1.78]</td><td class="num hi">+3.75 [+1.51, +5.99]</td></tr>
+<tr><td>Single simulator minus TWAP (exploratory)</td><td class="num">+0.23 [−2.65, +3.48]</td><td class="num hi">+2.56 [+1.21, +3.79]</td></tr>
+<tr><td>Metaorder impact accuracy, correlation with good advice</td><td class="num">+0.07 [−0.16, 0.25]</td><td class="num">+0.20 [0.03, 0.24]</td></tr>
+<tr><td>Cost-ranking accuracy, correlation</td><td class="num">+0.52</td><td class="num">+0.56</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="explore">
+<h2>11 Literature checks (exploratory)</h2>
+<p>A literature review raised five objections. All were tested after the results were known.</p>
+<h3>Schedules against signal strategies</h3>
+<div class="tbl"><table><thead><tr><th>Misspecified markets (20)</th><th class="num">All strategies</th><th class="num">Schedules only</th></tr></thead><tbody>
+<tr><td>Regret, always TWAP</td><td class="num">2.00</td><td class="num">1.06</td></tr>
+<tr><td>Regret, ensemble's cheapest strategy</td><td class="num">5.75</td><td class="num">4.90</td></tr>
+<tr><td>Choose by metaorder accuracy minus TWAP</td><td class="num">+0.66 [+0.04, +1.78]</td><td class="num">+0.89 [+0.16, +1.86]</td></tr>
+<tr><td>Metaorder accuracy, correlation</td><td class="num">+0.20 [0.04, 0.25]</td><td class="num">+0.17 [0.04, 0.27]</td></tr>
+<tr><td>LOB-Bench order book, correlation</td><td class="num">−0.10 [−0.21, 0.01]</td><td class="num">−0.12 [−0.25, −0.00]</td></tr>
+</tbody></table></div>
+<h3>Bayesian shrinkage (Smith and Winkler 2006)</h3>
+<div class="tbl"><table><thead><tr><th>Mean regret</th><th class="num">Always TWAP</th><th class="num">Ensemble, cheapest</th><th class="num">Bayesian shrinkage</th><th class="num">Prior only, no simulator</th></tr></thead><tbody>
+<tr><td>Drawn markets (10)</td><td class="num">2.10</td><td class="num">5.83</td><td class="num ok">0.73</td><td class="num ok">0.73</td></tr>
+<tr><td>Well-specified (6)</td><td class="num">4.11</td><td class="num">2.15</td><td class="num hi">5.02</td><td class="num hi">5.02</td></tr>
+</tbody></table></div>
+<p>The weight on the simulators' predictions is about zero; the rule reduces to "use the strategy that won in training" (signal reversal). Knowing the family of market beats any simulator, and our two synthetic families share mechanisms.</p>
+<h3>Hidden liquidity and the cost of selling at once</h3>
+<p>Hidden orders execute 20–24% of bid-side volume. The real-cost band in section 8 includes this; the mechanism is unchanged.</p>
+<h3>Impact measured with synthetic metaorders (Maitrier, Loeper and Bouchaud)</h3>
+<div class="tbl"><table><thead><tr><th>Stock</th><th class="num">Metaorders per assignment</th><th class="num">Exponent</th><th class="num">Amplitude Y at Q/V = 10⁻³</th></tr></thead><tbody>
+<tr><td>INTC</td><td class="num">99,967</td><td class="num">0.35</td><td class="num">0.86</td></tr>
+<tr><td>CSCO</td><td class="num">71,210</td><td class="num">0.33</td><td class="num">0.97</td></tr>
+<tr><td>MSFT</td><td class="num">247,797</td><td class="num">0.43</td><td class="num">0.92</td></tr>
+</tbody></table></div>
+<h3>A modern queue-reactive candidate</h3>
+<div class="tbl"><table><thead><tr><th>Mean regret</th><th class="num">Queue-reactive candidate</th><th class="num">Always TWAP</th><th class="num">Median Hawkes</th><th class="num">Its rank of 30</th><th class="num">Its end/peak (market's)</th></tr></thead><tbody>
+<tr><td>Queue-reactive markets (10)</td><td class="num">0.54</td><td class="num">0.41</td><td class="num">0.58</td><td class="num">15</td><td class="num">0.15 (1.10)</td></tr>
+<tr><td>Agent-mix markets (10)</td><td class="num">7.23</td><td class="num">3.58</td><td class="num">9.68</td><td class="num">12</td><td class="num">0.72 (−0.07)</td></tr>
+<tr><td>Hawkes-built markets (6)</td><td class="num">8.64</td><td class="num">4.11</td><td class="num">1.70</td><td class="num">24</td><td class="num">−0.15 (0.81)</td></tr>
+</tbody></table></div>
+<p class="note">Intensities depend on spread and ten-level depth imbalance (15 states), with no memory of past events; a simplified implementation, not the published model (the synthetic markets' logs do not record best-queue sizes).</p>
+</section>
+
+<section id="a6">
+<h2>11b Oracle, mechanism ablation and out-of-family rules (addendum 6)</h2>
+<p>Pre-registered on 5 November 2026 after review, before computation.</p>
+<h3>Positive control: the true generator through our pipeline</h3>
+<div class="tbl"><table><thead><tr><th>Family</th><th class="num">Always TWAP</th><th class="num">Oracle, 30 seeds</th><th class="num">Oracle, 100 seeds</th><th class="num">Rank corr. 30 / 100</th><th class="num">Candidates</th><th class="num">Misspecification share</th></tr></thead><tbody>
+<tr><td>Queue-reactive</td><td class="num">0.41</td><td class="num hi">0.61</td><td class="num hi">0.54</td><td class="num">0.28 / 0.28</td><td class="num">0.67</td><td class="num">8%</td></tr>
+<tr><td>Agent-mix</td><td class="num">3.58</td><td class="num">2.91</td><td class="num">1.90</td><td class="num">0.81 / 0.87</td><td class="num">8.44</td><td class="num">66%</td></tr>
+<tr><td>Hawkes-built</td><td class="num">4.11</td><td class="num">3.03</td><td class="num">1.22</td><td class="num">0.61 / 0.87</td><td class="num">4.34</td><td class="num">30%</td></tr>
+</tbody></table></div>
+<div class="answer"><p><span class="chip no">failed</span> The pre-registered criterion (30 seeds: regret ≤ 0.5 bps and ≤ a quarter of TWAP's in every family; median rank correlation ≥ 0.8) is not met. The pipeline is unbiased (oracle against truth z-scores: mean −0.05, sd 0.87, 3% beyond 2), so the failure is statistical power. In queue-reactive markets 7 of 11 alternatives are indistinguishable from the best even at 300 seeds (median gap 0.46 bps against a 30-seed standard error of about 1 bp). In the other families the best is distinct (gaps about 5.7 bps) but 30 seeds give standard errors of 3.5–5.5 bps. Misspecification dominates candidate regret only in the agent-mix markets.</p></div>
+<h3>Mechanism ablation: which errors change the decision</h3>
+<div class="tbl"><table><thead><tr><th>Mechanism</th><th>Family</th><th class="num">Largest regret, misjudged ×2 (5% / 15%)</th><th class="num">Regret, misjudged by 4 levels</th><th>Changes the decision</th></tr></thead><tbody>
+<tr><td>Liquidity replenishment</td><td>queue-reactive</td><td class="num">0.43 / 0.64</td><td class="num">0.76</td><td><span class="chip yes">no</span></td></tr>
+<tr><td>Order-flow momentum</td><td>queue-reactive</td><td class="num">0.24 / 0.76</td><td class="num">0.58</td><td><span class="chip yes">no</span></td></tr>
+<tr><td>Fundamental anchoring (impact decay, mean reversion)</td><td>agent-mix</td><td class="num">3.99 / 0.00</td><td class="num">2.62</td><td><span class="chip no">yes</span></td></tr>
+<tr><td>Trend following</td><td>agent-mix</td><td class="num">2.86 / 0.00</td><td class="num">1.55</td><td><span class="chip no">yes</span></td></tr>
+<tr><td>Liquidity withdrawal</td><td>agent-mix</td><td class="num">0.00 / 2.88</td><td class="num">1.69</td><td><span class="chip no">yes</span></td></tr>
+</tbody></table></div>
+<p>Queue-reactive mechanisms change which strategy is nominally best but every strategy costs about the same. Agent-mix mechanisms matter: signal reversal is optimal almost everywhere and TWAP costs 1–7 bps, and the decision flips at the extremes. These are the mechanisms the candidates lack.</p>
+<h3>Out-of-family rules</h3>
+<div class="tbl"><table><thead><tr><th>Train → test</th><th class="num">Gated rule minus TWAP</th><th class="num">Shrinkage minus TWAP</th></tr></thead><tbody>
+<tr><td>Queue-reactive (k 0.25) → agent-mix</td><td class="num hi">+7.28 [+3.02, +8.98]</td><td class="num hi">+1.06 [+0.45, +1.63]</td></tr>
+<tr><td>Queue-reactive → Hawkes-built</td><td class="num">−1.94 [−4.61, +0.69]</td><td class="num ok">−1.52 [−2.40, −0.63]</td></tr>
+<tr><td>Agent-mix (k 3) → queue-reactive</td><td class="num">0.00, always TWAP</td><td class="num">+0.12 [−0.14, +0.45]</td></tr>
+<tr><td>Agent-mix → Hawkes-built</td><td class="num">0.00, always TWAP</td><td class="num">+0.91 [−1.23, +3.02]</td></tr>
+<tr><td>Hawkes-built (k 0) → queue-reactive</td><td class="num">+0.05 [−0.27, +0.65]</td><td class="num ok">−0.19 [−0.33, −0.07]</td></tr>
+<tr><td>Hawkes-built → agent-mix</td><td class="num hi">+7.46 [+3.84, +10.02]</td><td class="num hi">+2.20 [+0.66, +5.01]</td></tr>
+</tbody></table></div>
+<p>Only a rule that always picks TWAP generalises. The level of trust learned in one family is wrong in another, and nothing observable before optimisation says which family one is in.</p>
+</section>
+
+<section id="claims">
+<h2>12 What we can claim</h2>
+<div class="tbl"><table><thead><tr><th>Claim</th><th>Evidence</th><th>Strength</th></tr></thead><tbody>
+<tr><td>Similarly realistic simulators give opposite execution advice</td><td>H1 on three stocks, pre-registered on two</td><td><span class="chip yes">strong</span></td></tr>
+<tr><td>Observational realism does not identify reliable simulators</td><td>C3 confirmed; no realism score positive in any market set</td><td><span class="chip yes">strong</span></td></tr>
+<tr><td>Optimising over a misspecified simulator is worse than TWAP</td><td>+3.75 bps [+1.51, +5.99] over 20 misspecified markets (exploratory comparison)</td><td><span class="chip yes">strong</span></td></tr>
+<tr><td>Selection amplifies model error</td><td>Over-promise +10.4 against +1.6 bps; gating removes the damage (A1, A3 confirmed)</td><td><span class="chip yes">strong</span></td></tr>
+<tr><td>Accuracy on the trader's own impact predicts good advice</td><td>Positive in every set; C1 not confirmed</td><td><span class="chip mid">weak</span></td></tr>
+<tr><td>A specific simulator "gets impact right" on real data</td><td>Depends on the benchmark</td><td><span class="chip mid">conditional</span></td></tr>
+<tr><td>Simulator-based selection beats TWAP</td><td>Not in any market set</td><td><span class="chip no">not supported</span></td></tr>
+<tr><td>Simulator error, not the decision pipeline, explains the losses to TWAP</td><td>Oracle fails at 30 seeds; misspecification share 8% (queue-reactive), 30% (Hawkes-built), 66% (agent-mix)</td><td><span class="chip mid">only in agent-mix markets</span></td></tr>
+<tr><td>Some mechanisms matter for the decision and others do not</td><td>Ablation: anchoring, trend following and withdrawal change it; replenishment and momentum do not</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
+<tr><td>A decision rule tuned on one kind of market transfers to another</td><td>Out-of-family: only always-TWAP generalises</td><td><span class="chip no">not supported</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section id="limits">
+<h2>13 Limitations</h2>
+<ul>
+<li>Three large US stocks, eight public sample days, sell orders, market orders only, ten-minute horizon.</li>
+<li>Goal 2 decisions rest on 30 seeds per candidate, which the oracle shows is too few: sampling noise alone produces regret of the order of TWAP's in agent-mix and Hawkes-built markets. Queue-reactive decisions are flat.</li>
+<li>Real data cannot say which simulator is right. Ground truth comes only from synthetic markets whose rules we wrote; the two synthetic families share mechanisms (mean reversion), which a prior can exploit.</li>
+<li>The well-specified comparison rests on six markets and its favourable result for simulators is not significant.</li>
+<li>LOB-Impact used 64 rollouts per arm over 8 days (paper: 1,024 over 20); ABIDES ran on a time clock, slow ABIDES runs were fitted into the trading day, and the Hawkes blind arm is only partly blind.</li>
+<li>The real cost of selling at once is a band, not a point (hidden liquidity, other venues); real impact depends on the benchmark used.</li>
+<li>Hawkes models miss sub-millisecond bursts; ABIDES-calibrated uses data-fitted quoting agents.</li>
+<li>TRADES rests on one successfully trained seed and five training days.</li>
+</ul>
+</section>
+
+<section id="log">
+<h2>14 Deviations and corrections</h2>
+<h3>Deviations from plans</h3>
+<ul>
+<li>Base versions ran 60 seeds instead of 20 (runner default); tests use the pre-registered 20.</li>
+<li>MSFT ABIDES-calibrated at 30% finished 92 of 120 seed-sets (30% is exploratory).</li>
+<li>ABIDES LOB-Impact rollouts fitted into 5.5 hours, making ABIDES-original's children up to 2.5 times denser (addendum 1).</li>
+<li>LOB-Impact estimators ported, then validated against the tool (addendum 2).</li>
+<li>A deep-book market (R1e) has zero five-second volatility, so LOB-Impact's amplitude is undefined there and reported as "no law".</li>
+</ul>
+<h3>Errors found and corrected</h3>
+<div class="tbl"><table><thead><tr><th>Error</th><th>Effect</th><th>Correction</th></tr></thead><tbody>
+<tr><td>Run files mislabelled with the wrong Hawkes version</td><td>307 files under the wrong name</td><td>Renamed; runner fixed</td></tr>
+<tr><td>Kaggle mounted stale dataset versions; one notebook used old code</td><td>Finished jobs rerun; wrong code for one run</td><td>New dataset names per release; runs repeated</td></tr>
+<tr><td>Early claim that improved simulators converge</td><td>Not replicated (H3)</td><td>Claim withdrawn</td></tr>
+<tr><td>Cost ratios on the first meeting page</td><td>Several ratios wrong</td><td>Recomputed from recorded costs</td></tr>
+<tr><td>Goal 2 averages over different subsets of markets</td><td>Made the LOB-Impact law error look like the best selector</td><td>Same-market comparisons added</td></tr>
+<tr><td>LOB-Impact claim C2 ignored the detection gate</td><td>Two ABIDES cells wrongly passed</td><td>Gate applied as in the paper</td></tr>
+<tr><td>Diagnostic runs overwrote the exported CSVs; the scoring pattern could pick them up</td><td>First tool run used wrong files; no reported number affected</td><td>Exports regenerated from seeds; exact file patterns</td></tr>
+<tr><td>Two code paths broke an exact tie differently</td><td>Disagreeing regret in one cell</td><td>One tie rule everywhere</td></tr>
+<tr><td>CSCO real-stream records deleted during cleanup</td><td>None after regeneration</td><td>Regenerated from ITCH data</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="files">
+<h2>15 Files</h2>
+<div class="tbl"><table><thead><tr><th>What</th><th>Where</th></tr></thead><tbody>
+<tr><td>Plans and checksums</td><td class="mono">simrel/reports/preregistration_confirmatory.md, goal2_design.md, lob_impact_design.md (+ addenda 1–5), *.sha256</td></tr>
+<tr><td>Validation and exploratory reports</td><td class="mono">simrel/reports/lob_impact_validation.md, exploratory_literature_checks.md</td></tr>
+<tr><td>Goal 1 pipeline</td><td class="mono">simrel/experiments/slice_01_run.py … slice_17_synthetic_metaorders.py, confirm_analyse.py</td></tr>
+<tr><td>LOB-Impact</td><td class="mono">simrel/metrics/lob_impact.py; experiments/impact_01_run.py … impact_05_unique_days.py</td></tr>
+<tr><td>Goal 2</td><td class="mono">experiments/goal2_run.py, goal2_impact.py, goal2_cluster_bootstrap.py, goal2_error_diagnostic.py, goal2_rules.py, goal2_exploratory.py, goal2_qr_candidate.py</td></tr>
+<tr><td>Simulators</td><td class="mono">simrel/adapters/hawkes*.py, abides*.py, qr_candidate.py; simrel/reference_worlds/; simbench/</td></tr>
+<tr><td>Results</td><td class="mono">results/simrel/slices, slices_CSCO, slices_MSFT, lob_impact/, goal2/ (lob_impact/, rules/, diagnostic/, exploratory/)</td></tr>
+</tbody></table></div>
+<p class="note">Repository: GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (commit f28c0d9). Benchmarks: LOB-Bench (peernagy/lob_bench, 276baf3); LOB-Impact (george-nigmatulin/lob_impact, 0aaf6bf). Simulators: abides-jpmc-public (f9cbe51), DeepMarket/TRADES (8f1f89b). The meeting summary of this study is a separate, shorter page.</p>
+</section>
+</main>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent){ const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
+function txt(parent, x, y, s, attrs){ const t = el("text", Object.assign({x, y, "font-size": 12, fill: css("--ink")}, attrs || {}), parent); t.textContent = s; return t; }
+const tip = document.getElementById("tip");
+function hover(node, html){ node.addEventListener("mousemove", e => { tip.innerHTML = html; tip.hidden = false; tip.style.left = Math.min(e.clientX + 12, innerWidth - 330) + "px"; tip.style.top = (e.clientY + 14) + "px"; }); node.addEventListener("mouseleave", () => tip.hidden = true); }
+
+/* ---------- static tables filled from data ---------- */
+const LI = [
+ ["INTC","Hawkes original",2.023,0.430,0.967,2.502,18.4,0.614,10.8,"✗✓✓✗✓"],["INTC","Hawkes queue",1.702,0.565,1.046,13.153,81.1,0.420,26.7,"✗✓✓✗✗"],["INTC","Hawkes refill",null,0.379,0.559,0.340,2.4,1.139,3.8,"✗✓✓✗·"],["INTC","ABIDES original",0.256,0.316,null,null,-0.2,null,null,"✗✗···"],["INTC","ABIDES calibrated",null,0.453,null,null,0.5,null,null,"✗✗···"],
+ ["CSCO","Hawkes original",2.049,0.443,0.821,2.860,19.3,1.128,11.4,"✗✓✓✗✗"],["CSCO","Hawkes queue",1.830,0.550,1.011,11.288,78.4,1.829,33.1,"✗✓✓✗✗"],["CSCO","Hawkes refill",2.590,0.356,0.831,0.880,5.0,1.383,7.9,"✗✓✓✗·"],["CSCO","ABIDES original",-0.109,0.316,null,null,-0.4,null,null,"✗✗···"],["CSCO","ABIDES calibrated",null,0.415,null,null,0.3,null,null,"✗✗···"],
+ ["MSFT","Hawkes original",1.788,0.457,0.862,3.797,21.1,0.928,7.8,"✗✓✓✗✗"],["MSFT","Hawkes queue",2.366,0.456,1.057,7.412,34.7,0.962,8.7,"✗✓✓✗✗"],["MSFT","Hawkes refill",1.357,0.401,0.737,1.047,6.4,0.772,4.2,"✗✓✓✗✓"],["MSFT","ABIDES original",null,0.594,null,null,-2.0,null,null,"✗✗···"],["MSFT","ABIDES calibrated",null,0.735,null,null,-0.3,null,null,"✗✗···"]];
+const f = (v, d) => v === null ? "—" : (v > 0 && d === 1 ? "+" : "") + v.toFixed(d === 1 ? 1 : d);
+document.getElementById("li-table").innerHTML = LI.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="num">${f(r[2],2)}</td><td class="num">${f(r[3],2)}</td><td class="num">${f(r[4],2)}</td><td class="num${r[5]!==null && r[5]>=0.5 && r[5]<=1 ? " ok" : r[5]!==null && r[5]>1 ? " hi" : ""}">${f(r[5],2)}</td><td class="num">${f(r[6],1)}</td><td class="num">${f(r[7],2)}</td><td class="num">${f(r[8],1)}</td><td class="mono">${r[9]}</td></tr>`).join("");
+
+const MARKETS = [
+ ["R1a_qr_resilient","original","P3_back_b-2 / P6_signal_reversal",0.12,0.08,0.22,0.15,0.00],["R1b_qr_fragile","original","P0_twap / P6_signal_reversal",0.50,0.79,0.49,1.32,0.04],["R2a_am_anchored","original","P6_signal_reversal",2.48,4.63,14.71,12.39,0.07],["R2b_am_trending","original","P6_signal_reversal",2.99,2.28,12.13,12.47,0.09],
+ ["R1c_qr_thin","designed","P0_twap / P5_liquidity",0.61,0.30,0.91,0.74,0.02],["R1d_qr_momentum","designed","P3_back_b-2 / P6_signal_momentum",0.79,1.24,0.19,1.59,0.02],["R1e_qr_deep","designed","P0_twap / P4_pov_1x",0.00,0.00,0.00,0.00,0.00],["R2c_am_anchor","designed","P5_liquidity / P6_signal_reversal",0.74,6.11,2.30,13.01,0.04],["R2d_am_toxic","designed","P2_front_b4 / P6_signal_reversal",9.44,7.91,5.95,9.97,0.11],["R2e_am_calm","designed","P6_signal_reversal",1.21,2.29,1.71,1.71,0.01],
+ ["R1s01","drawn","P3_back_b-2",0.24,0.21,0.11,0.11,0.00],["R1s02","drawn","P3_back_b-2 / P5_liquidity",0.02,0.05,0.05,0.05,0.00],["R1s03","drawn","P3_back_b-2 / P5_liquidity",0.83,0.55,0.00,0.09,0.03],["R1s04","drawn","P3_back_b-2 / P6_signal_reversal",0.26,1.82,1.51,0.52,0.01],["R1s05","drawn","P3_back_b-2 / P6_signal_reversal",0.70,0.59,0.55,0.82,0.01],
+ ["R2s01","drawn","P6_signal_reversal",3.76,2.07,10.66,9.67,0.03],["R2s02","drawn","P2_front_b2 / P6_signal_reversal",7.29,11.67,12.35,10.96,0.07],["R2s03","drawn","P6_signal_reversal",2.18,4.21,16.60,13.06,0.07],["R2s04","drawn","P6_signal_reversal",0.71,1.97,1.79,2.30,0.04],["R2s05","drawn","P2_front_b2 / P7_risk_0.5",5.04,4.31,10.45,10.45,0.05],
+ ["W1_hk1_R1a","well-specified","P2_front_b4 / P5_liquidity",0.48,0.21,0.18,0.47,0.01],["W2_hcfm_R1a","well-specified","P6_signal_momentum",0.20,0.18,0.43,0.20,0.01],["W3_hk1_R1b","well-specified","P5_liquidity",3.10,5.33,3.64,3.10,0.09],["W4_hcfm_R1b","well-specified","P5_liquidity",1.50,17.97,7.51,2.99,0.04],["W5_hk1_R2a","well-specified","P1_immediate / P3_back_b-2",9.71,8.43,8.45,2.32,0.10],["W6_hcfm_R2a","well-specified","P1_immediate / P5_liquidity",9.67,2.16,4.80,0.83,0.06]];
+document.querySelector("#market-table tbody").innerHTML = MARKETS.map(r => `<tr><td class="mono">${r[0]}</td><td>${r[1]}</td><td class="mono">${r[2]}</td><td class="num">${r[3].toFixed(2)}</td><td class="num">${r[4].toFixed(2)}</td><td class="num">${r[5].toFixed(2)}</td><td class="num">${r[6].toFixed(2)}</td></tr>`).join("");
+
+const SAMPLED = {"R1s01":"join 2.01, q0 3,226, deep 0.42, cancel 0.87, market 0.171, theta 1.81, init_qty 1,428","R1s02":"join 1.48, q0 3,412, deep 0.76, cancel 0.39, market 0.114, theta 1.69, init_qty 672","R1s03":"join 0.51, q0 1,631, deep 0.68, cancel 0.70, market 0.138, theta 2.41, init_qty 1,413","R1s04":"join 0.74, q0 3,870, deep 0.72, cancel 0.34, market 0.122, theta 1.80, init_qty 498","R1s05":"join 0.88, q0 3,306, deep 0.35, cancel 0.85, market 0.104, theta 2.05, init_qty 486","R2s01":"fund 0.031, fund_power 1.45, trend 0.020, trend_boost 4.79, regime_switch 1/397 s, withdraw 1.41, limit 1.54, fund_vol 0.27","R2s02":"fund 0.274, fund_power 1.72, trend 0.065, trend_boost 4.83, regime_switch 1/411 s, withdraw 1.40, limit 1.17, fund_vol 0.13","R2s03":"fund 0.140, fund_power 1.20, trend 0.042, trend_boost 5.09, regime_switch 1/236 s, withdraw 3.76, limit 1.50, fund_vol 0.28","R2s04":"fund 0.112, fund_power 1.27, trend 0.033, trend_boost 2.53, regime_switch 1/519 s, withdraw 3.53, limit 1.13, fund_vol 0.15","R2s05":"fund 0.188, fund_power 1.94, trend 0.061, trend_boost 2.07, regime_switch 1/639 s, withdraw 2.28, limit 1.02, fund_vol 0.14"};
+document.querySelector("#sampled-params tbody").innerHTML = Object.entries(SAMPLED).map(([k, v]) => `<tr><td class="mono">${k}</td><td class="mono">${v}</td></tr>`).join("");
+
+/* ---------- charts ---------- */
+const D = {
+  INTC: [["Hawkes original","hawkes",3.53,1.94,5.31],["Hawkes queue","hawkes",21.50,16.32,26.72],["Hawkes refill","hawkes",0.35,-0.60,1.40],["ABIDES original","abides",-4.10,-4.50,-3.68],["ABIDES calibrated","abides",-0.74,-0.95,-0.54]],
+  CSCO: [["Hawkes original","hawkes",2.20,0.88,3.58],["Hawkes queue","hawkes",8.82,4.87,13.16],["Hawkes refill","hawkes",0.93,0.34,1.54],["ABIDES original","abides",-4.95,-5.50,-4.39],["ABIDES calibrated","abides",-0.74,-1.00,-0.46]],
+  MSFT: [["Hawkes original","hawkes",2.23,0.72,3.81],["Hawkes queue","hawkes",0.03,-1.96,2.02],["Hawkes refill","hawkes",-0.49,-1.25,0.25],["ABIDES original","abides",-2.36,-3.88,-0.69],["ABIDES calibrated","abides",0.09,-2.38,2.57]],
+};
+function drawD(){
+  const host = document.getElementById("dpanels"); host.innerHTML = "";
+  for (const [sym, rows] of Object.entries(D)){
+    const div = document.createElement("div"); div.className = "panel"; div.innerHTML = `<h4>${sym}${sym === "INTC" ? " (discovery)" : " (pre-registered)"}</h4>`;
+    const W = 340, padL = 120, padR = 14, top = 6, rowH = 26, H = top + rows.length * rowH + 30;
+    const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, width: "100%"});
+    const lo = -6, hi = 27, x = v => padL + (W - padL - padR) * (Math.max(Math.min(v, hi), lo) - lo) / (hi - lo);
+    [-5,0,5,10,15,20,25].forEach(t => { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-24,stroke:t===0?css("--ink-3"):css("--grid"),"stroke-width":t===0?1.3:1},svg); txt(svg,x(t),H-8,t,{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); });
+    rows.forEach(([name,fam,d,l,h],i) => {
+      const y = top + i * rowH + rowH / 2, c = css(`--${fam}`);
+      txt(svg, padL - 8, y + 4, name, {"text-anchor":"end","font-size":11.5});
+      el("line",{x1:x(l),x2:x(h),y1:y,y2:y,stroke:c,"stroke-width":2,"stroke-linecap":"round"},svg);
+      el("circle",{cx:x(d),cy:y,r:5,fill:c,stroke:css("--surface"),"stroke-width":2},svg);
+      const hit = el("rect",{x:0,y:y-rowH/2,width:W,height:rowH,fill:"transparent"},svg);
+      hover(hit, `<b>${name}, ${sym}</b><br>D = ${d.toFixed(2)} bps (95%: ${l.toFixed(2)} to ${h.toFixed(2)})`);
+    });
+    div.appendChild(svg); host.appendChild(div);
+  }
+}
+function hbar(id, rows, max, fmt, minW){
+  const svg = document.getElementById(id); svg.innerHTML = "";
+  const W = 900, padL = 280, padR = 60, top = 6, rowH = 26, H = top + rows.length * rowH + 30;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", "100%"); svg.style.minWidth = (minW || 560) + "px";
+  const x = v => padL + (W - padL - padR) * v / max;
+  const step = max > 1 ? (max > 6 ? 2 : 1) : 0.1;
+  for (let t = 0; t <= max + 1e-9; t += step) { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-24,stroke:css("--grid")},svg); txt(svg,x(t),H-8,(+t.toFixed(2)).toString(),{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); }
+  rows.forEach(([n,v,f],i) => {
+    const y = top + i * rowH;
+    txt(svg, padL - 10, y + rowH / 2 + 4, n, {"text-anchor":"end"});
+    const r = el("rect",{x:padL,y:y+5,width:Math.max(x(v)-padL,1),height:rowH-10,rx:3,fill:css(`--${f}`)},svg);
+    txt(svg, x(v) + 6, y + rowH / 2 + 4, fmt(v), {"font-size":11,fill:css("--ink-2")});
+    hover(r, `<b>${n}</b><br>${fmt(v)}`);
+  });
+}
+function drawNative(){
+  hbar("native", [["Real data, other days",0.188,"real"],["Hawkes original",0.188,"hawkes"],["Hawkes refill",0.199,"hawkes"],["ABIDES calibrated + momentum",0.210,"abides"],["ABIDES calibrated",0.255,"abides"],["LOB-Bench baseline (published model)",0.381,"ink-3"],["TRADES, 1 step (12 sequences)",0.483,"trades"],["ABIDES original",0.503,"abides"],["TRADES, 10 steps (3 sequences)",0.555,"trades"]], 0.6, v => v.toFixed(3));
+}
+const CORR = {
+  "First four markets": [["Order book (LOB-Bench)",-0.14,-0.33,0.11,0],["Price statistics (LOB-Bench)",-0.22,-0.38,0.05,0],["Impact score (LOB-Bench)",-0.14,-0.21,0.24,0],["Flow and diffusion (LOB-Impact)",-0.16,-0.37,0.04,0],["Law shape vs literature (LOB-Impact)",-0.16,-0.30,0.13,1],["Peak impact (LOB-Impact)",0.20,-0.12,0.42,1],["Metaorder impact (ours)",0.39,0.01,0.44,1]],
+  "First ten markets": [["Order book (LOB-Bench)",-0.07,-0.23,0.07,0],["Price statistics (LOB-Bench)",-0.21,-0.30,-0.01,0],["Impact score (LOB-Bench)",-0.13,-0.20,0.09,0],["Flow and diffusion (LOB-Impact)",-0.12,-0.21,0.05,0],["Law shape vs literature (LOB-Impact)",-0.09,-0.19,0.09,1],["Peak impact (LOB-Impact)",0.11,-0.09,0.26,1],["Metaorder impact (ours)",0.24,0.01,0.30,1]],
+  "Ten drawn markets (confirmatory)": [["Order book (LOB-Bench)",-0.13,-0.25,0.01,0],["Price statistics (LOB-Bench)",-0.12,-0.30,0.03,0],["Impact score (LOB-Bench)",-0.05,-0.18,0.10,0],["Flow and diffusion (LOB-Impact)",-0.02,-0.14,0.10,0],["Law shape vs literature (LOB-Impact)",-0.16,-0.23,0.03,1],["Peak impact (LOB-Impact)",0.09,-0.12,0.22,1],["Metaorder impact (ours)",0.15,-0.03,0.28,1]],
+};
+function drawCorr(){
+  const host = document.getElementById("corr-panels"); host.innerHTML = "";
+  for (const [label, rows] of Object.entries(CORR)){
+    const div = document.createElement("div"); div.className = "panel"; div.innerHTML = `<h4>${label}</h4>`;
+    const W = 380, padL = 190, padR = 12, top = 6, rowH = 28, H = top + rows.length * rowH + 30;
+    const svg = el("svg", {viewBox: `0 0 ${W} ${H}`, width: "100%"});
+    const x = v => padL + (W - padL - padR) * (v + 0.4) / 0.9;
+    [-0.4,-0.2,0,0.2,0.4].forEach(t => { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-24,stroke:t===0?css("--ink-3"):css("--grid"),"stroke-width":t===0?1.3:1},svg); txt(svg,x(t),H-8,t.toFixed(1),{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); });
+    rows.forEach(([n,v,l,h,cf],i) => {
+      const y = top + i * rowH + rowH / 2, c = cf ? css("--accent") : css("--ink-3");
+      txt(svg, padL - 8, y + 4, n, {"text-anchor":"end","font-size":11});
+      el("line",{x1:x(l),x2:x(h),y1:y,y2:y,stroke:c,"stroke-width":2},svg);
+      const d = el("circle",{cx:x(v),cy:y,r:5,fill:c,stroke:css("--surface"),"stroke-width":2},svg);
+      hover(d, `<b>${n}</b><br>${label}<br>Spearman ${v.toFixed(2)} (95%: ${l.toFixed(2)} to ${h.toFixed(2)})`);
+    });
+    div.appendChild(svg); host.appendChild(div);
+  }
+}
+function drawMarkets(){
+  const svg = document.getElementById("markets"); svg.innerHTML = "";
+  const W = 920, padL = 150, padR = 20, top = 8, rowH = 20, gapSet = 14;
+  const sets = ["original","designed","drawn","well-specified"];
+  let H = top + MARKETS.length * rowH + sets.length * gapSet + 30;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", "100%"); svg.style.minWidth = "620px";
+  const max = 18, x = v => padL + (W - padL - padR) * Math.min(v, max) / max;
+  [0,3,6,9,12,15,18].forEach(t => { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-24,stroke:css("--grid")},svg); txt(svg,x(t),H-8,t,{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); });
+  let y = top;
+  for (const s of sets){
+    txt(svg, 4, y + 10, s, {"font-size":10.5,fill:css("--ink-3"),"font-weight":600});
+    y += gapSet;
+    for (const r of MARKETS.filter(m => m[1] === s)){
+      const cy = y + rowH / 2;
+      txt(svg, padL - 8, cy + 4, r[0].replace(/_/g, " "), {"text-anchor":"end","font-size":10.5});
+      el("line",{x1:padL,x2:W-padR,y1:cy,y2:cy,stroke:css("--grid"),"stroke-dasharray":"2 3"},svg);
+      [[r[6],"--bad",4.5],[r[5],"--ink-3",4.5],[r[4],"--accent",4.5],[r[3],"--good",5.5]].forEach(([v,c,rad]) => el("circle",{cx:x(v),cy,r:rad,fill:css(c),stroke:css("--surface"),"stroke-width":1.5},svg));
+      const hit = el("rect",{x:0,y:y,width:W,height:rowH,fill:"transparent"},svg);
+      hover(hit, `<b>${r[0]}</b> (${r[1]})<br>always TWAP ${r[3].toFixed(2)}<br>by metaorder ${r[4].toFixed(2)}<br>by order book ${r[5].toFixed(2)}<br>median simulator ${r[6].toFixed(2)}<br>true best: ${r[2]}`);
+      y += rowH;
+    }
+  }
+}
+function drawBias(){
+  const rows = [["Sell at once",-0.07,-8.10],["Risk-averse 2",-1.26,-6.11],["Risk-averse 0.5",-0.73,-3.08],["Signal momentum",0.82,-0.98],["POV 2×",-1.59,-3.38],["Front-loaded 2",0.81,-0.17],["Liquidity",0.69,-0.23],["Front-loaded 4",0.24,-0.66],["POV 1×",-1.54,-1.71],["Back-loaded",-2.39,-0.57],["Signal reversal",-0.40,1.52]];
+  const svg = document.getElementById("bias"); svg.innerHTML = "";
+  const W = 900, padL = 160, padR = 30, top = 22, rowH = 26, H = top + rows.length * rowH + 30;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", "100%"); svg.style.minWidth = "560px";
+  const lo = -9, hi = 3, x = v => padL + (W - padL - padR) * (v - lo) / (hi - lo);
+  [-9,-6,-3,0,3].forEach(t => { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-24,stroke:t===0?css("--ink-3"):css("--grid"),"stroke-width":t===0?1.3:1},svg); txt(svg,x(t),H-8,(t>0?"+":"")+t,{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); });
+  txt(svg, x(-9), 12, "worse than TWAP", {"font-size":10.5,fill:css("--ink-3")}); txt(svg, x(3), 12, "better than TWAP", {"font-size":10.5,fill:css("--ink-3"),"text-anchor":"end"});
+  rows.forEach(([n,p,t],i) => {
+    const y = top + i * rowH + rowH / 2;
+    txt(svg, padL - 8, y + 4, n, {"text-anchor":"end","font-size":11.5});
+    el("line",{x1:x(t),x2:x(p),y1:y,y2:y,stroke:css("--ink-3"),"stroke-width":1.5},svg);
+    el("circle",{cx:x(t),cy:y,r:5,fill:css("--good"),stroke:css("--surface"),"stroke-width":1.5},svg);
+    el("circle",{cx:x(p),cy:y,r:5,fill:css("--accent"),stroke:css("--surface"),"stroke-width":1.5},svg);
+    const hit = el("rect",{x:0,y:y-rowH/2,width:W,height:rowH,fill:"transparent"},svg);
+    hover(hit, `<b>${n}</b><br>predicted gain over TWAP ${p.toFixed(2)} bps<br>true gain ${t.toFixed(2)} bps<br>bias ${(p-t>0?"+":"")}${(p-t).toFixed(2)}`);
+  });
+  const lg = el("g",{},svg);
+  el("circle",{cx:padL+4,cy:12,r:4.5,fill:css("--accent")},lg); txt(lg,padL+12,16,"predicted",{"font-size":10.5,fill:css("--ink-2")});
+  el("circle",{cx:padL+82,cy:12,r:4.5,fill:css("--good")},lg); txt(lg,padL+90,16,"true",{"font-size":10.5,fill:css("--ink-2")});
+}
+function drawSpec(){
+  const groups = [["Well-specified (6)",[["Always TWAP",4.11,"good"],["Ensemble, cheapest",2.15,"accent"],["Single simulator",4.34,"ink-3"],["Gated rule, k = 3",4.11,"warn"]]],["Misspecified (20)",[["Always TWAP",2.00,"good"],["Ensemble, cheapest",5.75,"accent"],["Single simulator",4.55,"ink-3"],["Gated rule, k = 3",2.00,"warn"]]]];
+  const svg = document.getElementById("spec"); svg.innerHTML = "";
+  const W = 900, padL = 300, padR = 60, top = 6, rowH = 24, gap = 18;
+  const H = top + groups.length * (4 * rowH + gap) + 26;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("width", "100%"); svg.style.minWidth = "560px";
+  const max = 6, x = v => padL + (W - padL - padR) * v / max;
+  [0,1,2,3,4,5,6].forEach(t => { el("line",{x1:x(t),x2:x(t),y1:top,y2:H-22,stroke:css("--grid")},svg); txt(svg,x(t),H-6,t,{"text-anchor":"middle","font-size":10,fill:css("--ink-3")}); });
+  let y = top;
+  for (const [g, rows] of groups){
+    txt(svg, 4, y + 16, g, {"font-size":12,"font-weight":600,fill:css("--ink-2")});
+    rows.forEach(([n,v,c]) => {
+      txt(svg, padL - 10, y + rowH / 2 + 4, n, {"text-anchor":"end","font-size":11.5});
+      const r = el("rect",{x:padL,y:y+4,width:x(v)-padL,height:rowH-8,rx:3,fill:css(`--${c}`)},svg);
+      txt(svg, x(v) + 5, y + rowH / 2 + 4, v.toFixed(2), {"font-size":10.5,fill:css("--ink-2")});
+      hover(r, `<b>${g}</b><br>${n}: ${v.toFixed(2)} bps`);
+      y += rowH;
+    });
+    y += gap;
+  }
+}
+function drawAll(){ drawD(); drawNative(); drawCorr(); drawMarkets(); drawBias(); drawSpec(); }
+drawAll();
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
+new MutationObserver(drawAll).observe(document.documentElement, {attributes: true, attributeFilter: ["data-theme"]});
+</script>
