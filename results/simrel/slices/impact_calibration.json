@@ -1,0 +1,38 @@
+{
+ "abides_quoting": {
+  "volH_voluH_trendH": 50,
+  "volH_voluH_trendL": 150,
+  "volH_voluL_trendH": 50,
+  "volH_voluL_trendL": 50,
+  "volL_voluH_trendL": 12,
+  "volL_voluL_trendH": 12,
+  "volL_voluL_trendL": 50
+ },
+ "hawkes_sd_c_f": {
+  "volH_voluH_trendH": 0.5,
+  "volH_voluH_trendL": 4.0,
+  "volH_voluL_trendH": 2.0,
+  "volH_voluL_trendL": 0.5,
+  "volL_voluH_trendL": 1.0,
+  "volL_voluL_trendH": 4.0,
+  "volL_voluL_trendL": 2.0
+ },
+ "hawkes_sd_c_f_m": {
+  "volH_voluH_trendH": 4.0,
+  "volH_voluH_trendL": 0.25,
+  "volH_voluL_trendH": 1.0,
+  "volH_voluL_trendL": 2.0,
+  "volL_voluH_trendL": 4.0,
+  "volL_voluL_trendH": 1.0,
+  "volL_voluL_trendL": 4.0
+ },
+ "hawkes_sd_q_c_f": {
+  "volH_voluH_trendH": 2.0,
+  "volH_voluH_trendL": 0.5,
+  "volH_voluL_trendH": 0.5,
+  "volH_voluL_trendL": 0.25,
+  "volL_voluH_trendL": 2.0,
+  "volL_voluL_trendH": 1.0,
+  "volL_voluL_trendL": 4.0
+ }
+}

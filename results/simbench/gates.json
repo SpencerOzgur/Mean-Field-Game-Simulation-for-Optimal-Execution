@@ -1,0 +1,44 @@
+{
+  "A1_rmsc04": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 4000.0,
+    "wall_s": 2.64
+  },
+  "A2_no_mm": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 3933.0,
+    "wall_s": 1.46
+  },
+  "A3_momentum": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 4000.0,
+    "wall_s": 4.27
+  },
+  "A4_few_value": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 3027.0,
+    "wall_s": 0.97
+  },
+  "A5_deep_mm": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 4000.0,
+    "wall_s": 3.1
+  },
+  "A6_volatile": {
+    "G1_identical_repeat": true,
+    "G2_pre_start_identical": true,
+    "G2_post_start_differs": true,
+    "G2_filled": 4000.0,
+    "wall_s": 3.59
+  }
+}

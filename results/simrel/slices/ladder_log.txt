@@ -1,0 +1,1883 @@
+== fit
+  [hawkes fit] 1/7  0s  volH_voluH_trendH cached
+  [hawkes fit] 2/7  0s  volL_voluH_trendL cached
+  [hawkes fit] 3/7  0s  volL_voluL_trendH cached
+  [hawkes fit] 4/7  0s  volL_voluL_trendL cached
+  [hawkes fit] 5/7  0s  volH_voluL_trendL cached
+  [hawkes fit] 6/7  0s  volH_voluH_trendL cached
+  [hawkes fit] 7/7  0s  volH_voluL_trendH cached
+  [hawkes queue fit] 1/7  2s  volH_voluL_trendH beta 10.0 share of cancels at best 0.59 closing rate 8/s wide-spread time 1.61%
+  [hawkes queue fit] 2/7  2s  volL_voluH_trendL cached
+  [hawkes queue fit] 3/7  5s  volH_voluL_trendL beta 10.0 share of cancels at best 0.62 closing rate 21/s wide-spread time 0.49%
+  [hawkes queue fit] 4/7  5s  volL_voluL_trendH beta 10.0 share of cancels at best 0.58 closing rate 27/s wide-spread time 0.19%
+  [hawkes queue fit] 5/7  6s  volH_voluH_trendL beta 10.0 share of cancels at best 0.58 closing rate 21/s wide-spread time 0.60%
+  [hawkes queue fit] 6/7  7s  volH_voluH_trendH beta 10.0 share of cancels at best 0.62 closing rate 20/s wide-spread time 1.05%
+  [hawkes queue fit] 7/7  7s  volL_voluL_trendL beta 10.0 share of cancels at best 0.57 closing rate 20/s wide-spread time 0.26%
+  [abides grid] 1/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 2/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 3/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 4/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 5/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 6/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 7/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 8/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 9/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 10/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 11/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 12/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 13/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 14/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 15/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 16/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 17/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 18/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 19/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 20/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 21/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 22/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 23/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 24/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 25/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 26/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 27/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 28/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 29/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 30/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 31/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 32/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 33/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 34/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 35/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 36/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 37/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 38/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 39/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 40/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 41/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 42/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 43/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 44/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 45/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 46/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 47/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 48/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 49/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 50/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 51/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 52/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 53/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 54/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 55/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 56/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 57/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 58/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 59/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 60/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 61/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 62/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 63/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 64/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 65/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 66/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 67/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 68/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 69/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 70/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 71/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 72/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 73/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 74/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 75/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 76/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 77/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 78/240  0s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 79/240  0s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 80/240  0s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 81/240  0s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 82/240  0s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 83/240  0s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 84/240  0s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 85/240  0s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 86/240  0s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 87/240  0s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 88/240  0s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 89/240  0s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 90/240  0s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 91/240  0s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 92/240  0s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 93/240  0s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 94/240  0s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 95/240  0s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 96/240  0s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 97/240  0s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 98/240  0s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 99/240  0s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 100/240  0s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 101/240  0s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 102/240  0s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 103/240  0s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 104/240  0s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 105/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 106/240  0s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 107/240  0s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 108/240  0s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 109/240  0s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 110/240  0s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 111/240  0s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 112/240  0s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 113/240  0s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 114/240  0s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 115/240  0s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 116/240  0s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 117/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 118/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 119/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 120/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 121/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 122/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 123/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 124/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 125/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 126/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 127/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 128/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 129/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 130/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 131/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 132/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 133/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 134/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 135/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 136/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 137/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 138/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 139/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 140/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 141/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 142/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 143/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 144/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 145/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 146/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 147/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 148/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 149/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 150/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 151/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 152/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 153/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 154/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 155/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 156/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 157/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 158/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 159/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 160/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 161/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 162/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 163/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 164/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 165/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 166/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 167/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 168/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 169/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 170/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 171/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 172/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 173/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 174/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 175/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 176/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 177/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 178/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 179/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 180/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 181/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 182/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 183/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 184/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 185/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 186/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 187/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 188/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 189/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 190/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 191/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 192/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 193/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 194/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 195/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 196/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 197/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 198/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 199/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 200/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 201/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 202/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 203/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 204/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 205/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 206/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 207/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 208/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 209/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 210/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 211/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 212/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 213/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 214/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 215/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 216/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 217/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 218/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 219/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 220/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 221/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 222/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 223/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 224/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 225/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 226/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 227/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 228/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 229/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 230/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 231/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 232/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 233/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 234/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 235/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 236/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 237/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 238/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 239/240  1s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 240/240  1s  S_v100_m0p0.025w60s_f1e-05 cached
+  ABIDES for volH_voluH_trendH: S_v1000_m0p0.025w60s_f1e-05  moment error 1.29
+  ABIDES for volH_voluH_trendL: S_v300_m2p0.1w10s_f1e-05  moment error 1.20
+  ABIDES for volH_voluL_trendH: S_v300_m2p0.1w10s_f1e-05  moment error 1.83
+  ABIDES for volH_voluL_trendL: S_v300_m0p0.025w60s_f5e-05  moment error 1.59
+  ABIDES for volL_voluH_trendL: S_v300_m2p0.025w60s_f1e-05  moment error 1.87
+  ABIDES for volL_voluL_trendH: S_v300_m2p0.1w10s_f5e-05  moment error 2.53
+  ABIDES for volL_voluL_trendL: S_v300_m2p0.025w60s_f1e-05  moment error 2.16
+== gen
+  [gen] 1/588  29s  hawkes_sd volH_voluH_trendH 30001: 33427 events
+  [gen] 2/588  29s  hawkes_sd volH_voluH_trendH 30003: 34179 events
+  [gen] 3/588  29s  hawkes_sd volH_voluH_trendH 30000: 42997 events
+  [gen] 4/588  31s  hawkes_sd volH_voluH_trendH 30002: 33805 events
+  [gen] 5/588  60s  hawkes_sd volH_voluH_trendH 30005: 28434 events
+  [gen] 6/588  60s  hawkes_sd volH_voluH_trendH 30004: 34913 events
+  [gen] 7/588  61s  hawkes_sd volH_voluH_trendH 30007: 38195 events
+  [gen] 8/588  63s  hawkes_sd volH_voluH_trendH 30006: 36432 events
+  [gen] 9/588  87s  hawkes_sd volH_voluH_trendH 30010: 29164 events
+  [gen] 10/588  89s  hawkes_sd volH_voluH_trendH 30009: 29483 events
+  [gen] 11/588  90s  hawkes_sd volH_voluH_trendH 30008: 31689 events
+  [gen] 12/588  91s  hawkes_sd volH_voluH_trendH 30011: 29864 events
+  [gen] 13/588  124s  hawkes_q volH_voluH_trendH 30000: 47583 events
+  [gen] 14/588  126s  hawkes_q volH_voluH_trendH 30002: 42077 events
+  [gen] 15/588  127s  hawkes_q volH_voluH_trendH 30003: 34480 events
+  [gen] 16/588  128s  hawkes_q volH_voluH_trendH 30001: 38169 events
+  [gen] 17/588  160s  hawkes_q volH_voluH_trendH 30004: 38146 events
+  [gen] 18/588  161s  hawkes_q volH_voluH_trendH 30005: 32251 events
+  [gen] 19/588  162s  hawkes_q volH_voluH_trendH 30006: 37975 events
+  [gen] 20/588  164s  hawkes_q volH_voluH_trendH 30007: 37691 events
+  [gen] 21/588  196s  hawkes_q volH_voluH_trendH 30009: 29515 events
+  [gen] 22/588  196s  hawkes_q volH_voluH_trendH 30010: 34260 events
+  [gen] 23/588  196s  hawkes_q volH_voluH_trendH 30008: 31193 events
+  [gen] 24/588  199s  hawkes_q volH_voluH_trendH 30011: 32724 events
+  [gen] 25/588  233s  hawkes_c volH_voluH_trendH 30002: 35977 events
+  [gen] 26/588  234s  hawkes_c volH_voluH_trendH 30000: 48446 events
+  [gen] 27/588  235s  hawkes_c volH_voluH_trendH 30001: 35921 events
+  [gen] 28/588  236s  hawkes_c volH_voluH_trendH 30003: 41642 events
+  [gen] 29/588  271s  hawkes_c volH_voluH_trendH 30004: 40281 events
+  [gen] 30/588  271s  hawkes_c volH_voluH_trendH 30005: 30929 events
+  [gen] 31/588  273s  hawkes_c volH_voluH_trendH 30006: 40812 events
+  [gen] 32/588  275s  hawkes_c volH_voluH_trendH 30007: 43121 events
+  [gen] 33/588  313s  hawkes_c volH_voluH_trendH 30008: 42553 events
+  [gen] 34/588  314s  hawkes_c volH_voluH_trendH 30009: 29704 events
+  [gen] 35/588  315s  hawkes_c volH_voluH_trendH 30010: 37222 events
+  [gen] 36/588  319s  hawkes_c volH_voluH_trendH 30011: 34775 events
+  [gen] 37/588  348s  hawkes_sd_q volH_voluH_trendH 30000: 42504 events
+  [gen] 38/588  348s  hawkes_sd_q volH_voluH_trendH 30001: 36620 events
+  [gen] 39/588  354s  hawkes_sd_q volH_voluH_trendH 30002: 36780 events
+  [gen] 40/588  355s  hawkes_sd_q volH_voluH_trendH 30003: 33472 events
+  [gen] 41/588  385s  hawkes_sd_q volH_voluH_trendH 30005: 27282 events
+  [gen] 42/588  386s  hawkes_sd_q volH_voluH_trendH 30004: 34140 events
+  [gen] 43/588  390s  hawkes_sd_q volH_voluH_trendH 30007: 35022 events
+  [gen] 44/588  393s  hawkes_sd_q volH_voluH_trendH 30006: 37793 events
+  [gen] 45/588  422s  hawkes_sd_q volH_voluH_trendH 30009: 29965 events
+  [gen] 46/588  426s  hawkes_sd_q volH_voluH_trendH 30008: 32145 events
+  [gen] 47/588  426s  hawkes_sd_q volH_voluH_trendH 30010: 28550 events
+  [gen] 48/588  430s  hawkes_sd_q volH_voluH_trendH 30011: 29106 events
+  [gen] 49/588  461s  hawkes_sd_c volH_voluH_trendH 30000: 58784 events
+  [gen] 50/588  462s  hawkes_sd_c volH_voluH_trendH 30001: 37811 events
+  [gen] 51/588  463s  hawkes_sd_c volH_voluH_trendH 30002: 40949 events
+  [gen] 52/588  467s  hawkes_sd_c volH_voluH_trendH 30003: 45967 events
+  [gen] 53/588  499s  hawkes_sd_c volH_voluH_trendH 30004: 44030 events
+  [gen] 54/588  500s  hawkes_sd_c volH_voluH_trendH 30005: 36588 events
+  [gen] 55/588  503s  hawkes_sd_c volH_voluH_trendH 30006: 46356 events
+  [gen] 56/588  504s  hawkes_sd_c volH_voluH_trendH 30007: 43819 events
+  [gen] 57/588  533s  hawkes_sd_c volH_voluH_trendH 30009: 33808 events
+  [gen] 58/588  533s  hawkes_sd_c volH_voluH_trendH 30008: 49278 events
+  [gen] 59/588  536s  hawkes_sd_c volH_voluH_trendH 30010: 47628 events
+  [gen] 60/588  537s  hawkes_sd_c volH_voluH_trendH 30011: 42641 events
+  [gen] 61/588  571s  hawkes_q_c volH_voluH_trendH 30000: 48225 events
+  [gen] 62/588  573s  hawkes_q_c volH_voluH_trendH 30001: 31267 events
+  [gen] 63/588  573s  hawkes_q_c volH_voluH_trendH 30002: 38683 events
+  [gen] 64/588  575s  hawkes_q_c volH_voluH_trendH 30003: 39429 events
+  [gen] 65/588  610s  hawkes_q_c volH_voluH_trendH 30004: 36944 events
+  [gen] 66/588  611s  hawkes_q_c volH_voluH_trendH 30005: 36194 events
+  [gen] 67/588  612s  hawkes_q_c volH_voluH_trendH 30006: 40812 events
+  [gen] 68/588  614s  hawkes_q_c volH_voluH_trendH 30007: 38704 events
+  [gen] 69/588  648s  hawkes_q_c volH_voluH_trendH 30008: 39120 events
+  [gen] 70/588  649s  hawkes_q_c volH_voluH_trendH 30009: 29983 events
+  [gen] 71/588  650s  hawkes_q_c volH_voluH_trendH 30010: 34397 events
+  [gen] 72/588  653s  hawkes_q_c volH_voluH_trendH 30011: 37519 events
+  [gen] 73/588  683s  hawkes_sd_q_c volH_voluH_trendH 30001: 37454 events
+  [gen] 74/588  684s  hawkes_sd_q_c volH_voluH_trendH 30002: 42055 events
+  [gen] 75/588  688s  hawkes_sd_q_c volH_voluH_trendH 30000: 58767 events
+  [gen] 76/588  690s  hawkes_sd_q_c volH_voluH_trendH 30003: 48768 events
+  [gen] 77/588  718s  hawkes_sd_q_c volH_voluH_trendH 30005: 39423 events
+  [gen] 78/588  723s  hawkes_sd_q_c volH_voluH_trendH 30004: 43506 events
+  [gen] 79/588  724s  hawkes_sd_q_c volH_voluH_trendH 30006: 44123 events
+  [gen] 80/588  727s  hawkes_sd_q_c volH_voluH_trendH 30007: 44313 events
+  [gen] 81/588  756s  hawkes_sd_q_c volH_voluH_trendH 30008: 43531 events
+  [gen] 82/588  758s  hawkes_sd_q_c volH_voluH_trendH 30009: 34162 events
+  [gen] 83/588  759s  hawkes_sd_q_c volH_voluH_trendH 30010: 46744 events
+  [gen] 84/588  762s  hawkes_sd_q_c volH_voluH_trendH 30011: 42018 events
+  [gen] 85/588  786s  hawkes_sd volH_voluH_trendL 30000: 25496 events
+  [gen] 86/588  791s  hawkes_sd volH_voluH_trendL 30001: 29863 events
+  [gen] 87/588  792s  hawkes_sd volH_voluH_trendL 30003: 28627 events
+  [gen] 88/588  793s  hawkes_sd volH_voluH_trendL 30002: 22406 events
+  [gen] 89/588  817s  hawkes_sd volH_voluH_trendL 30004: 26092 events
+  [gen] 90/588  821s  hawkes_sd volH_voluH_trendL 30006: 28099 events
+  [gen] 91/588  822s  hawkes_sd volH_voluH_trendL 30005: 21670 events
+  [gen] 92/588  824s  hawkes_sd volH_voluH_trendL 30007: 29236 events
+  [gen] 93/588  848s  hawkes_sd volH_voluH_trendL 30008: 25643 events
+  [gen] 94/588  854s  hawkes_sd volH_voluH_trendL 30011: 24401 events
+  [gen] 95/588  856s  hawkes_sd volH_voluH_trendL 30009: 24838 events
+  [gen] 96/588  856s  hawkes_sd volH_voluH_trendL 30010: 24736 events
+  [gen] 97/588  889s  hawkes_q volH_voluH_trendL 30000: 28440 events
+  [gen] 98/588  896s  hawkes_q volH_voluH_trendL 30002: 23382 events
+  [gen] 99/588  896s  hawkes_q volH_voluH_trendL 30001: 30550 events
+  [gen] 100/588  897s  hawkes_q volH_voluH_trendL 30003: 28672 events
+  [gen] 101/588  929s  hawkes_q volH_voluH_trendL 30004: 26905 events
+  [gen] 102/588  938s  hawkes_q volH_voluH_trendL 30005: 21475 events
+  [gen] 103/588  938s  hawkes_q volH_voluH_trendL 30007: 29164 events
+  [gen] 104/588  939s  hawkes_q volH_voluH_trendL 30006: 28402 events
+  [gen] 105/588  969s  hawkes_q volH_voluH_trendL 30008: 26852 events
+  [gen] 106/588  978s  hawkes_q volH_voluH_trendL 30009: 23333 events
+  [gen] 107/588  979s  hawkes_q volH_voluH_trendL 30010: 25543 events
+  [gen] 108/588  979s  hawkes_q volH_voluH_trendL 30011: 24057 events
+  [gen] 109/588  1012s  hawkes_c volH_voluH_trendL 30000: 28406 events
+  [gen] 110/588  1021s  hawkes_c volH_voluH_trendL 30002: 25650 events
+  [gen] 111/588  1023s  hawkes_c volH_voluH_trendL 30001: 24828 events
+  [gen] 112/588  1023s  hawkes_c volH_voluH_trendL 30003: 32374 events
+  [gen] 113/588  1054s  hawkes_c volH_voluH_trendL 30004: 31193 events
+  [gen] 114/588  1066s  hawkes_c volH_voluH_trendL 30005: 24459 events
+  [gen] 115/588  1066s  hawkes_c volH_voluH_trendL 30007: 34970 events
+  [gen] 116/588  1070s  hawkes_c volH_voluH_trendL 30006: 38391 events
+  [gen] 117/588  1098s  hawkes_c volH_voluH_trendL 30008: 23529 events
+  [gen] 118/588  1109s  hawkes_c volH_voluH_trendL 30009: 26512 events
+  [gen] 119/588  1110s  hawkes_c volH_voluH_trendL 30010: 25850 events
+  [gen] 120/588  1112s  hawkes_c volH_voluH_trendL 30011: 23210 events
+  [gen] 121/588  1131s  hawkes_sd_q volH_voluH_trendL 30000: 28399 events
+  [gen] 122/588  1144s  hawkes_sd_q volH_voluH_trendL 30003: 25406 events
+  [gen] 123/588  1145s  hawkes_sd_q volH_voluH_trendL 30001: 26744 events
+  [gen] 124/588  1146s  hawkes_sd_q volH_voluH_trendL 30002: 21117 events
+  [gen] 125/588  1165s  hawkes_sd_q volH_voluH_trendL 30004: 24531 events
+  [gen] 126/588  1179s  hawkes_sd_q volH_voluH_trendL 30005: 20867 events
+  [gen] 127/588  1179s  hawkes_sd_q volH_voluH_trendL 30006: 25379 events
+  [gen] 128/588  1181s  hawkes_sd_q volH_voluH_trendL 30007: 28163 events
+  [gen] 129/588  1201s  hawkes_sd_q volH_voluH_trendL 30008: 25401 events
+  [gen] 130/588  1214s  hawkes_sd_q volH_voluH_trendL 30011: 22074 events
+  [gen] 131/588  1215s  hawkes_sd_q volH_voluH_trendL 30009: 23071 events
+  [gen] 132/588  1216s  hawkes_sd_q volH_voluH_trendL 30010: 24497 events
+  [gen] 133/588  1236s  hawkes_sd_c volH_voluH_trendL 30000: 31090 events
+  [gen] 134/588  1250s  hawkes_sd_c volH_voluH_trendL 30003: 37785 events
+  [gen] 135/588  1251s  hawkes_sd_c volH_voluH_trendL 30002: 26214 events
+  [gen] 136/588  1252s  hawkes_sd_c volH_voluH_trendL 30001: 28596 events
+  [gen] 137/588  1270s  hawkes_sd_c volH_voluH_trendL 30004: 36093 events
+  [gen] 138/588  1284s  hawkes_sd_c volH_voluH_trendL 30005: 27475 events
+  [gen] 139/588  1287s  hawkes_sd_c volH_voluH_trendL 30006: 39375 events
+  [gen] 140/588  1289s  hawkes_sd_c volH_voluH_trendL 30007: 38368 events
+  [gen] 141/588  1308s  hawkes_sd_c volH_voluH_trendL 30008: 24188 events
+  [gen] 142/588  1328s  hawkes_sd_c volH_voluH_trendL 30009: 28117 events
+  [gen] 143/588  1329s  hawkes_sd_c volH_voluH_trendL 30011: 29753 events
+  [gen] 144/588  1332s  hawkes_sd_c volH_voluH_trendL 30010: 26782 events
+  [gen] 145/588  1358s  hawkes_q_c volH_voluH_trendL 30000: 28473 events
+  [gen] 146/588  1379s  hawkes_q_c volH_voluH_trendL 30002: 25192 events
+  [gen] 147/588  1380s  hawkes_q_c volH_voluH_trendL 30001: 23513 events
+  [gen] 148/588  1384s  hawkes_q_c volH_voluH_trendL 30003: 32558 events
+  [gen] 149/588  1409s  hawkes_q_c volH_voluH_trendL 30004: 29712 events
+  [gen] 150/588  1431s  hawkes_q_c volH_voluH_trendL 30005: 23194 events
+  [gen] 151/588  1432s  hawkes_q_c volH_voluH_trendL 30006: 31187 events
+  [gen] 152/588  1434s  hawkes_q_c volH_voluH_trendL 30007: 33522 events
+  [gen] 153/588  1460s  hawkes_q_c volH_voluH_trendL 30008: 23634 events
+  [gen] 154/588  1481s  hawkes_q_c volH_voluH_trendL 30009: 28395 events
+  [gen] 155/588  1483s  hawkes_q_c volH_voluH_trendL 30010: 27231 events
+  [gen] 156/588  1483s  hawkes_q_c volH_voluH_trendL 30011: 23863 events
+  [gen] 157/588  1507s  hawkes_sd_q_c volH_voluH_trendL 30000: 33445 events
+  [gen] 158/588  1528s  hawkes_sd_q_c volH_voluH_trendL 30001: 26583 events
+  [gen] 159/588  1529s  hawkes_sd_q_c volH_voluH_trendL 30002: 25346 events
+  [gen] 160/588  1530s  hawkes_sd_q_c volH_voluH_trendL 30003: 38655 events
+  [gen] 161/588  1553s  hawkes_sd_q_c volH_voluH_trendL 30004: 37316 events
+  [gen] 162/588  1572s  hawkes_sd_q_c volH_voluH_trendL 30005: 25586 events
+  [gen] 163/588  1579s  hawkes_sd_q_c volH_voluH_trendL 30007: 37463 events
+  [gen] 164/588  1582s  hawkes_sd_q_c volH_voluH_trendL 30006: 37535 events
+  [gen] 165/588  1598s  hawkes_sd_q_c volH_voluH_trendL 30008: 26845 events
+  [gen] 166/588  1616s  hawkes_sd_q_c volH_voluH_trendL 30009: 28642 events
+  [gen] 167/588  1621s  hawkes_sd_q_c volH_voluH_trendL 30010: 27292 events
+  [gen] 168/588  1623s  hawkes_sd_q_c volH_voluH_trendL 30011: 28442 events
+  [gen] 169/588  1624s  hawkes_sd volH_voluL_trendH 30000: 26791 events
+  [gen] 170/588  1640s  hawkes_sd volH_voluL_trendH 30001: 26078 events
+  [gen] 171/588  1647s  hawkes_sd volH_voluL_trendH 30002: 23795 events
+  [gen] 172/588  1648s  hawkes_sd volH_voluL_trendH 30003: 21238 events
+  [gen] 173/588  1649s  hawkes_sd volH_voluL_trendH 30004: 24220 events
+  [gen] 174/588  1665s  hawkes_sd volH_voluL_trendH 30005: 25939 events
+  [gen] 175/588  1672s  hawkes_sd volH_voluL_trendH 30006: 26072 events
+  [gen] 176/588  1674s  hawkes_sd volH_voluL_trendH 30008: 22889 events
+  [gen] 177/588  1675s  hawkes_sd volH_voluL_trendH 30007: 29062 events
+  [gen] 178/588  1689s  hawkes_sd volH_voluL_trendH 30009: 18604 events
+  [gen] 179/588  1699s  hawkes_sd volH_voluL_trendH 30010: 21257 events
+  [gen] 180/588  1702s  hawkes_sd volH_voluL_trendH 30011: 21522 events
+  [gen] 181/588  1714s  hawkes_q volH_voluL_trendH 30000: 25861 events
+  [gen] 182/588  1735s  hawkes_q volH_voluL_trendH 30001: 26836 events
+  [gen] 183/588  1751s  hawkes_q volH_voluL_trendH 30002: 24278 events
+  [gen] 184/588  1752s  hawkes_q volH_voluL_trendH 30003: 23119 events
+  [gen] 185/588  1766s  hawkes_q volH_voluL_trendH 30004: 24651 events
+  [gen] 186/588  1784s  hawkes_q volH_voluL_trendH 30005: 25365 events
+  [gen] 187/588  1803s  hawkes_q volH_voluL_trendH 30007: 29840 events
+  [gen] 188/588  1804s  hawkes_q volH_voluL_trendH 30006: 26703 events
+  [gen] 189/588  1817s  hawkes_q volH_voluL_trendH 30008: 24924 events
+  [gen] 190/588  1834s  hawkes_q volH_voluL_trendH 30009: 22085 events
+  [gen] 191/588  1853s  hawkes_q volH_voluL_trendH 30011: 25619 events
+  [gen] 192/588  1857s  hawkes_q volH_voluL_trendH 30010: 24016 events
+  [gen] 193/588  1872s  hawkes_c volH_voluL_trendH 30000: 28233 events
+  [gen] 194/588  1886s  hawkes_c volH_voluL_trendH 30001: 29833 events
+  [gen] 195/588  1909s  hawkes_c volH_voluL_trendH 30002: 30467 events
+  [gen] 196/588  1913s  hawkes_c volH_voluL_trendH 30003: 26453 events
+  [gen] 197/588  1930s  hawkes_c volH_voluL_trendH 30004: 28441 events
+  [gen] 198/588  1943s  hawkes_c volH_voluL_trendH 30005: 27681 events
+  [gen] 199/588  1969s  hawkes_c volH_voluL_trendH 30006: 28312 events
+  [gen] 200/588  1970s  hawkes_c volH_voluL_trendH 30007: 29474 events
+  [gen] 201/588  1984s  hawkes_c volH_voluL_trendH 30008: 20812 events
+  [gen] 202/588  1997s  hawkes_c volH_voluL_trendH 30009: 23206 events
+  [gen] 203/588  2023s  hawkes_c volH_voluL_trendH 30010: 27007 events
+  [gen] 204/588  2026s  hawkes_c volH_voluL_trendH 30011: 24588 events
+  [gen] 205/588  2034s  hawkes_sd_q volH_voluL_trendH 30000: 25320 events
+  [gen] 206/588  2041s  hawkes_sd_q volH_voluL_trendH 30001: 23619 events
+  [gen] 207/588  2070s  hawkes_sd_q volH_voluL_trendH 30002: 24579 events
+  [gen] 208/588  2072s  hawkes_sd_q volH_voluL_trendH 30003: 21895 events
+  [gen] 209/588  2080s  hawkes_sd_q volH_voluL_trendH 30004: 21558 events
+  [gen] 210/588  2088s  hawkes_sd_q volH_voluL_trendH 30005: 24621 events
+  [gen] 211/588  2116s  hawkes_sd_q volH_voluL_trendH 30006: 27702 events
+  [gen] 212/588  2119s  hawkes_sd_q volH_voluL_trendH 30007: 27980 events
+  [gen] 213/588  2126s  hawkes_sd_q volH_voluL_trendH 30008: 27465 events
+  [gen] 214/588  2133s  hawkes_sd_q volH_voluL_trendH 30009: 20006 events
+  [gen] 215/588  2164s  hawkes_sd_q volH_voluL_trendH 30010: 21620 events
+  [gen] 216/588  2164s  hawkes_sd_q volH_voluL_trendH 30011: 24646 events
+  [gen] 217/588  2176s  hawkes_sd_c volH_voluL_trendH 30000: 30313 events
+  [gen] 218/588  2176s  hawkes_sd_c volH_voluL_trendH 30001: 33119 events
+  [gen] 219/588  2211s  hawkes_sd_c volH_voluL_trendH 30002: 32878 events
+  [gen] 220/588  2212s  hawkes_sd_c volH_voluL_trendH 30003: 30278 events
+  [gen] 221/588  2221s  hawkes_sd_c volH_voluL_trendH 30004: 30875 events
+  [gen] 222/588  2222s  hawkes_sd_c volH_voluL_trendH 30005: 29072 events
+  [gen] 223/588  2258s  hawkes_sd_c volH_voluL_trendH 30006: 28567 events
+  [gen] 224/588  2261s  hawkes_sd_c volH_voluL_trendH 30007: 29673 events
+  [gen] 225/588  2265s  hawkes_sd_c volH_voluL_trendH 30009: 25135 events
+  [gen] 226/588  2269s  hawkes_sd_c volH_voluL_trendH 30008: 21935 events
+  [gen] 227/588  2306s  hawkes_sd_c volH_voluL_trendH 30010: 28711 events
+  [gen] 228/588  2309s  hawkes_sd_c volH_voluL_trendH 30011: 27576 events
+  [gen] 229/588  2321s  hawkes_q_c volH_voluL_trendH 30000: 24505 events
+  [gen] 230/588  2322s  hawkes_q_c volH_voluL_trendH 30001: 27300 events
+  [gen] 231/588  2364s  hawkes_q_c volH_voluL_trendH 30002: 25145 events
+  [gen] 232/588  2369s  hawkes_q_c volH_voluL_trendH 30003: 20179 events
+  [gen] 233/588  2380s  hawkes_q_c volH_voluL_trendH 30004: 29108 events
+  [gen] 234/588  2381s  hawkes_q_c volH_voluL_trendH 30005: 25370 events
+  [gen] 235/588  2425s  hawkes_q_c volH_voluL_trendH 30006: 26949 events
+  [gen] 236/588  2430s  hawkes_q_c volH_voluL_trendH 30007: 30410 events
+  [gen] 237/588  6388s  hawkes_q_c volH_voluL_trendH 30009: 21157 events
+  [gen] 238/588  6388s  hawkes_q_c volH_voluL_trendH 30008: 20464 events
+  [gen] 239/588  6433s  hawkes_q_c volH_voluL_trendH 30010: 23912 events
+  [gen] 240/588  6438s  hawkes_q_c volH_voluL_trendH 30011: 24838 events
+  [gen] 241/588  6442s  hawkes_sd_q_c volH_voluL_trendH 30001: 34323 events
+  [gen] 242/588  6450s  hawkes_sd_q_c volH_voluL_trendH 30000: 25840 events
+  [gen] 243/588  6483s  hawkes_sd_q_c volH_voluL_trendH 30002: 26734 events
+  [gen] 244/588  6491s  hawkes_sd_q_c volH_voluL_trendH 30003: 23718 events
+  [gen] 245/588  6493s  hawkes_sd_q_c volH_voluL_trendH 30004: 31509 events
+  [gen] 246/588  6502s  hawkes_sd_q_c volH_voluL_trendH 30005: 28025 events
+  [gen] 247/588  6532s  hawkes_sd_q_c volH_voluL_trendH 30006: 28951 events
+  [gen] 248/588  6541s  hawkes_sd_q_c volH_voluL_trendH 30007: 33105 events
+  [gen] 249/588  6542s  hawkes_sd_q_c volH_voluL_trendH 30008: 21587 events
+  [gen] 250/588  6550s  hawkes_sd_q_c volH_voluL_trendH 30009: 24257 events
+  [gen] 251/588  6584s  hawkes_sd_q_c volH_voluL_trendH 30010: 25791 events
+  [gen] 252/588  6589s  hawkes_sd volH_voluL_trendL 30000: 25816 events
+  [gen] 253/588  6595s  hawkes_sd volH_voluL_trendL 30001: 22861 events
+  [gen] 254/588  6596s  hawkes_sd_q_c volH_voluL_trendH 30011: 30673 events
+  [gen] 255/588  6628s  hawkes_sd volH_voluL_trendL 30002: 18167 events
+  [gen] 256/588  6633s  hawkes_sd volH_voluL_trendL 30003: 28308 events
+  [gen] 257/588  6642s  hawkes_sd volH_voluL_trendL 30004: 31323 events
+  [gen] 258/588  6647s  hawkes_sd volH_voluL_trendL 30005: 27124 events
+  [gen] 259/588  6675s  hawkes_sd volH_voluL_trendL 30006: 29548 events
+  [gen] 260/588  6681s  hawkes_sd volH_voluL_trendL 30007: 29924 events
+  [gen] 261/588  6688s  hawkes_sd volH_voluL_trendL 30008: 21141 events
+  [gen] 262/588  6693s  hawkes_sd volH_voluL_trendL 30009: 25389 events
+  [gen] 263/588  6721s  hawkes_sd volH_voluL_trendL 30010: 23913 events
+  [gen] 264/588  6727s  hawkes_sd volH_voluL_trendL 30011: 30161 events
+  [gen] 265/588  6748s  hawkes_q volH_voluL_trendL 30000: 25235 events
+  [gen] 266/588  6752s  hawkes_q volH_voluL_trendL 30001: 24248 events
+  [gen] 267/588  6773s  hawkes_q volH_voluL_trendL 30002: 19999 events
+  [gen] 268/588  6777s  hawkes_q volH_voluL_trendL 30003: 30152 events
+  [gen] 269/588  6789s  hawkes_q volH_voluL_trendL 30004: 35479 events
+  [gen] 270/588  6791s  hawkes_q volH_voluL_trendL 30005: 19993 events
+  [gen] 271/588  6809s  hawkes_q volH_voluL_trendL 30006: 30431 events
+  [gen] 272/588  6813s  hawkes_q volH_voluL_trendL 30007: 30543 events
+  [gen] 273/588  6824s  hawkes_q volH_voluL_trendL 30008: 23126 events
+  [gen] 274/588  6827s  hawkes_q volH_voluL_trendL 30009: 23716 events
+  [gen] 275/588  6844s  hawkes_q volH_voluL_trendL 30010: 26009 events
+  [gen] 276/588  6849s  hawkes_q volH_voluL_trendL 30011: 29357 events
+  [gen] 277/588  6863s  hawkes_c volH_voluL_trendL 30000: 37308 events
+  [gen] 278/588  6866s  hawkes_c volH_voluL_trendL 30001: 35693 events
+  [gen] 279/588  6882s  hawkes_c volH_voluL_trendL 30002: 30342 events
+  [gen] 280/588  6889s  hawkes_c volH_voluL_trendL 30003: 33449 events
+  [gen] 281/588  6901s  hawkes_c volH_voluL_trendL 30004: 36916 events
+  [gen] 282/588  6905s  hawkes_c volH_voluL_trendL 30005: 30194 events
+  [gen] 283/588  6921s  hawkes_c volH_voluL_trendL 30006: 38742 events
+  [gen] 284/588  6930s  hawkes_c volH_voluL_trendL 30007: 40071 events
+  [gen] 285/588  6940s  hawkes_c volH_voluL_trendL 30008: 28356 events
+  [gen] 286/588  6944s  hawkes_c volH_voluL_trendL 30009: 33273 events
+  [gen] 287/588  6962s  hawkes_c volH_voluL_trendL 30010: 40189 events
+  [gen] 288/588  6970s  hawkes_c volH_voluL_trendL 30011: 35195 events
+  [gen] 289/588  6971s  hawkes_sd_q volH_voluL_trendL 30000: 24557 events
+  [gen] 290/588  6975s  hawkes_sd_q volH_voluL_trendL 30001: 22684 events
+  [gen] 291/588  6991s  hawkes_sd_q volH_voluL_trendL 30002: 19529 events
+  [gen] 292/588  6999s  hawkes_sd_q volH_voluL_trendL 30003: 26403 events
+  [gen] 293/588  7001s  hawkes_sd_q volH_voluL_trendL 30004: 32659 events
+  [gen] 294/588  7008s  hawkes_sd_q volH_voluL_trendL 30005: 19349 events
+  [gen] 295/588  7022s  hawkes_sd_q volH_voluL_trendL 30006: 29854 events
+  [gen] 296/588  7030s  hawkes_sd_q volH_voluL_trendL 30007: 30526 events
+  [gen] 297/588  7034s  hawkes_sd_q volH_voluL_trendL 30008: 21268 events
+  [gen] 298/588  7037s  hawkes_sd_q volH_voluL_trendL 30009: 24676 events
+  [gen] 299/588  7051s  hawkes_sd_q volH_voluL_trendL 30010: 23259 events
+  [gen] 300/588  7060s  hawkes_sd_q volH_voluL_trendL 30011: 24075 events
+  [gen] 301/588  7068s  hawkes_sd_c volH_voluL_trendL 30000: 46506 events
+  [gen] 302/588  7070s  hawkes_sd_c volH_voluL_trendL 30001: 38932 events
+  [gen] 303/588  7084s  hawkes_sd_c volH_voluL_trendL 30002: 39186 events
+  [gen] 304/588  7096s  hawkes_sd_c volH_voluL_trendL 30003: 46849 events
+  [gen] 305/588  7101s  hawkes_sd_c volH_voluL_trendL 30004: 38394 events
+  [gen] 306/588  7108s  hawkes_sd_c volH_voluL_trendL 30005: 29000 events
+  [gen] 307/588  7117s  hawkes_sd_c volH_voluL_trendL 30006: 41599 events
+  [gen] 308/588  7128s  hawkes_sd_c volH_voluL_trendL 30007: 41819 events
+  [gen] 309/588  7133s  hawkes_sd_c volH_voluL_trendL 30008: 36244 events
+  [gen] 310/588  7139s  hawkes_sd_c volH_voluL_trendL 30009: 40564 events
+  [gen] 311/588  7150s  hawkes_sd_c volH_voluL_trendL 30010: 44840 events
+  [gen] 312/588  7161s  hawkes_sd_c volH_voluL_trendL 30011: 39189 events
+  [gen] 313/588  7173s  hawkes_q_c volH_voluL_trendL 30000: 33332 events
+  [gen] 314/588  7178s  hawkes_q_c volH_voluL_trendL 30001: 30331 events
+  [gen] 315/588  7189s  hawkes_q_c volH_voluL_trendL 30002: 29090 events
+  [gen] 316/588  7201s  hawkes_q_c volH_voluL_trendL 30003: 28896 events
+  [gen] 317/588  7211s  hawkes_q_c volH_voluL_trendL 30004: 36398 events
+  [gen] 318/588  7216s  hawkes_q_c volH_voluL_trendL 30005: 28723 events
+  [gen] 319/588  7227s  hawkes_q_c volH_voluL_trendL 30006: 34619 events
+  [gen] 320/588  7241s  hawkes_q_c volH_voluL_trendL 30007: 38580 events
+  [gen] 321/588  7249s  hawkes_q_c volH_voluL_trendL 30008: 26648 events
+  [gen] 322/588  7254s  hawkes_q_c volH_voluL_trendL 30009: 27046 events
+  [gen] 323/588  7266s  hawkes_q_c volH_voluL_trendL 30010: 30966 events
+  [gen] 324/588  7280s  hawkes_q_c volH_voluL_trendL 30011: 33932 events
+  [gen] 325/588  7286s  hawkes_sd_q_c volH_voluL_trendL 30000: 39617 events
+  [gen] 326/588  7292s  hawkes_sd_q_c volH_voluL_trendL 30001: 42427 events
+  [gen] 327/588  7302s  hawkes_sd_q_c volH_voluL_trendL 30002: 38325 events
+  [gen] 328/588  7320s  hawkes_sd_q_c volH_voluL_trendL 30003: 38048 events
+  [gen] 329/588  7322s  hawkes_sd_q_c volH_voluL_trendL 30004: 43871 events
+  [gen] 330/588  7331s  hawkes_sd_q_c volH_voluL_trendL 30005: 31409 events
+  [gen] 331/588  7339s  hawkes_sd_q_c volH_voluL_trendL 30006: 43185 events
+  [gen] 332/588  7357s  hawkes_sd_q_c volH_voluL_trendL 30008: 40401 events
+  [gen] 333/588  7361s  hawkes_sd_q_c volH_voluL_trendL 30007: 43498 events
+  [gen] 334/588  7373s  hawkes_sd_q_c volH_voluL_trendL 30009: 40451 events
+  [gen] 335/588  7376s  hawkes_sd_q_c volH_voluL_trendL 30010: 39540 events
+  [gen] 336/588  7395s  hawkes_sd volL_voluH_trendL 30000: 17125 events
+  [gen] 337/588  7397s  hawkes_sd_q_c volH_voluL_trendL 30011: 39437 events
+  [gen] 338/588  7410s  hawkes_sd volL_voluH_trendL 30002: 17105 events
+  [gen] 339/588  7412s  hawkes_sd volL_voluH_trendL 30001: 15933 events
+  [gen] 340/588  7432s  hawkes_sd volL_voluH_trendL 30004: 21431 events
+  [gen] 341/588  7433s  hawkes_sd volL_voluH_trendL 30003: 23919 events
+  [gen] 342/588  7445s  hawkes_sd volL_voluH_trendL 30006: 22483 events
+  [gen] 343/588  7451s  hawkes_sd volL_voluH_trendL 30005: 14666 events
+  [gen] 344/588  7468s  hawkes_sd volL_voluH_trendL 30008: 15067 events
+  [gen] 345/588  7472s  hawkes_sd volL_voluH_trendL 30007: 26340 events
+  [gen] 346/588  7485s  hawkes_sd volL_voluH_trendL 30010: 19507 events
+  [gen] 347/588  7485s  hawkes_sd volL_voluH_trendL 30009: 23354 events
+  [gen] 348/588  7505s  hawkes_sd volL_voluH_trendL 30011: 13302 events
+  [gen] 349/588  7513s  hawkes_q volL_voluH_trendL 30000: 19190 events
+  [gen] 350/588  7527s  hawkes_q volL_voluH_trendL 30002: 19932 events
+  [gen] 351/588  7528s  hawkes_q volL_voluH_trendL 30001: 14966 events
+  [gen] 352/588  7547s  hawkes_q volL_voluH_trendL 30003: 21179 events
+  [gen] 353/588  7555s  hawkes_q volL_voluH_trendL 30004: 23540 events
+  [gen] 354/588  7568s  hawkes_q volL_voluH_trendL 30005: 16987 events
+  [gen] 355/588  7570s  hawkes_q volL_voluH_trendL 30006: 21710 events
+  [gen] 356/588  7589s  hawkes_q volL_voluH_trendL 30007: 25996 events
+  [gen] 357/588  7596s  hawkes_q volL_voluH_trendL 30008: 16486 events
+  [gen] 358/588  7609s  hawkes_q volL_voluH_trendL 30009: 21365 events
+  [gen] 359/588  7612s  hawkes_q volL_voluH_trendL 30010: 20344 events
+  [gen] 360/588  7634s  hawkes_q volL_voluH_trendL 30011: 16827 events
+  [gen] 361/588  7645s  hawkes_c volL_voluH_trendL 30000: 20079 events
+  [gen] 362/588  7660s  hawkes_c volL_voluH_trendL 30001: 17236 events
+  [gen] 363/588  7661s  hawkes_c volL_voluH_trendL 30002: 19737 events
+  [gen] 364/588  7685s  hawkes_c volL_voluH_trendL 30003: 23119 events
+  [gen] 365/588  7697s  hawkes_c volL_voluH_trendL 30004: 26904 events
+  [gen] 366/588  7707s  hawkes_c volL_voluH_trendL 30005: 14633 events
+  [gen] 367/588  7714s  hawkes_c volL_voluH_trendL 30006: 25734 events
+  [gen] 368/588  7736s  hawkes_c volL_voluH_trendL 30007: 29762 events
+  [gen] 369/588  7747s  hawkes_c volL_voluH_trendL 30008: 17634 events
+  [gen] 370/588  7756s  hawkes_c volL_voluH_trendL 30009: 23241 events
+  [gen] 371/588  7766s  hawkes_c volL_voluH_trendL 30010: 22104 events
+  [gen] 372/588  7784s  hawkes_sd_q volL_voluH_trendL 30000: 16616 events
+  [gen] 373/588  7785s  hawkes_c volL_voluH_trendL 30011: 18111 events
+  [gen] 374/588  7797s  hawkes_sd_q volL_voluH_trendL 30001: 14780 events
+  [gen] 375/588  7801s  hawkes_sd_q volL_voluH_trendL 30002: 19640 events
+  [gen] 376/588  7822s  hawkes_sd_q volL_voluH_trendL 30004: 22135 events
+  [gen] 377/588  7823s  hawkes_sd_q volL_voluH_trendL 30003: 21256 events
+  [gen] 378/588  7837s  hawkes_sd_q volL_voluH_trendL 30006: 21585 events
+  [gen] 379/588  7839s  hawkes_sd_q volL_voluH_trendL 30005: 16680 events
+  [gen] 380/588  7860s  hawkes_sd_q volL_voluH_trendL 30008: 16233 events
+  [gen] 381/588  7864s  hawkes_sd_q volL_voluH_trendL 30007: 25980 events
+  [gen] 382/588  7875s  hawkes_sd_q volL_voluH_trendL 30010: 20090 events
+  [gen] 383/588  7878s  hawkes_sd_q volL_voluH_trendL 30009: 21444 events
+  [gen] 384/588  7899s  hawkes_sd_q volL_voluH_trendL 30011: 16919 events
+  [gen] 385/588  7906s  hawkes_sd_c volL_voluH_trendL 30000: 21969 events
+  [gen] 386/588  7919s  hawkes_sd_c volL_voluH_trendL 30002: 22004 events
+  [gen] 387/588  7922s  hawkes_sd_c volL_voluH_trendL 30001: 17444 events
+  [gen] 388/588  7944s  hawkes_sd_c volL_voluH_trendL 30003: 22540 events
+  [gen] 389/588  7953s  hawkes_sd_c volL_voluH_trendL 30004: 31337 events
+  [gen] 390/588  7966s  hawkes_sd_c volL_voluH_trendL 30006: 26895 events
+  [gen] 391/588  7968s  hawkes_sd_c volL_voluH_trendL 30005: 15440 events
+  [gen] 392/588  7990s  hawkes_sd_c volL_voluH_trendL 30007: 27784 events
+  [gen] 393/588  7994s  hawkes_sd_c volL_voluH_trendL 30008: 19154 events
+  [gen] 394/588  8009s  hawkes_sd_c volL_voluH_trendL 30010: 20592 events
+  [gen] 395/588  8012s  hawkes_sd_c volL_voluH_trendL 30009: 23455 events
+  [gen] 396/588  8034s  hawkes_sd_c volL_voluH_trendL 30011: 18842 events
+  [gen] 397/588  8043s  hawkes_q_c volL_voluH_trendL 30000: 22125 events
+  [gen] 398/588  8058s  hawkes_q_c volL_voluH_trendL 30001: 15904 events
+  [gen] 399/588  8061s  hawkes_q_c volL_voluH_trendL 30002: 19824 events
+  [gen] 400/588  8084s  hawkes_q_c volL_voluH_trendL 30003: 22312 events
+  [gen] 401/588  8093s  hawkes_q_c volL_voluH_trendL 30004: 26419 events
+  [gen] 402/588  8105s  hawkes_q_c volL_voluH_trendL 30005: 16918 events
+  [gen] 403/588  8109s  hawkes_q_c volL_voluH_trendL 30006: 24742 events
+  [gen] 404/588  8132s  hawkes_q_c volL_voluH_trendL 30007: 25090 events
+  [gen] 405/588  8140s  hawkes_q_c volL_voluH_trendL 30008: 18857 events
+  [gen] 406/588  8152s  hawkes_q_c volL_voluH_trendL 30009: 21767 events
+  [gen] 407/588  8158s  hawkes_q_c volL_voluH_trendL 30010: 19116 events
+  [gen] 408/588  8182s  hawkes_q_c volL_voluH_trendL 30011: 17343 events
+  [gen] 409/588  8188s  hawkes_sd_q_c volL_voluH_trendL 30000: 22172 events
+  [gen] 410/588  8199s  hawkes_sd_q_c volL_voluH_trendL 30001: 15815 events
+  [gen] 411/588  8200s  hawkes_sd_q_c volL_voluH_trendL 30002: 22934 events
+  [gen] 412/588  8229s  hawkes_sd_q_c volL_voluH_trendL 30003: 23359 events
+  [gen] 413/588  8235s  hawkes_sd_q_c volL_voluH_trendL 30004: 27795 events
+  [gen] 414/588  8243s  hawkes_sd_q_c volL_voluH_trendL 30006: 24260 events
+  [gen] 415/588  8247s  hawkes_sd_q_c volL_voluH_trendL 30005: 16981 events
+  [gen] 416/588  8278s  hawkes_sd_q_c volL_voluH_trendL 30007: 26505 events
+  [gen] 417/588  8278s  hawkes_sd_q_c volL_voluH_trendL 30008: 19153 events
+  [gen] 418/588  8290s  hawkes_sd_q_c volL_voluH_trendL 30010: 19856 events
+  [gen] 419/588  8290s  hawkes_sd_q_c volL_voluH_trendL 30009: 22051 events
+  [gen] 420/588  8306s  hawkes_sd volL_voluL_trendH 30000: 15994 events
+  [gen] 421/588  8318s  hawkes_sd volL_voluL_trendH 30001: 18567 events
+  [gen] 422/588  8321s  hawkes_sd volL_voluL_trendH 30002: 14664 events
+  [gen] 423/588  8323s  hawkes_sd_q_c volL_voluH_trendL 30011: 18579 events
+  [gen] 424/588  8335s  hawkes_sd volL_voluL_trendH 30003: 15446 events
+  [gen] 425/588  8348s  hawkes_sd volL_voluL_trendH 30004: 16759 events
+  [gen] 426/588  8348s  hawkes_sd volL_voluL_trendH 30005: 15991 events
+  [gen] 427/588  8353s  hawkes_sd volL_voluL_trendH 30006: 18465 events
+  [gen] 428/588  8365s  hawkes_sd volL_voluL_trendH 30007: 24423 events
+  [gen] 429/588  8377s  hawkes_sd volL_voluL_trendH 30008: 14442 events
+  [gen] 430/588  8378s  hawkes_sd volL_voluL_trendH 30009: 16093 events
+  [gen] 431/588  8385s  hawkes_sd volL_voluL_trendH 30010: 16506 events
+  [gen] 432/588  8398s  hawkes_sd volL_voluL_trendH 30011: 13973 events
+  [gen] 433/588  8414s  hawkes_q volL_voluL_trendH 30000: 17785 events
+  [gen] 434/588  8414s  hawkes_q volL_voluL_trendH 30001: 17325 events
+  [gen] 435/588  8421s  hawkes_q volL_voluL_trendH 30002: 14670 events
+  [gen] 436/588  8434s  hawkes_q volL_voluL_trendH 30003: 15046 events
+  [gen] 437/588  8450s  hawkes_q volL_voluL_trendH 30005: 16520 events
+  [gen] 438/588  8451s  hawkes_q volL_voluL_trendH 30004: 17455 events
+  [gen] 439/588  8456s  hawkes_q volL_voluL_trendH 30006: 20857 events
+  [gen] 440/588  8470s  hawkes_q volL_voluL_trendH 30007: 24399 events
+  [gen] 441/588  8484s  hawkes_q volL_voluL_trendH 30008: 13462 events
+  [gen] 442/588  8486s  hawkes_q volL_voluL_trendH 30009: 16239 events
+  [gen] 443/588  8491s  hawkes_q volL_voluL_trendH 30010: 17694 events
+  [gen] 444/588  8507s  hawkes_q volL_voluL_trendH 30011: 14349 events
+  [gen] 445/588  8524s  hawkes_c volL_voluL_trendH 30001: 17998 events
+  [gen] 446/588  8525s  hawkes_c volL_voluL_trendH 30000: 18209 events
+  [gen] 447/588  8529s  hawkes_c volL_voluL_trendH 30002: 14831 events
+  [gen] 448/588  8545s  hawkes_c volL_voluL_trendH 30003: 17408 events
+  [gen] 449/588  8562s  hawkes_c volL_voluL_trendH 30005: 18588 events
+  [gen] 450/588  8562s  hawkes_c volL_voluL_trendH 30004: 18186 events
+  [gen] 451/588  8568s  hawkes_c volL_voluL_trendH 30006: 16656 events
+  [gen] 452/588  8585s  hawkes_c volL_voluL_trendH 30007: 24770 events
+  [gen] 453/588  8598s  hawkes_c volL_voluL_trendH 30009: 16374 events
+  [gen] 454/588  8599s  hawkes_c volL_voluL_trendH 30008: 16345 events
+  [gen] 455/588  8606s  hawkes_c volL_voluL_trendH 30010: 21014 events
+  [gen] 456/588  8623s  hawkes_c volL_voluL_trendH 30011: 17810 events
+  [gen] 457/588  8629s  hawkes_sd_q volL_voluL_trendH 30000: 16750 events
+  [gen] 458/588  8629s  hawkes_sd_q volL_voluL_trendH 30001: 17207 events
+  [gen] 459/588  8638s  hawkes_sd_q volL_voluL_trendH 30002: 14852 events
+  [gen] 460/588  8655s  hawkes_sd_q volL_voluL_trendH 30003: 14707 events
+  [gen] 461/588  8660s  hawkes_sd_q volL_voluL_trendH 30004: 16861 events
+  [gen] 462/588  8660s  hawkes_sd_q volL_voluL_trendH 30005: 12315 events
+  [gen] 463/588  8670s  hawkes_sd_q volL_voluL_trendH 30006: 19887 events
+  [gen] 464/588  8688s  hawkes_sd_q volL_voluL_trendH 30007: 21823 events
+  [gen] 465/588  8691s  hawkes_sd_q volL_voluL_trendH 30008: 12499 events
+  [gen] 466/588  8692s  hawkes_sd_q volL_voluL_trendH 30009: 15193 events
+  [gen] 467/588  8704s  hawkes_sd_q volL_voluL_trendH 30010: 17477 events
+  [gen] 468/588  8722s  hawkes_sd_q volL_voluL_trendH 30011: 14010 events
+  [gen] 469/588  8723s  hawkes_sd_c volL_voluL_trendH 30001: 20225 events
+  [gen] 470/588  8723s  hawkes_sd_c volL_voluL_trendH 30000: 19442 events
+  [gen] 471/588  8738s  hawkes_sd_c volL_voluL_trendH 30002: 16616 events
+  [gen] 472/588  8755s  hawkes_sd_c volL_voluL_trendH 30003: 17043 events
+  [gen] 473/588  8755s  hawkes_sd_c volL_voluL_trendH 30005: 22104 events
+  [gen] 474/588  8758s  hawkes_sd_c volL_voluL_trendH 30004: 26962 events
+  [gen] 475/588  8771s  hawkes_sd_c volL_voluL_trendH 30006: 16551 events
+  [gen] 476/588  8788s  hawkes_sd_c volL_voluL_trendH 30008: 15943 events
+  [gen] 477/588  8789s  hawkes_sd_c volL_voluL_trendH 30007: 24704 events
+  [gen] 478/588  8790s  hawkes_sd_c volL_voluL_trendH 30009: 16161 events
+  [gen] 479/588  8801s  hawkes_sd_c volL_voluL_trendH 30010: 21321 events
+  [gen] 480/588  8815s  hawkes_sd_c volL_voluL_trendH 30011: 13596 events
+  [gen] 481/588  8819s  hawkes_q_c volL_voluL_trendH 30001: 17099 events
+  [gen] 482/588  8819s  hawkes_q_c volL_voluL_trendH 30000: 17269 events
+  [gen] 483/588  8831s  hawkes_q_c volL_voluL_trendH 30002: 16811 events
+  [gen] 484/588  8845s  hawkes_q_c volL_voluL_trendH 30003: 12365 events
+  [gen] 485/588  8849s  hawkes_q_c volL_voluL_trendH 30005: 14151 events
+  [gen] 486/588  8851s  hawkes_q_c volL_voluL_trendH 30004: 19946 events
+  [gen] 487/588  8864s  hawkes_q_c volL_voluL_trendH 30006: 16352 events
+  [gen] 488/588  8880s  hawkes_q_c volL_voluL_trendH 30007: 20568 events
+  [gen] 489/588  8881s  hawkes_q_c volL_voluL_trendH 30008: 14517 events
+  [gen] 490/588  8885s  hawkes_q_c volL_voluL_trendH 30009: 16419 events
+  [gen] 491/588  8897s  hawkes_q_c volL_voluL_trendH 30010: 18784 events
+  [gen] 492/588  8910s  hawkes_sd_q_c volL_voluL_trendH 30000: 18542 events
+  [gen] 493/588  8914s  hawkes_q_c volL_voluL_trendH 30011: 13582 events
+  [gen] 494/588  8914s  hawkes_sd_q_c volL_voluL_trendH 30001: 18612 events
+  [gen] 495/588  8929s  hawkes_sd_q_c volL_voluL_trendH 30002: 16941 events
+  [gen] 496/588  8940s  hawkes_sd_q_c volL_voluL_trendH 30003: 12476 events
+  [gen] 497/588  8944s  hawkes_sd_q_c volL_voluL_trendH 30005: 15067 events
+  [gen] 498/588  8948s  hawkes_sd_q_c volL_voluL_trendH 30004: 22759 events
+  [gen] 499/588  8960s  hawkes_sd_q_c volL_voluL_trendH 30006: 16959 events
+  [gen] 500/588  8971s  hawkes_sd_q_c volL_voluL_trendH 30007: 21228 events
+  [gen] 501/588  8975s  hawkes_sd_q_c volL_voluL_trendH 30008: 17389 events
+  [gen] 502/588  8980s  hawkes_sd_q_c volL_voluL_trendH 30009: 16936 events
+  [gen] 503/588  8991s  hawkes_sd_q_c volL_voluL_trendH 30010: 19000 events
+  [gen] 504/588  8999s  hawkes_sd volL_voluL_trendL 30000: 19471 events
+  [gen] 505/588  9004s  hawkes_sd_q_c volL_voluL_trendH 30011: 13766 events
+  [gen] 506/588  9005s  hawkes_sd volL_voluL_trendL 30001: 12543 events
+  [gen] 507/588  9016s  hawkes_sd volL_voluL_trendL 30002: 14096 events
+  [gen] 508/588  9024s  hawkes_sd volL_voluL_trendL 30003: 20107 events
+  [gen] 509/588  9029s  hawkes_sd volL_voluL_trendL 30004: 15923 events
+  [gen] 510/588  9030s  hawkes_sd volL_voluL_trendL 30005: 12721 events
+  [gen] 511/588  9046s  hawkes_sd volL_voluL_trendL 30006: 21176 events
+  [gen] 512/588  9049s  hawkes_sd volL_voluL_trendL 30007: 21166 events
+  [gen] 513/588  9055s  hawkes_sd volL_voluL_trendL 30008: 13441 events
+  [gen] 514/588  9056s  hawkes_sd volL_voluL_trendL 30009: 14571 events
+  [gen] 515/588  9073s  hawkes_sd volL_voluL_trendL 30010: 13389 events
+  [gen] 516/588  9074s  hawkes_sd volL_voluL_trendL 30011: 12043 events
+  [gen] 517/588  9085s  hawkes_q volL_voluL_trendL 30000: 18525 events
+  [gen] 518/588  9085s  hawkes_q volL_voluL_trendL 30001: 11638 events
+  [gen] 519/588  9103s  hawkes_q volL_voluL_trendL 30002: 15408 events
+  [gen] 520/588  9106s  hawkes_q volL_voluL_trendL 30003: 24124 events
+  [gen] 521/588  9114s  hawkes_q volL_voluL_trendL 30004: 14317 events
+  [gen] 522/588  9116s  hawkes_q volL_voluL_trendL 30005: 13116 events
+  [gen] 523/588  9134s  hawkes_q volL_voluL_trendL 30006: 19817 events
+  [gen] 524/588  9137s  hawkes_q volL_voluL_trendL 30007: 21149 events
+  [gen] 525/588  9145s  hawkes_q volL_voluL_trendL 30008: 14210 events
+  [gen] 526/588  9146s  hawkes_q volL_voluL_trendL 30009: 13466 events
+  [gen] 527/588  9165s  hawkes_q volL_voluL_trendL 30010: 12930 events
+  [gen] 528/588  9167s  hawkes_q volL_voluL_trendL 30011: 11256 events
+  [gen] 529/588  9176s  hawkes_c volL_voluL_trendL 30000: 17340 events
+  [gen] 530/588  9177s  hawkes_c volL_voluL_trendL 30001: 12381 events
+  [gen] 531/588  9196s  hawkes_c volL_voluL_trendL 30002: 15926 events
+  [gen] 532/588  9202s  hawkes_c volL_voluL_trendL 30003: 23174 events
+  [gen] 533/588  9208s  hawkes_c volL_voluL_trendL 30004: 18825 events
+  [gen] 534/588  9209s  hawkes_c volL_voluL_trendL 30005: 13613 events
+  [gen] 535/588  9228s  hawkes_c volL_voluL_trendL 30006: 17517 events
+  [gen] 536/588  9234s  hawkes_c volL_voluL_trendL 30007: 25802 events
+  [gen] 537/588  9240s  hawkes_c volL_voluL_trendL 30008: 14837 events
+  [gen] 538/588  9241s  hawkes_c volL_voluL_trendL 30009: 16243 events
+  [gen] 539/588  9260s  hawkes_c volL_voluL_trendL 30010: 15189 events
+  [gen] 540/588  9266s  hawkes_c volL_voluL_trendL 30011: 20225 events
+  [gen] 541/588  9266s  hawkes_sd_q volL_voluL_trendL 30000: 18334 events
+  [gen] 542/588  9267s  hawkes_sd_q volL_voluL_trendL 30001: 11307 events
+  [gen] 543/588  9287s  hawkes_sd_q volL_voluL_trendL 30002: 15540 events
+  [gen] 544/588  9293s  hawkes_sd_q volL_voluL_trendL 30003: 23811 events
+  [gen] 545/588  9293s  hawkes_sd_q volL_voluL_trendL 30004: 14297 events
+  [gen] 546/588  9294s  hawkes_sd_q volL_voluL_trendL 30005: 13034 events
+  [gen] 547/588  9316s  hawkes_sd_q volL_voluL_trendL 30006: 19654 events
+  [gen] 548/588  9320s  hawkes_sd_q volL_voluL_trendL 30007: 20954 events
+  [gen] 549/588  9320s  hawkes_sd_q volL_voluL_trendL 30008: 13898 events
+  [gen] 550/588  9321s  hawkes_sd_q volL_voluL_trendL 30009: 13477 events
+  [gen] 551/588  9345s  hawkes_sd_q volL_voluL_trendL 30010: 12854 events
+  [gen] 552/588  9348s  hawkes_sd_c volL_voluL_trendL 30000: 18162 events
+  [gen] 553/588  9348s  hawkes_sd_q volL_voluL_trendL 30011: 11166 events
+  [gen] 554/588  9348s  hawkes_sd_c volL_voluL_trendL 30001: 12673 events
+  [gen] 555/588  9370s  hawkes_sd_c volL_voluL_trendL 30002: 19556 events
+  [gen] 556/588  9373s  hawkes_sd_c volL_voluL_trendL 30004: 20053 events
+  [gen] 557/588  9373s  hawkes_sd_c volL_voluL_trendL 30005: 16073 events
+  [gen] 558/588  9374s  hawkes_sd_c volL_voluL_trendL 30003: 23881 events
+  [gen] 559/588  9402s  hawkes_sd_c volL_voluL_trendL 30006: 17653 events
+  [gen] 560/588  9404s  hawkes_sd_c volL_voluL_trendL 30009: 16865 events
+  [gen] 561/588  9404s  hawkes_sd_c volL_voluL_trendL 30007: 27737 events
+  [gen] 562/588  9404s  hawkes_sd_c volL_voluL_trendL 30008: 15254 events
+  [gen] 563/588  9439s  hawkes_sd_c volL_voluL_trendL 30011: 21244 events
+  [gen] 564/588  9440s  hawkes_sd_c volL_voluL_trendL 30010: 15607 events
+  [gen] 565/588  9444s  hawkes_q_c volL_voluL_trendL 30000: 18701 events
+  [gen] 566/588  9444s  hawkes_q_c volL_voluL_trendL 30001: 12931 events
+  [gen] 567/588  9475s  hawkes_q_c volL_voluL_trendL 30002: 14984 events
+  [gen] 568/588  9479s  hawkes_q_c volL_voluL_trendL 30003: 22951 events
+  [gen] 569/588  9480s  hawkes_q_c volL_voluL_trendL 30005: 11271 events
+  [gen] 570/588  9480s  hawkes_q_c volL_voluL_trendL 30004: 18614 events
+  [gen] 571/588  9512s  hawkes_q_c volL_voluL_trendL 30006: 15930 events
+  [gen] 572/588  9515s  hawkes_q_c volL_voluL_trendL 30007: 20129 events
+  [gen] 573/588  9517s  hawkes_q_c volL_voluL_trendL 30008: 15861 events
+  [gen] 574/588  9518s  hawkes_q_c volL_voluL_trendL 30009: 14490 events
+  [gen] 575/588  9547s  hawkes_q_c volL_voluL_trendL 30010: 14529 events
+  [gen] 576/588  9551s  hawkes_q_c volL_voluL_trendL 30011: 14429 events
+  [gen] 577/588  9551s  hawkes_sd_q_c volL_voluL_trendL 30000: 19260 events
+  [gen] 578/588  9553s  hawkes_sd_q_c volL_voluL_trendL 30001: 13873 events
+  [gen] 579/588  9579s  hawkes_sd_q_c volL_voluL_trendL 30002: 14148 events
+  [gen] 580/588  9584s  hawkes_sd_q_c volL_voluL_trendL 30004: 19372 events
+  [gen] 581/588  9585s  hawkes_sd_q_c volL_voluL_trendL 30003: 23784 events
+  [gen] 582/588  9585s  hawkes_sd_q_c volL_voluL_trendL 30005: 12156 events
+  [gen] 583/588  9614s  hawkes_sd_q_c volL_voluL_trendL 30006: 15710 events
+  [gen] 584/588  9617s  hawkes_sd_q_c volL_voluL_trendL 30007: 21367 events
+  [gen] 585/588  9618s  hawkes_sd_q_c volL_voluL_trendL 30009: 14529 events
+  [gen] 586/588  9619s  hawkes_sd_q_c volL_voluL_trendL 30008: 16267 events
+  [gen] 587/588  9642s  hawkes_sd_q_c volL_voluL_trendL 30010: 14233 events
+  [gen] 588/588  9643s  hawkes_sd_q_c volL_voluL_trendL 30011: 16479 events
+== score
+  [score] 1/49  403s  hawkes_sd volH_voluH_trendH: L1 0.249
+  [score] 2/49  419s  hawkes_q volH_voluH_trendH: L1 0.220
+  [score] 3/49  820s  hawkes_sd_q volH_voluH_trendH: L1 0.233
+  [score] 4/49  836s  hawkes_c volH_voluH_trendH: L1 0.284
+  [score] 5/49  1265s  hawkes_q_c volH_voluH_trendH: L1 0.229
+  [score] 6/49  1285s  hawkes_sd_c volH_voluH_trendH: L1 0.225
+  [score] 7/49  1525s  hawkes_sd volH_voluH_trendL: L1 0.236
+  [score] 8/49  1718s  hawkes_sd_q_c volH_voluH_trendH: L1 0.180
+  [score] 9/49  1766s  hawkes_q volH_voluH_trendL: L1 0.219
+  [score] 10/49  1973s  hawkes_c volH_voluH_trendL: L1 0.292
+  [score] 11/49  2001s  hawkes_sd_q volH_voluH_trendL: L1 0.213
+  [score] 12/49  2236s  hawkes_sd_c volH_voluH_trendL: L1 0.218
+  [score] 13/49  2250s  hawkes_q_c volH_voluH_trendL: L1 0.227
+  [score] 14/49  2453s  hawkes_sd volH_voluL_trendH: L1 0.250
+  [score] 15/49  2497s  hawkes_sd_q_c volH_voluH_trendL: L1 0.163
+  [score] 16/49  2671s  hawkes_q volH_voluL_trendH: L1 0.221
+  [score] 17/49  2718s  hawkes_c volH_voluL_trendH: L1 0.282
+  [score] 18/49  2880s  hawkes_sd_q volH_voluL_trendH: L1 0.211
+  [score] 19/49  2944s  hawkes_sd_c volH_voluL_trendH: L1 0.230
+  [score] 20/49  3091s  hawkes_q_c volH_voluL_trendH: L1 0.226
+  [score] 21/49  3170s  hawkes_sd_q_c volH_voluL_trendH: L1 0.196
+  [score] 22/49  3301s  hawkes_sd volH_voluL_trendL: L1 0.301
+  [score] 23/49  3381s  hawkes_q volH_voluL_trendL: L1 0.248
+  [score] 24/49  3557s  hawkes_c volH_voluL_trendL: L1 0.310
+  [score] 25/49  3576s  hawkes_sd_q volH_voluL_trendL: L1 0.280
+  [score] 26/49  3810s  hawkes_q_c volH_voluL_trendL: L1 0.256
+  [score] 27/49  3833s  hawkes_sd_c volH_voluL_trendL: L1 0.274
+  [score] 28/49  3953s  hawkes_sd volL_voluH_trendL: L1 0.229
+  [score] 29/49  4082s  hawkes_q volL_voluH_trendL: L1 0.192
+  [score] 30/49  4091s  hawkes_sd_q_c volH_voluL_trendL: L1 0.228
+  [score] 31/49  4211s  hawkes_c volL_voluH_trendL: L1 0.261
+  [score] 32/49  4212s  hawkes_sd_q volL_voluH_trendL: L1 0.193
+  [score] 33/49  4337s  hawkes_q_c volL_voluH_trendL: L1 0.195
+  [score] 34/49  4342s  hawkes_sd_c volL_voluH_trendL: L1 0.221
+  [score] 35/49  4464s  hawkes_sd_q_c volL_voluH_trendL: L1 0.180
+  [score] 36/49  4516s  hawkes_sd volL_voluL_trendH: L1 0.249
+  [score] 37/49  4638s  hawkes_q volL_voluL_trendH: L1 0.196
+  [score] 38/49  4700s  hawkes_c volL_voluL_trendH: L1 0.261
+  [score] 39/49  4812s  hawkes_sd_q volL_voluL_trendH: L1 0.195
+  [score] 40/49  4887s  hawkes_sd_c volL_voluL_trendH: L1 0.225
+  [score] 41/49  4984s  hawkes_q_c volL_voluL_trendH: L1 0.201
+  [score] 42/49  5064s  hawkes_sd_q_c volL_voluL_trendH: L1 0.174
+  [score] 43/49  5128s  hawkes_sd volL_voluL_trendL: L1 0.240
+  [score] 44/49  5207s  hawkes_q volL_voluL_trendL: L1 0.205
+  [score] 45/49  5279s  hawkes_c volL_voluL_trendL: L1 0.264
+  [score] 46/49  5349s  hawkes_sd_q volL_voluL_trendL: L1 0.198
+  [score] 47/49  5441s  hawkes_sd_c volL_voluL_trendL: L1 0.237
+  [score] 48/49  5498s  hawkes_q_c volL_voluL_trendL: L1 0.209
+  [score] 49/49  5585s  hawkes_sd_q_c volL_voluL_trendL: L1 0.189
+== policy
+  [policy] 1/980  84s  hawkes_sd volH_voluL_trendH 40000  83s
+  [policy] 2/980  89s  hawkes_sd volH_voluH_trendH 40000  89s
+  [policy] 3/980  90s  hawkes_sd volH_voluL_trendL 40000  90s
+  [policy] 4/980  103s  hawkes_sd volH_voluH_trendL 40000  102s
+  [policy] 5/980  186s  hawkes_sd volL_voluL_trendH 40000  96s
+  [policy] 6/980  188s  hawkes_sd volL_voluL_trendL 40000  98s
+  [policy] 7/980  190s  hawkes_sd volH_voluH_trendH 40001  87s
+  [policy] 8/980  195s  hawkes_sd volL_voluH_trendL 40000  112s
+  [policy] 9/980  260s  hawkes_sd volH_voluL_trendH 40001  72s
+  [policy] 10/980  288s  hawkes_sd volH_voluH_trendL 40001  102s
+  [policy] 11/980  288s  hawkes_sd volH_voluL_trendL 40001  99s
+  [policy] 12/980  321s  hawkes_sd volL_voluH_trendL 40001  126s
+  [policy] 13/980  359s  hawkes_sd volL_voluL_trendH 40001  99s
+  [policy] 14/980  379s  hawkes_sd volL_voluL_trendL 40001  91s
+  [policy] 15/980  382s  hawkes_sd volH_voluH_trendH 40002  94s
+  [policy] 16/980  434s  hawkes_sd volH_voluH_trendL 40002  113s
+  [policy] 17/980  437s  hawkes_sd volH_voluL_trendH 40002  78s
+  [policy] 18/980  466s  hawkes_sd volH_voluL_trendL 40002  87s
+  [policy] 19/980  493s  hawkes_sd volL_voluH_trendL 40002  110s
+  [policy] 20/980  524s  hawkes_sd volL_voluL_trendL 40002  87s
+  [policy] 21/980  526s  hawkes_sd volL_voluL_trendH 40002  91s
+  [policy] 22/980  552s  hawkes_sd volH_voluH_trendH 40003  86s
+  [policy] 23/980  592s  hawkes_sd volH_voluH_trendL 40003  99s
+  [policy] 24/980  606s  hawkes_sd volH_voluL_trendH 40003  81s
+  [policy] 25/980  621s  hawkes_sd volH_voluL_trendL 40003  96s
+  [policy] 26/980  669s  hawkes_sd volL_voluH_trendL 40003  117s
+  [policy] 27/980  687s  hawkes_sd volL_voluL_trendH 40003  95s
+  [policy] 28/980  697s  hawkes_sd volL_voluL_trendL 40003  91s
+  [policy] 29/980  712s  hawkes_sd volH_voluH_trendH 40004  90s
+  [policy] 30/980  764s  hawkes_sd volH_voluL_trendH 40004  77s
+  [policy] 31/980  769s  hawkes_sd volH_voluH_trendL 40004  100s
+  [policy] 32/980  785s  hawkes_sd volH_voluL_trendL 40004  89s
+  [policy] 33/980  822s  hawkes_sd volL_voluH_trendL 40004  110s
+  [policy] 34/980  857s  hawkes_sd volL_voluL_trendH 40004  93s
+  [policy] 35/980  866s  hawkes_sd volL_voluL_trendL 40004  97s
+  [policy] 36/980  877s  hawkes_sd volH_voluH_trendH 40005  92s
+  [policy] 37/980  921s  hawkes_sd volH_voluH_trendL 40005  99s
+  [policy] 38/980  933s  hawkes_sd volH_voluL_trendH 40005  76s
+  [policy] 39/980  949s  hawkes_sd volH_voluL_trendL 40005  83s
+  [policy] 40/980  999s  hawkes_sd volL_voluH_trendL 40005  122s
+  [policy] 41/980  1011s  hawkes_sd volL_voluL_trendH 40005  90s
+  [policy] 42/980  1025s  hawkes_sd volL_voluL_trendL 40005  92s
+  [policy] 43/980  1036s  hawkes_sd volH_voluH_trendH 40006  86s
+  [policy] 44/980  1088s  hawkes_sd volH_voluL_trendH 40006  77s
+  [policy] 45/980  1094s  hawkes_sd volH_voluH_trendL 40006  95s
+  [policy] 46/980  1111s  hawkes_sd volH_voluL_trendL 40006  85s
+  [policy] 47/980  1144s  hawkes_sd volL_voluH_trendL 40006  108s
+  [policy] 48/980  1183s  hawkes_sd volL_voluL_trendH 40006  94s
+  [policy] 49/980  1186s  hawkes_sd volL_voluL_trendL 40006  92s
+  [policy] 50/980  1201s  hawkes_sd volH_voluH_trendH 40007  90s
+  [policy] 51/980  1249s  hawkes_sd volH_voluH_trendL 40007  105s
+  [policy] 52/980  1267s  hawkes_sd volH_voluL_trendH 40007  84s
+  [policy] 53/980  1272s  hawkes_sd volH_voluL_trendL 40007  86s
+  [policy] 54/980  1315s  hawkes_sd volL_voluH_trendL 40007  114s
+  [policy] 55/980  1342s  hawkes_sd volL_voluL_trendH 40007  93s
+  [policy] 56/980  1360s  hawkes_sd volH_voluH_trendH 40008  88s
+  [policy] 57/980  1361s  hawkes_sd volL_voluL_trendL 40007  94s
+  [policy] 58/980  1413s  hawkes_sd volH_voluH_trendL 40008  98s
+  [policy] 59/980  1421s  hawkes_sd volH_voluL_trendH 40008  79s
+  [policy] 60/980  1455s  hawkes_sd volH_voluL_trendL 40008  94s
+  [policy] 61/980  1472s  hawkes_sd volL_voluH_trendL 40008  111s
+  [policy] 62/980  1512s  hawkes_sd volL_voluL_trendH 40008  99s
+  [policy] 63/980  1516s  hawkes_sd volL_voluL_trendL 40008  95s
+  [policy] 64/980  1564s  hawkes_sd volH_voluH_trendH 40009  109s
+  [policy] 65/980  1598s  hawkes_sd volH_voluL_trendH 40009  86s
+  [policy] 66/980  1599s  hawkes_sd volH_voluH_trendL 40009  126s
+  [policy] 67/980  1618s  hawkes_sd volH_voluL_trendL 40009  103s
+  [policy] 68/980  1702s  hawkes_sd volL_voluL_trendL 40009  104s
+  [policy] 69/980  1706s  hawkes_sd volL_voluL_trendH 40009  108s
+  [policy] 70/980  1709s  hawkes_sd volL_voluH_trendL 40009  146s
+  [policy] 71/980  1734s  hawkes_sd volH_voluH_trendH 40010  115s
+  [policy] 72/980  1803s  hawkes_sd volH_voluL_trendH 40010  96s
+  [policy] 73/980  1816s  hawkes_sd volH_voluL_trendL 40010  107s
+  [policy] 74/980  1835s  hawkes_sd volH_voluH_trendL 40010  133s
+  [policy] 75/980  1860s  hawkes_sd volL_voluH_trendL 40010  126s
+  [policy] 76/980  1897s  hawkes_sd volL_voluL_trendH 40010  94s
+  [policy] 77/980  1910s  hawkes_sd volL_voluL_trendL 40010  94s
+  [policy] 78/980  1932s  hawkes_sd volH_voluH_trendH 40011  97s
+  [policy] 79/980  1956s  hawkes_sd volH_voluH_trendL 40011  97s
+  [policy] 80/980  1978s  hawkes_sd volH_voluL_trendH 40011  81s
+  [policy] 81/980  2002s  hawkes_sd volH_voluL_trendL 40011  93s
+  [policy] 82/980  2064s  hawkes_sd volL_voluH_trendL 40011  132s
+  [policy] 83/980  2068s  hawkes_sd volL_voluL_trendH 40011  111s
+  [policy] 84/980  2079s  hawkes_sd volL_voluL_trendL 40011  101s
+  [policy] 85/980  2097s  hawkes_sd volH_voluH_trendH 40012  95s
+  [policy] 86/980  2154s  hawkes_sd volH_voluL_trendH 40012  86s
+  [policy] 87/980  2171s  hawkes_sd volH_voluL_trendL 40012  92s
+  [policy] 88/980  2172s  hawkes_sd volH_voluH_trendL 40012  108s
+  [policy] 89/980  2208s  hawkes_sd volL_voluH_trendL 40012  111s
+  [policy] 90/980  2246s  hawkes_sd volL_voluL_trendH 40012  92s
+  [policy] 91/980  2256s  hawkes_sd volL_voluL_trendL 40012  85s
+  [policy] 92/980  2262s  hawkes_sd volH_voluH_trendH 40013  90s
+  [policy] 93/980  2303s  hawkes_sd volH_voluH_trendL 40013  95s
+  [policy] 94/980  2324s  hawkes_sd volH_voluL_trendH 40013  78s
+  [policy] 95/980  2344s  hawkes_sd volH_voluL_trendL 40013  88s
+  [policy] 96/980  2386s  hawkes_sd volL_voluH_trendL 40013  124s
+  [policy] 97/980  2399s  hawkes_sd volL_voluL_trendH 40013  96s
+  [policy] 98/980  2412s  hawkes_sd volL_voluL_trendL 40013  88s
+  [policy] 99/980  2425s  hawkes_sd volH_voluH_trendH 40014  81s
+  [policy] 100/980  2476s  hawkes_sd volH_voluL_trendH 40014  77s
+  [policy] 101/980  2489s  hawkes_sd volH_voluH_trendL 40014  102s
+  [policy] 102/980  2502s  hawkes_sd volH_voluL_trendL 40014  90s
+  [policy] 103/980  2534s  hawkes_sd volL_voluH_trendL 40014  109s
+  [policy] 104/980  2573s  hawkes_sd volL_voluL_trendH 40014  97s
+  [policy] 105/980  2579s  hawkes_sd volL_voluL_trendL 40014  91s
+  [policy] 106/980  2594s  hawkes_sd volH_voluH_trendH 40015  92s
+  [policy] 107/980  2634s  hawkes_sd volH_voluH_trendL 40015  100s
+  [policy] 108/980  2652s  hawkes_sd volH_voluL_trendH 40015  79s
+  [policy] 109/980  2676s  hawkes_sd volH_voluL_trendL 40015  97s
+  [policy] 110/980  2713s  hawkes_sd volL_voluH_trendL 40015  119s
+  [policy] 111/980  2736s  hawkes_sd volL_voluL_trendH 40015  101s
+  [policy] 112/980  2746s  hawkes_sd volL_voluL_trendL 40015  93s
+  [policy] 113/980  2773s  hawkes_sd volH_voluH_trendH 40016  97s
+  [policy] 114/980  2815s  hawkes_sd volH_voluH_trendL 40016  102s
+  [policy] 115/980  2816s  hawkes_sd volH_voluL_trendH 40016  81s
+  [policy] 116/980  2834s  hawkes_sd volH_voluL_trendL 40016  89s
+  [policy] 117/980  2885s  hawkes_sd volL_voluH_trendL 40016  111s
+  [policy] 118/980  2907s  hawkes_sd volL_voluL_trendL 40016  91s
+  [policy] 119/980  2917s  hawkes_sd volL_voluL_trendH 40016  101s
+  [policy] 120/980  2922s  hawkes_sd volH_voluH_trendH 40017  87s
+  [policy] 121/980  2980s  hawkes_sd volH_voluL_trendH 40017  72s
+  [policy] 122/980  2994s  hawkes_sd volH_voluH_trendL 40017  109s
+  [policy] 123/980  3005s  hawkes_sd volH_voluL_trendL 40017  89s
+  [policy] 124/980  3045s  hawkes_sd volL_voluH_trendL 40017  123s
+  [policy] 125/980  3069s  hawkes_sd volL_voluL_trendH 40017  90s
+  [policy] 126/980  3087s  hawkes_sd volL_voluL_trendL 40017  93s
+  [policy] 127/980  3099s  hawkes_sd volH_voluH_trendH 40018  94s
+  [policy] 128/980  3149s  hawkes_sd volH_voluL_trendH 40018  80s
+  [policy] 129/980  3152s  hawkes_sd volH_voluH_trendL 40018  108s
+  [policy] 130/980  3178s  hawkes_sd volH_voluL_trendL 40018  91s
+  [policy] 131/980  3211s  hawkes_sd volL_voluH_trendL 40018  111s
+  [policy] 132/980  3242s  hawkes_sd volL_voluL_trendL 40018  90s
+  [policy] 133/980  3246s  hawkes_sd volL_voluL_trendH 40018  96s
+  [policy] 134/980  3270s  hawkes_sd volH_voluH_trendH 40019  92s
+  [policy] 135/980  3306s  hawkes_sd volH_voluH_trendL 40019  95s
+  [policy] 136/980  3320s  hawkes_sd volH_voluL_trendH 40019  78s
+  [policy] 137/980  3338s  hawkes_sd volH_voluL_trendL 40019  92s
+  [policy] 138/980  3398s  hawkes_sd volL_voluH_trendL 40019  128s
+  [policy] 139/980  3413s  hawkes_sd volL_voluL_trendH 40019  107s
+  [policy] 140/980  3424s  hawkes_sd volL_voluL_trendL 40019  103s
+  [policy] 141/980  3478s  hawkes_q volH_voluH_trendH 40000  141s
+  [policy] 142/980  3522s  hawkes_q volH_voluL_trendH 40000  110s
+  [policy] 143/980  3542s  hawkes_q volH_voluH_trendL 40000  143s
+  [policy] 144/980  3548s  hawkes_q volH_voluL_trendL 40000  124s
+  [policy] 145/980  3629s  hawkes_q volL_voluH_trendL 40000  151s
+  [policy] 146/980  3657s  hawkes_q volL_voluL_trendH 40000  134s
+  [policy] 147/980  3660s  hawkes_q volL_voluL_trendL 40000  118s
+  [policy] 148/980  3672s  hawkes_q volH_voluH_trendH 40001  124s
+  [policy] 149/980  3772s  hawkes_q volH_voluH_trendL 40001  143s
+  [policy] 150/980  3781s  hawkes_q volH_voluL_trendH 40001  125s
+  [policy] 151/980  3786s  hawkes_q volH_voluL_trendL 40001  126s
+  [policy] 152/980  3825s  hawkes_q volL_voluH_trendL 40001  154s
+  [policy] 153/980  3901s  hawkes_q volL_voluL_trendH 40001  128s
+  [policy] 154/980  3907s  hawkes_q volL_voluL_trendL 40001  126s
+  [policy] 155/980  3919s  hawkes_q volH_voluH_trendH 40002  134s
+  [policy] 156/980  3969s  hawkes_q volH_voluH_trendL 40002  143s
+  [policy] 157/980  4011s  hawkes_q volH_voluL_trendH 40002  110s
+  [policy] 158/980  4043s  hawkes_q volH_voluL_trendL 40002  135s
+  [policy] 159/980  4070s  hawkes_q volL_voluH_trendL 40002  151s
+  [policy] 160/980  4092s  hawkes_q volL_voluL_trendH 40002  124s
+  [policy] 161/980  4131s  hawkes_q volL_voluL_trendL 40002  120s
+  [policy] 162/980  4170s  hawkes_q volH_voluH_trendH 40003  127s
+  [policy] 163/980  4202s  hawkes_q volH_voluL_trendH 40003  109s
+  [policy] 164/980  4214s  hawkes_q volH_voluH_trendL 40003  144s
+  [policy] 165/980  4263s  hawkes_q volH_voluL_trendL 40003  132s
+  [policy] 166/980  4323s  hawkes_q volL_voluH_trendL 40003  154s
+  [policy] 167/980  4327s  hawkes_q volL_voluL_trendH 40003  125s
+  [policy] 168/980  4337s  hawkes_q volL_voluL_trendL 40003  122s
+  [policy] 169/980  4390s  hawkes_q volH_voluH_trendH 40004  127s
+  [policy] 170/980  4439s  hawkes_q volH_voluL_trendH 40004  112s
+  [policy] 171/980  4468s  hawkes_q volH_voluL_trendL 40004  131s
+  [policy] 172/980  4469s  hawkes_q volH_voluH_trendL 40004  146s
+  [policy] 173/980  4540s  hawkes_q volL_voluH_trendL 40004  149s
+  [policy] 174/980  4569s  hawkes_q volL_voluL_trendH 40004  130s
+  [policy] 175/980  4589s  hawkes_q volL_voluL_trendL 40004  121s
+  [policy] 176/980  4597s  hawkes_q volH_voluH_trendH 40005  128s
+  [policy] 177/980  4676s  hawkes_q volH_voluL_trendH 40005  107s
+  [policy] 178/980  4683s  hawkes_q volH_voluH_trendL 40005  143s
+  [policy] 179/980  4713s  hawkes_q volH_voluL_trendL 40005  124s
+  [policy] 180/980  4741s  hawkes_q volL_voluH_trendL 40005  144s
+  [policy] 181/980  4788s  hawkes_q volL_voluL_trendH 40005  111s
+  [policy] 182/980  4795s  hawkes_q volL_voluL_trendL 40005  112s
+  [policy] 183/980  4832s  hawkes_q volH_voluH_trendH 40006  120s
+  [policy] 184/980  4870s  hawkes_q volH_voluH_trendL 40006  129s
+  [policy] 185/980  4883s  hawkes_q volH_voluL_trendH 40006  95s
+  [policy] 186/980  4907s  hawkes_q volH_voluL_trendL 40006  112s
+  [policy] 187/980  4963s  hawkes_q volL_voluH_trendL 40006  131s
+  [policy] 188/980  4983s  hawkes_q volL_voluL_trendH 40006  113s
+  [policy] 189/980  4994s  hawkes_q volL_voluL_trendL 40006  111s
+  [policy] 190/980  5031s  hawkes_q volH_voluH_trendH 40007  124s
+  [policy] 191/980  5081s  hawkes_q volH_voluL_trendH 40007  98s
+  [policy] 192/980  5101s  hawkes_q volH_voluH_trendL 40007  137s
+  [policy] 193/980  5105s  hawkes_q volH_voluL_trendL 40007  111s
+  [policy] 194/980  5170s  hawkes_q volL_voluH_trendL 40007  139s
+  [policy] 195/980  5201s  hawkes_q volL_voluL_trendH 40007  121s
+  [policy] 196/980  5228s  hawkes_q volL_voluL_trendL 40007  127s
+  [policy] 197/980  5234s  hawkes_q volH_voluH_trendH 40008  129s
+  [policy] 198/980  5310s  hawkes_q volH_voluL_trendH 40008  108s
+  [policy] 199/980  5318s  hawkes_q volH_voluH_trendL 40008  148s
+  [policy] 200/980  5358s  hawkes_q volH_voluL_trendL 40008  130s
+  [policy] 201/980  5385s  hawkes_q volL_voluH_trendL 40008  151s
+  [policy] 202/980  5440s  hawkes_q volL_voluL_trendL 40008  122s
+  [policy] 203/980  5445s  hawkes_q volL_voluL_trendH 40008  136s
+  [policy] 204/980  5492s  hawkes_q volH_voluH_trendH 40009  134s
+  [policy] 205/980  5529s  hawkes_q volH_voluH_trendL 40009  144s
+  [policy] 206/980  5547s  hawkes_q volH_voluL_trendH 40009  107s
+  [policy] 207/980  5581s  hawkes_q volH_voluL_trendL 40009  135s
+  [policy] 208/980  5646s  hawkes_q volL_voluH_trendL 40009  154s
+  [policy] 209/980  5657s  hawkes_q volL_voluL_trendH 40009  128s
+  [policy] 210/980  5667s  hawkes_q volL_voluL_trendL 40009  120s
+  [policy] 211/980  5719s  hawkes_q volH_voluH_trendH 40010  139s
+  [policy] 212/980  5777s  hawkes_q volH_voluL_trendH 40010  120s
+  [policy] 213/980  5794s  hawkes_q volH_voluH_trendL 40010  148s
+  [policy] 214/980  5797s  hawkes_q volH_voluL_trendL 40010  130s
+  [policy] 215/980  5867s  hawkes_q volL_voluH_trendL 40010  148s
+  [policy] 216/980  5913s  hawkes_q volL_voluL_trendH 40010  136s
+  [policy] 217/980  5920s  hawkes_q volL_voluL_trendL 40010  126s
+  [policy] 218/980  5924s  hawkes_q volH_voluH_trendH 40011  127s
+  [policy] 219/980  6005s  hawkes_q volH_voluH_trendL 40011  137s
+  [policy] 220/980  6012s  hawkes_q volH_voluL_trendH 40011  99s
+  [policy] 221/980  6035s  hawkes_q volH_voluL_trendL 40011  115s
+  [policy] 222/980  6061s  hawkes_q volL_voluH_trendL 40011  137s
+  [policy] 223/980  6117s  hawkes_q volL_voluL_trendH 40011  112s
+  [policy] 224/980  6118s  hawkes_q volL_voluL_trendL 40011  106s
+  [policy] 225/980  6147s  hawkes_q volH_voluH_trendH 40012  112s
+  [policy] 226/980  6185s  hawkes_q volH_voluH_trendL 40012  124s
+  [policy] 227/980  6211s  hawkes_q volH_voluL_trendH 40012  95s
+  [policy] 228/980  6226s  hawkes_q volH_voluL_trendL 40012  108s
+  [policy] 229/980  6277s  hawkes_q volL_voluH_trendL 40012  130s
+  [policy] 230/980  6299s  hawkes_q volL_voluL_trendH 40012  114s
+  [policy] 231/980  6316s  hawkes_q volL_voluL_trendL 40012  105s
+  [policy] 232/980  6350s  hawkes_q volH_voluH_trendH 40013  124s
+  [policy] 233/980  6443s  hawkes_q volH_voluL_trendH 40013  145s
+  [policy] 234/980  6467s  hawkes_q volH_voluH_trendL 40013  190s
+  [policy] 235/980  6503s  hawkes_q volH_voluL_trendL 40013  187s
+  [policy] 236/980  6564s  hawkes_q volL_voluH_trendL 40013  214s
+  [policy] 237/980  6624s  hawkes_q volL_voluL_trendH 40013  181s
+  [policy] 238/980  6645s  hawkes_q volL_voluL_trendL 40013  179s
+  [policy] 239/980  6687s  hawkes_q volH_voluH_trendH 40014  184s
+  [policy] 240/980  6793s  hawkes_q volH_voluH_trendL 40014  229s
+  [policy] 241/980  6800s  hawkes_q volH_voluL_trendH 40014  175s
+  [policy] 242/980  6853s  hawkes_q volH_voluL_trendL 40014  208s
+  [policy] 243/980  6933s  hawkes_q volL_voluH_trendL 40014  246s
+  [policy] 244/980  6998s  hawkes_q volL_voluL_trendH 40014  204s
+  [policy] 245/980  7004s  hawkes_q volL_voluL_trendL 40014  204s
+  [policy] 246/980  7093s  hawkes_q volH_voluH_trendH 40015  239s
+  [policy] 247/980  8252s  hawkes_q volH_voluH_trendL 40015  1319s
+  [policy] 248/980  8268s  hawkes_q volH_voluL_trendH 40015  1271s
+  [policy] 249/980  8317s  hawkes_q volH_voluL_trendL 40015  1313s
+  [policy] 250/980  8420s  hawkes_q volL_voluH_trendL 40015  1327s
+  [policy] 251/980  8437s  hawkes_q volL_voluL_trendH 40015  184s
+  [policy] 252/980  8453s  hawkes_q volL_voluL_trendL 40015  185s
+  [policy] 253/980  8513s  hawkes_q volH_voluH_trendH 40016  196s
+  [policy] 254/980  8573s  hawkes_q volH_voluL_trendH 40016  136s
+  [policy] 255/980  8591s  hawkes_q volH_voluH_trendL 40016  171s
+  [policy] 256/980  8601s  hawkes_q volH_voluL_trendL 40016  148s
+  [policy] 257/980  8648s  hawkes_q volL_voluH_trendL 40016  135s
+  [policy] 258/980  8679s  hawkes_q volL_voluL_trendH 40016  106s
+  [policy] 259/980  8698s  hawkes_q volL_voluL_trendL 40016  107s
+  [policy] 260/980  8710s  hawkes_q volH_voluH_trendH 40017  108s
+  [policy] 261/980  8770s  hawkes_q volH_voluL_trendH 40017  91s
+  [policy] 262/980  8774s  hawkes_q volH_voluH_trendL 40017  126s
+  [policy] 263/980  8811s  hawkes_q volH_voluL_trendL 40017  112s
+  [policy] 264/980  8837s  hawkes_q volL_voluH_trendL 40017  127s
+  [policy] 265/980  8876s  hawkes_q volL_voluL_trendH 40017  106s
+  [policy] 266/980  8878s  hawkes_q volL_voluL_trendL 40017  104s
+  [policy] 267/980  8928s  hawkes_q volH_voluH_trendH 40018  118s
+  [policy] 268/980  8958s  hawkes_q volH_voluH_trendL 40018  121s
+  [policy] 269/980  8972s  hawkes_q volH_voluL_trendH 40018  96s
+  [policy] 270/980  8991s  hawkes_q volH_voluL_trendL 40018  113s
+  [policy] 271/980  9059s  hawkes_q volL_voluH_trendL 40018  131s
+  [policy] 272/980  9068s  hawkes_q volL_voluL_trendH 40018  110s
+  [policy] 273/980  9084s  hawkes_q volL_voluL_trendL 40018  112s
+  [policy] 274/980  9097s  hawkes_q volH_voluH_trendH 40019  106s
+  [policy] 275/980  9160s  hawkes_q volH_voluL_trendH 40019  92s
+  [policy] 276/980  9184s  hawkes_q volH_voluH_trendL 40019  125s
+  [policy] 277/980  9200s  hawkes_q volH_voluL_trendL 40019  116s
+  [policy] 278/980  9228s  hawkes_q volL_voluH_trendL 40019  131s
+  [policy] 279/980  9274s  hawkes_q volL_voluL_trendH 40019  113s
+  [policy] 280/980  9292s  hawkes_q volL_voluL_trendL 40019  108s
+  [policy] 281/980  9318s  hawkes_c volH_voluH_trendH 40000  118s
+  [policy] 282/980  9366s  hawkes_c volH_voluH_trendL 40000  138s
+  [policy] 283/980  9379s  hawkes_c volH_voluL_trendH 40000  105s
+  [policy] 284/980  9415s  hawkes_c volH_voluL_trendL 40000  123s
+  [policy] 285/980  9474s  hawkes_c volL_voluH_trendL 40000  156s
+  [policy] 286/980  9482s  hawkes_c volL_voluL_trendH 40000  116s
+  [policy] 287/980  9495s  hawkes_c volL_voluL_trendL 40000  117s
+  [policy] 288/980  9538s  hawkes_c volH_voluH_trendH 40001  123s
+  [policy] 289/980  9582s  hawkes_c volH_voluL_trendH 40001  101s
+  [policy] 290/980  9615s  hawkes_c volH_voluH_trendL 40001  141s
+  [policy] 291/980  9621s  hawkes_c volH_voluL_trendL 40001  126s
+  [policy] 292/980  9695s  hawkes_c volL_voluH_trendL 40001  157s
+  [policy] 293/980  9705s  hawkes_c volL_voluL_trendH 40001  123s
+  [policy] 294/980  9730s  hawkes_c volL_voluL_trendL 40001  114s
+  [policy] 295/980  9744s  hawkes_c volH_voluH_trendH 40002  123s
+  [policy] 296/980  9808s  hawkes_c volH_voluL_trendH 40002  103s
+  [policy] 297/980  9847s  hawkes_c volH_voluL_trendL 40002  118s
+  [policy] 298/980  9850s  hawkes_c volH_voluH_trendL 40002  154s
+  [policy] 299/980  9892s  hawkes_c volL_voluH_trendL 40002  148s
+  [policy] 300/980  9927s  hawkes_c volL_voluL_trendH 40002  119s
+  [policy] 301/980  9966s  hawkes_c volL_voluL_trendL 40002  119s
+  [policy] 302/980  9971s  hawkes_c volH_voluH_trendH 40003  122s
+  [policy] 303/980  10029s  hawkes_c volH_voluL_trendH 40003  101s
+  [policy] 304/980  10033s  hawkes_c volH_voluH_trendL 40003  141s
+  [policy] 305/980  10085s  hawkes_c volH_voluL_trendL 40003  119s
+  [policy] 306/980  10122s  hawkes_c volL_voluH_trendL 40003  151s
+  [policy] 307/980  10144s  hawkes_c volL_voluL_trendH 40003  115s
+  [policy] 308/980  10146s  hawkes_c volL_voluL_trendL 40003  113s
+  [policy] 309/980  10207s  hawkes_c volH_voluH_trendH 40004  122s
+  [policy] 310/980  10249s  hawkes_c volH_voluL_trendH 40004  105s
+  [policy] 311/980  10265s  hawkes_c volH_voluH_trendL 40004  144s
+  [policy] 312/980  10272s  hawkes_c volH_voluL_trendL 40004  126s
+  [policy] 313/980  10365s  hawkes_c volL_voluH_trendL 40004  158s
+  [policy] 314/980  10368s  hawkes_c volL_voluL_trendH 40004  119s
+  [policy] 315/980  10386s  hawkes_c volL_voluL_trendL 40004  121s
+  [policy] 316/980  10392s  hawkes_c volH_voluH_trendH 40005  120s
+  [policy] 317/980  10467s  hawkes_c volH_voluL_trendH 40005  99s
+  [policy] 318/980  10504s  hawkes_c volH_voluH_trendL 40005  139s
+  [policy] 319/980  10506s  hawkes_c volH_voluL_trendL 40005  120s
+  [policy] 320/980  10538s  hawkes_c volL_voluH_trendL 40005  146s
+  [policy] 321/980  10582s  hawkes_c volL_voluL_trendH 40005  115s
+  [policy] 322/980  10624s  hawkes_c volL_voluL_trendL 40005  120s
+  [policy] 323/980  10634s  hawkes_c volH_voluH_trendH 40006  128s
+  [policy] 324/980  10682s  hawkes_c volH_voluH_trendL 40006  144s
+  [policy] 325/980  10687s  hawkes_c volH_voluL_trendH 40006  105s
+  [policy] 326/980  10754s  hawkes_c volH_voluL_trendL 40006  130s
+  [policy] 327/980  10794s  hawkes_c volL_voluH_trendL 40006  159s
+  [policy] 328/980  10806s  hawkes_c volL_voluL_trendL 40006  119s
+  [policy] 329/980  10808s  hawkes_c volL_voluL_trendH 40006  126s
+  [policy] 330/980  10878s  hawkes_c volH_voluH_trendH 40007  124s
+  [policy] 331/980  10903s  hawkes_c volH_voluL_trendH 40007  97s
+  [policy] 332/980  10933s  hawkes_c volH_voluL_trendL 40007  125s
+  [policy] 333/980  10940s  hawkes_c volH_voluH_trendL 40007  146s
+  [policy] 334/980  11029s  hawkes_c volL_voluL_trendH 40007  125s
+  [policy] 335/980  11032s  hawkes_c volL_voluH_trendL 40007  153s
+  [policy] 336/980  11046s  hawkes_c volL_voluL_trendL 40007  113s
+  [policy] 337/980  11069s  hawkes_c volH_voluH_trendH 40008  129s
+  [policy] 338/980  11139s  hawkes_c volH_voluL_trendH 40008  107s
+  [policy] 339/980  11175s  hawkes_c volH_voluH_trendL 40008  146s
+  [policy] 340/980  11176s  hawkes_c volH_voluL_trendL 40008  130s
+  [policy] 341/980  11230s  hawkes_c volL_voluH_trendL 40008  161s
+  [policy] 342/980  11272s  hawkes_c volL_voluL_trendH 40008  134s
+  [policy] 343/980  11293s  hawkes_c volL_voluL_trendL 40008  119s
+  [policy] 344/980  11297s  hawkes_c volH_voluH_trendH 40009  121s
+  [policy] 345/980  11376s  hawkes_c volH_voluL_trendH 40009  103s
+  [policy] 346/980  11380s  hawkes_c volH_voluH_trendL 40009  150s
+  [policy] 347/980  11422s  hawkes_c volH_voluL_trendL 40009  129s
+  [policy] 348/980  11453s  hawkes_c volL_voluH_trendL 40009  156s
+  [policy] 349/980  11499s  hawkes_c volL_voluL_trendL 40009  120s
+  [policy] 350/980  11507s  hawkes_c volL_voluL_trendH 40009  132s
+  [policy] 351/980  11544s  hawkes_c volH_voluH_trendH 40010  122s
+  [policy] 352/980  11597s  hawkes_c volH_voluH_trendL 40010  144s
+  [policy] 353/980  11607s  hawkes_c volH_voluL_trendH 40010  108s
+  [policy] 354/980  11643s  hawkes_c volH_voluL_trendL 40010  136s
+  [policy] 355/980  11703s  hawkes_c volL_voluH_trendL 40010  159s
+  [policy] 356/980  11719s  hawkes_c volL_voluL_trendH 40010  123s
+  [policy] 357/980  11726s  hawkes_c volL_voluL_trendL 40010  119s
+  [policy] 358/980  11766s  hawkes_c volH_voluH_trendH 40011  123s
+  [policy] 359/980  11822s  hawkes_c volH_voluL_trendH 40011  103s
+  [policy] 360/980  11848s  hawkes_c volH_voluH_trendL 40011  144s
+  [policy] 361/980  11853s  hawkes_c volH_voluL_trendL 40011  127s
+  [policy] 362/980  11928s  hawkes_c volL_voluH_trendL 40011  161s
+  [policy] 363/980  11953s  hawkes_c volL_voluL_trendH 40011  130s
+  [policy] 364/980  11961s  hawkes_c volL_voluL_trendL 40011  113s
+  [policy] 365/980  11977s  hawkes_c volH_voluH_trendH 40012  124s
+  [policy] 366/980  12057s  hawkes_c volH_voluL_trendH 40012  105s
+  [policy] 367/980  12066s  hawkes_c volH_voluH_trendL 40012  138s
+  [policy] 368/980  12091s  hawkes_c volH_voluL_trendL 40012  130s
+  [policy] 369/980  12130s  hawkes_c volL_voluH_trendL 40012  154s
+  [policy] 370/980  12181s  hawkes_c volL_voluL_trendH 40012  123s
+  [policy] 371/980  12183s  hawkes_c volL_voluL_trendL 40012  117s
+  [policy] 372/980  12210s  hawkes_c volH_voluH_trendH 40013  119s
+  [policy] 373/980  12272s  hawkes_c volH_voluH_trendL 40013  141s
+  [policy] 374/980  12286s  hawkes_c volH_voluL_trendH 40013  105s
+  [policy] 375/980  12308s  hawkes_c volH_voluL_trendL 40013  125s
+  [policy] 376/980  12361s  hawkes_c volL_voluH_trendL 40013  151s
+  [policy] 377/980  12388s  hawkes_c volL_voluL_trendH 40013  117s
+  [policy] 378/980  12396s  hawkes_c volL_voluL_trendL 40013  111s
+  [policy] 379/980  12427s  hawkes_c volH_voluH_trendH 40014  119s
+  [policy] 380/980  12492s  hawkes_c volH_voluL_trendH 40014  103s
+  [policy] 381/980  12507s  hawkes_c volH_voluH_trendL 40014  146s
+  [policy] 382/980  12519s  hawkes_c volH_voluL_trendL 40014  123s
+  [policy] 383/980  12586s  hawkes_c volL_voluH_trendL 40014  158s
+  [policy] 384/980  12617s  hawkes_c volL_voluL_trendH 40014  125s
+  [policy] 385/980  12626s  hawkes_c volL_voluL_trendL 40014  119s
+  [policy] 386/980  12635s  hawkes_c volH_voluH_trendH 40015  115s
+  [policy] 387/980  12718s  hawkes_c volH_voluL_trendH 40015  102s
+  [policy] 388/980  12722s  hawkes_c volH_voluH_trendL 40015  137s
+  [policy] 389/980  12748s  hawkes_c volH_voluL_trendL 40015  122s
+  [policy] 390/980  12782s  hawkes_c volL_voluH_trendL 40015  147s
+  [policy] 391/980  12837s  hawkes_c volL_voluL_trendL 40015  114s
+  [policy] 392/980  12839s  hawkes_c volL_voluL_trendH 40015  120s
+  [policy] 393/980  12868s  hawkes_c volH_voluH_trendH 40016  120s
+  [policy] 394/980  12926s  hawkes_c volH_voluH_trendL 40016  145s
+  [policy] 395/980  12945s  hawkes_c volH_voluL_trendH 40016  109s
+  [policy] 396/980  12967s  hawkes_c volH_voluL_trendL 40016  129s
+  [policy] 397/980  13027s  hawkes_c volL_voluH_trendL 40016  159s
+  [policy] 398/980  13041s  hawkes_c volL_voluL_trendH 40016  115s
+  [policy] 399/980  13063s  hawkes_c volL_voluL_trendL 40016  118s
+  [policy] 400/980  13088s  hawkes_c volH_voluH_trendH 40017  121s
+  [policy] 401/980  13139s  hawkes_c volH_voluL_trendH 40017  99s
+  [policy] 402/980  13161s  hawkes_c volH_voluH_trendL 40017  134s
+  [policy] 403/980  13182s  hawkes_c volH_voluL_trendL 40017  119s
+  [policy] 404/980  13235s  hawkes_c volL_voluH_trendL 40017  147s
+  [policy] 405/980  13254s  hawkes_c volL_voluL_trendH 40017  115s
+  [policy] 406/980  13271s  hawkes_c volL_voluL_trendL 40017  111s
+  [policy] 407/980  13299s  hawkes_c volH_voluH_trendH 40018  117s
+  [policy] 408/980  13355s  hawkes_c volH_voluL_trendH 40018  101s
+  [policy] 409/980  13373s  hawkes_c volH_voluH_trendL 40018  139s
+  [policy] 410/980  13400s  hawkes_c volH_voluL_trendL 40018  129s
+  [policy] 411/980  13449s  hawkes_c volL_voluH_trendL 40018  150s
+  [policy] 412/980  13472s  hawkes_c volL_voluL_trendH 40018  117s
+  [policy] 413/980  13482s  hawkes_c volL_voluL_trendL 40018  109s
+  [policy] 414/980  13519s  hawkes_c volH_voluH_trendH 40019  119s
+  [policy] 415/980  13573s  hawkes_c volH_voluL_trendH 40019  101s
+  [policy] 416/980  13581s  hawkes_c volH_voluH_trendL 40019  132s
+  [policy] 417/980  13604s  hawkes_c volH_voluL_trendL 40019  121s
+  [policy] 418/980  13668s  hawkes_c volL_voluH_trendL 40019  149s
+  [policy] 419/980  13694s  hawkes_c volL_voluL_trendH 40019  121s
+  [policy] 420/980  13699s  hawkes_c volL_voluL_trendL 40019  118s
+  [policy] 421/980  13723s  hawkes_sd_q volH_voluH_trendH 40000  120s
+  [policy] 422/980  13779s  hawkes_sd_q volH_voluH_trendL 40000  112s
+  [policy] 423/980  13789s  hawkes_sd_q volH_voluL_trendH 40000  95s
+  [policy] 424/980  13803s  hawkes_sd_q volH_voluL_trendL 40000  104s
+  [policy] 425/980  13848s  hawkes_sd_q volL_voluH_trendL 40000  124s
+  [policy] 426/980  13887s  hawkes_sd_q volL_voluL_trendH 40000  108s
+  [policy] 427/980  13887s  hawkes_sd_q volL_voluL_trendL 40000  99s
+  [policy] 428/980  13902s  hawkes_sd_q volH_voluH_trendH 40001  98s
+  [policy] 429/980  13960s  hawkes_sd_q volH_voluH_trendL 40001  113s
+  [policy] 430/980  13976s  hawkes_sd_q volH_voluL_trendH 40001  89s
+  [policy] 431/980  13989s  hawkes_sd_q volH_voluL_trendL 40001  102s
+  [policy] 432/980  14030s  hawkes_sd_q volL_voluH_trendL 40001  128s
+  [policy] 433/980  14068s  hawkes_sd_q volL_voluL_trendH 40001  107s
+  [policy] 434/980  14073s  hawkes_sd_q volL_voluL_trendL 40001  97s
+  [policy] 435/980  14101s  hawkes_sd_q volH_voluH_trendH 40002  112s
+  [policy] 436/980  14147s  hawkes_sd_q volH_voluH_trendL 40002  117s
+  [policy] 437/980  14159s  hawkes_sd_q volH_voluL_trendH 40002  92s
+  [policy] 438/980  14165s  hawkes_sd_q volH_voluL_trendL 40002  92s
+  [policy] 439/980  14216s  hawkes_sd_q volL_voluH_trendL 40002  115s
+  [policy] 440/980  14244s  hawkes_sd_q volL_voluL_trendH 40002  97s
+  [policy] 441/980  14256s  hawkes_sd_q volH_voluH_trendH 40003  91s
+  [policy] 442/980  14257s  hawkes_sd_q volL_voluL_trendL 40002  98s
+  [policy] 443/980  14323s  hawkes_sd_q volH_voluH_trendL 40003  107s
+  [policy] 444/980  14331s  hawkes_sd_q volH_voluL_trendH 40003  86s
+  [policy] 445/980  14359s  hawkes_sd_q volH_voluL_trendL 40003  103s
+  [policy] 446/980  14381s  hawkes_sd_q volL_voluH_trendL 40003  124s
+  [policy] 447/980  14422s  hawkes_sd_q volL_voluL_trendH 40003  99s
+  [policy] 448/980  14426s  hawkes_sd_q volL_voluL_trendL 40003  95s
+  [policy] 449/980  14464s  hawkes_sd_q volH_voluH_trendH 40004  105s
+  [policy] 450/980  14494s  hawkes_sd_q volH_voluH_trendL 40004  113s
+  [policy] 451/980  14515s  hawkes_sd_q volH_voluL_trendH 40004  93s
+  [policy] 452/980  14522s  hawkes_sd_q volH_voluL_trendL 40004  96s
+  [policy] 453/980  14581s  hawkes_sd_q volL_voluH_trendL 40004  117s
+  [policy] 454/980  14599s  hawkes_sd_q volL_voluL_trendH 40004  105s
+  [policy] 455/980  14614s  hawkes_sd_q volL_voluL_trendL 40004  99s
+  [policy] 456/980  14634s  hawkes_sd_q volH_voluH_trendH 40005  112s
+  [policy] 457/980  14689s  hawkes_sd_q volH_voluL_trendH 40005  89s
+  [policy] 458/980  14694s  hawkes_sd_q volH_voluH_trendL 40005  113s
+  [policy] 459/980  14703s  hawkes_sd_q volH_voluL_trendL 40005  89s
+  [policy] 460/980  14759s  hawkes_sd_q volL_voluH_trendL 40005  126s
+  [policy] 461/980  14787s  hawkes_sd_q volL_voluL_trendH 40005  98s
+  [policy] 462/980  14794s  hawkes_sd_q volL_voluL_trendL 40005  99s
+  [policy] 463/980  14799s  hawkes_sd_q volH_voluH_trendH 40006  96s
+  [policy] 464/980  14867s  hawkes_sd_q volH_voluH_trendL 40006  108s
+  [policy] 465/980  14880s  hawkes_sd_q volH_voluL_trendH 40006  92s
+  [policy] 466/980  14889s  hawkes_sd_q volH_voluL_trendL 40006  95s
+  [policy] 467/980  14919s  hawkes_sd_q volL_voluH_trendL 40006  120s
+  [policy] 468/980  14975s  hawkes_sd_q volL_voluL_trendH 40006  107s
+  [policy] 469/980  14984s  hawkes_sd_q volL_voluL_trendL 40006  105s
+  [policy] 470/980  14994s  hawkes_sd_q volH_voluH_trendH 40007  105s
+  [policy] 471/980  15043s  hawkes_sd_q volH_voluH_trendL 40007  124s
+  [policy] 472/980  15073s  hawkes_sd_q volH_voluL_trendH 40007  99s
+  [policy] 473/980  15087s  hawkes_sd_q volH_voluL_trendL 40007  103s
+  [policy] 474/980  15117s  hawkes_sd_q volL_voluH_trendL 40007  124s
+  [policy] 475/980  15142s  hawkes_sd_q volL_voluL_trendH 40007  98s
+  [policy] 476/980  15175s  hawkes_sd_q volL_voluL_trendL 40007  102s
+  [policy] 477/980  15188s  hawkes_sd_q volH_voluH_trendH 40008  100s
+  [policy] 478/980  15228s  hawkes_sd_q volH_voluL_trendH 40008  86s
+  [policy] 479/980  15234s  hawkes_sd_q volH_voluH_trendL 40008  116s
+  [policy] 480/980  15284s  hawkes_sd_q volH_voluL_trendL 40008  109s
+  [policy] 481/980  15306s  hawkes_sd_q volL_voluH_trendL 40008  118s
+  [policy] 482/980  15332s  hawkes_sd_q volL_voluL_trendL 40008  98s
+  [policy] 483/980  15334s  hawkes_sd_q volL_voluL_trendH 40008  107s
+  [policy] 484/980  15392s  hawkes_sd_q volH_voluH_trendH 40009  108s
+  [policy] 485/980  15411s  hawkes_sd_q volH_voluL_trendH 40009  79s
+  [policy] 486/980  15424s  hawkes_sd_q volH_voluH_trendL 40009  118s
+  [policy] 487/980  15428s  hawkes_sd_q volH_voluL_trendL 40009  94s
+  [policy] 488/980  15496s  hawkes_sd_q volL_voluL_trendH 40009  85s
+  [policy] 489/980  15503s  hawkes_sd_q volL_voluL_trendL 40009  79s
+  [policy] 490/980  15505s  hawkes_sd_q volL_voluH_trendL 40009  113s
+  [policy] 491/980  15524s  hawkes_sd_q volH_voluH_trendH 40010  95s
+  [policy] 492/980  15577s  hawkes_sd_q volH_voluL_trendH 40010  74s
+  [policy] 493/980  15583s  hawkes_sd_q volH_voluL_trendL 40010  78s
+  [policy] 494/980  15588s  hawkes_sd_q volH_voluH_trendL 40010  92s
+  [policy] 495/980  15613s  hawkes_sd_q volL_voluH_trendL 40010  89s
+  [policy] 496/980  15663s  hawkes_sd_q volL_voluL_trendH 40010  86s
+  [policy] 497/980  15667s  hawkes_sd_q volH_voluH_trendH 40011  79s
+  [policy] 498/980  15667s  hawkes_sd_q volL_voluL_trendL 40010  84s
+  [policy] 499/980  15693s  hawkes_sd_q volH_voluH_trendL 40011  80s
+  [policy] 500/980  15731s  hawkes_sd_q volH_voluL_trendH 40011  68s
+  [policy] 501/980  15740s  hawkes_sd_q volH_voluL_trendL 40011  73s
+  [policy] 502/980  15760s  hawkes_sd_q volL_voluH_trendL 40011  92s
+  [policy] 503/980  15772s  hawkes_sd_q volL_voluL_trendH 40011  79s
+  [policy] 504/980  15801s  hawkes_sd_q volL_voluL_trendL 40011  70s
+  [policy] 505/980  15805s  hawkes_sd_q volH_voluH_trendH 40012  65s
+  [policy] 506/980  15834s  hawkes_sd_q volH_voluL_trendH 40012  62s
+  [policy] 507/980  15839s  hawkes_sd_q volH_voluH_trendL 40012  79s
+  [policy] 508/980  15870s  hawkes_sd_q volH_voluL_trendL 40012  69s
+  [policy] 509/980  15894s  hawkes_sd_q volL_voluH_trendL 40012  88s
+  [policy] 510/980  15907s  hawkes_sd_q volL_voluL_trendH 40012  73s
+  [policy] 511/980  15912s  hawkes_sd_q volL_voluL_trendL 40012  73s
+  [policy] 512/980  15951s  hawkes_sd_q volH_voluH_trendH 40013  81s
+  [policy] 513/980  15978s  hawkes_sd_q volH_voluL_trendH 40013  70s
+  [policy] 514/980  15983s  hawkes_sd_q volH_voluH_trendL 40013  89s
+  [policy] 515/980  15986s  hawkes_sd_q volH_voluL_trendL 40013  74s
+  [policy] 516/980  16046s  hawkes_sd_q volH_voluH_trendH 40014  60s
+  [policy] 517/980  16048s  hawkes_sd_q volL_voluH_trendL 40013  97s
+  [policy] 518/980  16053s  hawkes_sd_q volL_voluL_trendL 40013  70s
+  [policy] 519/980  16054s  hawkes_sd_q volL_voluL_trendH 40013  76s
+  [policy] 520/980  16118s  hawkes_sd_q volH_voluL_trendH 40014  70s
+  [policy] 521/980  16130s  hawkes_sd_q volH_voluL_trendL 40014  76s
+  [policy] 522/980  16132s  hawkes_sd_q volH_voluH_trendL 40014  85s
+  [policy] 523/980  16139s  hawkes_sd_q volL_voluH_trendL 40014  85s
+  [policy] 524/980  16197s  hawkes_sd_q volL_voluL_trendH 40014  79s
+  [policy] 525/980  16201s  hawkes_sd_q volL_voluL_trendL 40014  71s
+  [policy] 526/980  16218s  hawkes_sd_q volH_voluH_trendL 40015  80s
+  [policy] 527/980  16223s  hawkes_sd_q volH_voluH_trendH 40015  92s
+  [policy] 528/980  16264s  hawkes_sd_q volH_voluL_trendH 40015  67s
+  [policy] 529/980  16290s  hawkes_sd_q volH_voluL_trendL 40015  89s
+  [policy] 530/980  16310s  hawkes_sd_q volL_voluL_trendH 40015  86s
+  [policy] 531/980  16313s  hawkes_sd_q volL_voluH_trendL 40015  95s
+  [policy] 532/980  16344s  hawkes_sd_q volL_voluL_trendL 40015  80s
+  [policy] 533/980  16375s  hawkes_sd_q volH_voluH_trendH 40016  85s
+  [policy] 534/980  16381s  hawkes_sd_q volH_voluL_trendH 40016  68s
+  [policy] 535/980  16397s  hawkes_sd_q volH_voluH_trendL 40016  87s
+  [policy] 536/980  16423s  hawkes_sd_q volH_voluL_trendL 40016  78s
+  [policy] 537/980  16459s  hawkes_sd_q volL_voluL_trendH 40016  78s
+  [policy] 538/980  16467s  hawkes_sd_q volL_voluH_trendL 40016  92s
+  [policy] 539/980  16471s  hawkes_sd_q volL_voluL_trendL 40016  74s
+  [policy] 540/980  16500s  hawkes_sd_q volH_voluH_trendH 40017  77s
+  [policy] 541/980  16528s  hawkes_sd_q volH_voluL_trendH 40017  61s
+  [policy] 542/980  16547s  hawkes_sd_q volH_voluH_trendL 40017  88s
+  [policy] 543/980  16551s  hawkes_sd_q volH_voluL_trendL 40017  79s
+  [policy] 544/980  16598s  hawkes_sd_q volL_voluH_trendL 40017  98s
+  [policy] 545/980  16601s  hawkes_sd_q volL_voluL_trendH 40017  73s
+  [policy] 546/980  16623s  hawkes_sd_q volL_voluL_trendL 40017  75s
+  [policy] 547/980  16637s  hawkes_sd_q volH_voluH_trendH 40018  86s
+  [policy] 548/980  16677s  hawkes_sd_q volH_voluL_trendH 40018  75s
+  [policy] 549/980  16686s  hawkes_sd_q volH_voluH_trendL 40018  88s
+  [policy] 550/980  16695s  hawkes_sd_q volH_voluL_trendL 40018  72s
+  [policy] 551/980  16729s  hawkes_sd_q volL_voluH_trendL 40018  92s
+  [policy] 552/980  16755s  hawkes_sd_q volL_voluL_trendH 40018  79s
+  [policy] 553/980  16760s  hawkes_sd_q volL_voluL_trendL 40018  74s
+  [policy] 554/980  16770s  hawkes_sd_q volH_voluH_trendH 40019  75s
+  [policy] 555/980  16810s  hawkes_sd_q volH_voluH_trendL 40019  81s
+  [policy] 556/980  16821s  hawkes_sd_q volH_voluL_trendH 40019  66s
+  [policy] 557/980  16833s  hawkes_sd_q volH_voluL_trendL 40019  73s
+  [policy] 558/980  16865s  hawkes_sd_q volL_voluH_trendL 40019  96s
+  [policy] 559/980  16888s  hawkes_sd_q volL_voluL_trendH 40019  79s
+  [policy] 560/980  16892s  hawkes_sd_q volL_voluL_trendL 40019  71s
+  [policy] 561/980  16908s  hawkes_sd_c volH_voluH_trendH 40000  75s
+  [policy] 562/980  16948s  hawkes_sd_c volH_voluH_trendL 40000  83s
+  [policy] 563/980  16956s  hawkes_sd_c volH_voluL_trendH 40000  68s
+  [policy] 564/980  16969s  hawkes_sd_c volH_voluL_trendL 40000  78s
+  [policy] 565/980  17010s  hawkes_sd_c volL_voluH_trendL 40000  102s
+  [policy] 566/980  17031s  hawkes_sd_c volL_voluL_trendH 40000  82s
+  [policy] 567/980  17039s  hawkes_sd_c volL_voluL_trendL 40000  83s
+  [policy] 568/980  17046s  hawkes_sd_c volH_voluH_trendH 40001  77s
+  [policy] 569/980  17091s  hawkes_sd_c volH_voluL_trendH 40001  60s
+  [policy] 570/980  17104s  hawkes_sd_c volH_voluH_trendL 40001  94s
+  [policy] 571/980  17127s  hawkes_sd_c volH_voluL_trendL 40001  88s
+  [policy] 572/980  17157s  hawkes_sd_c volL_voluH_trendL 40001  111s
+  [policy] 573/980  17178s  hawkes_sd_c volL_voluL_trendH 40001  87s
+  [policy] 574/980  17183s  hawkes_sd_c volL_voluL_trendL 40001  79s
+  [policy] 575/980  17213s  hawkes_sd_c volH_voluH_trendH 40002  86s
+  [policy] 576/980  17245s  hawkes_sd_c volH_voluL_trendH 40002  67s
+  [policy] 577/980  17254s  hawkes_sd_c volH_voluH_trendL 40002  97s
+  [policy] 578/980  17261s  hawkes_sd_c volH_voluL_trendL 40002  78s
+  [policy] 579/980  17315s  hawkes_sd_c volL_voluH_trendL 40002  102s
+  [policy] 580/980  17322s  hawkes_sd_c volL_voluL_trendH 40002  77s
+  [policy] 581/980  17332s  hawkes_sd_c volL_voluL_trendL 40002  78s
+  [policy] 582/980  17338s  hawkes_sd_c volH_voluH_trendH 40003  77s
+  [policy] 583/980  17388s  hawkes_sd_c volH_voluL_trendH 40003  66s
+  [policy] 584/980  17395s  hawkes_sd_c volH_voluH_trendL 40003  80s
+  [policy] 585/980  17416s  hawkes_sd_c volH_voluL_trendL 40003  84s
+  [policy] 586/980  17440s  hawkes_sd_c volL_voluH_trendL 40003  102s
+  [policy] 587/980  17464s  hawkes_sd_c volL_voluL_trendH 40003  77s
+  [policy] 588/980  17469s  hawkes_sd_c volL_voluL_trendL 40003  74s
+  [policy] 589/980  17495s  hawkes_sd_c volH_voluH_trendH 40004  80s
+  [policy] 590/980  17519s  hawkes_sd_c volH_voluH_trendL 40004  79s
+  [policy] 591/980  17526s  hawkes_sd_c volH_voluL_trendH 40004  62s
+  [policy] 592/980  17551s  hawkes_sd_c volH_voluL_trendL 40004  82s
+  [policy] 593/980  17599s  hawkes_sd_c volL_voluL_trendH 40004  80s
+  [policy] 594/980  17601s  hawkes_sd_c volL_voluH_trendL 40004  105s
+  [policy] 595/980  17608s  hawkes_sd_c volL_voluL_trendL 40004  82s
+  [policy] 596/980  17627s  hawkes_sd_c volH_voluH_trendH 40005  75s
+  [policy] 597/980  17664s  hawkes_sd_c volH_voluL_trendH 40005  64s
+  [policy] 598/980  17682s  hawkes_sd_c volH_voluL_trendL 40005  73s
+  [policy] 599/980  17683s  hawkes_sd_c volH_voluH_trendL 40005  84s
+  [policy] 600/980  17737s  hawkes_sd_c volL_voluL_trendH 40005  73s
+  [policy] 601/980  17739s  hawkes_sd_c volL_voluH_trendL 40005  113s
+  [policy] 602/980  17757s  hawkes_sd_c volH_voluH_trendH 40006  74s
+  [policy] 603/980  17757s  hawkes_sd_c volL_voluL_trendL 40005  76s
+  [policy] 604/980  17804s  hawkes_sd_c volH_voluL_trendH 40006  65s
+  [policy] 605/980  17817s  hawkes_sd_c volH_voluH_trendL 40006  79s
+  [policy] 606/980  17834s  hawkes_sd_c volH_voluL_trendL 40006  77s
+  [policy] 607/980  17861s  hawkes_sd_c volL_voluH_trendL 40006  104s
+  [policy] 608/980  17882s  hawkes_sd_c volL_voluL_trendH 40006  78s
+  [policy] 609/980  17897s  hawkes_sd_c volL_voluL_trendL 40006  81s
+  [policy] 610/980  17912s  hawkes_sd_c volH_voluH_trendH 40007  78s
+  [policy] 611/980  17947s  hawkes_sd_c volH_voluL_trendH 40007  65s
+  [policy] 612/980  17948s  hawkes_sd_c volH_voluH_trendL 40007  87s
+  [policy] 613/980  17974s  hawkes_sd_c volH_voluL_trendL 40007  77s
+  [policy] 614/980  18018s  hawkes_sd_c volL_voluH_trendL 40007  106s
+  [policy] 615/980  18029s  hawkes_sd_c volL_voluL_trendL 40007  81s
+  [policy] 616/980  18031s  hawkes_sd_c volL_voluL_trendH 40007  84s
+  [policy] 617/980  18053s  hawkes_sd_c volH_voluH_trendH 40008  80s
+  [policy] 618/980  18096s  hawkes_sd_c volH_voluL_trendH 40008  67s
+  [policy] 619/980  18108s  hawkes_sd_c volH_voluH_trendL 40008  89s
+  [policy] 620/980  18118s  hawkes_sd_c volH_voluL_trendL 40008  88s
+  [policy] 621/980  18163s  hawkes_sd_c volL_voluH_trendL 40008  109s
+  [policy] 622/980  18179s  hawkes_sd_c volL_voluL_trendH 40008  84s
+  [policy] 623/980  18184s  hawkes_sd_c volL_voluL_trendL 40008  76s
+  [policy] 624/980  18203s  hawkes_sd_c volH_voluH_trendH 40009  85s
+  [policy] 625/980  18244s  hawkes_sd_c volH_voluL_trendH 40009  64s
+  [policy] 626/980  18260s  hawkes_sd_c volH_voluH_trendL 40009  97s
+  [policy] 627/980  18267s  hawkes_sd_c volH_voluL_trendL 40009  83s
+  [policy] 628/980  18319s  hawkes_sd_c volL_voluH_trendL 40009  116s
+  [policy] 629/980  18327s  hawkes_sd_c volL_voluL_trendH 40009  83s
+  [policy] 630/980  18336s  hawkes_sd_c volL_voluL_trendL 40009  77s
+  [policy] 631/980  18348s  hawkes_sd_c volH_voluH_trendH 40010  81s
+  [policy] 632/980  18393s  hawkes_sd_c volH_voluL_trendH 40010  66s
+  [policy] 633/980  18412s  hawkes_sd_c volH_voluH_trendL 40010  93s
+  [policy] 634/980  18422s  hawkes_sd_c volH_voluL_trendL 40010  86s
+  [policy] 635/980  18452s  hawkes_sd_c volL_voluH_trendL 40010  104s
+  [policy] 636/980  18473s  hawkes_sd_c volL_voluL_trendH 40010  80s
+  [policy] 637/980  18492s  hawkes_sd_c volL_voluL_trendL 40010  80s
+  [policy] 638/980  18507s  hawkes_sd_c volH_voluH_trendH 40011  85s
+  [policy] 639/980  18536s  hawkes_sd_c volH_voluH_trendL 40011  84s
+  [policy] 640/980  18539s  hawkes_sd_c volH_voluL_trendH 40011  66s
+  [policy] 641/980  18569s  hawkes_sd_c volH_voluL_trendL 40011  77s
+  [policy] 642/980  18611s  hawkes_sd_c volL_voluL_trendL 40011  72s
+  [policy] 643/980  18618s  hawkes_sd_c volL_voluH_trendL 40011  110s
+  [policy] 644/980  18623s  hawkes_sd_c volL_voluL_trendH 40011  87s
+  [policy] 645/980  18645s  hawkes_sd_c volH_voluH_trendH 40012  76s
+  [policy] 646/980  18682s  hawkes_sd_c volH_voluL_trendH 40012  64s
+  [policy] 647/980  18693s  hawkes_sd_c volH_voluH_trendL 40012  82s
+  [policy] 648/980  18702s  hawkes_sd_c volH_voluL_trendL 40012  79s
+  [policy] 649/980  18747s  hawkes_sd_c volL_voluH_trendL 40012  102s
+  [policy] 650/980  18760s  hawkes_sd_c volL_voluL_trendH 40012  79s
+  [policy] 651/980  18765s  hawkes_sd_c volL_voluL_trendL 40012  71s
+  [policy] 652/980  18781s  hawkes_sd_c volH_voluH_trendH 40013  79s
+  [policy] 653/980  18829s  hawkes_sd_c volH_voluL_trendH 40013  69s
+  [policy] 654/980  18831s  hawkes_sd_c volH_voluH_trendL 40013  85s
+  [policy] 655/980  18848s  hawkes_sd_c volH_voluL_trendL 40013  83s
+  [policy] 656/980  18895s  hawkes_sd_c volL_voluH_trendL 40013  114s
+  [policy] 657/980  18908s  hawkes_sd_c volL_voluL_trendL 40013  77s
+  [policy] 658/980  18909s  hawkes_sd_c volL_voluL_trendH 40013  80s
+  [policy] 659/980  18918s  hawkes_sd_c volH_voluH_trendH 40014  71s
+  [policy] 660/980  18973s  hawkes_sd_c volH_voluL_trendH 40014  65s
+  [policy] 661/980  18980s  hawkes_sd_c volH_voluH_trendL 40014  85s
+  [policy] 662/980  18990s  hawkes_sd_c volH_voluL_trendL 40014  81s
+  [policy] 663/980  19023s  hawkes_sd_c volL_voluH_trendL 40014  105s
+  [policy] 664/980  19056s  hawkes_sd_c volL_voluL_trendH 40014  83s
+  [policy] 665/980  19058s  hawkes_sd_c volL_voluL_trendL 40014  78s
+  [policy] 666/980  19067s  hawkes_sd_c volH_voluH_trendH 40015  77s
+  [policy] 667/980  19107s  hawkes_sd_c volH_voluH_trendL 40015  84s
+  [policy] 668/980  19125s  hawkes_sd_c volH_voluL_trendH 40015  69s
+  [policy] 669/980  19143s  hawkes_sd_c volH_voluL_trendL 40015  85s
+  [policy] 670/980  19174s  hawkes_sd_c volL_voluH_trendL 40015  107s
+  [policy] 671/980  19189s  hawkes_sd_c volL_voluL_trendH 40015  82s
+  [policy] 672/980  19199s  hawkes_sd_c volL_voluL_trendL 40015  75s
+  [policy] 673/980  19223s  hawkes_sd_c volH_voluH_trendH 40016  80s
+  [policy] 674/980  19257s  hawkes_sd_c volH_voluL_trendH 40016  68s
+  [policy] 675/980  19261s  hawkes_sd_c volH_voluH_trendL 40016  87s
+  [policy] 676/980  19278s  hawkes_sd_c volH_voluL_trendL 40016  78s
+  [policy] 677/980  19328s  hawkes_sd_c volL_voluH_trendL 40016  104s
+  [policy] 678/980  19342s  hawkes_sd_c volL_voluL_trendH 40016  85s
+  [policy] 679/980  19342s  hawkes_sd_c volL_voluL_trendL 40016  81s
+  [policy] 680/980  19355s  hawkes_sd_c volH_voluH_trendH 40017  77s
+  [policy] 681/980  19407s  hawkes_sd_c volH_voluL_trendH 40017  65s
+  [policy] 682/980  19419s  hawkes_sd_c volH_voluH_trendL 40017  91s
+  [policy] 683/980  19423s  hawkes_sd_c volH_voluL_trendL 40017  81s
+  [policy] 684/980  19470s  hawkes_sd_c volL_voluH_trendL 40017  115s
+  [policy] 685/980  19483s  hawkes_sd_c volL_voluL_trendH 40017  76s
+  [policy] 686/980  19497s  hawkes_sd_c volL_voluL_trendL 40017  78s
+  [policy] 687/980  19504s  hawkes_sd_c volH_voluH_trendH 40018  81s
+  [policy] 688/980  19549s  hawkes_sd_c volH_voluL_trendH 40018  66s
+  [policy] 689/980  19564s  hawkes_sd_c volH_voluH_trendL 40018  94s
+  [policy] 690/980  19583s  hawkes_sd_c volH_voluL_trendL 40018  86s
+  [policy] 691/980  19609s  hawkes_sd_c volL_voluH_trendL 40018  104s
+  [policy] 692/980  19631s  hawkes_sd_c volL_voluL_trendH 40018  81s
+  [policy] 693/980  19637s  hawkes_sd_c volL_voluL_trendL 40018  73s
+  [policy] 694/980  19663s  hawkes_sd_c volH_voluH_trendH 40019  81s
+  [policy] 695/980  19693s  hawkes_sd_c volH_voluH_trendL 40019  85s
+  [policy] 696/980  19699s  hawkes_sd_c volH_voluL_trendH 40019  68s
+  [policy] 697/980  19720s  hawkes_sd_c volH_voluL_trendL 40019  83s
+  [policy] 698/980  19772s  hawkes_sd_c volL_voluH_trendL 40019  108s
+  [policy] 699/980  19773s  hawkes_sd_c volL_voluL_trendH 40019  80s
+  [policy] 700/980  19776s  hawkes_sd_c volL_voluL_trendL 40019  77s
+  [policy] 701/980  19818s  hawkes_q_c volH_voluH_trendH 40000  98s
+  [policy] 702/980  19851s  hawkes_q_c volH_voluL_trendH 40000  78s
+  [policy] 703/980  19867s  hawkes_q_c volH_voluL_trendL 40000  91s
+  [policy] 704/980  19870s  hawkes_q_c volH_voluH_trendL 40000  99s
+  [policy] 705/980  19934s  hawkes_q_c volL_voluH_trendL 40000  116s
+  [policy] 706/980  19944s  hawkes_q_c volL_voluL_trendH 40000  93s
+  [policy] 707/980  19955s  hawkes_q_c volL_voluL_trendL 40000  88s
+  [policy] 708/980  19965s  hawkes_q_c volH_voluH_trendH 40001  94s
+  [policy] 709/980  20025s  hawkes_q_c volH_voluL_trendH 40001  80s
+  [policy] 710/980  20043s  hawkes_q_c volH_voluH_trendL 40001  109s
+  [policy] 711/980  20044s  hawkes_q_c volH_voluL_trendL 40001  89s
+  [policy] 712/980  20093s  hawkes_q_c volL_voluH_trendL 40001  128s
+  [policy] 713/980  20117s  hawkes_q_c volL_voluL_trendH 40001  92s
+  [policy] 714/980  20128s  hawkes_q_c volL_voluL_trendL 40001  85s
+  [policy] 715/980  20137s  hawkes_q_c volH_voluH_trendH 40002  93s
+  [policy] 716/980  20194s  hawkes_q_c volH_voluL_trendH 40002  77s
+  [policy] 717/980  20199s  hawkes_q_c volH_voluH_trendL 40002  107s
+  [policy] 718/980  20220s  hawkes_q_c volH_voluL_trendL 40002  91s
+  [policy] 719/980  20248s  hawkes_q_c volL_voluH_trendL 40002  111s
+  [policy] 720/980  20286s  hawkes_q_c volL_voluL_trendH 40002  91s
+  [policy] 721/980  20286s  hawkes_q_c volL_voluL_trendL 40002  87s
+  [policy] 722/980  20310s  hawkes_q_c volH_voluH_trendH 40003  91s
+  [policy] 723/980  20350s  hawkes_q_c volH_voluH_trendL 40003  101s
+  [policy] 724/980  20363s  hawkes_q_c volH_voluL_trendH 40003  77s
+  [policy] 725/980  20382s  hawkes_q_c volH_voluL_trendL 40003  95s
+  [policy] 726/980  20426s  hawkes_q_c volL_voluH_trendL 40003  116s
+  [policy] 727/980  20438s  hawkes_q_c volL_voluL_trendH 40003  89s
+  [policy] 728/980  20450s  hawkes_q_c volL_voluL_trendL 40003  87s
+  [policy] 729/980  20473s  hawkes_q_c volH_voluH_trendH 40004  92s
+  [policy] 730/980  20515s  hawkes_q_c volH_voluL_trendH 40004  77s
+  [policy] 731/980  20532s  hawkes_q_c volH_voluH_trendL 40004  105s
+  [policy] 732/980  20548s  hawkes_q_c volH_voluL_trendL 40004  98s
+  [policy] 733/980  20591s  hawkes_q_c volL_voluH_trendL 40004  118s
+  [policy] 734/980  20608s  hawkes_q_c volL_voluL_trendH 40004  93s
+  [policy] 735/980  20619s  hawkes_q_c volL_voluL_trendL 40004  87s
+  [policy] 736/980  20643s  hawkes_q_c volH_voluH_trendH 40005  95s
+  [policy] 737/980  20684s  hawkes_q_c volH_voluL_trendH 40005  76s
+  [policy] 738/980  20696s  hawkes_q_c volH_voluH_trendL 40005  105s
+  [policy] 739/980  20709s  hawkes_q_c volH_voluL_trendL 40005  90s
+  [policy] 740/980  20759s  hawkes_q_c volL_voluH_trendL 40005  116s
+  [policy] 741/980  20774s  hawkes_q_c volL_voluL_trendH 40005  90s
+  [policy] 742/980  20784s  hawkes_q_c volL_voluL_trendL 40005  88s
+  [policy] 743/980  20806s  hawkes_q_c volH_voluH_trendH 40006  97s
+  [policy] 744/980  20856s  hawkes_q_c volH_voluL_trendH 40006  81s
+  [policy] 745/980  20867s  hawkes_q_c volH_voluH_trendL 40006  108s
+  [policy] 746/980  20881s  hawkes_q_c volH_voluL_trendL 40006  96s
+  [policy] 747/980  20928s  hawkes_q_c volL_voluH_trendL 40006  121s
+  [policy] 748/980  20956s  hawkes_q_c volL_voluL_trendH 40006  100s
+  [policy] 749/980  20958s  hawkes_q_c volL_voluL_trendL 40006  91s
+  [policy] 750/980  20979s  hawkes_q_c volH_voluH_trendH 40007  98s
+  [policy] 751/980  21034s  hawkes_q_c volH_voluH_trendL 40007  107s
+  [policy] 752/980  21037s  hawkes_q_c volH_voluL_trendH 40007  81s
+  [policy] 753/980  21050s  hawkes_q_c volH_voluL_trendL 40007  92s
+  [policy] 754/980  21113s  hawkes_q_c volL_voluH_trendL 40007  134s
+  [policy] 755/980  21124s  hawkes_q_c volL_voluL_trendL 40007  87s
+  [policy] 756/980  21124s  hawkes_q_c volL_voluL_trendH 40007  90s
+  [policy] 757/980  21148s  hawkes_q_c volH_voluH_trendH 40008  98s
+  [policy] 758/980  21201s  hawkes_q_c volH_voluL_trendH 40008  77s
+  [policy] 759/980  21216s  hawkes_q_c volH_voluH_trendL 40008  103s
+  [policy] 760/980  21221s  hawkes_q_c volH_voluL_trendL 40008  96s
+  [policy] 761/980  21263s  hawkes_q_c volL_voluH_trendL 40008  114s
+  [policy] 762/980  21298s  hawkes_q_c volL_voluL_trendH 40008  97s
+  [policy] 763/980  21302s  hawkes_q_c volL_voluL_trendL 40008  86s
+  [policy] 764/980  21313s  hawkes_q_c volH_voluH_trendH 40009  93s
+  [policy] 765/980  21369s  hawkes_q_c volH_voluH_trendL 40009  107s
+  [policy] 766/980  21376s  hawkes_q_c volH_voluL_trendH 40009  78s
+  [policy] 767/980  21400s  hawkes_q_c volH_voluL_trendL 40009  97s
+  [policy] 768/980  21427s  hawkes_q_c volL_voluH_trendL 40009  114s
+  [policy] 769/980  21462s  hawkes_q_c volL_voluL_trendL 40009  86s
+  [policy] 770/980  21463s  hawkes_q_c volL_voluL_trendH 40009  93s
+  [policy] 771/980  21495s  hawkes_q_c volH_voluH_trendH 40010  96s
+  [policy] 772/980  21531s  hawkes_q_c volH_voluH_trendL 40010  104s
+  [policy] 773/980  21540s  hawkes_q_c volH_voluL_trendH 40010  78s
+  [policy] 774/980  21558s  hawkes_q_c volH_voluL_trendL 40010  96s
+  [policy] 775/980  21618s  hawkes_q_c volL_voluH_trendL 40010  123s
+  [policy] 776/980  21626s  hawkes_q_c volL_voluL_trendH 40010  95s
+  [policy] 777/980  21629s  hawkes_q_c volL_voluL_trendL 40010  89s
+  [policy] 778/980  21651s  hawkes_q_c volH_voluH_trendH 40011  93s
+  [policy] 779/980  21705s  hawkes_q_c volH_voluL_trendH 40011  79s
+  [policy] 780/980  21716s  hawkes_q_c volH_voluL_trendL 40011  87s
+  [policy] 781/980  21725s  hawkes_q_c volH_voluH_trendL 40011  108s
+  [policy] 782/980  21772s  hawkes_q_c volL_voluH_trendL 40011  121s
+  [policy] 783/980  21797s  hawkes_q_c volL_voluL_trendH 40011  92s
+  [policy] 784/980  21800s  hawkes_q_c volL_voluL_trendL 40011  84s
+  [policy] 785/980  21817s  hawkes_q_c volH_voluH_trendH 40012  91s
+  [policy] 786/980  21873s  hawkes_q_c volH_voluL_trendH 40012  75s
+  [policy] 787/980  21874s  hawkes_q_c volH_voluH_trendL 40012  102s
+  [policy] 788/980  21888s  hawkes_q_c volH_voluL_trendL 40012  88s
+  [policy] 789/980  21933s  hawkes_q_c volL_voluH_trendL 40012  117s
+  [policy] 790/980  21960s  hawkes_q_c volL_voluL_trendL 40012  86s
+  [policy] 791/980  21963s  hawkes_q_c volL_voluL_trendH 40012  90s
+  [policy] 792/980  21977s  hawkes_q_c volH_voluH_trendH 40013  89s
+  [policy] 793/980  22037s  hawkes_q_c volH_voluL_trendH 40013  77s
+  [policy] 794/980  22041s  hawkes_q_c volH_voluH_trendL 40013  108s
+  [policy] 795/980  22057s  hawkes_q_c volH_voluL_trendL 40013  94s
+  [policy] 796/980  22090s  hawkes_q_c volL_voluH_trendL 40013  112s
+  [policy] 797/980  22124s  hawkes_q_c volL_voluL_trendL 40013  83s
+  [policy] 798/980  22126s  hawkes_q_c volL_voluL_trendH 40013  88s
+  [policy] 799/980  22148s  hawkes_q_c volH_voluH_trendH 40014  91s
+  [policy] 800/980  22194s  hawkes_q_c volH_voluH_trendL 40014  104s
+  [policy] 801/980  22203s  hawkes_q_c volH_voluL_trendH 40014  79s
+  [policy] 802/980  22219s  hawkes_q_c volH_voluL_trendL 40014  93s
+  [policy] 803/980  22266s  hawkes_q_c volL_voluH_trendL 40014  118s
+  [policy] 804/980  22285s  hawkes_q_c volL_voluL_trendH 40014  92s
+  [policy] 805/980  22292s  hawkes_q_c volL_voluL_trendL 40014  89s
+  [policy] 806/980  22320s  hawkes_q_c volH_voluH_trendH 40015  102s
+  [policy] 807/980  22362s  hawkes_q_c volH_voluL_trendH 40015  76s
+  [policy] 808/980  22363s  hawkes_q_c volH_voluH_trendL 40015  97s
+  [policy] 809/980  22386s  hawkes_q_c volH_voluL_trendL 40015  95s
+  [policy] 810/980  22436s  hawkes_q_c volL_voluH_trendL 40015  115s
+  [policy] 811/980  22451s  hawkes_q_c volL_voluL_trendL 40015  88s
+  [policy] 812/980  22453s  hawkes_q_c volL_voluL_trendH 40015  91s
+  [policy] 813/980  22479s  hawkes_q_c volH_voluH_trendH 40016  92s
+  [policy] 814/980  22531s  hawkes_q_c volH_voluL_trendH 40016  80s
+  [policy] 815/980  22539s  hawkes_q_c volH_voluH_trendL 40016  103s
+  [policy] 816/980  22548s  hawkes_q_c volH_voluL_trendL 40016  96s
+  [policy] 817/980  22599s  hawkes_q_c volL_voluH_trendL 40016  121s
+  [policy] 818/980  22620s  hawkes_q_c volL_voluL_trendH 40016  88s
+  [policy] 819/980  22623s  hawkes_q_c volL_voluL_trendL 40016  84s
+  [policy] 820/980  22638s  hawkes_q_c volH_voluH_trendH 40017  89s
+  [policy] 821/980  22695s  hawkes_q_c volH_voluL_trendH 40017  75s
+  [policy] 822/980  22701s  hawkes_q_c volH_voluH_trendL 40017  102s
+  [policy] 823/980  22712s  hawkes_q_c volH_voluL_trendL 40017  89s
+  [policy] 824/980  22752s  hawkes_q_c volL_voluH_trendL 40017  115s
+  [policy] 825/980  22786s  hawkes_q_c volL_voluL_trendL 40017  85s
+  [policy] 826/980  22787s  hawkes_q_c volL_voluL_trendH 40017  92s
+  [policy] 827/980  22805s  hawkes_q_c volH_voluH_trendH 40018  93s
+  [policy] 828/980  22852s  hawkes_q_c volH_voluH_trendL 40018  99s
+  [policy] 829/980  22865s  hawkes_q_c volH_voluL_trendH 40018  79s
+  [policy] 830/980  22882s  hawkes_q_c volH_voluL_trendL 40018  95s
+  [policy] 831/980  22926s  hawkes_q_c volL_voluH_trendL 40018  121s
+  [policy] 832/980  22939s  hawkes_q_c volL_voluL_trendH 40018  88s
+  [policy] 833/980  22949s  hawkes_q_c volL_voluL_trendL 40018  84s
+  [policy] 834/980  22972s  hawkes_q_c volH_voluH_trendH 40019  90s
+  [policy] 835/980  23015s  hawkes_q_c volH_voluL_trendH 40019  76s
+  [policy] 836/980  23026s  hawkes_q_c volH_voluH_trendL 40019  100s
+  [policy] 837/980  23051s  hawkes_q_c volH_voluL_trendL 40019  101s
+  [policy] 838/980  23091s  hawkes_q_c volL_voluH_trendL 40019  119s
+  [policy] 839/980  23103s  hawkes_q_c volL_voluL_trendH 40019  88s
+  [policy] 840/980  23114s  hawkes_q_c volL_voluL_trendL 40019  88s
+  [policy] 841/980  23142s  hawkes_sd_q_c volH_voluH_trendH 40000  91s
+  [policy] 842/980  23174s  hawkes_sd_q_c volH_voluL_trendH 40000  71s
+  [policy] 843/980  23182s  hawkes_sd_q_c volH_voluH_trendL 40000  91s
+  [policy] 844/980  23204s  hawkes_sd_q_c volH_voluL_trendL 40000  90s
+  [policy] 845/980  23262s  hawkes_sd_q_c volL_voluL_trendH 40000  88s
+  [policy] 846/980  23264s  hawkes_sd_q_c volL_voluH_trendL 40000  122s
+  [policy] 847/980  23267s  hawkes_sd_q_c volL_voluL_trendL 40000  85s
+  [policy] 848/980  23301s  hawkes_sd_q_c volH_voluH_trendH 40001  96s
+  [policy] 849/980  23340s  hawkes_sd_q_c volH_voluL_trendH 40001  75s
+  [policy] 850/980  23354s  hawkes_sd_q_c volH_voluL_trendL 40001  87s
+  [policy] 851/980  23381s  hawkes_sd_q_c volH_voluH_trendL 40001  119s
+  [policy] 852/980  23429s  hawkes_sd_q_c volL_voluH_trendL 40001  128s
+  [policy] 853/980  23429s  hawkes_sd_q_c volL_voluL_trendH 40001  89s
+  [policy] 854/980  23437s  hawkes_sd_q_c volL_voluL_trendL 40001  83s
+  [policy] 855/980  23470s  hawkes_sd_q_c volH_voluH_trendH 40002  89s
+  [policy] 856/980  23508s  hawkes_sd_q_c volH_voluL_trendH 40002  79s
+  [policy] 857/980  23525s  hawkes_sd_q_c volH_voluL_trendL 40002  88s
+  [policy] 858/980  23532s  hawkes_sd_q_c volH_voluH_trendL 40002  104s
+  [policy] 859/980  23577s  hawkes_sd_q_c volL_voluH_trendL 40002  107s
+  [policy] 860/980  23597s  hawkes_sd_q_c volL_voluL_trendH 40002  89s
+  [policy] 861/980  23606s  hawkes_sd_q_c volL_voluL_trendL 40002  81s
+  [policy] 862/980  23623s  hawkes_sd_q_c volH_voluH_trendH 40003  90s
+  [policy] 863/980  23670s  hawkes_sd_q_c volH_voluL_trendH 40003  73s
+  [policy] 864/980  23673s  hawkes_sd_q_c volH_voluH_trendL 40003  97s
+  [policy] 865/980  23709s  hawkes_sd_q_c volH_voluL_trendL 40003  103s
+  [policy] 866/980  23736s  hawkes_sd_q_c volL_voluH_trendL 40003  113s
+  [policy] 867/980  23754s  hawkes_sd_q_c volL_voluL_trendL 40003  81s
+  [policy] 868/980  23755s  hawkes_sd_q_c volL_voluL_trendH 40003  85s
+  [policy] 869/980  23799s  hawkes_sd_q_c volH_voluH_trendH 40004  90s
+  [policy] 870/980  23825s  hawkes_sd_q_c volH_voluL_trendH 40004  71s
+  [policy] 871/980  23838s  hawkes_sd_q_c volH_voluH_trendL 40004  102s
+  [policy] 872/980  23874s  hawkes_sd_q_c volH_voluL_trendL 40004  119s
+  [policy] 873/980  23903s  hawkes_sd_q_c volL_voluH_trendL 40004  104s
+  [policy] 874/980  23912s  hawkes_sd_q_c volL_voluL_trendH 40004  87s
+  [policy] 875/980  23921s  hawkes_sd_q_c volL_voluL_trendL 40004  83s
+  [policy] 876/980  23968s  hawkes_sd_q_c volH_voluH_trendH 40005  94s
+  [policy] 877/980  23983s  hawkes_sd_q_c volH_voluL_trendH 40005  70s
+  [policy] 878/980  24006s  hawkes_sd_q_c volH_voluH_trendL 40005  102s
+  [policy] 879/980  24017s  hawkes_sd_q_c volH_voluL_trendL 40005  97s
+  [policy] 880/980  24064s  hawkes_sd_q_c volL_voluL_trendH 40005  82s
+  [policy] 881/980  24083s  hawkes_sd_q_c volL_voluH_trendL 40005  115s
+  [policy] 882/980  24084s  hawkes_sd_q_c volL_voluL_trendL 40005  78s
+  [policy] 883/980  24111s  hawkes_sd_q_c volH_voluH_trendH 40006  93s
+  [policy] 884/980  24162s  hawkes_sd_q_c volH_voluH_trendL 40006  98s
+  [policy] 885/980  24164s  hawkes_sd_q_c volH_voluL_trendH 40006  81s
+  [policy] 886/980  24175s  hawkes_sd_q_c volH_voluL_trendL 40006  91s
+  [policy] 887/980  24231s  hawkes_sd_q_c volL_voluH_trendL 40006  120s
+  [policy] 888/980  24247s  hawkes_sd_q_c volL_voluL_trendL 40006  84s
+  [policy] 889/980  24252s  hawkes_sd_q_c volL_voluL_trendH 40006  90s
+  [policy] 890/980  24281s  hawkes_sd_q_c volH_voluH_trendH 40007  106s
+  [policy] 891/980  24330s  hawkes_sd_q_c volH_voluL_trendH 40007  82s
+  [policy] 892/980  24342s  hawkes_sd_q_c volH_voluL_trendL 40007  90s
+  [policy] 893/980  24342s  hawkes_sd_q_c volH_voluH_trendL 40007  111s
+  [policy] 894/980  24417s  hawkes_sd_q_c volL_voluH_trendL 40007  136s
+  [policy] 895/980  24418s  hawkes_sd_q_c volL_voluL_trendH 40007  88s
+  [policy] 896/980  24424s  hawkes_sd_q_c volL_voluL_trendL 40007  82s
+  [policy] 897/980  24434s  hawkes_sd_q_c volH_voluH_trendH 40008  92s
+  [policy] 898/980  24491s  hawkes_sd_q_c volH_voluL_trendH 40008  73s
+  [policy] 899/980  24517s  hawkes_sd_q_c volH_voluH_trendL 40008  100s
+  [policy] 900/980  24522s  hawkes_sd_q_c volH_voluL_trendL 40008  99s
+  [policy] 901/980  24544s  hawkes_sd_q_c volL_voluH_trendL 40008  110s
+  [policy] 902/980  24583s  hawkes_sd_q_c volL_voluL_trendH 40008  93s
+  [policy] 903/980  24602s  hawkes_sd_q_c volL_voluL_trendL 40008  85s
+  [policy] 904/980  24616s  hawkes_sd_q_c volH_voluH_trendH 40009  93s
+  [policy] 905/980  24648s  hawkes_sd_q_c volH_voluH_trendL 40009  104s
+  [policy] 906/980  24656s  hawkes_sd_q_c volH_voluL_trendH 40009  73s
+  [policy] 907/980  24692s  hawkes_sd_q_c volH_voluL_trendL 40009  89s
+  [policy] 908/980  24727s  hawkes_sd_q_c volL_voluH_trendL 40009  111s
+  [policy] 909/980  24731s  hawkes_sd_q_c volL_voluL_trendH 40009  82s
+  [policy] 910/980  24737s  hawkes_sd_q_c volL_voluL_trendL 40009  81s
+  [policy] 911/980  24785s  hawkes_sd_q_c volH_voluH_trendH 40010  93s
+  [policy] 912/980  24808s  hawkes_sd_q_c volH_voluL_trendH 40010  78s
+  [policy] 913/980  24827s  hawkes_sd_q_c volH_voluH_trendL 40010  101s
+  [policy] 914/980  24828s  hawkes_sd_q_c volH_voluL_trendL 40010  90s
+  [policy] 915/980  24899s  hawkes_sd_q_c volL_voluL_trendH 40010  91s
+  [policy] 916/980  24909s  hawkes_sd_q_c volL_voluH_trendL 40010  124s
+  [policy] 917/980  24914s  hawkes_sd_q_c volL_voluL_trendL 40010  86s
+  [policy] 918/980  24919s  hawkes_sd_q_c volH_voluH_trendH 40011  91s
+  [policy] 919/980  24989s  hawkes_sd_q_c volH_voluL_trendH 40011  80s
+  [policy] 920/980  24995s  hawkes_sd_q_c volH_voluH_trendL 40011  96s
+  [policy] 921/980  24998s  hawkes_sd_q_c volH_voluL_trendL 40011  85s
+  [policy] 922/980  25034s  hawkes_sd_q_c volL_voluH_trendL 40011  115s
+  [policy] 923/980  25075s  hawkes_sd_q_c volL_voluL_trendL 40011  80s
+  [policy] 924/980  25076s  hawkes_sd_q_c volL_voluL_trendH 40011  87s
+  [policy] 925/980  25090s  hawkes_sd_q_c volH_voluH_trendH 40012  92s
+  [policy] 926/980  25139s  hawkes_sd_q_c volH_voluH_trendL 40012  105s
+  [policy] 927/980  25147s  hawkes_sd_q_c volH_voluL_trendH 40012  72s
+  [policy] 928/980  25168s  hawkes_sd_q_c volH_voluL_trendL 40012  92s
+  [policy] 929/980  25202s  hawkes_sd_q_c volL_voluH_trendL 40012  112s
+  [policy] 930/980  25222s  hawkes_sd_q_c volL_voluL_trendL 40012  76s
+  [policy] 931/980  25223s  hawkes_sd_q_c volL_voluL_trendH 40012  84s
+  [policy] 932/980  25261s  hawkes_sd_q_c volH_voluH_trendH 40013  93s
+  [policy] 933/980  25302s  hawkes_sd_q_c volH_voluL_trendH 40013  80s
+  [policy] 934/980  25310s  hawkes_sd_q_c volH_voluH_trendL 40013  108s
+  [policy] 935/980  25331s  hawkes_sd_q_c volH_voluL_trendL 40013  108s
+  [policy] 936/980  25372s  hawkes_sd_q_c volL_voluH_trendL 40013  111s
+  [policy] 937/980  25386s  hawkes_sd_q_c volL_voluL_trendL 40013  76s
+  [policy] 938/980  25387s  hawkes_sd_q_c volL_voluL_trendH 40013  85s
+  [policy] 939/980  25428s  hawkes_sd_q_c volH_voluH_trendH 40014  97s
+  [policy] 940/980  25460s  hawkes_sd_q_c volH_voluL_trendH 40014  74s
+  [policy] 941/980  25481s  hawkes_sd_q_c volH_voluH_trendL 40014  109s
+  [policy] 942/980  25487s  hawkes_sd_q_c volH_voluL_trendL 40014  100s
+  [policy] 943/980  25540s  hawkes_sd_q_c volL_voluH_trendL 40014  112s
+  [policy] 944/980  25544s  hawkes_sd_q_c volL_voluL_trendH 40014  84s
+  [policy] 945/980  25561s  hawkes_sd_q_c volL_voluL_trendL 40014  80s
+  [policy] 946/980  25601s  hawkes_sd_q_c volH_voluH_trendH 40015  114s
+  [policy] 947/980  25617s  hawkes_sd_q_c volH_voluL_trendH 40015  73s
+  [policy] 948/980  25636s  hawkes_sd_q_c volH_voluH_trendL 40015  95s
+  [policy] 949/980  25656s  hawkes_sd_q_c volH_voluL_trendL 40015  96s
+  [policy] 950/980  25710s  hawkes_sd_q_c volL_voluL_trendH 40015  92s
+  [policy] 951/980  25713s  hawkes_sd_q_c volL_voluH_trendL 40015  113s
+  [policy] 952/980  25720s  hawkes_sd_q_c volL_voluL_trendL 40015  85s
+  [policy] 953/980  25748s  hawkes_sd_q_c volH_voluH_trendH 40016  92s
+  [policy] 954/980  25789s  hawkes_sd_q_c volH_voluL_trendH 40016  76s
+  [policy] 955/980  25811s  hawkes_sd_q_c volH_voluL_trendL 40016  91s
+  [policy] 956/980  25812s  hawkes_sd_q_c volH_voluH_trendL 40016  103s
+  [policy] 957/980  25862s  hawkes_sd_q_c volL_voluH_trendL 40016  113s
+  [policy] 958/980  25873s  hawkes_sd_q_c volL_voluL_trendH 40016  84s
+  [policy] 959/980  25891s  hawkes_sd_q_c volL_voluL_trendL 40016  80s
+  [policy] 960/980  25903s  hawkes_sd_q_c volH_voluH_trendH 40017  90s
+  [policy] 961/980  25945s  hawkes_sd_q_c volH_voluL_trendH 40017  72s
+  [policy] 962/980  25958s  hawkes_sd_q_c volH_voluH_trendL 40017  96s
+  [policy] 963/980  25992s  hawkes_sd_q_c volH_voluL_trendL 40017  101s
+  [policy] 964/980  26016s  hawkes_sd_q_c volL_voluH_trendL 40017  113s
+  [policy] 965/980  26028s  hawkes_sd_q_c volL_voluL_trendH 40017  83s
+  [policy] 966/980  26041s  hawkes_sd_q_c volL_voluL_trendL 40017  83s
+  [policy] 967/980  26083s  hawkes_sd_q_c volH_voluH_trendH 40018  91s
+  [policy] 968/980  26104s  hawkes_sd_q_c volH_voluL_trendH 40018  75s
+  [policy] 969/980  26111s  hawkes_sd_q_c volH_voluH_trendL 40018  95s
+  [policy] 970/980  26128s  hawkes_sd_q_c volH_voluL_trendL 40018  87s
+  [policy] 971/980  26189s  hawkes_sd_q_c volL_voluL_trendH 40018  86s
+  [policy] 972/980  26192s  hawkes_sd_q_c volL_voluL_trendL 40018  81s
+  [policy] 973/980  26196s  hawkes_sd_q_c volL_voluH_trendL 40018  114s
+  [policy] 974/980  26212s  hawkes_sd_q_c volH_voluH_trendH 40019  84s
+  [policy] 975/980  26264s  hawkes_sd_q_c volH_voluL_trendH 40019  73s
+  [policy] 976/980  26285s  hawkes_sd_q_c volH_voluH_trendL 40019  96s
+  [policy] 977/980  26299s  hawkes_sd_q_c volH_voluL_trendL 40019  103s
+  [policy] 978/980  26329s  hawkes_sd_q_c volL_voluH_trendL 40019  117s
+  [policy] 979/980  26346s  hawkes_sd_q_c volL_voluL_trendH 40019  82s
+  [policy] 980/980  26363s  hawkes_sd_q_c volL_voluL_trendL 40019  78s
+LADDER_DONE

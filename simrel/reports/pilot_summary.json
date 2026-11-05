@@ -1,0 +1,40 @@
+{
+  "n_rows": 5304,
+  "n_used": 5060,
+  "worlds": [
+    "A1_rmsc04",
+    "A5_deep_mm",
+    "H1_liquid",
+    "H2_thin",
+    "M10_mars",
+    "M2_mars"
+  ],
+  "sizes": [
+    0.05,
+    0.15
+  ],
+  "chosen": {
+    "0.05": {
+      "A1_rmsc04": "P3_back_b-2",
+      "A5_deep_mm": "P6_signal_reversal",
+      "H1_liquid": "P3_back_b-2",
+      "H2_thin": "P6_signal_reversal",
+      "M10_mars": "P7_risk_2",
+      "M2_mars": "P6_signal_momentum"
+    },
+    "0.15": {
+      "A1_rmsc04": "P2_front_b2",
+      "A5_deep_mm": "P6_signal_reversal",
+      "H1_liquid": "P7_risk_2",
+      "H2_thin": "P7_risk_2",
+      "M10_mars": "P6_signal_momentum",
+      "M2_mars": "P6_signal_reversal"
+    }
+  },
+  "worst_regret_half_spreads": {
+    "0.05": 71.93776905467143,
+    "0.15": 82.58734280946368
+  },
+  "mean_spearman_same_family": 0.3356643356643358,
+  "mean_spearman_cross_family": -0.045163170163170153
+}

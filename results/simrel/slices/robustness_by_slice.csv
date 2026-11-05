@@ -1,0 +1,127 @@
+family,version,slice,d,best
+Hawkes original,hawkes,volH_voluH_trendH,3.2271054831670876,P6_signal_momentum
+Hawkes original,hawkes,volH_voluH_trendL,3.2062792892875267,P1_immediate
+Hawkes original,hawkes,volH_voluL_trendH,10.453344451999062,P1_immediate
+Hawkes original,hawkes,volH_voluL_trendL,0.09439885686239255,P5_liquidity
+Hawkes original,hawkes,volL_voluH_trendL,2.8672376143702407,P1_immediate
+Hawkes original,hawkes,volL_voluL_trendH,2.5427910524606774,P1_immediate
+Hawkes original,hawkes,volL_voluL_trendL,2.3027272865923627,P1_immediate
+Hawkes original,hawkes__fast,volH_voluH_trendH,3.2690187199534733,P1_immediate
+Hawkes original,hawkes__fast,volH_voluH_trendL,1.261846896756929,P1_immediate
+Hawkes original,hawkes__fast,volH_voluL_trendH,3.297328590374046,P1_immediate
+Hawkes original,hawkes__fast,volH_voluL_trendL,2.356247981380533,P1_immediate
+Hawkes original,hawkes__fast,volL_voluH_trendL,4.012590378864307,P1_immediate
+Hawkes original,hawkes__fast,volL_voluL_trendH,-0.11914202056897724,P5_liquidity
+Hawkes original,hawkes__fast,volL_voluL_trendL,4.489722484973631,P1_immediate
+Hawkes original,hawkes__lodo0,volH_voluH_trendH,5.67294818746055,P1_immediate
+Hawkes original,hawkes__lodo0,volH_voluH_trendL,3.249373523626697,P1_immediate
+Hawkes original,hawkes__lodo0,volH_voluL_trendH,3.297328590374046,P1_immediate
+Hawkes original,hawkes__lodo0,volH_voluL_trendL,2.356247981380533,P1_immediate
+Hawkes original,hawkes__lodo0,volL_voluH_trendL,4.012590378864307,P1_immediate
+Hawkes original,hawkes__lodo0,volL_voluL_trendH,9.351609350092776,P1_immediate
+Hawkes original,hawkes__lodo0,volL_voluL_trendL,6.5002580808913475,P1_immediate
+Hawkes original,hawkes__lodo1,volH_voluH_trendH,9.423682477567196,P1_immediate
+Hawkes original,hawkes__lodo1,volH_voluH_trendL,0.49735214621867263,P1_immediate
+Hawkes original,hawkes__lodo1,volH_voluL_trendH,3.547101211435345,P1_immediate
+Hawkes original,hawkes__lodo1,volH_voluL_trendL,8.148148214392705,P1_immediate
+Hawkes original,hawkes__lodo1,volL_voluH_trendL,1.0147602641544038,P1_immediate
+Hawkes original,hawkes__lodo1,volL_voluL_trendH,6.360990412314463,P1_immediate
+Hawkes original,hawkes__lodo1,volL_voluL_trendL,2.607531326634877,P1_immediate
+Hawkes original,hawkes__lodo2,volH_voluH_trendH,5.630951585036705,P1_immediate
+Hawkes original,hawkes__lodo2,volH_voluH_trendL,4.131372990433055,P1_immediate
+Hawkes original,hawkes__lodo2,volH_voluL_trendH,0.3080130824478314,P5_liquidity
+Hawkes original,hawkes__lodo2,volH_voluL_trendL,1.1107576109984079,P6_signal_momentum
+Hawkes original,hawkes__lodo2,volL_voluH_trendL,-0.3338891501088437,P0_twap
+Hawkes original,hawkes__lodo2,volL_voluL_trendH,3.4915409403767583,P1_immediate
+Hawkes original,hawkes__lodo2,volL_voluL_trendL,3.638176490178521,P1_immediate
+Hawkes original,hawkes__lodo3,volH_voluH_trendH,4.111700529441256,P1_immediate
+Hawkes original,hawkes__lodo3,volH_voluH_trendL,2.678476370995297,P1_immediate
+Hawkes original,hawkes__lodo3,volH_voluL_trendH,1.4646117471026685,P5_liquidity
+Hawkes original,hawkes__lodo3,volH_voluL_trendL,2.0944523952586045,P1_immediate
+Hawkes original,hawkes__lodo3,volL_voluH_trendL,0.9636271358011456,P1_immediate
+Hawkes original,hawkes__lodo3,volL_voluL_trendH,2.951407640550176,P1_immediate
+Hawkes original,hawkes__lodo3,volL_voluL_trendL,1.2899807934591547,P6_signal_momentum
+Hawkes original,hawkes__lodo4,volH_voluH_trendH,7.596422528221149,P1_immediate
+Hawkes original,hawkes__lodo4,volH_voluH_trendL,-0.6271572199511363,P6_signal_momentum
+Hawkes original,hawkes__lodo4,volH_voluL_trendH,4.888448630857685,P1_immediate
+Hawkes original,hawkes__lodo4,volH_voluL_trendL,2.356247981380533,P1_immediate
+Hawkes original,hawkes__lodo4,volL_voluH_trendL,-0.784371244085709,P6_signal_momentum
+Hawkes original,hawkes__lodo4,volL_voluL_trendH,5.643991120228465,P1_immediate
+Hawkes original,hawkes__lodo4,volL_voluL_trendL,2.4698729365040704,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volH_voluH_trendH,-0.02076333729775407,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volH_voluH_trendL,0.31151159922510596,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volH_voluL_trendH,-0.7679071381509873,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volH_voluL_trendL,2.1035848782458055,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volL_voluH_trendL,-1.4713371626118144,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volL_voluL_trendH,-0.1680873867969967,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m,volL_voluL_trendL,2.440510945454984,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volH_voluH_trendH,2.3764773445481455,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volH_voluH_trendL,-0.2555746498656897,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volH_voluL_trendH,-0.7679071381509873,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volH_voluL_trendL,2.1035848782458055,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volL_voluH_trendL,-1.4713371626118144,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volL_voluL_trendH,0.3365560906532594,P5_liquidity
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,volL_voluL_trendL,1.4112742820247361,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volH_voluH_trendH,-0.9648960434956978,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volH_voluH_trendL,-0.3665103922079389,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volH_voluL_trendH,0.09794763994619812,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volH_voluL_trendL,0.3740225850195307,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volL_voluH_trendL,0.8763622336930273,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volL_voluL_trendH,0.10858924058366984,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,volL_voluL_trendL,1.0645110873836192,P5_liquidity
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volH_voluH_trendH,2.6056152866458793,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volH_voluH_trendL,0.5143622861260251,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volH_voluL_trendH,1.191973147975229,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volH_voluL_trendL,2.1949179488243766,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volL_voluH_trendL,0.4946958826685085,P5_liquidity
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volL_voluL_trendH,-0.6533709313681205,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,volL_voluL_trendL,-0.9567208060902075,P0_twap
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volH_voluH_trendH,1.331614833093705,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volH_voluH_trendL,0.834913716526442,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volH_voluL_trendH,1.233087326089835,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volH_voluL_trendL,1.724312777824252,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volL_voluH_trendL,-0.546835650871117,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volL_voluL_trendH,1.2723989110265959,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,volL_voluL_trendL,0.28033256979500915,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volH_voluH_trendH,0.4709088134748239,P5_liquidity
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volH_voluH_trendL,-0.1791096592741562,P5_liquidity
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volH_voluL_trendH,1.2091932480965624,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volH_voluL_trendL,2.1035848782458055,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volL_voluH_trendL,-0.2983663774377491,P6_signal_momentum
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volL_voluL_trendH,0.6661652503434186,P1_immediate
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,volL_voluL_trendL,2.6707729952492345,P1_immediate
+ABIDES original,abides,volH_voluH_trendH,-2.766999413164565,P5_liquidity
+ABIDES original,abides,volH_voluH_trendL,-2.9964835680398467,P6_signal_momentum
+ABIDES original,abides,volH_voluL_trendH,-3.9007733661478943,P6_signal_momentum
+ABIDES original,abides,volH_voluL_trendL,-4.274353810045422,P6_signal_momentum
+ABIDES original,abides,volL_voluH_trendL,-5.4281484088043594,P6_signal_momentum
+ABIDES original,abides,volL_voluL_trendH,-3.721539678678364,P6_signal_momentum
+ABIDES original,abides,volL_voluL_trendL,-5.62179319541091,P6_signal_momentum
+ABIDES original,abides__alt1,volH_voluH_trendH,-2.766999413164565,P5_liquidity
+ABIDES original,abides__alt1,volH_voluH_trendL,-2.630901969395345,P6_signal_momentum
+ABIDES original,abides__alt1,volH_voluL_trendH,-3.596760869786973,P6_signal_momentum
+ABIDES original,abides__alt1,volH_voluL_trendL,-5.565571214808774,P5_liquidity
+ABIDES original,abides__alt1,volL_voluH_trendL,-5.406057672670991,P6_signal_momentum
+ABIDES original,abides__alt1,volL_voluL_trendH,-4.016733209203975,P6_signal_momentum
+ABIDES original,abides__alt1,volL_voluL_trendL,-5.518590011406581,P6_signal_momentum
+ABIDES original,abides__alt2,volH_voluH_trendH,-4.321311105731743,P6_signal_momentum
+ABIDES original,abides__alt2,volH_voluH_trendL,-4.348357406726968,P6_signal_momentum
+ABIDES original,abides__alt2,volH_voluL_trendH,-4.443773895519054,P6_signal_momentum
+ABIDES original,abides__alt2,volH_voluL_trendL,-5.519437073808479,P5_liquidity
+ABIDES original,abides__alt2,volL_voluH_trendL,-3.7265273912437977,P5_liquidity
+ABIDES original,abides__alt2,volL_voluL_trendH,-5.711754544548475,P6_signal_momentum
+ABIDES original,abides__alt2,volL_voluL_trendL,-4.4090154408540005,P6_signal_momentum
+ABIDES calibrated,abides_quoting,volH_voluH_trendH,-1.5098775829890416,P6_signal_momentum
+ABIDES calibrated,abides_quoting,volH_voluH_trendL,-1.2051609517708994,P5_liquidity
+ABIDES calibrated,abides_quoting,volH_voluL_trendH,-0.6161109090910838,P5_liquidity
+ABIDES calibrated,abides_quoting,volH_voluL_trendL,-0.25733457604765914,P0_twap
+ABIDES calibrated,abides_quoting,volL_voluH_trendL,-0.7377102283661571,P0_twap
+ABIDES calibrated,abides_quoting,volL_voluL_trendH,-0.3874712223554323,P0_twap
+ABIDES calibrated,abides_quoting,volL_voluL_trendL,-0.48740017213483944,P5_liquidity
+ABIDES calibrated,abides_quoting__alt1,volH_voluH_trendH,-1.5098775829890416,P6_signal_momentum
+ABIDES calibrated,abides_quoting__alt1,volH_voluH_trendL,-1.2051609517708994,P5_liquidity
+ABIDES calibrated,abides_quoting__alt1,volH_voluL_trendH,-0.6161168728541517,P5_liquidity
+ABIDES calibrated,abides_quoting__alt1,volH_voluL_trendL,-0.24275319117859082,P0_twap
+ABIDES calibrated,abides_quoting__alt1,volL_voluH_trendL,-0.7377102283661571,P0_twap
+ABIDES calibrated,abides_quoting__alt1,volL_voluL_trendH,-0.38743629174317673,P0_twap
+ABIDES calibrated,abides_quoting__alt1,volL_voluL_trendL,-0.48740017213483944,P5_liquidity

@@ -1,0 +1,792 @@
+== fit Tue Oct 27 19:26:26 EDT 2026
+== fit
+  [hawkes fit] 1/7  0s  volH_voluL_trendH cached
+  [hawkes fit] 2/7  0s  volH_voluH_trendH cached
+  [hawkes fit] 3/7  0s  volH_voluH_trendL cached
+  [hawkes fit] 4/7  0s  volH_voluL_trendL cached
+  [hawkes fit] 5/7  0s  volL_voluH_trendL cached
+  [hawkes fit] 6/7  0s  volL_voluL_trendH cached
+  [hawkes fit] 7/7  0s  volL_voluL_trendL cached
+  [hawkes queue fit] 1/7  0s  volH_voluH_trendH cached
+  [hawkes queue fit] 2/7  0s  volH_voluH_trendL cached
+  [hawkes queue fit] 3/7  0s  volH_voluL_trendH cached
+  [hawkes queue fit] 4/7  0s  volL_voluH_trendL cached
+  [hawkes queue fit] 5/7  0s  volL_voluL_trendH cached
+  [hawkes queue fit] 6/7  0s  volL_voluL_trendL cached
+  [hawkes queue fit] 7/7  0s  volH_voluL_trendL cached
+  [hawkes multi-timescale fit] 1/14  9s  volH_voluH_trendL multi + queue: loglik 1362299, branching before rescaling 1.00
+  [hawkes multi-timescale fit] 2/14  9s  volH_voluH_trendL multi: loglik 1362410, branching before rescaling 1.00
+  [hawkes multi-timescale fit] 3/14  12s  volH_voluL_trendH multi: loglik 390586, branching before rescaling 0.97
+  [hawkes multi-timescale fit] 4/14  12s  volH_voluH_trendH multi: loglik 1808338, branching before rescaling 0.98
+  [hawkes multi-timescale fit] 5/14  12s  volH_voluL_trendH multi + queue: loglik 390544, branching before rescaling 0.97
+  [hawkes multi-timescale fit] 6/14  12s  volH_voluH_trendH multi + queue: loglik 1808019, branching before rescaling 0.98
+  [hawkes multi-timescale fit] 7/14  17s  volL_voluH_trendL multi: loglik 808706, branching before rescaling 0.99
+  [hawkes multi-timescale fit] 8/14  17s  volL_voluH_trendL multi + queue: loglik 808535, branching before rescaling 0.99
+  [hawkes multi-timescale fit] 9/14  18s  volH_voluL_trendL multi: loglik 1039941, branching before rescaling 0.95
+  [hawkes multi-timescale fit] 10/14  18s  volH_voluL_trendL multi + queue: loglik 1039978, branching before rescaling 0.95
+  [hawkes multi-timescale fit] 11/14  23s  volL_voluL_trendH multi: loglik 763070, branching before rescaling 0.94
+  [hawkes multi-timescale fit] 12/14  23s  volL_voluL_trendH multi + queue: loglik 762862, branching before rescaling 0.94
+  [hawkes multi-timescale fit] 13/14  23s  volL_voluL_trendL multi: loglik 682290, branching before rescaling 0.96
+  [hawkes multi-timescale fit] 14/14  23s  volL_voluL_trendL multi + queue: loglik 681951, branching before rescaling 0.96
+  [abides grid] 1/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 2/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 3/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 4/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 5/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 6/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 7/240  0s  S_v100_m0p0.025w60s_f5e-05 cached
+  [abides grid] 8/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 9/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 10/240  0s  S_v100_m0p0.025w60s_f0.0005 cached
+  [abides grid] 11/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 12/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 13/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 14/240  0s  S_v100_m0p0.025w60s_f0.002 cached
+  [abides grid] 15/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 16/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 17/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 18/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 19/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 20/240  0s  S_v100_m2p0.025w60s_f1e-05 cached
+  [abides grid] 21/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 22/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 23/240  0s  S_v100_m2p0.025w60s_f5e-05 cached
+  [abides grid] 24/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 25/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 26/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 27/240  0s  S_v100_m2p0.025w60s_f0.0005 cached
+  [abides grid] 28/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 29/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 30/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 31/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 32/240  0s  S_v100_m2p0.025w60s_f0.002 cached
+  [abides grid] 33/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 34/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 35/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 36/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 37/240  0s  S_v100_m2p0.1w10s_f1e-05 cached
+  [abides grid] 38/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 39/240  0s  S_v100_m2p0.1w10s_f5e-05 cached
+  [abides grid] 40/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 41/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 42/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 43/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 44/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 45/240  0s  S_v100_m2p0.1w10s_f0.0005 cached
+  [abides grid] 46/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 47/240  0s  S_v100_m2p0.1w10s_f0.002 cached
+  [abides grid] 48/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 49/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 50/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 51/240  0s  S_v100_m4p0.25w10s_f1e-05 cached
+  [abides grid] 52/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 53/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 54/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 55/240  0s  S_v100_m4p0.25w10s_f5e-05 cached
+  [abides grid] 56/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 57/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 58/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 59/240  0s  S_v100_m4p0.25w10s_f0.0005 cached
+  [abides grid] 60/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 61/240  0s  S_v100_m0p0.025w60s_f1e-05 cached
+  [abides grid] 62/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 63/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 64/240  0s  S_v100_m4p0.25w10s_f0.002 cached
+  [abides grid] 65/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 66/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 67/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 68/240  0s  S_v100_m8p0.5w5s_f1e-05 cached
+  [abides grid] 69/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 70/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 71/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 72/240  0s  S_v100_m8p0.5w5s_f5e-05 cached
+  [abides grid] 73/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 74/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 75/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 76/240  0s  S_v100_m8p0.5w5s_f0.0005 cached
+  [abides grid] 77/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 78/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 79/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 80/240  0s  S_v100_m8p0.5w5s_f0.002 cached
+  [abides grid] 81/240  1s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 82/240  1s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 83/240  1s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 84/240  1s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 85/240  1s  S_v300_m0p0.025w60s_f5e-05 cached
+  [abides grid] 86/240  1s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 87/240  1s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 88/240  1s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 89/240  1s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 90/240  1s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 91/240  1s  S_v300_m0p0.025w60s_f0.0005 cached
+  [abides grid] 92/240  1s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 93/240  1s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 94/240  1s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 95/240  1s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 96/240  1s  S_v300_m0p0.025w60s_f0.002 cached
+  [abides grid] 97/240  1s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 98/240  1s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 99/240  1s  S_v300_m2p0.025w60s_f1e-05 cached
+  [abides grid] 100/240  1s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 101/240  1s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 102/240  1s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 103/240  1s  S_v300_m2p0.025w60s_f5e-05 cached
+  [abides grid] 104/240  1s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 105/240  1s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 106/240  1s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 107/240  1s  S_v300_m2p0.025w60s_f0.0005 cached
+  [abides grid] 108/240  1s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 109/240  1s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 110/240  1s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 111/240  1s  S_v300_m2p0.025w60s_f0.002 cached
+  [abides grid] 112/240  1s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 113/240  1s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 114/240  1s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 115/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 116/240  1s  S_v300_m2p0.1w10s_f1e-05 cached
+  [abides grid] 117/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 118/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 119/240  1s  S_v300_m2p0.1w10s_f5e-05 cached
+  [abides grid] 120/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 121/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 122/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 123/240  1s  S_v300_m2p0.1w10s_f0.0005 cached
+  [abides grid] 124/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 125/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 126/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 127/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 128/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 129/240  1s  S_v300_m2p0.1w10s_f0.002 cached
+  [abides grid] 130/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 131/240  1s  S_v300_m4p0.25w10s_f1e-05 cached
+  [abides grid] 132/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 133/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 134/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 135/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 136/240  1s  S_v300_m4p0.25w10s_f5e-05 cached
+  [abides grid] 137/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 138/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 139/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 140/240  1s  S_v300_m4p0.25w10s_f0.0005 cached
+  [abides grid] 141/240  1s  S_v300_m0p0.025w60s_f1e-05 cached
+  [abides grid] 142/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 143/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 144/240  1s  S_v300_m4p0.25w10s_f0.002 cached
+  [abides grid] 145/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 146/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 147/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 148/240  1s  S_v300_m8p0.5w5s_f1e-05 cached
+  [abides grid] 149/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 150/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 151/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 152/240  1s  S_v300_m8p0.5w5s_f5e-05 cached
+  [abides grid] 153/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 154/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 155/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 156/240  1s  S_v300_m8p0.5w5s_f0.0005 cached
+  [abides grid] 157/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 158/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 159/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 160/240  1s  S_v300_m8p0.5w5s_f0.002 cached
+  [abides grid] 161/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 162/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 163/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 164/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 165/240  1s  S_v1000_m0p0.025w60s_f5e-05 cached
+  [abides grid] 166/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 167/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 168/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 169/240  1s  S_v1000_m0p0.025w60s_f0.0005 cached
+  [abides grid] 170/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 171/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 172/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 173/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 174/240  1s  S_v1000_m0p0.025w60s_f0.002 cached
+  [abides grid] 175/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 176/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 177/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 178/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 179/240  1s  S_v1000_m2p0.025w60s_f1e-05 cached
+  [abides grid] 180/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 181/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 182/240  1s  S_v1000_m2p0.025w60s_f5e-05 cached
+  [abides grid] 183/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 184/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 185/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 186/240  1s  S_v1000_m2p0.025w60s_f0.0005 cached
+  [abides grid] 187/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 188/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 189/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 190/240  1s  S_v1000_m2p0.025w60s_f0.002 cached
+  [abides grid] 191/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 192/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 193/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 194/240  1s  S_v1000_m2p0.1w10s_f1e-05 cached
+  [abides grid] 195/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 196/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 197/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 198/240  1s  S_v1000_m2p0.1w10s_f5e-05 cached
+  [abides grid] 199/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 200/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 201/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 202/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 203/240  1s  S_v1000_m2p0.1w10s_f0.0005 cached
+  [abides grid] 204/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 205/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 206/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 207/240  1s  S_v1000_m2p0.1w10s_f0.002 cached
+  [abides grid] 208/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 209/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 210/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 211/240  1s  S_v1000_m4p0.25w10s_f1e-05 cached
+  [abides grid] 212/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 213/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 214/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 215/240  1s  S_v1000_m4p0.25w10s_f5e-05 cached
+  [abides grid] 216/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 217/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 218/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 219/240  1s  S_v1000_m4p0.25w10s_f0.0005 cached
+  [abides grid] 220/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 221/240  1s  S_v1000_m0p0.025w60s_f1e-05 cached
+  [abides grid] 222/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 223/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 224/240  1s  S_v1000_m4p0.25w10s_f0.002 cached
+  [abides grid] 225/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 226/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 227/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 228/240  1s  S_v1000_m8p0.5w5s_f1e-05 cached
+  [abides grid] 229/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 230/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 231/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 232/240  1s  S_v1000_m8p0.5w5s_f5e-05 cached
+  [abides grid] 233/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 234/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 235/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 236/240  1s  S_v1000_m8p0.5w5s_f0.0005 cached
+  [abides grid] 237/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 238/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 239/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  [abides grid] 240/240  1s  S_v1000_m8p0.5w5s_f0.002 cached
+  ABIDES for volH_voluH_trendH: S_v1000_m0p0.025w60s_f1e-05  moment error 1.29
+  ABIDES for volH_voluH_trendL: S_v300_m2p0.1w10s_f1e-05  moment error 1.20
+  ABIDES for volH_voluL_trendH: S_v300_m2p0.1w10s_f1e-05  moment error 1.83
+  ABIDES for volH_voluL_trendL: S_v300_m0p0.025w60s_f5e-05  moment error 1.59
+  ABIDES for volL_voluH_trendL: S_v300_m2p0.025w60s_f1e-05  moment error 1.87
+  ABIDES for volL_voluL_trendH: S_v300_m2p0.1w10s_f5e-05  moment error 2.53
+  ABIDES for volL_voluL_trendL: S_v300_m2p0.025w60s_f1e-05  moment error 2.16
+== gen 1 Tue Oct 27 19:26:52 EDT 2026
+== gen
+  [gen] 1/504  53s  hawkes_q_f volH_voluH_trendH 30002: 47684 events
+  [gen] 2/504  53s  hawkes_q_f volH_voluH_trendH 30003: 42749 events
+  [gen] 3/504  54s  hawkes_q_f volH_voluH_trendH 30004: 46969 events
+  [gen] 4/504  54s  hawkes_q_f volH_voluH_trendH 30000: 52665 events
+  [gen] 5/504  57s  hawkes_q_f volH_voluH_trendH 30001: 37525 events
+  [gen] 6/504  106s  hawkes_q_f volH_voluH_trendH 30006: 43377 events
+  [gen] 7/504  107s  hawkes_q_f volH_voluH_trendH 30005: 36288 events
+  [gen] 8/504  108s  hawkes_q_f volH_voluH_trendH 30008: 35720 events
+  [gen] 9/504  111s  hawkes_q_f volH_voluH_trendH 30009: 40704 events
+  [gen] 10/504  111s  hawkes_q_f volH_voluH_trendH 30007: 50222 events
+  [gen] 11/504  157s  hawkes_q_f volH_voluH_trendH 30010: 39314 events
+  [gen] 12/504  160s  hawkes_q_f volH_voluH_trendH 30011: 40523 events
+  [gen] 13/504  162s  hawkes_sd_q_c_f volH_voluH_trendH 30000: 72002 events
+  [gen] 14/504  164s  hawkes_sd_q_c_f volH_voluH_trendH 30001: 54291 events
+  [gen] 15/504  172s  hawkes_sd_q_c_f volH_voluH_trendH 30002: 55672 events
+  [gen] 16/504  209s  hawkes_sd_q_c_f volH_voluH_trendH 30003: 57042 events
+  [gen] 17/504  215s  hawkes_sd_q_c_f volH_voluH_trendH 30006: 52567 events
+  [gen] 18/504  217s  hawkes_sd_q_c_f volH_voluH_trendH 30004: 51536 events
+  [gen] 19/504  222s  hawkes_sd_q_c_f volH_voluH_trendH 30005: 42680 events
+  [gen] 20/504  225s  hawkes_sd_q_c_f volH_voluH_trendH 30007: 55894 events
+  [gen] 21/504  232s  hawkes_m volH_voluH_trendH 30000: 41842 events
+  [gen] 22/504  237s  hawkes_m volH_voluH_trendH 30001: 39930 events
+  [gen] 23/504  243s  hawkes_m volH_voluH_trendH 30002: 38870 events
+  [gen] 24/504  248s  hawkes_m volH_voluH_trendH 30003: 27772 events
+  [gen] 25/504  254s  hawkes_m volH_voluH_trendH 30004: 38735 events
+  [gen] 26/504  260s  hawkes_m volH_voluH_trendH 30005: 38660 events
+  [gen] 27/504  264s  hawkes_sd_q_c_f volH_voluH_trendH 30008: 45416 events
+  [gen] 28/504  266s  hawkes_m volH_voluH_trendH 30006: 34253 events
+  [gen] 29/504  266s  hawkes_sd_q_c_f volH_voluH_trendH 30009: 39635 events
+  [gen] 30/504  270s  hawkes_m volH_voluH_trendH 30007: 38090 events
+  [gen] 31/504  271s  hawkes_sd_q_c_f volH_voluH_trendH 30010: 46582 events
+  [gen] 32/504  272s  hawkes_m volH_voluH_trendH 30008: 36375 events
+  [gen] 33/504  273s  hawkes_m volH_voluH_trendH 30009: 36041 events
+  [gen] 34/504  274s  hawkes_sd_q_c_f volH_voluH_trendH 30011: 42401 events
+  [gen] 35/504  276s  hawkes_m volH_voluH_trendH 30010: 34298 events
+  [gen] 36/504  277s  hawkes_m volH_voluH_trendH 30011: 39315 events
+  [gen] 37/504  278s  hawkes_sd_c_f_m volH_voluH_trendH 30000: 64497 events
+  [gen] 38/504  280s  hawkes_sd_c_f_m volH_voluH_trendH 30001: 57904 events
+  [gen] 39/504  281s  hawkes_sd_c_f_m volH_voluH_trendH 30002: 56226 events
+  [gen] 40/504  283s  hawkes_sd_c_f_m volH_voluH_trendH 30003: 48269 events
+  [gen] 41/504  284s  hawkes_sd_c_f_m volH_voluH_trendH 30004: 57138 events
+  [gen] 42/504  286s  hawkes_sd_c_f_m volH_voluH_trendH 30005: 58391 events
+  [gen] 43/504  288s  hawkes_sd_c_f_m volH_voluH_trendH 30006: 60866 events
+  [gen] 44/504  289s  hawkes_sd_c_f_m volH_voluH_trendH 30007: 58125 events
+  [gen] 45/504  291s  hawkes_sd_c_f_m volH_voluH_trendH 30008: 66396 events
+  [gen] 46/504  292s  hawkes_sd_c_f_m volH_voluH_trendH 30009: 57240 events
+  [gen] 47/504  294s  hawkes_sd_c_f_m volH_voluH_trendH 30010: 61790 events
+  [gen] 48/504  295s  hawkes_sd_c_f_m volH_voluH_trendH 30011: 52038 events
+  [gen] 49/504  297s  hawkes_sd_q_c_f_m volH_voluH_trendH 30000: 66197 events
+  [gen] 50/504  299s  hawkes_sd_q_c_f_m volH_voluH_trendH 30001: 63151 events
+  [gen] 51/504  300s  hawkes_sd_q_c_f_m volH_voluH_trendH 30002: 46784 events
+  [gen] 52/504  302s  hawkes_sd_q_c_f_m volH_voluH_trendH 30003: 50458 events
+  [gen] 53/504  303s  hawkes_sd_q_c_f_m volH_voluH_trendH 30004: 53901 events
+  [gen] 54/504  305s  hawkes_sd_q_c_f_m volH_voluH_trendH 30005: 49541 events
+  [gen] 55/504  306s  hawkes_sd_q_c_f_m volH_voluH_trendH 30006: 48963 events
+  [gen] 56/504  308s  hawkes_sd_q_c_f_m volH_voluH_trendH 30007: 56088 events
+  [gen] 57/504  310s  hawkes_sd_q_c_f_m volH_voluH_trendH 30009: 58530 events
+  [gen] 58/504  310s  hawkes_sd_q_c_f_m volH_voluH_trendH 30008: 49493 events
+  [gen] 59/504  313s  hawkes_sd_q_c_f_m volH_voluH_trendH 30010: 49784 events
+  [gen] 60/504  314s  hawkes_sd_q_c_f_m volH_voluH_trendH 30011: 58746 events
+  [gen] 61/504  333s  abides_quoting volH_voluH_trendH 30000: 38299 events
+  [gen] 62/504  335s  abides_quoting volH_voluH_trendH 30001: 39044 events
+  [gen] 63/504  336s  abides_quoting volH_voluH_trendH 30002: 38566 events
+  [gen] 64/504  338s  abides_quoting volH_voluH_trendH 30003: 38888 events
+  [gen] 65/504  339s  abides_quoting volH_voluH_trendH 30004: 38546 events
+  [gen] 66/504  359s  abides_quoting volH_voluH_trendH 30005: 39172 events
+  [gen] 67/504  361s  abides_quoting volH_voluH_trendH 30006: 38388 events
+  [gen] 68/504  362s  abides_quoting volH_voluH_trendH 30007: 38481 events
+  [gen] 69/504  364s  abides_quoting volH_voluH_trendH 30008: 38645 events
+  [gen] 70/504  365s  abides_quoting volH_voluH_trendH 30009: 38326 events
+  [gen] 71/504  384s  abides_quoting volH_voluH_trendH 30010: 38584 events
+  [gen] 72/504  386s  abides_quoting volH_voluH_trendH 30011: 38681 events
+  [gen] 73/504  419s  hawkes_q_f volH_voluH_trendL 30000: 29901 events
+  [gen] 74/504  421s  hawkes_q_f volH_voluH_trendL 30002: 29754 events
+  [gen] 75/504  423s  hawkes_q_f volH_voluH_trendL 30001: 28423 events
+  [gen] 76/504  443s  hawkes_q_f volH_voluH_trendL 30003: 37844 events
+  [gen] 77/504  444s  hawkes_q_f volH_voluH_trendL 30004: 28987 events
+  [gen] 78/504  478s  hawkes_q_f volH_voluH_trendL 30006: 34832 events
+  [gen] 79/504  479s  hawkes_q_f volH_voluH_trendL 30005: 28374 events
+  [gen] 80/504  480s  hawkes_q_f volH_voluH_trendL 30007: 35152 events
+  [gen] 81/504  501s  hawkes_q_f volH_voluH_trendL 30008: 28988 events
+  [gen] 82/504  503s  hawkes_q_f volH_voluH_trendL 30009: 27274 events
+  [gen] 83/504  535s  hawkes_q_f volH_voluH_trendL 30010: 28796 events
+  [gen] 84/504  536s  hawkes_q_f volH_voluH_trendL 30011: 26662 events
+  [gen] 85/504  547s  hawkes_sd_q_c_f volH_voluH_trendL 30000: 44805 events
+  [gen] 86/504  560s  hawkes_sd_q_c_f volH_voluH_trendL 30001: 30603 events
+  [gen] 87/504  560s  hawkes_sd_q_c_f volH_voluH_trendL 30002: 30357 events
+  [gen] 88/504  596s  hawkes_sd_q_c_f volH_voluH_trendL 30003: 43089 events
+  [gen] 89/504  598s  hawkes_sd_q_c_f volH_voluH_trendL 30004: 44366 events
+  [gen] 90/504  607s  hawkes_sd_q_c_f volH_voluH_trendL 30005: 31836 events
+  [gen] 91/504  623s  hawkes_sd_q_c_f volH_voluH_trendL 30006: 46278 events
+  [gen] 92/504  631s  hawkes_sd_q_c_f volH_voluH_trendL 30007: 41964 events
+  [gen] 93/504  637s  hawkes_m volH_voluH_trendL 30000: 30360 events
+  [gen] 94/504  642s  hawkes_m volH_voluH_trendL 30001: 30252 events
+  [gen] 95/504  649s  hawkes_m volH_voluH_trendL 30002: 30404 events
+  [gen] 96/504  652s  hawkes_sd_q_c_f volH_voluH_trendL 30008: 36924 events
+  [gen] 97/504  654s  hawkes_sd_q_c_f volH_voluH_trendL 30009: 28359 events
+  [gen] 98/504  654s  hawkes_m volH_voluH_trendL 30003: 26602 events
+  [gen] 99/504  657s  hawkes_m volH_voluH_trendL 30004: 29174 events
+  [gen] 100/504  659s  hawkes_m volH_voluH_trendL 30005: 28591 events
+  [gen] 101/504  660s  hawkes_m volH_voluH_trendL 30006: 27316 events
+  [gen] 102/504  663s  hawkes_m volH_voluH_trendL 30007: 30851 events
+  [gen] 103/504  665s  hawkes_m volH_voluH_trendL 30008: 28921 events
+  [gen] 104/504  665s  hawkes_m volH_voluH_trendL 30009: 27322 events
+  [gen] 105/504  665s  hawkes_sd_q_c_f volH_voluH_trendL 30010: 36934 events
+  [gen] 106/504  669s  hawkes_m volH_voluH_trendL 30010: 24043 events
+  [gen] 107/504  671s  hawkes_m volH_voluH_trendL 30011: 30392 events
+  [gen] 108/504  671s  hawkes_sd_c_f_m volH_voluH_trendL 30000: 49790 events
+  [gen] 109/504  672s  hawkes_sd_c_f_m volH_voluH_trendL 30001: 50089 events
+  [gen] 110/504  676s  hawkes_sd_c_f_m volH_voluH_trendL 30002: 47505 events
+  [gen] 111/504  677s  hawkes_sd_c_f_m volH_voluH_trendL 30003: 42858 events
+  [gen] 112/504  678s  hawkes_sd_c_f_m volH_voluH_trendL 30004: 51486 events
+  [gen] 113/504  679s  hawkes_sd_c_f_m volH_voluH_trendL 30005: 53148 events
+  [gen] 114/504  682s  hawkes_sd_c_f_m volH_voluH_trendL 30006: 38457 events
+  [gen] 115/504  683s  hawkes_sd_c_f_m volH_voluH_trendL 30007: 41780 events
+  [gen] 116/504  684s  hawkes_sd_c_f_m volH_voluH_trendL 30008: 38815 events
+  [gen] 117/504  685s  hawkes_sd_c_f_m volH_voluH_trendL 30009: 40573 events
+  [gen] 118/504  686s  hawkes_sd_q_c_f volH_voluH_trendL 30011: 38258 events
+  [gen] 119/504  688s  hawkes_sd_c_f_m volH_voluH_trendL 30010: 39652 events
+  [gen] 120/504  690s  hawkes_sd_c_f_m volH_voluH_trendL 30011: 51858 events
+  [gen] 121/504  691s  hawkes_sd_q_c_f_m volH_voluH_trendL 30000: 43593 events
+  [gen] 122/504  693s  hawkes_sd_q_c_f_m volH_voluH_trendL 30001: 44692 events
+  [gen] 123/504  693s  hawkes_sd_q_c_f_m volH_voluH_trendL 30002: 38057 events
+  [gen] 124/504  694s  hawkes_sd_q_c_f_m volH_voluH_trendL 30003: 34621 events
+  [gen] 125/504  697s  hawkes_sd_q_c_f_m volH_voluH_trendL 30004: 51511 events
+  [gen] 126/504  697s  hawkes_sd_q_c_f_m volH_voluH_trendL 30005: 38497 events
+  [gen] 127/504  700s  hawkes_sd_q_c_f_m volH_voluH_trendL 30006: 44512 events
+  [gen] 128/504  700s  hawkes_sd_q_c_f_m volH_voluH_trendL 30007: 43747 events
+  [gen] 129/504  701s  hawkes_sd_q_c_f_m volH_voluH_trendL 30008: 37476 events
+  [gen] 130/504  704s  hawkes_sd_q_c_f_m volH_voluH_trendL 30010: 36093 events
+  [gen] 131/504  704s  hawkes_sd_q_c_f_m volH_voluH_trendL 30009: 34645 events
+  [gen] 132/504  707s  hawkes_sd_q_c_f_m volH_voluH_trendL 30011: 45264 events
+  [gen] 133/504  725s  abides_quoting volH_voluH_trendL 30001: 31482 events
+  [gen] 134/504  727s  abides_quoting volH_voluH_trendL 30000: 31334 events
+  [gen] 135/504  727s  abides_quoting volH_voluH_trendL 30002: 31005 events
+  [gen] 136/504  730s  abides_quoting volH_voluH_trendL 30003: 31734 events
+  [gen] 137/504  734s  abides_quoting volH_voluH_trendL 30004: 31252 events
+  [gen] 138/504  749s  abides_quoting volH_voluH_trendL 30007: 30499 events
+  [gen] 139/504  752s  abides_quoting volH_voluH_trendL 30005: 31399 events
+  [gen] 140/504  753s  abides_quoting volH_voluH_trendL 30006: 31389 events
+  [gen] 141/504  756s  abides_quoting volH_voluH_trendL 30008: 31326 events
+  [gen] 142/504  761s  abides_quoting volH_voluH_trendL 30009: 31182 events
+  [gen] 143/504  775s  abides_quoting volH_voluH_trendL 30010: 31012 events
+  [gen] 144/504  778s  abides_quoting volH_voluH_trendL 30011: 31763 events
+  [gen] 145/504  797s  hawkes_q_f volH_voluL_trendH 30000: 25312 events
+  [gen] 146/504  802s  hawkes_q_f volH_voluL_trendH 30001: 32639 events
+  [gen] 147/504  806s  hawkes_q_f volH_voluL_trendH 30002: 31370 events
+  [gen] 148/504  820s  hawkes_q_f volH_voluL_trendH 30003: 33452 events
+  [gen] 149/504  824s  hawkes_q_f volH_voluL_trendH 30004: 41199 events
+  [gen] 150/504  841s  hawkes_q_f volH_voluL_trendH 30005: 27851 events
+  [gen] 151/504  848s  hawkes_q_f volH_voluL_trendH 30006: 39544 events
+  [gen] 152/504  851s  hawkes_q_f volH_voluL_trendH 30007: 36554 events
+  [gen] 153/504  868s  hawkes_q_f volH_voluL_trendH 30008: 24719 events
+  [gen] 154/504  868s  hawkes_q_f volH_voluL_trendH 30009: 25392 events
+  [gen] 155/504  886s  hawkes_q_f volH_voluL_trendH 30010: 31294 events
+  [gen] 156/504  891s  hawkes_q_f volH_voluL_trendH 30011: 30986 events
+  [gen] 157/504  900s  hawkes_sd_q_c_f volH_voluL_trendH 30000: 31977 events
+  [gen] 158/504  915s  hawkes_sd_q_c_f volH_voluL_trendH 30002: 33856 events
+  [gen] 159/504  915s  hawkes_sd_q_c_f volH_voluL_trendH 30001: 43120 events
+  [gen] 160/504  932s  hawkes_sd_q_c_f volH_voluL_trendH 30003: 35411 events
+  [gen] 161/504  935s  hawkes_sd_q_c_f volH_voluL_trendH 30004: 41991 events
+  [gen] 162/504  944s  hawkes_sd_q_c_f volH_voluL_trendH 30005: 30572 events
+  [gen] 163/504  960s  hawkes_sd_q_c_f volH_voluL_trendH 30007: 36208 events
+  [gen] 164/504  962s  hawkes_sd_q_c_f volH_voluL_trendH 30006: 47233 events
+  [gen] 165/504  967s  hawkes_m volH_voluL_trendH 30000: 28442 events
+  [gen] 166/504  972s  hawkes_m volH_voluL_trendH 30001: 27581 events
+  [gen] 167/504  976s  hawkes_m volH_voluL_trendH 30002: 23066 events
+  [gen] 168/504  977s  hawkes_sd_q_c_f volH_voluL_trendH 30009: 28630 events
+  [gen] 169/504  981s  hawkes_sd_q_c_f volH_voluL_trendH 30008: 30556 events
+  [gen] 170/504  981s  hawkes_m volH_voluL_trendH 30003: 25580 events
+  [gen] 171/504  982s  hawkes_m volH_voluL_trendH 30004: 27534 events
+  [gen] 172/504  986s  hawkes_m volH_voluL_trendH 30005: 26641 events
+  [gen] 173/504  986s  hawkes_m volH_voluL_trendH 30006: 25352 events
+  [gen] 174/504  988s  hawkes_m volH_voluL_trendH 30007: 28020 events
+  [gen] 175/504  990s  hawkes_sd_q_c_f volH_voluL_trendH 30010: 31170 events
+  [gen] 176/504  990s  hawkes_m volH_voluL_trendH 30009: 23622 events
+  [gen] 177/504  991s  hawkes_m volH_voluL_trendH 30008: 30633 events
+  [gen] 178/504  993s  hawkes_m volH_voluL_trendH 30010: 23682 events
+  [gen] 179/504  995s  hawkes_m volH_voluL_trendH 30011: 26206 events
+  [gen] 180/504  997s  hawkes_sd_c_f_m volH_voluL_trendH 30000: 45325 events
+  [gen] 181/504  998s  hawkes_sd_c_f_m volH_voluL_trendH 30001: 51042 events
+  [gen] 182/504  999s  hawkes_sd_c_f_m volH_voluL_trendH 30002: 38718 events
+  [gen] 183/504  1000s  hawkes_sd_c_f_m volH_voluL_trendH 30003: 30955 events
+  [gen] 184/504  1003s  hawkes_sd_c_f_m volH_voluL_trendH 30004: 38261 events
+  [gen] 185/504  1003s  hawkes_sd_c_f_m volH_voluL_trendH 30005: 42597 events
+  [gen] 186/504  1004s  hawkes_sd_c_f_m volH_voluL_trendH 30006: 37691 events
+  [gen] 187/504  1006s  hawkes_sd_c_f_m volH_voluL_trendH 30007: 43265 events
+  [gen] 188/504  1007s  hawkes_sd_q_c_f volH_voluL_trendH 30011: 38792 events
+  [gen] 189/504  1009s  hawkes_sd_c_f_m volH_voluL_trendH 30008: 43684 events
+  [gen] 190/504  1009s  hawkes_sd_c_f_m volH_voluL_trendH 30009: 43511 events
+  [gen] 191/504  1009s  hawkes_sd_c_f_m volH_voluL_trendH 30010: 34922 events
+  [gen] 192/504  1013s  hawkes_sd_c_f_m volH_voluL_trendH 30011: 46774 events
+  [gen] 193/504  1013s  hawkes_sd_q_c_f_m volH_voluL_trendH 30000: 38592 events
+  [gen] 194/504  1014s  hawkes_sd_q_c_f_m volH_voluL_trendH 30002: 31512 events
+  [gen] 195/504  1015s  hawkes_sd_q_c_f_m volH_voluL_trendH 30003: 35413 events
+  [gen] 196/504  1015s  hawkes_sd_q_c_f_m volH_voluL_trendH 30001: 45068 events
+  [gen] 197/504  1019s  hawkes_sd_q_c_f_m volH_voluL_trendH 30005: 35766 events
+  [gen] 198/504  1019s  hawkes_sd_q_c_f_m volH_voluL_trendH 30004: 42975 events
+  [gen] 199/504  1020s  hawkes_sd_q_c_f_m volH_voluL_trendH 30006: 30694 events
+  [gen] 200/504  1021s  hawkes_sd_q_c_f_m volH_voluL_trendH 30007: 38495 events
+  [gen] 201/504  1021s  hawkes_sd_q_c_f_m volH_voluL_trendH 30008: 34608 events
+  [gen] 202/504  1026s  hawkes_sd_q_c_f_m volH_voluL_trendH 30010: 31648 events
+  [gen] 203/504  1026s  hawkes_sd_q_c_f_m volH_voluL_trendH 30009: 38432 events
+  [gen] 204/504  1026s  hawkes_sd_q_c_f_m volH_voluL_trendH 30011: 39856 events
+  [gen] 205/504  1042s  abides_quoting volH_voluL_trendH 30001: 29055 events
+  [gen] 206/504  1044s  abides_quoting volH_voluL_trendH 30000: 28782 events
+  [gen] 207/504  1047s  abides_quoting volH_voluL_trendH 30002: 28602 events
+  [gen] 208/504  1049s  abides_quoting volH_voluL_trendH 30003: 29221 events
+  [gen] 209/504  1050s  abides_quoting volH_voluL_trendH 30004: 28587 events
+  [gen] 210/504  1065s  abides_quoting volH_voluL_trendH 30007: 28001 events
+  [gen] 211/504  1066s  abides_quoting volH_voluL_trendH 30005: 28979 events
+  [gen] 212/504  1068s  abides_quoting volH_voluL_trendH 30006: 28476 events
+  [gen] 213/504  1073s  abides_quoting volH_voluL_trendH 30008: 28830 events
+  [gen] 214/504  1074s  abides_quoting volH_voluL_trendH 30009: 28800 events
+  [gen] 215/504  1089s  abides_quoting volH_voluL_trendH 30011: 29056 events
+  [gen] 216/504  1089s  abides_quoting volH_voluL_trendH 30010: 28690 events
+  [gen] 217/504  1121s  hawkes_q_f volH_voluL_trendL 30000: 41387 events
+  [gen] 218/504  1127s  hawkes_q_f volH_voluL_trendL 30001: 36464 events
+  [gen] 219/504  1129s  hawkes_q_f volH_voluL_trendL 30002: 29480 events
+  [gen] 220/504  1142s  hawkes_q_f volH_voluL_trendL 30004: 46625 events
+  [gen] 221/504  1144s  hawkes_q_f volH_voluL_trendL 30003: 30836 events
+  [gen] 222/504  1175s  hawkes_q_f volH_voluL_trendL 30005: 37245 events
+  [gen] 223/504  1181s  hawkes_q_f volH_voluL_trendL 30006: 40220 events
+  [gen] 224/504  1184s  hawkes_q_f volH_voluL_trendL 30007: 39458 events
+  [gen] 225/504  1194s  hawkes_q_f volH_voluL_trendL 30008: 24826 events
+  [gen] 226/504  1200s  hawkes_q_f volH_voluL_trendL 30009: 36151 events
+  [gen] 227/504  1227s  hawkes_q_f volH_voluL_trendL 30010: 30650 events
+  [gen] 228/504  1235s  hawkes_q_f volH_voluL_trendL 30011: 28870 events
+  [gen] 229/504  1243s  hawkes_sd_q_c_f volH_voluL_trendL 30000: 48741 events
+  [gen] 230/504  1251s  hawkes_sd_q_c_f volH_voluL_trendL 30001: 42231 events
+  [gen] 231/504  1271s  hawkes_sd_q_c_f volH_voluL_trendL 30002: 46783 events
+  [gen] 232/504  1295s  hawkes_sd_q_c_f volH_voluL_trendL 30003: 47045 events
+  [gen] 233/504  1295s  hawkes_sd_q_c_f volH_voluL_trendL 30004: 54825 events
+  [gen] 234/504  1298s  hawkes_sd_q_c_f volH_voluL_trendL 30005: 31154 events
+  [gen] 235/504  1309s  hawkes_sd_q_c_f volH_voluL_trendL 30006: 55156 events
+  [gen] 236/504  1339s  hawkes_sd_q_c_f volH_voluL_trendL 30007: 54056 events
+  [gen] 237/504  1345s  hawkes_m volH_voluL_trendL 30000: 34623 events
+  [gen] 238/504  1350s  hawkes_sd_q_c_f volH_voluL_trendL 30008: 36809 events
+  [gen] 239/504  1350s  hawkes_sd_q_c_f volH_voluL_trendL 30009: 50896 events
+  [gen] 240/504  1351s  hawkes_m volH_voluL_trendL 30001: 32637 events
+  [gen] 241/504  1355s  hawkes_m volH_voluL_trendL 30002: 22216 events
+  [gen] 242/504  1355s  hawkes_sd_q_c_f volH_voluL_trendL 30010: 49679 events
+  [gen] 243/504  1355s  hawkes_m volH_voluL_trendL 30003: 22767 events
+  [gen] 244/504  1356s  hawkes_m volH_voluL_trendL 30004: 30337 events
+  [gen] 245/504  1360s  hawkes_m volH_voluL_trendL 30006: 26780 events
+  [gen] 246/504  1361s  hawkes_m volH_voluL_trendL 30007: 25872 events
+  [gen] 247/504  1361s  hawkes_m volH_voluL_trendL 30005: 41535 events
+  [gen] 248/504  1362s  hawkes_m volH_voluL_trendL 30008: 26306 events
+  [gen] 249/504  1366s  hawkes_m volH_voluL_trendL 30009: 25819 events
+  [gen] 250/504  1366s  hawkes_m volH_voluL_trendL 30010: 32849 events
+  [gen] 251/504  1367s  hawkes_m volH_voluL_trendL 30011: 26688 events
+  [gen] 252/504  1367s  hawkes_sd_q_c_f volH_voluL_trendL 30011: 48525 events
+  [gen] 253/504  1368s  hawkes_sd_c_f_m volH_voluL_trendL 30000: 38052 events
+  [gen] 254/504  1372s  hawkes_sd_c_f_m volH_voluL_trendL 30001: 42179 events
+  [gen] 255/504  1373s  hawkes_sd_c_f_m volH_voluL_trendL 30002: 54093 events
+  [gen] 256/504  1374s  hawkes_sd_c_f_m volH_voluL_trendL 30003: 48669 events
+  [gen] 257/504  1374s  hawkes_sd_c_f_m volH_voluL_trendL 30004: 56904 events
+  [gen] 258/504  1376s  hawkes_sd_c_f_m volH_voluL_trendL 30005: 59634 events
+  [gen] 259/504  1378s  hawkes_sd_c_f_m volH_voluL_trendL 30006: 40780 events
+  [gen] 260/504  1380s  hawkes_sd_c_f_m volH_voluL_trendL 30007: 51719 events
+  [gen] 261/504  1381s  hawkes_sd_c_f_m volH_voluL_trendL 30008: 37398 events
+  [gen] 262/504  1381s  hawkes_sd_c_f_m volH_voluL_trendL 30009: 49685 events
+  [gen] 263/504  1383s  hawkes_sd_c_f_m volH_voluL_trendL 30010: 64400 events
+  [gen] 264/504  1385s  hawkes_sd_c_f_m volH_voluL_trendL 30011: 46997 events
+  [gen] 265/504  1387s  hawkes_sd_q_c_f_m volH_voluL_trendL 30000: 47814 events
+  [gen] 266/504  1388s  hawkes_sd_q_c_f_m volH_voluL_trendL 30001: 52568 events
+  [gen] 267/504  1389s  hawkes_sd_q_c_f_m volH_voluL_trendL 30002: 43908 events
+  [gen] 268/504  1390s  hawkes_sd_q_c_f_m volH_voluL_trendL 30003: 34928 events
+  [gen] 269/504  1393s  hawkes_sd_q_c_f_m volH_voluL_trendL 30004: 47516 events
+  [gen] 270/504  1394s  hawkes_sd_q_c_f_m volH_voluL_trendL 30005: 40948 events
+  [gen] 271/504  1397s  hawkes_sd_q_c_f_m volH_voluL_trendL 30006: 51724 events
+  [gen] 272/504  1398s  hawkes_sd_q_c_f_m volH_voluL_trendL 30008: 61785 events
+  [gen] 273/504  1398s  hawkes_sd_q_c_f_m volH_voluL_trendL 30007: 59226 events
+  [gen] 274/504  1401s  hawkes_sd_q_c_f_m volH_voluL_trendL 30009: 52397 events
+  [gen] 275/504  1402s  hawkes_sd_q_c_f_m volH_voluL_trendL 30010: 63556 events
+  [gen] 276/504  1404s  hawkes_sd_q_c_f_m volH_voluL_trendL 30011: 47001 events
+  [gen] 277/504  1416s  abides_quoting volH_voluL_trendL 30000: 30838 events
+  [gen] 278/504  1417s  abides_quoting volH_voluL_trendL 30001: 31158 events
+  [gen] 279/504  1419s  abides_quoting volH_voluL_trendL 30002: 30732 events
+  [gen] 280/504  1420s  abides_quoting volH_voluL_trendL 30003: 30921 events
+  [gen] 281/504  1422s  abides_quoting volH_voluL_trendL 30004: 30554 events
+  [gen] 282/504  1435s  abides_quoting volH_voluL_trendL 30005: 30593 events
+  [gen] 283/504  1435s  abides_quoting volH_voluL_trendL 30006: 31157 events
+  [gen] 284/504  1437s  abides_quoting volH_voluL_trendL 30007: 31111 events
+  [gen] 285/504  1438s  abides_quoting volH_voluL_trendL 30008: 30870 events
+  [gen] 286/504  1440s  abides_quoting volH_voluL_trendL 30009: 30906 events
+  [gen] 287/504  1453s  abides_quoting volH_voluL_trendL 30010: 30487 events
+  [gen] 288/504  1454s  abides_quoting volH_voluL_trendL 30011: 31113 events
+  [gen] 289/504  1497s  hawkes_q_f volL_voluH_trendL 30000: 24552 events
+  [gen] 290/504  1500s  hawkes_q_f volL_voluH_trendL 30002: 27315 events
+  [gen] 291/504  1500s  hawkes_q_f volL_voluH_trendL 30001: 18532 events
+  [gen] 292/504  1513s  hawkes_q_f volL_voluH_trendL 30003: 26177 events
+  [gen] 293/504  1515s  hawkes_q_f volL_voluH_trendL 30004: 28703 events
+  [gen] 294/504  1556s  hawkes_q_f volL_voluH_trendL 30005: 21886 events
+  [gen] 295/504  1559s  hawkes_q_f volL_voluH_trendL 30006: 26615 events
+  [gen] 296/504  1561s  hawkes_q_f volL_voluH_trendL 30007: 28283 events
+  [gen] 297/504  1572s  hawkes_q_f volL_voluH_trendL 30008: 22327 events
+  [gen] 298/504  1576s  hawkes_q_f volL_voluH_trendL 30009: 27970 events
+  [gen] 299/504  1615s  hawkes_q_f volL_voluH_trendL 30010: 23944 events
+  [gen] 300/504  1620s  hawkes_q_f volL_voluH_trendL 30011: 22024 events
+  [gen] 301/504  1628s  hawkes_sd_q_c_f volL_voluH_trendL 30000: 26025 events
+  [gen] 302/504  1637s  hawkes_sd_q_c_f volL_voluH_trendL 30001: 17428 events
+  [gen] 303/504  1638s  hawkes_sd_q_c_f volL_voluH_trendL 30002: 29049 events
+  [gen] 304/504  1684s  hawkes_sd_q_c_f volL_voluH_trendL 30004: 33085 events
+  [gen] 305/504  1684s  hawkes_sd_q_c_f volL_voluH_trendL 30003: 28969 events
+  [gen] 306/504  1696s  hawkes_sd_q_c_f volL_voluH_trendL 30005: 24372 events
+  [gen] 307/504  1698s  hawkes_sd_q_c_f volL_voluH_trendL 30006: 24722 events
+  [gen] 308/504  1704s  hawkes_sd_q_c_f volL_voluH_trendL 30007: 30641 events
+  [gen] 309/504  1711s  hawkes_m volL_voluH_trendL 30000: 25559 events
+  [gen] 310/504  1716s  hawkes_m volL_voluH_trendL 30001: 26040 events
+  [gen] 311/504  1721s  hawkes_m volL_voluH_trendL 30002: 18420 events
+  [gen] 312/504  1726s  hawkes_m volL_voluH_trendL 30003: 16985 events
+  [gen] 313/504  1732s  hawkes_m volL_voluH_trendL 30004: 23417 events
+  [gen] 314/504  1737s  hawkes_m volL_voluH_trendL 30005: 26830 events
+  [gen] 315/504  1742s  hawkes_m volL_voluH_trendL 30006: 18107 events
+  [gen] 316/504  1747s  hawkes_m volL_voluH_trendL 30007: 22073 events
+  [gen] 317/504  1748s  hawkes_sd_q_c_f volL_voluH_trendL 30008: 22343 events
+  [gen] 318/504  1752s  hawkes_sd_q_c_f volL_voluH_trendL 30009: 22288 events
+  [gen] 319/504  1752s  hawkes_m volL_voluH_trendL 30008: 23913 events
+  [gen] 320/504  1753s  hawkes_m volL_voluH_trendL 30009: 23091 events
+  [gen] 321/504  1757s  hawkes_m volL_voluH_trendL 30010: 18998 events
+  [gen] 322/504  1758s  hawkes_m volL_voluH_trendL 30011: 26452 events
+  [gen] 323/504  1759s  hawkes_sd_q_c_f volL_voluH_trendL 30010: 27502 events
+  [gen] 324/504  1759s  hawkes_sd_c_f_m volL_voluH_trendL 30000: 33650 events
+  [gen] 325/504  1761s  hawkes_sd_q_c_f volL_voluH_trendL 30011: 22275 events
+  [gen] 326/504  1763s  hawkes_sd_c_f_m volL_voluH_trendL 30002: 27663 events
+  [gen] 327/504  1764s  hawkes_sd_c_f_m volL_voluH_trendL 30001: 43821 events
+  [gen] 328/504  1765s  hawkes_sd_c_f_m volL_voluH_trendL 30003: 27078 events
+  [gen] 329/504  1765s  hawkes_sd_c_f_m volL_voluH_trendL 30004: 37055 events
+  [gen] 330/504  1768s  hawkes_sd_c_f_m volL_voluH_trendL 30005: 41101 events
+  [gen] 331/504  1769s  hawkes_sd_c_f_m volL_voluH_trendL 30006: 25217 events
+  [gen] 332/504  1770s  hawkes_sd_c_f_m volL_voluH_trendL 30007: 29048 events
+  [gen] 333/504  1770s  hawkes_sd_c_f_m volL_voluH_trendL 30008: 28669 events
+  [gen] 334/504  1772s  hawkes_sd_c_f_m volL_voluH_trendL 30009: 32593 events
+  [gen] 335/504  1773s  hawkes_sd_c_f_m volL_voluH_trendL 30010: 29191 events
+  [gen] 336/504  1775s  hawkes_sd_c_f_m volL_voluH_trendL 30011: 34245 events
+  [gen] 337/504  1777s  hawkes_sd_q_c_f_m volL_voluH_trendL 30000: 32267 events
+  [gen] 338/504  1777s  hawkes_sd_q_c_f_m volL_voluH_trendL 30002: 22122 events
+  [gen] 339/504  1778s  hawkes_sd_q_c_f_m volL_voluH_trendL 30001: 31213 events
+  [gen] 340/504  1780s  hawkes_sd_q_c_f_m volL_voluH_trendL 30003: 20519 events
+  [gen] 341/504  1781s  hawkes_sd_q_c_f_m volL_voluH_trendL 30004: 27573 events
+  [gen] 342/504  1783s  hawkes_sd_q_c_f_m volL_voluH_trendL 30006: 25587 events
+  [gen] 343/504  1783s  hawkes_sd_q_c_f_m volL_voluH_trendL 30005: 27457 events
+  [gen] 344/504  1783s  hawkes_sd_q_c_f_m volL_voluH_trendL 30007: 27772 events
+  [gen] 345/504  1785s  hawkes_sd_q_c_f_m volL_voluH_trendL 30008: 25153 events
+  [gen] 346/504  1787s  hawkes_sd_q_c_f_m volL_voluH_trendL 30009: 26801 events
+  [gen] 347/504  1789s  hawkes_sd_q_c_f_m volL_voluH_trendL 30011: 30492 events
+  [gen] 348/504  1789s  hawkes_sd_q_c_f_m volL_voluH_trendL 30010: 31997 events
+  [gen] 349/504  1801s  abides_quoting volL_voluH_trendL 30000: 23139 events
+  [gen] 350/504  1803s  abides_quoting volL_voluH_trendL 30001: 23318 events
+  [gen] 351/504  1804s  abides_quoting volL_voluH_trendL 30002: 23254 events
+  [gen] 352/504  1806s  abides_quoting volL_voluH_trendL 30003: 23335 events
+  [gen] 353/504  1807s  abides_quoting volL_voluH_trendL 30004: 23391 events
+  [gen] 354/504  1819s  abides_quoting volL_voluH_trendL 30005: 23422 events
+  [gen] 355/504  1821s  abides_quoting volL_voluH_trendL 30006: 22932 events
+  [gen] 356/504  1822s  abides_quoting volL_voluH_trendL 30007: 23123 events
+  [gen] 357/504  1823s  abides_quoting volL_voluH_trendL 30008: 23450 events
+  [gen] 358/504  1825s  abides_quoting volL_voluH_trendL 30009: 22953 events
+  [gen] 359/504  1836s  abides_quoting volL_voluH_trendL 30010: 23162 events
+  [gen] 360/504  1838s  abides_quoting volL_voluH_trendL 30011: 23345 events
+  [gen] 361/504  1873s  hawkes_q_f volL_voluL_trendH 30001: 19434 events
+  [gen] 362/504  1875s  hawkes_q_f volL_voluL_trendH 30002: 17347 events
+  [gen] 363/504  1877s  hawkes_q_f volL_voluL_trendH 30000: 22915 events
+  [gen] 364/504  1887s  hawkes_q_f volL_voluL_trendH 30003: 16749 events
+  [gen] 365/504  1890s  hawkes_q_f volL_voluL_trendH 30004: 21287 events
+  [gen] 366/504  1923s  hawkes_q_f volL_voluL_trendH 30005: 15092 events
+  [gen] 367/504  1924s  hawkes_q_f volL_voluL_trendH 30006: 21349 events
+  [gen] 368/504  1929s  hawkes_q_f volL_voluL_trendH 30007: 32274 events
+  [gen] 369/504  1939s  hawkes_q_f volL_voluL_trendH 30008: 17309 events
+  [gen] 370/504  1939s  hawkes_q_f volL_voluL_trendH 30009: 17644 events
+  [gen] 371/504  1973s  hawkes_q_f volL_voluL_trendH 30010: 23072 events
+  [gen] 372/504  1977s  hawkes_q_f volL_voluL_trendH 30011: 15832 events
+  [gen] 373/504  1980s  hawkes_sd_q_c_f volL_voluL_trendH 30000: 22496 events
+  [gen] 374/504  1988s  hawkes_sd_q_c_f volL_voluL_trendH 30001: 24838 events
+  [gen] 375/504  1990s  hawkes_sd_q_c_f volL_voluL_trendH 30002: 20082 events
+  [gen] 376/504  2025s  hawkes_sd_q_c_f volL_voluL_trendH 30003: 17317 events
+  [gen] 377/504  2031s  hawkes_sd_q_c_f volL_voluL_trendH 30004: 22307 events
+  [gen] 378/504  2032s  hawkes_sd_q_c_f volL_voluL_trendH 30005: 18513 events
+  [gen] 379/504  2038s  hawkes_sd_q_c_f volL_voluL_trendH 30006: 23575 events
+  [gen] 380/504  2043s  hawkes_sd_q_c_f volL_voluL_trendH 30007: 29905 events
+  [gen] 381/504  2047s  hawkes_m volL_voluL_trendH 30000: 16498 events
+  [gen] 382/504  2052s  hawkes_m volL_voluL_trendH 30001: 19090 events
+  [gen] 383/504  2056s  hawkes_m volL_voluL_trendH 30002: 15004 events
+  [gen] 384/504  2060s  hawkes_m volL_voluL_trendH 30003: 13461 events
+  [gen] 385/504  2065s  hawkes_m volL_voluL_trendH 30004: 20108 events
+  [gen] 386/504  2070s  hawkes_m volL_voluL_trendH 30005: 19150 events
+  [gen] 387/504  2074s  hawkes_m volL_voluL_trendH 30006: 15771 events
+  [gen] 388/504  2076s  hawkes_sd_q_c_f volL_voluL_trendH 30008: 20600 events
+  [gen] 389/504  2079s  hawkes_m volL_voluL_trendH 30007: 19251 events
+  [gen] 390/504  2081s  hawkes_m volL_voluL_trendH 30008: 17025 events
+  [gen] 391/504  2083s  hawkes_m volL_voluL_trendH 30009: 15015 events
+  [gen] 392/504  2083s  hawkes_sd_q_c_f volL_voluL_trendH 30009: 18866 events
+  [gen] 393/504  2084s  hawkes_sd_q_c_f volL_voluL_trendH 30010: 21094 events
+  [gen] 394/504  2085s  hawkes_m volL_voluL_trendH 30010: 12384 events
+  [gen] 395/504  2087s  hawkes_m volL_voluL_trendH 30011: 14274 events
+  [gen] 396/504  2089s  hawkes_sd_c_f_m volL_voluL_trendH 30000: 25388 events
+  [gen] 397/504  2090s  hawkes_sd_c_f_m volL_voluL_trendH 30001: 30522 events
+  [gen] 398/504  2090s  hawkes_sd_q_c_f volL_voluL_trendH 30011: 16645 events
+  [gen] 399/504  2090s  hawkes_sd_c_f_m volL_voluL_trendH 30002: 15615 events
+  [gen] 400/504  2092s  hawkes_sd_c_f_m volL_voluL_trendH 30003: 19580 events
+  [gen] 401/504  2094s  hawkes_sd_c_f_m volL_voluL_trendH 30004: 28488 events
+  [gen] 402/504  2095s  hawkes_sd_c_f_m volL_voluL_trendH 30005: 26082 events
+  [gen] 403/504  2095s  hawkes_sd_c_f_m volL_voluL_trendH 30006: 24709 events
+  [gen] 404/504  2096s  hawkes_sd_c_f_m volL_voluL_trendH 30007: 27558 events
+  [gen] 405/504  2098s  hawkes_sd_c_f_m volL_voluL_trendH 30008: 26168 events
+  [gen] 406/504  2099s  hawkes_sd_c_f_m volL_voluL_trendH 30009: 24592 events
+  [gen] 407/504  2100s  hawkes_sd_c_f_m volL_voluL_trendH 30010: 22329 events
+  [gen] 408/504  2100s  hawkes_sd_c_f_m volL_voluL_trendH 30011: 26041 events
+  [gen] 409/504  2101s  hawkes_sd_q_c_f_m volL_voluL_trendH 30000: 26326 events
+  [gen] 410/504  2104s  hawkes_sd_q_c_f_m volL_voluL_trendH 30001: 28407 events
+  [gen] 411/504  2104s  hawkes_sd_q_c_f_m volL_voluL_trendH 30002: 17636 events
+  [gen] 412/504  2105s  hawkes_sd_q_c_f_m volL_voluL_trendH 30003: 17497 events
+  [gen] 413/504  2105s  hawkes_sd_q_c_f_m volL_voluL_trendH 30004: 23892 events
+  [gen] 414/504  2107s  hawkes_sd_q_c_f_m volL_voluL_trendH 30005: 32672 events
+  [gen] 415/504  2109s  hawkes_sd_q_c_f_m volL_voluL_trendH 30006: 22250 events
+  [gen] 416/504  2109s  hawkes_sd_q_c_f_m volL_voluL_trendH 30007: 21541 events
+  [gen] 417/504  2110s  hawkes_sd_q_c_f_m volL_voluL_trendH 30008: 21338 events
+  [gen] 418/504  2110s  hawkes_sd_q_c_f_m volL_voluL_trendH 30009: 22286 events
+  [gen] 419/504  2111s  hawkes_sd_q_c_f_m volL_voluL_trendH 30010: 20107 events
+  [gen] 420/504  2114s  hawkes_sd_q_c_f_m volL_voluL_trendH 30011: 23115 events
+  [gen] 421/504  2122s  abides_quoting volL_voluL_trendH 30001: 18893 events
+  [gen] 422/504  2125s  abides_quoting volL_voluL_trendH 30002: 20353 events
+  [gen] 423/504  2126s  abides_quoting volL_voluL_trendH 30000: 19887 events
+  [gen] 424/504  2128s  abides_quoting volL_voluL_trendH 30003: 20255 events
+  [gen] 425/504  2131s  abides_quoting volL_voluL_trendH 30004: 19770 events
+  [gen] 426/504  2139s  abides_quoting volL_voluL_trendH 30007: 18711 events
+  [gen] 427/504  2140s  abides_quoting volL_voluL_trendH 30005: 20455 events
+  [gen] 428/504  2142s  abides_quoting volL_voluL_trendH 30006: 19979 events
+  [gen] 429/504  2145s  abides_quoting volL_voluL_trendH 30008: 20095 events
+  [gen] 430/504  2148s  abides_quoting volL_voluL_trendH 30009: 20277 events
+  [gen] 431/504  2156s  abides_quoting volL_voluL_trendH 30010: 19646 events
+  [gen] 432/504  2157s  abides_quoting volL_voluL_trendH 30011: 19909 events
+  [gen] 433/504  2191s  hawkes_q_f volL_voluL_trendL 30000: 19918 events
+  [gen] 434/504  2193s  hawkes_q_f volL_voluL_trendL 30001: 14598 events
+  [gen] 435/504  2196s  hawkes_q_f volL_voluL_trendL 30002: 17087 events
+  [gen] 436/504  2207s  hawkes_q_f volL_voluL_trendL 30004: 18294 events
+  [gen] 437/504  2208s  hawkes_q_f volL_voluL_trendL 30003: 25088 events
+  [gen] 438/504  2240s  hawkes_q_f volL_voluL_trendL 30005: 13980 events
+  [gen] 439/504  2242s  hawkes_q_f volL_voluL_trendL 30006: 22321 events
+  [gen] 440/504  2246s  hawkes_q_f volL_voluL_trendL 30007: 25035 events
+  [gen] 441/504  2257s  hawkes_q_f volL_voluL_trendL 30008: 16662 events
+  [gen] 442/504  2257s  hawkes_q_f volL_voluL_trendL 30009: 20681 events
+  [gen] 443/504  2290s  hawkes_q_f volL_voluL_trendL 30010: 17276 events
+  [gen] 444/504  2290s  hawkes_q_f volL_voluL_trendL 30011: 15177 events
+  [gen] 445/504  2293s  hawkes_sd_q_c_f volL_voluL_trendL 30000: 20983 events
+  [gen] 446/504  2305s  hawkes_sd_q_c_f volL_voluL_trendL 30002: 14788 events
+  [gen] 447/504  2311s  hawkes_sd_q_c_f volL_voluL_trendL 30001: 15096 events
+  [gen] 448/504  2340s  hawkes_sd_q_c_f volL_voluL_trendL 30004: 20783 events
+  [gen] 449/504  2340s  hawkes_sd_q_c_f volL_voluL_trendL 30003: 29138 events
+  [gen] 450/504  2341s  hawkes_sd_q_c_f volL_voluL_trendL 30005: 15775 events
+  [gen] 451/504  2355s  hawkes_sd_q_c_f volL_voluL_trendL 30006: 21994 events
+  [gen] 452/504  2362s  hawkes_sd_q_c_f volL_voluL_trendL 30007: 24980 events
+  [gen] 453/504  2366s  hawkes_m volL_voluL_trendL 30000: 22265 events
+  [gen] 454/504  2371s  hawkes_m volL_voluL_trendL 30001: 19878 events
+  [gen] 455/504  2375s  hawkes_m volL_voluL_trendL 30002: 15236 events
+  [gen] 456/504  2381s  hawkes_m volL_voluL_trendL 30003: 15748 events
+  [gen] 457/504  2386s  hawkes_m volL_voluL_trendL 30004: 17377 events
+  [gen] 458/504  2390s  hawkes_m volL_voluL_trendL 30005: 21019 events
+  [gen] 459/504  2392s  hawkes_sd_q_c_f volL_voluL_trendL 30010: 13415 events
+  [gen] 460/504  2392s  hawkes_sd_q_c_f volL_voluL_trendL 30008: 14773 events
+  [gen] 461/504  2393s  hawkes_sd_q_c_f volL_voluL_trendL 30009: 15965 events
+  [gen] 462/504  2395s  hawkes_m volL_voluL_trendL 30006: 13731 events
+  [gen] 463/504  2396s  hawkes_m volL_voluL_trendL 30007: 15836 events
+  [gen] 464/504  2397s  hawkes_m volL_voluL_trendL 30008: 19252 events
+  [gen] 465/504  2397s  hawkes_m volL_voluL_trendL 30009: 14794 events
+  [gen] 466/504  2400s  hawkes_m volL_voluL_trendL 30010: 15813 events
+  [gen] 467/504  2400s  hawkes_m volL_voluL_trendL 30011: 17299 events
+  [gen] 468/504  2402s  hawkes_sd_c_f_m volL_voluL_trendL 30001: 26709 events
+  [gen] 469/504  2403s  hawkes_sd_c_f_m volL_voluL_trendL 30000: 39292 events
+  [gen] 470/504  2405s  hawkes_sd_c_f_m volL_voluL_trendL 30002: 22944 events
+  [gen] 471/504  2405s  hawkes_sd_c_f_m volL_voluL_trendL 30003: 24229 events
+  [gen] 472/504  2406s  hawkes_sd_q_c_f volL_voluL_trendL 30011: 19894 events
+  [gen] 473/504  2407s  hawkes_sd_c_f_m volL_voluL_trendL 30004: 24960 events
+  [gen] 474/504  2408s  hawkes_sd_c_f_m volL_voluL_trendL 30005: 25386 events
+  [gen] 475/504  2409s  hawkes_sd_c_f_m volL_voluL_trendL 30006: 18488 events
+  [gen] 476/504  2410s  hawkes_sd_c_f_m volL_voluL_trendL 30007: 21009 events
+  [gen] 477/504  2410s  hawkes_sd_c_f_m volL_voluL_trendL 30008: 26316 events
+  [gen] 478/504  2412s  hawkes_sd_c_f_m volL_voluL_trendL 30009: 22344 events
+  [gen] 479/504  2412s  hawkes_sd_c_f_m volL_voluL_trendL 30010: 20293 events
+  [gen] 480/504  2414s  hawkes_sd_c_f_m volL_voluL_trendL 30011: 32794 events
+  [gen] 481/504  2415s  hawkes_sd_q_c_f_m volL_voluL_trendL 30001: 22826 events
+  [gen] 482/504  2415s  hawkes_sd_q_c_f_m volL_voluL_trendL 30000: 27106 events
+  [gen] 483/504  2417s  hawkes_sd_q_c_f_m volL_voluL_trendL 30002: 19459 events
+  [gen] 484/504  2417s  hawkes_sd_q_c_f_m volL_voluL_trendL 30003: 21830 events
+  [gen] 485/504  2419s  hawkes_sd_q_c_f_m volL_voluL_trendL 30004: 22433 events
+  [gen] 486/504  2420s  hawkes_sd_q_c_f_m volL_voluL_trendL 30006: 17558 events
+  [gen] 487/504  2420s  hawkes_sd_q_c_f_m volL_voluL_trendL 30005: 25448 events
+  [gen] 488/504  2421s  hawkes_sd_q_c_f_m volL_voluL_trendL 30007: 19769 events
+  [gen] 489/504  2422s  hawkes_sd_q_c_f_m volL_voluL_trendL 30008: 26664 events
+  [gen] 490/504  2424s  hawkes_sd_q_c_f_m volL_voluL_trendL 30009: 19117 events
+  [gen] 491/504  2424s  hawkes_sd_q_c_f_m volL_voluL_trendL 30010: 14619 events
+  [gen] 492/504  2424s  hawkes_sd_q_c_f_m volL_voluL_trendL 30011: 17542 events
+  [gen] 493/504  2435s  abides_quoting volL_voluL_trendL 30000: 17279 events
+  [gen] 494/504  2436s  abides_quoting volL_voluL_trendL 30001: 17508 events
+  [gen] 495/504  2437s  abides_quoting volL_voluL_trendL 30002: 17577 events
+  [gen] 496/504  2438s  abides_quoting volL_voluL_trendL 30003: 17336 events
+  [gen] 497/504  2438s  abides_quoting volL_voluL_trendL 30004: 16847 events
+  [gen] 498/504  2448s  abides_quoting volL_voluL_trendL 30005: 17332 events
+  [gen] 499/504  2450s  abides_quoting volL_voluL_trendL 30006: 17216 events
+  [gen] 500/504  2451s  abides_quoting volL_voluL_trendL 30007: 17422 events
+  [gen] 501/504  2451s  abides_quoting volL_voluL_trendL 30008: 17004 events
+  [gen] 502/504  2452s  abides_quoting volL_voluL_trendL 30009: 17181 events
+  [gen] 503/504  2460s  abides_quoting volL_voluL_trendL 30010: 16587 events
+  [gen] 504/504  2461s  abides_quoting volL_voluL_trendL 30011: 16870 events
+== impact calibration Tue Oct 27 20:07:53 EDT 2026
+  [impact calibration] 1/126  57s  hawkes_sd_c_f volH_voluH_trendH 0.5: impact 2.35
+  [impact calibration] 2/126  58s  hawkes_sd_c_f volH_voluH_trendH 0.25: impact 4.02
+  [impact calibration] 3/126  94s  hawkes_sd_c_f volH_voluH_trendH 1.0: impact 2.59
+  [impact calibration] 4/126  99s  hawkes_sd_c_f volH_voluH_trendL 0.25: impact nan
+  [impact calibration] 5/126  152s  hawkes_sd_c_f volH_voluH_trendL 0.5: impact 3.39
+  [impact calibration] 6/126  194s  hawkes_sd_c_f volH_voluH_trendL 1.0: impact 4.65
+/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 9 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

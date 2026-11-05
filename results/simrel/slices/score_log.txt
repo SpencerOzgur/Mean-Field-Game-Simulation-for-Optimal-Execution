@@ -1,0 +1,20 @@
+== score
+  [score] 1/19  266s  abides volH_voluH_trendH: L1 0.453
+  [score] 2/19  436s  hawkes volH_voluH_trendH: L1 0.286
+  [score] 3/19  527s  hawkes volH_voluH_trendL: L1 0.303
+  [score] 4/19  574s  abides volH_voluH_trendL: L1 0.551
+  [score] 5/19  616s  real_fit_days volH_voluL_trendH: L1 0.204
+  [score] 6/19  731s  abides volH_voluL_trendH: L1 0.533
+  [score] 7/19  794s  hawkes volH_voluL_trendH: L1 0.284
+  [score] 8/19  923s  real_fit_days volH_voluL_trendL: L1 0.244
+  [score] 9/19  1015s  abides volH_voluL_trendL: L1 0.459
+  [score] 10/19  1028s  hawkes volH_voluL_trendL: L1 0.321
+  [score] 11/19  1131s  real_fit_days volL_voluH_trendL: L1 0.138
+  [score] 12/19  1164s  hawkes volL_voluH_trendL: L1 0.256
+  [score] 13/19  1176s  abides volL_voluH_trendL: L1 0.548
+  [score] 14/19  1349s  real_fit_days volL_voluL_trendH: L1 0.186
+  [score] 15/19  1367s  hawkes volL_voluL_trendH: L1 0.271
+  [score] 16/19  1465s  abides volL_voluL_trendH: L1 0.555
+  [score] 17/19  1514s  real_fit_days volL_voluL_trendL: L1 0.171
+  [score] 18/19  1594s  abides volL_voluL_trendL: L1 0.529
+  [score] 19/19  1617s  hawkes volL_voluL_trendL: L1 0.271

@@ -1,0 +1,140 @@
+=== R1a_qr_resilient
+  [hawkes_linear twins] 20/20 jobs, 5s
+  [hawkes_linear policies] 50/100 jobs, 109s
+  [hawkes_linear policies] 100/100 jobs, 210s
+  [hawkes_sqrt twins] 20/20 jobs, 4s
+  [hawkes_sqrt policies] 50/100 jobs, 102s
+  [hawkes_sqrt policies] 100/100 jobs, 205s
+  [mars twins] 6/6 jobs, 527s
+  mars: not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes
+{
+  "reference_volume": 42967.5,
+  "mean_price_ticks": 1000.5606481481482,
+  "hawkes_linear_twin_failures": 0,
+  "hawkes_linear_twin_fail_share": 0.0,
+  "hawkes_linear_twin_wild_share": 0.0,
+  "hawkes_linear_twin_failure_reasons": [],
+  "hawkes_linear_status": "evaluated",
+  "hawkes_linear_volume": 42710.0,
+  "hawkes_linear_realism_error": 1.7186594424092922,
+  "hawkes_sqrt_twin_failures": 0,
+  "hawkes_sqrt_twin_fail_share": 0.0,
+  "hawkes_sqrt_twin_wild_share": 0.0,
+  "hawkes_sqrt_twin_failure_reasons": [],
+  "hawkes_sqrt_status": "evaluated",
+  "hawkes_sqrt_volume": 42930.0,
+  "hawkes_sqrt_realism_error": 1.9854926536163424,
+  "mars_twin_failures": 2,
+  "mars_twin_fail_share": 0.33333333333333337,
+  "mars_twin_wild_share": 0.5,
+  "mars_twin_failure_reasons": [
+    "rollout exceeded 150s (runaway order generation)"
+  ],
+  "mars_status": "not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",
+  "mars_volume": 157827.25
+}
+=== R1b_qr_fragile
+  [hawkes_linear twins] 20/20 jobs, 3s
+  [hawkes_linear policies] 50/100 jobs, 77s
+  [hawkes_linear policies] 100/100 jobs, 152s
+  [hawkes_sqrt twins] 20/20 jobs, 3s
+  [hawkes_sqrt policies] 50/100 jobs, 77s
+  [hawkes_sqrt policies] 100/100 jobs, 151s
+  [mars twins] 6/6 jobs, 347s
+  mars: not evaluated: 17% of unperturbed runs failed, 40% of the rest moved more than 300 bps in ten minutes
+{
+  "reference_volume": 70800.0,
+  "mean_price_ticks": 997.5530092592593,
+  "hawkes_linear_twin_failures": 0,
+  "hawkes_linear_twin_fail_share": 0.0,
+  "hawkes_linear_twin_wild_share": 0.0,
+  "hawkes_linear_twin_failure_reasons": [],
+  "hawkes_linear_status": "evaluated",
+  "hawkes_linear_volume": 68725.0,
+  "hawkes_linear_realism_error": 0.20651797399807323,
+  "hawkes_sqrt_twin_failures": 0,
+  "hawkes_sqrt_twin_fail_share": 0.0,
+  "hawkes_sqrt_twin_wild_share": 0.0,
+  "hawkes_sqrt_twin_failure_reasons": [],
+  "hawkes_sqrt_status": "evaluated",
+  "hawkes_sqrt_volume": 69590.0,
+  "hawkes_sqrt_realism_error": 0.16032269557043768,
+  "mars_twin_failures": 1,
+  "mars_twin_fail_share": 0.16666666666666663,
+  "mars_twin_wild_share": 0.4,
+  "mars_twin_failure_reasons": [
+    "AssertionError:  @ _update_with_normal_order"
+  ],
+  "mars_status": "not evaluated: 17% of unperturbed runs failed, 40% of the rest moved more than 300 bps in ten minutes",
+  "mars_volume": 133148.2
+}
+=== R2a_am_anchored
+  [hawkes_linear twins] 20/20 jobs, 5s
+  [hawkes_linear policies] 50/100 jobs, 110s
+  [hawkes_linear policies] 100/100 jobs, 215s
+  [hawkes_sqrt twins] 20/20 jobs, 4s
+  [hawkes_sqrt policies] 50/100 jobs, 110s
+  [hawkes_sqrt policies] 100/100 jobs, 218s
+  [mars twins] 6/6 jobs, 580s
+  mars: not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes
+{
+  "reference_volume": 95845.0,
+  "mean_price_ticks": 999.5212962962963,
+  "hawkes_linear_twin_failures": 0,
+  "hawkes_linear_twin_fail_share": 0.0,
+  "hawkes_linear_twin_wild_share": 0.05,
+  "hawkes_linear_twin_failure_reasons": [],
+  "hawkes_linear_status": "evaluated",
+  "hawkes_linear_volume": 78635.0,
+  "hawkes_linear_realism_error": 0.29515141746116846,
+  "hawkes_sqrt_twin_failures": 0,
+  "hawkes_sqrt_twin_fail_share": 0.0,
+  "hawkes_sqrt_twin_wild_share": 0.05,
+  "hawkes_sqrt_twin_failure_reasons": [],
+  "hawkes_sqrt_status": "evaluated",
+  "hawkes_sqrt_volume": 82220.0,
+  "hawkes_sqrt_realism_error": 0.3707978630503725,
+  "mars_twin_failures": 2,
+  "mars_twin_fail_share": 0.33333333333333337,
+  "mars_twin_wild_share": 0.5,
+  "mars_twin_failure_reasons": [
+    "rollout exceeded 150s (runaway order generation)"
+  ],
+  "mars_status": "not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",
+  "mars_volume": 312035.25
+}
+=== R2b_am_trending
+  [hawkes_linear twins] 20/20 jobs, 4s
+  [hawkes_linear policies] 50/100 jobs, 101s
+  [hawkes_linear policies] 100/100 jobs, 200s
+  [hawkes_sqrt twins] 20/20 jobs, 4s
+  [hawkes_sqrt policies] 50/100 jobs, 102s
+  [hawkes_sqrt policies] 100/100 jobs, 200s
+  [mars twins] 6/6 jobs, 451s
+  mars: not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes
+{
+  "reference_volume": 93260.0,
+  "mean_price_ticks": 999.3069444444444,
+  "hawkes_linear_twin_failures": 0,
+  "hawkes_linear_twin_fail_share": 0.0,
+  "hawkes_linear_twin_wild_share": 0.0,
+  "hawkes_linear_twin_failure_reasons": [],
+  "hawkes_linear_status": "evaluated",
+  "hawkes_linear_volume": 112630.0,
+  "hawkes_linear_realism_error": 0.6052063750766392,
+  "hawkes_sqrt_twin_failures": 0,
+  "hawkes_sqrt_twin_fail_share": 0.0,
+  "hawkes_sqrt_twin_wild_share": 0.05,
+  "hawkes_sqrt_twin_failure_reasons": [],
+  "hawkes_sqrt_status": "evaluated",
+  "hawkes_sqrt_volume": 109225.0,
+  "hawkes_sqrt_realism_error": 0.5205694895058436,
+  "mars_twin_failures": 2,
+  "mars_twin_fail_share": 0.33333333333333337,
+  "mars_twin_wild_share": 0.5,
+  "mars_twin_failure_reasons": [
+    "AssertionError:  @ _update_with_normal_order"
+  ],
+  "mars_status": "not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",
+  "mars_volume": 166669.5
+}

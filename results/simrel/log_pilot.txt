@@ -1,0 +1,57 @@
+{
+  "A1_rmsc04": {
+    "mean": 25184.65,
+    "sd": 2112.1407688646136,
+    "n": 20,
+    "failed": 0,
+    "failures": []
+  },
+  "A5_deep_mm": {
+    "mean": 36127.3,
+    "sd": 4727.387672911965,
+    "n": 20,
+    "failed": 0,
+    "failures": []
+  },
+  "H1_liquid": {
+    "mean": 76115.0,
+    "sd": 8346.692458692844,
+    "n": 20,
+    "failed": 0,
+    "failures": []
+  },
+  "H2_thin": {
+    "mean": 73470.0,
+    "sd": 7626.014686584337,
+    "n": 20,
+    "failed": 0,
+    "failures": []
+  },
+  "M10_mars": {
+    "mean": 146185.2,
+    "sd": 55096.466519732465,
+    "n": 5,
+    "failed": 7,
+    "failures": [
+      "burn-in exceeded 420s (runaway order generation)",
+      "burn-in failed: ValueError: unknown mid price @ mid_price",
+      "rollout exceeded 150s (runaway order generation)"
+    ]
+  },
+  "M2_mars": {
+    "mean": 163361.25,
+    "sd": 74208.94865976408,
+    "n": 8,
+    "failed": 4,
+    "failures": [
+      "burn-in exceeded 420s (runaway order generation)",
+      "burn-in failed: ValueError: unknown mid price @ mid_price",
+      "rollout exceeded 150s (runaway order generation)"
+    ]
+  }
+}
+0 (world, seed) pairs on disk, 224 to run
+[pilot] 20/224 jobs, 1787s
+[pilot] 40/224 jobs, 3067s
+[pilot] 60/224 jobs, 5874s
+[pilot] 80/224 jobs, 6802s

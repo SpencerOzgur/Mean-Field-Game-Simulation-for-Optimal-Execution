@@ -1,0 +1,6 @@
+world,policy,cost_bps,ci_lo,ci_hi,fill_frac,disp_end_bps,disp_post_bps,n
+T1_trades_intc,exp_b-2,41.563,20.983,63.444,0.982,48.726,77.049,6
+T1_trades_intc,exp_b0,50.61,24.873,79.194,0.997,68.841,76.151,6
+T1_trades_intc,exp_b2,44.247,18.558,76.059,1.0,76.76,80.72,6
+T1_trades_intc,exp_b8,26.551,13.572,46.861,1.0,96.556,104.165,6
+T1_trades_intc,immediate,15.674,13.269,18.025,1.0,81.929,82.539,6

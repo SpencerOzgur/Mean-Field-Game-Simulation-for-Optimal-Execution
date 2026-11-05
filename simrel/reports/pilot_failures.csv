@@ -1,0 +1,7 @@
+world,failed,seeds
+M10_mars,AssertionError:  @ _update_with_normal_order,3
+M10_mars,burn-in exceeded 420s (runaway order generation),1
+M10_mars,burn-in failed: ValueError: unknown mid price @ mid_price,1
+M10_mars,rollout exceeded 150s (runaway order generation),5
+M2_mars,burn-in failed: ValueError: unknown mid price @ mid_price,1
+M2_mars,rollout exceeded 150s (runaway order generation),2

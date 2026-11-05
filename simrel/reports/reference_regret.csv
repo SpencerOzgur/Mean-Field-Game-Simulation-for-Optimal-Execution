@@ -1,0 +1,65 @@
+world,size_frac,recommender,policy,ref_best,regret_bps,ci_lo,ci_hi,regret_half_spreads,ref_cost_best_bps,regret_pct_of_best_cost,cost_mae_bps,cost_bias_bps,pred_immediate_minus_twap_bps,ref_immediate_minus_twap_bps,realism_error,sim_seeds_ok,sim_seeds_failed,rank_corr_with_reference,sim_cost_of_rec_bps,sim_cost_twap_bps,n_tied,tied_set_mean_regret_bps,tied_set_worst_regret_bps,tied_set_includes_ref_worst,sim_rank_of_ref_worst,n_policies
+R1a_qr_resilient,0.05,always_TWAP,P0_twap,P4_pov_1x,0.013,-0.157,0.168,0.003,5.06,0.253,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.05,always_immediate,P1_immediate,P4_pov_1x,0.036,-0.249,0.304,0.007,5.06,0.713,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.05,random_policy,(mean over candidates),P4_pov_1x,0.028,,,0.006,5.06,0.554,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.05,worst_policy,(worst candidate),P4_pov_1x,0.145,,,0.029,5.06,2.867,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.05,hawkes,P1_immediate,P4_pov_1x,0.036,-0.249,0.304,0.007,5.06,0.713,1.432,1.432,-0.504,0.023,1.719,100.0,0.0,0.133,6.044,6.548,12.0,0.028,0.145,True,2.0,12.0
+R1a_qr_resilient,0.05,hawkes_linear,P1_immediate,P4_pov_1x,0.036,-0.249,0.304,0.007,5.06,0.713,1.432,1.432,-0.504,0.023,1.719,100.0,0.0,0.133,6.044,6.548,12.0,0.028,0.145,True,2.0,12.0
+R1a_qr_resilient,0.05,hawkes_sqrt,P1_immediate,P4_pov_1x,0.036,-0.249,0.304,0.007,5.06,0.713,1.942,1.942,-0.715,0.023,1.985,100.0,0.0,0.07,6.46,7.175,12.0,0.028,0.145,True,2.0,12.0
+R1a_qr_resilient,0.05,abides,P6_signal_momentum,P4_pov_1x,0.112,-0.105,0.325,0.022,5.06,2.222,16.694,16.694,23.538,0.023,10.628,30.0,0.0,0.021,9.972,10.247,4.0,0.04,0.112,False,7.0,12.0
+R1a_qr_resilient,0.15,always_TWAP,P0_twap,P6_signal_momentum,-0.29,-0.537,-0.061,-0.058,5.671,-5.122,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.15,always_immediate,P1_immediate,P6_signal_momentum,5.153,4.41,5.849,1.03,5.671,90.867,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.15,random_policy,(mean over candidates),P6_signal_momentum,0.327,,,0.065,5.671,5.769,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.15,worst_policy,(worst candidate),P6_signal_momentum,5.153,,,1.03,5.671,90.867,,,,,,,,,,,,,,,,
+R1a_qr_resilient,0.15,hawkes,P5_liquidity,P6_signal_momentum,-0.139,-0.315,0.043,-0.028,5.671,-2.449,3.282,3.282,5.189,5.444,1.719,100.0,0.0,0.497,7.988,8.399,5.0,-0.08,0.0,False,12.0,12.0
+R1a_qr_resilient,0.15,hawkes_linear,P5_liquidity,P6_signal_momentum,-0.139,-0.315,0.043,-0.028,5.671,-2.449,3.296,3.296,5.291,5.444,1.719,100.0,0.0,0.497,7.988,8.399,5.0,-0.08,0.0,False,12.0,12.0
+R1a_qr_resilient,0.15,hawkes_sqrt,P5_liquidity,P6_signal_momentum,-0.139,-0.315,0.043,-0.028,5.671,-2.449,3.917,3.917,4.514,5.444,1.985,100.0,0.0,0.692,8.751,9.098,6.0,-0.115,0.0,False,12.0,12.0
+R1a_qr_resilient,0.15,abides,P6_signal_momentum,P6_signal_momentum,0.0,0.0,0.0,0.0,5.671,0.0,46.102,46.102,27.264,5.444,10.628,30.0,0.0,0.552,20.553,22.571,2.0,-0.069,0.0,False,9.0,12.0
+R1b_qr_fragile,0.05,always_TWAP,P0_twap,P5_liquidity,0.065,-3.34,3.527,0.013,15.038,0.434,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.05,always_immediate,P1_immediate,P5_liquidity,2.275,-0.852,5.414,0.436,15.038,15.126,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.05,random_policy,(mean over candidates),P5_liquidity,-0.11,,,-0.021,15.038,-0.729,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.05,worst_policy,(worst candidate),P5_liquidity,2.275,,,0.436,15.038,15.126,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.05,hawkes,P3_back_b-2,P5_liquidity,-2.453,-5.767,0.797,-0.47,15.038,-16.314,1.466,-1.463,4.581,2.209,0.207,100.0,0.0,0.706,10.429,12.754,12.0,-0.11,2.275,True,12.0,12.0
+R1b_qr_fragile,0.05,hawkes_linear,P3_back_b-2,P5_liquidity,-2.453,-5.767,0.797,-0.47,15.038,-16.314,1.467,-1.459,4.602,2.209,0.207,100.0,0.0,0.706,10.429,12.754,12.0,-0.11,2.275,True,12.0,12.0
+R1b_qr_fragile,0.05,hawkes_sqrt,P6_signal_reversal,P5_liquidity,-2.221,-5.237,0.624,-0.426,15.038,-14.769,1.054,-0.241,3.619,2.209,0.16,100.0,0.0,0.783,10.81,14.467,5.0,-0.994,0.85,False,12.0,12.0
+R1b_qr_fragile,0.05,abides,P6_signal_momentum,P5_liquidity,0.85,-2.706,4.53,0.163,15.038,5.651,4.459,-3.586,10.271,2.209,1.157,30.0,0.0,0.105,6.61,8.941,2.0,0.425,0.85,False,11.0,12.0
+R1b_qr_fragile,0.15,always_TWAP,P0_twap,P5_liquidity,-2.483,-5.502,0.792,-0.476,35.172,-7.059,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.15,always_immediate,P1_immediate,P5_liquidity,12.059,7.009,17.689,2.311,35.172,34.285,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.15,random_policy,(mean over candidates),P5_liquidity,0.61,,,0.117,35.172,1.733,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.15,worst_policy,(worst candidate),P5_liquidity,12.059,,,2.311,35.172,34.285,,,,,,,,,,,,,,,,
+R1b_qr_fragile,0.15,hawkes,P7_risk_2,P5_liquidity,-2.243,-5.746,1.479,-0.43,35.172,-6.377,3.224,1.935,9.23,14.542,0.207,100.0,0.0,0.594,31.57,35.484,6.0,-0.51,1.773,False,12.0,12.0
+R1b_qr_fragile,0.15,hawkes_linear,P5_liquidity,P5_liquidity,0.0,0.0,0.0,0.0,35.172,0.0,3.095,2.451,12.304,14.542,0.207,100.0,0.0,0.601,33.062,35.484,6.0,-0.608,1.773,False,12.0,12.0
+R1b_qr_fragile,0.15,hawkes_sqrt,P7_risk_2,P5_liquidity,-2.243,-5.746,1.479,-0.43,35.172,-6.377,2.625,0.812,8.746,14.542,0.16,100.0,0.0,0.58,31.821,35.379,7.0,-0.34,1.773,False,12.0,12.0
+R1b_qr_fragile,0.15,abides,P5_liquidity,P5_liquidity,0.0,0.0,0.0,0.0,35.172,0.0,12.521,-12.521,10.315,14.542,1.157,30.0,0.0,0.601,16.468,20.348,2.0,-0.685,0.0,False,11.0,12.0
+R2a_am_anchored,0.05,always_TWAP,P0_twap,P6_signal_reversal,2.989,1.897,4.23,0.51,2.992,99.893,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.05,always_immediate,P1_immediate,P6_signal_reversal,12.413,9.534,15.434,2.119,2.992,414.834,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.05,random_policy,(mean over candidates),P6_signal_reversal,6.069,,,1.036,2.992,202.827,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.05,worst_policy,(worst candidate),P6_signal_reversal,12.413,,,2.119,2.992,414.834,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.05,hawkes,P5_liquidity,P6_signal_reversal,3.981,2.692,5.498,0.68,2.992,133.029,6.623,5.318,10.179,9.424,0.295,100.0,0.0,0.657,-0.508,9.944,3.0,2.47,3.981,False,8.0,12.0
+R2a_am_anchored,0.05,hawkes_linear,P5_liquidity,P6_signal_reversal,3.981,2.692,5.498,0.68,2.992,133.029,6.624,5.319,10.145,9.424,0.295,100.0,0.0,0.657,-0.508,9.944,3.0,2.47,3.981,False,8.0,12.0
+R2a_am_anchored,0.05,hawkes_sqrt,P6_signal_reversal,P6_signal_reversal,0.0,0.0,0.0,0.0,2.992,0.0,11.469,11.411,-6.49,9.424,0.371,100.0,0.0,0.441,12.591,21.548,6.0,6.007,12.413,True,3.0,12.0
+R2a_am_anchored,0.05,abides,P6_signal_momentum,P6_signal_reversal,5.316,3.785,7.027,0.908,2.992,177.638,3.475,3.096,10.619,9.424,0.786,30.0,0.0,0.434,7.153,10.005,2.0,4.648,5.316,False,11.0,12.0
+R2a_am_anchored,0.15,always_TWAP,P0_twap,P6_signal_reversal,2.561,0.974,4.163,0.437,7.555,33.898,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.15,always_immediate,P1_immediate,P6_signal_reversal,21.06,17.537,25.011,3.596,7.555,278.742,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.15,random_policy,(mean over candidates),P6_signal_reversal,8.29,,,1.415,7.555,109.716,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.15,worst_policy,(worst candidate),P6_signal_reversal,22.902,,,3.91,7.555,303.124,,,,,,,,,,,,,,,,
+R2a_am_anchored,0.15,hawkes,P1_immediate,P6_signal_reversal,21.06,17.537,25.011,3.596,7.555,278.742,53.519,53.519,-8.628,18.499,0.295,100.0,0.0,0.042,56.848,65.475,7.0,7.823,22.902,True,4.0,12.0
+R2a_am_anchored,0.15,hawkes_linear,P5_liquidity,P6_signal_reversal,1.781,0.697,2.906,0.304,7.555,23.576,54.005,54.005,-5.072,18.499,0.295,100.0,0.0,0.14,57.216,65.475,7.0,7.823,22.902,True,4.0,12.0
+R2a_am_anchored,0.15,hawkes_sqrt,P1_immediate,P6_signal_reversal,21.06,17.537,25.011,3.596,7.555,278.742,47.754,47.754,-22.938,18.499,0.371,100.0,0.0,-0.692,50.677,73.615,8.0,10.487,22.902,True,2.0,12.0
+R2a_am_anchored,0.15,abides,P5_liquidity,P6_signal_reversal,1.781,0.697,2.906,0.304,7.555,23.576,8.084,8.084,9.555,18.499,0.786,30.0,0.0,0.692,16.948,21.742,2.0,2.77,3.758,False,11.0,12.0
+R2b_am_trending,0.05,always_TWAP,P0_twap,P6_signal_reversal,3.081,1.496,4.796,0.501,4.984,61.811,,,,,,,,,,,,,,,,
+R2b_am_trending,0.05,always_immediate,P1_immediate,P6_signal_reversal,11.37,8.48,14.245,1.85,4.984,228.102,,,,,,,,,,,,,,,,
+R2b_am_trending,0.05,random_policy,(mean over candidates),P6_signal_reversal,6.755,,,1.099,4.984,135.522,,,,,,,,,,,,,,,,
+R2b_am_trending,0.05,worst_policy,(worst candidate),P6_signal_reversal,14.796,,,2.408,4.984,296.845,,,,,,,,,,,,,,,,
+R2b_am_trending,0.05,hawkes,P1_immediate,P6_signal_reversal,11.37,8.48,14.245,1.85,4.984,228.102,31.852,31.852,-18.001,8.289,0.605,100.0,0.0,-0.133,24.825,42.827,4.0,5.429,11.37,False,2.0,12.0
+R2b_am_trending,0.05,hawkes_linear,P1_immediate,P6_signal_reversal,11.37,8.48,14.245,1.85,4.984,228.102,31.69,31.69,-17.538,8.289,0.605,100.0,0.0,-0.161,24.951,42.489,5.0,4.959,11.37,False,2.0,12.0
+R2b_am_trending,0.05,hawkes_sqrt,P1_immediate,P6_signal_reversal,11.37,8.48,14.245,1.85,4.984,228.102,31.614,31.614,-25.069,8.289,0.521,100.0,0.0,-0.559,26.195,51.264,5.0,5.675,11.37,False,2.0,12.0
+R2b_am_trending,0.05,abides,P5_liquidity,P6_signal_reversal,6.147,3.576,9.126,1.0,4.984,123.327,22.811,22.811,29.099,8.289,0.576,30.0,0.0,0.65,21.08,23.591,8.0,5.584,9.037,False,12.0,12.0
+R2b_am_trending,0.15,always_TWAP,P0_twap,P6_signal_reversal,3.693,2.125,5.251,0.601,11.25,32.827,,,,,,,,,,,,,,,,
+R2b_am_trending,0.15,always_immediate,P1_immediate,P6_signal_reversal,22.024,18.02,26.724,3.584,11.25,195.768,,,,,,,,,,,,,,,,
+R2b_am_trending,0.15,random_policy,(mean over candidates),P6_signal_reversal,10.98,,,1.787,11.25,97.594,,,,,,,,,,,,,,,,
+R2b_am_trending,0.15,worst_policy,(worst candidate),P6_signal_reversal,24.512,,,3.989,11.25,217.876,,,,,,,,,,,,,,,,
+R2b_am_trending,0.15,hawkes,P1_immediate,P6_signal_reversal,22.024,18.02,26.724,3.584,11.25,195.768,71.192,71.192,-50.265,18.331,0.605,100.0,0.0,-0.839,65.567,115.832,4.0,19.881,24.512,True,2.0,12.0
+R2b_am_trending,0.15,hawkes_linear,P7_risk_2,P6_signal_reversal,24.512,20.895,28.538,3.989,11.25,217.876,69.203,69.203,-55.571,18.331,0.605,100.0,0.0,-0.853,58.226,115.803,3.0,19.368,24.512,True,1.0,12.0
+R2b_am_trending,0.15,hawkes_sqrt,P2_front_b4,P6_signal_reversal,11.568,9.57,13.572,1.883,11.25,102.823,59.418,59.418,-21.268,18.331,0.521,100.0,0.0,-0.783,66.639,89.815,8.0,14.179,24.512,True,2.0,12.0
+R2b_am_trending,0.15,abides,P6_signal_momentum,P6_signal_reversal,4.886,2.883,7.033,0.795,11.25,43.426,67.188,67.188,53.802,18.331,0.576,30.0,0.0,0.853,35.907,50.981,3.0,4.378,4.886,False,11.0,12.0

@@ -1,0 +1,16 @@
+stock,x,y,spearman,n
+CSCO,p2_peak_bps,twap_peak_bps_10pct,0.8999999999999998,5
+CSCO,p2_Y,twap_peak_bps_10pct,0.8999999999999998,5
+CSCO,p2_peak_bps,D_10pct,0.9999999999999999,5
+CSCO,lobbench_impact,twap_peak_bps_10pct,0.39999999999999997,5
+CSCO,lobbench_order_book,D_10pct,-0.9999999999999999,5
+INTC,p2_peak_bps,twap_peak_bps_10pct,0.8999999999999998,5
+INTC,p2_Y,twap_peak_bps_10pct,0.8999999999999998,5
+INTC,p2_peak_bps,D_10pct,0.9999999999999999,5
+INTC,lobbench_impact,twap_peak_bps_10pct,0.49999999999999994,5
+INTC,lobbench_order_book,D_10pct,-0.8999999999999998,5
+MSFT,p2_peak_bps,twap_peak_bps_10pct,0.8999999999999998,5
+MSFT,p2_Y,twap_peak_bps_10pct,0.7,5
+MSFT,p2_peak_bps,D_10pct,0.49999999999999994,5
+MSFT,lobbench_impact,twap_peak_bps_10pct,0.0,5
+MSFT,lobbench_order_book,D_10pct,-0.19999999999999998,5

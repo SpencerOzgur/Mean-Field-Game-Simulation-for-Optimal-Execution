@@ -1,0 +1,9 @@
+recommender,mean_regret_half_spreads,max_regret_half_spreads,mean_regret_bps,settings,picked_best,significantly_worse
+abides,0.399,1.0,2.386,8,2,4
+always_TWAP,0.191,0.601,1.204,8,0,4
+always_immediate,1.867,3.596,10.799,8,0,6
+hawkes,1.099,3.596,6.704,8,0,4
+hawkes_linear,0.792,3.989,4.886,8,1,4
+hawkes_sqrt,0.807,3.596,4.929,8,1,3
+random_policy,0.688,1.787,4.119,8,0,0
+worst_policy,2.029,3.989,11.782,8,0,0

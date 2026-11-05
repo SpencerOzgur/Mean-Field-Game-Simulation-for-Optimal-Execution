@@ -1,0 +1,88 @@
+{
+  "n_points": 16,
+  "worlds": [
+    "R1a_qr_resilient",
+    "R1b_qr_fragile",
+    "R2a_am_anchored",
+    "R2b_am_trending"
+  ],
+  "simulators": [
+    "hawkes",
+    "abides"
+  ],
+  "realism_vs_regret_spearman": -0.20133504898463614,
+  "realism_vs_regret_perm_p": 0.7382,
+  "pairs_more_realistic_has_lower_regret": [
+    7,
+    8
+  ],
+  "head_to_head_significant": 4,
+  "head_to_head_total": 8,
+  "significant_wins_by_more_realistic": 3,
+  "by_recommender": {
+    "abides": {
+      "mean_regret_half_spreads": 0.399,
+      "max_regret_half_spreads": 1.0,
+      "mean_regret_bps": 2.386,
+      "settings": 8,
+      "picked_best": 2,
+      "significantly_worse": 4
+    },
+    "always_TWAP": {
+      "mean_regret_half_spreads": 0.191,
+      "max_regret_half_spreads": 0.601,
+      "mean_regret_bps": 1.204,
+      "settings": 8,
+      "picked_best": 0,
+      "significantly_worse": 4
+    },
+    "always_immediate": {
+      "mean_regret_half_spreads": 1.867,
+      "max_regret_half_spreads": 3.596,
+      "mean_regret_bps": 10.799,
+      "settings": 8,
+      "picked_best": 0,
+      "significantly_worse": 6
+    },
+    "hawkes": {
+      "mean_regret_half_spreads": 1.099,
+      "max_regret_half_spreads": 3.596,
+      "mean_regret_bps": 6.704,
+      "settings": 8,
+      "picked_best": 0,
+      "significantly_worse": 4
+    },
+    "hawkes_linear": {
+      "mean_regret_half_spreads": 0.792,
+      "max_regret_half_spreads": 3.989,
+      "mean_regret_bps": 4.886,
+      "settings": 8,
+      "picked_best": 1,
+      "significantly_worse": 4
+    },
+    "hawkes_sqrt": {
+      "mean_regret_half_spreads": 0.807,
+      "max_regret_half_spreads": 3.596,
+      "mean_regret_bps": 4.929,
+      "settings": 8,
+      "picked_best": 1,
+      "significantly_worse": 3
+    },
+    "random_policy": {
+      "mean_regret_half_spreads": 0.688,
+      "max_regret_half_spreads": 1.787,
+      "mean_regret_bps": 4.119,
+      "settings": 8,
+      "picked_best": 0,
+      "significantly_worse": 0
+    },
+    "worst_policy": {
+      "mean_regret_half_spreads": 2.029,
+      "max_regret_half_spreads": 3.989,
+      "mean_regret_bps": 11.782,
+      "settings": 8,
+      "picked_best": 0,
+      "significantly_worse": 0
+    }
+  }
+}

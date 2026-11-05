@@ -1,0 +1,7 @@
+,TRADES_retrained_mean,TRADES_retrained_sd,REAL_INTC_0946_0956
+obs_spread_bps,24.063,13.231,3.66
+obs_vol10s_bps,7.295,1.255,3.916
+obs_ret_acf1,-0.38,0.09,-0.149
+obs_absret_acf1,0.228,0.083,-0.148
+obs_volume,315617.5,39337.04,247627.0
+generated_orders,4564.333,29.541,

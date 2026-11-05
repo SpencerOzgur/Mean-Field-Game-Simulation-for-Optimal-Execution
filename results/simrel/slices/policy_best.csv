@@ -1,0 +1,260 @@
+sim,slice,n,best,best_is_bps,runner_up,gap_to_runner_up,n_tied_with_best,tied_with_best,twap_is_bps,spread_of_means
+abides,volH_voluH_trendH,20,P5_liquidity,2.6465433429179117,P6_signal_momentum,0.10071303131560994,0,,2.9313834092088213,3.9125175415889157
+abides,volH_voluH_trendL,20,P6_signal_momentum,4.9520086349849155,P0_twap,0.0661988107915441,2,P0_twap P5_liquidity,5.01820744577646,30.067268705291333
+abides,volH_voluL_trendH,20,P6_signal_momentum,2.6644058828199677,P5_liquidity,0.1929389589158319,2,P0_twap P5_liquidity,3.0497766936986497,18.941017120229624
+abides,volH_voluL_trendL,20,P6_signal_momentum,2.892731436940852,P5_liquidity,0.3472785375454728,2,P3_back_b-2 P5_liquidity,3.437877805464639,5.372561788451459
+abides,volL_voluH_trendL,20,P6_signal_momentum,3.9718449226560475,P0_twap,0.18038757142908057,3,P0_twap P4_pov_1x P5_liquidity,4.152232494085128,27.60207806060997
+abides,volL_voluL_trendH,20,P6_signal_momentum,1.9134795356753425,P5_liquidity,0.7669445385027944,0,,2.718441101090497,20.900769156486326
+abides,volL_voluL_trendL,20,P6_signal_momentum,2.438675426832046,P0_twap,0.39078213618605595,1,P5_liquidity,2.829457563018102,18.68089093100215
+abides__alt1,volH_voluH_trendH,20,P5_liquidity,2.6465433429179117,P6_signal_momentum,0.10071303131560994,0,,2.9313834092088213,3.051839479455476
+abides__alt1,volH_voluH_trendL,20,P6_signal_momentum,4.61747642793145,P0_twap,0.16583453792773462,2,P0_twap P5_liquidity,4.783310965859185,2.7967365073230805
+abides__alt1,volH_voluL_trendH,20,P6_signal_momentum,2.4230233929973344,P5_liquidity,0.4502142401750464,1,P5_liquidity,2.9507372432357517,4.12447472002539
+abides__alt1,volH_voluL_trendL,20,P5_liquidity,3.05109341509171,P6_signal_momentum,0.13536640882874096,1,P6_signal_momentum,3.503890351788134,6.0183681515051966
+abides__alt1,volL_voluH_trendL,20,P6_signal_momentum,4.010716275498038,P5_liquidity,0.14947577821425106,2,P0_twap P5_liquidity,4.218538286896388,5.613879684069338
+abides__alt1,volL_voluL_trendH,20,P6_signal_momentum,2.133279803906246,P5_liquidity,0.6499926615210074,0,,2.8858820357117443,4.769335441009474
+abides__alt1,volL_voluL_trendL,20,P6_signal_momentum,2.5128253684357382,P0_twap,0.34836753646744345,1,P5_liquidity,2.8611929049031817,5.866957547874026
+abides__alt2,volH_voluH_trendH,20,P6_signal_momentum,2.652447833279255,P0_twap,0.08241775071308677,1,P0_twap,2.7348655839923417,4.40372885644483
+abides__alt2,volH_voluH_trendL,20,P6_signal_momentum,2.387107988839464,P0_twap,0.20714528783247843,0,,2.5942532766719424,4.555502694559445
+abides__alt2,volH_voluL_trendH,20,P6_signal_momentum,2.8595918838119245,P5_liquidity,0.21680015809745568,2,P0_twap P5_liquidity,3.1028309285787863,4.687012940285914
+abides__alt2,volH_voluL_trendL,20,P5_liquidity,3.100945400910425,P6_signal_momentum,0.11698495935852904,1,P6_signal_momentum,3.554551610423591,5.973043283321645
+abides__alt2,volL_voluH_trendL,20,P5_liquidity,4.1957685328511785,P6_signal_momentum,0.13995379463527957,2,P0_twap P6_signal_momentum,4.583208849603717,4.113967707996339
+abides__alt2,volL_voluL_trendH,20,P6_signal_momentum,2.639317653984048,P5_liquidity,0.27360931903091146,0,,2.920016800710446,5.992453691274873
+abides__alt2,volL_voluL_trendL,20,P6_signal_momentum,2.1206997259722575,P5_liquidity,0.3373766023185052,2,P0_twap P5_liquidity,2.5159239914952827,4.804239706377026
+abides_quoting,volH_voluH_trendH,20,P6_signal_momentum,1.095385225420083,P0_twap,0.037128367492607284,2,P0_twap P5_liquidity,1.1325135929126904,1.5470059504816487
+abides_quoting,volH_voluH_trendL,20,P5_liquidity,1.3949017092309564,P0_twap,0.14852405877582497,0,,1.5434257680067813,1.3536850105467237
+abides_quoting,volH_voluL_trendH,20,P5_liquidity,1.080844228994164,P6_signal_momentum,0.10388542873651452,1,P0_twap,1.2270717895425203,0.7623384696394402
+abides_quoting,volH_voluL_trendL,20,P0_twap,0.9230994289278962,P5_liquidity,0.012350597548076436,2,P1_immediate P5_liquidity,0.9230994289278962,0.2573345760476591
+abides_quoting,volL_voluH_trendL,20,P0_twap,1.3158655443626377,P5_liquidity,0.11422964899149979,1,P5_liquidity,1.3158655443626377,0.7377102283661574
+abides_quoting,volL_voluL_trendH,20,P0_twap,1.537666226081877,P5_liquidity,0.05689126908673736,2,P1_immediate P5_liquidity,1.537666226081877,0.3874712223554322
+abides_quoting,volL_voluL_trendL,20,P5_liquidity,1.2325339995468325,P0_twap,0.007036252900152196,1,P0_twap,1.2395702524469847,0.4944364250349922
+abides_quoting__alt1,volH_voluH_trendH,20,P6_signal_momentum,1.095385225420083,P0_twap,0.037128367492607284,2,P0_twap P5_liquidity,1.1325135929126904,1.5470059504816487
+abides_quoting__alt1,volH_voluH_trendL,20,P5_liquidity,1.3949017092309564,P0_twap,0.14852405877582497,0,,1.5434257680067813,1.3536850105467237
+abides_quoting__alt1,volH_voluL_trendH,20,P5_liquidity,1.080846232818555,P6_signal_momentum,0.10388695205199494,1,P0_twap,1.2270743454409783,0.7623449854765749
+abides_quoting__alt1,volH_voluL_trendL,20,P0_twap,0.927132915673984,P5_liquidity,0.009891623001469396,1,P5_liquidity,0.927132915673984,0.24275319117859073
+abides_quoting__alt1,volL_voluH_trendL,20,P0_twap,1.3158655443626377,P5_liquidity,0.11422964899149979,1,P5_liquidity,1.3158655443626377,0.7377102283661574
+abides_quoting__alt1,volL_voluL_trendH,20,P0_twap,1.5376926370326067,P5_liquidity,0.05688855054019193,2,P1_immediate P5_liquidity,1.5376926370326067,0.38743629174317684
+abides_quoting__alt1,volL_voluL_trendL,20,P5_liquidity,1.2325425160637016,P0_twap,0.007036252900152196,1,P0_twap,1.2395787689638538,0.49443642503499197
+abides_quoting_mom,volH_voluH_trendH,20,P5_liquidity,0.8093749130413906,P0_twap,0.17655419328078847,0,,0.9859291063221791,1.9172499980869744
+abides_quoting_mom,volH_voluH_trendL,20,P5_liquidity,4.858119084785727,P1_immediate,1.5350205904123433,2,P0_twap P1_immediate,7.3653932368957555,20.385219637048156
+abides_quoting_mom,volH_voluL_trendH,20,P5_liquidity,0.8976228881915855,P0_twap,0.10050657404758245,2,P0_twap P1_immediate,0.998129462239168,1.3506132538425042
+abides_quoting_mom,volH_voluL_trendL,20,P0_twap,0.3440054954013151,P5_liquidity,0.017207538555752855,2,P1_immediate P5_liquidity,0.3440054954013151,0.6707445530275579
+abides_quoting_mom,volL_voluH_trendL,20,P0_twap,1.3158655443626377,P5_liquidity,0.11422964899149979,1,P5_liquidity,1.3158655443626377,0.7377102283661574
+abides_quoting_mom,volL_voluL_trendH,20,P0_twap,1.537666226081877,P5_liquidity,0.05689126908673736,2,P1_immediate P5_liquidity,1.537666226081877,0.3874712223554322
+abides_quoting_mom,volL_voluL_trendL,20,P5_liquidity,1.8621113731583716,P0_twap,0.04555763635614274,2,P0_twap P1_immediate,1.9076690095145143,0.958680428674924
+hawkes,volH_voluH_trendH,60,P1_immediate,4.764346888916352,P6_signal_momentum,2.5346712688288573,1,P6_signal_momentum,9.774889429571482,5.039111186826942
+hawkes,volH_voluH_trendL,60,P1_immediate,3.4626543643395262,P4_pov_2x,1.1607640690206464,2,P4_pov_2x P6_signal_momentum,5.796793223374585,3.2254747886866895
+hawkes,volH_voluL_trendH,60,P1_immediate,2.829052410748138,P7_risk_2,2.5615794214705914,0,,10.093945906621412,7.264893495873274
+hawkes,volH_voluL_trendL,60,P1_immediate,2.4133453126223094,P7_risk_2,0.23524175426669514,6,P2_front_b4 P4_pov_1x P4_pov_2x P5_liquidity P7_risk_0.5 P7_risk_2,4.4519635252489085,3.1817057567657163
+hawkes,volL_voluH_trendL,60,P1_immediate,2.570828526715629,P2_front_b4,1.3846865330653046,1,P4_pov_2x,5.150191016071893,3.384494305220974
+hawkes,volL_voluL_trendH,60,P1_immediate,3.198809982283844,P4_pov_2x,1.6217618313204265,0,,7.2942413139209235,4.34127049538769
+hawkes,volL_voluL_trendL,60,P1_immediate,3.0041590075076416,P7_risk_2,1.2765970592365332,2,P4_pov_2x P7_risk_2,6.355934460820835,4.107845230019084
+hawkes__fast,volH_voluH_trendH,20,P1_immediate,3.5393770459236125,P0_twap,3.269018719953473,1,P0_twap,6.808395765877085,5.904505038508746
+hawkes__fast,volH_voluH_trendL,20,P1_immediate,4.352089047188352,P5_liquidity,0.8761081867479348,3,P0_twap P5_liquidity P6_signal_momentum,5.613935943945281,1.2618468967569285
+hawkes__fast,volH_voluL_trendH,20,P1_immediate,2.7730848824591927,P6_signal_momentum,1.512969358481726,2,P5_liquidity P6_signal_momentum,6.0704134728332395,3.297328590374047
+hawkes__fast,volH_voluL_trendL,20,P1_immediate,2.635796597646485,P6_signal_momentum,0.921172986413469,3,P0_twap P5_liquidity P6_signal_momentum,4.992044579027019,2.356247981380534
+hawkes__fast,volL_voluH_trendL,20,P1_immediate,2.6464951206283676,P5_liquidity,3.0412931328548183,0,,6.659085499492676,4.012590378864308
+hawkes__fast,volL_voluL_trendH,20,P5_liquidity,-0.36353007483230293,P6_signal_momentum,0.4598876120969669,3,P0_twap P1_immediate P6_signal_momentum,1.6522531229994404,2.134925218400721
+hawkes__fast,volL_voluL_trendL,20,P1_immediate,1.637314901838565,P0_twap,4.48972248497363,0,,6.127037386812194,4.575131850197293
+hawkes__lodo0,volH_voluH_trendH,20,P1_immediate,3.586465575059364,P5_liquidity,1.9640022832789743,3,P0_twap P5_liquidity P6_signal_momentum,9.259413762519912,5.672948187460548
+hawkes__lodo0,volH_voluH_trendL,20,P1_immediate,2.639484581917019,P5_liquidity,2.050227611972387,2,P5_liquidity P6_signal_momentum,5.888858105543717,3.249373523626698
+hawkes__lodo0,volH_voluL_trendH,20,P1_immediate,2.7730848824591927,P6_signal_momentum,1.512969358481726,2,P5_liquidity P6_signal_momentum,6.0704134728332395,3.297328590374047
+hawkes__lodo0,volH_voluL_trendL,20,P1_immediate,2.635796597646485,P6_signal_momentum,0.921172986413469,3,P0_twap P5_liquidity P6_signal_momentum,4.992044579027019,2.356247981380534
+hawkes__lodo0,volL_voluH_trendL,20,P1_immediate,2.6464951206283676,P5_liquidity,3.0412931328548183,0,,6.659085499492676,4.012590378864308
+hawkes__lodo0,volL_voluL_trendH,20,P1_immediate,3.3162392119242066,P6_signal_momentum,6.30851321834125,0,,12.667848562016982,9.351609350092776
+hawkes__lodo0,volL_voluL_trendL,20,P1_immediate,1.3572383959112484,P5_liquidity,6.20335850743834,0,,7.857496476802595,7.681791028822416
+hawkes__lodo1,volH_voluH_trendH,20,P1_immediate,3.9793797488410076,P5_liquidity,5.632278713114036,0,,13.4030622264082,9.423682477567194
+hawkes__lodo1,volH_voluH_trendL,20,P1_immediate,3.8455340057437004,P0_twap,0.4973521462186721,3,P0_twap P5_liquidity P6_signal_momentum,4.3428861519623725,1.3893972579421945
+hawkes__lodo1,volH_voluL_trendH,20,P1_immediate,2.456897815859296,P6_signal_momentum,0.9636521660595618,3,P0_twap P5_liquidity P6_signal_momentum,6.0039990272946415,3.5471012114353457
+hawkes__lodo1,volH_voluL_trendL,20,P1_immediate,1.2248559775354102,P5_liquidity,6.806375954527017,0,,9.373004191928114,8.148148214392704
+hawkes__lodo1,volL_voluH_trendL,20,P1_immediate,3.2243253885434897,P0_twap,1.0147602641544036,3,P0_twap P5_liquidity P6_signal_momentum,4.239085652697893,1.526077336450729
+hawkes__lodo1,volL_voluL_trendH,20,P1_immediate,2.6565423526592875,P6_signal_momentum,3.657955933417197,0,,9.017532764973748,6.36099041231446
+hawkes__lodo1,volL_voluL_trendL,20,P1_immediate,2.9820108029163648,P6_signal_momentum,1.281216771881461,3,P0_twap P5_liquidity P6_signal_momentum,5.5895421295512415,2.6075313266348767
+hawkes__lodo2,volH_voluH_trendH,20,P1_immediate,4.276042117045396,P5_liquidity,1.4048752640932438,1,P5_liquidity,9.9069937020821,5.630951585036705
+hawkes__lodo2,volH_voluH_trendL,20,P1_immediate,2.0267073967225495,P5_liquidity,3.2886541371684914,3,P0_twap P5_liquidity P6_signal_momentum,6.158080387155605,4.131372990433055
+hawkes__lodo2,volH_voluL_trendH,20,P5_liquidity,2.1234284637409626,P1_immediate,0.669623957948017,3,P0_twap P1_immediate P6_signal_momentum,3.101065504136811,1.1576829507733297
+hawkes__lodo2,volH_voluL_trendL,20,P6_signal_momentum,2.457642855264366,P1_immediate,0.6868378275561073,3,P0_twap P1_immediate P5_liquidity,4.255238293818881,1.7975954385545148
+hawkes__lodo2,volL_voluH_trendL,20,P0_twap,2.9430341933085615,P1_immediate,0.3338891501088441,3,P1_immediate P5_liquidity P6_signal_momentum,2.9430341933085615,0.779973775206948
+hawkes__lodo2,volL_voluL_trendH,20,P1_immediate,2.4630142982258514,P5_liquidity,1.8399771161512017,2,P5_liquidity P6_signal_momentum,5.954555238602611,3.491540940376759
+hawkes__lodo2,volL_voluL_trendL,20,P1_immediate,2.468833014782352,P0_twap,3.63817649017852,1,P6_signal_momentum,6.107009504960872,4.957986910895217
+hawkes__lodo3,volH_voluH_trendH,20,P1_immediate,3.0850185563431127,P6_signal_momentum,2.45690728438481,1,P6_signal_momentum,7.196719085784369,4.111700529441256
+hawkes__lodo3,volH_voluH_trendL,20,P1_immediate,2.575788532854264,P6_signal_momentum,1.488348521567569,1,P6_signal_momentum,5.2542649038495615,2.7927449869186507
+hawkes__lodo3,volH_voluL_trendH,20,P5_liquidity,2.9899047054166124,P1_immediate,0.03856471809822892,2,P1_immediate P6_signal_momentum,4.49308117061751,1.5031764652008972
+hawkes__lodo3,volH_voluL_trendL,20,P1_immediate,2.787169848901871,P5_liquidity,0.6620946512787493,3,P0_twap P5_liquidity P6_signal_momentum,4.881622244160476,2.7371270867056294
+hawkes__lodo3,volL_voluH_trendL,20,P1_immediate,2.831482751217178,P5_liquidity,0.4163596856865781,3,P0_twap P5_liquidity P6_signal_momentum,3.7951098870183237,0.9636271358011457
+hawkes__lodo3,volL_voluL_trendH,20,P1_immediate,2.6595343368119444,P5_liquidity,0.5657261361118016,1,P5_liquidity,5.6109419773621205,3.018203326357356
+hawkes__lodo3,volL_voluL_trendL,20,P6_signal_momentum,2.9104383239116993,P1_immediate,0.04066860015281604,3,P0_twap P1_immediate P5_liquidity,4.241087717523669,1.3306493936119699
+hawkes__lodo4,volH_voluH_trendH,20,P1_immediate,3.268773186017763,P0_twap,7.596422528221149,0,,10.865195714238912,8.232778602978524
+hawkes__lodo4,volH_voluH_trendL,20,P6_signal_momentum,2.5742768506869176,P0_twap,0.11281419242025192,3,P0_twap P1_immediate P5_liquidity,2.6870910431071695,0.7399714123713883
+hawkes__lodo4,volH_voluL_trendH,20,P1_immediate,2.5677983466066476,P6_signal_momentum,4.321803848645441,2,P5_liquidity P6_signal_momentum,7.456246977464332,4.888448630857685
+hawkes__lodo4,volH_voluL_trendL,20,P1_immediate,2.635796597646485,P6_signal_momentum,0.921172986413469,3,P0_twap P5_liquidity P6_signal_momentum,4.992044579027019,2.356247981380534
+hawkes__lodo4,volL_voluH_trendL,20,P6_signal_momentum,0.8890055976855503,P0_twap,1.0653674658211765,3,P0_twap P1_immediate P5_liquidity,1.954373063506727,1.8497387099068856
+hawkes__lodo4,volL_voluL_trendH,20,P1_immediate,3.031293913229102,P5_liquidity,5.058369726422915,0,,8.675285033457566,6.145012002494965
+hawkes__lodo4,volL_voluL_trendL,20,P1_immediate,3.099880110229334,P6_signal_momentum,2.4345724866309775,1,P6_signal_momentum,5.569753046733402,3.456329879023894
+hawkes_c,volH_voluH_trendH,20,P1_immediate,2.865569607362381,P6_signal_momentum,5.00468208821947,2,P5_liquidity P6_signal_momentum,8.511512054909408,5.645942447547027
+hawkes_c,volH_voluH_trendL,20,P1_immediate,2.7344278481814928,P5_liquidity,2.1214659545876704,0,,6.0097481694443715,3.2753203212628788
+hawkes_c,volH_voluL_trendH,20,P1_immediate,1.734818201727128,P6_signal_momentum,0.2536725154439883,3,P0_twap P5_liquidity P6_signal_momentum,2.066683575118011,0.4146281266432985
+hawkes_c,volH_voluL_trendL,20,P0_twap,1.838323251042419,P6_signal_momentum,0.020610660819599724,3,P1_immediate P5_liquidity P6_signal_momentum,1.838323251042419,0.45619755264212913
+hawkes_c,volL_voluH_trendL,20,P1_immediate,2.084015247691241,P6_signal_momentum,1.4081914929092831,3,P0_twap P5_liquidity P6_signal_momentum,4.433285399833205,2.3492701521419646
+hawkes_c,volL_voluL_trendH,20,P1_immediate,1.6775479147025187,P6_signal_momentum,0.9990680166233825,3,P0_twap P5_liquidity P6_signal_momentum,3.2137499635276696,1.8248011018087005
+hawkes_c,volL_voluL_trendL,20,P1_immediate,1.758351971272146,P0_twap,2.8619432760855834,0,,4.6202952473577295,2.96943251028322
+hawkes_f,volH_voluH_trendH,20,P0_twap,0.9632325314288824,P5_liquidity,0.1500976715725112,3,P1_immediate P5_liquidity P6_signal_momentum,0.9632325314288824,0.7640271203373469
+hawkes_f,volH_voluH_trendL,20,P1_immediate,1.0823197050194182,P5_liquidity,0.04094615623807818,3,P0_twap P5_liquidity P6_signal_momentum,2.3018861366126258,1.2195664315932075
+hawkes_f,volH_voluL_trendH,20,P1_immediate,1.1431873289976529,P6_signal_momentum,0.13768719941850605,2,P5_liquidity P6_signal_momentum,4.126584052679875,2.983396723682222
+hawkes_f,volH_voluL_trendL,20,P6_signal_momentum,0.5648874230092761,P1_immediate,0.5580283966817156,3,P0_twap P1_immediate P5_liquidity,1.1742942089552917,0.6274155463635124
+hawkes_f,volL_voluH_trendL,20,P5_liquidity,1.1859661064201361,P0_twap,0.31269908081889053,3,P0_twap P1_immediate P6_signal_momentum,1.4986651872390266,0.9759932272807037
+hawkes_f,volL_voluL_trendH,20,P1_immediate,1.7886062283139528,P6_signal_momentum,0.039641173360747795,3,P0_twap P5_liquidity P6_signal_momentum,1.8974149988506106,0.5486835519564548
+hawkes_f,volL_voluL_trendL,20,P1_immediate,1.140617710242783,P5_liquidity,0.970592751222755,3,P0_twap P5_liquidity P6_signal_momentum,3.105424056262612,2.4936863593791077
+hawkes_m,volH_voluH_trendH,20,P1_immediate,3.4026315204734017,P6_signal_momentum,1.7392940299427755,1,P6_signal_momentum,9.342761227278851,5.9401297068054495
+hawkes_m,volH_voluH_trendL,20,P5_liquidity,1.1031448540662232,P6_signal_momentum,1.3859238690139672,3,P0_twap P1_immediate P6_signal_momentum,2.7019598959398565,2.4095073403219383
+hawkes_m,volH_voluL_trendH,20,P6_signal_momentum,0.9483169291501252,P5_liquidity,0.9297089016405631,3,P0_twap P1_immediate P5_liquidity,2.9925226473696607,2.0442057182195352
+hawkes_m,volH_voluL_trendL,20,P1_immediate,2.350220000679184,P6_signal_momentum,1.8297652594534606,3,P0_twap P5_liquidity P6_signal_momentum,6.034709664545911,4.064256756191801
+hawkes_m,volL_voluH_trendL,20,P6_signal_momentum,1.8859631042410119,P0_twap,0.3362281932354423,3,P0_twap P1_immediate P5_liquidity,2.222191297476454,1.4386719017741723
+hawkes_m,volL_voluL_trendH,20,P1_immediate,3.045545545818004,P5_liquidity,2.6492711410370324,0,,7.281847565485611,4.236302019667607
+hawkes_m,volL_voluL_trendL,20,P6_signal_momentum,2.4945881305145003,P1_immediate,0.45047163445606087,2,P1_immediate P5_liquidity,3.537106568731712,1.0425184382172117
+hawkes_q,volH_voluH_trendH,20,P1_immediate,7.090103390093455,P6_signal_momentum,30.657608490192295,0,,39.77874223610507,33.869131505371726
+hawkes_q,volH_voluH_trendL,20,P1_immediate,6.388600392949665,P5_liquidity,14.104200029789236,0,,24.77138568606555,18.382785293115884
+hawkes_q,volH_voluL_trendH,20,P1_immediate,4.7043780960053905,P6_signal_momentum,21.009055031886653,0,,31.881731899499368,27.17735380349398
+hawkes_q,volH_voluL_trendL,20,P6_signal_momentum,3.2490010570899748,P5_liquidity,1.0969278275658367,3,P0_twap P1_immediate P5_liquidity,6.806576762907864,3.557575705817889
+hawkes_q,volL_voluH_trendL,20,P6_signal_momentum,3.1067344592360167,P1_immediate,0.2482145110866938,3,P0_twap P1_immediate P5_liquidity,5.5838191138067295,2.477084654570713
+hawkes_q,volL_voluL_trendH,20,P1_immediate,3.110345910134959,P5_liquidity,11.895082694299507,0,,15.784202296344429,12.673856386209469
+hawkes_q,volL_voluL_trendL,20,P1_immediate,4.003288487811187,P6_signal_momentum,16.687771103833352,0,,23.62508972577868,21.229217693421784
+hawkes_q_c,volH_voluH_trendH,20,P1_immediate,7.144868160786617,P0_twap,25.767498736042043,0,,32.91236689682866,27.390218214990213
+hawkes_q_c,volH_voluH_trendL,20,P1_immediate,5.857557161293246,P0_twap,7.812560180183783,2,P0_twap P5_liquidity,13.67011734147703,8.87699673899089
+hawkes_q_c,volH_voluL_trendH,20,P1_immediate,3.6458197095072293,P6_signal_momentum,12.276157071857885,0,,17.30550929814526,16.56399056475081
+hawkes_q_c,volH_voluL_trendL,20,P1_immediate,4.490170381479578,P5_liquidity,0.7089494275142307,3,P0_twap P5_liquidity P6_signal_momentum,11.063129509284018,6.57295912780444
+hawkes_q_c,volL_voluH_trendL,20,P1_immediate,3.458667093235151,P5_liquidity,1.6460250535140815,3,P0_twap P5_liquidity P6_signal_momentum,11.062830345883564,7.604163252648412
+hawkes_q_c,volL_voluL_trendH,20,P1_immediate,2.7227302581633968,P0_twap,10.316301789031986,0,,13.039032047195382,14.342345049674597
+hawkes_q_c,volL_voluL_trendL,20,P1_immediate,3.0293325506607927,P0_twap,15.698875515889,0,,18.728208066549794,18.92885093293398
+hawkes_q_f,volH_voluH_trendH,20,P1_immediate,6.6513581278058185,P0_twap,45.27708093171712,0,,51.928439059522944,48.44997635870989
+hawkes_q_f,volH_voluH_trendL,20,P1_immediate,4.955013211981166,P5_liquidity,6.624462452278282,3,P0_twap P5_liquidity P6_signal_momentum,15.37679252240019,10.421779310419025
+hawkes_q_f,volH_voluL_trendH,20,P1_immediate,2.9009647406523125,P6_signal_momentum,12.558779014085662,0,,19.19695662916407,16.295991888511757
+hawkes_q_f,volH_voluL_trendL,20,P5_liquidity,-10.486732480767156,P0_twap,0.621314504413256,3,P0_twap P1_immediate P6_signal_momentum,-9.8654179763539,13.665082253492582
+hawkes_q_f,volL_voluH_trendL,20,P5_liquidity,3.4389650852298757,P1_immediate,0.5856199334484953,3,P0_twap P1_immediate P6_signal_momentum,5.0335340785620115,1.5945689933321359
+hawkes_q_f,volL_voluL_trendH,20,P1_immediate,1.7047913494478095,P5_liquidity,8.744472295804263,2,P5_liquidity P6_signal_momentum,12.271063028815838,10.566271679368029
+hawkes_q_f,volL_voluL_trendL,20,P1_immediate,2.218434065004067,P5_liquidity,11.852543733365906,0,,21.021608022083388,18.80317395707932
+hawkes_q_s_f,volH_voluH_trendH,20,P1_immediate,11.229589376449875,P0_twap,65.99785893412114,0,,77.22744831057102,87.82932086287624
+hawkes_q_s_f,volH_voluH_trendL,20,P1_immediate,8.852292201463683,P5_liquidity,6.254564073298081,3,P0_twap P5_liquidity P6_signal_momentum,21.033644408950405,12.181352207486722
+hawkes_q_s_f,volH_voluL_trendH,20,P1_immediate,5.402986981061718,P5_liquidity,26.36325632896359,0,,40.07506234864026,37.7583598591433
+hawkes_q_s_f,volH_voluL_trendL,20,P6_signal_momentum,4.328820086189046,P1_immediate,0.4875556048664844,3,P0_twap P1_immediate P5_liquidity,6.825915203807296,5.747635747388676
+hawkes_q_s_f,volL_voluH_trendL,20,P1_immediate,5.681891859095094,P5_liquidity,0.9748684910691567,3,P0_twap P5_liquidity P6_signal_momentum,10.10876062063983,4.4268687615447355
+hawkes_q_s_f,volL_voluL_trendH,20,P1_immediate,3.3446558332952527,P0_twap,32.57025098253486,0,,35.91490681583011,35.79885370151571
+hawkes_q_s_f,volL_voluL_trendL,20,P1_immediate,2.683888036760317,P6_signal_momentum,35.01027649923028,0,,43.41700712621925,41.95807328693976
+hawkes_sd,volH_voluH_trendH,20,P6_signal_momentum,6.4522329088206565,P1_immediate,1.4050449520843031,2,P1_immediate P5_liquidity,15.31195375419561,8.859720845374953
+hawkes_sd,volH_voluH_trendL,20,P1_immediate,6.709402642095675,P0_twap,5.084229247120492,2,P0_twap P5_liquidity,11.793631889216167,5.873460000946203
+hawkes_sd,volH_voluL_trendH,20,P1_immediate,5.21894595182512,P5_liquidity,8.102675247802782,0,,14.011428979644553,8.969929753686719
+hawkes_sd,volH_voluL_trendL,20,P1_immediate,3.170721888492296,P0_twap,1.8875428318593368,3,P0_twap P5_liquidity P6_signal_momentum,5.058264720351633,2.7255020443892137
+hawkes_sd,volL_voluH_trendL,20,P1_immediate,2.2531462246543272,P6_signal_momentum,1.3325106420041561,1,P6_signal_momentum,5.276387120558876,3.0260625032974184
+hawkes_sd,volL_voluL_trendH,20,P6_signal_momentum,2.0241338736793932,P5_liquidity,0.5650976535452275,2,P1_immediate P5_liquidity,6.633316346721384,4.60918247304199
+hawkes_sd,volL_voluL_trendL,20,P0_twap,3.073175595673788,P1_immediate,0.5354247886998511,3,P1_immediate P5_liquidity P6_signal_momentum,3.073175595673788,0.6752420628968356
+hawkes_sd_c,volH_voluH_trendH,20,P5_liquidity,2.805889620607411,P6_signal_momentum,0.5450779159256434,3,P0_twap P1_immediate P6_signal_momentum,4.968611175008087,2.1627215544006764
+hawkes_sd_c,volH_voluH_trendL,20,P1_immediate,5.407305954525316,P6_signal_momentum,5.077901660257242,0,,11.74982596854658,6.342520014021264
+hawkes_sd_c,volH_voluL_trendH,20,P1_immediate,2.8022358409067656,P5_liquidity,0.3386140650926923,3,P0_twap P5_liquidity P6_signal_momentum,3.2044826470374943,0.9402557379143679
+hawkes_sd_c,volH_voluL_trendL,20,P6_signal_momentum,0.5040410076855106,P5_liquidity,0.8993475819435073,2,P1_immediate P5_liquidity,3.535098571510612,3.031057563825101
+hawkes_sd_c,volL_voluH_trendL,20,P1_immediate,3.168752914173525,P5_liquidity,0.16926951889547004,3,P0_twap P5_liquidity P6_signal_momentum,3.8722944744071315,0.7035415602336066
+hawkes_sd_c,volL_voluL_trendH,20,P1_immediate,1.4517496827018515,P6_signal_momentum,1.0266854747529028,2,P5_liquidity P6_signal_momentum,4.168083452223158,2.7163337695213063
+hawkes_sd_c,volL_voluL_trendL,20,P1_immediate,1.991686606658679,P6_signal_momentum,2.734127137652633,0,,7.026398093770967,5.034711487112288
+hawkes_sd_c_f,volH_voluH_trendH,20,P5_liquidity,1.4093180568922086,P1_immediate,0.44086750990687706,3,P0_twap P1_immediate P6_signal_momentum,1.9768237694638096,1.1274568159223382
+hawkes_sd_c_f,volH_voluH_trendL,20,P1_immediate,2.655970308425326,P6_signal_momentum,2.826958554368864,1,P6_signal_momentum,6.15736453237327,4.133976149373062
+hawkes_sd_c_f,volH_voluL_trendH,20,P5_liquidity,0.41156678667869284,P1_immediate,1.1686717131738158,2,P1_immediate P6_signal_momentum,2.3986657294189144,1.9870989427402215
+hawkes_sd_c_f,volH_voluL_trendL,20,P6_signal_momentum,1.4542774921838022,P1_immediate,0.44442064084456967,1,P1_immediate,4.103205261414773,3.3068952496403066
+hawkes_sd_c_f,volL_voluH_trendL,20,P1_immediate,1.707350768656261,P5_liquidity,0.8302737411663428,3,P0_twap P5_liquidity P6_signal_momentum,2.896841223841414,1.3217534109291094
+hawkes_sd_c_f,volL_voluL_trendH,20,P1_immediate,1.0752250133461192,P5_liquidity,0.569369462014677,3,P0_twap P5_liquidity P6_signal_momentum,1.9658476049206868,0.8906225915745676
+hawkes_sd_c_f,volL_voluL_trendL,20,P1_immediate,1.1054661314221135,P0_twap,0.2785465792247257,3,P0_twap P5_liquidity P6_signal_momentum,1.3840127106468392,1.214315956108981
+hawkes_sd_c_f_k,volH_voluH_trendH,20,P0_twap,0.51713674262985,P6_signal_momentum,0.11706308686058231,3,P1_immediate P5_liquidity P6_signal_momentum,0.51713674262985,1.215771112782524
+hawkes_sd_c_f_k,volH_voluH_trendL,20,P1_immediate,1.808184952106823,P5_liquidity,0.18389812505102654,3,P0_twap P5_liquidity P6_signal_momentum,2.0338593047370828,0.6981582553733703
+hawkes_sd_c_f_k,volH_voluL_trendH,20,P6_signal_momentum,1.4280248168903076,P5_liquidity,0.08488842291699505,3,P0_twap P1_immediate P5_liquidity,1.6536016377208447,0.22967582727993618
+hawkes_sd_c_f_k,volH_voluL_trendL,20,P1_immediate,0.39362194042434767,P6_signal_momentum,0.02099046826832285,3,P0_twap P5_liquidity P6_signal_momentum,1.4612281954093835,1.8719098086608357
+hawkes_sd_c_f_k,volL_voluH_trendL,20,P6_signal_momentum,0.6562372150197724,P1_immediate,0.39942141178937995,1,P1_immediate,1.5292492560173305,1.500429062663437
+hawkes_sd_c_f_k,volL_voluL_trendH,20,P6_signal_momentum,1.1115192886692091,P1_immediate,0.15185220998195836,2,P1_immediate P5_liquidity,1.8641156407805002,0.7525963521112911
+hawkes_sd_c_f_k,volL_voluL_trendL,20,P1_immediate,1.4666600525171292,P6_signal_momentum,0.3471092228161541,3,P0_twap P5_liquidity P6_signal_momentum,2.1112701332503745,0.6446100807332453
+hawkes_sd_c_f_m,volH_voluH_trendH,20,P0_twap,2.1674274143891683,P1_immediate,0.02076333729775426,3,P1_immediate P5_liquidity P6_signal_momentum,2.1674274143891683,0.9736423912711265
+hawkes_sd_c_f_m,volH_voluH_trendL,20,P6_signal_momentum,1.6502661608310258,P1_immediate,0.7003037382283999,1,P1_immediate,2.6620814982845316,1.5956289728448778
+hawkes_sd_c_f_m,volH_voluL_trendH,20,P0_twap,1.0591795321785407,P5_liquidity,0.14218391643309447,3,P1_immediate P5_liquidity P6_signal_momentum,1.0591795321785407,0.7679071381509872
+hawkes_sd_c_f_m,volH_voluL_trendL,20,P1_immediate,1.6262853617702955,P5_liquidity,1.8375690356151042,3,P0_twap P5_liquidity P6_signal_momentum,3.7298702400161012,2.1035848782458055
+hawkes_sd_c_f_m,volL_voluH_trendL,20,P6_signal_momentum,-0.05221332500447333,P0_twap,0.30230448306533936,3,P0_twap P1_immediate P5_liquidity,0.250091158060866,1.7736416456771542
+hawkes_sd_c_f_m,volL_voluL_trendH,20,P6_signal_momentum,0.793972338931672,P0_twap,0.20420767877851476,3,P0_twap P1_immediate P5_liquidity,0.9981800177101867,0.41004902526177456
+hawkes_sd_c_f_m,volL_voluL_trendL,20,P1_immediate,1.1580114389730347,P6_signal_momentum,0.07390370125310741,3,P0_twap P5_liquidity P6_signal_momentum,3.5985223844280183,2.4405109454549834
+hawkes_sd_c_f_m__lodo0,volH_voluH_trendH,20,P1_immediate,1.6177460654016973,P6_signal_momentum,1.153046848048073,1,P6_signal_momentum,3.994223409949843,2.3764773445481455
+hawkes_sd_c_f_m__lodo0,volH_voluH_trendL,20,P0_twap,1.0137492164766315,P5_liquidity,0.07257079622614349,3,P1_immediate P5_liquidity P6_signal_momentum,1.0137492164766315,0.2623741099812744
+hawkes_sd_c_f_m__lodo0,volH_voluL_trendH,20,P0_twap,1.0591795321785407,P5_liquidity,0.14218391643309447,3,P1_immediate P5_liquidity P6_signal_momentum,1.0591795321785407,0.7679071381509872
+hawkes_sd_c_f_m__lodo0,volH_voluL_trendL,20,P1_immediate,1.6262853617702955,P5_liquidity,1.8375690356151042,3,P0_twap P5_liquidity P6_signal_momentum,3.7298702400161012,2.1035848782458055
+hawkes_sd_c_f_m__lodo0,volL_voluH_trendL,20,P6_signal_momentum,-0.05221332500447333,P0_twap,0.30230448306533936,3,P0_twap P1_immediate P5_liquidity,0.250091158060866,1.7736416456771542
+hawkes_sd_c_f_m__lodo0,volL_voluL_trendH,20,P5_liquidity,1.2989267924324068,P1_immediate,0.09671703908643359,3,P0_twap P1_immediate P6_signal_momentum,1.7321999221720996,0.4332731297396928
+hawkes_sd_c_f_m__lodo0,volL_voluL_trendL,20,P1_immediate,1.1533012905448579,P5_liquidity,1.0181496650639796,1,P5_liquidity,2.564575572569594,1.4112742820247361
+hawkes_sd_c_f_m__lodo1,volH_voluH_trendH,20,P0_twap,0.1398358259929571,P6_signal_momentum,0.6044608245208559,2,P5_liquidity P6_signal_momentum,0.1398358259929571,0.9648960434956977
+hawkes_sd_c_f_m__lodo1,volH_voluH_trendL,20,P0_twap,2.1133355392942508,P1_immediate,0.36651039220793846,3,P1_immediate P5_liquidity P6_signal_momentum,2.1133355392942508,2.271507141979931
+hawkes_sd_c_f_m__lodo1,volH_voluL_trendH,20,P6_signal_momentum,1.015849753610615,P1_immediate,1.0263436565021786,3,P0_twap P1_immediate P5_liquidity,2.140141050058992,1.1242912964483769
+hawkes_sd_c_f_m__lodo1,volH_voluL_trendL,20,P1_immediate,1.4135867810232114,P0_twap,0.37402258501953045,3,P0_twap P5_liquidity P6_signal_momentum,1.787609366042742,1.3176895991304485
+hawkes_sd_c_f_m__lodo1,volL_voluH_trendL,20,P1_immediate,1.2102590923442487,P6_signal_momentum,0.6303401706455309,2,P0_twap P6_signal_momentum,2.086621326037276,1.2862848108118918
+hawkes_sd_c_f_m__lodo1,volL_voluL_trendH,20,P6_signal_momentum,0.9006116171443095,P1_immediate,0.2502807610317892,3,P0_twap P1_immediate P5_liquidity,1.2594816187597686,0.6303529153220553
+hawkes_sd_c_f_m__lodo1,volL_voluL_trendL,20,P5_liquidity,1.3187132935057613,P1_immediate,0.5093091313449296,1,P1_immediate,2.89253351223431,1.5738202187285486
+hawkes_sd_c_f_m__lodo2,volH_voluH_trendH,20,P1_immediate,2.1913249602458764,P6_signal_momentum,0.5287622512753329,3,P0_twap P5_liquidity P6_signal_momentum,4.796940246891755,2.605615286645879
+hawkes_sd_c_f_m__lodo2,volH_voluH_trendL,20,P1_immediate,1.7504943124066064,P5_liquidity,0.5013606256177294,3,P0_twap P5_liquidity P6_signal_momentum,2.2648565985326314,0.6896696529421094
+hawkes_sd_c_f_m__lodo2,volH_voluL_trendH,20,P1_immediate,1.0072157715892345,P5_liquidity,0.5641864785238964,3,P0_twap P5_liquidity P6_signal_momentum,2.199188919564463,1.4004310332206666
+hawkes_sd_c_f_m__lodo2,volH_voluL_trendL,20,P1_immediate,1.29393702159573,P6_signal_momentum,1.8373898408642735,2,P0_twap P6_signal_momentum,3.4888549704201077,3.8255180852831066
+hawkes_sd_c_f_m__lodo2,volL_voluH_trendL,20,P5_liquidity,1.4839848800415665,P1_immediate,0.1640819919457066,3,P0_twap P1_immediate P6_signal_momentum,2.142762754655782,0.6587778746142157
+hawkes_sd_c_f_m__lodo2,volL_voluL_trendH,20,P6_signal_momentum,1.097844165452067,P0_twap,0.025303654221071614,3,P0_twap P1_immediate P5_liquidity,1.1231478196731386,0.6786745855891922
+hawkes_sd_c_f_m__lodo2,volL_voluL_trendL,20,P0_twap,0.32361200958248065,P5_liquidity,0.03646908209115829,3,P1_immediate P5_liquidity P6_signal_momentum,0.32361200958248065,0.9567208060902073
+hawkes_sd_c_f_m__lodo3,volH_voluH_trendH,20,P6_signal_momentum,1.8362666251245625,P1_immediate,0.005472096526665693,3,P0_twap P1_immediate P5_liquidity,3.1733535547449327,1.3370869296203702
+hawkes_sd_c_f_m__lodo3,volH_voluH_trendL,20,P1_immediate,2.174527178947388,P5_liquidity,0.47885854808929684,3,P0_twap P5_liquidity P6_signal_momentum,3.0094408954738303,0.8349137165264424
+hawkes_sd_c_f_m__lodo3,volH_voluL_trendH,20,P1_immediate,1.9231625883255845,P5_liquidity,0.3022252384279096,3,P0_twap P5_liquidity P6_signal_momentum,3.1562499144154197,1.2330873260898352
+hawkes_sd_c_f_m__lodo3,volH_voluL_trendL,20,P1_immediate,1.6181645781651834,P6_signal_momentum,1.299572965292045,3,P0_twap P5_liquidity P6_signal_momentum,3.3424773559894363,1.7243127778242529
+hawkes_sd_c_f_m__lodo3,volL_voluH_trendL,20,P6_signal_momentum,0.4730603378362308,P5_liquidity,0.014366731493728413,2,P0_twap P5_liquidity,0.6261468127105875,0.6999221257454735
+hawkes_sd_c_f_m__lodo3,volL_voluL_trendH,20,P1_immediate,1.2896147812601666,P5_liquidity,0.7841570236764261,1,P5_liquidity,2.5620136922867625,1.354434327519924
+hawkes_sd_c_f_m__lodo3,volL_voluL_trendL,20,P6_signal_momentum,1.0391587373857172,P1_immediate,0.008432034593283344,3,P0_twap P1_immediate P5_liquidity,1.3279233417740097,0.28876460438829255
+hawkes_sd_c_f_m__lodo4,volH_voluH_trendH,20,P5_liquidity,0.8181358082635111,P6_signal_momentum,0.34607310431407834,3,P0_twap P1_immediate P6_signal_momentum,2.5376229878412864,1.7194871795777753
+hawkes_sd_c_f_m__lodo4,volH_voluH_trendL,20,P5_liquidity,1.5480770422519077,P0_twap,0.5089512828110976,3,P0_twap P1_immediate P6_signal_momentum,2.0570283250630053,0.6880609420852541
+hawkes_sd_c_f_m__lodo4,volH_voluL_trendH,20,P6_signal_momentum,0.48186988692967836,P1_immediate,1.5421075000035849,3,P0_twap P1_immediate P5_liquidity,3.2331706350298255,2.7513007481001472
+hawkes_sd_c_f_m__lodo4,volH_voluL_trendL,20,P1_immediate,1.6262853617702955,P5_liquidity,1.8375690356151042,3,P0_twap P5_liquidity P6_signal_momentum,3.7298702400161012,2.1035848782458055
+hawkes_sd_c_f_m__lodo4,volL_voluH_trendL,20,P6_signal_momentum,-0.9292606329917212,P0_twap,1.6172258550533216,2,P0_twap P1_immediate,0.6879652220616004,2.2185075208323664
+hawkes_sd_c_f_m__lodo4,volL_voluL_trendH,20,P1_immediate,1.053784363631873,P0_twap,0.6661652503434188,1,P0_twap,1.7199496139752917,1.6847408297711186
+hawkes_sd_c_f_m__lodo4,volL_voluL_trendL,20,P1_immediate,0.9820019280212948,P6_signal_momentum,1.0248545843808792,3,P0_twap P5_liquidity P6_signal_momentum,3.652774923270529,2.7525053841408975
+hawkes_sd_c_f_m_k,volH_voluH_trendH,20,P6_signal_momentum,0.95755149342683,P5_liquidity,0.05960577564734304,3,P0_twap P1_immediate P5_liquidity,1.700370084694231,1.0445450068139204
+hawkes_sd_c_f_m_k,volH_voluH_trendL,20,P5_liquidity,1.1344342166497723,P6_signal_momentum,0.311973842396124,2,P0_twap P6_signal_momentum,1.7973503280817316,2.0213389681010137
+hawkes_sd_c_f_m_k,volH_voluL_trendH,20,P0_twap,1.0591795321785407,P5_liquidity,0.14218391643309447,3,P1_immediate P5_liquidity P6_signal_momentum,1.0591795321785407,0.7679071381509872
+hawkes_sd_c_f_m_k,volH_voluL_trendL,20,P1_immediate,1.437678433780595,P0_twap,0.31503103129085597,3,P0_twap P5_liquidity P6_signal_momentum,1.752709465071451,0.4703606100387885
+hawkes_sd_c_f_m_k,volL_voluH_trendL,20,P6_signal_momentum,1.0548984378298494,P5_liquidity,0.16937295502840977,2,P1_immediate P5_liquidity,1.3135557351725011,0.25865729734265175
+hawkes_sd_c_f_m_k,volL_voluL_trendH,20,P6_signal_momentum,0.793972338931672,P0_twap,0.20420767877851476,3,P0_twap P1_immediate P5_liquidity,0.9981800177101867,0.41004902526177456
+hawkes_sd_c_f_m_k,volL_voluL_trendL,20,P5_liquidity,0.9993747298433255,P0_twap,0.11569262546704917,2,P1_immediate P6_signal_momentum,1.1150673553103747,0.18688583180107732
+hawkes_sd_q,volH_voluH_trendH,20,P1_immediate,18.92739595040991,P5_liquidity,14.874308130451197,2,P5_liquidity P6_signal_momentum,41.850805587484764,22.923409637074855
+hawkes_sd_q,volH_voluH_trendL,20,P1_immediate,15.852371789914011,P0_twap,27.98526323564407,0,,43.83763502555808,34.038237176766756
+hawkes_sd_q,volH_voluL_trendH,20,P1_immediate,11.646483142477976,P6_signal_momentum,25.347262715175077,0,,45.5734261637689,33.926943021290924
+hawkes_sd_q,volH_voluL_trendL,20,P5_liquidity,13.52014321293544,P1_immediate,0.40664125164707343,2,P1_immediate P6_signal_momentum,27.791933829924808,14.271790616989367
+hawkes_sd_q,volL_voluH_trendL,20,P5_liquidity,2.767898614424636,P1_immediate,2.8484737340110518,1,P1_immediate,9.048861724714033,6.599898228397356
+hawkes_sd_q,volL_voluL_trendH,20,P1_immediate,5.125158607968561,P0_twap,16.45921692672029,0,,21.584375534688853,17.80043791547677
+hawkes_sd_q,volL_voluL_trendL,20,P1_immediate,4.956144408387608,P6_signal_momentum,21.754398934717496,0,,35.98124017900345,31.02509577061584
+hawkes_sd_q_c,volH_voluH_trendH,20,P1_immediate,9.317482353828527,P6_signal_momentum,35.14128627162239,0,,49.258652066929,39.94116971310048
+hawkes_sd_q_c,volH_voluH_trendL,20,P1_immediate,10.089821869025176,P5_liquidity,22.299840766707202,0,,41.74656438391941,31.656742514894237
+hawkes_sd_q_c,volH_voluL_trendH,20,P1_immediate,8.032869189357248,P6_signal_momentum,16.77123813238807,0,,33.138967470613444,25.106098281256195
+hawkes_sd_q_c,volH_voluL_trendL,20,P6_signal_momentum,0.2262064838415377,P1_immediate,6.318290682199677,1,P1_immediate,13.59459995510998,16.38542168000111
+hawkes_sd_q_c,volL_voluH_trendL,20,P1_immediate,5.121153278734059,P5_liquidity,5.087563426029862,3,P0_twap P5_liquidity P6_signal_momentum,16.6972763523491,11.57612307361504
+hawkes_sd_q_c,volL_voluL_trendH,20,P1_immediate,3.663753761897934,P5_liquidity,14.49498183524977,0,,19.70717213091601,16.043418369018077
+hawkes_sd_q_c,volL_voluL_trendL,20,P1_immediate,5.020509701561156,P6_signal_momentum,15.97041409642613,0,,24.115503986898332,20.24965029382435
+hawkes_sd_q_c_f,volH_voluH_trendH,20,P1_immediate,10.103837558397375,P5_liquidity,46.17246777909439,0,,65.34176487434084,56.73716085468084
+hawkes_sd_q_c_f,volH_voluH_trendL,20,P1_immediate,8.286078743739786,P0_twap,13.948816946221278,3,P0_twap P5_liquidity P6_signal_momentum,22.234895689961064,18.863307269341348
+hawkes_sd_q_c_f,volH_voluL_trendH,20,P1_immediate,6.273623774349554,P6_signal_momentum,16.7793774421295,0,,24.990816174618075,19.981284926792824
+hawkes_sd_q_c_f,volH_voluL_trendL,20,P5_liquidity,7.649194712615016,P1_immediate,0.1391932806160172,3,P0_twap P1_immediate P6_signal_momentum,10.89326778069222,3.2440730680772036
+hawkes_sd_q_c_f,volL_voluH_trendL,20,P1_immediate,4.367650789485022,P6_signal_momentum,4.26332638521547,3,P0_twap P5_liquidity P6_signal_momentum,14.274830068759751,9.907179279274729
+hawkes_sd_q_c_f,volL_voluL_trendH,20,P1_immediate,2.841439243431444,P0_twap,6.314510785671314,3,P0_twap P5_liquidity P6_signal_momentum,9.155950029102758,8.799625505449733
+hawkes_sd_q_c_f,volL_voluL_trendL,20,P1_immediate,3.35431461776594,P0_twap,21.236516710719318,0,,24.590831328485258,22.462773966086406
+hawkes_sd_q_c_f_k,volH_voluH_trendH,20,P1_immediate,4.911557498717138,P6_signal_momentum,21.394329993460254,0,,27.020543628026093,22.108986129308956
+hawkes_sd_q_c_f_k,volH_voluH_trendL,20,P1_immediate,13.496513563304926,P0_twap,12.842102835505141,0,,26.338616398810068,19.883451749314137
+hawkes_sd_q_c_f_k,volH_voluL_trendH,20,P1_immediate,5.180988754640605,P0_twap,3.1011064896383633,3,P0_twap P5_liquidity P6_signal_momentum,8.282095244278969,4.582566403294466
+hawkes_sd_q_c_f_k,volH_voluL_trendL,20,P1_immediate,4.121143405329301,P0_twap,3.309911154831198,3,P0_twap P5_liquidity P6_signal_momentum,7.431054560160499,7.64409002002915
+hawkes_sd_q_c_f_k,volL_voluH_trendL,20,P1_immediate,3.3908840699895846,P5_liquidity,4.441062832783142,2,P5_liquidity P6_signal_momentum,7.902120390914424,5.630151860525518
+hawkes_sd_q_c_f_k,volL_voluL_trendH,20,P1_immediate,3.62213393777004,P5_liquidity,13.270582926341,0,,20.912382336878927,17.290248399108886
+hawkes_sd_q_c_f_k,volL_voluL_trendL,20,P1_immediate,2.2599216567790603,P5_liquidity,8.827659834512168,0,,11.809977025551683,9.6254637714161
+hawkes_sd_q_c_f_m,volH_voluH_trendH,20,P1_immediate,11.96741136573839,P6_signal_momentum,46.466060999958344,0,,60.27471187594814,50.164487982788046
+hawkes_sd_q_c_f_m,volH_voluH_trendL,20,P1_immediate,10.154604486583182,P0_twap,20.806315600718623,0,,30.960920087301805,30.581892895207353
+hawkes_sd_q_c_f_m,volH_voluL_trendH,20,P1_immediate,7.606563225374492,P6_signal_momentum,20.51754186179187,0,,29.811949157406083,22.874180070323355
+hawkes_sd_q_c_f_m,volH_voluL_trendL,20,P5_liquidity,-9.426210436897442,P0_twap,7.769355653118836,3,P0_twap P1_immediate P6_signal_momentum,-1.6568547837786056,13.006334456046597
+hawkes_sd_q_c_f_m,volL_voluH_trendL,20,P1_immediate,5.552617566838514,P5_liquidity,9.012751787234716,0,,18.597739548533916,13.045121981695402
+hawkes_sd_q_c_f_m,volL_voluL_trendH,20,P1_immediate,4.724367092898858,P0_twap,19.892025975285662,0,,24.61639306818452,23.498679641111416
+hawkes_sd_q_c_f_m,volL_voluL_trendL,20,P1_immediate,4.272036138689903,P6_signal_momentum,12.752287921917212,0,,21.295688013868634,20.165297656626237
+hawkes_sd_q_c_s_f,volH_voluH_trendH,20,P1_immediate,10.840792394331695,P0_twap,50.96968487081016,0,,61.810477265141856,57.98709296682416
+hawkes_sd_q_c_s_f,volH_voluH_trendL,20,P1_immediate,8.775382145029521,P5_liquidity,6.6931680359146934,3,P0_twap P5_liquidity P6_signal_momentum,18.089112253547107,9.313730108517586
+hawkes_sd_q_c_s_f,volH_voluL_trendH,20,P1_immediate,6.3480949879838295,P6_signal_momentum,25.63732923378562,0,,34.791879953454604,28.443784965470776
+hawkes_sd_q_c_s_f,volH_voluL_trendL,20,P1_immediate,5.359215453553415,P5_liquidity,2.1450230596827664,3,P0_twap P5_liquidity P6_signal_momentum,9.718482579886146,12.509184176210702
+hawkes_sd_q_c_s_f,volL_voluH_trendL,20,P1_immediate,4.783925019309596,P5_liquidity,9.965765236829272,3,P0_twap P5_liquidity P6_signal_momentum,15.734684845862414,13.976400303341308
+hawkes_sd_q_c_s_f,volL_voluL_trendH,20,P1_immediate,3.200788637060934,P0_twap,15.197354631863895,1,P5_liquidity,18.39814326892483,17.604857511135037
+hawkes_sd_q_c_s_f,volL_voluL_trendL,20,P1_immediate,4.201951980173491,P0_twap,26.342637226093476,0,,30.544589206266966,31.305353605853128

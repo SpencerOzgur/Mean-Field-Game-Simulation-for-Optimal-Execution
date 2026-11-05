@@ -1,0 +1,4 @@
+size_frac,A1_rmsc04,A2_no_mm,A3_momentum,A4_few_value,A5_deep_mm,A6_volatile
+0.01,exp_b-2,urgency,exp_b-2,urgency,exp_b-2,exp_b-2
+0.05,urgency,exp_b-2,exp_b-2,exp_b4,urgency,exp_b4
+0.2,exp_b0,exp_b2,pov,exp_b4,exp_b0,exp_b0

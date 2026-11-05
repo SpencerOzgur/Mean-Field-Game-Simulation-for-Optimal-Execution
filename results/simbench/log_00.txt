@@ -1,0 +1,21 @@
+A1_rmsc04 {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 4000.0, 'wall_s': 2.64}
+A2_no_mm {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 3933.0, 'wall_s': 1.46}
+A3_momentum {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 4000.0, 'wall_s': 4.27}
+A4_few_value {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 3027.0, 'wall_s': 0.97}
+A5_deep_mm {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 4000.0, 'wall_s': 3.1}
+A6_volatile {'G1_identical_repeat': True, 'G2_pre_start_identical': True, 'G2_post_start_differs': True, 'G2_filled': 4000.0, 'wall_s': 3.59}
+[baselines] 1100 on disk, 100 to run
+[baselines] 100/100 episodes, 901s
+runaway episodes cut off: [['A3_momentum', 118]]
+world            A1_rmsc04   A2_no_mm  A3_momentum  A4_few_value  A5_deep_mm  A6_volatile
+obs_spread_bps       0.171      0.378        0.901         0.669       0.141        0.307
+obs_depth5         695.935    663.877      674.616       451.628    1592.859      675.371
+obs_vol10s_bps       0.365      0.825        5.690         2.167       0.207        0.944
+obs_ret_acf1         0.060     -0.122       -0.010         0.005       0.010        0.151
+obs_absret_acf1      0.221      0.250        0.362         0.259       0.092        0.308
+obs_kurtosis         9.613     16.676       18.790        19.063       3.182       15.698
+obs_volume       81825.680  74369.590   167719.291     50886.750  112366.960    81668.735
+obs_n_trades      1498.800   1274.710     2738.131      1008.220    1575.275     1508.810
+obs_trade_size      54.626     58.364       61.227        51.549      71.161       54.173
+obs_ofi_std        477.786    473.731      697.511       318.787     755.318      539.144
+obs_ofi_acf1         0.254      0.197        0.100         0.078       0.348        0.251

@@ -1,0 +1,21 @@
+world,sim,status,twin_failures,twin_fail_share,twin_wild_share,failure_reasons,realism_error,volume,reference_volume,part_spread_bps,part_vol_bps,part_kurtosis,part_ret_acf1,part_absret_acf1,part_move_bps_abs
+R1a_qr_resilient,hawkes,evaluated,0,0.0,0.0,,1.719,42710.0,42967.5,0.021,2.522,1.126,1.217,3.623,1.803
+R1a_qr_resilient,hawkes_linear,evaluated,0,0.0,0.0,,1.719,42710.0,42967.5,0.021,2.522,1.126,1.217,3.623,1.803
+R1a_qr_resilient,hawkes_sqrt,evaluated,0,0.0,0.0,,1.985,42930.0,42967.5,0.022,2.774,1.283,1.493,4.633,1.707
+R1a_qr_resilient,abides,evaluated,0,0.0,0.0,,10.628,41378.583,42967.5,0.443,38.275,0.264,12.035,8.455,4.293
+R1a_qr_resilient,mars,"not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",2,0.333,0.5,rollout exceeded 150s (runaway order generation),84.747,157827.25,42967.5,14.902,252.356,0.446,1.442,12.491,226.844
+R1b_qr_fragile,hawkes,evaluated,0,0.0,0.0,,0.207,68725.0,70800.0,0.072,0.398,0.1,0.315,0.168,0.186
+R1b_qr_fragile,hawkes_linear,evaluated,0,0.0,0.0,,0.207,68725.0,70800.0,0.072,0.398,0.1,0.315,0.168,0.186
+R1b_qr_fragile,hawkes_sqrt,evaluated,0,0.0,0.0,,0.16,69590.0,70800.0,0.067,0.138,0.096,0.188,0.394,0.078
+R1b_qr_fragile,abides,evaluated,0,0.0,0.0,,1.157,38299.667,70800.0,0.382,4.339,0.776,0.556,0.147,0.745
+R1b_qr_fragile,mars,"not evaluated: 17% of unperturbed runs failed, 40% of the rest moved more than 300 bps in ten minutes",1,0.167,0.4,AssertionError:  @ _update_with_normal_order,8.375,133148.2,70800.0,8.106,29.816,0.749,0.774,0.653,10.149
+R2a_am_anchored,hawkes,evaluated,0,0.0,0.05,,0.295,78635.0,95845.0,0.314,0.58,0.081,0.199,0.552,0.045
+R2a_am_anchored,hawkes_linear,evaluated,0,0.0,0.05,,0.295,78635.0,95845.0,0.314,0.58,0.081,0.199,0.552,0.045
+R2a_am_anchored,hawkes_sqrt,evaluated,0,0.0,0.05,,0.371,82220.0,95845.0,0.147,0.141,0.763,0.387,0.461,0.326
+R2a_am_anchored,abides,evaluated,0,0.0,0.0,,0.786,38330.333,95845.0,0.162,0.423,0.962,0.847,1.744,0.575
+R2a_am_anchored,mars,"not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",2,0.333,0.5,rollout exceeded 150s (runaway order generation),7.824,312035.25,95845.0,17.456,13.943,1.055,0.181,1.931,12.38
+R2b_am_trending,hawkes,evaluated,0,0.0,0.0,,0.605,112630.0,93260.0,1.104,0.802,0.139,0.556,0.169,0.862
+R2b_am_trending,hawkes_linear,evaluated,0,0.0,0.0,,0.605,112630.0,93260.0,1.104,0.802,0.139,0.556,0.169,0.862
+R2b_am_trending,hawkes_sqrt,evaluated,0,0.0,0.05,,0.521,109225.0,93260.0,0.756,0.338,0.64,0.372,0.085,0.932
+R2b_am_trending,abides,evaluated,0,0.0,0.083,,0.576,26146.833,93260.0,0.392,0.996,0.933,0.065,0.701,0.368
+R2b_am_trending,mars,"not evaluated: 33% of unperturbed runs failed, 50% of the rest moved more than 300 bps in ten minutes",2,0.333,0.5,AssertionError:  @ _update_with_normal_order,7.113,166669.5,93260.0,6.011,15.39,2.561,0.37,1.023,17.326

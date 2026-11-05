@@ -1,0 +1,14 @@
+[baselines_h600] 240 on disk, 0 to run
+[policies_h600] 700 on disk, 500 to run
+[policies_h600] 100/500 episodes, 45s
+[policies_h600] 200/500 episodes, 94s
+[policies_h600] 300/500 episodes, 137s
+[policies_h600] 400/500 episodes, 182s
+[policies_h600] 500/500 episodes, 231s
+world      A1_rmsc04  A2_no_mm  A3_momentum  A4_few_value  A5_deep_mm  A6_volatile
+policy                                                                            
+exp_b-2         0.67      0.37        11.84          0.98        0.54         1.19
+exp_b0          0.73      0.40         4.57          1.24        0.59         0.76
+exp_b2          0.54      0.61         4.44          0.74        0.55         0.34
+exp_b8          1.13      1.16         3.83          1.46        0.69         1.60
+immediate       2.09      1.95         5.33          2.48        1.09         4.52

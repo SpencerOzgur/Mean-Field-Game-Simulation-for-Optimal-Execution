@@ -1,0 +1,16 @@
+mean background volume in window: 315617.5 -> parent qty 31562
+5 episodes finished, 913s
+6 episodes finished, 915s
+7 episodes finished, 929s
+8 episodes finished, 1798s
+9 episodes finished, 1812s
+10 episodes finished, 1816s
+11 episodes finished, 1818s
+12 episodes finished, 1820s
+14 episodes finished, 1824s
+15 episodes finished, 2613s
+16 episodes finished, 2615s
+17 episodes finished, 2621s
+18 episodes finished, 2623s
+19 episodes finished, 2625s
+20 episodes finished, 2627s

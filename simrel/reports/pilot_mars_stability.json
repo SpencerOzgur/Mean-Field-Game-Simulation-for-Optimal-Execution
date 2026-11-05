@@ -1,0 +1,562 @@
+[
+  {
+    "model": "Don-Don/mars-order-2m",
+    "seed": 0,
+    "wall_s": 49.6,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 317,
+        "ret_bps": 15.274949083503575,
+        "spread_ticks": 1.6435331230283914,
+        "depth1": 1031.5457413249212,
+        "volume": 23800,
+        "mid_end": 98350.0
+      },
+      {
+        "window": 0,
+        "orders": 260,
+        "ret_bps": 66.09049313675675,
+        "spread_ticks": 2.3115384615384618,
+        "depth1": 1317.1153846153845,
+        "volume": 51400,
+        "mid_end": 99000.0
+      },
+      {
+        "window": 1,
+        "orders": 232,
+        "ret_bps": -10.101010101010166,
+        "spread_ticks": 2.081896551724138,
+        "depth1": 1498.3556034482758,
+        "volume": 33540,
+        "mid_end": 98900.0
+      },
+      {
+        "window": 2,
+        "orders": 220,
+        "ret_bps": -65.72295247724958,
+        "spread_ticks": 1.4954545454545454,
+        "depth1": 6732.718181818182,
+        "volume": 61467,
+        "mid_end": 98250.0
+      },
+      {
+        "window": 3,
+        "orders": 224,
+        "ret_bps": 0.0,
+        "spread_ticks": 1.125,
+        "depth1": 14534.151785714286,
+        "volume": 98500,
+        "mid_end": 98250.0
+      },
+      {
+        "window": 4,
+        "orders": 224,
+        "ret_bps": -30.534351145038443,
+        "spread_ticks": 2.8035714285714284,
+        "depth1": 5258.705357142857,
+        "volume": 133425,
+        "mid_end": 97950.0
+      },
+      {
+        "window": 5,
+        "orders": 242,
+        "ret_bps": 35.71428571428559,
+        "spread_ticks": 1.0743801652892562,
+        "depth1": 8279.297520661157,
+        "volume": 57900,
+        "mid_end": 98350.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-2m",
+    "seed": 1,
+    "wall_s": 69.0,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 322,
+        "ret_bps": -29.615004935834577,
+        "spread_ticks": 2.1180124223602483,
+        "depth1": 811.4906832298136,
+        "volume": 21600,
+        "mid_end": 101000.0
+      },
+      {
+        "window": 0,
+        "orders": 235,
+        "ret_bps": -24.752475247524774,
+        "spread_ticks": 1.6893617021276595,
+        "depth1": 8225.744680851063,
+        "volume": 89400,
+        "mid_end": 100750.0
+      },
+      {
+        "window": 1,
+        "orders": 388,
+        "ret_bps": 148.88337468982547,
+        "spread_ticks": 1.481958762886598,
+        "depth1": 5075.2474226804125,
+        "volume": 59600,
+        "mid_end": 102250.0
+      },
+      {
+        "window": 2,
+        "orders": 373,
+        "ret_bps": 943.7652811735942,
+        "spread_ticks": 3.6434316353887395,
+        "depth1": 4274.6702412868635,
+        "volume": 64100,
+        "mid_end": 111900.0
+      },
+      {
+        "window": 3,
+        "orders": 426,
+        "ret_bps": 8.869179600887733,
+        "spread_ticks": 2.248826291079812,
+        "depth1": 14987.852112676057,
+        "volume": 81450,
+        "mid_end": 112850.0
+      },
+      {
+        "window": 4,
+        "orders": 445,
+        "ret_bps": 4.430660168364131,
+        "spread_ticks": 2.9887640449438204,
+        "depth1": 33392.20786516854,
+        "volume": 417621,
+        "mid_end": 112900.0
+      },
+      {
+        "window": 5,
+        "orders": 241,
+        "ret_bps": -8.857395925597755,
+        "spread_ticks": 2.3609958506224067,
+        "depth1": 143811.20331950206,
+        "volume": 160700,
+        "mid_end": 112800.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-2m",
+    "seed": 2,
+    "wall_s": 58.1,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 313,
+        "ret_bps": 30.785017957926097,
+        "spread_ticks": 1.4856230031948883,
+        "depth1": 1319.6485623003196,
+        "volume": 29100,
+        "mid_end": 97750.0
+      },
+      {
+        "window": 0,
+        "orders": 352,
+        "ret_bps": 214.83375959079342,
+        "spread_ticks": 1.3607954545454546,
+        "depth1": 4024.715909090909,
+        "volume": 95000,
+        "mid_end": 99850.0
+      },
+      {
+        "window": 1,
+        "orders": 289,
+        "ret_bps": 125.18778167250888,
+        "spread_ticks": 2.2283737024221453,
+        "depth1": 3429.9307958477507,
+        "volume": 37130,
+        "mid_end": 101100.0
+      },
+      {
+        "window": 2,
+        "orders": 224,
+        "ret_bps": 64.29277942631151,
+        "spread_ticks": 1.2589285714285714,
+        "depth1": 11205.80357142857,
+        "volume": 37400,
+        "mid_end": 101750.0
+      },
+      {
+        "window": 3,
+        "orders": 218,
+        "ret_bps": 515.9705159705163,
+        "spread_ticks": 2.931192660550459,
+        "depth1": 2306.422018348624,
+        "volume": 37900,
+        "mid_end": 107000.0
+      },
+      {
+        "window": 4,
+        "orders": 302,
+        "ret_bps": -74.83629560336769,
+        "spread_ticks": 2.556291390728477,
+        "depth1": 29858.112582781458,
+        "volume": 31000,
+        "mid_end": 106100.0
+      },
+      {
+        "window": 5,
+        "orders": 237,
+        "ret_bps": 4.7125353440158335,
+        "spread_ticks": 1.0253164556962024,
+        "depth1": 10793.67088607595,
+        "volume": 33100,
+        "mid_end": 106150.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-2m",
+    "seed": 3,
+    "wall_s": 65.7,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 304,
+        "ret_bps": 35.33568904593665,
+        "spread_ticks": 1.3848684210526314,
+        "depth1": 979.4407894736842,
+        "volume": 26200,
+        "mid_end": 99400.0
+      },
+      {
+        "window": 0,
+        "orders": 255,
+        "ret_bps": -120.66365007541435,
+        "spread_ticks": 1.7843137254901962,
+        "depth1": 1931.0117647058823,
+        "volume": 32216,
+        "mid_end": 98250.0
+      },
+      {
+        "window": 1,
+        "orders": 323,
+        "ret_bps": 20.356234096692294,
+        "spread_ticks": 2.390092879256966,
+        "depth1": 2114.860681114551,
+        "volume": 49800,
+        "mid_end": 98450.0
+      },
+      {
+        "window": 2,
+        "orders": 399,
+        "ret_bps": 142.2041645505323,
+        "spread_ticks": 1.3208020050125313,
+        "depth1": 1878.2105263157894,
+        "volume": 111804,
+        "mid_end": 99850.0
+      },
+      {
+        "window": 3,
+        "orders": 293,
+        "ret_bps": -35.07014028056088,
+        "spread_ticks": 1.89419795221843,
+        "depth1": 2643.8566552901025,
+        "volume": 47700,
+        "mid_end": 99450.0
+      },
+      {
+        "window": 4,
+        "orders": 352,
+        "ret_bps": 50.27652086475598,
+        "spread_ticks": 1.3039772727272727,
+        "depth1": 3282.528409090909,
+        "volume": 37600,
+        "mid_end": 99950.0
+      },
+      {
+        "window": 5,
+        "orders": 257,
+        "ret_bps": 20.01000500250205,
+        "spread_ticks": 1.509727626459144,
+        "depth1": 7897.27626459144,
+        "volume": 75400,
+        "mid_end": 100150.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-10m",
+    "seed": 0,
+    "wall_s": 108.8,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 317,
+        "ret_bps": 15.274949083503575,
+        "spread_ticks": 1.6435331230283914,
+        "depth1": 1031.5457413249212,
+        "volume": 23800,
+        "mid_end": 98350.0
+      },
+      {
+        "window": 0,
+        "orders": 351,
+        "ret_bps": 66.09049313675675,
+        "spread_ticks": 1.7920227920227922,
+        "depth1": 3024.7863247863247,
+        "volume": 37400,
+        "mid_end": 99000.0
+      },
+      {
+        "window": 1,
+        "orders": 271,
+        "ret_bps": 55.55555555555536,
+        "spread_ticks": 3.140221402214022,
+        "depth1": 1049.4464944649446,
+        "volume": 25520,
+        "mid_end": 99550.0
+      },
+      {
+        "window": 2,
+        "orders": 314,
+        "ret_bps": 5.025125628139726,
+        "spread_ticks": 4.203821656050955,
+        "depth1": 1504.0445859872611,
+        "volume": 26700,
+        "mid_end": 99550.0
+      },
+      {
+        "window": 3,
+        "orders": 273,
+        "ret_bps": -70.31642390758375,
+        "spread_ticks": 1.5421245421245422,
+        "depth1": 8616.300366300366,
+        "volume": 70300,
+        "mid_end": 98850.0
+      },
+      {
+        "window": 4,
+        "orders": 236,
+        "ret_bps": 60.698027314112224,
+        "spread_ticks": 1.0381355932203389,
+        "depth1": 7211.817796610169,
+        "volume": 48400,
+        "mid_end": 99450.0
+      },
+      {
+        "window": 5,
+        "orders": 244,
+        "ret_bps": 40.221216691804784,
+        "spread_ticks": 2.8606557377049184,
+        "depth1": 3495.2868852459014,
+        "volume": 16400,
+        "mid_end": 99850.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-10m",
+    "seed": 1,
+    "wall_s": 121.8,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 322,
+        "ret_bps": -29.615004935834577,
+        "spread_ticks": 2.1180124223602483,
+        "depth1": 811.4906832298136,
+        "volume": 21600,
+        "mid_end": 101000.0
+      },
+      {
+        "window": 0,
+        "orders": 349,
+        "ret_bps": -9.90099009900991,
+        "spread_ticks": 2.0773638968481376,
+        "depth1": 7691.404011461318,
+        "volume": 128600,
+        "mid_end": 100900.0
+      },
+      {
+        "window": 1,
+        "orders": 529,
+        "ret_bps": -99.0589400693409,
+        "spread_ticks": 1.3761814744801513,
+        "depth1": 7563.421550094518,
+        "volume": 162850,
+        "mid_end": 99950.0
+      },
+      {
+        "window": 2,
+        "orders": 302,
+        "ret_bps": -10.005002501251026,
+        "spread_ticks": 1.0198675496688743,
+        "depth1": 5350.0,
+        "volume": 52900,
+        "mid_end": 99850.0
+      },
+      {
+        "window": 3,
+        "orders": 234,
+        "ret_bps": 0.0,
+        "spread_ticks": 1.0,
+        "depth1": 6064.786324786325,
+        "volume": 50420,
+        "mid_end": 99850.0
+      },
+      {
+        "window": 4,
+        "orders": 374,
+        "ret_bps": -10.015022533800266,
+        "spread_ticks": 1.0882352941176472,
+        "depth1": 6665.4812834224595,
+        "volume": 54080,
+        "mid_end": 99750.0
+      },
+      {
+        "window": 5,
+        "orders": 241,
+        "ret_bps": 10.02506265664227,
+        "spread_ticks": 1.012448132780083,
+        "depth1": 7086.680497925311,
+        "volume": 107420,
+        "mid_end": 99850.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-10m",
+    "seed": 2,
+    "wall_s": 344.1,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 313,
+        "ret_bps": 30.785017957926097,
+        "spread_ticks": 1.4856230031948883,
+        "depth1": 1319.6485623003196,
+        "volume": 29100,
+        "mid_end": 97750.0
+      },
+      {
+        "window": 0,
+        "orders": 489,
+        "ret_bps": 1964.1943734015354,
+        "spread_ticks": 4.752556237218814,
+        "depth1": 2640.3844580777095,
+        "volume": 90800,
+        "mid_end": 116950.0
+      },
+      {
+        "window": 1,
+        "orders": 240,
+        "ret_bps": 123.98460880718164,
+        "spread_ticks": 1.65,
+        "depth1": 1874.375,
+        "volume": 49100,
+        "mid_end": 118400.0
+      },
+      {
+        "window": 2,
+        "orders": 5923,
+        "ret_bps": 97.1283783783794,
+        "spread_ticks": 1.2674320445720075,
+        "depth1": 27287.80153638359,
+        "volume": 5921870,
+        "mid_end": 119550.0
+      },
+      {
+        "window": 3,
+        "orders": 231,
+        "ret_bps": -41.82350480970265,
+        "spread_ticks": 2.4025974025974026,
+        "depth1": 12488.311688311689,
+        "volume": 195600,
+        "mid_end": 119050.0
+      },
+      {
+        "window": 4,
+        "orders": 362,
+        "ret_bps": -41.999160016800154,
+        "spread_ticks": 1.919889502762431,
+        "depth1": 19108.149171270717,
+        "volume": 201600,
+        "mid_end": 118550.0
+      },
+      {
+        "window": 5,
+        "orders": 439,
+        "ret_bps": -25.30577815267776,
+        "spread_ticks": 1.85876993166287,
+        "depth1": 14933.57630979499,
+        "volume": 237144,
+        "mid_end": 118250.0
+      }
+    ]
+  },
+  {
+    "model": "Don-Don/mars-order-10m",
+    "seed": 3,
+    "wall_s": 376.5,
+    "windows": [
+      {
+        "window": -1,
+        "orders": 304,
+        "ret_bps": 35.33568904593665,
+        "spread_ticks": 1.3848684210526314,
+        "depth1": 979.4407894736842,
+        "volume": 26200,
+        "mid_end": 99400.0
+      },
+      {
+        "window": 0,
+        "orders": 331,
+        "ret_bps": 347.08249496981927,
+        "spread_ticks": 2.3172205438066467,
+        "depth1": 1826.749244712991,
+        "volume": 49484,
+        "mid_end": 102850.0
+      },
+      {
+        "window": 1,
+        "orders": 1268,
+        "ret_bps": 1641.5735794074803,
+        "spread_ticks": 3.977129337539432,
+        "depth1": 5825.440063091482,
+        "volume": 535700,
+        "mid_end": 119850.0
+      },
+      {
+        "window": 2,
+        "orders": 6362,
+        "ret_bps": 20.859407592823676,
+        "spread_ticks": 1.3333857277585666,
+        "depth1": 16666.8909933983,
+        "volume": 5599619,
+        "mid_end": 120100.0
+      },
+      {
+        "window": 3,
+        "orders": 645,
+        "ret_bps": -20.81598667776907,
+        "spread_ticks": 1.1813953488372093,
+        "depth1": 10543.488372093023,
+        "volume": 435100,
+        "mid_end": 119850.0
+      },
+      {
+        "window": 4,
+        "orders": 280,
+        "ret_bps": 16.687526074259385,
+        "spread_ticks": 1.0607142857142857,
+        "depth1": 14193.75,
+        "volume": 71300,
+        "mid_end": 120050.0
+      },
+      {
+        "window": 5,
+        "orders": 169,
+        "ret_bps": -16.659725114535064,
+        "spread_ticks": 1.0,
+        "depth1": 13521.89349112426,
+        "volume": 42600,
+        "mid_end": 119850.0
+      }
+    ]
+  }
+]

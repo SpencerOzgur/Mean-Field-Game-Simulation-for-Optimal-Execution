@@ -1,0 +1,163 @@
+{
+ "volH_voluH_trendH": {
+  "name": "S_v1000_m0p0.025w60s_f1e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 1000,
+  "num_momentum_agents": 12,
+  "num_mm": 0,
+  "mm_pov": 0.025,
+  "mm_wake_up_freq": "60s",
+  "fund_vol": 1e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volH_voluH_trendL": {
+  "name": "S_v300_m2p0.1w10s_f1e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 2,
+  "mm_pov": 0.1,
+  "mm_wake_up_freq": "10s",
+  "fund_vol": 1e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volH_voluL_trendH": {
+  "name": "S_v300_m2p0.1w10s_f1e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 2,
+  "mm_pov": 0.1,
+  "mm_wake_up_freq": "10s",
+  "fund_vol": 1e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volH_voluL_trendL": {
+  "name": "S_v300_m0p0.025w60s_f5e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 0,
+  "mm_pov": 0.025,
+  "mm_wake_up_freq": "60s",
+  "fund_vol": 5e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volL_voluH_trendL": {
+  "name": "S_v300_m2p0.025w60s_f1e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 2,
+  "mm_pov": 0.025,
+  "mm_wake_up_freq": "60s",
+  "fund_vol": 1e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volL_voluL_trendH": {
+  "name": "S_v300_m2p0.1w10s_f5e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 2,
+  "mm_pov": 0.1,
+  "mm_wake_up_freq": "10s",
+  "fund_vol": 5e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ },
+ "volL_voluL_trendL": {
+  "name": "S_v300_m2p0.025w60s_f1e-05",
+  "description": "slice calibration candidate",
+  "num_noise_agents": 1000,
+  "num_value_agents": 300,
+  "num_momentum_agents": 12,
+  "num_mm": 2,
+  "mm_pov": 0.025,
+  "mm_wake_up_freq": "60s",
+  "fund_vol": 1e-05,
+  "lambda_a": 5.7e-12,
+  "r_bar": 5418,
+  "num_quoting": 0,
+  "quoting_rate": 0.0,
+  "quoting_lifetime_s": 1.0,
+  "quoting_levels": [
+   0
+  ],
+  "quoting_sizes": [
+   100
+  ],
+  "quoting_lifetimes": []
+ }
+}

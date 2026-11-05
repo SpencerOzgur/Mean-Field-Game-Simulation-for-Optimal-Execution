@@ -25,3 +25,21 @@ build/
 
 # OS files
 Thumbs.db
+# simbench raw episode records
+results/simbench/raw/
+results/simrel/raw/
+results/simrel/slices/raw/
+
+# simrel: raw simulation outputs and bulky intermediates (regenerable from the code)
+results/simrel/**/raw/
+results/simrel/**/rec/
+results/simrel/lob_impact/*/csv/
+results/simrel/lob_impact/*/csv_unique/
+results/simrel/**/*.pkl
+results/simrel/**/*.npz
+results/simrel/**/*.npy
+results/simbench/**/*.npy
+results/simrel/**/trade_responses.csv
+results/simrel/**/policy_episodes.csv
+results/simrel/**/policy_cross.csv
+results/simrel/goal2/diagnostic/gain_errors.csv

@@ -1,0 +1,249 @@
+diff --git a/ABIDES/agent/WorldAgent.py b/ABIDES/agent/WorldAgent.py
+index 44e156c..3a4d4f1 100644
+--- a/ABIDES/agent/WorldAgent.py
++++ b/ABIDES/agent/WorldAgent.py
+@@ -46,7 +46,7 @@ class WorldAgent(Agent):
+         self.model = model
+         self.historical_orders, self.historical_lob = self._load_orders_lob(self.symbol, data_dir, self.date, date_trading_days)
+         self.historical_order_ids = self.historical_orders[:, 2]
+-        self.unused_order_ids = np.setdiff1d(np.arange(0, 99999999), self.historical_order_ids)
++        self.unused_order_ids = np.setdiff1d(np.arange(0, 9999999), self.historical_order_ids)  # simbench patch: 10M ids is ample and saves ~2 GB per process
+         self.next_orders = None
+         self.subscription_requested = False
+         self.date_trading_days = date_trading_days
+diff --git a/ABIDES/config/world_agent_sim.py b/ABIDES/config/world_agent_sim.py
+index 2b3e49d..ee2c262 100644
+--- a/ABIDES/config/world_agent_sim.py
++++ b/ABIDES/config/world_agent_sim.py
+@@ -244,7 +244,7 @@ if args.diffusion:
+     config.HYPER_PARAMETERS[cst.LearningHyperParameter.DDIM_NSTEPS] = args.ddim_nsteps
+     if config.CHOSEN_MODEL == cst.Models.TRADES:
+         # load checkpoint
+-        model = DiffusionEngine.load_from_checkpoint(checkpoint_reference, config=config, map_location=cst.DEVICE)
++        model = DiffusionEngine.load_from_checkpoint(checkpoint_reference, config=config, map_location=cst.DEVICE, weights_only=False)
+         agents.extend([WorldAgent(id=1,
+                           name="WORLD_AGENT",
+                           type="WorldAgent",
+diff --git a/ABIDES/util/OrderBook.py b/ABIDES/util/OrderBook.py
+index 76501d6..2b0e18e 100644
+--- a/ABIDES/util/OrderBook.py
++++ b/ABIDES/util/OrderBook.py
+@@ -33,6 +33,9 @@ class OrderBook:
+ 
+         # Create an order history for the exchange to report to certain agent types.
+         self.history = [{}]
++        # simbench: order-level tape of everything that changes the book: (time, kind, order id, is_buy, price, quantity),
++        # kind "A" order rests, "E" resting order executed, "X" resting order cancelled, "M" resting order's new quantity
++        self.tape = []
+ 
+         # Last timestamp the orderbook for that symbol was updated
+         self.last_update_ts = None
+@@ -84,7 +87,9 @@ class OrderBook:
+                 log_print("SENT: notifications of order execution to agents {} and {} for orders {} and {}",
+                           filled_order.agent_id, matched_order.agent_id, filled_order.order_id, matched_order.order_id)
+ 
+-                #self.owner.sendMessage(order.agent_id, Message({"msg": "ORDER_EXECUTED", "order": filled_order}))
++                # simbench patch: DeepMarket disables the aggressor's fill notice; restore it for execution agents only
++                if self.owner.kernel.agents[order.agent_id].type == "ExecutionAgent":
++                    self.owner.sendMessage(order.agent_id, Message({"msg": "ORDER_EXECUTED", "order": filled_order}))
+                 self.owner.sendMessage(matched_order.agent_id, Message({"msg": "ORDER_EXECUTED", "order": matched_order}))
+ 
+                 # Accumulate the volume and average share price of the currently executing inbound trade.
+@@ -237,6 +242,7 @@ class OrderBook:
+             # When two limit orders are matched, they execute at the price that
+             # was being "advertised" in the order book.
+             matched_order.fill_price = matched_order.limit_price
++            self.tape.append((self.owner.currentTime, "E", matched_order.order_id, matched_order.is_buy_order, matched_order.limit_price, matched_order.quantity))
+ 
+             # Record the transaction in the order history and push the indices
+             # out one, possibly truncating to the maximum history length.
+@@ -278,6 +284,7 @@ class OrderBook:
+             book = self.bids
+         else:
+             book = self.asks
++        self.tape.append((self.owner.currentTime, "A", order.order_id, order.is_buy_order, order.limit_price, order.quantity))
+ 
+         if not book:
+             # There were no orders on this side of the book.
+@@ -324,6 +331,7 @@ class OrderBook:
+                     if order.order_id == co.order_id:
+                         # Cancel this order.
+                         cancelled_order = book[i].pop(ci)
++                        self.tape.append((self.owner.currentTime, "X", cancelled_order.order_id, cancelled_order.is_buy_order, cancelled_order.limit_price, cancelled_order.quantity))
+ 
+                         # Record cancellation of the order if it is still present in the recent history structure.
+                         for idx, orders in enumerate(self.history):
+@@ -357,6 +365,7 @@ class OrderBook:
+                 for mi, mo in enumerate(book[i]):
+                     if order.order_id == mo.order_id:
+                         book[i][mi] = new_order
++                        self.tape.append((self.owner.currentTime, "M", new_order.order_id, new_order.is_buy_order, new_order.limit_price, new_order.quantity))
+                         for idx, orders in enumerate(self.history):
+                             if new_order.order_id not in orders: continue
+                             self.history[idx][new_order.order_id]['modifications'].append(
+diff --git a/evaluation/quantitative_eval/predictive_lstm.py b/evaluation/quantitative_eval/predictive_lstm.py
+index 14ca466..b8153a1 100644
+--- a/evaluation/quantitative_eval/predictive_lstm.py
++++ b/evaluation/quantitative_eval/predictive_lstm.py
+@@ -78,8 +78,8 @@ class LSTMModel(nn.Module):
+         self.fc = nn.Linear(hidden_size, output_size)
+ 
+     def forward(self, x):
+-        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device, non_blocking=True)
+-        c0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device, non_blocking=True)
++        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
++        c0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+         out, (h, c) = self.lstm(x, (h0, c0))  
+         out = self.fc(out[:, -1, :])
+         return out, c[-1, :, :]
+@@ -114,8 +114,8 @@ class Trainer:
+ 
+     def test(self):
+         self.model.eval()
+-        test_preds = torch.Tensor().to(self.device, non_blocking=True)
+-        test_labels = torch.Tensor().to(self.device, non_blocking=True)
++        test_preds = torch.Tensor().to(self.device)
++        test_labels = torch.Tensor().to(self.device)
+         with torch.no_grad():
+             for inputs, labels in self.test_loader:
+                 #print(inputs)
+@@ -182,10 +182,10 @@ def main(real_data_path, generated_data_path):
+     train_X_r = np.concatenate([train_X_r[:, :7], train_X_r[:, -4:]], axis=1)
+     test_X_r = np.concatenate([test_X_r[:, :7], test_X_r[:, -4:]], axis=1)
+     # Convert to PyTorch tensors
+-    train_X_r = torch.tensor(train_X_r, dtype=torch.float32).to(device, non_blocking=True)
+-    train_y_r = torch.tensor(train_y_r, dtype=torch.float32).to(device, non_blocking=True)
+-    test_X_r = torch.tensor(test_X_r, dtype=torch.float32).to(device, non_blocking=True)
+-    test_y_r = torch.tensor(test_y_r, dtype=torch.float32).to(device, non_blocking=True)
++    train_X_r = torch.tensor(train_X_r, dtype=torch.float32).to(device)
++    train_y_r = torch.tensor(train_y_r, dtype=torch.float32).to(device)
++    test_X_r = torch.tensor(test_X_r, dtype=torch.float32).to(device)
++    test_y_r = torch.tensor(test_y_r, dtype=torch.float32).to(device)
+ 
+     # Create data loaders
+     train_data_r = TDataset(train_X_r, train_y_r)
+@@ -211,8 +211,8 @@ def main(real_data_path, generated_data_path):
+     train_X_g, test_X_g, train_y_g, test_y_g = train_test_split(features_g, labels_g, test_size=2, random_state=42)
+     train_X_g = np.concatenate([train_X_g[:, :7], train_X_g[:, -4:]], axis=1)
+     # Convert to PyTorch tensors
+-    train_X_g = torch.tensor(train_X_g, dtype=torch.float32).to(device, non_blocking=True)
+-    train_y_g = torch.tensor(train_y_g, dtype=torch.float32).to(device, non_blocking=True)
++    train_X_g = torch.tensor(train_X_g, dtype=torch.float32).to(device)
++    train_y_g = torch.tensor(train_y_g, dtype=torch.float32).to(device)
+ 
+     # Create data loaders
+     train_data_g = TDataset(train_X_g, train_y_g)
+diff --git a/models/diffusers/DiffusionAB.py b/models/diffusers/DiffusionAB.py
+index 3151a5e..5984aea 100644
+--- a/models/diffusers/DiffusionAB.py
++++ b/models/diffusers/DiffusionAB.py
+@@ -28,7 +28,7 @@ class DiffusionAB(ABC):
+         Reparametrized forward diffusion process, takes in input x_0 and returns x_t after t steps of noise
+         x_t(x_0, ϵ) = √(α̅_t)x_0 + √(1 - α̅_t)ϵ
+         """
+-        noise = torch.distributions.normal.Normal(0, 1).sample(x_0.shape).to(cst.DEVICE, non_blocking=True)
++        noise = torch.distributions.normal.Normal(0, 1).sample(x_0.shape).to(cst.DEVICE)
+         first_term = torch.einsum('bld, b -> bld', x_0, torch.sqrt(self.alphas_cumprod[t]))
+         second_term = torch.einsum('bld, b -> bld', noise, torch.sqrt(1 - self.alphas_cumprod[t]))
+         x_t = first_term + second_term
+@@ -39,5 +39,5 @@ class DiffusionAB(ABC):
+         cov_matrix = torch.eye(x_0.shape)
+         mean = torch.mul(x_0, torch.sqrt(self.alphas_cumprod[t]))
+         std = torch.mul(cov_matrix, torch.sqrt(1 - self.alphas_cumprod[t]))
+-        x_T = torch.distributions.Normal(mean, std).rsample().to(cst.DEVICE, non_blocking=True)
++        x_T = torch.distributions.Normal(mean, std).rsample().to(cst.DEVICE)
+         return x_T, {'mean': mean, 'std': std}
+\ No newline at end of file
+diff --git a/models/diffusers/TRADES/Embedders.py b/models/diffusers/TRADES/Embedders.py
+index f9384e2..e222538 100644
+--- a/models/diffusers/TRADES/Embedders.py
++++ b/models/diffusers/TRADES/Embedders.py
+@@ -30,7 +30,7 @@ class TimestepEmbedder(nn.Module):
+         half = dim // 2
+         freqs = torch.exp(
+             -math.log(max_period) * torch.arange(start=0, end=half, dtype=torch.float32) / half
+-        ).to(device=cst.DEVICE, non_blocking=True)
++        ).to(device=cst.DEVICE)
+         args = t[:, None].float() * freqs[None]
+         embedding = torch.cat([torch.cos(args), torch.sin(args)], dim=-1)
+         if dim % 2:
+diff --git a/models/diffusers/TRADES/Sampler.py b/models/diffusers/TRADES/Sampler.py
+index a590146..5e17b48 100644
+--- a/models/diffusers/TRADES/Sampler.py
++++ b/models/diffusers/TRADES/Sampler.py
+@@ -35,9 +35,9 @@ class ScheduleSampler(ABC):
+         w = self.weights()
+         p = w / np.sum(w)
+         indices_np = np.random.choice(len(p), size=(batch_size,), p=p)
+-        indices = torch.from_numpy(indices_np).long().to(cst.DEVICE, non_blocking=True)
++        indices = torch.from_numpy(indices_np).long().to(cst.DEVICE)
+         weights_np = 1 / (len(p) * p[indices_np])
+-        weights = torch.from_numpy(weights_np).float().to(cst.DEVICE, non_blocking=True)
++        weights = torch.from_numpy(weights_np).float().to(cst.DEVICE)
+         return indices, weights
+ 
+     
+diff --git a/models/diffusers/diffusion_engine.py b/models/diffusers/diffusion_engine.py
+index b1a27f3..d35da1a 100644
+--- a/models/diffusers/diffusion_engine.py
++++ b/models/diffusers/diffusion_engine.py
+@@ -48,9 +48,9 @@ class DiffusionEngine(LightningModule):
+         self.cond_size = config.COND_SIZE
+         if self.IS_AUGMENTATION:
+             self.feature_augmenter = pick_augmenter(config.CHOSEN_AUGMENTER, self.size_order_emb, self.augment_dim, self.cond_size, self.cond_type, config.CHOSEN_COND_AUGMENTER, self.cond_method, self.chosen_model)
+-            self.diffuser = GaussianDiffusion(config, self.feature_augmenter).to(cst.DEVICE, non_blocking=True)
++            self.diffuser = GaussianDiffusion(config, self.feature_augmenter).to(cst.DEVICE)
+         else:
+-            self.diffuser = GaussianDiffusion(config, None).to(cst.DEVICE, non_blocking=True)
++            self.diffuser = GaussianDiffusion(config, None).to(cst.DEVICE)
+             
+         self.type_embedder = nn.Embedding(3, self.size_type_emb, dtype=torch.float32)
+         self.type_embedder.requires_grad_(False)
+diff --git a/models/diffusers/gaussian_diffusion.py b/models/diffusers/gaussian_diffusion.py
+index 426c68c..30a81cf 100644
+--- a/models/diffusers/gaussian_diffusion.py
++++ b/models/diffusers/gaussian_diffusion.py
+@@ -177,7 +177,7 @@ class GaussianDiffusion(nn.Module, DiffusionAB):
+         std_t = torch.sqrt(var_t)
+         
+         # Sample a standard normal random variable z
+-        z = torch.distributions.normal.Normal(0, 1).sample(x_t.shape).to(cst.DEVICE, non_blocking=True)
++        z = torch.distributions.normal.Normal(0, 1).sample(x_t.shape).to(cst.DEVICE)
+         
+         #std_t = self.betas[t]
+         #std_t = repeat(std_t, 'b -> b l d', l=self.gen_seq_size, d=x_0.shape[-1])
+diff --git a/utils/utils.py b/utils/utils.py
+index 83a997d..5409179 100644
+--- a/utils/utils.py
++++ b/utils/utils.py
+@@ -30,7 +30,7 @@ def noise_scheduler(num_diffusion_timesteps, max_beta=0.99):
+         t1 = i / num_diffusion_timesteps
+         t2 = (i + 1) / num_diffusion_timesteps
+         betas.append(min(1 - alpha_bar(t2) / alpha_bar(t1), max_beta))
+-    return torch.tensor(betas, dtype=torch.float32).to(cst.DEVICE, non_blocking=True)
++    return torch.tensor(betas, dtype=torch.float32).to(cst.DEVICE)
+ 
+ 
+ #formula taken from "Denoising Diffusion Probabilistic Models"
+@@ -54,7 +54,7 @@ def sinusoidal_positional_embedding(token_sequence_size, token_embedding_dim, n=
+     embeddings[:, 0::2] = torch.sin(positions/denominators) # sin(pos/10000^(2i/d_model))
+     embeddings[:, 1::2] = torch.cos(positions/denominators) # cos(pos/10000^(2i/d_model))
+ 
+-    return embeddings.to(cst.DEVICE, non_blocking=True)
++    return embeddings.to(cst.DEVICE)
+ 
+ 
+ def Conv1d_with_init(in_channels, out_channels, kernel_size):
+diff --git a/utils/utils_models.py b/utils/utils_models.py
+index c33c042..fa8b877 100644
+--- a/utils/utils_models.py
++++ b/utils/utils_models.py
+@@ -7,7 +7,7 @@ from models.feature_augmenters.MLPAugmenter import MLPAugmenter
+ 
+ def pick_augmenter(augmenter_name, input_size, augment_dim, cond_size, cond_type, cond_augmenter, cond_method, chosen_model):
+     if augmenter_name == 'MLP':
+-        return MLPAugmenter(input_size, augment_dim, cond_size, cond_type, cond_augmenter, cond_method, chosen_model).to(cst.DEVICE, non_blocking=True)
++        return MLPAugmenter(input_size, augment_dim, cond_size, cond_type, cond_augmenter, cond_method, chosen_model).to(cst.DEVICE)
+     else:
+         raise ValueError("Augmenter not found")
+ 

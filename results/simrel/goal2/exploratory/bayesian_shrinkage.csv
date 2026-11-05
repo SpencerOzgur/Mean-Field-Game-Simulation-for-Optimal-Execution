@@ -1,0 +1,4 @@
+markets,always TWAP,"ensemble, cheapest predicted","ensemble, Bayesian shrinkage",prior only (no simulator),shrinkage picks other than TWAP
+"sampled (10, untouched by the prior)",2.104085989269681,5.832249021725618,0.7254940381104986,0.7254940381104986,20 of 20
+well-specified (6),4.112368031861071,2.1512571300605328,5.018981733889882,5.018981733889882,12 of 12
+"training (10, in-sample)",1.887057405673882,5.666661940167929,0.37322691264915137,0.37322691264915137,20 of 20

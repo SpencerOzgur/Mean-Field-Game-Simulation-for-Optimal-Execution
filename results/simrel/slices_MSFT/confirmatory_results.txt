@@ -1,0 +1,17 @@
+Confirmatory analysis, MSFT
+size 10%  D(Hawkes-original) = +2.23 bps  [+0.72, +3.81]  (120 seed-slice pairs)
+size 10%  D(Hawkes-queue) = +0.03 bps  [-1.96, +2.02]  (120 seed-slice pairs)
+size 10%  D(Hawkes-refill) = -0.49 bps  [-1.25, +0.25]  (120 seed-slice pairs)
+size 10%  D(ABIDES-original) = -2.36 bps  [-3.88, -0.69]  (120 seed-slice pairs)
+size 10%  D(ABIDES-calibrated) = +0.09 bps  [-2.38, +2.57]  (120 seed-slice pairs)
+H1 HOLDS: D(Hawkes-original) - D(ABIDES-original) = +4.59 bps
+H2 does not hold: order book L1 queue 0.220 vs original 0.264; D(queue) - D(original) = -2.21 [-4.74, +0.37]
+H3 does not hold at 10% (confirmatory): D(Hawkes-refill) - D(ABIDES-calibrated) = -0.57, 90% interval [-2.80, +1.52], margin +-1
+H5 HOLDS (descriptive): Spearman(order-book L1, D) = -0.20 over the five versions
+size 30%  D(Hawkes-original) = +4.30 bps  [+2.86, +5.78]  (120 seed-slice pairs)
+size 30%  D(Hawkes-queue) = +1.66 bps  [-0.22, +3.66]  (120 seed-slice pairs)
+size 30%  D(Hawkes-refill) = -0.64 bps  [-1.28, +0.01]  (120 seed-slice pairs)
+size 30%  D(ABIDES-original) = -2.09 bps  [-3.43, -0.75]  (120 seed-slice pairs)
+size 30%  D(ABIDES-calibrated) = -0.75 bps  [-4.53, +2.54]  (92 seed-slice pairs)
+H3 does not hold at 30% (exploratory): D(Hawkes-refill) - D(ABIDES-calibrated) = +0.10, 90% interval [-2.86, +3.11], margin +-1
+H4 HOLDS: impact floor 1.49; versions Hawkes-original 5.73, Hawkes-queue 8.24, Hawkes-refill 4.22, ABIDES-original 9.68, ABIDES-calibrated 5.51

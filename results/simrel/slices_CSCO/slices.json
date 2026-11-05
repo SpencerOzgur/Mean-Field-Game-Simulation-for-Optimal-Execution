@@ -1,0 +1,97 @@
+{
+ "cuts": {
+  "volatility_bps": 1.2248798220222556,
+  "volume_visible": 45502.0,
+  "trend_bps": 7.5514458957995805
+ },
+ "counts": {
+  "volH_voluH_trendH": {
+   "fit": 56,
+   "test": 26,
+   "volatility_bps": 1.8787716632392073,
+   "volume_visible": 86389.12195121951,
+   "trend_bps": 20.90929884371053,
+   "spread_bps": 2.1095811168002263,
+   "events": 25568.585365853658,
+   "depth10": 29217.198495391745,
+   "mid": 48.36756097560975
+  },
+  "volH_voluH_trendL": {
+   "fit": 20,
+   "test": 10,
+   "volatility_bps": 1.6568631947921024,
+   "volume_visible": 71742.06666666667,
+   "trend_bps": 2.935411160136257,
+   "spread_bps": 2.1096723795426464,
+   "events": 24229.133333333335,
+   "depth10": 27951.402851599494,
+   "mid": 48.219
+  },
+  "volH_voluL_trendH": {
+   "fit": 6,
+   "test": 14,
+   "volatility_bps": 1.512875088053692,
+   "volume_visible": 34099.55,
+   "trend_bps": 13.1338238132392,
+   "spread_bps": 2.102510864028936,
+   "events": 18920.1,
+   "depth10": 22299.587155910423,
+   "mid": 48.87275
+  },
+  "volH_voluL_trendL": {
+   "fit": 9,
+   "test": 3,
+   "volatility_bps": 1.4169431973749294,
+   "volume_visible": 36627.416666666664,
+   "trend_bps": 4.478346927284039,
+   "spread_bps": 2.113426451136739,
+   "events": 16424.583333333332,
+   "depth10": 21209.098911587353,
+   "mid": 48.27583333333334
+  },
+  "volL_voluH_trendH": {
+   "fit": 15,
+   "test": 0,
+   "volatility_bps": 1.0676621358503975,
+   "volume_visible": 63395.13333333333,
+   "trend_bps": 15.91994788868524,
+   "spread_bps": 2.04147270353434,
+   "events": 15110.8,
+   "depth10": 34742.66961797924,
+   "mid": 49.321666666666665
+  },
+  "volL_voluH_trendL": {
+   "fit": 15,
+   "test": 2,
+   "volatility_bps": 1.031321355071857,
+   "volume_visible": 54290.41176470588,
+   "trend_bps": 3.3555928821794176,
+   "spread_bps": 2.0275832963304037,
+   "events": 15303.941176470587,
+   "depth10": 37905.393531456284,
+   "mid": 49.663823529411765
+  },
+  "volL_voluL_trendH": {
+   "fit": 11,
+   "test": 16,
+   "volatility_bps": 0.8901089199945212,
+   "volume_visible": 28580.37037037037,
+   "trend_bps": 11.279204967987694,
+   "spread_bps": 2.0695888326385736,
+   "events": 11580.518518518518,
+   "depth10": 28792.95957488003,
+   "mid": 48.83592592592592
+  },
+  "volL_voluL_trendL": {
+   "fit": 48,
+   "test": 37,
+   "volatility_bps": 0.8593210955060437,
+   "volume_visible": 27618.65882352941,
+   "trend_bps": 3.7524051939528604,
+   "spread_bps": 2.0377466463359557,
+   "events": 10660.329411764706,
+   "depth10": 30018.705577758574,
+   "mid": 49.555705882352946
+  }
+ }
+}

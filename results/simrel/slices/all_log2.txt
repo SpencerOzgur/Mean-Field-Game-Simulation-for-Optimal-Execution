@@ -1,0 +1,381 @@
+== fit (done earlier)
+== gen 1 (done earlier)
+== impact calibration Tue Oct 27 22:03:31 EDT 2026
+  [impact calibration] 1/126  62s  hawkes_sd_c_f volH_voluH_trendH 0.5: impact 2.35
+  [impact calibration] 2/126  63s  hawkes_sd_c_f volH_voluH_trendH 0.25: impact 4.02
+  [impact calibration] 3/126  91s  hawkes_sd_c_f volH_voluH_trendH 2.0: impact 2.65
+  [impact calibration] 4/126  108s  hawkes_sd_c_f volH_voluH_trendL 0.25: impact nan
+  [impact calibration] 5/126  110s  hawkes_sd_c_f volH_voluH_trendH 1.0: impact 2.59
+  [impact calibration] 6/126  125s  hawkes_sd_c_f volH_voluH_trendH 4.0: impact 3.01
+  [impact calibration] 7/126  152s  hawkes_sd_c_f volH_voluH_trendL 0.5: impact 3.39
+  [impact calibration] 8/126  175s  hawkes_sd_c_f volH_voluH_trendL 2.0: impact 5.08
+  [impact calibration] 9/126  187s  hawkes_sd_c_f volH_voluL_trendH 0.25: impact 3.48
+  [impact calibration] 10/126  190s  hawkes_sd_c_f volH_voluH_trendL 4.0: impact 2.80
+  [impact calibration] 11/126  205s  hawkes_sd_c_f volH_voluH_trendL 1.0: impact 4.65
+  [impact calibration] 12/126  224s  hawkes_sd_c_f volH_voluL_trendH 0.5: impact 4.25
+  [impact calibration] 13/126  241s  hawkes_sd_c_f volH_voluL_trendH 1.0: impact 3.02
+  [impact calibration] 14/126  242s  hawkes_sd_c_f volH_voluL_trendH 4.0: impact 2.60
+  [impact calibration] 15/126  245s  hawkes_sd_c_f volH_voluL_trendH 2.0: impact 2.56
+  [impact calibration] 16/126  263s  hawkes_sd_c_f volH_voluL_trendL 0.25: impact 3.43
+  [impact calibration] 17/126  299s  hawkes_sd_c_f volH_voluL_trendL 0.5: impact 2.59
+  [impact calibration] 18/126  304s  hawkes_sd_c_f volH_voluL_trendL 2.0: impact 2.85
+  [impact calibration] 19/126  322s  hawkes_sd_c_f volH_voluL_trendL 4.0: impact 2.68
+  [impact calibration] 20/126  337s  hawkes_sd_c_f volH_voluL_trendL 1.0: impact 2.90
+  [impact calibration] 21/126  343s  hawkes_sd_c_f volL_voluH_trendL 0.25: impact 4.26
+  [impact calibration] 22/126  348s  hawkes_sd_c_f volL_voluH_trendL 0.5: impact 3.95
+  [impact calibration] 23/126  378s  hawkes_sd_c_f volL_voluL_trendH 0.25: impact 6.11
+  [impact calibration] 24/126  383s  hawkes_sd_c_f volL_voluH_trendL 1.0: impact 3.45
+  [impact calibration] 25/126  388s  hawkes_sd_c_f volL_voluH_trendL 4.0: impact 4.78
+  [impact calibration] 26/126  390s  hawkes_sd_c_f volL_voluH_trendL 2.0: impact 3.84
+  [impact calibration] 27/126  407s  hawkes_sd_c_f volL_voluL_trendH 0.5: impact 3.23
+  [impact calibration] 28/126  419s  hawkes_sd_c_f volL_voluL_trendH 2.0: impact nan
+  [impact calibration] 29/126  421s  hawkes_sd_c_f volL_voluL_trendH 4.0: impact 2.37
+  [impact calibration] 30/126  431s  hawkes_sd_c_f volL_voluL_trendH 1.0: impact 2.66
+  [impact calibration] 31/126  437s  hawkes_sd_c_f volL_voluL_trendL 0.25: impact 2.63
+  [impact calibration] 32/126  449s  hawkes_sd_c_f volL_voluL_trendL 0.5: impact 4.20
+  [impact calibration] 33/126  459s  hawkes_sd_c_f volL_voluL_trendL 4.0: impact 2.88
+  [impact calibration] 34/126  462s  hawkes_sd_c_f volL_voluL_trendL 2.0: impact 2.25
+  [impact calibration] 35/126  468s  hawkes_sd_c_f volL_voluL_trendL 1.0: impact 4.29
+  [impact calibration] 36/126  507s  hawkes_sd_q_c_f volH_voluH_trendH 0.25: impact 2.35
+  [impact calibration] 37/126  518s  hawkes_sd_q_c_f volH_voluH_trendH 0.5: impact 3.59
+  [impact calibration] 38/126  533s  hawkes_sd_q_c_f volH_voluH_trendH 2.0: impact 2.29
+  [impact calibration] 39/126  563s  hawkes_sd_q_c_f volH_voluH_trendL 0.25: impact 3.52
+  [impact calibration] 40/126  566s  hawkes_sd_q_c_f volH_voluH_trendH 1.0: impact 2.73
+  [impact calibration] 41/126  570s  hawkes_sd_q_c_f volH_voluH_trendH 4.0: impact 2.60
+  [impact calibration] 42/126  596s  hawkes_sd_q_c_f volH_voluH_trendL 0.5: impact 2.47
+  [impact calibration] 43/126  625s  hawkes_sd_q_c_f volH_voluH_trendL 1.0: impact 3.24
+  [impact calibration] 44/126  628s  hawkes_sd_q_c_f volH_voluH_trendL 2.0: impact 4.30
+  [impact calibration] 45/126  631s  hawkes_sd_q_c_f volH_voluL_trendH 0.25: impact 2.99
+  [impact calibration] 46/126  633s  hawkes_sd_q_c_f volH_voluH_trendL 4.0: impact 3.09
+  [impact calibration] 47/126  669s  hawkes_sd_q_c_f volH_voluL_trendH 0.5: impact 2.33
+  [impact calibration] 48/126  670s  hawkes_sd_q_c_f volH_voluL_trendH 4.0: impact 2.76
+  [impact calibration] 49/126  683s  hawkes_sd_q_c_f volH_voluL_trendH 1.0: impact 2.72
+  [impact calibration] 50/126  686s  hawkes_sd_q_c_f volH_voluL_trendH 2.0: impact 2.37
+  [impact calibration] 51/126  708s  hawkes_sd_q_c_f volH_voluL_trendL 0.25: impact 2.26
+  [impact calibration] 52/126  727s  hawkes_sd_q_c_f volH_voluL_trendL 0.5: impact 2.83
+  [impact calibration] 53/126  744s  hawkes_sd_q_c_f volH_voluL_trendL 2.0: impact 2.38
+  [impact calibration] 54/126  766s  hawkes_sd_q_c_f volH_voluL_trendL 4.0: impact 2.59
+  [impact calibration] 55/126  772s  hawkes_sd_q_c_f volL_voluH_trendL 0.25: impact 4.83
+  [impact calibration] 56/126  775s  hawkes_sd_q_c_f volH_voluL_trendL 1.0: impact 2.60
+  [impact calibration] 57/126  790s  hawkes_sd_q_c_f volL_voluH_trendL 0.5: impact 4.27
+  [impact calibration] 58/126  821s  hawkes_sd_q_c_f volL_voluL_trendH 0.25: impact 4.77
+  [impact calibration] 59/126  821s  hawkes_sd_q_c_f volL_voluH_trendL 4.0: impact 4.52
+  [impact calibration] 60/126  827s  hawkes_sd_q_c_f volL_voluH_trendL 2.0: impact 3.64
+  [impact calibration] 61/126  830s  hawkes_sd_q_c_f volL_voluH_trendL 1.0: impact 3.98
+  [impact calibration] 62/126  851s  hawkes_sd_q_c_f volL_voluL_trendH 0.5: impact 3.10
+  [impact calibration] 63/126  859s  hawkes_sd_q_c_f volL_voluL_trendH 2.0: impact 4.93
+  [impact calibration] 64/126  863s  hawkes_sd_q_c_f volL_voluL_trendH 4.0: impact 3.05
+  [impact calibration] 65/126  870s  hawkes_sd_q_c_f volL_voluL_trendH 1.0: impact 2.42
+  [impact calibration] 66/126  882s  hawkes_sd_q_c_f volL_voluL_trendL 0.25: impact 3.29
+  [impact calibration] 67/126  890s  hawkes_sd_q_c_f volL_voluL_trendL 0.5: impact 2.63
+  [impact calibration] 68/126  902s  hawkes_sd_q_c_f volL_voluL_trendL 2.0: impact 2.23
+  [impact calibration] 69/126  903s  hawkes_sd_q_c_f volL_voluL_trendL 1.0: impact 4.58
+  [impact calibration] 70/126  906s  hawkes_sd_q_c_f volL_voluL_trendL 4.0: impact 1.88
+  [impact calibration] 71/126  961s  hawkes_sd_c_f_m volH_voluH_trendH 0.25: impact 2.56
+  [impact calibration] 72/126  973s  hawkes_sd_c_f_m volH_voluH_trendH 0.5: impact 2.46
+  [impact calibration] 73/126  996s  hawkes_sd_c_f_m volH_voluH_trendH 2.0: impact 2.48
+  [impact calibration] 74/126  1012s  hawkes_sd_c_f_m volH_voluH_trendH 1.0: impact 2.42
+  [impact calibration] 75/126  1035s  hawkes_sd_c_f_m volH_voluH_trendH 4.0: impact 2.38
+  [impact calibration] 76/126  1036s  hawkes_sd_c_f_m volH_voluH_trendL 0.25: impact 3.02
+  [impact calibration] 77/126  1073s  hawkes_sd_c_f_m volH_voluH_trendL 0.5: impact 5.99
+  [impact calibration] 78/126  1092s  hawkes_sd_c_f_m volH_voluH_trendL 4.0: impact nan
+  [impact calibration] 79/126  1099s  hawkes_sd_c_f_m volH_voluH_trendL 2.0: impact nan
+  [impact calibration] 80/126  1123s  hawkes_sd_c_f_m volH_voluL_trendH 0.25: impact 3.34
+  [impact calibration] 81/126  1126s  hawkes_sd_c_f_m volH_voluH_trendL 1.0: impact 3.22
+  [impact calibration] 82/126  1155s  hawkes_sd_c_f_m volH_voluL_trendH 0.5: impact 3.84
+  [impact calibration] 83/126  1177s  hawkes_sd_c_f_m volH_voluL_trendH 4.0: impact 2.83
+  [impact calibration] 84/126  1190s  hawkes_sd_c_f_m volH_voluL_trendH 2.0: impact 4.02
+  [impact calibration] 85/126  1197s  hawkes_sd_c_f_m volH_voluL_trendH 1.0: impact 2.39
+  [impact calibration] 86/126  1214s  hawkes_sd_c_f_m volH_voluL_trendL 0.25: impact 2.95
+  [impact calibration] 87/126  1249s  hawkes_sd_c_f_m volH_voluL_trendL 0.5: impact 4.62
+  [impact calibration] 88/126  1290s  hawkes_sd_c_f_m volH_voluL_trendL 2.0: impact 2.55
+  [impact calibration] 89/126  1293s  hawkes_sd_c_f_m volH_voluL_trendL 4.0: impact 3.06
+  [impact calibration] 90/126  1304s  hawkes_sd_c_f_m volH_voluL_trendL 1.0: impact 2.70
+  [impact calibration] 91/126  1313s  hawkes_sd_c_f_m volL_voluH_trendL 0.25: impact 4.06
+  [impact calibration] 92/126  1351s  hawkes_sd_c_f_m volL_voluH_trendL 0.5: impact 4.48
+  [impact calibration] 93/126  1366s  hawkes_sd_c_f_m volL_voluH_trendL 2.0: impact 3.80
+  [impact calibration] 94/126  1372s  hawkes_sd_c_f_m volL_voluH_trendL 1.0: impact 3.66
+  [impact calibration] 95/126  1375s  hawkes_sd_c_f_m volL_voluH_trendL 4.0: impact 3.65
+  [impact calibration] 96/126  1396s  hawkes_sd_c_f_m volL_voluL_trendH 0.25: impact 2.82
+  [impact calibration] 97/126  1410s  hawkes_sd_c_f_m volL_voluL_trendH 0.5: impact 2.72
+  [impact calibration] 98/126  1421s  hawkes_sd_c_f_m volL_voluL_trendH 2.0: impact 2.85
+  [impact calibration] 99/126  1435s  hawkes_sd_c_f_m volL_voluL_trendH 1.0: impact 2.38
+  [impact calibration] 100/126  1442s  hawkes_sd_c_f_m volL_voluL_trendH 4.0: impact 5.89
+  [impact calibration] 101/126  1455s  hawkes_sd_c_f_m volL_voluL_trendL 0.25: impact 5.19
+  [impact calibration] 102/126  1466s  hawkes_sd_c_f_m volL_voluL_trendL 0.5: impact 2.68
+  [impact calibration] 103/126  1488s  hawkes_sd_c_f_m volL_voluL_trendL 2.0: impact 2.72
+  [impact calibration] 104/126  1492s  hawkes_sd_c_f_m volL_voluL_trendL 4.0: impact 2.47
+  [impact calibration] 105/126  1496s  hawkes_sd_c_f_m volL_voluL_trendL 1.0: impact 2.61
+  [impact calibration] 106/126  1684s  abides_quoting volH_voluH_trendH 12: impact 3.16
+  [impact calibration] 107/126  1686s  abides_quoting volH_voluH_trendL 12: impact 2.39
+  [impact calibration] 108/126  1702s  abides_quoting volH_voluH_trendH 150: impact 2.87
+  [impact calibration] 109/126  1707s  abides_quoting volH_voluH_trendH 50: impact 2.68
+  [impact calibration] 110/126  1864s  abides_quoting volH_voluL_trendH 12: impact 2.83
+  [impact calibration] 111/126  1869s  abides_quoting volH_voluH_trendL 50: impact 2.51
+  [impact calibration] 112/126  1873s  abides_quoting volH_voluL_trendH 50: impact 2.36
+  [impact calibration] 113/126  1877s  abides_quoting volH_voluH_trendL 150: impact 2.31
+  [impact calibration] 114/126  2013s  abides_quoting volH_voluL_trendL 12: impact 2.50
+  [impact calibration] 115/126  2017s  abides_quoting volH_voluL_trendL 50: impact 2.33
+  [impact calibration] 116/126  2028s  abides_quoting volH_voluL_trendL 150: impact 2.51
+  [impact calibration] 117/126  2038s  abides_quoting volH_voluL_trendH 150: impact 2.63
+  [impact calibration] 118/126  2152s  abides_quoting volL_voluL_trendH 12: impact 2.13
+  [impact calibration] 119/126  2156s  abides_quoting volL_voluH_trendL 12: impact 2.70
+  [impact calibration] 120/126  2161s  abides_quoting volL_voluH_trendL 50: impact 2.92
+  [impact calibration] 121/126  2179s  abides_quoting volL_voluH_trendL 150: impact 2.89
+  [impact calibration] 122/126  2255s  abides_quoting volL_voluL_trendL 12: impact 2.77
+  [impact calibration] 123/126  2270s  abides_quoting volL_voluL_trendH 50: impact 2.27
+  [impact calibration] 124/126  2274s  abides_quoting volL_voluL_trendL 50: impact 2.31
+  [impact calibration] 125/126  2281s  abides_quoting volL_voluL_trendH 150: impact 2.39
+  [impact calibration] 126/126  2351s  abides_quoting volL_voluL_trendL 150: impact 2.62
+value                              0.25    0.50    1.00    2.00    4.00    12.00   50.00   150.00
+version         slice                                                                            
+abides_quoting  volH_voluH_trendH     NaN     NaN     NaN     NaN     NaN    3.16    2.68    2.87
+                volH_voluH_trendL     NaN     NaN     NaN     NaN     NaN    2.39    2.51    2.31
+                volH_voluL_trendH     NaN     NaN     NaN     NaN     NaN    2.83    2.36    2.63
+                volH_voluL_trendL     NaN     NaN     NaN     NaN     NaN    2.50    2.33    2.51
+                volL_voluH_trendL     NaN     NaN     NaN     NaN     NaN    2.70    2.92    2.89
+                volL_voluL_trendH     NaN     NaN     NaN     NaN     NaN    2.13    2.27    2.39
+                volL_voluL_trendL     NaN     NaN     NaN     NaN     NaN    2.77    2.31    2.62
+hawkes_sd_c_f   volH_voluH_trendH    4.02    2.35    2.59    2.65    3.01     NaN     NaN     NaN
+                volH_voluH_trendL     NaN    3.39    4.65    5.08    2.80     NaN     NaN     NaN
+                volH_voluL_trendH    3.48    4.25    3.02    2.56    2.60     NaN     NaN     NaN
+                volH_voluL_trendL    3.43    2.59    2.90    2.85    2.68     NaN     NaN     NaN
+                volL_voluH_trendL    4.26    3.95    3.45    3.84    4.78     NaN     NaN     NaN
+                volL_voluL_trendH    6.11    3.23    2.66     NaN    2.37     NaN     NaN     NaN
+                volL_voluL_trendL    2.63    4.20    4.29    2.25    2.88     NaN     NaN     NaN
+hawkes_sd_c_f_m volH_voluH_trendH    2.56    2.46    2.42    2.48    2.38     NaN     NaN     NaN
+                volH_voluH_trendL    3.02    5.99    3.22     NaN     NaN     NaN     NaN     NaN
+                volH_voluL_trendH    3.34    3.84    2.39    4.02    2.83     NaN     NaN     NaN
+                volH_voluL_trendL    2.95    4.62    2.70    2.55    3.06     NaN     NaN     NaN
+                volL_voluH_trendL    4.06    4.48    3.66    3.80    3.65     NaN     NaN     NaN
+                volL_voluL_trendH    2.82    2.72    2.38    2.85    5.89     NaN     NaN     NaN
+                volL_voluL_trendL    5.19    2.68    2.61    2.72    2.47     NaN     NaN     NaN
+hawkes_sd_q_c_f volH_voluH_trendH    2.35    3.59    2.73    2.29    2.60     NaN     NaN     NaN
+                volH_voluH_trendL    3.52    2.47    3.24    4.30    3.09     NaN     NaN     NaN
+                volH_voluL_trendH    2.99    2.33    2.72    2.37    2.76     NaN     NaN     NaN
+                volH_voluL_trendL    2.26    2.83    2.60    2.38    2.59     NaN     NaN     NaN
+                volL_voluH_trendL    4.83    4.27    3.98    3.64    4.52     NaN     NaN     NaN
+                volL_voluL_trendH    4.77    3.10    2.42    4.93    3.05     NaN     NaN     NaN
+                volL_voluL_trendL    3.29    2.63    4.58    2.23    1.88     NaN     NaN     NaN
+{
+ "abides_quoting": {
+  "volH_voluH_trendH": 50,
+  "volH_voluH_trendL": 150,
+  "volH_voluL_trendH": 50,
+  "volH_voluL_trendL": 50,
+  "volL_voluH_trendL": 12,
+  "volL_voluL_trendH": 12,
+  "volL_voluL_trendL": 50
+ },
+ "hawkes_sd_c_f": {
+  "volH_voluH_trendH": 0.5,
+  "volH_voluH_trendL": 4.0,
+  "volH_voluL_trendH": 2.0,
+  "volH_voluL_trendL": 0.5,
+  "volL_voluH_trendL": 1.0,
+  "volL_voluL_trendH": 4.0,
+  "volL_voluL_trendL": 2.0
+ },
+ "hawkes_sd_c_f_m": {
+  "volH_voluH_trendH": 4.0,
+  "volH_voluH_trendL": 0.25,
+  "volH_voluL_trendH": 1.0,
+  "volH_voluL_trendL": 2.0,
+  "volL_voluH_trendL": 4.0,
+  "volL_voluL_trendH": 1.0,
+  "volL_voluL_trendL": 4.0
+ },
+ "hawkes_sd_q_c_f": {
+  "volH_voluH_trendH": 2.0,
+  "volH_voluH_trendL": 0.5,
+  "volH_voluL_trendH": 0.5,
+  "volH_voluL_trendL": 0.25,
+  "volL_voluH_trendL": 2.0,
+  "volL_voluL_trendH": 1.0,
+  "volL_voluL_trendL": 4.0
+ }
+}
+== gen 2 Tue Oct 27 22:42:42 EDT 2026
+== gen
+  [gen] 1/336  3s  hawkes_sd_c_f_k volH_voluH_trendH 30003: 26789 events
+  [gen] 2/336  3s  hawkes_sd_c_f_k volH_voluH_trendH 30000: 29454 events
+  [gen] 3/336  3s  hawkes_sd_c_f_k volH_voluH_trendH 30001: 27361 events
+  [gen] 4/336  3s  hawkes_sd_c_f_k volH_voluH_trendH 30002: 28110 events
+  [gen] 5/336  4s  hawkes_sd_c_f_k volH_voluH_trendH 30004: 31596 events
+  [gen] 6/336  6s  hawkes_sd_c_f_k volH_voluH_trendH 30006: 28186 events
+  [gen] 7/336  6s  hawkes_sd_c_f_k volH_voluH_trendH 30007: 29830 events
+  [gen] 8/336  6s  hawkes_sd_c_f_k volH_voluH_trendH 30005: 28665 events
+  [gen] 9/336  6s  hawkes_sd_c_f_k volH_voluH_trendH 30009: 27122 events
+  [gen] 10/336  6s  hawkes_sd_c_f_k volH_voluH_trendH 30008: 28990 events
+Process SpawnPoolWorker-1:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-2:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-3:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-5:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-4:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

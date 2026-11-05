@@ -1,0 +1,15 @@
+family,version,same_sign_slices,same_best_policy_slices,mean_abs_change_bps
+Hawkes original,hawkes__fast,6,4,2.485498807337876
+Hawkes original,hawkes__lodo0,7,5,3.436929111600134
+Hawkes original,hawkes__lodo1,7,5,4.262996783667876
+Hawkes original,hawkes__lodo2,6,3,2.8537079689548164
+Hawkes original,hawkes__lodo3,7,3,2.246593966807258
+Hawkes original,hawkes__lodo4,5,3,3.2784932965839557
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo0,4,4,0.6426010102595999
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo1,3,3,1.1739925215301887
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo2,3,2,1.532713001277997
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo3,4,2,1.2544590053684908
+Hawkes best (same-day + spread + gap filling + multi-timescale),hawkes_sd_c_f_m__lodo4,3,3,0.7424113239468745
+ABIDES original,abides__alt1,7,6,0.34018556434744046
+ABIDES original,abides__alt2,7,4,1.3712689946251568
+ABIDES calibrated,abides_quoting__alt1,7,7,0.002088897034913118

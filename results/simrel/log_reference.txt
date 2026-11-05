@@ -1,0 +1,168 @@
+=== R1a_qr_resilient
+{
+  "reference_volume": 42967.5,
+  "mean_price_ticks": 1000.5606481481482,
+  "hawkes_twin_failures": 0,
+  "hawkes_volume": 42710.0,
+  "hawkes_realism_error": 1.7186594424092922,
+  "abides_twin_failures": 0,
+  "abides_volume": 41378.583333333336,
+  "abides_realism_error": 10.627610464173266
+}
+=== R1b_qr_fragile
+{
+  "reference_volume": 70800.0,
+  "mean_price_ticks": 997.5530092592593,
+  "hawkes_twin_failures": 0,
+  "hawkes_volume": 68725.0,
+  "hawkes_realism_error": 0.20651797399807323,
+  "abides_twin_failures": 0,
+  "abides_volume": 38299.666666666664,
+  "abides_realism_error": 1.1573894413853336
+}
+=== R2a_am_anchored
+  [reference policies] 50/300 jobs, 125s
+  [reference policies] 100/300 jobs, 252s
+  [reference policies] 150/300 jobs, 400s
+  [reference policies] 200/300 jobs, 547s
+  [reference policies] 250/300 jobs, 748s
+  [reference policies] 300/300 jobs, 931s
+  [reference fit twins] 20/20 jobs, 8s
+  [abides calibration] 50/108 jobs, 113s
+  [abides calibration] 100/108 jobs, 175s
+  [abides calibration] 108/108 jobs, 185s
+  [hawkes twins] 20/20 jobs, 8s
+  [hawkes policies] 50/100 jobs, 181s
+  [hawkes policies] 100/100 jobs, 289s
+  [abides twins] 12/12 jobs, 9s
+  [abides policies] 30/30 jobs, 509s
+{
+  "reference_volume": 95845.0,
+  "mean_price_ticks": 999.5212962962963,
+  "hawkes_twin_failures": 0,
+  "hawkes_volume": 78635.0,
+  "hawkes_realism_error": 0.2951514174611685,
+  "abides_twin_failures": 0,
+  "abides_volume": 38330.333333333336,
+  "abides_realism_error": 0.7855112525570233
+}
+=== R2b_am_trending
+  [reference held-out] 40/40 jobs, 8s
+  [reference policies] 50/300 jobs, 115s
+  [reference policies] 100/300 jobs, 224s
+  [reference policies] 150/300 jobs, 330s
+  [reference policies] 200/300 jobs, 436s
+  [reference policies] 250/300 jobs, 553s
+  [reference policies] 300/300 jobs, 666s
+  [reference fit twins] 20/20 jobs, 5s
+  [abides calibration] 50/108 jobs, 24s
+  [abides calibration] 100/108 jobs, 59s
+  [abides calibration] 108/108 jobs, 64s
+  [hawkes twins] 20/20 jobs, 4s
+  [hawkes policies] 50/100 jobs, 101s
+  [hawkes policies] 100/100 jobs, 205s
+  [abides twins] 12/12 jobs, 10s
+  [abides policies] 30/30 jobs, 585s
+{
+  "reference_volume": 93260.0,
+  "mean_price_ticks": 999.3069444444444,
+  "hawkes_twin_failures": 0,
+  "hawkes_volume": 112630.0,
+  "hawkes_realism_error": 0.6052063750766392,
+  "abides_twin_failures": 0,
+  "abides_volume": 26146.833333333332,
+  "abides_realism_error": 0.576079339025383
+}
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-37:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-39:
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 399, in put
+    self._writer.send_bytes(obj)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 427, in _send_bytes
+    self._send(header + buf)
+  File "/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 384, in _send
+    n = write(self._handle, buf)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+/Users/gauravchattree/.local/share/uv/python/cpython-3.12.15-macos-aarch64-none/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

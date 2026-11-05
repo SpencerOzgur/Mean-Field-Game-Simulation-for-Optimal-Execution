@@ -1,0 +1,50 @@
+{
+  "avg_baseline_volume": 98750,
+  "twap_target_volume": 29600,
+  "baseline": [
+    {
+      "twap": false,
+      "orders_in_window": 669,
+      "mid_start": 98350.0,
+      "mid_end": 101650.0,
+      "ret_bps": 335.536349771226,
+      "mean_spread_ticks": 6.786248131539611,
+      "max_spread_ticks": 66.0,
+      "wall_s": 20.4
+    },
+    {
+      "twap": false,
+      "orders_in_window": 484,
+      "mid_start": 98350.0,
+      "mid_end": 104150.0,
+      "ret_bps": 589.7305541433661,
+      "mean_spread_ticks": 4.359504132231405,
+      "max_spread_ticks": 188.0,
+      "wall_s": 14.7
+    }
+  ],
+  "twap_buy": [
+    {
+      "twap": true,
+      "orders_in_window": 5066,
+      "mid_start": 98350.0,
+      "mid_end": 116200.0,
+      "ret_bps": 1814.9466192170817,
+      "mean_spread_ticks": 8.609159099881564,
+      "max_spread_ticks": 113.0,
+      "wall_s": 145.9
+    },
+    {
+      "twap": true,
+      "orders_in_window": 6527,
+      "mid_start": 98350.0,
+      "mid_end": 128750.0,
+      "ret_bps": 3091.0015251652267,
+      "mean_spread_ticks": 1.9192584648383637,
+      "max_spread_ticks": 118.0,
+      "wall_s": 191.2
+    }
+  ],
+  "mean_ret_bps_baseline": 462.6334519572961,
+  "mean_ret_bps_twap": 2452.974072191154
+}

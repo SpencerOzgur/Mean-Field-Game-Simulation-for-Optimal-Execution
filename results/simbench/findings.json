@@ -1,0 +1,142 @@
+{
+  "n_episodes_run": 7680,
+  "timeouts_policies": [
+    [
+      "A3_momentum",
+      1,
+      "urgency",
+      0.2
+    ],
+    [
+      "A3_momentum",
+      16,
+      "exp_b2",
+      0.05
+    ],
+    [
+      "A3_momentum",
+      16,
+      "exp_b2",
+      0.2
+    ],
+    [
+      "A3_momentum",
+      16,
+      "exp_b4",
+      0.2
+    ],
+    [
+      "A3_momentum",
+      16,
+      "pov",
+      0.2
+    ]
+  ],
+  "timeouts_baselines": [
+    [
+      "A3_momentum",
+      118
+    ]
+  ],
+  "n_seeds_run": 40,
+  "n_seeds": 38,
+  "n_train": 19,
+  "n_test": 19,
+  "n_episodes": 6156,
+  "worlds": [
+    "A1_rmsc04",
+    "A2_no_mm",
+    "A3_momentum",
+    "A4_few_value",
+    "A5_deep_mm",
+    "A6_volatile"
+  ],
+  "sizes": [
+    0.01,
+    0.05,
+    0.2
+  ],
+  "stable_worlds": [
+    "A1_rmsc04",
+    "A2_no_mm",
+    "A5_deep_mm",
+    "A6_volatile"
+  ],
+  "rq4": {
+    "0.01": {
+      "spearman": 0.2299877320024475,
+      "perm_p_two_sided": 0.3846,
+      "n_pairs": 30
+    },
+    "0.05": {
+      "spearman": -0.29376521760105745,
+      "perm_p_two_sided": 0.2474,
+      "n_pairs": 30
+    },
+    "0.2": {
+      "spearman": 0.12467992179185898,
+      "perm_p_two_sided": 0.3824,
+      "n_pairs": 30
+    },
+    "pooled": {
+      "spearman": 0.0807135395661524,
+      "perm_p_two_sided": 0.5542,
+      "n_pairs": 30
+    },
+    "pooled_stable": {
+      "spearman": 0.24867138120497242,
+      "n_pairs": 12
+    }
+  },
+  "b_star": {
+    "0.01": {
+      "A1_rmsc04": 8.0,
+      "A2_no_mm": -2.0,
+      "A3_momentum": 4.0,
+      "A4_few_value": 4.0,
+      "A5_deep_mm": -2.0,
+      "A6_volatile": 0.0
+    },
+    "0.05": {
+      "A1_rmsc04": 4.0,
+      "A2_no_mm": -2.0,
+      "A3_momentum": -2.0,
+      "A4_few_value": 4.0,
+      "A5_deep_mm": -2.0,
+      "A6_volatile": 4.0
+    },
+    "0.2": {
+      "A1_rmsc04": 0.0,
+      "A2_no_mm": 0.0,
+      "A3_momentum": 0.0,
+      "A4_few_value": 4.0,
+      "A5_deep_mm": 0.0,
+      "A6_volatile": 0.0
+    }
+  },
+  "max_regret_bps": {
+    "0.01": 11.41313914201281,
+    "0.05": 1.5312012472933945,
+    "0.2": 1816.936585294999
+  },
+  "mean_offdiag_regret_bps": {
+    "0.01": -2.210598941389165,
+    "0.05": -2.2950938870141733,
+    "0.2": 54.41566093813505
+  },
+  "rank_spearman_min": {
+    "0.01": -0.30952380952380953,
+    "0.05": -0.2380952380952381,
+    "0.2": -0.6904761904761906
+  },
+  "rank_spearman_mean": {
+    "0.01": 0.25238095238095243,
+    "0.05": 0.3873015873015873,
+    "0.2": 0.1968253968253969
+  },
+  "significant_reversals_total": {
+    "0.01": 0,
+    "0.05": 0,
+    "0.2": 6
+  }
+}

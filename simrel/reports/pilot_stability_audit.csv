@@ -1,0 +1,7 @@
+world,family,seeds_run,failed,screened_out_pre_move,seeds_used,policy_rollouts,policy_rollouts_failed,twin_move_sd_bps,twin_move_max_bps,share_twin_move_gt_300bps,spread_bps,volume
+A1_rmsc04,abides,40,0,0,40,960,0,4.926,9.659,0.0,0.176,25614.0
+A5_deep_mm,abides,40,0,0,40,960,0,5.469,13.1,0.0,0.147,34766.775
+H1_liquid,hawkes,60,0,0,60,1440,0,52.199,149.925,0.0,11.674,77445.0
+H2_thin,hawkes,60,0,3,57,1368,0,153.257,389.873,0.053,20.234,72792.982
+M10_mars,mars,10,4,1,5,120,15,63.407,135.0,0.0,14.648,119398.2
+M2_mars,mars,11,1,0,10,240,13,276.58,867.222,0.1,21.661,178949.3

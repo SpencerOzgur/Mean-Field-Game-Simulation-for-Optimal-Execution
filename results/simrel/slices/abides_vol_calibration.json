@@ -1,0 +1,30 @@
+{
+ "volH_voluH_trendH": {
+  "fund_vol": 0.005,
+  "momentum": 12
+ },
+ "volH_voluH_trendL": {
+  "fund_vol": 0.0005,
+  "momentum": 150
+ },
+ "volH_voluL_trendH": {
+  "fund_vol": 0.0005,
+  "momentum": 150
+ },
+ "volH_voluL_trendL": {
+  "fund_vol": 0.0005,
+  "momentum": 150
+ },
+ "volL_voluH_trendL": {
+  "fund_vol": 0.0005,
+  "momentum": 150
+ },
+ "volL_voluL_trendH": {
+  "fund_vol": 0.005,
+  "momentum": 12
+ },
+ "volL_voluL_trendL": {
+  "fund_vol": 0.002,
+  "momentum": 12
+ }
+}
