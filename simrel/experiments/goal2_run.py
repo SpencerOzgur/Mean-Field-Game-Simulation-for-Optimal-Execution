@@ -282,7 +282,9 @@ def analyse() -> None:
         for name in family():
             rp = RAW / f"realism_{w}_{name}.pkl"
             pols = [RAW / "policy" / f"{w}_{name}_{SEED_POL + s}.pkl" for s in range(POLICIES_SEEDS)]
-            if not rp.exists() or not all(p.exists() for p in pols):
+            if os.environ.get("SIMREL_ALLOW_MISSING_SEEDS"):  # interim analyses while runs are still arriving: use the seeds present
+                pols = [p for p in pols if p.exists()]
+            if not rp.exists() or not pols or not all(p.exists() for p in pols):
                 continue
             real = load(rp)
             if "failed" in real:

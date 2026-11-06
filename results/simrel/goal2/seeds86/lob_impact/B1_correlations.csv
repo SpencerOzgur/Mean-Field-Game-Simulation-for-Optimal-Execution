@@ -1,0 +1,71 @@
+subset,measure,flavour,spearman,lo,hi
+all,order_book,realism (LOB-Bench),-0.07598586802622238,-0.12534634669508218,-0.02238349002199096
+all,price,realism (LOB-Bench),-0.07350105188602296,-0.12121925351549778,-0.01829020837763701
+all,impact,realism (LOB-Bench impact score),0.0704585026768682,0.013514716047796452,0.1287940648406813
+all,trade_response_error,realism,-0.12816913605615818,-0.1779889807337095,-0.07320005463510636
+all,metaorder_impact_error,counterfactual (task-specific),0.09411183677875798,0.043106493613560906,0.14119091041924317
+all,li_flow_error,realism (LOB-Impact phase 1),0.010148965395024837,-0.042346867422842785,0.06335284000632659
+all,li_response_error,realism (LOB-Impact phase 1),0.006278793306551323,-0.04851133188575885,0.05481619733796944
+all,li_peak_error,counterfactual (LOB-Impact),0.12820497463199093,0.07688069477488332,0.17721771791091764
+all,li_law_error,counterfactual (LOB-Impact),-0.02810931049245873,-0.09398414023823623,0.043234689886300824
+all,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.05502277022763043,-0.10509958743517442,-1.2186429001164569e-05
+excluding ABIDES,order_book,realism (LOB-Bench),-0.08286119584658952,-0.13258101620412752,-0.029269464675120628
+excluding ABIDES,price,realism (LOB-Bench),-0.07276220585846493,-0.11919272219662534,-0.017638647079083802
+excluding ABIDES,impact,realism (LOB-Bench impact score),0.07053551434531447,0.012896972777351844,0.12983619444509759
+excluding ABIDES,trade_response_error,realism,-0.12188385478144269,-0.17198526076678464,-0.06505659970401709
+excluding ABIDES,metaorder_impact_error,counterfactual (task-specific),0.09007456702652865,0.035323139593944466,0.1379622846049782
+excluding ABIDES,li_flow_error,realism (LOB-Impact phase 1),0.01528720381038311,-0.03596473560650948,0.0719146147880363
+excluding ABIDES,li_response_error,realism (LOB-Impact phase 1),-0.004248210956368871,-0.058372871901310804,0.04911964225981469
+excluding ABIDES,li_peak_error,counterfactual (LOB-Impact),0.12677405672072337,0.07247221125808859,0.1738795159482785
+excluding ABIDES,li_law_error,counterfactual (LOB-Impact),-0.03733938220464135,-0.10448097674424359,0.04060542840772989
+excluding ABIDES,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.05903793802241684,-0.10859953577507711,-0.0008324154791695088
+agent-mix markets only,order_book,realism (LOB-Bench),-0.17696242663609257,-0.2564122798098379,-0.09547849404353556
+agent-mix markets only,price,realism (LOB-Bench),-0.17020209387828572,-0.24676723904206418,-0.0887021201113575
+agent-mix markets only,impact,realism (LOB-Bench impact score),-0.034287268447963364,-0.12008819622905259,0.05296179687589434
+agent-mix markets only,trade_response_error,realism,-0.19715790630088956,-0.27532400439337673,-0.11323826855059017
+agent-mix markets only,metaorder_impact_error,counterfactual (task-specific),0.2971582667463138,0.2182795756072157,0.3659874416179409
+agent-mix markets only,li_flow_error,realism (LOB-Impact phase 1),-0.048540046689892036,-0.13473876985184433,0.04141136201432215
+agent-mix markets only,li_response_error,realism (LOB-Impact phase 1),-0.05471025085375882,-0.1344149137699678,0.026553927236191748
+agent-mix markets only,li_peak_error,counterfactual (LOB-Impact),0.27068514301627317,0.19252678417269872,0.34269062103224857
+agent-mix markets only,li_law_error,counterfactual (LOB-Impact),-0.3253813015712969,-0.561716492796007,-0.047476543042636536
+agent-mix markets only,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.15788054506438662,-0.23635811866444906,-0.07520802228363474
+queue-reactive markets only,order_book,realism (LOB-Bench),-0.09339952659654571,-0.17453730292567238,-0.003873236011019802
+queue-reactive markets only,price,realism (LOB-Bench),-0.06699248524679818,-0.1391225159329441,0.016075616227614976
+queue-reactive markets only,impact,realism (LOB-Bench impact score),0.06468092084990892,-0.030366856107471103,0.16096235886726984
+queue-reactive markets only,trade_response_error,realism,-0.15781252340653004,-0.23154780254678867,-0.06271570760094143
+queue-reactive markets only,metaorder_impact_error,counterfactual (task-specific),-0.06835131932490393,-0.15174284830614376,0.013667364149853513
+queue-reactive markets only,li_flow_error,realism (LOB-Impact phase 1),0.05239151103070607,-0.031421559049270104,0.14053483738844055
+queue-reactive markets only,li_response_error,realism (LOB-Impact phase 1),0.1027159130565015,0.024606196310081516,0.18694552822398472
+queue-reactive markets only,li_peak_error,counterfactual (LOB-Impact),-0.04547273933266665,-0.12957098669379258,0.03813582735987428
+queue-reactive markets only,li_law_error,counterfactual (LOB-Impact),-0.007401434464442596,-0.10206658895824615,0.08870858421657027
+queue-reactive markets only,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",0.0004119703764383299,-0.08667736751125374,0.08661849054505558
+original four markets,order_book,realism (LOB-Bench),-0.12664957326781462,-0.24949581709017005,0.021397553844532728
+original four markets,price,realism (LOB-Bench),-0.045339955588586583,-0.16211083570923732,0.08818829051456491
+original four markets,impact,realism (LOB-Bench impact score),0.09339690018607322,-0.05516451787455153,0.25323741473772166
+original four markets,trade_response_error,realism,-0.1437420998262996,-0.27530343651012346,-0.005005253856269431
+original four markets,metaorder_impact_error,counterfactual (task-specific),0.2194333322046587,0.07697020563248283,0.32281618919147775
+original four markets,li_flow_error,realism (LOB-Impact phase 1),-0.06919978922496242,-0.18938381437276755,0.0903057925154521
+original four markets,li_response_error,realism (LOB-Impact phase 1),0.04615094198110623,-0.07020434583204561,0.1699179572922282
+original four markets,li_peak_error,counterfactual (LOB-Impact),0.21718252757274165,0.08832179438141131,0.3331793624800796
+original four markets,li_law_error,counterfactual (LOB-Impact),0.09172173559294679,-0.11431879305795711,0.27643386982146767
+original four markets,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.030917501816202255,-0.17129381366958182,0.10896630364713905
+six added markets,order_book,realism (LOB-Bench),-0.08645442800601506,-0.18654548548729202,0.014275618713947917
+six added markets,price,realism (LOB-Bench),-0.16671007075061214,-0.26788757320863904,-0.06678883347146829
+six added markets,impact,realism (LOB-Bench impact score),0.0707421003221632,-0.05445029657011728,0.18297084736577623
+six added markets,trade_response_error,realism,-0.13758724821464968,-0.25184304906929605,-0.036055431303798756
+six added markets,metaorder_impact_error,counterfactual (task-specific),0.25197159625913756,0.1509150098175343,0.3438462179384521
+six added markets,li_flow_error,realism (LOB-Impact phase 1),-0.01624379540024328,-0.13174607132456223,0.09604625263898889
+six added markets,li_response_error,realism (LOB-Impact phase 1),0.0224126024346981,-0.0950072647307986,0.14429251341998772
+six added markets,li_peak_error,counterfactual (LOB-Impact),0.27954793417848584,0.16575408057862717,0.37263125240353107
+six added markets,li_law_error,counterfactual (LOB-Impact),-0.14658572913101275,-0.3010073845915342,0.00835856278312814
+six added markets,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.19255666606237573,-0.28934972289266947,-0.07756481774274632
+ten sampled markets,order_book,realism (LOB-Bench),-0.16620667280150028,-0.24349104517823542,-0.07478877980234191
+ten sampled markets,price,realism (LOB-Bench),-0.1302399378354094,-0.2009987368815283,-0.04815505968070728
+ten sampled markets,impact,realism (LOB-Bench impact score),-0.0609459831891275,-0.14235189666625414,0.03246860308292406
+ten sampled markets,trade_response_error,realism,-0.2071091546896759,-0.2907427783389034,-0.11638534841449467
+ten sampled markets,metaorder_impact_error,counterfactual (task-specific),0.019895166837301054,-0.061023210847859236,0.09362260134160307
+ten sampled markets,li_flow_error,realism (LOB-Impact phase 1),0.035311309390241526,-0.04543931189410436,0.12077256915298862
+ten sampled markets,li_response_error,realism (LOB-Impact phase 1),0.007247343286673459,-0.06841905469695028,0.08983176967917406
+ten sampled markets,li_peak_error,counterfactual (LOB-Impact),-0.004659185426232114,-0.09010518083976214,0.07404040709477307
+ten sampled markets,li_law_error,counterfactual (LOB-Impact),-0.047674378103904465,-0.18952247463840727,0.09035078675199246
+ten sampled markets,li_law_error_literature,"counterfactual (LOB-Impact, literature targets)",-0.057877698039443544,-0.13450626584555367,0.029051453584037303

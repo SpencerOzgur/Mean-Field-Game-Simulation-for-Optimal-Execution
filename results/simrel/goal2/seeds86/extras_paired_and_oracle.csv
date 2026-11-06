@@ -1,0 +1,5 @@
+markets,always TWAP,oracle (100),single simulator,ensemble minus TWAP,single simulator minus TWAP,misspecification share
+queue-reactive,0.41,0.54,0.45,"-0.05 [-0.31, +0.34]","+0.04 [-0.09, +0.33]",-21%
+agent-mix,3.58,1.90,8.34,"+6.12 [+3.04, +8.98]","+4.75 [+2.90, +6.20]",77%
+well-specified,4.11,1.22,3.69,"-2.50 [-5.80, +1.16]","-0.42 [-3.69, +3.51]",67%
+misspecified,2.00,1.22,4.39,"+3.03 [+1.15, +5.13]","+2.40 [+1.03, +3.57]",72%

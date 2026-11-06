@@ -213,6 +213,7 @@ def analyse() -> None:
             s = scores(w, name)
             rows.append({"world": w, "sim": name, **s, **errors(s, ref)})
     li = pd.DataFrame(rows)
+    OUT.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(ref_rows).to_csv(OUT / "reference_markets_lob_impact.csv", index=False)
     li.to_csv(OUT / "candidates_lob_impact.csv", index=False)
     t = sim.merge(li[["world", "sim"] + NEW], on=["world", "sim"], how="inner")
