@@ -45,13 +45,18 @@ NEW_WORLDS = ["R1c_qr_thin", "R1d_qr_momentum", "R1e_qr_deep", "R2c_am_anchor", 
 
 
 SAMPLED_WORLDS = [f"R1s{k:02d}" for k in range(1, 6)] + [f"R2s{k:02d}" for k in range(1, 6)]  # drawn at random (addendum 4)
+LATENT_WORLDS = [f"R3s{k:02d}" for k in range(1, 7)]  # held-out latent-liquidity family (addendum 8)
+LATENT_LONG = [w + "_long" for w in LATENT_WORLDS]  # the same markets under the 30-minute task variant (addendum 8)
+FIXED_DESIGNS = ["h_k1", "h_c_f_m_k1", "abides", "qr"]  # the four fixed candidate designs of addendum 8, steps 3 and 5
 WELL_WORLDS = ["W1_hk1_R1a", "W2_hcfm_R1a", "W3_hk1_R1b", "W4_hcfm_R1b", "W5_hk1_R2a", "W6_hcfm_R2a"]  # well-specified (addendum 5)
 
 
 def worlds_with_results() -> list:
     """Every market whose reference truth exists and that passed the viability rule of addendum 3."""
     out = []
-    for w in WORLDS + NEW_WORLDS + SAMPLED_WORLDS + WELL_WORLDS:
+    # the held-out latent family (addendum 8) is analysed on its own: it joins only when asked for
+    held_out = LATENT_WORLDS if os.environ.get("SIMREL_INCLUDE_HELDOUT") else []
+    for w in WORLDS + NEW_WORLDS + SAMPLED_WORLDS + WELL_WORLDS + held_out:
         info = REF / f"ref_{w}" / "info.json"
         if (REF / f"ref_{w}" / "rows_reference.pkl").exists() and info.exists() and json.loads(info.read_text()).get("viable", True):
             out.append(w)
@@ -249,8 +254,9 @@ def policy_job(args) -> str:
         return "cached"
     rows = []
     try:
-        for size in RC.SIZES:
-            task = Task(RC.TASK.side, qty(world, size), RC.TASK.horizon_s, RC.TASK.n_slices, RC.TASK.post_s)
+        for size in RC.sizes_for(world):
+            tk = RC.task_for(world)
+            task = Task(tk.side, qty(world, size), tk.horizon_s, tk.n_slices, tk.post_s)
             pol = candidate_set(size)
             if name == "abides":
                 from simbench import abides_world as AW
@@ -284,7 +290,7 @@ def analyse() -> None:
             pols = [RAW / "policy" / f"{w}_{name}_{SEED_POL + s}.pkl" for s in range(POLICIES_SEEDS)]
             if os.environ.get("SIMREL_ALLOW_MISSING_SEEDS"):  # interim analyses while runs are still arriving: use the seeds present
                 pols = [p for p in pols if p.exists()]
-            if not rp.exists() or not pols or not all(p.exists() for p in pols):
+            if not rp.exists() or not pols or not all(p.exists() for p in pols):  # noqa: E501
                 continue
             real = load(rp)
             if "failed" in real:

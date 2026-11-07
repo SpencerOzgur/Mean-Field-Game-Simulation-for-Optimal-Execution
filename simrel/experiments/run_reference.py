@@ -45,8 +45,9 @@ RAW = OUT / "raw"
 CTX: dict = {}
 
 
-def _task(q: int) -> Task:
-    return Task(C.TASK.side, q, C.TASK.horizon_s, C.TASK.n_slices, C.TASK.post_s)
+def _task(q: int, world: str | None = None) -> Task:
+    t = C.task_for(world)
+    return Task(t.side, q, t.horizon_s, t.n_slices, t.post_s)
 
 
 def _run(sim: str, world: str, seed: int, jobs: dict[float, tuple[int, dict]], spec):
@@ -62,13 +63,13 @@ def _run(sim: str, world: str, seed: int, jobs: dict[float, tuple[int, dict]], s
             from simrel.adapters.hawkes import HawkesLOB
 
             factory = lambda s: HawkesLOB(spec, s)
-        return {f: run_twin_set(factory, f"{world}:{sim}", seed, _task(q), pol) for f, (q, pol) in jobs.items()}
+        return {f: run_twin_set(factory, f"{world}:{sim}", seed, _task(q, world), pol) for f, (q, pol) in jobs.items()}
     if sim == "abides":
         from simrel.adapters.abides import run_twin_set
         from simrel.adapters.abides_fit import register
 
         name = register(spec)
-        out = {f: run_twin_set(name, seed, _task(q), pol) for f, (q, pol) in jobs.items()}
+        out = {f: run_twin_set(name, seed, _task(q, world), pol) for f, (q, pol) in jobs.items()}
         for recs in out.values():
             for r in recs.values():
                 r.world = f"{world}:{sim}"
@@ -112,7 +113,7 @@ def policy_job(args):
     warnings.filterwarnings("ignore")
     CTX.update(ctx)
     lot = 1 if sim == "abides" else 100
-    jobs = {f: (max(int(f * volume) // lot * lot, lot), candidate_set(f)) for f in C.SIZES}
+    jobs = {f: (max(int(f * volume) // lot * lot, lot), candidate_set(f)) for f in C.sizes_for(world)}
     t0 = time.time()
     try:
         sets = _run(sim, world, seed, jobs, spec)

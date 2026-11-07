@@ -22,6 +22,11 @@ def registry() -> dict:
     out.update({k: (agent_mix.AgentMix, v) for k, v in agent_mix.regimes().items()})
     from . import ablation, sampled  # randomly drawn markets (addendum 4); mechanism ablation (addendum 6)
 
+    from . import latent  # held-out latent-liquidity family (addendum 8)
+
+    for k, vals in latent.accepted().items():
+        out[k] = (latent.LatentLiquidity, latent.LatentParams(**vals))
+        out[k + "_long"] = out[k]  # the same market under the 30-minute task variant (configs.reference.task_for)
     for k, (fam, params, _, _) in ablation.markets().items():
         out[k] = (queue_reactive.QueueReactive if fam == "qr" else agent_mix.AgentMix, params)
 

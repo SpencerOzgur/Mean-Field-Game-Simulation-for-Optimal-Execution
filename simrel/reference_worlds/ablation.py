@@ -17,6 +17,8 @@ KNOBS = {
     "fund": ("am", [0.025, 0.05, 0.1, 0.2, 0.4], 0.1),
     "withdraw": ("am", [0.5, 1.0, 2.0, 4.0, 6.0], 2.0),
     "trend": ("am", [0.0125, 0.025, 0.05, 0.1, 0.2], 0.05),
+    # added by addendum 8: impact decay of the liquidity providers' withdrawal (half-life of their memory of one-sided flow)
+    "flow_halflife": ("am", [5.0, 10.0, 20.0, 40.0, 80.0], 20.0),
 }
 
 

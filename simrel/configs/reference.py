@@ -1,9 +1,22 @@
 """Configuration of the controlled reference-market experiment (Phase 4)."""
 
+from __future__ import annotations
+
 from simrel.core import Task
 
 TASK = Task(side="sell", horizon_s=600, n_slices=20, post_s=120)
 SIZES = [0.05, 0.15]
+LONG_TASK = Task(side="sell", horizon_s=1800, n_slices=60, post_s=120)  # task variant of addendum 8: 30 minutes, 60 decisions
+LONG_SIZES = [0.02, 0.30]
+
+
+def task_for(world: str | None) -> Task:
+    """The execution task of a market: a market name ending in _long uses the 30-minute variant (addendum 8)."""
+    return LONG_TASK if world and world.endswith("_long") else TASK
+
+
+def sizes_for(world: str | None) -> list:
+    return LONG_SIZES if world and world.endswith("_long") else SIZES
 
 N_FIT_EPISODES = 6  # 30-minute unperturbed reference episodes each simulator may learn from
 N_HELDOUT = 40  # held-out unperturbed reference episodes for the realism score
