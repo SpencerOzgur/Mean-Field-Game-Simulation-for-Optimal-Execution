@@ -118,7 +118,7 @@ section { scroll-margin-top: 20px; }
 
 <main>
 <header class="top">
-  <div class="eyebrow">Full report · market simulators and execution decisions · updated 7 November 2026, final 100-seed results</div>
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 7 November 2026, evening: held-out family</div>
   <h1>Do realistic market simulators give reliable execution advice?</h1>
   <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
   <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
@@ -128,9 +128,9 @@ section { scroll-margin-top: 20px; }
 <h2>0 Status now</h2>
 <h3>Running</h3>
 <div class="tbl"><table><thead><tr><th>Work (addendum 8)</th><th>Kaggle</th><th>State</th></tr></thead><tbody>
-<tr><td>Held-out latent-liquidity family: six markets, full pipeline at 100 seeds</td><td>heldout-1 to heldout-6</td><td><span class="chip yes">5 of 6 done</span> heldout-6 running</td></tr>
+<tr><td>Held-out latent-liquidity family: six markets, full pipeline at 100 seeds</td><td>heldout-1 to heldout-6</td><td><span class="chip yes">done</span> results below</td></tr>
 <tr><td>30-minute task variant (2% and 30% sizes), four fixed designs and the oracle</td><td>longtask-1, longtask-2</td><td><span class="chip run">running / queued</span></td></tr>
-<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip mid">queued</span></td></tr>
+<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip run">running</span> (matched-4 queued)</td></tr>
 </tbody></table></div>
 
 <h3>Final results at 100 decision seeds (addenda 7 and 8)</h3>
@@ -166,6 +166,25 @@ section { scroll-margin-top: 20px; }
 <tr><td>LOB-Bench order book</td><td class="num">−0.08 [−0.17, 0.02]</td><td class="num">−0.22 [−0.32, −0.02]</td><td class="num">−0.02</td><td class="num">+0.05</td></tr>
 </tbody></table></div>
 <div class="answer"><p><span class="chip no">not supported</span> E_decision does not predict regret better than the metaorder measure (difference +0.02 [−0.05, +0.13]). Even an oracle measure of the decision-relevant quantity predicts only weakly once measurement and choice use separate seeds; the cost-ranking correlations of about 0.5–0.6 reported earlier were inflated by shared seeds. All counterfactual measures carry some signal in the agent-mix markets (+0.27 to +0.34), where misspecification is the problem; no realism measure does.</p></div>
+
+<h4>Step 5: the held-out latent-liquidity family (never used to design any rule)</h4>
+<p>Six markets of a new family (liquidity revealed around a reference price that relaxes towards the traded price; persistent order-flow signs), drawn at random with a fixed seed; all 29 candidates at 100 seeds; every rule and measure applied exactly as frozen.</p>
+<div class="tbl"><table><thead><tr><th>Six held-out markets</th><th class="num">Result</th></tr></thead><tbody>
+<tr class="sub"><td>Always TWAP</td><td class="num">0.45</td></tr>
+<tr><td>Oracle (true generator, 100 seeds)</td><td class="num ok">0.06</td></tr>
+<tr><td>Ensemble's cheapest strategy minus TWAP</td><td class="num hi">+1.78 [+0.18, +3.79]</td></tr>
+<tr><td>Single simulator minus TWAP</td><td class="num hi">+1.56 [+0.50, +2.89]</td></tr>
+<tr><td>Gated rule (k = 3, frozen on the first ten markets)</td><td class="num">0.45, identical to TWAP</td></tr>
+<tr><td>Sampling contribution (B − A)</td><td class="num">+0.37 [−0.04, +0.49]</td></tr>
+<tr><td>Structural contribution (C − A); cross-fitted</td><td class="num hi">+1.95 [+0.59, +3.04]; +1.51 [+0.32, +2.61]</td></tr>
+<tr><td>LOB-Bench order book, correlation with good advice</td><td class="num hi">−0.32 [−0.61, −0.02]</td></tr>
+<tr><td>LOB-Impact flow and diffusion; law shape against literature</td><td class="num hi">−0.42 [−0.57, −0.12]; −0.43 [−0.62, −0.11]</td></tr>
+<tr><td>Metaorder impact accuracy, correlation</td><td class="num">+0.26 [−0.03, +0.62]</td></tr>
+<tr><td>Choosing by metaorder accuracy: minus TWAP; minus order book</td><td class="num">+0.51 [−0.02, +1.46]; −1.70 [−3.60, −0.01]</td></tr>
+<tr><td>Validation profile minus TWAP impact alone (B1)</td><td class="num">−0.21 [−0.38, +0.02]</td></tr>
+</tbody></table></div>
+<div class="answer"><p><span class="chip yes">replicates</span> In a market family that played no part in designing anything, every main conclusion holds. The decision is feasible with the right model (the oracle nearly reaches zero regret), but the candidates' family lacks the mechanism, so optimising over them is significantly worse than TWAP and the excess is structural, not noise. Realism scores point the wrong way; the own-impact measure leans the right way and avoids the worst simulators but does not beat TWAP; the frozen conservative rule is safe because it never leaves TWAP.</p></div>
+
 <h3>Done since the last update</h3>
 <ul>
 <li>Positive control, mechanism ablation and out-of-family rules (section 11b): the oracle failed at 30 seeds because the decisions are under-powered or flat, not because the pipeline is biased.</li>
