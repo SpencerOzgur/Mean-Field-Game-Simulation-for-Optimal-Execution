@@ -126,11 +126,11 @@ section { scroll-margin-top: 20px; }
 
 <section id="status">
 <h2>0 Status now</h2>
-<h3>Running</h3>
+<h3>Kaggle work (all finished 8 November)</h3>
 <div class="tbl"><table><thead><tr><th>Work (addendum 8)</th><th>Kaggle</th><th>State</th></tr></thead><tbody>
 <tr><td>Held-out latent-liquidity family: six markets, full pipeline at 100 seeds</td><td>heldout-1 to heldout-6</td><td><span class="chip yes">done</span> results below</td></tr>
-<tr><td>30-minute task variant (2% and 30% sizes), four fixed designs and the oracle</td><td>longtask-1, longtask-2</td><td><span class="chip run">running / queued</span></td></tr>
-<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip run">matched-2 done; 1, 3, 4 running</span></td></tr>
+<tr><td>30-minute task variant (2% and 30% sizes), four fixed designs and the oracle</td><td>longtask-1, longtask-2</td><td><span class="chip yes">done</span> results below</td></tr>
+<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip yes">done</span> results below (30 markets, no failed runs)</td></tr>
 </tbody></table></div>
 
 <h3>Final results at 100 decision seeds (addenda 7 and 8)</h3>
@@ -221,16 +221,39 @@ section { scroll-margin-top: 20px; }
 <li><b>Independent tests</b> are the drawn markets and the held-out family; the 100-seed reruns of the same markets are secondary.</li>
 </ul>
 
+
+<h4>Matched mechanisms: does a fixed simulator track the truth as one mechanism is turned up or down?</h4>
+<p>30 ablation markets: six mechanisms, each at five levels (base included). Four fixed designs (two Hawkes variants, ABIDES and the queue-reactive candidate), each refitted to every market, 100 seeds. Mean regret in bps over the five levels and both sizes; "picks the true best" is the share of levels at which the design recommends the true optimum.</p>
+<div class="tbl"><table><thead><tr><th>Mechanism varied</th><th class="num">Always TWAP</th><th class="num">Hawkes h_k1</th><th class="num">Hawkes h_c_f_m_k1</th><th class="num">ABIDES</th><th class="num">Queue-reactive</th><th class="num">Picks true best</th><th class="num">Decision-boundary errors*</th></tr></thead><tbody>
+<tr><td>Queue joining (queue-reactive)</td><td class="num">0.17</td><td class="num">0.27</td><td class="num">0.08</td><td class="num">0.17</td><td class="num">0.22</td><td class="num">2%</td><td class="num">38%</td></tr>
+<tr><td>Queue resilience θ (queue-reactive)</td><td class="num">0.28</td><td class="num">0.23</td><td class="num">0.25</td><td class="num">0.42</td><td class="num">0.18</td><td class="num">22%</td><td class="num">38%</td></tr>
+<tr><td>Fundamental anchoring (agent-mix)</td><td class="num">3.66</td><td class="num hi">12.14</td><td class="num hi">10.64</td><td class="num hi">8.12</td><td class="num hi">7.15</td><td class="num">5%</td><td class="num hi">100%</td></tr>
+<tr><td>Liquidity withdrawal (agent-mix)</td><td class="num">2.11</td><td class="num hi">8.07</td><td class="num hi">10.01</td><td class="num hi">5.25</td><td class="num hi">6.49</td><td class="num">2%</td><td class="num hi">88%</td></tr>
+<tr><td>Trend followers (agent-mix)</td><td class="num">2.17</td><td class="num hi">7.99</td><td class="num hi">10.78</td><td class="num hi">6.85</td><td class="num hi">8.15</td><td class="num">10%</td><td class="num hi">100%</td></tr>
+<tr><td>Order-flow memory (agent-mix)</td><td class="num">1.97</td><td class="num hi">7.05</td><td class="num hi">10.52</td><td class="num hi">5.72</td><td class="num hi">4.41</td><td class="num">5%</td><td class="num hi">88%</td></tr>
+</tbody></table></div>
+<p class="note">* Pre-stated test (addendum 8, step 3): the design picks the true best at fewer than half the levels while its error in pairwise cost differences off the base market exceeds its error at the base by more than 1 bp. Share of design × size cells meeting it.</p>
+<div class="answer"><p><span class="chip no">Fixed simulators do not follow the mechanism</span> In the agent-mix markets every design, refitted to each market, rarely recommends the true best (2–10% of levels), its predicted gains over TWAP do not move with the true gains (median rank correlation −0.20 to +0.10), and it is two to five times worse than always TWAP. The pre-stated decision-boundary test is met in 88–100% of cells. In the queue-reactive markets all regrets are below 0.5 bps: the strategies are nearly equivalent, so failing to track the mechanism costs nothing.</p></div>
+<h4>The 30-minute task (60 decisions), held-out latent-liquidity markets</h4>
+<p>The six held-out markets with a 30-minute horizon and sizes 2% and 30% of volume, 100 seeds. Mean regret (bps) over the six markets.</p>
+<div class="tbl"><table><thead><tr><th>Size</th><th class="num">Always TWAP</th><th class="num">True generator</th><th class="num">Hawkes h_k1</th><th class="num">Hawkes h_c_f_m_k1</th><th class="num">ABIDES</th><th class="num">Queue-reactive</th></tr></thead><tbody>
+<tr><td>2%</td><td class="num">2.30</td><td class="num ok">1.42</td><td class="num hi">4.21</td><td class="num hi">4.21</td><td class="num">2.34</td><td class="num hi">3.51</td></tr>
+<tr><td>30%</td><td class="num">1.03</td><td class="num ok">0.11</td><td class="num hi">14.68</td><td class="num hi">4.41</td><td class="num hi">5.66</td><td class="num hi">2.44</td></tr>
+</tbody></table></div>
+<div class="answer"><p><span class="chip mid">Longer horizon: more at stake, same answer</span> With 60 decisions, schedule choice matters more (TWAP gives up 1–2.3 bps against 0.45 in the 10-minute task), and the true generator captures most of it (0.11 bps at 30%). No fitted simulator beats always TWAP on average; ABIDES ties it at 2%, and the Hawkes designs lose up to 25 bps on large orders in single markets. The finding is not an artefact of the short task.</p></div>
+
 <h3>Done since the last update</h3>
 <ul>
+<li>All Kaggle work finished and merged (8 November); every one of the 112,000 policy files checked for failed runs: none remain (64 that crashed because of a missing input file were rerun).</li>
+<li>Matched-mechanism and 30-minute-task results (above).</li>
 <li>Positive control, mechanism ablation and out-of-family rules (section 11b): the oracle failed at 30 seeds because the decisions are under-powered or flat, not because the pipeline is biased.</li>
 <li>Design addendum 7 written and checksummed before any of the 100-seed runs existed.</li>
 <li>Code, pre-registrations and summary results committed and pushed to GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (raw simulation outputs are kept out and can be regenerated).</li>
 </ul>
 <h3>Next</h3>
 <div class="tbl"><table><thead><tr><th>Item</th><th>Depends on</th></tr></thead><tbody>
-<tr><td>Read Goal 2 at 100 seeds: does removing sampling noise change which measures predict good advice, and does any rule then beat TWAP?</td><td>The running Kaggle work</td></tr>
-<tr><td>Manuscript around the three questions: reproducing markets (partly), ranking strategies (often not: flat or under-powered decisions, missing mechanisms), choosing a simulator from observable validation (no)</td><td>The 100-seed results</td></tr>
+<tr><td>Draft the manuscript: "When Realistic Market Simulators Give Unreliable Execution Advice: Sampling Error, Misspecification, and Decision Regret" (agreement, reliability, validation)</td><td>Nothing: all experiments are in</td></tr>
+
 <tr><td>Decide whether to add the earlier paper drafts and planning notes to the repository</td><td>Your decision</td></tr>
 </tbody></table></div>
 </section>

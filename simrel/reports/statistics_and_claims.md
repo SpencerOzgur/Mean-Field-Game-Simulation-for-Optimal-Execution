@@ -75,6 +75,9 @@ the remainder "structural (model) error", not "mechanism error", except where ad
 | Excess regret is structural, not sampling, where mechanisms are missing | addendum 8 decomposition (agent-mix, held-out) with its pre-stated criterion; addendum 9 | supported |
 | Conservative gating prevents losses | A1, A3 on the drawn markets and the held-out family | supported, but it works by never leaving TWAP |
 | A decision-aware oracle metric predicts regret better than impact measures | addendum 8, step 4 | not supported |
+| Removing one mechanism from the true generator causes regret that more seeds do not repair | addendum 9, H9b, four agent-mix markets (fundamental anchoring) | supported (pre-specified); H9a (oracle regret falls to zero) holds in 3 of 4 markets, R2d's truth is too noisy to identify the best |
+| Fixed designs refitted per market follow the true optimum as a mechanism changes | addendum 8, step 3, 30 ablation markets | not supported in agent-mix (2-10% of levels; decision-boundary test met in 88-100% of cells); moot in queue-reactive (all regrets < 0.5 bp) |
+| The findings hold for a 30-minute, 60-decision task | addendum 8, step 5 variant, six held-out markets | supported: no fitted design beats always TWAP on average; the oracle does |
 
 The 100-seed reruns of the same markets (addendum 7) are not independent confirmation of hypotheses developed on those
 markets; they are reported as secondary. Independent tests are the drawn markets (addendum 4) and the held-out family
