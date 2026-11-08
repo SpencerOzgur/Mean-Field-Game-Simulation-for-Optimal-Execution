@@ -118,7 +118,7 @@ section { scroll-margin-top: 20px; }
 
 <main>
 <header class="top">
-  <div class="eyebrow">Full report · market simulators and execution decisions · updated 7 November 2026, evening: held-out family</div>
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 8 November 2026: decisive mechanism test, budget curves, audit</div>
   <h1>Do realistic market simulators give reliable execution advice?</h1>
   <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
   <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
@@ -130,7 +130,7 @@ section { scroll-margin-top: 20px; }
 <div class="tbl"><table><thead><tr><th>Work (addendum 8)</th><th>Kaggle</th><th>State</th></tr></thead><tbody>
 <tr><td>Held-out latent-liquidity family: six markets, full pipeline at 100 seeds</td><td>heldout-1 to heldout-6</td><td><span class="chip yes">done</span> results below</td></tr>
 <tr><td>30-minute task variant (2% and 30% sizes), four fixed designs and the oracle</td><td>longtask-1, longtask-2</td><td><span class="chip run">running / queued</span></td></tr>
-<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip run">running</span> (matched-4 queued)</td></tr>
+<tr><td>Matched mechanisms: 26 markets, four fixed designs, 100 seeds</td><td>matched-1 to matched-4</td><td><span class="chip run">matched-2 done; 1, 3, 4 running</span></td></tr>
 </tbody></table></div>
 
 <h3>Final results at 100 decision seeds (addenda 7 and 8)</h3>
@@ -184,6 +184,42 @@ section { scroll-margin-top: 20px; }
 <tr><td>Validation profile minus TWAP impact alone (B1)</td><td class="num">−0.21 [−0.38, +0.02]</td></tr>
 </tbody></table></div>
 <div class="answer"><p><span class="chip yes">replicates</span> In a market family that played no part in designing anything, every main conclusion holds. The decision is feasible with the right model (the oracle nearly reaches zero regret), but the candidates' family lacks the mechanism, so optimising over them is significantly worse than TWAP and the excess is structural, not noise. Realism scores point the wrong way; the own-impact measure leans the right way and avoids the worst simulators but does not beat TWAP; the frozen conservative rule is safe because it never leaves TWAP.</p></div>
+
+
+<h4>Addendum 9: the true generator with one mechanism switched off</h4>
+<p>Four agent-mix markets with a clearly distinct best strategy. The "simulator" is the market's own generator with its true parameters and exactly one mechanism removed, so there is no fitting, no parameter error and no model selection: any extra regret is structural by construction. 300 seeds; regret at each budget is the mean over disjoint blocks.</p>
+<div class="tbl"><table><thead><tr><th>Simulator (mean of 4 markets × 2 sizes)</th><th class="num">10 seeds</th><th class="num">30</th><th class="num">100</th><th class="num">300</th><th class="num">Picks true best at 300</th><th class="num">Rank corr. at 300</th></tr></thead><tbody>
+<tr><td>True generator (oracle)</td><td class="num">4.39</td><td class="num">2.60</td><td class="num">1.94</td><td class="num">2.36</td><td class="num">75%</td><td class="num">0.85</td></tr>
+<tr><td>… without fundamental anchoring</td><td class="num hi">7.88</td><td class="num hi">8.73</td><td class="num hi">11.28</td><td class="num hi">11.19</td><td class="num hi">0%</td><td class="num hi">−0.14</td></tr>
+<tr><td>… without trend followers</td><td class="num">3.44</td><td class="num">1.87</td><td class="num">2.35</td><td class="num">2.01</td><td class="num">75%</td><td class="num">0.83</td></tr>
+<tr><td>… without liquidity withdrawal</td><td class="num">3.90</td><td class="num">1.79</td><td class="num">1.97</td><td class="num">1.63</td><td class="num">75%</td><td class="num">0.73</td></tr>
+</tbody></table></div>
+<div class="answer"><p><span class="chip yes">H9b holds in all four markets</span> Removing fundamental anchoring makes the generator confidently wrong: regret rises with the budget, it never picks the true best at 300 seeds, its ranking is anti-correlated with the truth, and it over-promises selling at once by +17.8 bps and the risk-averse schedule by +20.1 bps. More simulation makes the wrong answer more precise, not right. Removing trend followers or withdrawal hardly matters in these markets. <span class="chip mid">H9a holds in three of four</span> the oracle reaches zero regret by 300 seeds in R2a, R2b and R2s01; in R2d (toxic) costs are so heavy-tailed (per-seed s.d. 60–115 bps, single runs to about 1,000 bps) that even the truth's 300 seeds cannot separate the top strategies (gaps within 1–2 standard errors), so its regrets are measurement noise. R2d is one of the ten agent-mix markets in the main analyses and is flagged there.</p></div>
+<h4>Regret against simulation budget (all markets, exploratory)</h4>
+<div class="tbl"><table><thead><tr><th>Family</th><th class="num">Always TWAP</th><th class="num">Oracle, 5 → 30 → 100 seeds</th><th class="num">Single candidate</th><th class="num">Ensemble</th><th>Reading</th></tr></thead><tbody>
+<tr><td>Agent-mix</td><td class="num">3.58</td><td class="num">4.01 → 2.31 → 1.90</td><td class="num hi">7.07 → 8.15 → 8.62</td><td class="num hi">8.76 → 9.97 → 9.70</td><td>candidates get worse with more seeds: model error</td></tr>
+<tr><td>Held-out latent</td><td class="num">0.45</td><td class="num">0.83 → 0.43 → 0.06</td><td class="num hi">1.63 → 2.00 → 2.01</td><td class="num hi">2.18 → 2.66 → 2.23</td><td>oracle reaches zero; candidates plateau: model error</td></tr>
+<tr><td>Well-specified</td><td class="num">4.11</td><td class="num">3.82 → 1.92 → 1.22</td><td class="num">4.50 → 3.77 → 3.92</td><td class="num ok">3.92 → 2.41 → 1.68</td><td>ensemble estimation error falls: beats TWAP from about 20 seeds</td></tr>
+<tr><td>Queue-reactive</td><td class="num">0.41</td><td class="num">0.82 → 0.60 → 0.54</td><td class="num">0.79 → 0.57 → 0.45</td><td class="num">0.53 → 0.39 → 0.33</td><td>everything near TWAP: strategies nearly equivalent</td></tr>
+</tbody></table></div>
+<h4>How well do the synthetic families match real Nasdaq data?</h4>
+<div class="tbl"><table><thead><tr><th>Feature (median)</th><th class="num">Real Nasdaq</th><th class="num">Queue-reactive</th><th class="num">Agent-mix</th><th class="num">Held-out latent</th><th class="num">Hawkes-built</th></tr></thead><tbody>
+<tr><td>Price diffusion H (0.5 = random walk)</td><td class="num">0.51</td><td class="num ok">0.49</td><td class="num ok">0.46</td><td class="num ok">0.48</td><td class="num lo">0.39</td></tr>
+<tr><td>Order-flow sign memory γ</td><td class="num">1.83</td><td class="num">1.42</td><td class="num hi">0.68</td><td class="num hi">0.93</td><td class="num">1.23</td></tr>
+<tr><td>Price keeps moving after a trade, R(100)/R(1)</td><td class="num">1.9</td><td class="num hi">9.2</td><td class="num hi">13.4</td><td class="num hi">17.2</td><td class="num">4.0</td></tr>
+<tr><td>Return autocorrelation, 25-trade blocks</td><td class="num">≈ 0.00</td><td class="num ok">−0.01</td><td class="num ok">−0.03</td><td class="num ok">0.02</td><td class="num lo">−0.12</td></tr>
+<tr><td>Impact exponent δ</td><td class="num">0.33–0.43*</td><td class="num hi">1.04</td><td class="num">0.64</td><td class="num hi">0.90</td><td class="num hi">1.01</td></tr>
+<tr><td>Relaxation after a metaorder; true strategy costs; fundamental anchoring</td><td class="num" colspan="5">not observable in our real data</td></tr>
+</tbody></table></div>
+<p class="note">* Real δ from synthetic metaorders (a different protocol from LOB-Impact's), so the comparison is indicative. Every synthetic family gets diffusion and short-horizon return dependence roughly right and has a much more persistent price response to trades, and steeper impact, than Nasdaq: the conclusions describe markets with those mechanisms.</p>
+<h4>Statistics audit (simrel/reports/statistics_and_claims.md)</h4>
+<ul>
+<li><b>Unit of replication:</b> the reference market. Order sizes, candidate designs and seeds are never treated as independent; families (four) are reported separately, not resampled.</li>
+<li><b>Intervals:</b> markets, designs (one draw shared across markets) and seeds; realism scores held fixed; truth noise checked by cross-fitting.</li>
+<li><b>Multiplicity:</b> after a Holm adjustment no directional confirmatory hypothesis is significant (C1 one-sided p = 0.056; C2 p = 0.029, threshold 0.025). C3, a claim of absence, holds.</li>
+<li><b>"Structural" error</b> = candidates minus oracle at 100 seeds; it includes mechanism, parameter-estimation, model-selection and residual finite-sample error. Addendum 9 isolates the mechanism part; the well-specified markets isolate parameter error.</li>
+<li><b>Independent tests</b> are the drawn markets and the held-out family; the 100-seed reruns of the same markets are secondary.</li>
+</ul>
 
 <h3>Done since the last update</h3>
 <ul>

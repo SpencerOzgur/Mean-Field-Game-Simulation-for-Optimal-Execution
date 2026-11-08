@@ -167,6 +167,13 @@ def make_factory(world: str, name: str):
         from simrel.reference_worlds.data import make
 
         return make(world)
+    if name.startswith("oracle-no-"):  # the true generator with one mechanism switched off (addendum 9)
+        from simrel.reference_worlds.data import registry
+
+        cls, params = registry()[world]
+        knob = name[len("oracle-no-"):]
+        removed = dataclasses.replace(params, **{knob: 0.0})
+        return lambda seed: cls(removed, seed)
     if name == "qr":
         from simrel.adapters.qr_candidate import QRCandidate
 
