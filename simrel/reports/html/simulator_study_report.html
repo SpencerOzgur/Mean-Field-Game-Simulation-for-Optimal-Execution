@@ -7,7 +7,7 @@
 :root {
   --bg: #f6f7f8; --surface: #ffffff; --ink: #1b2330; --ink-2: #4a5566; --ink-3: #6b7686; --rule: #dfe3e8; --grid: #e9ecf0;
   --accent: #1f5f8b; --hawkes: #2f6fb5; --abides: #c2571a; --trades: #3b8552; --real: #6b7280;
-  --good: #2e7d4f; --warn: #9a6a00; --bad: #b23a3a; --tint: #eef3f8;
+  --good: #2e7d4f; --warn: #9a6a00; --bad: #b23a3a; --tint: #eef3f8; --simple-bg: #eef6f0;
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -16,13 +16,13 @@
   :root:not([data-theme="light"]) {
     --bg: #12161c; --surface: #1a2029; --ink: #e6eaf0; --ink-2: #b5bfcc; --ink-3: #8f9aa8; --rule: #2c3440; --grid: #252c36;
     --accent: #7fb3dd; --hawkes: #6fa4e6; --abides: #ec8c55; --trades: #6fbf86; --real: #a3abb7;
-    --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; color-scheme: dark;
+    --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; --simple-bg: #17241c; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #12161c; --surface: #1a2029; --ink: #e6eaf0; --ink-2: #b5bfcc; --ink-3: #8f9aa8; --rule: #2c3440; --grid: #252c36;
   --accent: #7fb3dd; --hawkes: #6fa4e6; --abides: #ec8c55; --trades: #6fbf86; --real: #a3abb7;
-  --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; color-scheme: dark;
+  --good: #6cc391; --warn: #e0b54a; --bad: #ec7f7f; --tint: #1e2733; --simple-bg: #17241c; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
@@ -51,6 +51,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 ul, ol.plain { margin: 0 0 14px; padding-left: 22px; max-width: 76ch; } li { margin: 4px 0; }
 .answer { border-left: 3px solid var(--accent); padding: 10px 16px; background: var(--tint); border-radius: 0 6px 6px 0; margin: 14px 0 18px; max-width: 82ch; }
 .answer p:last-child { margin-bottom: 0; }
+.simple { border: 1px solid var(--rule); border-left: 3px solid var(--good); background: var(--simple-bg); padding: 10px 16px; border-radius: 0 6px 6px 0; margin: 10px 0 16px; max-width: 82ch; font-size: 15px; }
+.simple .slbl { font-family: var(--font-data); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--good); margin-bottom: 4px; }
+.simple p { margin: 0 0 8px; } .simple p:last-child, .simple ul:last-child { margin-bottom: 0; } .simple ul { margin: 0 0 8px; }
+.gloss { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; } .gloss dt { font-weight: 600; } .gloss dd { margin: 0; }
 .tbl { overflow-x: auto; margin: 12px 0 20px; border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); }
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th, td { padding: 7px 11px; text-align: left; border-bottom: 1px solid var(--grid); vertical-align: top; }
@@ -119,7 +123,7 @@ section { scroll-margin-top: 20px; }
 
 <main>
 <header class="top">
-  <div class="eyebrow">Full report · market simulators and execution decisions · updated 12 November 2026: plain-language summary of all results so far</div>
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 12 November 2026: an “in simple words” explanation in every section</div>
   <h1>Do realistic market simulators give reliable execution advice?</h1>
   <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
   <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
@@ -127,6 +131,20 @@ section { scroll-margin-top: 20px; }
 
 <section id="plain">
 <h2>In plain words: what we have found so far</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Words used throughout this report:</p>
+<dl class="gloss">
+<dt>bp (basis point)</dt><dd>0.01% of the order's value. On the $25 million example order, 1 bp = $2,500.</dd>
+<dt>TWAP</dt><dd>The plain default: sell the same amount in every time step. Every other strategy is judged against it.</dd>
+<dt>Simulator</dt><dd>A computer model of the stock market, used to try strategies before using them for real.</dd>
+<dt>Regret</dt><dd>How much more the chosen strategy costs than the best possible strategy, in bp. Zero is perfect.</dd>
+<dt>Seed / run</dt><dd>One simulated trading session. Each run has different random luck, so we average many runs.</dd>
+<dt>True generator (oracle)</dt><dd>In our own synthetic markets we know the exact rules. Using those rules as the simulator is the best anyone could do.</dd>
+<dt>Candidate</dt><dd>A simulator fitted to data from the market, the way a real researcher would build one.</dd>
+<dt>Realism score</dt><dd>How much a simulator's market looks like the real one when nobody is trading against it.</dd>
+<dt>Counterfactual / impact</dt><dd>How the price reacts when <i>we</i> trade: "what would have happened if we had sold?"</dd>
+<dt>[a, b]</dt><dd>The 95% range for a result. If it includes zero, we cannot rule out "no effect".</dd>
+<dt>Pre-registered</dt><dd>The test was written down and locked (with a digital fingerprint, SHA-256) before the results existed, so the goalposts could not be moved.</dd>
+</dl></div>
 <div class="answer">
 <p><b>The running example.</b> A trader must sell <b>500,000 shares</b>. Assume $50 a share (roughly Intel's price in our data), so the order is worth <b>$25 million</b>, and <b>1 basis point (bp) of cost = $2,500</b>. The trader can sell evenly over time (TWAP, the plain default), sell quickly, or follow a cleverer strategy that a market simulator recommends. A simulator is useful only if its recommendation saves money compared with just using TWAP.</p>
 <p class="note">The dollar figures below convert our basis-point results to an order of this value. They are illustrations: our tests used orders of 5–15% of the market's volume (2–30% in the 30-minute task), and costs per bp depend on the stock and the order's size relative to volume.</p>
@@ -153,6 +171,7 @@ section { scroll-margin-top: 20px; }
 <section id="status">
 <h2>0 Status now</h2>
 <h3>Kaggle work (all finished 8 November)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>All the heavy computer runs (on Kaggle's free cloud machines) are finished, checked for crashes and merged. Nothing is still running.</p></div>
 <div class="tbl"><table><thead><tr><th>Work (addendum 8)</th><th>Kaggle</th><th>State</th></tr></thead><tbody>
 <tr><td>Held-out latent-liquidity family: six markets, full pipeline at 100 seeds</td><td>heldout-1 to heldout-6</td><td><span class="chip yes">done</span> results below</td></tr>
 <tr><td>30-minute task variant (2% and 30% sizes), four fixed designs and the oracle</td><td>longtask-1, longtask-2</td><td><span class="chip yes">done</span> results below</td></tr>
@@ -160,8 +179,11 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 
 <h3>Final results at 100 decision seeds (addenda 7 and 8)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>We re-ran every simulator 100 times instead of 30, so that bad luck in a few runs cannot explain the results. These reruns are a check: the official tests are still the 30-run ones that were locked in advance.</p></div>
 <p class="note">All 26 Goal 2 markets, every candidate at 100 seeds. The 30-seed pre-registered results remain primary; these are secondary. Three-level bootstrap intervals. Results: results/simrel/goal2/seeds100/ and results/simrel/goal2/addendum8/.</p>
 <h4>Step 2: four decision makers, sampling against structural error (full truth; cross-fitted in brackets)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>Imagine four advisers: <b>A</b> knows the market's true rules and simulates 100 times; <b>B</b> knows the rules but simulates only 30 times; <b>C</b> uses fitted simulators 100 times; <b>D</b> fitted simulators 30 times. "B − A" is what too few runs (bad luck) costs; "C − A" is what having the wrong model costs.</p>
+<p>In agent-mix markets the wrong model costs about 6.7 bp (<b>about $17,000</b> on the example order) while bad luck costs only 0.4 bp. The problem is the model, not the number of runs. In queue-reactive markets nothing matters, because all strategies cost about the same.</p></div>
 <div class="tbl"><table><thead><tr><th>Group</th><th class="num">A oracle, 100 seeds</th><th class="num">B oracle, 30</th><th class="num">C candidates, 100</th><th class="num">D candidates, 30</th><th class="num">Sampling B − A</th><th class="num">Structural C − A</th><th class="num">Interaction</th></tr></thead><tbody>
 <tr><td>Agent-mix</td><td class="num">1.90</td><td class="num">2.31</td><td class="num">8.62</td><td class="num">8.15</td><td class="num">+0.41 [−0.39, +1.37]</td><td class="num hi">+6.72 [+4.23, +7.83] (+9.11 [+5.99, +10.30])</td><td class="num">−0.88</td></tr>
 <tr><td>Well-specified</td><td class="num">1.22</td><td class="num">1.92</td><td class="num">3.92</td><td class="num">3.77</td><td class="num">+0.71 [−0.39, +2.30]</td><td class="num">+2.70 [+0.17, +5.64] (+2.75 [−0.05, +6.18])</td><td class="num">−0.86</td></tr>
@@ -169,6 +191,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 <div class="answer"><p><span class="chip yes">criterion met</span> In the agent-mix markets nearly all excess regret is structural: it remains once Monte Carlo noise is reduced, and it survives cross-fitting of the truth. Queue-reactive decisions are flat. In the well-specified markets a smaller structural part remains, because most of the 29 candidates are not the generating design and those that are must estimate its parameters.</p></div>
 <h4>Ensemble and single simulator against TWAP</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>A positive number means "worse than just using TWAP". In agent-mix markets, following the simulators costs 5–6 bp more than TWAP (<b>$12,500–$15,000</b>). Where the simulators have the right structure (well-specified markets), averaging them saves about 2.4 bp, but the range crosses zero, so that saving is not proven.</p></div>
 <div class="tbl"><table><thead><tr><th>Markets</th><th class="num">Always TWAP</th><th class="num">Oracle</th><th class="num">Ensemble minus TWAP</th><th class="num">Single simulator minus TWAP</th></tr></thead><tbody>
 <tr><td>Queue-reactive (10)</td><td class="num">0.41</td><td class="num">0.54</td><td class="num">−0.08 [−0.34, +0.38]</td><td class="num">+0.04 [−0.10, +0.34]</td></tr>
 <tr><td>Agent-mix (10)</td><td class="num">3.58</td><td class="num">1.90</td><td class="num hi">+6.12 [+3.33, +8.96]</td><td class="num hi">+5.04 [+3.12, +6.31]</td></tr>
@@ -176,6 +199,7 @@ section { scroll-margin-top: 20px; }
 <tr><td>Misspecified (20)</td><td class="num">2.00</td><td class="num">1.22</td><td class="num hi">+3.02 [+1.31, +5.19]</td><td class="num hi">+2.54 [+1.24, +3.65]</td></tr>
 </tbody></table></div>
 <h4>Confirmatory hypotheses at 100 seeds (secondary)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>The same four locked tests, repeated with more runs. The story does not change: realism scores still do not help, and choosing by impact accuracy still does not beat TWAP. One test (C2) now looks clearer, but because these are the same markets it counts only as supporting evidence.</p></div>
 <div class="tbl"><table><thead><tr><th>Ten drawn markets</th><th class="num">30 seeds (primary)</th><th class="num">100 seeds</th></tr></thead><tbody>
 <tr><td>C1 metaorder accuracy predicts good advice</td><td class="num">+0.15 [−0.03, 0.28]</td><td class="num">+0.07 [−0.12, 0.25]</td></tr>
 <tr><td>C2 choosing by it beats choosing by order book</td><td class="num">−2.66 [−4.75, +0.03]</td><td class="num ok">−2.80 [−4.98, −0.13]</td></tr>
@@ -183,6 +207,7 @@ section { scroll-margin-top: 20px; }
 <tr><td>C4 choosing by metaorder accuracy against TWAP</td><td class="num">+0.64 [−0.20, +1.94]</td><td class="num">+1.14 [−0.14, +1.89]</td></tr>
 </tbody></table></div>
 <h4>Step 4: a decision-aware validation measure (split seeds)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>We tried a check that cheats: it uses the true answers to measure how wrong each simulator's cost comparisons are. Even this predicts bad advice only weakly (correlation 0.13 on a scale where 1 is perfect). Earlier, higher numbers (0.5–0.6) were inflated because the same runs were used both to make and to grade the choice.</p></div>
 <p>E_decision, the error in the predicted cost differences of all 66 strategy pairs, measured on seeds 50–99 while the recommendation uses seeds 0–49:</p>
 <div class="tbl"><table><thead><tr><th>Correlation with regret</th><th class="num">All 26</th><th class="num">Agent-mix</th><th class="num">Queue-reactive</th><th class="num">Well-specified</th></tr></thead><tbody>
 <tr><td>E_decision (oracle diagnostic)</td><td class="num">+0.13 [0.01, 0.19]</td><td class="num">+0.30 [0.11, 0.38]</td><td class="num">+0.04</td><td class="num">−0.02</td></tr>
@@ -194,6 +219,7 @@ section { scroll-margin-top: 20px; }
 <div class="answer"><p><span class="chip no">not supported</span> E_decision does not predict regret better than the metaorder measure (difference +0.02 [−0.05, +0.13]). Even an oracle measure of the decision-relevant quantity predicts only weakly once measurement and choice use separate seeds; the cost-ranking correlations of about 0.5–0.6 reported earlier were inflated by shared seeds. All counterfactual measures carry some signal in the agent-mix markets (+0.27 to +0.34), where misspecification is the problem; no realism measure does.</p></div>
 
 <h4>Step 5: the held-out latent-liquidity family (never used to design any rule)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>A brand-new kind of market, kept locked away until the end, so nothing could have been tuned to it. Every main finding repeated: the true model is nearly perfect (0.06 bp of regret), the fitted simulators are about 1.8 bp worse than TWAP (<b>about $4,500</b>), and the "more realistic" simulators actually gave <i>worse</i> advice.</p></div>
 <p>Six markets of a new family (liquidity revealed around a reference price that relaxes towards the traded price; persistent order-flow signs), drawn at random with a fixed seed; all 29 candidates at 100 seeds; every rule and measure applied exactly as frozen.</p>
 <div class="tbl"><table><thead><tr><th>Six held-out markets</th><th class="num">Result</th></tr></thead><tbody>
 <tr class="sub"><td>Always TWAP</td><td class="num">0.45</td></tr>
@@ -213,6 +239,7 @@ section { scroll-margin-top: 20px; }
 
 
 <h4>Addendum 9: the true generator with one mechanism switched off</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>Like a recipe with one ingredient left out. We took the market's exact rules and removed one kind of trader. Without the traders who pull the price back to its fair value ("fundamental anchoring"), the model gave wrong advice, and running it more made it <i>more</i> wrong (7.9 bp at 10 runs, 11.2 bp at 300; <b>about $28,000</b>). Removing trend followers or nervous liquidity providers did little harm in these markets. In one very noisy market (R2d) even the truth could not be pinned down.</p></div>
 <p>Four agent-mix markets with a clearly distinct best strategy. The "simulator" is the market's own generator with its true parameters and exactly one mechanism removed, so there is no fitting, no parameter error and no model selection: any extra regret is structural by construction. 300 seeds; regret at each budget is the mean over disjoint blocks.</p>
 <div class="tbl"><table><thead><tr><th>Simulator (mean of 4 markets × 2 sizes)</th><th class="num">10 seeds</th><th class="num">30</th><th class="num">100</th><th class="num">300</th><th class="num">Picks true best at 300</th><th class="num">Rank corr. at 300</th></tr></thead><tbody>
 <tr><td>True generator (oracle)</td><td class="num">4.39</td><td class="num">2.60</td><td class="num">1.94</td><td class="num">2.36</td><td class="num">75%</td><td class="num">0.85</td></tr>
@@ -222,6 +249,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 <div class="answer"><p><span class="chip yes">H9b holds in all four markets</span> Removing fundamental anchoring makes the generator confidently wrong: regret rises with the budget, it never picks the true best at 300 seeds, its ranking is anti-correlated with the truth, and it over-promises selling at once by +17.8 bps and the risk-averse schedule by +20.1 bps. More simulation makes the wrong answer more precise, not right. Removing trend followers or withdrawal hardly matters in these markets. <span class="chip mid">H9a holds in three of four</span> the oracle reaches zero regret by 300 seeds in R2a, R2b and R2s01; in R2d (toxic) costs are so heavy-tailed (per-seed s.d. 60–115 bps, single runs to about 1,000 bps) that even the truth's 300 seeds cannot separate the top strategies (gaps within 1–2 standard errors), so its regrets are measurement noise. R2d is one of the ten agent-mix markets in the main analyses and is flagged there.</p></div>
 <h4>Regret against simulation budget (all markets, exploratory)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>What happens as each method gets more runs. The true model keeps improving. The fitted simulators get worse or stop improving, which is the sign of a wrong model rather than bad luck. Only where the simulators have the right structure does averaging them beat TWAP, from about 20 runs. In queue-reactive markets everything stays close to TWAP.</p></div>
 <div class="tbl"><table><thead><tr><th>Family</th><th class="num">Always TWAP</th><th class="num">Oracle, 5 → 30 → 100 seeds</th><th class="num">Single candidate</th><th class="num">Ensemble</th><th>Reading</th></tr></thead><tbody>
 <tr><td>Agent-mix</td><td class="num">3.58</td><td class="num">4.01 → 2.31 → 1.90</td><td class="num hi">7.07 → 8.15 → 8.62</td><td class="num hi">8.76 → 9.97 → 9.70</td><td>candidates get worse with more seeds: model error</td></tr>
 <tr><td>Held-out latent</td><td class="num">0.45</td><td class="num">0.83 → 0.43 → 0.06</td><td class="num hi">1.63 → 2.00 → 2.01</td><td class="num hi">2.18 → 2.66 → 2.23</td><td>oracle reaches zero; candidates plateau: model error</td></tr>
@@ -229,6 +257,7 @@ section { scroll-margin-top: 20px; }
 <tr><td>Queue-reactive</td><td class="num">0.41</td><td class="num">0.82 → 0.60 → 0.54</td><td class="num">0.79 → 0.57 → 0.45</td><td class="num">0.53 → 0.39 → 0.33</td><td>everything near TWAP: strategies nearly equivalent</td></tr>
 </tbody></table></div>
 <h4>How well do the synthetic families match real Nasdaq data?</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>Our synthetic markets resemble real Nasdaq data in some ways (prices wander like a random walk; no short-term return patterns) but not others: after a trade, prices keep drifting 5–9 times longer than on Nasdaq, and price impact grows too steeply with order size. So the lessons apply to markets with those features; real markets may be more or less forgiving.</p></div>
 <div class="tbl"><table><thead><tr><th>Feature (median)</th><th class="num">Real Nasdaq</th><th class="num">Queue-reactive</th><th class="num">Agent-mix</th><th class="num">Held-out latent</th><th class="num">Hawkes-built</th></tr></thead><tbody>
 <tr><td>Price diffusion H (0.5 = random walk)</td><td class="num">0.51</td><td class="num ok">0.49</td><td class="num ok">0.46</td><td class="num ok">0.48</td><td class="num lo">0.39</td></tr>
 <tr><td>Order-flow sign memory γ</td><td class="num">1.83</td><td class="num">1.42</td><td class="num hi">0.68</td><td class="num hi">0.93</td><td class="num">1.23</td></tr>
@@ -239,6 +268,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 <p class="note">* Real δ from synthetic metaorders (a different protocol from LOB-Impact's), so the comparison is indicative. Every synthetic family gets diffusion and short-horizon return dependence roughly right and has a much more persistent price response to trades, and steeper impact, than Nasdaq: the conclusions describe markets with those mechanisms.</p>
 <h4>Statistics audit (simrel/reports/statistics_and_claims.md)</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>We count markets, not simulation runs, as independent pieces of evidence, because thousands of runs of the same market still describe only one market. When we test several hypotheses we tighten the bar for each. After that adjustment none of the "this method helps" hypotheses is statistically firm. The finding that "no realism score helps" still holds.</p></div>
 <ul>
 <li><b>Unit of replication:</b> the reference market. Order sizes, candidate designs and seeds are never treated as independent; families (four) are reported separately, not resampled.</li>
 <li><b>Intervals:</b> markets, designs (one draw shared across markets) and seeds; realism scores held fixed; truth noise checked by cross-fitting.</li>
@@ -249,6 +279,7 @@ section { scroll-margin-top: 20px; }
 
 
 <h4>Matched mechanisms: does a fixed simulator track the truth as one mechanism is turned up or down?</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>We turned one market "dial" up and down in five steps and refitted each simulator every time. In agent-mix markets the simulators found the true best strategy at only 2–10% of the settings and were 2–5 times worse than TWAP. They do not follow what actually changed in the market. In queue-reactive markets nothing was at stake.</p></div>
 <p>30 ablation markets: six mechanisms, each at five levels (base included). Four fixed designs (two Hawkes variants, ABIDES and the queue-reactive candidate), each refitted to every market, 100 seeds. Mean regret in bps over the five levels and both sizes; "picks the true best" is the share of levels at which the design recommends the true optimum.</p>
 <div class="tbl"><table><thead><tr><th>Mechanism varied</th><th class="num">Always TWAP</th><th class="num">Hawkes h_k1</th><th class="num">Hawkes h_c_f_m_k1</th><th class="num">ABIDES</th><th class="num">Queue-reactive</th><th class="num">Picks true best</th><th class="num">Decision-boundary errors*</th></tr></thead><tbody>
 <tr><td>Queue joining (queue-reactive)</td><td class="num">0.17</td><td class="num">0.27</td><td class="num">0.08</td><td class="num">0.17</td><td class="num">0.22</td><td class="num">2%</td><td class="num">38%</td></tr>
@@ -261,6 +292,7 @@ section { scroll-margin-top: 20px; }
 <p class="note">* Pre-stated test (addendum 8, step 3): the design picks the true best at fewer than half the levels while its error in pairwise cost differences off the base market exceeds its error at the base by more than 1 bp. Share of design × size cells meeting it.</p>
 <div class="answer"><p><span class="chip no">Fixed simulators do not follow the mechanism</span> In the agent-mix markets every design, refitted to each market, rarely recommends the true best (2–10% of levels), its predicted gains over TWAP do not move with the true gains (median rank correlation −0.20 to +0.10), and it is two to five times worse than always TWAP. The pre-stated decision-boundary test is met in 88–100% of cells. In the queue-reactive markets all regrets are below 0.5 bps: the strategies are nearly equivalent, so failing to track the mechanism costs nothing.</p></div>
 <h4>The 30-minute task (60 decisions), held-out latent-liquidity markets</h4>
+<div class="simple"><div class="slbl">In simple words</div><p>The same test with a longer job: 30 minutes and 60 decisions. There is more to gain (TWAP leaves 1–2.3 bp, <b>$2,500–$5,750</b>), and the true model captures most of it. The fitted simulators still do not beat TWAP on average, so the main finding is not a side effect of the short task.</p></div>
 <p>The six held-out markets with a 30-minute horizon and sizes 2% and 30% of volume, 100 seeds. Mean regret (bps) over the six markets.</p>
 <div class="tbl"><table><thead><tr><th>Size</th><th class="num">Always TWAP</th><th class="num">True generator</th><th class="num">Hawkes h_k1</th><th class="num">Hawkes h_c_f_m_k1</th><th class="num">ABIDES</th><th class="num">Queue-reactive</th></tr></thead><tbody>
 <tr><td>2%</td><td class="num">2.30</td><td class="num ok">1.42</td><td class="num hi">4.21</td><td class="num hi">4.21</td><td class="num">2.34</td><td class="num hi">3.51</td></tr>
@@ -269,6 +301,7 @@ section { scroll-margin-top: 20px; }
 <div class="answer"><p><span class="chip mid">Longer horizon: more at stake, same answer</span> With 60 decisions, schedule choice matters more (TWAP gives up 1–2.3 bps against 0.45 in the 10-minute task), and the true generator captures most of it (0.11 bps at 30%). No fitted simulator beats always TWAP on average; ABIDES ties it at 2%, and the Hawkes designs lose up to 25 bps on large orders in single markets. The finding is not an artefact of the short task.</p></div>
 
 <h3>Done since the last update</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A progress list: what was finished most recently.</p></div>
 <ul>
 <li>All Kaggle work finished and merged (8 November); every one of the 112,000 policy files checked for failed runs: none remain (64 that crashed because of a missing input file were rerun).</li>
 <li>Matched-mechanism and 30-minute-task results (above).</li>
@@ -277,15 +310,17 @@ section { scroll-margin-top: 20px; }
 <li>Code, pre-registrations and summary results committed and pushed to GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (raw simulation outputs are kept out and can be regenerated).</li>
 </ul>
 <h3>Next</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>What comes next and what it is waiting for.</p></div>
 <div class="tbl"><table><thead><tr><th>Item</th><th>Depends on</th></tr></thead><tbody>
 <tr><td>Draft the manuscript: "When Realistic Market Simulators Give Unreliable Execution Advice: Sampling Error, Misspecification, and Decision Regret" (agreement, reliability, validation)</td><td>Nothing: all experiments are in</td></tr>
 
-<tr><td>Decide whether to add the earlier paper drafts and planning notes to the repository</td><td>Your decision</td></tr>
+<tr><td>Design addendum 10 (when to trust a simulator; mechanism correction): review by the team, then lock it with a checksum before any analysis</td><td>Team review</td></tr>
 </tbody></table></div>
 </section>
 
 <section id="summary">
 <h2>1 Summary</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Simulators that look equally realistic can give opposite advice; looking realistic does not tell you which one gives good advice; and optimising a strategy inside a simulator that has the wrong rules leads to worse results than just using TWAP. The only hint of a useful signal, how well a simulator reproduces the price reaction to your own trade, is weak.</p></div>
 <div class="answer">
 <p><b>Three questions, three answers.</b> (A) Can simulators reproduce real market behaviour? Partly: some match observational statistics, none passes the intervention tests. (B) Can they rank execution strategies? Often not, for two reasons: the decisions are flat or under-powered (even the true generator fails at our sample size) and, in the agent-mix markets, the mechanism is missing. (C) Can observable validation tell which simulator to trust? No: a substantive negative result. Reframed question: under what conditions does predictive error turn into poor decisions, and can validation detect those conditions before optimisation?</p>
 <p><b>Main thesis.</b> Observational market realism does not identify simulators that give reliable execution advice. The only property associated with better advice is how well a simulator reproduces the market's response to the specific trade, and that association is weak: it did not survive a pre-registered confirmatory test. Optimising over a simulator whose mechanism differs from the market's makes decisions worse than plain TWAP.</p>
@@ -301,11 +336,13 @@ section { scroll-margin-top: 20px; }
 
 <section id="questions">
 <h2>2 Questions and plan</h2>
+<div class="simple"><div class="slbl">In simple words</div><p><b>Goal 1</b> uses real stock-market data and asks whether realistic simulators at least agree with each other. <b>Goal 2</b> builds synthetic markets where we know the right answer, so that advice can actually be graded. Real data cannot tell us who is right; synthetic markets can.</p></div>
 <div class="kv">
 <dt>Goal 1</dt><dd>Does market realism translate into reliable execution decisions? Do simulators that look similarly realistic on real data recommend the same strategy?</dd>
 <dt>Goal 2</dt><dd>Develop and validate a decision-aware evaluation: which kinds of realism predict good decisions, in markets where the right answer is known?</dd>
 </div>
 <h3>Pre-registration timeline</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Each plan was written and locked before its results existed. The digital fingerprint (checksum) proves the plan was not edited afterwards, so we could not change the tests to fit the results.</p></div>
 <p>Each plan was written and checksummed (SHA-256) before the results it governs existed. Checksums are recorded in <span class="mono">simrel/reports/*.sha256</span>.</p>
 <div class="timeline">
 <div class="ev"><div class="when">31 Oct 2026</div><b>Confirmatory replication on CSCO and MSFT</b> (H1–H5): preregistration_confirmatory.md, SHA-256 1f74a210…; addendum 1 on seed counts.</div>
@@ -314,12 +351,16 @@ section { scroll-margin-top: 20px; }
 <div class="ev"><div class="when">2 Nov 2026</div><b>Addendum 1</b>: ABIDES rollouts fitted into the trading day. <b>Addendum 2</b>: validation against the reference tool, ABIDES diagnosis, three-level bootstrap. <b>Addendum 3</b>: six designed markets and the viability rule.</div>
 <div class="ev"><div class="when">3 Nov 2026</div><b>Addendum 4</b>: ten randomly drawn markets and confirmatory hypotheses C1–C4. <b>Addendum 5</b>: error diagnostic, conservative decision rules (A1–A3) frozen on the first ten markets, validation profile (B1–B3), well-specified markets (C).</div>
 <div class="ev"><div class="when">4 Nov 2026</div><b>Exploratory literature checks</b> (not pre-registered): schedules against signals, Bayesian shrinkage, hidden liquidity, synthetic metaorders, a queue-reactive candidate.</div>
-<div class="ev"><div class="when">5 Nov 2026</div><b>Addendum 6</b>: oracle positive control, mechanism ablation, out-of-family rules (section 11b). <b>Addendum 7</b>: every candidate rerun at 100 decision seeds (running).</div>
+<div class="ev"><div class="when">5 Nov 2026</div><b>Addendum 6</b>: oracle positive control, mechanism ablation, out-of-family rules (section 11b). <b>Addendum 7</b>: every candidate rerun at 100 decision seeds.</div>
+<div class="ev"><div class="when">6 Nov 2026</div><b>Addendum 8</b>: separating bad luck from wrong models, a decision-aware measure, the held-out latent-liquidity family, matched mechanisms, the 30-minute task.</div>
+<div class="ev"><div class="when">7 Nov 2026</div><b>Addendum 9</b>: the true generator with one mechanism removed; regret against the number of runs.</div>
+<div class="ev"><div class="when">12 Nov 2026</div><b>Addendum 10</b> (draft, under team review, not yet locked): when a simulator can be trusted, and whether correcting the missing mechanism helps; novelty audit against recent papers.</div>
 </div>
 </section>
 
 <section id="data">
 <h2>3 Data</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Real order-by-order records from Nasdaq for Intel, Cisco and Microsoft on eight days in 2019–2020. Simulators learn from five days and are tested on the other three, so they are never graded on data they learned from. All exploring was done on Intel; Cisco and Microsoft were used once, as a clean check.</p></div>
 <ul>
 <li><b>Source.</b> Public Nasdaq TotalView-ITCH 5.0 sample days, rebuilt into LOBSTER format (messages and a ten-level book after every message), keeping only events that change the visible ten levels plus all executions.</li>
 <li><b>Days.</b> Fit days 2019-01-30, 2019-03-27, 2019-07-30, 2019-08-30, 2019-10-18; held-out days 2019-10-30, 2019-12-30, 2020-01-30. Simulators learn only from fit days; realism is scored on held-out days.</li>
@@ -327,6 +368,7 @@ section { scroll-margin-top: 20px; }
 <li><b>Discovery and confirmation.</b> All exploration was done on INTC; CSCO (primary) and MSFT (secondary) were run once under the pre-registration.</li>
 </ul>
 <h3>LOB-Impact calibration (INTC, visible stream)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The LOB-Impact benchmark tests a simulator by feeding it a standard large order in small pieces. This table shows how big the pieces are (100–200 shares) and how often one is sent (one every 600–1,100 market messages, about 10% of trading), matched to each real day.</p></div>
 <p>The protocol's child order is the day's median market-order size; children are spaced dN = 9/φ messages apart (10% participation), φ being the share of market orders in the message stream.</p>
 <div class="tbl"><table><thead><tr><th>Day</th><th class="num">φ</th><th class="num">dN (messages)</th><th class="num">Child (shares)</th><th class="num">Visible volume</th></tr></thead><tbody>
 <tr><td>2019-01-30</td><td class="num">0.0107</td><td class="num">837</td><td class="num">200</td><td class="num">5,296,725</td></tr>
@@ -343,6 +385,7 @@ section { scroll-margin-top: 20px; }
 
 <section id="sims">
 <h2>4 Simulators</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Three kinds of simulator. <b>Hawkes</b> models are statistical: they learn how often each type of order arrives and how orders trigger each other. <b>ABIDES</b> is agent-based: it simulates traders that follow simple rules (noise traders, value investors, market makers). <b>TRADES</b> is an AI model that generates order flow, trained like an image generator. The "versions" add realistic features, for example a book that refills after trades.</p></div>
 <div class="tbl"><table><thead><tr><th>Version</th><th>Family</th><th>Mechanism</th><th>Fitted to</th></tr></thead><tbody>
 <tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes original</td><td>Statistical point process</td><td>Six order types (limit, market, cancel by side) that excite each other through exponential kernels; marks (sizes, price levels) from empirical distributions; branching ratio capped at 0.9</td><td>Maximum likelihood on each slice's fit windows</td></tr>
 <tr><td><span class="dot" style="background:var(--hawkes)"></span>Hawkes queue</td><td>Hawkes + state</td><td>Adds cancellations that follow the queue at the best price; best order-book realism score</td><td>As above, with best-queue sizes</td></tr>
@@ -364,6 +407,7 @@ section { scroll-margin-top: 20px; }
 
 <section id="task">
 <h2>5 Task and strategies</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>The job: sell a fixed amount (for example 10% of the usual ten-minute volume) within ten minutes, deciding every 30 seconds how much to sell. Cost is measured against the price when the job started. Twelve strategies range from "sell everything now" to "sell evenly" (TWAP) to "speed up or slow down with recent price moves". The number D compares two of them: positive means the simulator thinks selling at once is cheaper; negative means it thinks patience is cheaper.</p></div>
 <ul>
 <li><b>Goal 1 task.</b> Sell 10% (and 30%) of the slice's typical ten-minute volume within ten minutes, in 20 decisions of 30 seconds, using market orders. Cost: implementation shortfall against the arrival mid, in bps. Each run is paired with an unperturbed twin on the same seed.</li>
 <li><b>Goal 2 task.</b> Sell 5% or 15% of the reference market's mean volume over ten minutes in 20 decisions.</li>
@@ -384,19 +428,23 @@ section { scroll-margin-top: 20px; }
 
 <section id="metrics">
 <h2>6 Measures</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Two families of scores. <b>Realism</b>: does the simulated market look like the real one when left alone (spreads, order sizes, price moves)? <b>Counterfactual</b>: when we trade in it, does the price react the way real prices react to a trade of that size? The second is closer to what an execution decision needs.</p></div>
 <h3>Realism flavour (observational)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Scores computed from the market as it runs, with nobody trading against it.</p></div>
 <ul>
 <li><b>LOB-Bench</b> (ICML 2025, @276baf3): 21 default statistics compared by L1 (order book); conditional statistics; five return and volatility statistics by Wasserstein (price); LOB-Bench's impact score.</li>
 <li><b>Trade response:</b> mean price change ten seconds after the market's own aggressive orders.</li>
 <li><b>LOB-Impact phase 1</b> (ICAIF 2026): trade-sign memory γ, Hurst exponent H, response ratio R(100)/R(1), free drift, from free runs.</li>
 </ul>
 <h3>Counterfactual flavour (interventional)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Scores computed by sending our own orders into the simulator and measuring the price reaction.</p></div>
 <ul>
 <li><b>LOB-Impact phases 2–3:</b> a standard 100-child metaorder (median child size, 10% participation, buy and sell pooled); build-up exponent δ (signed binned estimator, day-clustered bootstrap), amplitude Y, peak impact, relaxation (end over peak after 100 cooling windows), visible over blind attribution (Hawkes only).</li>
 <li><b>Metaorder impact error (ours, task-specific):</b> the simulator's TWAP peak impact against the market's own, at the task's order size.</li>
 <li><b>Validation profile</b> (addendum 5): immediate-execution cost, TWAP impact, relaxation after TWAP, conditional price response, and, in synthetic markets only, cost-ranking accuracy.</li>
 </ul>
 <h3>Real-data checks (Goal 1)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Two costs we can estimate from real data directly: what selling at once would have cost against the real order book, and how much gradual selling typically moves the price.</p></div>
 <ul>
 <li><b>Cost of selling at once:</b> walk the real held-out book (an upper bound; hidden liquidity lowers it by 7–17%).</li>
 <li><b>TWAP impact:</b> against the square-root law band (literature constants) and against impact measured on our own trades with synthetic metaorders.</li>
@@ -405,6 +453,7 @@ section { scroll-margin-top: 20px; }
 
 <section id="validation">
 <h2>7 Validation</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Before trusting the results we checked our tools. Our scoring matches the official benchmark code exactly, every run can be reproduced exactly from its seed, and the estimators recover known answers planted in test data. The Hawkes models fit the data well on average but miss bursts of orders that arrive within a millisecond.</p></div>
 <div class="tbl"><table><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody>
 <tr><td>Our LOB-Bench scoring against LOB-Bench's code, on its public GOOG sample</td><td><span class="chip yes">identical</span> zero difference on all 21 statistics</td></tr>
 <tr><td>LOB-Impact estimators (our port) against the published tool, on the same 72 INTC rollouts</td><td><span class="chip yes">passed</span> every count and point estimate identical; interval differences explained (bootstrap stream order, n against n−1, detection taken at the largest impact rather than the end); no Goal 1 verdict changes</td></tr>
@@ -421,7 +470,9 @@ section { scroll-margin-top: 20px; }
 
 <section id="goal1">
 <h2>8 Goal 1 results: real data</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>What the simulators say about real Intel, Cisco and Microsoft trading, where nobody knows the true answer.</p></div>
 <h3 id="g1-dis">Simulators disagree</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>On all three stocks the original Hawkes model says "sell at once" (D above zero) and the original ABIDES model says "be patient" (D below zero). On Intel the gap is 3.53 + 4.10 = 7.6 bp: on the example order, <b>$19,000</b> depending on which simulator you believe. Both look about equally realistic.</p></div>
 <figure>
   <div class="legend"><span><span class="dot" style="background:var(--hawkes)"></span>Hawkes versions</span><span><span class="dot" style="background:var(--abides)"></span>ABIDES versions</span><span class="note">dot: estimate; line: 95% interval (seeds resampled within slices)</span></div>
   <div class="panels" id="dpanels"></div>
@@ -436,6 +487,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 
 <h3 id="g1-hyp">Pre-registered tests (H1–H5)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Five tests locked before running Cisco and Microsoft. The main one (H1: the two simulators disagree) held on all three stocks. The hope that improved versions would end up agreeing (H3) failed. Better order-book realism went with more extreme advice (H5), not better advice.</p></div>
 <div class="tbl"><table><thead><tr><th>Hypothesis</th><th>INTC (discovery)</th><th>CSCO (primary)</th><th>MSFT (secondary)</th></tr></thead><tbody>
 <tr><td><b>H1</b> Original Hawkes and ABIDES disagree (opposite signs, gap ≥ 2 bps)</td><td><span class="chip yes">holds</span> gap 7.63</td><td><span class="chip yes">holds</span> 7.15</td><td><span class="chip yes">holds</span> 4.59</td></tr>
 <tr><td><b>H2</b> The queue version improves order-book realism and moves advice towards selling at once</td><td><span class="chip yes">holds</span> L1 0.187 vs 0.285; ΔD +17.97</td><td><span class="chip yes">holds</span> 0.177 vs 0.211; +6.61 [2.07, 11.26]</td><td><span class="chip no">fails</span> 0.220 vs 0.264; −2.21 [−4.74, 0.37]</td></tr>
@@ -446,6 +498,7 @@ section { scroll-margin-top: 20px; }
 <p class="note">Exploratory 30% size: H3 differences +3.41 (INTC) and +3.81 (CSCO). The earlier hint that improved simulators converge (H3) did not replicate. Deviation: base versions ran 60 seeds by a runner default; the tests use the pre-registered 20.</p>
 
 <h3 id="g1-mech">Mechanism: two costs, neither right everywhere</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The decision weighs two costs: the cost of selling everything at once (eating through the order book) and the cost of selling slowly (each sale pushes the price down a little, and it adds up). ABIDES-original makes selling at once too expensive, so it advises patience. Hawkes-original makes slow selling push the price too much, so it advises selling at once. Which simulator is "right" about slow selling depends on which real-data yardstick you use.</p></div>
 <h4>Cost of selling at once (bps; real band: hidden-liquidity lower bound to visible-book upper bound)</h4>
 <div class="tbl"><table><thead><tr><th></th><th class="num">INTC 10%</th><th class="num">INTC 30%</th><th class="num">CSCO 10%</th><th class="num">CSCO 30%</th><th class="num">MSFT 10%</th><th class="num">MSFT 30%</th></tr></thead><tbody>
 <tr class="sub"><td>Real (band)</td><td class="num">3.50–4.16</td><td class="num">7.80–8.92</td><td class="num">2.46–2.88</td><td class="num">5.22–6.35</td><td class="num">3.60–4.01</td><td class="num">5.07–5.34</td></tr>
@@ -470,6 +523,7 @@ section { scroll-margin-top: 20px; }
 <p>The resulting advice follows from the two errors: ABIDES-original prices selling at once 1.3–3.1 times too high and so advises patience; Hawkes-original makes gradual selling move the price strongly and so advises selling at once; Hawkes-refill gets gradual impact low and selling at once too cheap, and is nearly indifferent.</p>
 
 <h3 id="g1-rob">Robustness (INTC, 10%)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Refitting on different days does not change the advice. But one technical setting that the data cannot pin down (the Hawkes "stability cap") changes the size of the Hawkes advice sixfold. And giving ABIDES-calibrated realistic price volatility flips its advice from "patience" to "sell at once".</p></div>
 <div class="tbl"><table><thead><tr><th>Check</th><th class="num">D (bps)</th><th>Reading</th></tr></thead><tbody>
 <tr><td>Hawkes original, five refits leaving out one fit day</td><td class="num">+2.2 to +4.9 (sd 1.02)</td><td>Always "sell at once"</td></tr>
 <tr><td>Hawkes refill, five refits</td><td class="num">+0.17 to +0.95 (sd 0.31)</td><td>Always near indifferent</td></tr>
@@ -480,11 +534,13 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 
 <h3 id="g1-li">LOB-Impact on the five versions</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The official LOB-Impact benchmark (published October 2026) checks how simulators react to a large order. No version passes all its checks. The ABIDES versions barely react at all, so most of their checks cannot even be evaluated (shown as dots).</p></div>
 <p>64 rollouts per arm and side (paper: 1,024 over 20 days), all eight days. Claim ladder C1–C5 with the paper's criteria: C1 flow balance (γ, H, drift within 0.10, 0.02, 5 ticks of the real stream); C2 law identified and impact detected; C3 visible over blind ≥ 3; C4 square-root law (|δ−0.5| ≤ 0.10 and Y in [0.5, 1]); C5 relaxation at or below the Obizhaeva–Wang kernel (0.87). ✓ pass, ✗ fail, · not decidable.</p>
 <div class="tbl"><table><thead><tr><th>Stock</th><th>Version</th><th class="num">γ</th><th class="num">H</th><th class="num">δ</th><th class="num">Y</th><th class="num">Peak bps</th><th class="num">End/peak</th><th class="num">v/b</th><th>C1–C5</th></tr></thead><tbody id="li-table"></tbody></table></div>
 <p class="note">Real streams: γ = 1.83 / 0.77 / 1.97 and H = 0.51 / 0.50 / 0.54 for INTC / CSCO / MSFT. LOB-Impact peak impact ranks the versions as our square-root check does (rank correlation 0.9 on each stock) and lines up with D (1.0, 1.0, 0.5); LOB-Bench order-book scores run the other way (−1.0 to −0.2).</p>
 
 <h3 id="g1-abides">Why ABIDES does not react</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Two reasons. ABIDES-calibrated has such a deep order book that 100-share pieces do not move the price; with pieces five times larger, impact appears. ABIDES-original has value investors who push the price straight back after every trade, because they anchor to a "fair value" that our orders cannot change.</p></div>
 <div class="tbl"><table><thead><tr><th>Peak impact after 100 children, bps (± s.e.), INTC</th><th class="num">Normal child, own clock</th><th class="num">Normal, real-time spacing</th><th class="num">5× child, own clock</th><th class="num">5×, real-time spacing</th></tr></thead><tbody>
 <tr><td>ABIDES original</td><td class="num">−0.4 ± 0.7</td><td class="num">0.6 ± 0.9</td><td class="num">0.7 ± 0.9</td><td class="num">1.8 ± 0.8</td></tr>
 <tr><td>ABIDES calibrated</td><td class="num">0.5 ± 0.5</td><td class="num">0.2 ± 0.5</td><td class="num ok">2.5 ± 0.6</td><td class="num ok">2.4 ± 0.6</td></tr>
@@ -493,13 +549,16 @@ section { scroll-margin-top: 20px; }
 <p>The clock adaptation is not the cause. ABIDES-calibrated's deep book absorbs 100-share children (direct jump 0.00 bps); with 5× children impact appears. ABIDES-original reverts every displacement (+2.2 bps of direct jumps undone by −2.2 bps between children), because its value agents trade towards a fundamental price our orders cannot move. Across simulators, 100-share children move the mid directly in only 1–8% of cases; Hawkes impact builds between children (+19 to +25 bps per metaorder).</p>
 
 <h3 id="g1-trades">TRADES case study</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The AI simulator was trained once on Intel and covers one market window. Its results were driven by occasional collapses of one side of its order book, and a second training attempt failed to learn. It is reported only as an example, not as evidence.</p></div>
 <p>In the one window TRADES covers, its realism score was close to ABIDES-original's (0.47 against 0.44) and the two disagreed by mean cost; the TRADES result was driven by occasional collapses of one side of its book, and by median it preferred front-loading. Ten sampling steps instead of one scored worse on LOB-Bench (0.555 against 0.483), and a second training seed failed to learn. TRADES is reported as a case study only.</p>
 </section>
 
 <section id="goal2">
 <h2>9 Goal 2 design: markets with known answers</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Because real data cannot say which advice is right, we wrote our own markets, so the true cost of every strategy is known exactly. Each candidate simulator sees only six half-hour samples of a market, as a real researcher would, is fitted to them, and then recommends a strategy. We grade the recommendation by its regret.</p></div>
 <p>Each reference market is a simulator whose rules we wrote, so every strategy's true expected cost can be computed (300 seeds per strategy and size). Candidate simulators see only six 30-minute observable episodes (event log and quotes), are fitted, scored for realism against twelve held-out reference windows, and asked for a recommendation (30 seeds). Regret is the true cost of the recommendation minus the true best.</p>
 <h3>The 26 reference markets</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Four kinds: <b>queue-reactive</b> (traders react to how long the queues at the best prices are), <b>agent-mix</b> (value investors, trend followers and nervous liquidity providers), <b>randomly drawn</b> versions of both (for a fair, unpicked test), and <b>well-specified</b> markets built from the candidates' own model family (so the candidates have the right structure).</p></div>
 <div class="tbl"><table><thead><tr><th>Set</th><th>Markets</th><th>How they were made</th></tr></thead><tbody>
 <tr><td>Original (4)</td><td class="mono">R1a qr resilient, R1b qr fragile, R2a am anchored, R2b am trending</td><td>Two queue-reactive markets (order flow responds to queue sizes) and two agent-mix markets (noise traders, fundamentalists, trend followers with a hidden regime, liquidity providers who flee one-sided flow)</td></tr>
 <tr><td>Designed (6)</td><td class="mono">R1c thin, R1d momentum, R1e deep, R2c anchor, R2d toxic, R2e calm</td><td>One mechanism dial changed each (addendum 3)</td></tr>
@@ -510,18 +569,22 @@ section { scroll-margin-top: 20px; }
 <div class="tbl"><table id="sampled-params"><thead><tr><th>Market</th><th>Parameters</th></tr></thead><tbody></tbody></table></div>
 </details>
 <h3>The 29 candidate simulators per market</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>28 variations of the Hawkes model plus ABIDES, all fitted to each market from its six samples.</p></div>
 <ul>
 <li><b>Hawkes family (28):</b> every combination of spread closing, gap filling and multi-timescale kernels (8 structures), each with market-order excitation scaled 0.5, 1 or 2 (24), plus stability caps 0.8 and 0.95 for the plain and the full structure (4).</li>
 <li><b>ABIDES (1):</b> calibrated to each market on an 18-point grid by simulated moments.</li>
 <li><b>Exploratory 30th:</b> a queue-reactive simulator (section 11).</li>
 </ul>
 <h3>Inference</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>To see how stable a result is, we re-draw markets, simulators and runs at random 2,000 times and recompute everything (a "bootstrap"). The spread of the answers gives the 95% ranges shown in brackets.</p></div>
 <p>The 29 designs recur in every market, there are few markets, and each recommendation rests on 30 seeds. All Goal 2 intervals come from a three-level bootstrap (2,000 resamples): markets with replacement; designs with replacement, shared across markets; seeds within each market and design, from which predicted costs, recommendations, regret and the metaorder measure are recomputed. Realism and LOB-Impact scores are held fixed. Exact ties in predicted costs go to the first strategy by name in every code path.</p>
 </section>
 
 <section id="goal2r">
 <h2>10 Goal 2 results</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Grading the advice in markets where the answer is known.</p></div>
 <h3 id="g2-first">Which measures predict good advice</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>If you pick the simulator with the best realism score and follow its advice, you do worse than plain TWAP (for example 5.41 bp against 2.10 in the drawn markets, about <b>$8,000</b> more on the example order). Picking by accuracy of the price reaction to your own trade comes closer to TWAP but still does not beat it.</p></div>
 <figure>
   <div class="legend"><span><span class="dot" style="background:var(--ink-3)"></span>realism scores</span><span><span class="dot" style="background:var(--accent)"></span>counterfactual scores</span><span class="note">rank correlation with regret (positive: a better score goes with lower regret), 95% interval from the three-level bootstrap</span></div>
   <div class="panels" id="corr-panels"></div>
@@ -538,6 +601,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 
 <h3 id="g2-conf">Confirmatory test on ten randomly drawn markets</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The locked test on ten new, randomly drawn markets. The main hypothesis (impact accuracy predicts good advice) narrowly failed, with 94% of re-draws positive against the 97.5% required. "No realism score predicts good advice" was confirmed.</p></div>
 <div class="tbl"><table><thead><tr><th>Hypothesis (addendum 4)</th><th class="num">Result</th><th>Verdict</th></tr></thead><tbody>
 <tr><td><b>C1</b> (primary) Metaorder impact accuracy predicts good advice</td><td class="num">+0.15 [−0.03, 0.28]</td><td><span class="chip no">not confirmed</span> positive in 94% of resamples</td></tr>
 <tr><td><b>C2</b> Choosing by it beats choosing by LOB-Bench order book</td><td class="num">−2.66 [−4.75, +0.03]</td><td><span class="chip no">not confirmed</span> narrowly</td></tr>
@@ -547,6 +611,7 @@ section { scroll-margin-top: 20px; }
 <p class="note">Not pre-registered as confirmatory: choosing by LOB-Impact peak impact rather than order book, −2.97 [−4.72, −0.005] in the drawn markets.</p>
 
 <h3 id="g2-markets">Market by market</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>In queue-reactive markets every method has small regret, because the strategies cost about the same. Agent-mix markets are where simulators go badly wrong. In the well-specified markets the typical simulator often beats TWAP.</p></div>
 <figure>
   <div class="legend"><span><span class="dot" style="background:var(--good)"></span>always TWAP</span><span><span class="dot" style="background:var(--accent)"></span>chosen by metaorder impact</span><span><span class="dot" style="background:var(--ink-3)"></span>chosen by LOB-Bench order book</span><span><span class="dot" style="background:var(--bad)"></span>median simulator</span></div>
   <div class="svgwrap"><svg id="markets" role="img" aria-label="Regret by market"></svg></div>
@@ -557,6 +622,7 @@ section { scroll-margin-top: 20px; }
 </details>
 
 <h3 id="g2-why">Why TWAP wins: predicted against true gains</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>The simulators think selling at once is about as cheap as TWAP; in truth it is about 8 bp worse (<b>$20,000</b>), yet it is their most frequent pick. This is the "optimizer's curse": if you choose whatever looks cheapest, you systematically choose the option whose cost was underestimated most, like picking the fund with the rosiest forecast and getting the most over-optimistic forecast.</p></div>
 <figure>
   <div class="svgwrap"><svg id="bias" role="img" aria-label="Predicted and true gain over TWAP by strategy"></svg></div>
   <figcaption><b>Predicted against true gain over TWAP, by strategy</b> (first ten markets, 29 simulators). Simulators think selling at once is as cheap as TWAP; it is 8 bps worse, their most frequent pick (133 of 576) and never the best. They undervalue signal reversal, the true best in 10 of 20 cells.</figcaption>
@@ -569,6 +635,7 @@ section { scroll-margin-top: 20px; }
 </ul>
 
 <h3 id="g2-rules">Experiment A: deviate from TWAP only when confident</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A cautious rule: leave TWAP only if the predicted saving is large compared with its uncertainty. It removed the losses, but on the test markets it never left TWAP, so it is safe only because it ignores the simulator.</p></div>
 <p>Choose alternative a only if D̂<sub>a</sub> − k σ̂<sub>a</sub> &gt; 0, else TWAP. σ̂ combines between-simulator disagreement, seed error and each strategy's historical error on the training markets (which captures error that all simulators share). k was chosen on the first ten markets and frozen (3 for the ensemble and per-simulator rules, 0.5 for the bias-corrected variant); tested on the drawn markets only.</p>
 <div class="tbl"><table><thead><tr><th>Rule</th><th class="num">Training (first 10)</th><th class="num">Test (drawn 10)</th></tr></thead><tbody>
 <tr><td>Ensemble, cheapest predicted strategy</td><td class="num">5.67</td><td class="num">5.83</td></tr>
@@ -581,6 +648,7 @@ section { scroll-margin-top: 20px; }
 <p>A1 (gated minus ungated ensemble) −3.73 [−6.33, −0.96] and A3 (per simulator) −2.24 [−3.81, −0.69] are confirmed; A2: the gated rule equals TWAP exactly, because it never deviated.</p>
 
 <h3 id="g2-profile">Experiment B: a decision-relevant validation profile</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>We combined several checks that can be run on real data (cost of selling at once, impact, how the price recovers) into one profile. It did not predict good advice. Only a check that needs the true answers did, so the information exists but none of the observable checks captures it.</p></div>
 <div class="tbl"><table><thead><tr><th>Correlation with regret, drawn markets</th><th class="num">Estimate [95%]</th></tr></thead><tbody>
 <tr><td>TWAP impact error</td><td class="num">+0.15 [−0.07, 0.27]</td></tr>
 <tr><td>Immediate-execution cost error</td><td class="num">−0.01 [−0.12, 0.11]</td></tr>
@@ -592,6 +660,7 @@ section { scroll-margin-top: 20px; }
 <p>B1 (profile minus TWAP impact alone) −0.10 [−0.17, +0.05]: <span class="chip no">not supported</span>. Ranking accuracy, which needs the truth, predicts strongly: the information exists, but none of the observable checks captures it.</p>
 
 <h3 id="g2-spec">Experiment C: is the problem misspecification?</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>When the simulators have the right structure, optimising with them tends to beat TWAP (by about 2 bp, not proven). When they do not, it loses about 3.75 bp (<b>about $9,400</b>), and that loss is proven. Having the right mechanism is what matters.</p></div>
 <figure>
   <div class="svgwrap"><svg id="spec" role="img" aria-label="Regret in well-specified and misspecified markets"></svg></div>
   <figcaption><b>Mean regret by rule</b> in the 6 markets the simulators' Hawkes family can represent and in the 20 it cannot.</figcaption>
@@ -606,8 +675,10 @@ section { scroll-margin-top: 20px; }
 
 <section id="explore">
 <h2>11 Literature checks (exploratory)</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Reviewers and recent papers suggested five reasons the results might be misleading. We tested each one after the main results were known, so these are checks, not locked tests. None of them changes the conclusions.</p></div>
 <p>A literature review raised five objections. All were tested after the results were known.</p>
 <h3>Schedules against signal strategies</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Leaving out the signal-based strategies (keeping only fixed schedules) does not change the picture: simulators still lose to TWAP.</p></div>
 <div class="tbl"><table><thead><tr><th>Misspecified markets (20)</th><th class="num">All strategies</th><th class="num">Schedules only</th></tr></thead><tbody>
 <tr><td>Regret, always TWAP</td><td class="num">2.00</td><td class="num">1.06</td></tr>
 <tr><td>Regret, ensemble's cheapest strategy</td><td class="num">5.75</td><td class="num">4.90</td></tr>
@@ -616,20 +687,24 @@ section { scroll-margin-top: 20px; }
 <tr><td>LOB-Bench order book, correlation</td><td class="num">−0.10 [−0.21, 0.01]</td><td class="num">−0.12 [−0.25, −0.00]</td></tr>
 </tbody></table></div>
 <h3>Bayesian shrinkage (Smith and Winkler 2006)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A textbook fix for the optimizer's curse. It worked in the drawn markets, but only by ignoring the simulators and using "whatever won in training", and it failed badly in the well-specified markets. It exploits a shared pattern in our synthetic markets rather than fixing the simulators.</p></div>
 <div class="tbl"><table><thead><tr><th>Mean regret</th><th class="num">Always TWAP</th><th class="num">Ensemble, cheapest</th><th class="num">Bayesian shrinkage</th><th class="num">Prior only, no simulator</th></tr></thead><tbody>
 <tr><td>Drawn markets (10)</td><td class="num">2.10</td><td class="num">5.83</td><td class="num ok">0.73</td><td class="num ok">0.73</td></tr>
 <tr><td>Well-specified (6)</td><td class="num">4.11</td><td class="num">2.15</td><td class="num hi">5.02</td><td class="num hi">5.02</td></tr>
 </tbody></table></div>
 <p>The weight on the simulators' predictions is about zero; the rule reduces to "use the strategy that won in training" (signal reversal). Knowing the family of market beats any simulator, and our two synthetic families share mechanisms.</p>
 <h3>Hidden liquidity and the cost of selling at once</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Some real orders are hidden and not visible in the book. We allowed for them in the real-cost range; the explanation is unchanged.</p></div>
 <p>Hidden orders execute 20–24% of bid-side volume. The real-cost band in section 8 includes this; the mechanism is unchanged.</p>
 <h3>Impact measured with synthetic metaorders (Maitrier, Loeper and Bouchaud)</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A newer way to measure price impact from public trades. In our real data, impact grows with roughly the cube root to the square root of order size (exponent 0.33–0.43), less steeply than in our synthetic markets.</p></div>
 <div class="tbl"><table><thead><tr><th>Stock</th><th class="num">Metaorders per assignment</th><th class="num">Exponent</th><th class="num">Amplitude Y at Q/V = 10⁻³</th></tr></thead><tbody>
 <tr><td>INTC</td><td class="num">99,967</td><td class="num">0.35</td><td class="num">0.86</td></tr>
 <tr><td>CSCO</td><td class="num">71,210</td><td class="num">0.33</td><td class="num">0.97</td></tr>
 <tr><td>MSFT</td><td class="num">247,797</td><td class="num">0.43</td><td class="num">0.92</td></tr>
 </tbody></table></div>
 <h3>A modern queue-reactive candidate</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A more modern type of simulator, added as a 30th candidate. It was no better than the others: mid-ranked, and still worse than TWAP outside its own type of market.</p></div>
 <div class="tbl"><table><thead><tr><th>Mean regret</th><th class="num">Queue-reactive candidate</th><th class="num">Always TWAP</th><th class="num">Median Hawkes</th><th class="num">Its rank of 30</th><th class="num">Its end/peak (market's)</th></tr></thead><tbody>
 <tr><td>Queue-reactive markets (10)</td><td class="num">0.54</td><td class="num">0.41</td><td class="num">0.58</td><td class="num">15</td><td class="num">0.15 (1.10)</td></tr>
 <tr><td>Agent-mix markets (10)</td><td class="num">7.23</td><td class="num">3.58</td><td class="num">9.68</td><td class="num">12</td><td class="num">0.72 (−0.07)</td></tr>
@@ -640,8 +715,10 @@ section { scroll-margin-top: 20px; }
 
 <section id="a6">
 <h2>11b Oracle, mechanism ablation and out-of-family rules (addendum 6)</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Three checks a reviewer asked for: does our pipeline work when given the true model; which market ingredients change the decision; and do cautious rules carry over from one kind of market to another?</p></div>
 <p>Pre-registered on 5 November 2026 after review, before computation.</p>
 <h3>Positive control: the true generator through our pipeline</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>Even the true model, run only 30 times, could not reliably pick the best strategy, because 30 runs are too few to separate strategies that differ by a few bp in noisy markets. The pipeline itself is unbiased. This is why we later re-ran everything at 100 runs.</p></div>
 <div class="tbl"><table><thead><tr><th>Family</th><th class="num">Always TWAP</th><th class="num">Oracle, 30 seeds</th><th class="num">Oracle, 100 seeds</th><th class="num">Rank corr. 30 / 100</th><th class="num">Candidates</th><th class="num">Misspecification share</th></tr></thead><tbody>
 <tr><td>Queue-reactive</td><td class="num">0.41</td><td class="num hi">0.61</td><td class="num hi">0.54</td><td class="num">0.28 / 0.28</td><td class="num">0.67</td><td class="num">8%</td></tr>
 <tr><td>Agent-mix</td><td class="num">3.58</td><td class="num">2.91</td><td class="num">1.90</td><td class="num">0.81 / 0.87</td><td class="num">8.44</td><td class="num">66%</td></tr>
@@ -649,6 +726,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 <div class="answer"><p><span class="chip no">failed</span> The pre-registered criterion (30 seeds: regret ≤ 0.5 bps and ≤ a quarter of TWAP's in every family; median rank correlation ≥ 0.8) is not met. The pipeline is unbiased (oracle against truth z-scores: mean −0.05, sd 0.87, 3% beyond 2), so the failure is statistical power. In queue-reactive markets 7 of 11 alternatives are indistinguishable from the best even at 300 seeds (median gap 0.46 bps against a 30-seed standard error of about 1 bp). In the other families the best is distinct (gaps about 5.7 bps) but 30 seeds give standard errors of 3.5–5.5 bps. Misspecification dominates candidate regret only in the agent-mix markets.</p></div>
 <h3>Mechanism ablation: which errors change the decision</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>We turned each market ingredient up and down and asked whether the best strategy changes. In agent-mix markets, anchoring to fair value, trend following and liquidity withdrawal all change the decision. In queue-reactive markets nothing does, because all strategies cost about the same.</p></div>
 <div class="tbl"><table><thead><tr><th>Mechanism</th><th>Family</th><th class="num">Largest regret, misjudged ×2 (5% / 15%)</th><th class="num">Regret, misjudged by 4 levels</th><th>Changes the decision</th></tr></thead><tbody>
 <tr><td>Liquidity replenishment</td><td>queue-reactive</td><td class="num">0.43 / 0.64</td><td class="num">0.76</td><td><span class="chip yes">no</span></td></tr>
 <tr><td>Order-flow momentum</td><td>queue-reactive</td><td class="num">0.24 / 0.76</td><td class="num">0.58</td><td><span class="chip yes">no</span></td></tr>
@@ -658,6 +736,7 @@ section { scroll-margin-top: 20px; }
 </tbody></table></div>
 <p>Queue-reactive mechanisms change which strategy is nominally best but every strategy costs about the same. Agent-mix mechanisms matter: signal reversal is optimal almost everywhere and TWAP costs 1–7 bps, and the decision flips at the extremes. These are the mechanisms the candidates lack.</p>
 <h3>Out-of-family rules</h3>
+<div class="simple"><div class="slbl">In simple words</div><p>A cautious rule tuned on one kind of market and used on another fails, unless it simply always picks TWAP. How far to trust a simulator depends on the kind of market, and nothing visible beforehand tells you which kind you are in.</p></div>
 <div class="tbl"><table><thead><tr><th>Train → test</th><th class="num">Gated rule minus TWAP</th><th class="num">Shrinkage minus TWAP</th></tr></thead><tbody>
 <tr><td>Queue-reactive (k 0.25) → agent-mix</td><td class="num hi">+7.28 [+3.02, +8.98]</td><td class="num hi">+1.06 [+0.45, +1.63]</td></tr>
 <tr><td>Queue-reactive → Hawkes-built</td><td class="num">−1.94 [−4.61, +0.69]</td><td class="num ok">−1.52 [−2.40, −0.63]</td></tr>
@@ -671,6 +750,7 @@ section { scroll-margin-top: 20px; }
 
 <section id="claims">
 <h2>12 What we can claim</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Green means strong evidence, amber weak or conditional, red not supported. The bottom three rows were added from the latest results (addenda 8 and 9); the statistics audit in section 0 gives the formal status of every claim.</p></div>
 <div class="tbl"><table><thead><tr><th>Claim</th><th>Evidence</th><th>Strength</th></tr></thead><tbody>
 <tr><td>Similarly realistic simulators give opposite execution advice</td><td>H1 on three stocks, pre-registered on two</td><td><span class="chip yes">strong</span></td></tr>
 <tr><td>Observational realism does not identify reliable simulators</td><td>C3 confirmed; no realism score positive in any market set</td><td><span class="chip yes">strong</span></td></tr>
@@ -682,11 +762,15 @@ section { scroll-margin-top: 20px; }
 <tr><td>Simulator error, not the decision pipeline, explains the losses to TWAP</td><td>Oracle fails at 30 seeds; misspecification share 8% (queue-reactive), 30% (Hawkes-built), 66% (agent-mix)</td><td><span class="chip mid">only in agent-mix markets</span></td></tr>
 <tr><td>Some mechanisms matter for the decision and others do not</td><td>Ablation: anchoring, trend following and withdrawal change it; replenishment and momentum do not</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
 <tr><td>A decision rule tuned on one kind of market transfers to another</td><td>Out-of-family: only always-TWAP generalises</td><td><span class="chip no">not supported</span></td></tr>
+<tr><td>A missing mechanism causes regret that more simulation does not repair</td><td>Addendum 9: without anchoring, regret rises from 7.9 to 11.2 bps as runs grow from 10 to 300, in all four markets</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
+<tr><td>Fitted simulators follow the true optimum as the market changes</td><td>Matched mechanisms: true best picked at 2–10% of settings in agent-mix markets</td><td><span class="chip no">not supported</span></td></tr>
+<tr><td>The findings hold in a never-used market family and for a longer task</td><td>Held-out family (6 markets) and the 30-minute task</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
 </tbody></table></div>
 </section>
 
 <section id="limits">
 <h2>13 Limitations</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>What the study cannot show. The real data are limited (three large stocks, eight days, selling only). The markets with known answers are ones we wrote ourselves and differ from Nasdaq in some ways. Real data cannot say which simulator is right. With few markets, many ranges are wide. The 30-run problem in the second point below was later addressed by the 100-run reruns.</p></div>
 <ul>
 <li>Three large US stocks, eight public sample days, sell orders, market orders only, ten-minute horizon.</li>
 <li>Goal 2 decisions rest on 30 seeds per candidate, which the oracle shows is too few: sampling noise alone produces regret of the order of TWAP's in agent-mix and Hawkes-built markets. Queue-reactive decisions are flat.</li>
@@ -701,6 +785,7 @@ section { scroll-margin-top: 20px; }
 
 <section id="log">
 <h2>14 Deviations and corrections</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Every time we departed from a plan or found a mistake, it is listed here with its effect. None changed the main conclusions.</p></div>
 <h3>Deviations from plans</h3>
 <ul>
 <li>Base versions ran 60 seeds instead of 20 (runner default); tests use the pre-registered 20.</li>
@@ -720,21 +805,23 @@ section { scroll-margin-top: 20px; }
 <tr><td>Diagnostic runs overwrote the exported CSVs; the scoring pattern could pick them up</td><td>First tool run used wrong files; no reported number affected</td><td>Exports regenerated from seeds; exact file patterns</td></tr>
 <tr><td>Two code paths broke an exact tie differently</td><td>Disagreeing regret in one cell</td><td>One tie rule everywhere</td></tr>
 <tr><td>CSCO real-stream records deleted during cleanup</td><td>None after regeneration</td><td>Regenerated from ITCH data</td></tr>
+<tr><td>A Kaggle bundle lacked the market-listing file (8 November)</td><td>64 true-generator runs of one 30-minute market crashed and were saved as failed runs</td><td>Deleted and rerun; all 112,116 run files checked: no failed runs remain</td></tr>
 </tbody></table></div>
 </section>
 
 <section id="files">
 <h2>15 Files</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>Where to find the plans, code and results in the repository.</p></div>
 <div class="tbl"><table><thead><tr><th>What</th><th>Where</th></tr></thead><tbody>
-<tr><td>Plans and checksums</td><td class="mono">simrel/reports/preregistration_confirmatory.md, goal2_design.md, lob_impact_design.md (+ addenda 1–5), *.sha256</td></tr>
-<tr><td>Validation and exploratory reports</td><td class="mono">simrel/reports/lob_impact_validation.md, exploratory_literature_checks.md</td></tr>
+<tr><td>Plans and checksums</td><td class="mono">simrel/reports/preregistration_confirmatory.md, goal2_design.md, lob_impact_design.md (+ addenda 1–10), *.sha256</td></tr>
+<tr><td>Validation and exploratory reports</td><td class="mono">simrel/reports/lob_impact_validation.md, exploratory_literature_checks.md, statistics_and_claims.md, novelty_audit.md</td></tr>
 <tr><td>Goal 1 pipeline</td><td class="mono">simrel/experiments/slice_01_run.py … slice_17_synthetic_metaorders.py, confirm_analyse.py</td></tr>
 <tr><td>LOB-Impact</td><td class="mono">simrel/metrics/lob_impact.py; experiments/impact_01_run.py … impact_05_unique_days.py</td></tr>
-<tr><td>Goal 2</td><td class="mono">experiments/goal2_run.py, goal2_impact.py, goal2_cluster_bootstrap.py, goal2_error_diagnostic.py, goal2_rules.py, goal2_exploratory.py, goal2_qr_candidate.py</td></tr>
+<tr><td>Goal 2</td><td class="mono">experiments/goal2_run.py, goal2_impact.py, goal2_cluster_bootstrap.py, goal2_error_diagnostic.py, goal2_rules.py, goal2_exploratory.py, goal2_qr_candidate.py, goal2_oracle_ablation.py, goal2_addendum8.py, goal2_heldout.py, goal2_budget.py, goal2_matched.py</td></tr>
 <tr><td>Simulators</td><td class="mono">simrel/adapters/hawkes*.py, abides*.py, qr_candidate.py; simrel/reference_worlds/; simbench/</td></tr>
 <tr><td>Results</td><td class="mono">results/simrel/slices, slices_CSCO, slices_MSFT, lob_impact/, goal2/ (lob_impact/, rules/, diagnostic/, exploratory/)</td></tr>
 </tbody></table></div>
-<p class="note">Repository: GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (commit f28c0d9). Benchmarks: LOB-Bench (peernagy/lob_bench, 276baf3); LOB-Impact (george-nigmatulin/lob_impact, 0aaf6bf). Simulators: abides-jpmc-public (f9cbe51), DeepMarket/TRADES (8f1f89b). The meeting summary of this study is a separate, shorter page.</p>
+<p class="note">Repository: GitHub, branch <a href="https://github.com/SpencerOzgur/Mean-Field-Game-Simulation-for-Optimal-Execution/tree/simulator-decision-study">simulator-decision-study</a> (latest commit). Benchmarks: LOB-Bench (peernagy/lob_bench, 276baf3); LOB-Impact (george-nigmatulin/lob_impact, 0aaf6bf). Simulators: abides-jpmc-public (f9cbe51), DeepMarket/TRADES (8f1f89b). The meeting summary of this study is a separate, shorter page.</p>
 </section>
 </main>
 </div>
