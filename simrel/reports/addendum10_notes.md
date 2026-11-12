@@ -33,3 +33,18 @@ Running log. Each entry is dated and written before the results it concerns exis
    rule's false-rejection rate.
 9. Count. The 30 ablation settings are 26 distinct markets (each family's base market is shared by its knobs), so the
    development set is 42 markets, not 46.
+
+## Amendment 1, 12 November 2026, 16:33 EST, team decision, before any diagnostic data exists
+
+10. Diagnostic band level (section 4). A design passes only if all eight features lie in its per-feature bands, so
+    with 90% bands even a correctly specified simulator would often fail (if the features were independent, about
+    0.9^8 = 0.43 would pass). The band level becomes a tuning parameter of the diagnostic rule, alongside k, q and g:
+    per-feature level in {90%, 98.75%}. 98.75% = 1 - 0.10/8 is the Bonferroni level: under valid marginal calibration
+    it guarantees at least 90% joint coverage whatever the correlation between features; it does not make the joint
+    rate exactly 90%.
+    - Both levels are in the development-stage grid; the level is chosen with the rule's other parameters on the
+      development markets by the rule of section 4 and frozen in rules10_frozen.json before Test A or Test B is read.
+    - Positive control: the true generator's false-rejection rate (share of its own samples that fail, and whether the
+      market's sample fails against the true generator's bands) is measured on the development markets at both levels
+      and reported with the frozen choice.
+    - Nothing else changes; the original 90% rule remains in the comparison.
