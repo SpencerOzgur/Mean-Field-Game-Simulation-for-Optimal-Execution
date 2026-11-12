@@ -20,3 +20,16 @@ Running log. Each entry is dated and written before the results it concerns exis
 5. Rules whose inputs exist only in some development markets (the sensitivity rule needs the cap 0.8 and 0.95 Hawkes
    variants, which were not run in the 30 ablation markets) are tuned on the development markets where their inputs
    exist; the markets used are listed with each rule's result.
+
+## 12 November 2026, before any diagnostic sample of a development or test market was analysed
+
+6. Observation sample (section 4). One unperturbed run of 10 minutes warm-up and 3 hours (the duration of the six
+   30-minute episodes), as a ten-level LOBSTER stream; the market's own sample uses seed 63000, design samples
+   64000-64049. Code: simrel/experiments/goal2_reliability.py. One timing run on R2a_am_anchored (one sample per
+   design) was made to check the code; its values are not used.
+7. Missing features. A feature is not used for a market-design pair if the market's value is missing or if fewer than
+   80% of the design's 50 samples give a value (the sign-memory exponent is often not estimable from one sample).
+8. The true generator ("oracle") is run through the same diagnostics as a positive control: its pass rate estimates the
+   rule's false-rejection rate.
+9. Count. The 30 ablation settings are 26 distinct markets (each family's base market is shared by its knobs), so the
+   development set is 42 markets, not 46.
