@@ -32,6 +32,12 @@ def registry() -> dict:
 
     for k, (fam, vals) in sampled.accepted().items():
         out[k] = (queue_reactive.QueueReactive if fam == "qr" else agent_mix.AgentMix, sampled.params(fam, vals))
+
+    from . import testb  # Test B draws of addendum 10, generated from fixed streams (no listing file needed)
+
+    for k, (fam, vals) in testb.all_draws().items():
+        out[k] = (latent.LatentLiquidity, latent.LatentParams(**vals)) if fam == "latent" else (
+            queue_reactive.QueueReactive if fam == "qr" else agent_mix.AgentMix, sampled.params(fam, vals))
     return out
 
 
