@@ -94,6 +94,7 @@ section { scroll-margin-top: 20px; }
 <nav class="rail" aria-label="Contents">
   <div class="lbl">Contents</div>
   <ol>
+    <li><a href="#plain">In plain words</a></li>
     <li><a href="#status">0 Status now</a></li>
     <li><a href="#summary">1 Summary</a></li>
     <li><a href="#questions">2 Questions and plan</a></li>
@@ -118,11 +119,36 @@ section { scroll-margin-top: 20px; }
 
 <main>
 <header class="top">
-  <div class="eyebrow">Full report · market simulators and execution decisions · updated 8 November 2026: decisive mechanism test, budget curves, audit</div>
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 12 November 2026: plain-language summary of all results so far</div>
   <h1>Do realistic market simulators give reliable execution advice?</h1>
   <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
   <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
 </header>
+
+<section id="plain">
+<h2>In plain words: what we have found so far</h2>
+<div class="answer">
+<p><b>The running example.</b> A trader must sell <b>500,000 shares</b>. Assume $50 a share (roughly Intel's price in our data), so the order is worth <b>$25 million</b>, and <b>1 basis point (bp) of cost = $2,500</b>. The trader can sell evenly over time (TWAP, the plain default), sell quickly, or follow a cleverer strategy that a market simulator recommends. A simulator is useful only if its recommendation saves money compared with just using TWAP.</p>
+<p class="note">The dollar figures below convert our basis-point results to an order of this value. They are illustrations: our tests used orders of 5–15% of the market's volume (2–30% in the 30-minute task), and costs per bp depend on the stock and the order's size relative to volume.</p>
+</div>
+<ul>
+<li><b>Simulators that look equally realistic give opposite advice.</b> On real Nasdaq data (Intel, Cisco, Microsoft), the Hawkes simulator said "sell at once" and the ABIDES simulator said "spread the order out". They disagreed by 4.6–7.6 bp: on our order, <b>$11,500–$19,000</b> depending on which one you believe. This held on all three stocks.</li>
+<li><b>Looking realistic does not mean giving good advice.</b> We built synthetic markets where we know the true cost of every strategy. No realism score (LOB-Bench, or LOB-Impact's free-running measures) told us which simulators would recommend good strategies. Simulators that copy the market's everyday statistics well can still be wrong about what happens when <i>you</i> sell 500,000 shares.</li>
+<li><b>Getting your own order's price impact right helps a little, not reliably.</b> Simulators that reproduce how prices react to a large order gave slightly better advice, but the effect was weak and not statistically significant once we corrected for testing several hypotheses.</li>
+<li><b>Choosing the "best" strategy in a simulator picks its most flattering mistake.</b> The strategy that looks cheapest is often the one whose cost the simulator underestimates most. On average its promised saving was overstated by about 10 bp: the simulator promises roughly <b>$26,000</b> of savings on our order that do not exist.</li>
+<li><b>Following fitted simulators lost money compared with plain TWAP.</b> In markets with fundamental-value traders and liquidity providers who step back (agent-mix), following a typical fitted simulator cost about 5 bp more than TWAP (<b>about $12,500 lost</b>), and averaging all simulators about 6 bp (<b>about $15,000</b>). In a new family of markets that we held back until the end, the averaged simulators were 1.8 bp worse than TWAP (<b>about $4,500</b>). No method based on our simulators beat TWAP in any set of markets.</li>
+<li><b>Running more simulations does not fix a wrong model; it makes it more confidently wrong.</b> We took the true market model and switched off one ingredient, the traders who push the price back towards its fundamental value. With 10 runs it lost 7.9 bp against the best strategy; with 300 runs, 11.2 bp (<b>about $28,000</b>). It never found the true best strategy and overstated the saving from selling at once by about 18 bp (<b>about $44,500</b>). The full true model, by contrast, homed in on the right answer as runs increased in three of the four markets we tried.</li>
+<li><b>Even a perfect simulator would save only a little over TWAP in most of our markets.</b> Using the true model itself saved 0.4 bp over TWAP in the held-back markets (<b>about $1,000</b>), 1.7 bp in agent-mix markets (<b>about $4,250</b>) and 2.9 bp where the candidates had the right structure (<b>about $7,250</b>). So the prize for a good simulator is modest, while the penalty for a wrong one is several times larger.</li>
+<li><b>Simulators do not follow changes in the market.</b> When we turned one market ingredient up or down step by step, the fitted simulators picked the true best strategy at only 2–10% of the settings in agent-mix markets, and their predicted savings did not move with the true savings.</li>
+<li><b>A longer job raises the stakes but not the simulators' usefulness.</b> Over 30 minutes and 60 trading decisions, TWAP leaves 1–2.3 bp on the table (<b>$2,500–$5,750</b>) and the true model recovers most of it. No fitted simulator beat TWAP on average; on large orders the Hawkes simulators lost up to 25 bp in single markets (<b>about $62,500</b>).</li>
+<li><b>Careful rules avoid the losses only by never trusting the simulator.</b> Rules that depart from TWAP only when a simulator's predicted saving is large compared with its uncertainty avoided the losses, but in practice they almost always chose TWAP. That protects the trader; it does not make the simulator useful.</li>
+<li><b>When strategies are almost equivalent, nothing matters much.</b> In the queue-driven markets all strategies cost about the same (within 0.5 bp, about $1,250), so even poor simulators did no harm there.</li>
+<li><b>Caveat: our synthetic markets are not Nasdaq.</b> They match real data on random-walk behaviour and short-term return patterns, but prices in them keep moving after a trade for much longer than on Nasdaq and impact grows faster with order size. The conclusions describe markets with those features.</li>
+</ul>
+<div class="answer">
+<p><b>Bottom line for the trader with 500,000 shares.</b> Today, the safest choice is TWAP, unless there is independent evidence that the simulator contains the mechanisms that drive the decision in this market (for example, whether prices are pulled back towards a fundamental value). A simulator's promised saving of, say, 8 bp ($20,000) is not evidence on its own: in our markets, promises of that size were mostly the simulator's own error. The next stage of the study (design addendum 10) tests whether checks that can be run on real market data can tell when a simulator's advice is safe to follow.</p>
+</div>
+</section>
 
 <section id="status">
 <h2>0 Status now</h2>
