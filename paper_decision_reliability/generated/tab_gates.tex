@@ -1,0 +1,14 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Feasibility gates. $^a$After setting the price level so the tick matches. $^b$For the configurations used; others were unstable in an earlier pilot. $^c$On CPU, outside the supported Docker/CUDA set-up.}\label{tab:gates}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lccccc}
+\toprule
+Simulator & A Runnable & B Interactive & C Comparable & D Stable & E Reproducible \\
+\midrule
+ABIDES & Pass & Pass & Pass$^a$ & Pass$^b$ & Pass \\
+MarS (2M, 10M) & Pass$^c$ & Pass & \textbf{Fail} & \textbf{Conditional} & Pass \\
+Hawkes order book & Pass & Pass & Pass & Pass & Pass \\
+\bottomrule
+\end{tabular}}
+\end{table}

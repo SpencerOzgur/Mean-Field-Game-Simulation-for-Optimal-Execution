@@ -1,0 +1,133 @@
+\section{Pilot: cross-simulator robustness}
+\label{sec:pilot}
+
+The pilot runs the twelve candidates at both sizes in six worlds: two ABIDES configurations (A1, the RMSC04 reference; A5, with more market making), two hand-set Hawkes regimes (H1 liquid, H2 thin), and MarS with the 10M and 2M models (M10, M2). Each world keeps its own conventions, so this is a comparison across domains, not a like-for-like one. In total \nPilotRows{} policy rollouts were attempted and \nPilotUsed{} are used.
+
+\subsection{Stability comes first}
+
+\input{generated/tab_pilot_audit}
+
+Table~\ref{tab:audit} is the audit that precedes any cost number. ABIDES and the Hawkes simulator completed every run. MarS did not. In the volume pass, \marsVolFail{} unperturbed rollouts (10M and 2M) failed: the burn-in or the rollout exceeded its time limit in a burst of order generation, the book emptied and the engine raised an error, or an internal assertion fired. In the main pass, \marsMainFail{} seeds were lost to failure or to the pre-task screen, and of the policy rollouts on the remaining seeds a further 15 of 120 (10M) and 13 of 240 (2M) failed. Because of the time limits, some of these are slow rollouts on a loaded machine, not crashes; all of them are runs that a practitioner would not obtain a number from. The surviving sample is therefore selected on stability, and it is small: five seeds for the 10M model.
+
+Among surviving seeds the 2M model's unperturbed mid still moves by more than 3\% in ten minutes in 10\% of cases, with a standard deviation of 277\,bps, five times that of the liquid Hawkes regime and fifty times that of ABIDES.
+
+\subsection{Costs and what each world recommends}
+
+\input{generated/tab_pilot_cost_15}
+
+Table~\ref{tab:pilotcost15} gives shortfall at 15\% of volume (5\% is in Appendix~\ref{app:pilot}). Three patterns matter.
+
+\emph{ABIDES barely distinguishes the candidates.} All costs are below 4\,bps and most intervals overlap. Only the immediate order, the fast front-loaded schedule and the risk-aware controller are visibly dearer.
+
+\emph{The Hawkes regimes price impact an order of magnitude higher}, at 35 to 80\,bps, and disagree with each other about adaptive rules: the liquidity-aware rule is among the best in the liquid regime and among the worst in the thin one.
+
+\emph{MarS inverts the ordering, violently.} With the 10M model, TWAP costs 257\,bps and the immediate order 39\,bps at 15\% of volume; at 5\% the gap is 905 against 20\,bps. A persistent seller is met by a market that keeps falling (Figure~\ref{fig:intervention}), which is the behaviour already visible in the official example. With five usable seeds and intervals of hundreds of basis points these are anecdotes, but they are consistent in sign across sizes for the 10M model. The 2M model does not show the same ordering.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_pilot_intervention.pdf}
+\caption{Intervention against no intervention: adverse shift of the mid price relative to the unperturbed twin, for TWAP and immediate execution of 15\% of background volume. Lines are medians across seeds, bands the interquartile range. Vertical scales differ by three orders of magnitude.}
+\label{fig:intervention}
+\end{figure}
+
+\subsection{Transfer between simulators}
+
+Selecting each world's cheapest candidate on half its seeds and evaluating it on the other half of every world's seeds gives the cross-simulator matrix (Table~\ref{tab:cross} in the appendix, Figure~\ref{fig:pilotregret}). Policy rankings agree weakly within a family (mean Spearman correlation \rankSame{}) and not at all across families (\rankCross{}). Of the \nCross{} off-diagonal transfers, \nSigCross{} carry a regret whose interval lies above zero. The largest regrets, tens of half-spreads, arise when a policy chosen elsewhere is evaluated in MarS, or when a policy tuned to the Hawkes regimes is evaluated in ABIDES, whose half-spread is a tenth of a basis point.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/fig_pilot_regret.pdf}
+\caption{Cross-simulator regret in units of the evaluation world's half-spread. An asterisk marks a paired 95\% interval above zero. Colour is on a square-root scale.}
+\label{fig:pilotregret}
+\end{figure}
+
+This establishes that the simulators do not agree, and nothing more. The worlds differ in price level, tick, liquidity and calibration, and none of them is tied to a real market. Disagreement cannot say which, if any, is right. That needs a ground truth.
+
+\section{Controlled decision validity}
+\label{sec:reference}
+
+\subsection{Design}
+
+We wrote \nRefWorlds{} reference worlds from two mechanisms that are deliberately unlike any of the candidates (Table~\ref{tab:refworlds}, Appendix~\ref{app:worlds}): a queue-reactive book, where order flow depends only on the current queues, and a mix of behavioural traders (noise, fundamentalists, trend followers, and liquidity providers who withdraw from one-sided flow) with a hidden regime. Each candidate simulator receives \nFitEpisodes{} unperturbed 30-minute episodes from a reference world, as event logs and quotes, and nothing else. It is fitted to that data, then asked which of the twelve candidates it prefers at each size. Separately, every candidate policy is run in the reference world itself on \nRefSeeds{} seeds; half select the best-in-class policy and the other half measure regret.
+
+\input{generated/tab_ref_worlds}
+
+The \emph{reference regret} of a simulator is the cost, in the reference world, of the policy it recommends minus the cost of the best candidate there. It is zero for a simulator that picks the best candidate and is bounded by the worst. It is a statement about these twelve policies in these four synthetic worlds.
+
+\subsection{The truth being recovered}
+
+\input{generated/tab_ref_truth}
+
+Table~\ref{tab:reftruth} shows that the worlds are not equally demanding. In the queue-reactive worlds the candidates are nearly interchangeable: only the immediate order is significantly worse than the rest, and only at the larger size. A recommendation can hardly go wrong there. The agent-mix worlds are discriminating. The reversal variant of the signal-aware rule is best in both regimes at both sizes, every other candidate is significantly worse, and the immediate order and the more risk-averse controller cost 21 to 25\,bps more at 15\% of volume. The reason is built into the mechanism: after an adverse move, fundamentalists push the price back, so waiting is rewarded.
+
+\subsection{The fitted simulators}
+
+\input{generated/tab_ref_sims}
+
+\paragraph{Hawkes.} The fit attributes much of the agent-mix worlds' order clustering to self-excitation: the estimated branching ratio is 0.34 and 0.47 in the queue-reactive worlds and 0.75 and 0.84 in the agent-mix worlds. Its unperturbed output is close to the reference on the realism score in three worlds (0.21, 0.29 and 0.60) and within about two units in the fourth.
+
+\paragraph{ABIDES.} The grid search chose 180 value traders in three worlds and 102 in the fourth, with market makers in two. It matches the reference less well (1.16, 0.79, 0.58 and, in the deep queue-reactive world, 10.6, where ABIDES is far too volatile), and its traded volume is 28\% to 96\% of the reference's.
+
+\paragraph{MarS.} Conditioned on replayed reference order flow, MarS did not produce a usable market in any world. Between 17\% and 33\% of its unperturbed runs failed, and of the rest 40\% to 50\% moved by more than 3\% within ten minutes, with traded volume two to four times the reference's. Under the screen in Table~\ref{tab:refsims} it was not asked for a recommendation. This is a statement about a pretrained model placed, without fitting, into a market unlike its training data; it is not a test of the MarS approach.
+
+\subsection{Reference regret}
+
+\input{generated/tab_ref_regret}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_reference_regret.pdf}
+\caption{Reference regret of each recommender with 95\% intervals. ``Random policy'' is the mean regret over the twelve candidates.}
+\label{fig:refregret}
+\end{figure}
+
+Table~\ref{tab:refregret} and Figure~\ref{fig:refregret} give the main result, and Table~\ref{tab:refsummary} summarises it.
+
+\input{generated/tab_ref_summary}
+
+\emph{Neither fitted simulator beats the simplest rule.} Averaged over the eight settings, always choosing TWAP has a regret of 1.2\,bps. The ABIDES fits average 2.4\,bps, a uniformly random candidate 4.1\,bps, the Hawkes fits 6.7\,bps, and always choosing the immediate order 10.8\,bps, against 11.8\,bps for the worst candidate in each setting.
+
+\emph{The simulator with the better realism score made the worst decisions.} In the anchored agent-mix world the Hawkes fit has a realism error of 0.29 against 0.79 for ABIDES. At 15\% of volume it recommends the immediate order, at a regret of 21.1\,bps (interval 17.5 to 25.0), close to the worst available; ABIDES recommends the liquidity-aware rule, at 1.8\,bps. In the trending world the two realism scores are within 0.03 of each other, and Hawkes again recommends the immediate order at both sizes (11.4 and 22.0\,bps) while ABIDES is at 6.2 and 4.9\,bps. Of the eight head-to-head comparisons between the two simulators' recommendations, four are statistically distinguishable: one small one favours Hawkes (1.3\,bps) and three favour ABIDES (5.2, 17.1 and 19.3\,bps).
+
+\emph{Realism did not predict regret.} Across the \refPoints{} simulator--world--size points the Spearman correlation between realism error and regret is \refRho{} (permutation $p=\refRhoP{}$, shuffling realism scores among simulators within a world). With two simulators and four worlds this is descriptive, and the sign of a correlation this weak carries no information. The informative fact is the counterexample above.
+
+\emph{Cost levels are not predicted either.} The Hawkes fits overstate costs by 53 and 71\,bps on average in the two agent-mix worlds at the larger size; the ABIDES fits overstate them by 8 and 67\,bps. More telling is the sign of one comparison. In both agent-mix worlds the immediate order truly costs about 18\,bps more than TWAP at 15\% of volume. ABIDES predicts $+10$ and $+54$\,bps. Hawkes predicts $-9$ and $-50$\,bps: it believes splitting the order is the expensive choice.
+
+\subsection{Why the Hawkes fit fails, and an ablation}
+
+A Hawkes process explains clustered flow by letting events trigger further events. Fitted to the agent-mix worlds it finds a branching ratio near 0.8, so in its world each child order of a sliced schedule sets off its own cascade of selling and cancellations, and twenty child orders set off twenty. In the reference world the clustering has a different cause, traders reacting to prices, and part of that reaction pushes the price back. Both accounts fit the unperturbed data. They disagree about what happens when someone intervenes, which is the only thing an execution study asks.
+
+The same point can be made inside the Hawkes family. How strongly a market order excites later flow as a function of its size is an assumption of the simulator: unperturbed data contain few orders of the size of a parent order, so they barely constrain it. Table~\ref{tab:hawkesvariants} fits three versions (excitation linear in size up to ten mean order sizes; linear without an effective cap; square-root) to the same data.
+
+\input{generated/tab_hawkes_variants}
+
+Their realism scores are almost identical. Their recommendations are not: in the anchored world at 15\% of volume the regret is 21.1, 1.8 and 21.1\,bps; in the trending world it is 22.0, 24.5 and 11.6\,bps. A choice that the realism score cannot see moves the decision from near-best to near-worst. None of the three does better on average than a random candidate.
+
+\section{Discussion}
+
+\paragraph{What the evidence supports.} In this controlled setting, observational realism was not a guide to decision validity. A simulator that reproduced the reference market's stylised facts well recommended one of the worst policies, a less realistic one did better, and three simulators with the same realism score recommended different policies. The mechanism is not exotic: two models can fit the same unperturbed data and differ in what they imply about interventions, and a realism score computed on unperturbed data cannot separate them.
+
+\paragraph{What it does not support.} It does not show that agent-based simulators give better decisions than statistical ones. ABIDES did better than Hawkes here, in two reference worlds built from behavioural agents, which resemble ABIDES more than they resemble a Hawkes process; with other reference worlds the order could reverse. It does not show that realism is irrelevant, only that the score we used did not predict regret in sixteen points. And it says nothing about real markets.
+
+\paragraph{The baseline result.} That TWAP beat both fitted simulators is partly a property of our reference worlds, in which the cost surface is flat near TWAP. It is still a useful discipline: a simulator-derived recommendation should be reported against simulator-free baselines, because a simulator can do worse than not using one.
+
+\paragraph{Stability is a gate, not a detail.} MarS never reached the starting line in the controlled experiment and lost half its seeds in the pilot. We do not conclude that generative order-flow models are unfit for execution studies. We conclude that the released small models, started from the states available to us and run for tens of minutes, do not hold a market steady, and that their sensitivity to persistent flow, in which a patient seller moves the price by percent, should be checked before any cost estimate from them is used.
+
+\section{Limitations}
+\label{sec:limits}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \textbf{No real data.} Realism against held-out historical data (the planned first experiment) was not measured, and no simulator was calibrated to a real instrument. All regret is inside simulated markets.
+\item \textbf{The reference worlds are ours.} Two mechanisms, two regimes each. ``Best'' means best of twelve candidates. Two of the four worlds barely discriminate between policies.
+\item \textbf{Unequal fits.} Hawkes shares the reference worlds' matching engine, lot and event vocabulary and is fitted by maximum likelihood on their event logs; ABIDES uses its own exchange and a three-parameter grid search; MarS could not be fitted at all.
+\item \textbf{A thin realism score.} Six statistics of a 5-second quote grid. It ignores order sizes, event mix, depth and inter-arrival times. A richer score, in particular one that includes responses to large natural orders, might have flagged the Hawkes fit. We did not test that.
+\item \textbf{MarS.} Small released models only; run on CPU outside the supported environment; trained on another market; initialised from synthetic states; child orders capped at visible depth; wall-clock limits contribute to its failure counts; surviving seeds are selected on stability and few.
+\item \textbf{Pilot comparability.} Three matching engines, different price levels and ticks. Cross-simulator regret in the pilot is exploratory.
+\item \textbf{Policies.} Market orders only; no limit orders, fees or latency; the optional MFG-derived policy was not included.
+\item \textbf{Selection noise.} A recommendation is the candidate with the lowest mean cost over a simulator's seeds (100 for Hawkes, 30 for ABIDES). Where candidates are tied in the simulator, the choice is partly chance; Table~\ref{tab:refregret} reports the size of each tied set and the worst regret within it.
+\item \textbf{Post-hoc choices.} The stability screen for fitted simulators, the floor in the realism score, the ABIDES grid and the Hawkes ablation were fixed after seeing early results. No analysis was pre-registered.
+\end{itemize}
+
+\section{Conclusion}
+
+We asked whether a market simulator that looks realistic gives reliable execution decisions. Without real order-level data we could not ask it of real markets. Asked of markets whose rules we know, the answer in our experiment was no: the best-fitting simulator recommended a policy more than 20\,bps worse than the best available, a cruder fit did better, a pretrained generative model could not be stabilised at all, and none improved on always choosing TWAP. The reason is that fit to unperturbed data leaves the response to intervention undetermined. Simulator validation for execution should therefore include what realism scores omit: stability without intervention, behaviour under interventions of the size to be studied, and comparison with simulator-free baselines.

@@ -1,0 +1,133 @@
+\section{Results}
+\label{sec:results}
+
+The main experiment ran \nEpisodes{} ABIDES episodes: 200 unperturbed twins per world and, for each of 40 seeds, eight sell policies and one buy policy at three sizes in six worlds. \runawayText{} Selection of schedules uses the first \nTrain{} seeds and transfer results the remaining \nTest{}.
+
+\subsection{Two of the six worlds are not stable enough to evaluate anything}
+\label{sec:stability}
+
+Table~\ref{tab:obs} gives each world's stylised facts with no intervention. All six have tight spreads, heavy-tailed returns and volatility clustering, and none would be rejected on those grounds. The last two simulated rows tell a different story. In A3 (three times the momentum traders) the mid price moves by more than 1\% within the 30-minute window in 70\% of unperturbed runs, with a standard deviation of 488\,bps; in A4 (fewer value traders) the same happens in 13\% of runs. A1, A2, A5 and A6 never do. We call the latter four \emph{stable} and report decision results for them separately; the rule (no unperturbed run moves by more than 1\%) was fixed after seeing these numbers, so it is descriptive, not pre-registered.
+
+\input{generated/tab_observables}
+
+The instability is not visible in the conventional statistics. Measured against the one real reference day, on the six scale-free statistics, the two unstable worlds are the \emph{closest} to the real market (last row of Table~\ref{tab:obs}), largely because their volatility and spread are nearer to INTC's than those of the stable worlds, whose \$1000 price and one-cent tick make spreads unrealistically tight. With one real day this ordering is anecdotal, but it is a concrete case in which a distance on standard stylised facts favours simulators that cannot support an execution experiment.
+
+Instability also defeats the paired estimator (Table~\ref{tab:noise}). In the stable worlds, pairing with a twin cuts the standard deviation of the cost estimate by a factor of roughly two to four. In A3 it removes nothing: once the first child order perturbs the market, twin and intervention paths separate so quickly that their difference is as noisy as either path. Every A3 and A4 number below should be read with that in mind.
+
+\input{generated/tab_noise}
+
+\subsection{Policy costs and rankings}
+\label{sec:rankings}
+
+Table~\ref{tab:cost} reports the paired impact cost of every policy, and Table~\ref{tab:vstwap} the paired difference of each policy from TWAP.
+
+\input{generated/tab_cost}
+\input{generated/tab_vs_twap}
+
+Three things stand out in the stable worlds.
+
+\emph{At 1\% of volume nothing is resolvable.} All costs are below about 1.5\,bps and no policy differs from TWAP by more than its interval, apart from one isolated cell. Table~\ref{tab:vstwap} contains 126 comparisons with no multiplicity correction, so a handful of bold cells are expected by chance.
+
+\emph{At 5\%, only the immediate order is distinguishable.} It costs 1.3 to 1.8\,bps more than TWAP in A1, A2 and A5, with intervals excluding zero. The five schedules, POV and the urgency rule are statistically tied.
+
+\emph{At 20\%, the worlds agree on direction and differ in strength.} Front-loading is penalised: $b=8$ costs 3.5\,bps more than TWAP in A1 and 1.7\,bps more in A5, both significant, and 0.8 and 1.5\,bps more in A2 and A6, not significant. Back-loading is also penalised in A1 (+1.6\,bps). The cost curve is U-shaped around TWAP (Figure~\ref{fig:cost}). So the reference world and the deep-market-maker world punish urgency clearly, the world without market makers barely does, and none of them rewards it.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_cost_vs_schedule.pdf}
+\caption{Paired impact cost of the schedule family in each world. Bands are 95\% bootstrap intervals over \nSeeds{} seeds; the ringed marker is the schedule selected on training seeds. Vertical scales differ by two orders of magnitude between stable worlds (A1, A2, A5, A6) and unstable ones (A3, A4).}
+\label{fig:cost}
+\end{figure}
+
+Table~\ref{tab:rank} summarises agreement between rankings. Across the stable worlds the mean Spearman correlation of the eight policies' costs is 0.62 at 5\% and 0.61 at 20\%, and there is not one significant reversal: no pair of policies is significantly ordered one way in one stable world and the other way in another. Including the unstable worlds lowers the correlations and produces six nominal reversals at 20\%, all involving A3 or A4.
+
+\input{generated/tab_rank}
+
+\subsection{Which schedule each world recommends, and the cost of trusting the wrong world}
+\label{sec:transfer}
+
+Selecting the cheapest schedule on training seeds gives each world's recommendation $b^\star_i$; Figure~\ref{fig:regret} shows the regret $R_{ij}=C_j(b^\star_i)-C_j(b^\star_j)$ on test seeds, and Appendix~\ref{app:regret} gives the numbers.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_transfer_regret.pdf}
+\caption{Transfer regret in bps (test seeds). Rows: world in which the schedule was selected. Columns: world in which it is evaluated. Bold with an asterisk: paired 95\% interval excludes zero. Colour is on a signed logarithmic scale. Negative entries arise when the schedule selected on a world's own training seeds turns out worse on its test seeds than another world's choice, i.e.\ they measure selection noise.}
+\label{fig:regret}
+\end{figure}
+
+At 20\% all four stable worlds, and A3, select TWAP, so regret among them is exactly zero. At 1\% and 5\% the selected $b$ scatters across the grid (for example $-2$ in A2 and A5, $4$ in A1 and A6 at 5\%), but the scatter is selection noise on flat cost curves: among stable worlds the largest regret is \maxRegretStable{}\,bps, the mean is \meanRegretStable{}\,bps, and \nSigRegretStable{} of \nOffDiagStable{} off-diagonal regrets is significantly positive.
+
+The only significantly positive regret in the whole matrix has an unstable world as its source: at 20\%, A4's noisy cost curve selects $b=4$, which costs 1.2\,bps more than TWAP in A5 (significant) and 2.1\,bps more in A1 (not significant). That is the practical risk in this study: not that plausible stable simulators disagree, but that an unstable one returns a confident-looking recommendation that is noise.
+
+\subsection{Does observational distance predict transfer regret?}
+\label{sec:rq4}
+
+For each ordered pair of worlds we compare the distance between their stylised facts ($z$-scored across worlds) with the regret of transferring a schedule between them. Pooled over sizes, the Spearman correlation is \rqRhoPooled{} over \nOffDiag{} size-pair observations averaged to 30 pairs (permutation $p=\rqPPooled{}$, permuting world labels); by size it is \rqRhoOne{}, \rqRhoFive{} and \rqRhoTwenty{}. Restricted to the \rqNStable{} pairs of stable worlds it is \rqRhoStable{}. We find no evidence that observational distance predicts regret (Figure~\ref{fig:rq4}).
+
+This is a weak test. Regret among stable worlds is at the noise floor, so there is almost nothing to predict, and six configurations of one simulator family give at most 30 dependent pairs. The result should be read as ``not detected at this resolution'', not as evidence of independence.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.6\linewidth]{figures/fig_distance_vs_regret.pdf}
+\caption{Observational distance between two worlds against the regret of transferring a schedule from one to the other. The vertical axis is linear within $\pm1$\,bp and logarithmic beyond.}
+\label{fig:rq4}
+\end{figure}
+
+\subsection{The MFG optimiser}
+\label{sec:mfg}
+
+Table~\ref{tab:mfg} shows the MFG calibration in each world and the schedule it prescribes through Equation~\eqref{eq:bmfg}.
+
+\input{generated/tab_mfg}
+
+\emph{The prescription is unstable across worlds, and the instability is calibration noise.} Temporary impact at the TWAP rate is tiny (a few hundredths of a basis point at 1\% and 5\%, about half a basis point at 20\%), while the displacement $\lambda$ is a few basis points with an interval that includes zero in most stable cells. Their ratio therefore swings to the edge of the grid: $b_{\mathrm{MFG}}$ is clipped in \nMfgClipped{} of \nMfgCells{} cells. At 20\% it is 3.0 in A1, $-1.4$ in A2, 8 in A5 and 4.2 in A6, while direct search selects 0 in all four. So the answer to ``does the MFG optimiser decide differently in different worlds?'' is yes, but for a reason that has little to do with the worlds: the decision rule divides a noisy number by a small one.
+
+\emph{Where it can be resolved, the MFG prescription is costly for a single meta-order.} In A1 and A5 at 20\%, front-loading to $b=8$ roughly doubles to triples the cost of TWAP (Table~\ref{tab:vstwap}: $+3.5$ and $+1.7$\,bps on TWAP costs of 1.9 and 1.5\,bps). This is the expected direction: the equilibrium of Section~\ref{sec:mfgmodel} describes many sellers racing each other, and a lone seller who internalises their own impact has no one to race. Injecting the equilibrium aggregate as one order prices the cost of that race. The classical single-agent, risk-neutral answer (TWAP) is what direct search recovers in every stable world at the size where the curve is resolvable.
+
+\emph{Model structure.} Two assumptions of the linear model can be checked. Cost grows less than linearly in size in three of four stable worlds (Table~\ref{tab:impact}; exponents 0.5 to 0.7, with 0.96 in A6), in line with the concavity found empirically \citep{toth2011anomalous}; these are point estimates from three sizes. We could not estimate impact decay: five minutes after the deadline the displacement estimates are too noisy to distinguish full persistence from full reversion (Figure~\ref{fig:path}).
+
+\input{generated/tab_impact}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_impact_path.pdf}
+\caption{Median adverse displacement of the mid price relative to the twin, during and after a TWAP sell. A positive value means the price is lower than it would have been.}
+\label{fig:path}
+\end{figure}
+
+\emph{Buy versus sell.} No stable world shows a significant difference between the cost of buying and selling at any size (Table~\ref{tab:impact}).
+
+\subsection{TRADES arm}
+\label{sec:tradesresults}
+
+\input{trades_results}
+
+\section{Discussion}
+
+\paragraph{What the evidence supports.} Among the four stable ABIDES configurations we could not detect disagreement about which execution schedule is best. Rankings correlate at about 0.6 once the order is large enough to measure, there are no significant reversals, all four select TWAP at 20\% of volume, and the largest transfer regret is \maxRegretStable{}\,bps. The configurations do differ in how steeply they penalise urgency, by a factor of about four between the reference world and the world without market makers, so they would disagree about a risk-averse trader's trade-off even though they agree about a risk-neutral one. We did not run that experiment.
+
+\paragraph{Where simulators did disagree.} The one material disagreement in the study is between families: the retrained TRADES market favours selling at once, every stable ABIDES world favours spreading, and carrying an ABIDES-selected schedule into the TRADES market costs \abidesToTradesMin{} to \abidesToTradesMax{}\,bps on point estimates. We do not read this as a property of diffusion-based generators. The TRADES arm differs from the ABIDES arm in stock, price level, calibration and training budget at once, and the direct cause, a spread that widens with time since hand-over, is a defect of an under-trained model. What transfers is the diagnostic: a simulator can impose a time preference of its own, and it shows up in unperturbed runs.
+
+\paragraph{What it does not support.} The hypothesis that motivated the study, that plausible simulators recommend materially different schedules, is not supported for these configurations at this resolution. We also cannot claim they are equivalent: the intervals in Table~\ref{tab:cost} would hide differences of one or two basis points at 5\% and several at 20\% in A6. And six configurations of one simulator, sharing an exchange and most of their agents, are a narrow sample of ``plausible simulators''.
+
+\paragraph{Stability before realism.} The most useful practical finding is the cheapest one to check. Two configurations obtained by changing a single population parameter of the reference configuration produce markets whose unperturbed price paths are too wild for any execution experiment, and one of them contains seeds that never terminate. Neither is flagged by spread, kurtosis or volatility clustering, and both sit nearer to the real reference day than the stable worlds do. An unperturbed-stability check, and a twin-pairing noise check like Table~\ref{tab:noise}, cost a few hundred episodes and should precede any policy evaluation.
+
+\paragraph{On the MFG as a decision rule.} Calibrating a two-parameter impact model from probe trades and reading the schedule off a closed form is attractive because it is cheap. In these simulators it is also fragile: the schedule depends on a ratio whose numerator is statistically indistinguishable from zero in most cells. Direct search over the same schedule family, with paired twins, used the same episodes and gave a stable answer.
+
+\section{Limitations}
+\label{sec:limits}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \textbf{No real-market ground truth.} Regret is simulator-to-simulator. We cannot say which world is right, only whether they agree. The single INTC day is a reference point for stylised facts, not a validation.
+\item \textbf{One simulator family.} All ABIDES worlds share an exchange, an oracle and most agent code; TRADES runs inside a legacy ABIDES exchange. ABIDES-MARL is absent because we found no public code.
+\item \textbf{TRADES is our retraining, not the published model.} It was trained for \tradesSteps{} steps on one stock-day; its conclusions do not transfer to the authors' checkpoints. The TRADES and ABIDES arms differ in stock, price level, tick-to-price ratio and calibration, so differences between them cannot be attributed to the generator.
+\item \textbf{Statistical power.} \nSeeds{} seeds, split in half for selection and evaluation. Differences below roughly 1\,bp at 5\% and 1 to 3\,bps at 20\% are not detectable in stable worlds, and nothing is detectable in unstable ones. No multiplicity correction was applied.
+\item \textbf{Narrow policy class.} Market orders only, a five-point schedule grid, no limit orders, no fees, no reinforcement learning, risk-neutral objective.
+\item \textbf{Post-hoc choices.} The stability rule was set after seeing the data, and two configurations were changed during piloting for runtime reasons (36 instead of 60 momentum traders; market makers at the default instead of a 10-second refresh interval). Runaway seeds are excluded, which conditions on an outcome.
+\item \textbf{MFG simplification.} We test the risk-neutral homogeneous equilibrium injected as one meta-order. Heterogeneous beliefs, latent alpha and filtering, which are the substance of \citet{casgrain2020mean}, are not exercised.
+\item \textbf{Novelty.} We ran targeted searches, not a systematic review, and make no claim to be first.
+\end{itemize}
+
+\section{Conclusion}
+
+We set out to show that plausible market simulators recommend different trades. For four stable ABIDES configurations they do not, as far as \nSeeds{} paired seeds can tell: they agree that an order of 20\% of volume should be spread evenly, and that below that size the schedule barely matters as long as the order is not sent all at once. Two further configurations, one parameter away from the reference, are too unstable to say anything, and conventional realism statistics do not reveal it. An MFG calibrated per world does give different answers in different worlds, but the differences are calibration noise, and its front-loaded prescription is measurably worse than TWAP for a single order. A TRADES market retrained on one day of data recommends the opposite of ABIDES, for a reason that has to do with the generator drifting and not with execution. The harness, the paired-twin estimator and all results are released so the comparison can be extended to simulators we could not run.

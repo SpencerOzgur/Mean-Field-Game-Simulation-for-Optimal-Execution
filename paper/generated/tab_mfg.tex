@@ -1,0 +1,31 @@
+\begin{table*}[!htbp]
+\centering\footnotesize
+\caption{MFG calibration per world (training seeds) and the schedule it prescribes, against the schedule chosen by direct search ($b^\star_{\mathrm{sim}}$, training seeds). $a$: temporary impact at the TWAP rate (bps); $\lambda$: mean mid displacement at the deadline under TWAP (bps). Costs are test-seed means in bps. $^\ast$ clipped to the grid range $[-2,8]$.}\label{tab:mfg}
+\begin{tabular}{lrrrrrrr}
+\toprule
+World & $a$ & $\lambda$ [95\% CI] & $b_{\mathrm{MFG}}$ & $b^\star_{\mathrm{sim}}$ & $C(b_{\mathrm{MFG}})$ & $C(\mathrm{TWAP})$ & $C(b^\star)$ \\
+\midrule
+\multicolumn{8}{l}{\emph{Parent order = 1\% of background volume}} \\
+A1 & 0.01 & 1.2 [-1.0, 3.5] & 8.0$^\ast$ & 8 & 0.1 & 0.1 & -0.3 \\
+A2 & 0.02 & 0.3 [-1.7, 2.3] & 8.0$^\ast$ & -2 & 0.1 & 0.5 & -0.1 \\
+A3 & -0.43 & -24.5 [-159.9, 131.4] & 8.0$^\ast$ & 4 & -8.1 & -5.9 & -51.3 \\
+A4 & -0.04 & 33.0 [5.5, 69.4] & 8.0$^\ast$ & 4 & 0.3 & -6.0 & -6.0 \\
+A5 & 0.00 & 0.5 [-1.7, 2.6] & 8.0$^\ast$ & -2 & 0.2 & 0.1 & -0.0 \\
+A6 & 0.01 & -3.6 [-13.0, 5.1] & -2.0$^\ast$ & 0 & -0.0 & 1.8 & -0.0 \\
+\multicolumn{8}{l}{\emph{Parent order = 5\% of background volume}} \\
+A1 & 0.05 & 4.6 [1.9, 7.3] & 8.0$^\ast$ & 4 & 0.8 & 0.0 & -0.3 \\
+A2 & 0.08 & 1.4 [-0.5, 3.5] & 8.0$^\ast$ & -2 & 0.8 & 0.0 & 0.0 \\
+A3 & 0.22 & -12.3 [-117.6, 63.7] & -2.0$^\ast$ & -2 & 2.8 & -68.3 & -68.3 \\
+A4 & -0.01 & 28.4 [12.1, 47.7] & 8.0$^\ast$ & 4 & -0.3 & -0.9 & -8.4 \\
+A5 & 0.03 & 2.4 [0.0, 4.6] & 8.0$^\ast$ & -2 & 0.8 & 0.3 & 0.3 \\
+A6 & 0.08 & 3.8 [-4.8, 11.7] & 8.0$^\ast$ & 4 & 1.5 & 2.9 & 0.5 \\
+\multicolumn{8}{l}{\emph{Parent order = 20\% of background volume}} \\
+A1 & 0.51 & 3.1 [1.0, 5.0] & 3.0 & 0 & 2.9 & 1.5 & 1.5 \\
+A2 & 0.37 & -1.1 [-3.3, 1.2] & -1.4 & 0 & 2.4 & 2.4 & 1.6 \\
+A3 & -2.13 & -1688.9 [-5207.2, 544.2] & 8.0$^\ast$ & 0 & -100.1 & -1812.1 & -1812.1 \\
+A4 & -0.18 & 558.9 [14.6, 1556.5] & 8.0$^\ast$ & 4 & -22.0 & -25.2 & -25.2 \\
+A5 & 0.14 & 3.0 [-0.2, 6.3] & 8.0$^\ast$ & 0 & 2.9 & 1.0 & 1.0 \\
+A6 & 0.69 & 5.8 [-2.5, 15.2] & 4.2 & 0 & 4.8 & 4.4 & 0.7 \\
+\bottomrule
+\end{tabular}
+\end{table*}

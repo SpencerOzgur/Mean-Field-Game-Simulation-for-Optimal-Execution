@@ -1,0 +1,30 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Reference regret of each fitted simulator's recommendation (bps; $^\dagger$interval above zero). Tied: number of candidates the simulator cannot distinguish from its favourite; Worst tied: the largest reference regret among them. Rank $\rho$: Spearman correlation between the simulator's ranking of the twelve candidates and the reference world's.}\label{tab:refregret}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lllllrrrrrr}
+\toprule
+World & Size & Simulator & Recommends & Ref.\ best & Regret & 95\% CI & Tied & Worst tied & Rank $\rho$ & Realism \\
+\midrule
+R1a & 5\% & Hawkes & Immediate & POV $1\times$ & +0.0 & [-0.2, 0.3] & 12 & +0.1 & 0.13 & 1.72 \\
+R1a & 5\% & ABIDES & Momentum & POV $1\times$ & +0.1 & [-0.1, 0.3] & 4 & +0.1 & 0.02 & 10.63 \\
+R1a & 15\% & Hawkes & Liquidity & Momentum & -0.1 & [-0.3, 0.0] & 5 & +0.0 & 0.50 & 1.72 \\
+R1a & 15\% & ABIDES & Momentum & Momentum & +0.0 & [0.0, 0.0] & 2 & +0.0 & 0.55 & 10.63 \\
+\addlinespace
+R1b & 5\% & Hawkes & Back & Liquidity & -2.5 & [-5.8, 0.8] & 12 & +2.3 & 0.71 & 0.21 \\
+R1b & 5\% & ABIDES & Momentum & Liquidity & +0.8 & [-2.7, 4.5] & 2 & +0.8 & 0.10 & 1.16 \\
+R1b & 15\% & Hawkes & Risk 2 & Liquidity & -2.2 & [-5.7, 1.5] & 6 & +1.8 & 0.59 & 0.21 \\
+R1b & 15\% & ABIDES & Liquidity & Liquidity & +0.0 & [0.0, 0.0] & 2 & +0.0 & 0.60 & 1.16 \\
+\addlinespace
+R2a & 5\% & Hawkes & Liquidity & Reversal & +4.0$^\dagger$ & [2.7, 5.5] & 3 & +4.0 & 0.66 & 0.29 \\
+R2a & 5\% & ABIDES & Momentum & Reversal & +5.3$^\dagger$ & [3.8, 7.0] & 2 & +5.3 & 0.43 & 0.79 \\
+R2a & 15\% & Hawkes & Immediate & Reversal & +21.1$^\dagger$ & [17.5, 25.0] & 7 & +22.9 & 0.04 & 0.29 \\
+R2a & 15\% & ABIDES & Liquidity & Reversal & +1.8$^\dagger$ & [0.7, 2.9] & 2 & +3.8 & 0.69 & 0.79 \\
+\addlinespace
+R2b & 5\% & Hawkes & Immediate & Reversal & +11.4$^\dagger$ & [8.5, 14.2] & 4 & +11.4 & -0.13 & 0.60 \\
+R2b & 5\% & ABIDES & Liquidity & Reversal & +6.1$^\dagger$ & [3.6, 9.1] & 8 & +9.0 & 0.65 & 0.58 \\
+R2b & 15\% & Hawkes & Immediate & Reversal & +22.0$^\dagger$ & [18.0, 26.7] & 4 & +24.5 & -0.84 & 0.60 \\
+R2b & 15\% & ABIDES & Momentum & Reversal & +4.9$^\dagger$ & [2.9, 7.0] & 3 & +4.9 & 0.85 & 0.58 \\
+\bottomrule
+\end{tabular}}
+\end{table}

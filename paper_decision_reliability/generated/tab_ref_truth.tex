@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Reference worlds: the truth each simulator is judged against. Best: lowest-cost candidate on half the reference seeds; its cost and all regrets (bps) are measured on the other half. Sig.\ worse: candidates whose paired 95\% interval lies above the best. Raw and adjusted s.d.: per-seed standard deviation of shortfall before and after the control-variate adjustment.}\label{tab:reftruth}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{llrrrrlrrr}
+\toprule
+World & Size & Best & Cost & TWAP & Immediate & Worst candidate & Sig.\ worse & Raw s.d. & Adj.\ s.d. \\
+\midrule
+R1a & 5\% & POV $1\times$ & 5.1 & +0.0 & +0.0 & Front $b{=}4$ (+0.1) & 0 / 11 & 2 & 1 \\
+R1a & 15\% & Momentum & 5.7 & -0.3 & +5.2 & Immediate (+5.2) & 1 / 11 & 3 & 2 \\
+R1b & 5\% & Liquidity & 15.0 & +0.1 & +2.3 & Immediate (+2.3) & 0 / 11 & 26 & 16 \\
+R1b & 15\% & Liquidity & 35.2 & -2.5 & +12.1 & Immediate (+12.1) & 1 / 11 & 30 & 21 \\
+R2a & 5\% & Reversal & 3.0 & +3.0 & +12.4 & Immediate (+12.4) & 11 / 11 & 33 & 16 \\
+R2a & 15\% & Reversal & 7.6 & +2.6 & +21.1 & Risk 2 (+22.9) & 11 / 11 & 33 & 17 \\
+R2b & 5\% & Reversal & 5.0 & +3.1 & +11.4 & Risk 2 (+14.8) & 11 / 11 & 45 & 14 \\
+R2b & 15\% & Reversal & 11.2 & +3.7 & +22.0 & Risk 2 (+24.5) & 11 / 11 & 44 & 14 \\
+\bottomrule
+\end{tabular}}
+\end{table}

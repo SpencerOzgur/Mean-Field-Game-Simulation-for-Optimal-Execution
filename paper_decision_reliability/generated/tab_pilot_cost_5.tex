@@ -1,0 +1,26 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Pilot: implementation shortfall in bps (mean $\pm$ 95\% half-width) for a parent order of 5\% of background volume. Bold: lowest mean in the column. Costs are not comparable across columns: the worlds have different price levels and tick sizes.}\label{tab:pilotcost5}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Policy & A1 & A5 & H1 & H2 & M10 & M2 \\
+\midrule
+P0 TWAP & -0.1{\tiny$\,\pm$1.0} & -0.2{\tiny$\,\pm$0.8} & 13.7{\tiny$\,\pm$7.7} & 24.8{\tiny$\,\pm$23.4} & 905.1{\tiny$\,\pm$1242.8} & 5.4{\tiny$\,\pm$45.7} \\
+P1 Immediate & 0.8{\tiny$\,\pm$0.2} & 0.5{\tiny$\,\pm$0.1} & 17.2{\tiny$\,\pm$1.8} & 36.0{\tiny$\,\pm$10.2} & \textbf{20.0{\tiny$\,\pm$14.1}} & 20.6{\tiny$\,\pm$17.0} \\
+P2 Front-loaded ($b{=}2$) & -0.1{\tiny$\,\pm$0.6} & 0.0{\tiny$\,\pm$0.6} & 14.6{\tiny$\,\pm$7.5} & 29.9{\tiny$\,\pm$19.9} & 102.3{\tiny$\,\pm$83.6} & 7.4{\tiny$\,\pm$14.9} \\
+P2 Front-loaded ($b{=}4$) & 0.1{\tiny$\,\pm$0.5} & 0.1{\tiny$\,\pm$0.4} & 15.2{\tiny$\,\pm$5.9} & 31.8{\tiny$\,\pm$15.4} & 35.0{\tiny$\,\pm$26.2} & 16.2{\tiny$\,\pm$25.9} \\
+P3 Back-loaded & \textbf{-0.4{\tiny$\,\pm$1.1}} & -0.4{\tiny$\,\pm$1.0} & \textbf{9.8{\tiny$\,\pm$10.8}} & 21.1{\tiny$\,\pm$27.8} & 34.1{\tiny$\,\pm$12.6} & 27.9{\tiny$\,\pm$31.5} \\
+P4 POV ($1\times$) & 0.0{\tiny$\,\pm$0.9} & -0.3{\tiny$\,\pm$0.9} & 15.4{\tiny$\,\pm$8.2} & 22.6{\tiny$\,\pm$26.5} & 803.4{\tiny$\,\pm$1016.9} & 26.8{\tiny$\,\pm$27.7} \\
+P4 POV ($2\times$) & -0.1{\tiny$\,\pm$0.6} & -0.0{\tiny$\,\pm$0.6} & 16.3{\tiny$\,\pm$6.3} & 37.4{\tiny$\,\pm$19.8} & 31.6{\tiny$\,\pm$32.3} & 9.4{\tiny$\,\pm$34.5} \\
+P5 Liquidity-aware & -0.2{\tiny$\,\pm$0.8} & -0.2{\tiny$\,\pm$0.9} & 12.2{\tiny$\,\pm$8.9} & \textbf{13.1{\tiny$\,\pm$27.3}} & 881.3{\tiny$\,\pm$1132.7} & \textbf{-35.3{\tiny$\,\pm$57.2}} \\
+P6 Signal (momentum) & 0.2{\tiny$\,\pm$0.9} & 0.4{\tiny$\,\pm$0.9} & 13.6{\tiny$\,\pm$8.2} & 20.7{\tiny$\,\pm$26.4} & 68.1{\tiny$\,\pm$77.1} & 4.2{\tiny$\,\pm$22.0} \\
+P6 Signal (reversal) & -0.3{\tiny$\,\pm$0.9} & \textbf{-0.6{\tiny$\,\pm$0.9}} & 14.5{\tiny$\,\pm$8.6} & 13.5{\tiny$\,\pm$26.6} & 406.0{\tiny$\,\pm$574.0} & 13.9{\tiny$\,\pm$29.4} \\
+P7 Risk-aware (0.5) & 0.6{\tiny$\,\pm$0.5} & 0.4{\tiny$\,\pm$0.3} & 15.7{\tiny$\,\pm$5.4} & 25.5{\tiny$\,\pm$14.7} & 57.1{\tiny$\,\pm$46.3} & 19.7{\tiny$\,\pm$27.3} \\
+P7 Risk-aware (2) & 0.8{\tiny$\,\pm$0.4} & 0.4{\tiny$\,\pm$0.3} & 16.7{\tiny$\,\pm$4.5} & 33.8{\tiny$\,\pm$13.9} & 35.6{\tiny$\,\pm$18.5} & 6.8{\tiny$\,\pm$6.4} \\
+\midrule
+Seeds & 40 & 40 & 60 & 57 & 5 & 10 \\
+Half-spread (bps) & 0.1 & 0.1 & 5.8 & 10.1 & 7.3 & 10.8 \\
+\bottomrule
+\end{tabular}}
+\end{table}

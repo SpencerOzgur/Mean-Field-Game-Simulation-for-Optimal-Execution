@@ -1,0 +1,25 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Pilot: cross-simulator regret. Rows: world in which the policy was selected (first half of its seeds). Columns: world in which it is evaluated (second half). Entries are regret relative to the best candidate in the evaluation world, in units of that world's half-spread. $^\dagger$paired 95\% interval above zero. A diagonal entry above zero means the policy selected on training seeds was not the best on test seeds.}\label{tab:cross}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{llrrrrrr}
+\toprule
+Optimised in & Chosen policy & A1 & A5 & H1 & H2 & M10 & M2 \\
+\midrule
+\multicolumn{8}{l}{\emph{Parent order = 5\% of background volume}} \\
+A1 & Back & 1.5 & 4.5$^\dagger$ & 0.0 & 0.2 & 2.0 & 9.0$^\dagger$ \\
+A5 & Reversal & 0.0 & 0 & 0.4 & 0.7 & 71.9 & 0.7 \\
+H1 & Back & 1.5 & 4.5$^\dagger$ & 0 & 0.2 & 2.0 & 9.0$^\dagger$ \\
+H2 & Reversal & 0.0 & 0.0 & 0.4 & 0.7 & 71.9 & 0.7 \\
+M10 & Risk 2 & 16.3$^\dagger$ & 16.2$^\dagger$ & 1.1 & 2.5 & 4.4$^\dagger$ & 7.3 \\
+M2 & Momentum & 7.9$^\dagger$ & 15.9$^\dagger$ & 0.3 & 1.3 & 1.6 & 3.0$^\dagger$ \\
+\multicolumn{8}{l}{\emph{Parent order = 15\% of background volume}} \\
+A1 & Front $b{=}2$ & 3.9 & 8.2$^\dagger$ & 1.9$^\dagger$ & 1.2 & 15.2 & 2.3 \\
+A5 & Reversal & 0.0 & 0 & 0.6 & 3.5$^\dagger$ & 82.6 & 5.0 \\
+H1 & Risk 2 & 33.6$^\dagger$ & 20.0$^\dagger$ & 0.3 & 0.0 & 9.9$^\dagger$ & 4.0 \\
+H2 & Risk 2 & 33.6$^\dagger$ & 20.0$^\dagger$ & 0.3 & 0 & 9.9$^\dagger$ & 4.0 \\
+M10 & Momentum & 5.2 & 14.4$^\dagger$ & 0.4 & 6.2$^\dagger$ & 26.9 & 2.3 \\
+M2 & Reversal & 0.0 & 0.0 & 0.6 & 3.5$^\dagger$ & 82.6 & 5.0 \\
+\bottomrule
+\end{tabular}}
+\end{table}

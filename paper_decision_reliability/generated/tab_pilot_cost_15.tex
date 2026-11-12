@@ -1,0 +1,26 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Pilot: implementation shortfall in bps (mean $\pm$ 95\% half-width) for a parent order of 15\% of background volume. Bold: lowest mean in the column. Costs are not comparable across columns: the worlds have different price levels and tick sizes.}\label{tab:pilotcost15}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Policy & A1 & A5 & H1 & H2 & M10 & M2 \\
+\midrule
+P0 TWAP & 0.4{\tiny$\,\pm$1.0} & 0.3{\tiny$\,\pm$0.9} & 39.0{\tiny$\,\pm$10.2} & 58.0{\tiny$\,\pm$28.2} & 257.2{\tiny$\,\pm$339.8} & 28.8{\tiny$\,\pm$28.4} \\
+P1 Immediate & 1.7{\tiny$\,\pm$0.5} & 1.1{\tiny$\,\pm$0.3} & 43.8{\tiny$\,\pm$5.9} & 57.4{\tiny$\,\pm$16.5} & \textbf{38.9{\tiny$\,\pm$18.7}} & 34.5{\tiny$\,\pm$25.1} \\
+P2 Front-loaded ($b{=}2$) & 0.5{\tiny$\,\pm$0.7} & 0.5{\tiny$\,\pm$0.6} & 45.9{\tiny$\,\pm$9.5} & 50.2{\tiny$\,\pm$20.4} & 778.6{\tiny$\,\pm$922.4} & 14.0{\tiny$\,\pm$26.3} \\
+P2 Front-loaded ($b{=}4$) & 1.4{\tiny$\,\pm$1.3} & 0.7{\tiny$\,\pm$0.4} & 44.9{\tiny$\,\pm$9.2} & 54.1{\tiny$\,\pm$18.0} & 79.7{\tiny$\,\pm$45.9} & 3.5{\tiny$\,\pm$17.9} \\
+P3 Back-loaded & 0.5{\tiny$\,\pm$1.2} & 0.3{\tiny$\,\pm$1.1} & 38.5{\tiny$\,\pm$11.9} & 69.9{\tiny$\,\pm$33.0} & 97.7{\tiny$\,\pm$85.8} & \textbf{0.0{\tiny$\,\pm$38.0}} \\
+P4 POV ($1\times$) & 0.4{\tiny$\,\pm$0.8} & 0.3{\tiny$\,\pm$0.8} & 46.7{\tiny$\,\pm$11.9} & 68.2{\tiny$\,\pm$27.7} & 564.7{\tiny$\,\pm$348.2} & 5.5{\tiny$\,\pm$12.1} \\
+P4 POV ($2\times$) & 1.1{\tiny$\,\pm$0.7} & 0.8{\tiny$\,\pm$0.5} & 45.1{\tiny$\,\pm$6.7} & 50.2{\tiny$\,\pm$21.4} & 411.7{\tiny$\,\pm$411.7} & 22.3{\tiny$\,\pm$27.0} \\
+P5 Liquidity-aware & 0.5{\tiny$\,\pm$0.9} & 0.3{\tiny$\,\pm$0.9} & 36.8{\tiny$\,\pm$12.8} & 78.0{\tiny$\,\pm$27.5} & 209.8{\tiny$\,\pm$201.5} & 7.5{\tiny$\,\pm$19.1} \\
+P6 Signal (momentum) & 0.7{\tiny$\,\pm$1.0} & 0.9{\tiny$\,\pm$1.0} & 40.0{\tiny$\,\pm$12.0} & 80.3{\tiny$\,\pm$28.1} & 42.0{\tiny$\,\pm$271.4} & 21.7{\tiny$\,\pm$28.1} \\
+P6 Signal (reversal) & \textbf{0.3{\tiny$\,\pm$0.9}} & \textbf{-0.1{\tiny$\,\pm$0.9}} & 40.5{\tiny$\,\pm$10.5} & 63.7{\tiny$\,\pm$26.4} & 346.6{\tiny$\,\pm$457.9} & 20.7{\tiny$\,\pm$30.8} \\
+P7 Risk-aware (0.5) & 3.4{\tiny$\,\pm$2.2} & 1.1{\tiny$\,\pm$0.4} & 38.0{\tiny$\,\pm$5.9} & 37.8{\tiny$\,\pm$18.7} & 258.1{\tiny$\,\pm$347.1} & 29.0{\tiny$\,\pm$33.4} \\
+P7 Risk-aware (2) & 2.7{\tiny$\,\pm$0.9} & 1.4{\tiny$\,\pm$0.4} & \textbf{36.3{\tiny$\,\pm$5.3}} & \textbf{35.4{\tiny$\,\pm$19.3}} & 235.5{\tiny$\,\pm$278.3} & 15.6{\tiny$\,\pm$11.9} \\
+\midrule
+Seeds & 40 & 40 & 60 & 57 & 5 & 10 \\
+Half-spread (bps) & 0.1 & 0.1 & 5.8 & 10.1 & 7.3 & 10.8 \\
+\bottomrule
+\end{tabular}}
+\end{table}

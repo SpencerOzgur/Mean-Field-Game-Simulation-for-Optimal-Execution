@@ -1,0 +1,44 @@
+\section{Deviations from the pre-specified plan}
+\label{app:deviations}
+
+The study followed a written research plan (\texttt{abides\_marl\_trades\_research\_plan.md} in the repository). Table~\ref{tab:deviations} records where the executed study departs from it.
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Planned versus executed.}\label{tab:deviations}
+\begin{tabular}{p{0.27\linewidth}p{0.66\linewidth}}
+\toprule
+Plan & What was done, and why \\
+\midrule
+Three systems: ABIDES, ABIDES-MARL, TRADES & ABIDES (six configurations) and TRADES. No public ABIDES-MARL implementation was found, so that arm is absent. \\
+TRADES with the authors' checkpoints & The checkpoint folder has been deleted. TRADES was retrained on the one public LOBSTER sample day for \tradesSteps{} steps. \\
+Go/no-go gates before experiments & Gates G1 (reproducible), G2 (interactive) and G3 (common policy) pass for all ABIDES worlds; for TRADES, twin and intervention were identical before the first order and different afterwards in every run. G4 (comparable calibration) does not hold between ABIDES and TRADES. \\
+Realism against held-out real data & No licensed data was available. The single public INTC day is used as one reference point; the main analysis uses observational distance \emph{between} worlds. \\
+Sizes 0.1\%, 0.5\%, 1\% of volume & \sizesText{}. Below 1\% a 60-slice schedule trades about one share per slice in these worlds. \\
+RL policy trained per simulator & Replaced by exhaustive search over a one-parameter schedule family and by an MFG calibrated per world. No RL was trained. \\
+Matched-state action comparison & Not done: neither system offers a state snapshot. Decisions are compared from matched initial conditions only. \\
+Multiple configurations per system & Six for ABIDES, one for TRADES. \\
+Pre-registration, power analysis & Not done. Seed counts were set by the compute available overnight on one laptop. \\
+Fees, latency sensitivity & Not done. Zero fees, ABIDES default latency. \\
+Three researchers, 9--13 weeks & One overnight session on one laptop. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Transfer-regret matrices}
+\label{app:regret}
+
+\input{generated/tab_regret_1}
+\input{generated/tab_regret_5}
+\input{generated/tab_regret_20}
+
+\section{Implementation notes}
+\label{app:impl}
+
+\paragraph{ABIDES.} We use \texttt{abides-core} and \texttt{abides-markets} from the \texttt{abides-jpmc-public} repository. Its order-size model depends on an old release of the \texttt{pomegranate} library that no longer installs; we substitute a small module that samples the same mixture distribution. The world builder mirrors the seeding order of the RMSC04 configuration and appends the execution agent last.
+
+\paragraph{Stalls and runaways.} Each episode has a wall-clock limit and is retried once. \runawayText{}
+
+\paragraph{DeepMarket.} The patch shipped with the code (i) removes non-blocking device transfers that corrupt integer tensors on Apple GPUs, (ii) restores the aggressor's fill notification for execution agents, (iii) shrinks a pre-allocated order-identifier pool, and (iv) allows loading our own checkpoint. The stock data builder splits by whole days and cannot process a one-day dataset; our training script splits the day chronologically instead. The simulation normalises inputs with whole-day statistics, whereas training used statistics of the first 85\% of the day; we did not correct this small mismatch.
+
+\paragraph{A sign error in the pre-existing MFG solver.} The repository this study extends contains an iterative forward--backward solver for the MFG. With selling rate $\nu=-\dot q$, its backward step implements $\dot\nu = (2\phi q - A - \lambda\bar\nu)/(2a)$, whereas the Euler--Lagrange condition gives $\dot\nu = (A - \lambda\bar\nu - 2\phi q)/(2a)$: the inventory-penalty and drift terms have the wrong sign. Numerically, a more risk-averse seller trades \emph{later} under that solver and sells sooner when the price drifts up. We did not modify it; this paper uses the closed form of Section~\ref{sec:mfgmodel}.

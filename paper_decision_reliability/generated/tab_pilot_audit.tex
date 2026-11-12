@@ -1,0 +1,18 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Stability audit of the pilot. Volume pass: unperturbed runs used to size the parent order. Main pass: a seed fails if its burn-in or its unperturbed twin fails; it is screened out if the mid moved more than 200\,bps in the five minutes before the task. Last three columns describe the unperturbed twin over the ten-minute task in the seeds used: standard deviation of the mid move, share of seeds moving more than 3\%, and mean quoted spread.}\label{tab:audit}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{llrrrrrrrrr}
+\toprule
+World & Family & \multicolumn{2}{c}{Volume pass} & \multicolumn{4}{c}{Main pass (seeds)} & Move s.d. & $>$3\% & Spread \\
+ & & run & failed & run & failed & screened & used & (bps) & & (bps) \\
+\midrule
+A1 & abides & 20 & 0 & 40 & 0 & 0 & 40 & 5 & 0\% & 0.2 \\
+A5 & abides & 20 & 0 & 40 & 0 & 0 & 40 & 5 & 0\% & 0.1 \\
+H1 & hawkes & 20 & 0 & 60 & 0 & 0 & 60 & 52 & 0\% & 11.7 \\
+H2 & hawkes & 20 & 0 & 60 & 0 & 3 & 57 & 153 & 5\% & 20.2 \\
+M10 & mars & 12 & 7 & 10 & 4 & 1 & 5 & 63 & 0\% & 14.6 \\
+M2 & mars & 12 & 4 & 11 & 1 & 0 & 10 & 277 & 10\% & 21.7 \\
+\bottomrule
+\end{tabular}}
+\end{table}

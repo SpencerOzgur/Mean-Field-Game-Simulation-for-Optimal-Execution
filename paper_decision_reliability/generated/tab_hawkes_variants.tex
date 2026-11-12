@@ -1,0 +1,21 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Three Hawkes simulators that differ only in how strongly a market order excites later flow as a function of its size, each fitted to the same reference data. Entries: recommended policy and its reference regret in bps ($^\dagger$interval above zero).}\label{tab:hawkesvariants}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{llrrr}
+\toprule
+World & Size & Capped linear & Linear & Square-root \\
+\midrule
+R1a & 5\% & Immediate (+0.0) & Immediate (+0.0) & Immediate (+0.0) \\
+R1a & 15\% & Liquidity (-0.1) & Liquidity (-0.1) & Liquidity (-0.1) \\
+R1b & 5\% & Back (-2.5) & Back (-2.5) & Reversal (-2.2) \\
+R1b & 15\% & Risk 2 (-2.2) & Liquidity (+0.0) & Risk 2 (-2.2) \\
+R2a & 5\% & Liquidity (+4.0$^\dagger$) & Liquidity (+4.0$^\dagger$) & Reversal (+0.0) \\
+R2a & 15\% & Immediate (+21.1$^\dagger$) & Liquidity (+1.8$^\dagger$) & Immediate (+21.1$^\dagger$) \\
+R2b & 5\% & Immediate (+11.4$^\dagger$) & Immediate (+11.4$^\dagger$) & Immediate (+11.4$^\dagger$) \\
+R2b & 15\% & Immediate (+22.0$^\dagger$) & Risk 2 (+24.5$^\dagger$) & Front $b{=}4$ (+11.6$^\dagger$) \\
+\midrule
+\multicolumn{2}{l}{Mean realism error} & 0.71 & 0.71 & 0.76 \\
+\bottomrule
+\end{tabular}}
+\end{table}

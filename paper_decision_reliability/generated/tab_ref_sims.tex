@@ -1,0 +1,23 @@
+\begin{table}[!htbp]
+\centering\footnotesize
+\caption{Fitted simulators in each reference world. Runs failed and moves above 3\%: unperturbed runs of the fitted simulator. A simulator is evaluated only if at most half fail and at most a quarter of the rest move more than 3\% in ten minutes. Realism error: mean scaled distance of six stylised facts from held-out reference data (lower is better; about 1 is within the reference world's own run-to-run variation). Volume ratio: simulator volume over reference volume.}\label{tab:refsims}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{llrrlrr}
+\toprule
+World & Simulator & Runs failed & Moves $>$3\% & Evaluated & Realism error & Volume ratio \\
+\midrule
+R1a & Hawkes & 0\% & 0\% & yes & 1.72 & 0.99 \\
+R1a & ABIDES & 0\% & 0\% & yes & 10.63 & 0.96 \\
+R1a & MarS & 33\% & 50\% & \textbf{no} & -- & 3.67 \\
+R1b & Hawkes & 0\% & 0\% & yes & 0.21 & 0.97 \\
+R1b & ABIDES & 0\% & 0\% & yes & 1.16 & 0.54 \\
+R1b & MarS & 17\% & 40\% & \textbf{no} & -- & 1.88 \\
+R2a & Hawkes & 0\% & 5\% & yes & 0.29 & 0.82 \\
+R2a & ABIDES & 0\% & 0\% & yes & 0.79 & 0.40 \\
+R2a & MarS & 33\% & 50\% & \textbf{no} & -- & 3.26 \\
+R2b & Hawkes & 0\% & 0\% & yes & 0.60 & 1.21 \\
+R2b & ABIDES & 0\% & 8\% & yes & 0.58 & 0.28 \\
+R2b & MarS & 33\% & 50\% & \textbf{no} & -- & 1.79 \\
+\bottomrule
+\end{tabular}}
+\end{table}

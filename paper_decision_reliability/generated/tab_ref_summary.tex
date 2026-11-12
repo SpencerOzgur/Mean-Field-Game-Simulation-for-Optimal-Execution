@@ -1,0 +1,19 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Reference regret by recommender, over all reference worlds and sizes in which it was evaluated. The last four rows are simulator-free baselines.}\label{tab:refsummary}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+Recommender & Settings & Mean regret (bps) & Mean (half-spreads) & Max (half-spreads) & Sig.\ worse than best \\
+\midrule
+Hawkes & 8 & 6.7 & 1.10 & 3.60 & 4 \\
+Hawkes (linear) & 8 & 4.9 & 0.79 & 3.99 & 4 \\
+Hawkes (sqrt) & 8 & 4.9 & 0.81 & 3.60 & 3 \\
+ABIDES & 8 & 2.4 & 0.40 & 1.00 & 4 \\
+Always TWAP & 8 & 1.2 & 0.19 & 0.60 & 4 \\
+Always immediate & 8 & 10.8 & 1.87 & 3.60 & 6 \\
+Random candidate & 8 & 4.1 & 0.69 & 1.79 & 0 \\
+Worst candidate & 8 & 11.8 & 2.03 & 3.99 & 0 \\
+\bottomrule
+\end{tabular}}
+\end{table}

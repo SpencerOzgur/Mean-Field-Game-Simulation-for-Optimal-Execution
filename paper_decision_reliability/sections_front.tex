@@ -1,0 +1,55 @@
+\section{Introduction}
+
+Limit-order-book simulators are judged mainly by how their output looks: spreads, volatility, order-flow statistics, and the other stylised facts collected in realism benchmarks \citep{vyetrenko2020getreal,nagy2025lobbench}. They are used for something else. A trader who must execute a large order wants the simulator to say what a given execution policy will cost and which policy to prefer. Whether looking right implies deciding right is an empirical question, and it cannot be answered from historical data alone, because history never shows what would have happened under a different execution strategy.
+
+This paper keeps three claims apart.
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{Observational realism.} How closely does a simulator's unperturbed market resemble a target market?
+\item \textbf{Cross-simulator robustness.} Does a policy chosen in one simulator remain competitive in another?
+\item \textbf{Controlled decision validity.} When the data-generating market is known, does a simulator fitted to its data recommend a policy that does well in it?
+\end{enumerate}
+Agreement between simulators (claim 2) says nothing about correctness. Only claim 3 has a ground truth, and only inside the synthetic market that supplies it.
+
+We study three simulator families: ABIDES \citep{byrd2019abides,amrouni2021abidesgym}, an agent-based simulator; MarS \citep{li2025mars}, a generative order-flow model; and a multivariate marked Hawkes order-book simulator \citep{bacry2015hawkes} written for this study. The work proceeds in the order a careful study must: a feasibility audit with explicit gates (Section~\ref{sec:feasibility}), a common harness (Section~\ref{sec:harness}), a cross-simulator pilot (Section~\ref{sec:pilot}), and a controlled experiment in which simulators are fitted to markets whose rules we wrote (Section~\ref{sec:reference}).
+
+\paragraph{What was and was not possible.} We had no licensed order-level market data, so the realism of each simulator against held-out historical data was not measured, and no simulator was calibrated to a real instrument. MarS's released models run on a laptop and respond to injected orders, but they cannot be refitted (no training code is released), were trained on Chinese equities, and proved unstable in our hands; MarS is therefore a separate-domain case study in the pilot and could not be evaluated in the controlled experiment. Section~\ref{sec:limits} lists every limitation.
+
+\section{Related work}
+
+ABIDES \citep{byrd2019abides} simulates an exchange and a population of message-passing agents; its behaviour comes from the configured population. MarS \citep{li2025mars} trains an autoregressive model on order-level data and generates orders one at a time, conditioned on recent orders and the book, inside its own matching engine; its authors demonstrate forecasting, stylised facts and a market-impact study. TRADES \citep{berti2025trades} and M3 \citep{zhang2026m3} are other learned generators. Hawkes processes are the standard statistical model of clustered order flow \citep{bacry2015hawkes}; queue-reactive models make intensities depend on the state of the book instead of on past events \citep{huang2015queue,cont2010stochastic}.
+
+Realism of simulated order books is assessed with stylised facts \citep{vyetrenko2020getreal} and with distributional and price-response scores \citep{nagy2025lobbench}. \citet{balch2019evaluate} argue that interactive simulation is needed to evaluate strategies because replay cannot react. Optimal execution theory supplies the policies we test \citep{almgren2001optimal}. The question of whether simulator realism predicts the quality of the decisions a simulator supports is, to our knowledge, less studied; we make no claim of priority, having run targeted searches only.
+
+\section{Feasibility audit}
+\label{sec:feasibility}
+
+Each candidate had to pass five gates before any comparison: (A) runnable from a pinned commit with a reproducible seeded episode; (B) interactive, meaning an external order schedule can trade and the market responds; (C) comparable in market conventions and regime; (D) stable across seeds; (E) reproducible in data rights and compute. Table~\ref{tab:gates} gives the outcome; the full evidence is in \texttt{simrel/reports/feasibility\_matrix.md}.
+
+\input{generated/tab_gates}
+
+\paragraph{ABIDES.} We use \texttt{abides-jpmc-public} at commit \texttt{f9cbe51}. It runs on current Python once one obsolete dependency is replaced by a small stand-in, and reproduces results bit-for-bit across Python versions. An earlier pilot of ours found two of six configurations unstable without any intervention; here we use only the reference configuration and one with more market making, and, in the controlled experiment, configurations at a lower price level so that the tick is the same fraction of the price as in the reference markets.
+
+\paragraph{MarS.} The repository (commit \texttt{f04dd87}) releases order models of 2M, 5M and 10M parameters under the MIT licence; the larger models reported in the paper are not released. The supported set-up is Linux, Docker, CUDA and a Ray Serve deployment. The released models are small enough to run in-process on a CPU (14 to 24\,ms per generated order), so we replaced the serving client with a local one and left the repository untouched. We checked the local inference against the official validation samples: next-order cross-entropy is \marsNllTwo{}, \marsNllFive{} and \marsNllTen{} for the three sizes against \marsNllUniform{} for a uniform guess, falling with model size as in the published scaling curve.
+
+MarS passes gates A, B and E. It fails C for any real market: it was trained on Chinese equities, ships no training code, and its demonstrations start from a synthetic noise-agent state. On D it is conditional at best. Reproducing the official market-impact example, the unperturbed mid price moved by \marsOfficialBase{}\,bps on average within five minutes, and by \marsOfficialTwap{}\,bps with the repository's own TWAP agent buying 30\% of volume. Over thirty unperturbed minutes, five-minute moves above 200\,bps occurred in \marsEarlyShare{} of windows during the first fifteen minutes after hand-over from the noise agent (10M model), and in none of the windows after that. We therefore let MarS run for twenty minutes before any task. Even so, rollouts fail: some empty their own order book, after which the engine raises an error, and some enter a burst of order generation that does not end within a wall-clock limit. Section~\ref{sec:pilot} reports the failure rates.
+
+\paragraph{Hawkes.} A Hawkes event generator alone cannot answer execution questions, because prices must respond to orders. Ours has six mutually exciting event types (limit, market and cancel, on each side) with exponential kernels and size and price-level marks, applied to a price--time-priority book. Cancellation intensity scales with resting depth and market-order intensity falls when the spread is wide. An injected market order hits the same book and enters the intensities as an event weighted by its size, so later flow reacts to it. Events are generated by thinning \citep{ogata1981lewis} candidate streams that do not depend on the market state, which keeps an intervention and its unperturbed twin on the same random path wherever their states agree.
+
+\paragraph{Consequence.} Following the stop rule fixed in advance, we did not run a three-way comparison on harmonised real data. We ran the pilot on each simulator's own domain, with MarS labelled as a separate domain, and the controlled experiment, in which the common domain is a market we generate.
+
+\section{Common harness}
+\label{sec:harness}
+
+\paragraph{Task.} Sell a parent order over ten minutes in twenty decisions thirty seconds apart, then observe for two more minutes. The parent size is \sizesText{} of the world's own mean background volume over the window.
+
+\paragraph{Policy interface.} Every policy is a function
+\[
+\textit{quantity} = \pi(\textit{observation}_t,\ \textit{remaining inventory},\ \textit{time remaining},\ \textit{state}),
+\]
+where the observation holds best quotes, depth at one and five levels, the previous slice's traded and signed volume and mid change, and the arrival mid: nothing later than the decision time. The returned quantity is sent as one market order. The harness, not the policy, clips it to the remaining inventory, rounds it to the lot, and sends everything left at the last decision, so all policies complete the same order and any forced liquidation is in their cost. Unit tests check the sign conventions, these constraints, and that no policy's decisions up to a time change when later observations are altered.
+
+\paragraph{Policies.} Twelve candidates in eight families: TWAP (P0); immediate execution limited to the visible five-level depth per decision (P1); two front-loaded schedules (P2) and one back-loaded schedule (P3); participation-of-volume at one and two times the rate that would complete on time (P4); a liquidity-aware rule that speeds up when the spread is tight and depth ample relative to what the episode has shown (P5); a signal-aware rule tilted by the last slice's order-flow imbalance and return, in a momentum and a reversal variant (P6); and an Almgren--Chriss feedback controller whose urgency is estimated online from realised volatility and the spread, at two risk aversions (P7). The optional MFG-derived policy was not included.
+
+\paragraph{Cost.} For a sell, implementation shortfall is $10^4\,(m_0 - \bar p)/m_0$ with $m_0$ the arrival mid and $\bar p$ the volume-weighted fill price; shares the market could not absorb are charged at the worst slice price. Positive is worse for buys and sells alike. We also report the \emph{impact cost}, the same fills measured against the unperturbed twin's mid at each decision.
+
+\paragraph{Twins.} Every intervention is compared with an unperturbed run from the same state. In MarS, the Hawkes simulator and the reference worlds, the whole environment is copied once per policy at the task start, so all policies and the twin share an identical history. ABIDES cannot be copied; its twin is a same-seed rerun that is identical until the first child order.

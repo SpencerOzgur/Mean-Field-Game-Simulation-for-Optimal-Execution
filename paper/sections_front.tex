@@ -1,0 +1,94 @@
+\section{Introduction}
+
+A trader who must sell a block of shares before a deadline faces a familiar trade-off: selling quickly moves the price against them, selling slowly leaves them exposed to the market for longer. Because a real market cannot be re-run, the schedule is almost always chosen with the help of a \emph{market simulator}: either a model with explicit impact parameters \citep{almgren2001optimal}, an agent-based simulation such as ABIDES \citep{byrd2019abides,amrouni2021abidesgym}, or, more recently, a learned generator of order flow \citep{coletta2021towards,berti2025trades,zhang2026m3}.
+
+Simulators are usually judged by \emph{observational realism}: whether spreads, volatility, order-flow statistics and other stylised facts look like the real thing \citep{vyetrenko2020getreal,nagy2025lobbench}. A trader, however, does not consume stylised facts. They consume a \emph{decision}: which schedule to run. This paper asks the decision-level question directly.
+
+\begin{quote}
+If several simulated markets are all plausible, do they recommend the same execution schedule, and what does it cost to trust one of them when another one is true?
+\end{quote}
+
+We answer it with a controlled experiment. One execution agent, one task definition and one cost accounting are run unchanged in \nWorlds{} ABIDES market configurations that differ only in their background population, and, on a shorter task, in a market driven by the TRADES diffusion model \citep{berti2025trades}. Costs are estimated with \emph{paired twins}: every intervention episode is compared with an episode that has the same seed and no intervention, so that background noise cancels. In total the study uses \nEpisodes{} simulated ABIDES episodes and \nTradesEpisodes{} TRADES episodes.
+
+The decision-maker we study is a mean-field-game (MFG) liquidator in the tradition of \citet{cardaliaguet2018mean}, \citet{huang2019mean} and \citet{casgrain2020mean}. In its risk-neutral, homogeneous form the MFG equilibrium is a one-parameter family of schedules, which lets us define ``the schedule that simulator $i$ recommends'' in two independent ways: by calibrating the MFG's impact parameters from probe trades in simulator $i$, and by direct search over the same family inside simulator $i$.
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item A reproducible harness that injects an identical execution agent into ABIDES configurations and into a TRADES-driven market, with paired-twin cost estimation (Section~\ref{sec:setup}).
+\item A decision-level comparison: policy rankings, the schedule each world recommends, and the full train-in-$i$/deploy-in-$j$ regret matrix (Sections~\ref{sec:rankings}--\ref{sec:transfer}).
+\item A test of whether differences in standard stylised facts between two worlds predict the regret of transferring a schedule between them (Section~\ref{sec:rq4}).
+\item An assessment of an MFG optimiser calibrated in each world, including where its structural assumptions fail (Section~\ref{sec:mfg}).
+\end{enumerate}
+
+\paragraph{Scope, stated up front.} The original design called for three systems: ABIDES, ABIDES-MARL \citep{cheridito2025abidesmarl} and TRADES. We could not find a public implementation of ABIDES-MARL, so it is absent. The authors' TRADES checkpoints are no longer downloadable; we retrained the TRADES architecture ourselves on the single public LOBSTER sample day, for under two hours on a laptop, so the TRADES arm tests \emph{our retrained model}, not the published one. All regret figures are simulator-to-simulator; nothing here measures regret against a real market. Section~\ref{sec:limits} lists every deviation.
+
+\section{Related work}
+
+\paragraph{Agent-based market simulation.} ABIDES \citep{byrd2019abides} simulates a NASDAQ-style exchange with message-passing agents; its behaviour is determined by the configured agent population, not by training data. ABIDES-Gym \citep{amrouni2021abidesgym} exposes it as a reinforcement-learning environment, and ABIDES-MARL \citep{cheridito2025abidesmarl} extends that to several simultaneously learning agents and studies an execution problem with strategic liquidity providers. \citet{balch2019evaluate} argue that interactive simulation, unlike market replay, lets a strategy's own impact feed back into prices; that feedback is exactly what our comparison probes.
+
+\paragraph{Learned order-flow generators.} \citet{coletta2021towards} condition a GAN on the order-book state to generate reactive order flow. TRADES \citep{berti2025trades} replaces the GAN with a transformer-based diffusion model and deploys it as a ``world agent'' inside an ABIDES exchange; its authors evaluate realism, responsiveness to an injected agent, and usefulness of the synthetic data, and note that strategy evaluation needs further work. M3 \citep{zhang2026m3} is a recent token-based foundation model for order flow with meta-order impact experiments. Our contribution is not another generator but a decision-level comparison across simulators.
+
+\paragraph{Evaluating simulators.} Realism metrics for limit-order-book simulators are surveyed and standardised by \citet{vyetrenko2020getreal} and by LOB-Bench \citep{nagy2025lobbench}, which also includes price-response statistics. These evaluate what a simulator looks like. We ask the complementary question of whether simulators that look alike also \emph{recommend} alike.
+
+\paragraph{Optimal execution and mean-field games.} \citet{almgren2001optimal} derive the classical single-agent schedule under linear temporary and permanent impact. Mean-field-game formulations replace the single agent with a population whose aggregate flow moves the price \citep{cardaliaguet2018mean,huang2019mean,casgrain2020mean}. Empirically, the impact of a meta-order is concave in its size and partly reverts after it ends \citep{toth2011anomalous}; both features matter for the results below.
+
+\section{Experimental setup}
+\label{sec:setup}
+
+\subsection{Worlds}
+
+A \emph{world} is a complete background market. Table~\ref{tab:worlds} lists the \nWorlds{} ABIDES worlds. All share the ABIDES-Markets exchange (price--time priority, one-cent tick), the RMSC04 reference parameters, and the same fundamental-value oracle; they differ in one population parameter each. World T1 is the TRADES market described in Section~\ref{sec:trades}. Because every world shares an ABIDES-family matching engine, the study compares \emph{background-flow models}, not independent market infrastructures.
+
+\input{generated/tab_worlds}
+
+\subsection{Task, policies and execution agent}
+
+The task is to sell (or, for the asymmetry check, buy) $Q$ shares between 10:00 and 10:30 using market orders at $n=60$ decision times 30 seconds apart. $Q$ is set per world to \sizesText{} of that world's own mean background volume over the window, measured from unperturbed runs, so ``\,5\%\,'' means the same participation everywhere. The market opens at 09:30; the first 30 minutes are warm-up. The simulation continues for five minutes after the deadline to observe reversion.
+
+One execution agent implements every policy. At each decision time it queries the book and recent volume, asks the policy for a child size, and sends a single market order; the last slice always sends the remainder. Policies are:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item \textbf{Schedule family.} $w_k \propto \exp(-b\,k/n)$ for $b\in\{\bGridText\}$: $b=0$ is TWAP, $b>0$ front-loads, $b<0$ back-loads.
+\item \textbf{Immediate.} The whole parent order as one market order at 10:00.
+\item \textbf{POV.} A fixed fraction of the market volume observed over the previous slice.
+\item \textbf{Urgency rule.} Deadline-paced, trading twice as fast when the spread is at most two ticks and half as fast when it is six ticks or more.
+\end{itemize}
+We did not train a reinforcement-learning policy; the planned RL arm was replaced by exhaustive search over the schedule family, which gives a deterministic ``optimised in world $i$'' policy without optimiser noise.
+
+\subsection{Paired-twin cost estimation}
+
+For world $w$ and seed $s$ we run a \emph{twin} episode in which the execution agent is present, queries the market at the same times, and trades nothing. All background random streams are seeded before the execution agent is created, so twin and intervention are identical until the first child order. We verified, for every world, that the same seed reproduces the same mid-price path bit-for-bit (also across operating-system processes), that the pre-10:00 paths of twin and intervention are identical, and that they differ afterwards.
+
+Let $q_k$ be the shares filled in slice $k$ at average price $p_k$, let $m^{0}_k$ be the twin's mid price at that decision time, and let $m^{0}_0$ be the arrival mid. The \emph{paired impact cost} of a sell is
+\begin{equation}
+C \;=\; \frac{10^4}{m^0_0}\;\frac{\sum_k q_k\,(m^{0}_k - p_k)}{\sum_k q_k}\quad\text{(basis points)}.
+\label{eq:cost}
+\end{equation}
+It equals implementation shortfall minus the part of the shortfall that the market would have produced without us, so its variance across seeds is far smaller than that of raw shortfall. Raw shortfall is reported alongside. If the book cannot absorb an order, the unfilled shares are charged at the worst per-share cost of any slice in that episode; fill fractions are reported separately. The mid-price \emph{displacement} is the adverse difference between intervention and twin mid prices.
+
+\subsection{Mean-field-game schedule}
+\label{sec:mfgmodel}
+
+Consider a population of identical sellers, each holding normalised inventory $q_t$ with $q_0=1$ and selling at rate $\nu_t=-\dot q_t$ on $t\in[0,1]$. An agent receives $S_t - a\,\nu_t$ per share, where $a$ is a temporary-impact coefficient, while the mid price is pushed by the population's mean rate $\bar\nu_t$: $\mathrm{d}S_t = -\lambda\,\bar\nu_t\,\mathrm{d}t + \sigma\,\mathrm{d}W_t$. With a running inventory penalty $\phi$, an agent that takes $\bar\nu$ as given minimises $\mathbb{E}\!\int_0^1 (a\nu_t^2 + \phi q_t^2 + \lambda\bar\nu_t q_t)\,\mathrm{d}t$ subject to $q_1=0$. The Euler--Lagrange condition is $2a\ddot q = 2\phi q + \lambda\bar\nu$, and imposing the equilibrium condition $\bar\nu=\nu=-\dot q$ gives
+\begin{equation}
+\ddot q + \frac{\lambda}{2a}\,\dot q - \frac{\phi}{a}\,q = 0,\qquad q_0=1,\; q_1=0 .
+\label{eq:mfg}
+\end{equation}
+For a risk-neutral population ($\phi=0$) the solution is $\nu_t\propto e^{-bt}$ with
+\begin{equation}
+b_{\mathrm{MFG}} = \frac{\lambda}{2a},
+\label{eq:bmfg}
+\end{equation}
+exactly our schedule family. Two reference points follow. A single risk-neutral Almgren--Chriss trader, who internalises their own permanent impact, is indifferent to $\lambda$ and trades TWAP ($b=0$). The MFG population front-loads because each member races the others' impact. We inject the equilibrium aggregate flow as one meta-order.
+
+Calibration in world $w$ uses only that world's training seeds: $a$ is the slope of per-slice slippage (fill price against the agent's own pre-trade mid) on the normalised child size, pooled over the schedule-family runs; $\lambda$ is the mean mid displacement at the deadline under TWAP. The cost of an off-grid $b$ is obtained by linear interpolation of the estimated cost curve, and $b_{\mathrm{MFG}}$ is clipped to the grid range.
+
+\subsection{TRADES arm}
+\label{sec:trades}
+
+TRADES \citep{berti2025trades} is released as the DeepMarket repository, which embeds a ``world agent'' in a legacy ABIDES exchange: it replays the first 15 minutes of a real LOBSTER day \citep{huang2011lobster} and then generates each subsequent order with a diffusion model conditioned on the previous 255 orders and the live order book. The authors' checkpoints are hosted in a cloud folder that has been deleted (an open issue on the repository reports the same), and their training data is licensed. We therefore retrained the architecture, with the repository's fixed hyperparameters (\tradesParams{} parameters), on the one public LOBSTER sample day bundled with the repository (INTC, 21 June 2012, \tradesTrainRows{} training events after an 85/5/10 chronological split of the day). Training ran for \tradesSteps{} gradient steps at batch size 256 on a laptop GPU, about \tradesEpochFrac{} of one pass over the data; validation loss fell from \tradesValStart{} at the first check to \tradesValEnd{} at the last. This is a small fraction of the authors' training budget, and the model saw one stock on one day.
+
+We added an execution agent with the same semantics as in ABIDES and restored the aggressor's fill notification, which the repository disables. Because a TRADES episode costs minutes rather than seconds, this arm uses a shorter task: sell \tradesSize{} of background volume between 09:46 and 09:56 in 20 slices, with \tradesSeeds{} seeds and four schedules plus the immediate order. The same 10-minute task is run in all ABIDES worlds so the two families are compared on identical terms.
+
+\subsection{Compute and reproducibility}
+
+Everything ran on one Apple M1 laptop (16\,GB). The code pins ABIDES (\texttt{abides-jpmc-public} commit \texttt{f9cbe51}) and DeepMarket (commit \texttt{8f1f89b}) and ships the patch applied to the latter. Seeds are split in half: schedules are selected on the first half and all transfer costs and regrets are reported on the second.

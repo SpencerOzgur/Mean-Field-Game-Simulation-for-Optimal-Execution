@@ -1,0 +1,17 @@
+\begin{table*}[!htbp]
+\centering\footnotesize
+\caption{The 10-minute task (sell 10\% of background volume in 20 slices) in every ABIDES world and in the retrained TRADES market T1. Paired impact cost in bps, mean $\pm$ 95\% half-width. Bold: cheapest schedule in each column.}\label{tab:short}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Policy & A1 & A2 & A3 & A4 & A5 & A6 & T1 \\
+\midrule
+Schedule $b=-2$ (back-loaded) & 0.7{\tiny$\,\pm$0.2} & \textbf{0.4{\tiny$\,\pm$0.3}} & 11.8{\tiny$\,\pm$9.1} & 1.0{\tiny$\,\pm$1.1} & \textbf{0.5{\tiny$\,\pm$0.2}} & 1.2{\tiny$\,\pm$1.2} & 41.6{\tiny$\,\pm$21.2} \\
+Schedule $b=0$ (TWAP) & 0.7{\tiny$\,\pm$0.3} & 0.4{\tiny$\,\pm$0.3} & 4.6{\tiny$\,\pm$10.8} & 1.2{\tiny$\,\pm$1.2} & 0.6{\tiny$\,\pm$0.2} & 0.8{\tiny$\,\pm$0.7} & 50.6{\tiny$\,\pm$27.2} \\
+Schedule $b=2$ & \textbf{0.5{\tiny$\,\pm$0.3}} & 0.6{\tiny$\,\pm$0.3} & 4.4{\tiny$\,\pm$6.3} & \textbf{0.7{\tiny$\,\pm$0.6}} & 0.6{\tiny$\,\pm$0.1} & \textbf{0.3{\tiny$\,\pm$0.6}} & 44.2{\tiny$\,\pm$28.8} \\
+Schedule $b=8$ (front-loaded) & 1.1{\tiny$\,\pm$0.3} & 1.2{\tiny$\,\pm$0.3} & \textbf{3.8{\tiny$\,\pm$2.3}} & 1.5{\tiny$\,\pm$0.6} & 0.7{\tiny$\,\pm$0.1} & 1.6{\tiny$\,\pm$0.6} & \textbf{26.6{\tiny$\,\pm$16.6}} \\
+Immediate & 2.1{\tiny$\,\pm$0.4} & 1.9{\tiny$\,\pm$0.5} & 5.3{\tiny$\,\pm$2.3} & 2.5{\tiny$\,\pm$0.9} & 1.1{\tiny$\,\pm$0.2} & 4.5{\tiny$\,\pm$1.4} & 15.7{\tiny$\,\pm$2.4} \\
+\midrule
+Episodes per cell & 40 & 40 & 40 & 40 & 40 & 40 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table*}
