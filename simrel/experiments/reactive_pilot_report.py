@@ -24,7 +24,8 @@ from simrel.experiments import reactive_pilot as P  # noqa: E402
 
 OUT, RAW = P.OUT, P.RAW
 FEATURES = ["H", "gamma_flow", "R100_over_R1", "block_ac25", "vr30", "vr120", "vr600", "depth_flow"]
-ARM_COLOR = {"off": "#a9c7ee", "weak": "#6ea3e3", "medium": "#2a78d6", "strong": "#12427f", P.LOOSE: "#eb6834"}
+ARM_COLOR = {"off": "#a9c7ee", "weak": "#6ea3e3", "medium": "#2a78d6", "strong": "#12427f",
+             "weak_tight": "#9bdcc4", "medium_tight": "#1baf7a", "strong_tight": "#0c6b49", P.LOOSE: "#eb6834"}
 INK, MUTED, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
 
@@ -116,7 +117,7 @@ def e2(truth: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     t["pred_pnl_bps"] = t["pred_pnl_ticks"] / (t["qty"] * t["arrival_mid"]) * 1e4
     cost = t.pivot_table(index=["market", "arm", "size_frac", "seed"], columns="policy", values="is_bps")
     rows, summ = [], []
-    off_twap = {}
+    off_twap = {(m, f): d.droplevel([0, 1, 2]).dropna()["P0_twap"] for (m, a, f), d in cost.groupby(level=[0, 1, 2]) if a == "off"}
     for (m, a, f), d in cost.groupby(level=[0, 1, 2]):
         d = d.droplevel([0, 1, 2]).dropna()
         sub = t[(t["market"] == m) & (t["arm"] == a) & (t["size_frac"] == f)]
@@ -132,8 +133,6 @@ def e2(truth: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         a_half, b_half = d[d.index < P.N_TRUTH // 2], d[d.index >= P.N_TRUTH // 2]
         ba, bb = a_half.mean().idxmin(), b_half.mean().idxmin()
         xfit = 0.5 * ((b_half["P0_twap"] - b_half[ba]).mean() + (a_half["P0_twap"] - a_half[bb]).mean())
-        if a == "off":
-            off_twap[(m, f)] = d["P0_twap"]
         base = off_twap.get((m, f))
         dt = (d["P0_twap"] - base).dropna() if base is not None else pd.Series(dtype=float)
         tw = sub[sub["policy"] == "P0_twap"]
@@ -147,7 +146,7 @@ def e2(truth: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
                      "pred_pnl_all_policies_bps": sub["pred_pnl_bps"].mean()})
     costs, summ = pd.DataFrame(rows), pd.DataFrame(summ)
     for df in (costs, summ):
-        df["arm"] = pd.Categorical(df["arm"], P.STRENGTHS, ordered=True)
+        df["arm"] = pd.Categorical(df["arm"], P.TRUTH_ARMS, ordered=True)
     return costs.sort_values(["market", "size_frac", "arm", "policy"]), summ.sort_values(["market", "size_frac", "arm"])
 
 
@@ -290,18 +289,22 @@ def figures(look, false, costs, summ, z) -> None:
     for ax, f in zip(axes, C.SIZES):
         d = look[look["size_frac"] == f].set_index("policy").loc[order]
         y = np.arange(len(order))
-        ax.barh(y, d["trigger_rate"], height=0.62, color="#2a78d6")
-        for yi, v, t in zip(y, d["trigger_rate"], d["first_trigger_s_median"]):
-            ax.text(v + 0.015, yi, f"{v:.0%}" + (f"  first at {t:.0f} s" if np.isfinite(t) else ""), va="center", fontsize=7.5, color=MUTED)
+        ax.barh(y, d["trigger_rate"], height=0.62, color="#2a78d6", label="family detector (noisy time stamps, size-led)")
+        ax.scatter(d["rate_tight"], y, s=34, color="#eb6834", edgecolor="white", linewidth=0.8, zorder=3, label="tight-timing detector (comparison)")
+        for yi, v, v2, t in zip(y, d["trigger_rate"], d["rate_tight"], d["first_trigger_s_median"]):
+            ax.text(1.06, yi, f"{v:.0%} | {v2:.0%}" + (f"   first at {t:.0f} s" if np.isfinite(t) else ""), va="center", fontsize=7.5, color=MUTED)
         ax.set_yticks(y)
         ax.set_yticklabels(order)
-        ax.set_xlim(0, 1.45)
+        ax.set_xlim(0, 1.6)
+        ax.text(1.06, len(order) - 0.35, "family | tight", va="center", fontsize=7.5, color=INK)
         ax.set_xticks([0, 0.25, 0.5, 0.75, 1.0])
         ax.set_xticklabels(["0%", "25%", "50%", "75%", "100%"])
         _style(ax, f"Order size {f:.0%} of volume", "share of episodes in which the detector triggers")
         ax.grid(axis="y", visible=False)
-    fig.suptitle("E1. Detector trigger rate by strategy (default detector, pilot markets pooled, 100 seeds each)", fontsize=10.5, color=INK, x=0.01, ha="left")
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    h, lab = axes[0].get_legend_handles_labels()
+    fig.legend(h, lab, fontsize=8, frameon=False, loc="lower center", ncol=2)
+    fig.suptitle("E1. Detector trigger rate by strategy (predator not trading; six pilot markets pooled; 100 seeds, tight detector 30 seeds)", fontsize=10.5, color=INK, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0.06, 1, 0.95))
     fig.savefig(OUT / "fig_e1_trigger_rates.png", dpi=160)
     plt.close(fig)
 
@@ -322,51 +325,53 @@ def figures(look, false, costs, summ, z) -> None:
             _style(ax, f"{fam} markets, order size {f:.0%}", "cost minus TWAP cost, bps (negative: cheaper than TWAP)" if i == 1 else "")
             ax.grid(axis="y", visible=False)
     axes[0, 1].legend(title="predator strength", fontsize=8, title_fontsize=8, frameon=False, loc="lower right")
-    fig.suptitle("E2. True cost of each strategy relative to TWAP, by predator strength (mean over the family's pilot markets)", fontsize=10.5, color=INK, x=0.01, ha="left")
+    fig.suptitle("E2. True cost of each strategy relative to TWAP, by predator strength (family detector; mean over the family's pilot markets)", fontsize=10.5, color=INK, x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0, 1, 0.96))
     fig.savefig(OUT / "fig_e2_cost_vs_twap.png", dpi=160)
     plt.close(fig)
 
-    # 3. headroom (always-TWAP regret) by strength, one line per market
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4.4), sharey=True)
+    # 3. headroom (always-TWAP regret) by strength, one line per market; rows: family detector, tight-timing detector
+    fig, axes = plt.subplots(2, 2, figsize=(10, 7.6), sharey=True)
     fam_color = {"agent-mix": "#2a78d6", "latent": "#eb6834"}
-    for ax, f in zip(axes, C.SIZES):
-        for m in P.MARKETS:
-            d = summ[(summ["market"] == m) & (summ["size_frac"] == f)].sort_values("arm")
-            ax.plot(range(len(d)), d["twap_regret_crossfit_bps"], color=fam_color[family(m)], linewidth=2, marker="o", markersize=5)
-            ax.text(len(d) - 1 + 0.08, d["twap_regret_crossfit_bps"].iloc[-1], m.replace(P.RX.PILOT_PREFIX, ""), fontsize=7.5, color=MUTED, va="center")
-        ax.set_xticks(range(len(P.STRENGTHS)))
-        ax.set_xticklabels(P.STRENGTHS)
-        ax.set_xlim(-0.2, len(P.STRENGTHS) - 0.45)
-        ax.axhline(0, color=MUTED, linewidth=0.8)
-        _style(ax, f"Order size {f:.0%} of volume", "predator strength", "always-TWAP regret, bps (cross-fitted)" if f == C.SIZES[0] else "")
+    for i, (arms, label) in enumerate([(P.STRENGTHS, "family detector"), (["off"] + P.TIGHT, "tight-timing detector (comparison)")]):
+        for ax, f in zip(axes[i], C.SIZES):
+            for m in P.MARKETS:
+                d = summ[(summ["market"] == m) & (summ["size_frac"] == f)].set_index("arm").loc[arms]
+                ax.plot(range(len(d)), d["twap_regret_crossfit_bps"], color=fam_color[family(m)], linewidth=2, marker="o", markersize=5)
+                ax.text(len(d) - 1 + 0.08, d["twap_regret_crossfit_bps"].iloc[-1], m.replace(P.RX.PILOT_PREFIX, ""), fontsize=7.5, color=MUTED, va="center")
+            ax.set_xticks(range(len(P.STRENGTHS)))
+            ax.set_xticklabels(P.STRENGTHS)
+            ax.set_xlim(-0.2, len(P.STRENGTHS) - 0.45)
+            ax.axhline(0, color=MUTED, linewidth=0.8)
+            _style(ax, f"{label}, order size {f:.0%}", "predator strength" if i == 1 else "", "always-TWAP regret, bps (cross-fitted)" if f == C.SIZES[0] else "")
     for fam, c in fam_color.items():
-        axes[0].plot([], [], color=c, linewidth=2, label=fam)
-    axes[0].legend(fontsize=8, frameon=False, loc="upper left")
+        axes[0, 0].plot([], [], color=c, linewidth=2, label=fam)
+    axes[0, 0].legend(fontsize=8, frameon=False, loc="upper left")
     fig.suptitle("E2. Headroom over always-TWAP by predator strength (one line per pilot market)", fontsize=10.5, color=INK, x=0.01, ha="left")
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
     fig.savefig(OUT / "fig_e2_headroom.png", dpi=160)
     plt.close(fig)
 
     # 4. E3 feature distributions (standardised within market by the predator-off samples)
     fig, axes = plt.subplots(2, 4, figsize=(12, 6), sharey=True)
     zz = z[~((z["arm"] == "off") & (z["tag"] == "A"))]
+    SHOW = P.STRENGTHS + ["strong_tight", P.LOOSE]
     for ax, f in zip(axes.ravel(), FEATURES):
-        data = [zz[zz["arm"] == a][f].dropna().clip(-6, 6).to_numpy() for a in P.ARMS]
+        data = [zz[zz["arm"] == a][f].dropna().clip(-6, 6).to_numpy() for a in SHOW]
         bp = ax.boxplot(data, widths=0.55, patch_artist=True, showfliers=True, medianprops={"color": "white", "linewidth": 1.4},
                         flierprops={"marker": ".", "markersize": 3, "markeredgecolor": MUTED}, whiskerprops={"color": MUTED}, capprops={"color": MUTED})
-        for patch, a in zip(bp["boxes"], P.ARMS):
+        for patch, a in zip(bp["boxes"], SHOW):
             patch.set_facecolor(ARM_COLOR[a])
             patch.set_edgecolor("white")
-        ax.set_xticks(range(1, len(P.ARMS) + 1))
-        ax.set_xticklabels(["off", "weak", "med.", "strong", "loose"], fontsize=7.5)
+        ax.set_xticks(range(1, len(SHOW) + 1))
+        ax.set_xticklabels(["off", "weak", "med.", "strong", "tight", "loose"], fontsize=7.5)
         ax.axhline(0, color=MUTED, linewidth=0.8)
         _style(ax, f)
         ax.grid(axis="x", visible=False)
     axes[0, 0].set_ylabel("value in s.d. of the predator-off samples", fontsize=8.5, color=MUTED)
     axes[1, 0].set_ylabel("value in s.d. of the predator-off samples", fontsize=8.5, color=MUTED)
     fig.suptitle("E3. Diagnostic features of passive three-hour samples, predator off and on (20 samples per market and arm, six markets pooled;\n"
-                 "\"loose\" is the strong predator with a loose detector, a negative control)", fontsize=10, color=INK, x=0.01, ha="left")
+                 "\"tight\" and \"loose\": the strong predator with the tight-timing detector and with a loose detector, the negative control)", fontsize=10, color=INK, x=0.01, ha="left")
     fig.tight_layout(rect=(0, 0, 1, 0.92))
     fig.savefig(OUT / "fig_e3_features.png", dpi=160)
     plt.close(fig)
