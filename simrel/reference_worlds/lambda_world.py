@@ -116,11 +116,12 @@ def make_world(family: str, values: dict, **kw):
     return lambda seed: latent.LatentLiquidity(latent.LatentParams(**values), seed)
 
 
-def pilot_draws(n_am: int = 12, n_latent: int = 4) -> dict:
-    """The fixed draw block: n_am agent-mix draws, then n_latent latent draws, from default_rng(PILOT_SEED).
+def pilot_draws(n_am: int = 12, n_latent: int = 4, n_extra: int = 0) -> dict:
+    """The draws of the pilot stream default_rng(PILOT_SEED), in order: a block of n_am agent-mix draws, n_latent
+    latent draws, then n_extra further agent-mix draws (the stream continued after the block, numbered on from n_am).
 
-    The pilot markets are the first six agent-mix and the first two latent draws that pass the viability rule
-    (simrel/experiments/lambda_pilot.py); names are assigned here to every draw, in draw order.
+    Names are assigned to every draw, in draw order. Which draws are pilot markets is decided by the selection rule of
+    simrel/reports/lambda_pilot_rule.md (simrel/experiments/lambda_pilot.py, lambda_pilot_calib.py).
     """
     rng = np.random.default_rng(PILOT_SEED)
     out = {}
@@ -128,6 +129,8 @@ def pilot_draws(n_am: int = 12, n_latent: int = 4) -> dict:
         out[f"{PILOT_PREFIX}a{k:02d}"] = ("am", sampled.draw(rng, sampled.AM_RANGES))
     for k in range(1, n_latent + 1):
         out[f"{PILOT_PREFIX}l{k:02d}"] = ("latent", latent.draw(rng))
+    for k in range(n_am + 1, n_am + n_extra + 1):
+        out[f"{PILOT_PREFIX}a{k:02d}"] = ("am", sampled.draw(rng, sampled.AM_RANGES))
     return out
 
 

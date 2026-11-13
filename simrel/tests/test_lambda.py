@@ -180,6 +180,9 @@ def test_pilot_draws_are_fixed_and_do_not_depend_on_the_block_used():
     assert a == b and len(a) == 16
     assert list(a)[0] == "XLP_pilot_a01" and all(k.startswith(LW.PILOT_PREFIX) for k in a)
     assert LW.PILOT_SEED == 20261130
+    c = LW.pilot_draws(n_extra=8)  # the stream continued after the block: the block itself is unchanged
+    assert list(c)[:16] == list(a) and all(c[k] == a[k] for k in a)
+    assert list(c)[16:] == [f"XLP_pilot_a{k}" for k in range(13, 21)] and all(c[k][0] == "am" for k in list(c)[16:])
 
 
 def test_match_fund_vol_on_a_known_function():
