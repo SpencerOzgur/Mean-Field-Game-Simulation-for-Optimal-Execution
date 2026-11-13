@@ -1,0 +1,317 @@
+{
+  "parameter_stream": "numpy default_rng(20261130); a block of 12 agent-mix draws (sampled.AM_RANGES), 4 latent draws (latent.RANGES), then further agent-mix draws (a13 onward, at most through a20)",
+  "note": "pilot stream, development only; never reuse",
+  "selection": "agent-mix: in draw order, the first six draws that pass the viability rule at lambda = 0 (40 twins) and are volatility-matched at every level (calib_final.csv); latent: the first two viable draws. See simrel/reports/lambda_pilot_rule.md",
+  "draw_block_viability": {
+    "XLP_pilot_a01": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 68040.0,
+      "spread_bps": 11.067964743454747,
+      "move_bps_abs": 45.278878023325824
+    },
+    "XLP_pilot_a02": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.025,
+      "viable": true,
+      "volume": 119240.0,
+      "spread_bps": 12.836851376428651,
+      "move_bps_abs": 61.98544503517621
+    },
+    "XLP_pilot_a03": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 46247.5,
+      "spread_bps": 10.531849588920538,
+      "move_bps_abs": 26.014201347182045
+    },
+    "XLP_pilot_a04": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 66552.5,
+      "spread_bps": 10.845298664384092,
+      "move_bps_abs": 58.76753891609235
+    },
+    "XLP_pilot_a05": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.025,
+      "viable": true,
+      "volume": 101135.0,
+      "spread_bps": 13.547615498096894,
+      "move_bps_abs": 77.80784368426983
+    },
+    "XLP_pilot_a06": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 56447.5,
+      "spread_bps": 10.57445641712873,
+      "move_bps_abs": 41.6593765167381
+    },
+    "XLP_pilot_a07": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.025,
+      "viable": true,
+      "volume": 76517.5,
+      "spread_bps": 11.666115659784408,
+      "move_bps_abs": 62.87805647342966
+    },
+    "XLP_pilot_a08": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.05,
+      "viable": true,
+      "volume": 124210.0,
+      "spread_bps": 13.770296332222546,
+      "move_bps_abs": 116.28542624510412
+    },
+    "XLP_pilot_a09": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 49185.0,
+      "spread_bps": 10.615902181775073,
+      "move_bps_abs": 31.762630747122795
+    },
+    "XLP_pilot_a10": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 49095.0,
+      "spread_bps": 10.68589254232292,
+      "move_bps_abs": 33.51306348093681
+    },
+    "XLP_pilot_a11": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 63180.0,
+      "spread_bps": 10.554526955962933,
+      "move_bps_abs": 27.51614249837769
+    },
+    "XLP_pilot_a12": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.025,
+      "viable": true,
+      "volume": 66997.5,
+      "spread_bps": 10.754765689157125,
+      "move_bps_abs": 42.701765265377375
+    },
+    "XLP_pilot_a13": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.075,
+      "viable": true,
+      "volume": 108792.5,
+      "spread_bps": NaN,
+      "move_bps_abs": NaN
+    },
+    "XLP_pilot_a14": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 51440.0,
+      "spread_bps": 10.290212289748478,
+      "move_bps_abs": 23.5269035829424
+    },
+    "XLP_pilot_a15": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 72957.5,
+      "spread_bps": 11.078559972732775,
+      "move_bps_abs": 41.38420593159284
+    },
+    "XLP_pilot_a16": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 78345.0,
+      "spread_bps": 11.805655950291918,
+      "move_bps_abs": 50.28238247342354
+    },
+    "XLP_pilot_a17": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 65802.5,
+      "spread_bps": 10.302654293893852,
+      "move_bps_abs": 23.011461865927593
+    },
+    "XLP_pilot_a18": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.05,
+      "viable": true,
+      "volume": 72980.0,
+      "spread_bps": 11.88636877171886,
+      "move_bps_abs": 71.99461319823533
+    },
+    "XLP_pilot_l01": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 30957.5,
+      "spread_bps": 10.748756674672613,
+      "move_bps_abs": 20.62981566040903
+    },
+    "XLP_pilot_l02": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 30602.5,
+      "spread_bps": 10.826878341792451,
+      "move_bps_abs": 61.78317260652095
+    },
+    "XLP_pilot_l03": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 25152.5,
+      "spread_bps": 10.063426817975504,
+      "move_bps_abs": 13.007799373945138
+    },
+    "XLP_pilot_l04": {
+      "n": 40,
+      "fail_share": 0.0,
+      "wild_share": 0.0,
+      "viable": true,
+      "volume": 29550.0,
+      "spread_bps": 10.092673248913757,
+      "move_bps_abs": 10.503770156792163
+    }
+  },
+  "markets": {
+    "XLP_pilot_a01": {
+      "family": "am",
+      "params": {
+        "fund": 0.1356060160100485,
+        "fund_power": 1.5228180693553606,
+        "trend": 0.047413215947257316,
+        "trend_boost": 2.024693143685009,
+        "regime_switch": 0.0021414376194356555,
+        "withdraw": 2.102320791979333,
+        "limit": 1.2791430047980097,
+        "fund_vol": 0.2114510865641931
+      }
+    },
+    "XLP_pilot_a04": {
+      "family": "am",
+      "params": {
+        "fund": 0.03639014869047259,
+        "fund_power": 1.3632151570996216,
+        "trend": 0.04027002414667609,
+        "trend_boost": 5.5701432871184,
+        "regime_switch": 0.003989028771072546,
+        "withdraw": 2.35520531802959,
+        "limit": 1.5751028586125,
+        "fund_vol": 0.25248967026882874
+      }
+    },
+    "XLP_pilot_a06": {
+      "family": "am",
+      "params": {
+        "fund": 0.054270093880876114,
+        "fund_power": 1.9458173013532893,
+        "trend": 0.028077003303140686,
+        "trend_boost": 4.356780567488475,
+        "regime_switch": 0.00443329779814177,
+        "withdraw": 1.6639318126546654,
+        "limit": 1.490607662858944,
+        "fund_vol": 0.19910290428455116
+      }
+    },
+    "XLP_pilot_a09": {
+      "family": "am",
+      "params": {
+        "fund": 0.033810683698291544,
+        "fund_power": 2.0712173829085705,
+        "trend": 0.02971785640561903,
+        "trend_boost": 5.252202352281466,
+        "regime_switch": 0.0014644541835248084,
+        "withdraw": 4.896594292347309,
+        "limit": 1.4414222239639949,
+        "fund_vol": 0.15785434608909504
+      }
+    },
+    "XLP_pilot_a11": {
+      "family": "am",
+      "params": {
+        "fund": 0.2527069723003931,
+        "fund_power": 1.8648180578824705,
+        "trend": 0.03602500693786216,
+        "trend_boost": 5.2655658523429105,
+        "regime_switch": 0.002621116252500897,
+        "withdraw": 1.7486246167689765,
+        "limit": 1.419142300015728,
+        "fund_vol": 0.12030543015583905
+      }
+    },
+    "XLP_pilot_a15": {
+      "family": "am",
+      "params": {
+        "fund": 0.0777989100186693,
+        "fund_power": 1.3627032980780218,
+        "trend": 0.03872953769436217,
+        "trend_boost": 6.866526383746188,
+        "regime_switch": 0.001970621369944219,
+        "withdraw": 1.426643918273155,
+        "limit": 1.3884201367087377,
+        "fund_vol": 0.19453011001112647
+      }
+    },
+    "XLP_pilot_l01": {
+      "family": "latent",
+      "params": {
+        "tau": 21.34083040736454,
+        "limit": 0.8007696385026283,
+        "market": 0.09407341837323628,
+        "run_alpha": 1.7540896274978635,
+        "level_p": 0.3775415990787764,
+        "fund_vol": 0.12501779971505775
+      }
+    },
+    "XLP_pilot_l02": {
+      "family": "latent",
+      "params": {
+        "tau": 350.1982863726117,
+        "limit": 2.26322792523668,
+        "market": 0.0930522508205492,
+        "run_alpha": 1.6436057384241567,
+        "level_p": 0.27320478513874263,
+        "fund_vol": 0.29441153436487877
+      }
+    }
+  },
+  "reference_volume": {
+    "XLP_pilot_a01": 68040.0,
+    "XLP_pilot_a04": 66552.5,
+    "XLP_pilot_a06": 56447.5,
+    "XLP_pilot_a09": 49185.0,
+    "XLP_pilot_a11": 63180.0,
+    "XLP_pilot_a15": 72957.5,
+    "XLP_pilot_l01": 30957.5,
+    "XLP_pilot_l02": 30602.5
+  }
+}

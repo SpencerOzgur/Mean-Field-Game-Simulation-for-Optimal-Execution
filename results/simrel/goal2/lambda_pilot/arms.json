@@ -1,0 +1,179 @@
+{
+  "levels_bp_per_1pct_volume": {
+    "dose": 0.25,
+    "band_low": 0.6,
+    "max_feasible": 1.0
+  },
+  "judged": [
+    "all_band_low",
+    "all_max_feasible"
+  ],
+  "unjudged": [
+    "all_dose",
+    "trader_band_low"
+  ],
+  "matching": {
+    "calibration_seeds": [
+      20000,
+      20191
+    ],
+    "tolerance": 0.02,
+    "check_seeds": [
+      40000,
+      40047
+    ],
+    "equivalence_bounds": [
+      0.8,
+      1.25
+    ],
+    "cap": "a20"
+  },
+  "agent_mix_draws_examined": 15,
+  "kept": [
+    "XLP_pilot_a01",
+    "XLP_pilot_a04",
+    "XLP_pilot_a06",
+    "XLP_pilot_a09",
+    "XLP_pilot_a11",
+    "XLP_pilot_a15"
+  ],
+  "acceptance_rate": 0.4,
+  "arms": {
+    "lam0": {
+      "XLP_pilot_a01": {},
+      "XLP_pilot_a04": {},
+      "XLP_pilot_a06": {},
+      "XLP_pilot_a09": {},
+      "XLP_pilot_a11": {},
+      "XLP_pilot_a15": {}
+    },
+    "all_dose": {
+      "XLP_pilot_a01": {
+        "lam_bp": 0.25,
+        "reference_volume": 68040.0,
+        "fund_vol": 0.19498590394021234
+      },
+      "XLP_pilot_a04": {
+        "lam_bp": 0.25,
+        "reference_volume": 66552.5,
+        "fund_vol": 0.22466571154213272
+      },
+      "XLP_pilot_a06": {
+        "lam_bp": 0.25,
+        "reference_volume": 56447.5,
+        "fund_vol": 0.1743781214108459
+      },
+      "XLP_pilot_a09": {
+        "lam_bp": 0.25,
+        "reference_volume": 49185.0,
+        "fund_vol": 0.14000982819516522
+      },
+      "XLP_pilot_a11": {
+        "lam_bp": 0.25,
+        "reference_volume": 63180.0,
+        "fund_vol": 0.10557277900133714
+      },
+      "XLP_pilot_a15": {
+        "lam_bp": 0.25,
+        "reference_volume": 72957.5,
+        "fund_vol": 0.17568346398225074
+      }
+    },
+    "all_band_low": {
+      "XLP_pilot_a01": {
+        "lam_bp": 0.6,
+        "reference_volume": 68040.0,
+        "fund_vol": 0.168627245531849
+      },
+      "XLP_pilot_a04": {
+        "lam_bp": 0.6,
+        "reference_volume": 66552.5,
+        "fund_vol": 0.18610704174293544
+      },
+      "XLP_pilot_a06": {
+        "lam_bp": 0.6,
+        "reference_volume": 56447.5,
+        "fund_vol": 0.1351976800825184
+      },
+      "XLP_pilot_a09": {
+        "lam_bp": 0.6,
+        "reference_volume": 49185.0,
+        "fund_vol": 0.11438999987594962
+      },
+      "XLP_pilot_a11": {
+        "lam_bp": 0.6,
+        "reference_volume": 63180.0,
+        "fund_vol": 0.07503785761586822
+      },
+      "XLP_pilot_a15": {
+        "lam_bp": 0.6,
+        "reference_volume": 72957.5,
+        "fund_vol": 0.1449956087977854
+      }
+    },
+    "all_max_feasible": {
+      "XLP_pilot_a01": {
+        "lam_bp": 1.0,
+        "reference_volume": 68040.0,
+        "fund_vol": 0.1364263573754599
+      },
+      "XLP_pilot_a04": {
+        "lam_bp": 1.0,
+        "reference_volume": 66552.5,
+        "fund_vol": 0.12925146056892367
+      },
+      "XLP_pilot_a06": {
+        "lam_bp": 1.0,
+        "reference_volume": 56447.5,
+        "fund_vol": 0.08021380271572962
+      },
+      "XLP_pilot_a09": {
+        "lam_bp": 1.0,
+        "reference_volume": 49185.0,
+        "fund_vol": 0.07980492784561942
+      },
+      "XLP_pilot_a11": {
+        "lam_bp": 1.0,
+        "reference_volume": 63180.0,
+        "fund_vol": 0.03527441900577654
+      },
+      "XLP_pilot_a15": {
+        "lam_bp": 1.0,
+        "reference_volume": 72957.5,
+        "fund_vol": 0.09602896820382238
+      }
+    },
+    "trader_band_low": {
+      "XLP_pilot_a01": {
+        "lam_bp": 0.6,
+        "reference_volume": 68040.0,
+        "mode": "trader"
+      },
+      "XLP_pilot_a04": {
+        "lam_bp": 0.6,
+        "reference_volume": 66552.5,
+        "mode": "trader"
+      },
+      "XLP_pilot_a06": {
+        "lam_bp": 0.6,
+        "reference_volume": 56447.5,
+        "mode": "trader"
+      },
+      "XLP_pilot_a09": {
+        "lam_bp": 0.6,
+        "reference_volume": 49185.0,
+        "mode": "trader"
+      },
+      "XLP_pilot_a11": {
+        "lam_bp": 0.6,
+        "reference_volume": 63180.0,
+        "mode": "trader"
+      },
+      "XLP_pilot_a15": {
+        "lam_bp": 0.6,
+        "reference_volume": 72957.5,
+        "mode": "trader"
+      }
+    }
+  }
+}
