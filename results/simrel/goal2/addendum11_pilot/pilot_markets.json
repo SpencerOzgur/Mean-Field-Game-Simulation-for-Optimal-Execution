@@ -1,0 +1,154 @@
+{
+  "parameter_stream": "numpy default_rng(20261120); agent-mix draws first (sampled.AM_RANGES), then latent (latent.RANGES)",
+  "note": "pilot stream, development only; never reuse for held-out markets",
+  "predator_stream": "default_rng([seed, 11, 0])",
+  "markets": {
+    "XRP_pilot_a01": {
+      "family": "am",
+      "params": {
+        "fund": 0.16374052719169419,
+        "fund_power": 1.3498352523107278,
+        "trend": 0.08903560700480999,
+        "trend_boost": 4.950470871383054,
+        "regime_switch": 0.0029664268058309825,
+        "withdraw": 1.9394776470960517,
+        "limit": 1.708956195525906,
+        "fund_vol": 0.15503942111124477
+      }
+    },
+    "XRP_pilot_a02": {
+      "family": "am",
+      "params": {
+        "fund": 0.03382647543514288,
+        "fund_power": 1.6564484233704473,
+        "trend": 0.03878215319203028,
+        "trend_boost": 4.036489998211437,
+        "regime_switch": 0.004042319122398092,
+        "withdraw": 1.4035854729163422,
+        "limit": 1.518155997942045,
+        "fund_vol": 0.12139794149746236
+      }
+    },
+    "XRP_pilot_a03": {
+      "family": "am",
+      "params": {
+        "fund": 0.22219849486551918,
+        "fund_power": 2.006546622644488,
+        "trend": 0.07047441984336165,
+        "trend_boost": 2.0266362812851333,
+        "regime_switch": 0.0036454009576190605,
+        "withdraw": 4.6411750539597625,
+        "limit": 1.4251725871088752,
+        "fund_vol": 0.2637983346472513
+      }
+    },
+    "XRP_pilot_l01": {
+      "family": "latent",
+      "params": {
+        "tau": 189.44184167988115,
+        "limit": 1.858473224344184,
+        "market": 0.1690194443715306,
+        "run_alpha": 2.2093377422192653,
+        "level_p": 0.3186227506783006,
+        "fund_vol": 0.24389663300396863
+      }
+    },
+    "XRP_pilot_l02": {
+      "family": "latent",
+      "params": {
+        "tau": 269.73518290140686,
+        "limit": 0.8825085287018344,
+        "market": 0.11269314992127678,
+        "run_alpha": 2.0644301564784415,
+        "level_p": 0.5927554647631856,
+        "fund_vol": 0.08305747597419352
+      }
+    },
+    "XRP_pilot_l03": {
+      "family": "latent",
+      "params": {
+        "tau": 38.0102635468831,
+        "limit": 1.207534351301238,
+        "market": 0.16654494148674825,
+        "run_alpha": 1.9062034537511292,
+        "level_p": 0.4521434236617552,
+        "fund_vol": 0.27168883290814605
+      }
+    }
+  },
+  "strengths": {
+    "off": {
+      "aggression": 0.0,
+      "inventory_cap_share_of_volume": 0.0
+    },
+    "weak": {
+      "aggression": 0.5,
+      "inventory_cap_share_of_volume": 0.01
+    },
+    "medium": {
+      "aggression": 1.0,
+      "inventory_cap_share_of_volume": 0.03
+    },
+    "strong": {
+      "aggression": 2.0,
+      "inventory_cap_share_of_volume": 0.08
+    }
+  },
+  "detector_defaults": {
+    "window_s": 240.0,
+    "min_matches": 8,
+    "gap_cv_tol": 0.03,
+    "size_cv_tol": 0.15,
+    "aggression": 0.0,
+    "lead_s": 2.0,
+    "max_hold_s": 900.0,
+    "unwind_halflife_s": 15.0,
+    "inventory_cap": 0,
+    "ts_noise_s": 0.2,
+    "patience": 1.5,
+    "unwind_step_s": 5.0,
+    "flatten_after_s": 45.0,
+    "min_period_s": 5.0
+  },
+  "detector_variants": {
+    "noisy": {},
+    "tight": {
+      "ts_noise_s": 0.0,
+      "gap_cv_tol": 0.0005,
+      "size_cv_tol": 0.5,
+      "min_matches": 5
+    },
+    "loose": {
+      "ts_noise_s": 0.0,
+      "gap_cv_tol": 0.01,
+      "size_cv_tol": 0.5,
+      "min_matches": 5
+    }
+  },
+  "seeds": {
+    "viability": [
+      2000,
+      2039
+    ],
+    "truth": [
+      0,
+      99
+    ],
+    "passive": [
+      1000,
+      1005
+    ],
+    "passive_extra": [
+      1100,
+      1139
+    ],
+    "e3_a": [
+      66000,
+      66019
+    ],
+    "e3_b": [
+      67000,
+      67019
+    ]
+  }
+}

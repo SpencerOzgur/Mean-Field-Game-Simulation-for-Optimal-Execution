@@ -1,0 +1,191 @@
+  [twins off] 50/240 jobs, 4s
+  [twins off] 100/240 jobs, 7s
+  [twins off] 150/240 jobs, 10s
+  [twins off] 200/240 jobs, 12s
+  [twins off] 240/240 jobs, 13s
+reference volume (strength off): {'XRP_pilot_a01': 88622, 'XRP_pilot_a02': 44108, 'XRP_pilot_a03': 108118, 'XRP_pilot_l01': 56738, 'XRP_pilot_l02': 37265, 'XRP_pilot_l03': 55778}
+  [twins on] 50/1680 jobs, 4s
+  [twins on] 100/1680 jobs, 8s
+  [twins on] 150/1680 jobs, 12s
+  [twins on] 200/1680 jobs, 15s
+  [twins on] 250/1680 jobs, 18s
+  [twins on] 300/1680 jobs, 22s
+  [twins on] 350/1680 jobs, 25s
+  [twins on] 400/1680 jobs, 28s
+  [twins on] 450/1680 jobs, 31s
+  [twins on] 500/1680 jobs, 34s
+  [twins on] 550/1680 jobs, 38s
+  [twins on] 600/1680 jobs, 41s
+  [twins on] 650/1680 jobs, 44s
+  [twins on] 700/1680 jobs, 47s
+  [twins on] 750/1680 jobs, 50s
+  [twins on] 800/1680 jobs, 53s
+  [twins on] 850/1680 jobs, 56s
+  [twins on] 900/1680 jobs, 58s
+  [twins on] 950/1680 jobs, 60s
+  [twins on] 1000/1680 jobs, 63s
+  [twins on] 1050/1680 jobs, 65s
+  [twins on] 1100/1680 jobs, 67s
+  [twins on] 1150/1680 jobs, 69s
+  [twins on] 1200/1680 jobs, 71s
+  [twins on] 1250/1680 jobs, 72s
+  [twins on] 1300/1680 jobs, 73s
+  [twins on] 1350/1680 jobs, 75s
+  [twins on] 1400/1680 jobs, 76s
+  [twins on] 1450/1680 jobs, 78s
+  [twins on] 1500/1680 jobs, 80s
+  [twins on] 1550/1680 jobs, 82s
+  [twins on] 1600/1680 jobs, 84s
+  [twins on] 1650/1680 jobs, 85s
+  [twins on] 1680/1680 jobs, 86s
+  [passive] 50/2208 jobs, 5s
+  [passive] 100/2208 jobs, 9s
+  [passive] 150/2208 jobs, 13s
+  [passive] 200/2208 jobs, 16s
+  [passive] 250/2208 jobs, 19s
+  [passive] 300/2208 jobs, 22s
+  [passive] 350/2208 jobs, 25s
+  [passive] 400/2208 jobs, 31s
+  [passive] 450/2208 jobs, 34s
+  [passive] 500/2208 jobs, 38s
+  [passive] 550/2208 jobs, 42s
+  [passive] 600/2208 jobs, 46s
+  [passive] 650/2208 jobs, 49s
+  [passive] 700/2208 jobs, 52s
+  [passive] 750/2208 jobs, 55s
+  [passive] 800/2208 jobs, 59s
+  [passive] 850/2208 jobs, 61s
+  [passive] 900/2208 jobs, 64s
+  [passive] 950/2208 jobs, 67s
+  [passive] 1000/2208 jobs, 71s
+  [passive] 1050/2208 jobs, 73s
+  [passive] 1100/2208 jobs, 76s
+  [passive] 1150/2208 jobs, 79s
+  [passive] 1200/2208 jobs, 81s
+  [passive] 1250/2208 jobs, 83s
+  [passive] 1300/2208 jobs, 85s
+  [passive] 1350/2208 jobs, 87s
+  [passive] 1400/2208 jobs, 89s
+  [passive] 1450/2208 jobs, 91s
+  [passive] 1500/2208 jobs, 92s
+  [passive] 1550/2208 jobs, 94s
+  [passive] 1600/2208 jobs, 95s
+  [passive] 1650/2208 jobs, 96s
+  [passive] 1700/2208 jobs, 97s
+  [passive] 1750/2208 jobs, 99s
+  [passive] 1800/2208 jobs, 100s
+  [passive] 1850/2208 jobs, 101s
+  [passive] 1900/2208 jobs, 103s
+  [passive] 1950/2208 jobs, 105s
+  [passive] 2000/2208 jobs, 106s
+  [passive] 2050/2208 jobs, 108s
+  [passive] 2100/2208 jobs, 109s
+  [passive] 2150/2208 jobs, 111s
+  [passive] 2200/2208 jobs, 112s
+  [passive] 2208/2208 jobs, 112s
+  [truth] 50/4200 jobs, 58s
+  [truth] 100/4200 jobs, 97s
+  [truth] 150/4200 jobs, 139s
+  [truth] 200/4200 jobs, 181s
+  [truth] 250/4200 jobs, 226s
+  [truth] 300/4200 jobs, 268s
+  [truth] 350/4200 jobs, 310s
+  [truth] 400/4200 jobs, 351s
+  [truth] 450/4200 jobs, 395s
+  [truth] 500/4200 jobs, 436s
+  [truth] 550/4200 jobs, 477s
+  [truth] 600/4200 jobs, 518s
+  [truth] 650/4200 jobs, 557s
+  [truth] 700/4200 jobs, 597s
+  [truth] 750/4200 jobs, 645s
+  [truth] 800/4200 jobs, 686s
+  [truth] 850/4200 jobs, 730s
+  [truth] 900/4200 jobs, 770s
+  [truth] 950/4200 jobs, 810s
+  [truth] 1000/4200 jobs, 851s
+  [truth] 1050/4200 jobs, 892s
+  [truth] 1100/4200 jobs, 934s
+  [truth] 1150/4200 jobs, 973s
+  [truth] 1200/4200 jobs, 1013s
+  [truth] 1250/4200 jobs, 1051s
+  [truth] 1300/4200 jobs, 1089s
+  [truth] 1350/4200 jobs, 1127s
+  [truth] 1400/4200 jobs, 1166s
+  [truth] 1450/4200 jobs, 1214s
+  [truth] 1500/4200 jobs, 1248s
+  [truth] 1550/4200 jobs, 1284s
+  [truth] 1600/4200 jobs, 1319s
+  [truth] 1650/4200 jobs, 1355s
+  [truth] 1700/4200 jobs, 1390s
+  [truth] 1750/4200 jobs, 1426s
+  [truth] 1800/4200 jobs, 1462s
+  [truth] 1850/4200 jobs, 1497s
+  [truth] 1900/4200 jobs, 1532s
+  [truth] 1950/4200 jobs, 1568s
+  [truth] 2000/4200 jobs, 1603s
+  [truth] 2050/4200 jobs, 1637s
+  [truth] 2100/4200 jobs, 1671s
+  [truth] 2150/4200 jobs, 1703s
+  [truth] 2200/4200 jobs, 1731s
+  [truth] 2250/4200 jobs, 1758s
+  [truth] 2300/4200 jobs, 1785s
+  [truth] 2350/4200 jobs, 1812s
+  [truth] 2400/4200 jobs, 1840s
+  [truth] 2450/4200 jobs, 1867s
+  [truth] 2500/4200 jobs, 1894s
+  [truth] 2550/4200 jobs, 1923s
+  [truth] 2600/4200 jobs, 1956s
+  [truth] 2650/4200 jobs, 1984s
+  [truth] 2700/4200 jobs, 2011s
+  [truth] 2750/4200 jobs, 2039s
+  [truth] 2800/4200 jobs, 2067s
+  [truth] 2850/4200 jobs, 2086s
+  [truth] 2900/4200 jobs, 2102s
+  [truth] 2950/4200 jobs, 2118s
+  [truth] 3000/4200 jobs, 2135s
+  [truth] 3050/4200 jobs, 2152s
+  [truth] 3100/4200 jobs, 2170s
+  [truth] 3150/4200 jobs, 2186s
+  [truth] 3200/4200 jobs, 2202s
+  [truth] 3250/4200 jobs, 2218s
+  [truth] 3300/4200 jobs, 2235s
+  [truth] 3350/4200 jobs, 2252s
+  [truth] 3400/4200 jobs, 2268s
+  [truth] 3450/4200 jobs, 2284s
+  [truth] 3500/4200 jobs, 2299s
+  [truth] 3550/4200 jobs, 2324s
+  [truth] 3600/4200 jobs, 2345s
+  [truth] 3650/4200 jobs, 2364s
+  [truth] 3700/4200 jobs, 2385s
+  [truth] 3750/4200 jobs, 2406s
+  [truth] 3800/4200 jobs, 2426s
+  [truth] 3850/4200 jobs, 2447s
+  [truth] 3900/4200 jobs, 2467s
+  [truth] 3950/4200 jobs, 2491s
+  [truth] 4000/4200 jobs, 2509s
+  [truth] 4050/4200 jobs, 2528s
+  [truth] 4100/4200 jobs, 2546s
+  [truth] 4150/4200 jobs, 2565s
+  [truth] 4200/4200 jobs, 2583s
+  [e3] 50/1080 jobs, 32s
+  [e3] 100/1080 jobs, 49s
+  [e3] 150/1080 jobs, 74s
+  [e3] 200/1080 jobs, 103s
+  [e3] 250/1080 jobs, 132s
+  [e3] 300/1080 jobs, 159s
+  [e3] 350/1080 jobs, 188s
+  [e3] 400/1080 jobs, 218s
+  [e3] 450/1080 jobs, 245s
+  [e3] 500/1080 jobs, 270s
+  [e3] 550/1080 jobs, 302s
+  [e3] 600/1080 jobs, 326s
+  [e3] 650/1080 jobs, 351s
+  [e3] 700/1080 jobs, 375s
+  [e3] 750/1080 jobs, 399s
+  [e3] 800/1080 jobs, 412s
+  [e3] 850/1080 jobs, 423s
+  [e3] 900/1080 jobs, 435s
+  [e3] 950/1080 jobs, 450s
+  [e3] 1000/1080 jobs, 466s
+  [e3] 1050/1080 jobs, 481s
+  [e3] 1080/1080 jobs, 489s
