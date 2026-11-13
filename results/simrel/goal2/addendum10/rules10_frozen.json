@@ -1,0 +1,60 @@
+{
+ "frozen_on": "13 November 2026, before Test A was read",
+ "selection": "lowest mean regret on the 16 core development markets among tier-1 rule settings departing from TWAP in at least 25% of market-size cells (ties: fewer parameters); addendum 10 section 4, amendment 1, notes 11-13",
+ "chosen_rule": "agreement",
+ "chosen_params": {
+  "q": 0.75,
+  "g": 2
+ },
+ "chosen_dev_regret": 2.7931,
+ "chosen_dev_departure": 0.25,
+ "always_twap_dev_regret": 2.7215,
+ "no_simulator": "strategy with the lowest mean regret over all 42 development markets, per order size",
+ "per_rule_best": {
+  "agreement": {
+   "params": {
+    "q": 0.75,
+    "g": 2
+   },
+   "dev_regret": 2.7931,
+   "dev_departure": 0.25,
+   "eligible": true
+  },
+  "diagnostic": {
+   "params": {
+    "level": 0.9,
+    "g": 0.5
+   },
+   "dev_regret": 2.2053,
+   "dev_departure": 0.0312,
+   "eligible": false
+  },
+  "gated": {
+   "params": {
+    "k": 0
+   },
+   "dev_regret": 3.1011,
+   "dev_departure": 0.6875,
+   "eligible": true
+  },
+  "sensitivity": {
+   "params": {
+    "g": 2
+   },
+   "dev_regret": 2.9121,
+   "dev_departure": 0.2812,
+   "eligible": true
+  }
+ },
+ "diagnostic_band_level": 0.9,
+ "positive_control_dev": {
+  "0.90": {
+   "own_samples_failing": 0.473,
+   "market_sample_fails": 0.571
+  },
+  "0.9875": {
+   "own_samples_failing": 0.201,
+   "market_sample_fails": 0.333
+  }
+ }
+}

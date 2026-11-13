@@ -187,8 +187,10 @@ def diag_pass(world: str, design: str, level: float) -> bool | None:
     m = G.load(mk)
     sam = [G.load(p) for p in sorted(OUT.glob(f"{world}_{design}_*.pkl"))]
     sam = [s for s in sam if "failed" not in s]
-    if len(sam) < N_SAMPLES or "failed" in m:
+    if "failed" in m:
         return None
+    if len(sam) < 45:  # note 13: failed samples are left out; too few usable samples count as not passing
+        return False
     lo, hi = (1 - level) / 2, (1 + level) / 2
     for f in FEATURES:
         v = np.array([s.get(f, np.nan) for s in sam], float)
@@ -269,5 +271,34 @@ def rules(args) -> None:
         print(s.round(3).to_string(index=False))
 
 
+def false_rejection(args) -> None:
+    """Positive control (amendment 1): how often the true generator fails its own diagnostic, on the development markets."""
+    rows = []
+    for w in dev_markets():
+        sam = [G.load(p) for p in sorted(OUT.glob(f"{w}_oracle_*.pkl"))]
+        sam = [s for s in sam if "failed" not in s]
+        if len(sam) < 45:
+            continue
+        for level in (0.90, 0.9875):
+            lo, hi = (1 - level) / 2, (1 + level) / 2
+            own = []
+            for i, x in enumerate(sam):  # each oracle sample against bands from the other oracle samples
+                ok = True
+                for f in FEATURES:
+                    v = np.array([s.get(f, np.nan) for j, s in enumerate(sam) if j != i], float)
+                    if not np.isfinite(x.get(f, np.nan)) or np.isfinite(v).mean() < 0.8:
+                        continue
+                    a, b = np.nanquantile(v, [lo, hi])
+                    ok &= bool(a <= x[f] <= b)
+                own.append(not ok)
+            rows.append({"world": w, "level": level, "own samples failing": float(np.mean(own)), "market sample fails": not diag_pass(w, "oracle", level)})
+    t = pd.DataFrame(rows)
+    out = G.BASE / "addendum10"
+    out.mkdir(parents=True, exist_ok=True)
+    t.to_csv(out / "dev_false_rejection.csv", index=False)
+    print("true generator's false-rejection rate on the development markets (positive control)")
+    print(t.groupby("level")[["own samples failing", "market sample fails"]].mean().round(3).to_string())
+
+
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection}[sys.argv[1]](sys.argv[2:])

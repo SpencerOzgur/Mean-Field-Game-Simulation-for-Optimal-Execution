@@ -62,3 +62,11 @@ Running log. Each entry is dated and written before the results it concerns exis
     Hawkes design's best strategy on seeds 0-49 is the same for caps 0.8, 0.9 and 0.95. Diagnostic bands: the empirical
     quantiles of the design's 50 samples at (1 - level) / 2 and (1 + level) / 2. The no-simulator rule is evaluated on
     the development markets leaving out the market being scored.
+
+## 13 November 2026, 10:06 EST, diagnostics complete (14,558 samples), before the diagnostic rule was evaluated
+
+13. Failed samples. One of 14,500 design samples failed (queue-reactive design in R3s06, sample 25: the simulated book
+    emptied, giving no events). Failed samples are left out; bands need at least 45 usable samples, otherwise the design
+    is treated as not passing.
+14. Test B viability: all 60 of the first 20 draws per family are viable, so B-U is TBq_d01-16, TBa_d01-16 and
+    TBl_d01-16 (only info.json was read).
