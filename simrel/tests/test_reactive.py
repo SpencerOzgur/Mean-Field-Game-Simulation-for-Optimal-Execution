@@ -270,3 +270,192 @@ def test_reactive_candidate_set_extends_the_candidate_set():
     base, ext = candidate_set(0.05), reactive_candidate_set(0.05, "w", 0)
     assert list(ext)[:-1] == list(base) and list(ext)[-1] == "P0r_twap_random" and len(ext) == 13
     assert all(ext[k] == base[k] for k in base) and "P0r_twap_random" not in candidate_set(0.05)
+
+
+# ---- round 2: the rational predator (passive exit, profit gate), attribution, Recorder guard, AUC check
+PASSIVE = replace(ON, exit="passive", gate_mult=0.0)  # passive exit, no gate
+RATIONAL = replace(ON, exit="passive", gate_mult=1.0)
+
+
+def run2(case, pp, seed=3, policies=None, world=None):
+    fam, vals = case
+    policies = policies if policies is not None else {k: v for k, v in reactive_candidate_set(0.1, "t", seed).items() if k in ("P0_twap", "P2_front_b2", "P1_immediate")}
+    rec, led = RX.Recorder(), RX.Recorder()
+    make = RX.make_reactive(fam, vals, pp, rec, led)
+    if world is not None:
+        inner = make
+        make = lambda s: world(inner(s))  # noqa: E731
+    return run_twin_set(make, "t", seed, TASK, policies), rec.by_run(policies), led.by_run(policies)
+
+
+@pytest.mark.parametrize("case", CASES)
+@pytest.mark.parametrize("pp", [PASSIVE, RATIONAL])
+def test_passive_exit_accounts_add_up(case, pp):
+    recs, preds, ledgers = run2(case, pp)
+    traded = 0
+    for name, pr in preds.items():
+        mark = float(recs[name].grid_mid[-1])
+        s = pr.summary(1200.0, mark)
+        assert pr.inv == sum(f[1] for f in pr.fills) == sum(x[1] for x in pr.legs)
+        assert pr.cash == pytest.approx(-sum(np.sign(f[1]) * f[2] for f in pr.fills))
+        assert s["pred_pnl_ticks"] == pytest.approx(pr.cash + pr.inv * mark)  # a residual is reported and marked at the final mid
+        assert s["pred_inv_end"] == pr.inv
+        parts = sum(s[f"pred_{k}_edge_ticks"] for k in ("entry", "unwind", "passive", "flatten")) + s["pred_hold_pnl_ticks"]
+        assert parts == pytest.approx(s["pred_pnl_ticks"])
+        assert s["pred_unwind_volume"] == 0  # the passive predator never uses the aggressive unwinding schedule
+        # every share bought back passively is attributed to exactly one counterparty
+        assert s["pred_passive_volume"] == ledgers[name]["trader"] + ledgers[name]["background"]
+        assert sum(o[2] for o in pr.orders.values()) <= abs(pr.inv)  # resting orders never exceed the position
+        if pr.mode == RX.IDLE:
+            assert pr.inv == 0 and not pr.orders
+        traded += s["pred_passive_volume"]
+    assert traded > 0 or pp.gate_mult > 0  # without the gate the exit path was exercised
+    assert ledgers["none"]["trader"] == 0  # no trader in the twin
+
+
+class FakeOps:
+    def __init__(self):
+        self.placed, self.sent = [], []
+
+    def quote(self):
+        return 999, 1001
+
+    def place(self, is_buy, price, qty):
+        self.placed.append((is_buy, price, qty))
+        return len(self.placed)
+
+    def cancel(self, oid):
+        pass
+
+    def send(self, is_buy, qty):
+        self.sent.append((is_buy, qty))
+        return qty, 999.0 * qty
+
+
+def scripted_predator(drop_per_child: float) -> tuple:
+    """Eight regular sells of 300 shares, 30 s apart, with the mid falling by drop_per_child ticks after each."""
+    pp = replace(RX.PredatorParams(), aggression=1.0, inventory_cap=1000, exit="passive", gate_mult=1.0, ts_noise_s=0.0)
+    pr = RX.Predator(pp, 0)
+    for k in range(8):
+        t = 100.0 + 30.0 * k
+        pr.observe_quote(t - 1.0, 999 - k * drop_per_child, 1001 - k * drop_per_child)
+        pr.observe(t, -1, 300)
+    assert pr.mode == RX.TRACK and pr.front_t is not None
+    return pr, FakeOps()
+
+
+def test_gate_blocks_entry_when_expected_gain_is_below_cost_and_allows_it_when_above():
+    pr, ops = scripted_predator(0.0)  # no price move per child: gain 0, cost one spread
+    gain, cost = pr.gate_estimate(pr.front_t)
+    assert gain == 0.0 and cost == pytest.approx(2.0)
+    pr.act(pr.front_t, ops.send, ops)
+    assert ops.sent == [] and ops.placed == [] and pr.inv == 0 and (pr.gate_checks, pr.gate_blocks) == (1, 1)
+
+    pr, ops = scripted_predator(0.5)  # half a tick per child, eight children assumed left: gain 4 ticks against cost 2
+    gain, cost = pr.gate_estimate(pr.front_t)
+    assert gain == pytest.approx(4.0) and cost == pytest.approx(2.0)
+    pr.act(pr.front_t, ops.send, ops)
+    assert ops.sent == [(False, 300)] and pr.inv == -300 and (pr.gate_checks, pr.gate_blocks) == (1, 0)
+    assert ops.placed == [(True, 999, 300)]  # the whole position rests at the best bid straight after entry
+
+
+class PoisonLedger(dict):
+    """Returns nonsense on every read. If any decision read the attribution, the market path would change."""
+
+    def __getitem__(self, key):
+        return 10 ** 9 + 7 * len(key)
+
+    def get(self, key, default=None):
+        return self[key]
+
+
+def poison(world):
+    world.ledger = PoisonLedger(world.ledger)
+    return world
+
+
+def test_attribution_never_reaches_the_predators_decisions():
+    # 1. the Predator has no name for it and holds no reference to the world or its ledger
+    src = inspect.getsource(RX.Predator)
+    assert "ledger" not in src and "trader" not in src and "ReactiveWorld" not in src
+    recs, preds, ledgers = run2(CASES[0], PASSIVE)
+    for pr in preds.values():
+        for v in vars(pr).values():
+            assert not isinstance(v, (RX.ReactiveWorld, dict)) or v is pr.orders
+            assert all(v is not led for led in ledgers.values())
+    assert sum(led["trader"] + led["background"] for led in ledgers.values()) > 0
+    # 2. scrambling the ledger changes nothing in the market or in the predator's account
+    recs2, preds2, _ = run2(CASES[0], PASSIVE, world=poison)
+    for name in recs:
+        assert same(recs[name], recs2[name])
+        assert preds[name].fills == preds2[name].fills and preds[name].triggers == preds2[name].triggers
+
+
+@pytest.mark.parametrize("case", CASES)
+def test_strength_zero_is_bit_identical_with_the_rational_settings(case):
+    fam, vals = case
+    pol = {k: v for k, v in reactive_candidate_set(0.1, "t", 3).items() if k in ("P0_twap", "P5_liquidity")}
+    base = run_twin_set(lambda s: RX.base_world(fam, vals, s), "t", 3, TASK, pol)
+    for pp in (replace(RX.PredatorParams(), exit="passive", gate_mult=1.0), replace(RATIONAL, aggression=0.0), replace(RATIONAL, inventory_cap=0)):
+        recs, preds, ledgers = run2(case, pp, policies=pol)
+        for name in base:
+            assert same(base[name], recs[name])
+            assert not preds[name].fills and not preds[name].orders and not any(ledgers[name].values())
+
+
+def test_aggressive_predator_is_unchanged_by_the_round_2_fields():
+    recs, _ = run(CASES[0], ON, policies={"P0_twap": candidate_set(0.1)["P0_twap"]})
+    recs2, _ = run(CASES[0], replace(ON, gate_mult=5.0, exit_offset_ticks=1, reprice_ticks=0, passive_exit_s=1.0), policies={"P0_twap": candidate_set(0.1)["P0_twap"]})
+    assert all(same(recs[k], recs2[k]) for k in recs)
+
+
+def test_recorder_matches_run_twin_sets_copies():
+    """Fails if run_twin_set stops making exactly one deep copy for the snapshot and one per run, in order."""
+    fam, vals = CASES[1]
+    full = reactive_candidate_set(0.1, "t", 3)
+    pol = {"P1_immediate": full["P1_immediate"], "P0_twap": full["P0_twap"]}
+    rec, led = RX.Recorder(), RX.Recorder()
+    inner = RX.make_reactive(fam, vals, replace(RX.PredatorParams(), ts_noise_s=0.0), rec, led)
+
+    def make(s):
+        m = inner(s)
+        m.pred.history = []
+        return m
+
+    recs = run_twin_set(make, "t", 3, TASK, pol)
+    assert len(rec.branches) == len(led.branches) == len(pol) + 2
+    assert len({id(b) for b in rec.branches}) == len(rec.branches)
+    by = rec.by_run(pol)
+    start = 1200.0
+    own = {name: [(t, z) for t, s, z in pr.history if s == -1 and abs((t - start) / 30.0 - round((t - start) / 30.0)) < 1e-9 and 0 <= t - start < 600] for name, pr in by.items()}
+    fills = {name: [(start + 30.0 * k, float(q)) for k, q in enumerate(recs[name].fill_qty) if q > 0] for name in pol}
+    for name in pol:  # each run's predator saw exactly that run's children
+        assert all(x in own[name] for x in fills[name]) and len(fills[name]) >= 1
+    assert (start, 6000.0) in own["P1_immediate"] and (start, 6000.0) not in own["P0_twap"] and (start, 6000.0) not in own["none"]
+    assert len(fills["P0_twap"]) == 20 and not all(x in own["none"] for x in fills["P0_twap"])
+    assert rec.branches[0].history is not by["none"].history  # the snapshot copy is not one of the runs
+
+
+def test_custom_auc_equals_mann_whitney_on_the_saved_e3_data():
+    import pandas as pd
+    from scipy.stats import mannwhitneyu
+
+    from simrel.experiments.reactive_pilot_report import FEATURES, _fit_logistic, auc
+
+    path = Path(__file__).resolve().parents[2] / "results" / "simrel" / "goal2" / "addendum11_pilot" / "e3_samples.csv"
+    d = pd.read_csv(path)
+    checked = 0
+    for arm in ("strong", "strong_loose"):
+        on = d[(d["arm"] == arm) & (d["tag"] == "A")]
+        off = d[(d["arm"] == "off") & (d["tag"] == "B")]
+        both = pd.concat([on, off])
+        y = np.r_[np.ones(len(on)), np.zeros(len(off))]
+        feats = [f for f in FEATURES if both[f].notna().all()]
+        X = both[feats].to_numpy()
+        X = (X - X.mean(0)) / X.std(0)
+        w = _fit_logistic(X, y)
+        for score in (w[0] + X @ w[1:], X[:, 0]):  # a classifier score and a single feature (with ties possible)
+            u = mannwhitneyu(score[y == 1], score[y == 0]).statistic
+            assert auc(score, y) == pytest.approx(u / (len(on) * len(off)), abs=1e-12)
+            checked += 1
+    assert checked == 4

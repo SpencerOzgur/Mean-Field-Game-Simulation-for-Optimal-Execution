@@ -22,6 +22,23 @@ With aggression 0 (or an inventory cap below one lot) the predator never trades 
 to the base world's advance(), so every run is bit-identical to the base world. The detector still runs "in shadow",
 which gives detection statistics without any market feedback.
 
+Round 2 (simrel/reports/addendum11_round2.md) adds a "rational" variant, switched on by exit="passive":
+
+    passive exit    the position is bought back with resting limit orders (owner tag PRED_TAG) at the best same-side
+                    quote, re-posted when the quote moves away, and only what is left at a hard deadline is taken with
+                    market orders. The orders rest from the moment of entry, so the trader's next child can fill them.
+    profit gate     an entry is sent only if (estimated remaining children) x (estimated mid move per child) is at
+                    least gate_mult x (half-spread + exit_allowance x spread). Both estimates use public data only:
+                    the trade rows above and the best quotes (Predator.observe_quote). See Predator._gate.
+    fills           passive fills are read from the book's own order-level record (Book.tape), which also tells a fill
+                    from a background cancellation of the predator's order (the base worlds cancel resting shares
+                    newest first, whoever posted them). The engine leaves that record off and never reads it; the
+                    wrapper switches it on for an active predator.
+    attribution     which passive fills were taken by the trader's own children is counted in ReactiveWorld.ledger for
+                    reporting. The Predator object holds no reference to it and no decision reads it.
+
+The aggressive predator (exit="aggressive", the pilot's) is unchanged, bit for bit.
+
 Nothing in simrel/eventsim.py or in the base worlds is changed. run_twin_set deep-copies the model and returns only
 episode records; a Recorder that survives deep copies collects the predator of every branch (see Recorder).
 """
@@ -38,12 +55,13 @@ from ..eventsim import GRID_DT, FlowModel
 from ..lob import Book
 from . import latent, sampled
 from .agent_mix import AgentMix
-from .base import MB, MS, book_state
+from .base import CB, CS, LB, LS, MB, MS, book_state
 
 IDLE, TRACK, UNWIND = 0, 1, 2
 PILOT_SEED = 20261120  # parameter stream of the pilot markets (XRP_pilot_*); used once, never reused
 PILOT_PREFIX = "XRP_pilot_"
 PREDATOR_STREAM = 11  # the predator's random stream is default_rng([seed, PREDATOR_STREAM, 0])
+PRED_TAG = "predator"  # owner tag of the predator's resting orders in the book
 
 
 @dataclass(frozen=True)
@@ -64,6 +82,13 @@ class PredatorParams:
     unwind_step_s: float = 5.0  # spacing of the buy-back orders
     flatten_after_s: float = 45.0  # whatever is left this long after unwinding began is bought back in one order
     min_period_s: float = 5.0  # shortest period the detector considers
+    # round 2: the rational variant
+    exit: str = "aggressive"  # "aggressive": buy back with market orders (pilot); "passive": with resting limit orders
+    gate_mult: float = 0.0  # entry only if estimated gain per share >= gate_mult x estimated cost per share; 0: no gate
+    exit_allowance: float = 0.5  # share of the spread added to the cost for having to exit with market orders
+    exit_offset_ticks: int = 0  # resting exit orders are posted this many ticks behind the best same-side quote
+    reprice_ticks: int = 1  # cancel and re-post when the target price is more than this many ticks from the order
+    passive_exit_s: float = 60.0  # what is left this long after the pattern stopped is taken with market orders
 
 
 @dataclass(frozen=True)
@@ -191,6 +216,14 @@ class Predator:
         self.unwind_start, self.unwind_next, self.unwind_last = 0.0, 0.0, 0.0
         self.held_out = False  # True after a maximum-holding-time exit: no new trigger until flat
         self.history: list | None = None  # set to [] to keep every observed row (time, side, size) for offline replays
+        # round 2
+        self.passive = bool(self.active and params.exit == "passive")
+        self.orders: dict = {}  # resting exit orders: order id -> [is_buy, price, shares left]
+        self.quotes: list = []  # public best quotes (time, bid, ask), newest last
+        self.legs: list = []  # (kind, signed shares, notional, mid when it traded); kinds: entry, unwind, passive, flatten
+        self.run_n, self.run_start = 0, 0.0  # trades seen in the tracked run, and when it began
+        self.gate_checks, self.gate_blocks = 0, 0
+        self.maint_next = float("inf")
 
     def __deepcopy__(self, memo):
         new = self.__class__.__new__(self.__class__)
@@ -215,6 +248,7 @@ class Predator:
                     and abs(size - self.tr_size) <= 2.0 * self.p.size_cv_tol * self.tr_size):
                 self.tr_last = t
                 self.tr_size += (size - self.tr_size) / self.p.min_matches
+                self.run_n += 1
                 self._schedule_front()
             return
         if self.mode == UNWIND and self.held_out:
@@ -227,6 +261,7 @@ class Predator:
         self.mode = TRACK
         self.tr_side, self.tr_period, self.tr_size, self.tr_last = hit.side, hit.period, hit.size, t
         self.triggers.append((t, hit.side, hit.period, hit.size))
+        self.run_n, self.run_start = hit.n, t - (hit.n - 1) * hit.period
         self._schedule_front()
 
     # ---- timers and orders
@@ -254,22 +289,29 @@ class Predator:
     def next_action_time(self) -> float:
         if not self.active:
             return float("inf")
+        if self.passive:
+            if self.mode == TRACK:
+                ta = min(self._deadline(), self.front_t) if self.front_t is not None else self._deadline()
+                return min(ta, self.maint_next) if (self.inv or self.orders) else ta
+            return self.maint_next if self.mode == UNWIND else float("inf")
         if self.mode == TRACK:
             return min(self._deadline(), self.front_t) if self.front_t is not None else self._deadline()
         if self.mode == UNWIND:
             return self.unwind_next
         return float("inf")
 
-    def act(self, now: float, send) -> None:
+    def act(self, now: float, send, ops=None) -> None:
         """Carry out whatever is due at `now`. send(is_buy, qty) -> (shares filled, notional)."""
         p = self.p
+        if self.passive:
+            return self._act_passive(now, send, ops)
         self._timers(now)
         if self.mode == TRACK and self.front_t is not None and now >= self.front_t:
             self.front_t = None
             room = p.inventory_cap - abs(self.inv)
             qty = min(max(int(round(p.aggression * self.tr_size / self.lot)), 1) * self.lot, room // self.lot * self.lot)
             if qty > 0:
-                self._trade(self.tr_side > 0, qty, now, send)
+                self._trade(self.tr_side > 0, qty, now, send, "entry")
         if self.mode == UNWIND and now >= self.unwind_next:
             left = abs(self.inv)
             if now >= self.unwind_start + p.flatten_after_s:
@@ -277,17 +319,138 @@ class Predator:
             else:
                 frac = 1.0 - 0.5 ** ((now - self.unwind_last) / p.unwind_halflife_s)
                 qty = min(max(int(round(left * frac / self.lot)), 1) * self.lot, left)
-            self._trade(self.inv < 0, qty, now, send)
+            self._trade(self.inv < 0, qty, now, send, "unwind")
             self.unwind_last, self.unwind_next = now, now + p.unwind_step_s
             if self.inv == 0:
                 self.mode, self.held_out = IDLE, False
 
-    def _trade(self, is_buy: bool, qty: int, now: float, send) -> None:
+    def _trade(self, is_buy: bool, qty: int, now: float, send, kind: str = "entry") -> None:
         got, notional = send(is_buy, qty)
         if got:
             self.inv += got if is_buy else -got
             self.cash += -notional if is_buy else notional
             self.fills.append((now, got if is_buy else -got, notional))
+            self.legs.append((kind, got if is_buy else -got, notional, self._mid()))
+
+    # ---- round 2: public quotes, the profit gate and the passive exit
+    def observe_quote(self, t: float, bid, ask) -> None:
+        """The public best quotes at time t (the second and last kind of market information the predator gets)."""
+        if bid is None or ask is None:
+            return
+        self.quotes.append((float(t), float(bid), float(ask)))
+        while self.quotes[0][0] < t - 2.0 * self.p.window_s:
+            self.quotes.pop(0)
+
+    def _mid(self, t: float | None = None) -> float:
+        """Mid of the newest quote (at or before t, if given); nan if no quote was seen."""
+        if not self.quotes:
+            return float("nan")
+        q = self.quotes[-1]
+        if t is not None:
+            for q in reversed(self.quotes):
+                if q[0] <= t:
+                    break
+        return 0.5 * (q[1] + q[2])
+
+    def gate_estimate(self, now: float) -> tuple[float, float]:
+        """(expected gain, cost) per share of one more entry, in ticks, from the trade rows and the quotes only.
+
+        gain   remaining children x mid move per child. Remaining children are not observable; the run is assumed to
+               last as long again as it has lasted (run_n more trades), but no longer than the maximum holding time
+               allows. The mid move per child is the move of the mid in the run's direction since the run began,
+               divided by the number of its trades after the first, and not below zero.
+        cost   half the spread paid on entry, plus exit_allowance x spread for the part of the exit that will have to
+               cross the spread.
+        """
+        if not self.quotes:
+            return 0.0, float("inf")
+        _, bid, ask = self.quotes[-1]
+        spread = ask - bid
+        left = max(min(float(self.run_n), (self.t_open + self.p.max_hold_s - now) / self.tr_period), 0.0)
+        move = self.tr_side * (0.5 * (bid + ask) - self._mid(self.run_start)) / max(self.run_n - 1, 1)
+        return left * max(move, 0.0), (0.5 + self.p.exit_allowance) * spread
+
+    def _gate(self, now: float) -> bool:
+        if self.p.gate_mult <= 0:
+            return True
+        self.gate_checks += 1
+        gain, cost = self.gate_estimate(now)
+        if gain >= self.p.gate_mult * cost:
+            return True
+        self.gate_blocks += 1
+        return False
+
+    def _act_passive(self, now: float, send, ops) -> None:
+        """ops: quote() -> (best bid, best ask); place(is_buy, price, qty) -> order id; cancel(order id)."""
+        p = self.p
+        self._timers(now)
+        if self.mode == UNWIND and self.inv == 0:
+            self.mode, self.held_out = IDLE, False
+        if self.mode == TRACK and self.front_t is not None and now >= self.front_t:
+            self.front_t = None
+            room = p.inventory_cap - abs(self.inv)
+            qty = min(max(int(round(p.aggression * self.tr_size / self.lot)), 1) * self.lot, room // self.lot * self.lot)
+            if qty > 0 and self._gate(now):
+                self._cancel_all(ops)  # so that its own market order cannot be filled by its own resting order
+                self._trade(self.tr_side > 0, qty, now, send, "entry")
+        if self.mode == UNWIND and now >= self.unwind_start + p.passive_exit_s:
+            self._cancel_all(ops)
+            self._trade(self.inv < 0, abs(self.inv), now, send, "flatten")
+            if self.inv == 0:
+                self.mode, self.held_out = IDLE, False
+        if self.inv != 0 and self.mode != IDLE and not (self.mode == UNWIND and now >= self.unwind_start + p.passive_exit_s):
+            self._quote_exit(ops)
+        elif self.orders:
+            self._cancel_all(ops)
+        self.maint_next = now + p.unwind_step_s
+        if self.mode == UNWIND and now < self.unwind_start + p.passive_exit_s:
+            self.maint_next = min(self.maint_next, self.unwind_start + p.passive_exit_s)
+
+    def _cancel_all(self, ops) -> None:
+        for oid in list(self.orders):
+            ops.cancel(oid)
+
+    def _quote_exit(self, ops) -> None:
+        """Keep resting orders for the whole position at the best same-side quote (less exit_offset_ticks)."""
+        is_buy = self.inv < 0
+        bid, ask = ops.quote()
+        same, opp = (bid, ask) if is_buy else (ask, bid)
+        step = -1 if is_buy else 1
+        if same is not None:
+            target = same + step * self.p.exit_offset_ticks
+        elif opp is not None:
+            target = opp + step
+        else:
+            return
+        if target <= 0:
+            return
+        for oid, (b, price, _) in list(self.orders.items()):
+            if b != is_buy or abs(price - target) > self.p.reprice_ticks:
+                ops.cancel(oid)
+        need = abs(self.inv) - sum(o[2] for o in self.orders.values())
+        if need > 0:
+            oid = ops.place(is_buy, int(target), int(need))
+            if oid is not None:
+                self.orders[oid] = [is_buy, int(target), int(need)]
+
+    def order_filled(self, t: float, oid: int, qty: int, price: int) -> None:
+        """A resting order was (partly) filled; reported by the book's order-level record."""
+        o = self.orders[oid]
+        o[2] -= qty
+        if o[2] <= 0:
+            del self.orders[oid]
+        signed = qty if o[0] else -qty
+        self.inv += signed
+        self.cash += -price * qty if o[0] else price * qty
+        self.fills.append((t, signed, float(price * qty)))
+        self.legs.append(("passive", signed, float(price * qty), self._mid()))
+
+    def order_reduced(self, oid: int, qty: int) -> None:
+        """Shares of a resting order were cancelled (by the predator itself or by the base world's cancellations)."""
+        o = self.orders[oid]
+        o[2] -= qty
+        if o[2] <= 0:
+            del self.orders[oid]
 
     # ---- reporting
     def summary(self, t0: float = 0.0, mark: float = float("nan")) -> dict:
@@ -298,7 +461,22 @@ class Predator:
                 "pred_period_s": self.triggers[0][2] if self.triggers else np.nan,
                 "pred_trigger_side": self.triggers[0][1] if self.triggers else 0,
                 "pred_volume": vol, "pred_orders": len(self.fills), "pred_inv_end": int(self.inv), "pred_pnl_ticks": float(pnl),
-                "pred_max_inv": float(max((abs(x) for x in np.cumsum([f[1] for f in self.fills])), default=0.0))}
+                "pred_max_inv": float(max((abs(x) for x in np.cumsum([f[1] for f in self.fills])), default=0.0)),
+                **self.components(pnl)}
+
+    def components(self, pnl: float) -> dict:
+        """P&L split by kind of order, each measured against the mid when it traded (ticks x shares); the rest is the
+        move of the mid while the position was held. Volumes by kind; gate counts."""
+        out = {"pred_gate_checks": self.gate_checks, "pred_gate_blocks": self.gate_blocks}
+        total = 0.0
+        for kind in ("entry", "unwind", "passive", "flatten"):
+            legs = [x for x in self.legs if x[0] == kind]
+            edge = float(sum((x[3] * x[1] - x[2]) if x[1] > 0 else (x[2] + x[3] * x[1]) for x in legs))
+            out[f"pred_{kind}_edge_ticks"] = edge
+            out[f"pred_{kind}_volume"] = float(sum(abs(x[1]) for x in legs))
+            total += edge
+        out["pred_hold_pnl_ticks"] = float(pnl - total)
+        return out
 
 
 class ReactiveWorld(FlowModel):
@@ -306,11 +484,25 @@ class ReactiveWorld(FlowModel):
 
     name = "reactive"
 
-    def __init__(self, base, predator: Predator) -> None:
+    def __init__(self, base, predator: Predator, ledgers: Recorder | None = None) -> None:
         self.base = base
         self.pred = predator
         self.lot = base.lot
         self.p0 = base.p0
+        # reporting only: who filled the predator's resting orders, and who cancelled them. Kept here, never on the
+        # Predator, which has no reference to this object.
+        self.ledger = {"trader": 0, "background": 0, "bg_cancel": 0, "own_cancel": 0}
+        self.ledgers = ledgers
+        self._own_tape, self._ti = False, 0
+
+    def __deepcopy__(self, memo):
+        new = self.__class__.__new__(self.__class__)
+        memo[id(self)] = new
+        for k, v in self.__dict__.items():
+            setattr(new, k, v if k == "ledgers" else copy.deepcopy(v, memo))
+        if self.ledgers is not None:
+            self.ledgers.branches.append(new.ledger)
+        return new
 
     @property
     def log(self):
@@ -344,6 +536,69 @@ class ReactiveWorld(FlowModel):
 
         return send
 
+    def _ops(self, book: Book, t: float):
+        """Limit-order actions of the passive predator, logged exactly as the base world logs its own."""
+        world, base, pred = self, self.base, self.pred
+
+        class Ops:
+            @staticmethod
+            def quote():
+                return book.best_bid(), book.best_ask()
+
+            @staticmethod
+            def place(is_buy: bool, price: int, qty: int):
+                same = book.best_bid() if is_buy else book.best_ask()
+                opp = book.best_ask() if is_buy else book.best_bid()
+                if opp is not None and ((is_buy and price >= opp) or (not is_buy and price <= opp)):
+                    return None  # never marketable
+                base.tick(book, t)
+                if base.log is not None:
+                    base._pre = book_state(book)
+                book.now = t
+                _, oid = book.limit(is_buy, price, qty, owner=PRED_TAG)
+                level = (same - price if is_buy else price - same) if same is not None else 0
+                base.record(t, LB if is_buy else LS, qty, int(level), price)
+                return oid
+
+            @staticmethod
+            def cancel(oid: int) -> None:
+                o = pred.orders.get(oid)
+                if o is None:
+                    return
+                side = "bid" if o[0] else "ask"
+                queue = (book.bids if o[0] else book.asks).get(o[1])
+                k = next((i for i, x in enumerate(queue) if x[0] == oid), None) if queue else None
+                if k is None:
+                    return
+                base.tick(book, t)
+                if base.log is not None:
+                    base._pre = book_state(book)
+                book.now = t
+                prices = book.prices(side, 10)
+                level = prices.index(o[1]) if o[1] in prices else len(prices)
+                n = book.cancel_order(side, o[1], (k + 0.5) / len(queue))
+                base.record(t, CB if o[0] else CS, n, level, o[1])
+                world._sync(book, "own_cancel")
+
+        return Ops
+
+    def _sync(self, book: Book, source: str) -> None:
+        """Read the book's order-level record since the last call: fills and cancellations of the predator's orders.
+        source: "trader" (called from on_external), "background" (after the base world ran) or "own_cancel"."""
+        tp, pred = book.tape, self.pred
+        for rec in tp[self._ti:]:
+            if rec[2] in pred.orders:
+                if rec[1] == "E":
+                    pred.order_filled(rec[0], rec[2], rec[5], rec[4])
+                    self.ledger[source if source != "own_cancel" else "background"] += rec[5]
+                elif rec[1] == "X":
+                    pred.order_reduced(rec[2], rec[5])
+                    self.ledger["own_cancel" if source == "own_cancel" else "bg_cancel"] += rec[5]
+        if self._own_tape:
+            del tp[:]
+        else:
+            self._ti = len(tp)
+
     def _ingest(self, tape: list, n0: int) -> None:
         for t, signed in tape[n0:]:
             self.pred.observe(t, 1 if signed > 0 else -1, abs(signed))
@@ -355,6 +610,8 @@ class ReactiveWorld(FlowModel):
             self.base.advance(book, t, t_until, tape)
             self._ingest(tape, n0)
             return
+        if pred.passive and book.tape is None:  # the engine leaves the order-level record off and never reads it
+            book.tape, self._own_tape = [], True
         cur = t
         while cur < t_until:
             # a long call is cut at the engine's 5 s grid so the predator sees trades as promptly as inside run_twin_set
@@ -365,13 +622,22 @@ class ReactiveWorld(FlowModel):
             if stop > cur:
                 n0 = len(tape)
                 self.base.advance(book, cur, stop, tape)
+                if pred.passive:
+                    self._sync(book, "background")
+                pred.observe_quote(stop, book.best_bid(), book.best_ask())
                 self._ingest(tape, n0)
                 cur = stop
             if cur < t_until and pred.next_action_time() <= cur:
-                pred.act(cur, self._send(book, tape, cur))
+                pred.act(cur, self._send(book, tape, cur), self._ops(book, cur) if pred.passive else None)
+                if pred.passive:
+                    self._sync(book, "background")
 
     def on_external(self, is_buy: bool, qty: int, t: float, book: Book) -> None:
         self.base.on_external(is_buy, qty, t, book)
+        if self.pred.passive:  # nothing else trades between the trader's fill and this call
+            self._sync(book, "trader")
+        if self.pred.active:
+            self.pred.observe_quote(t, book.best_bid(), book.best_ask())
         self.pred.observe(t, 1 if is_buy else -1, qty)
 
 
@@ -400,9 +666,21 @@ def base_world(family: str, values: dict, seed: int):
     return latent.LatentLiquidity(latent.LatentParams(**values), seed)
 
 
-def make_reactive(family: str, values: dict, pp: PredatorParams, recorder: Recorder | None = None):
-    """Factory for run_twin_set: seed -> ReactiveWorld."""
-    return lambda seed: ReactiveWorld(base_world(family, values, seed), Predator(pp, seed, recorder))
+def make_reactive(family: str, values: dict, pp: PredatorParams, recorder: Recorder | None = None, ledgers: Recorder | None = None):
+    """Factory for run_twin_set: seed -> ReactiveWorld. recorder collects the predators, ledgers the attribution ledgers."""
+    return lambda seed: ReactiveWorld(base_world(family, values, seed), Predator(pp, seed, recorder), ledgers)
+
+
+# round 2 arms -> (strength, parameter changes). The aggressive arms are the pilot's medium and strong.
+RATIONAL = {"exit": "passive", "gate_mult": 1.0}
+ROUND2_ARMS = {"off": ("off", {}), "aggressive_medium": ("medium", {}), "aggressive_strong": ("strong", {}),
+               "rational_medium": ("medium", RATIONAL), "rational_strong": ("strong", RATIONAL),
+               "passive_ungated_strong": ("strong", {"exit": "passive", "gate_mult": 0.0})}
+
+
+def round2_params(arm: str, reference_volume: float) -> PredatorParams:
+    strength, changes = ROUND2_ARMS[arm]
+    return predator_params(strength, reference_volume, **changes)
 
 
 def pilot_markets(n_am: int = 3, n_latent: int = 3) -> dict:
