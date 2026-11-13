@@ -48,3 +48,17 @@ Running log. Each entry is dated and written before the results it concerns exis
       market's sample fails against the true generator's bands) is measured on the development markets at both levels
       and reported with the frozen choice.
     - Nothing else changes; the original 90% rule remains in the comparison.
+
+## 12 November 2026, 23:11 EST, before any trust rule was evaluated
+
+11. Comparing rules. The sensitivity rule exists only on the 16 non-ablation development markets (note 5). The rule
+    carried to Test B is therefore chosen on those 16 markets, where every tier-1 rule can be computed; results on all
+    42 development markets are reported for the rules available there.
+12. Definitions used in the code (section 4 left them implicit). Recommendation: the strategy with the lowest mean
+    predicted cost over the designs used, on decision seeds 50-99 (ties to the first strategy by name). Ensemble gain
+    over TWAP and its standard error, on seeds 0-49: the mean over designs of each design's paired gain, with standard
+    error sqrt(between-design variance / n + mean squared seed standard error / n). Agreement: a design agrees if its
+    own best strategy on seeds 0-49 is not TWAP and its gain for the recommended strategy is positive. Sensitivity: each
+    Hawkes design's best strategy on seeds 0-49 is the same for caps 0.8, 0.9 and 0.95. Diagnostic bands: the empirical
+    quantiles of the design's 50 samples at (1 - level) / 2 and (1 + level) / 2. The no-simulator rule is evaluated on
+    the development markets leaving out the market being scored.

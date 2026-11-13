@@ -18,10 +18,12 @@ diag   per market: the market's own sample (seed SEED_MKT) and N_SAMPLES samples
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
@@ -133,5 +135,139 @@ def diag(args) -> None:
     G.R.pool_map(diag_job, jobs, procs, "diag")
 
 
+# ------------------------------------------------------------------ trust rules (section 4; definitions: notes 11-12)
+TWAP = "P0_twap"
+TRUST, REC = range(0, 50), range(50, 100)
+CAPS = {"h_k1": ["h_cap0.8", "h_k1", "h_cap0.95"], "h_c_f_m_k1": ["h_c_f_m_cap0.8", "h_c_f_m_k1", "h_c_f_m_cap0.95"]}
+GRID = {"gated": [{"k": k} for k in (0, 1, 2, 3)],
+        "agreement": [{"q": q, "g": g} for q in (0.5, 0.75, 1.0) for g in (0, 0.5, 1, 2)],
+        "sensitivity": [{"g": g} for g in (0, 0.5, 1, 2)],
+        "diagnostic": [{"level": lv, "g": g} for lv in (0.90, 0.9875) for g in (0, 0.5, 1, 2)]}
+DEV_CORE = ["R1a_qr_resilient", "R1b_qr_fragile", "R1c_qr_thin", "R1d_qr_momentum", "R1e_qr_deep", "R2a_am_anchored", "R2b_am_trending",
+            "R2c_am_anchor", "R2d_am_toxic", "R2e_am_calm"] + G.WELL_WORLDS
+
+
+def dev_markets() -> list:
+    from simrel.reference_worlds import ablation as AB
+
+    return DEV_CORE + list(AB.markets())
+
+
+def _matrix(w, name, size):
+    from simrel.experiments import goal2_budget as GB
+
+    return GB.matrix(w, name, size, 100)
+
+
+def _ens(mats: dict, designs: list):
+    """Recommendation (seeds 50-99), its ensemble gain over TWAP and standard error (seeds 0-49), per-design gains and bests."""
+    pols = mats[designs[0]][0]
+    rec = pd.concat([pd.Series(np.nanmean(mats[d][1][list(REC)], axis=0), index=mats[d][0]) for d in designs], axis=1).mean(axis=1)
+    a = rec.round(9).sort_index().idxmin()
+    gains, ses, bests = [], [], []
+    for d in designs:
+        p, c = mats[d]
+        t = c[list(TRUST)]
+        diff = t[:, p.index(TWAP)] - t[:, p.index(a)]
+        diff = diff[np.isfinite(diff)]
+        gains.append(float(diff.mean()) if len(diff) else np.nan)
+        ses.append(float(diff.std(ddof=1) / np.sqrt(len(diff))) if len(diff) > 1 else np.nan)
+        bests.append(pd.Series(np.nanmean(t, axis=0), index=p).round(9).sort_index().idxmin())
+    g = np.array(gains)
+    n = len(designs)
+    se = float(np.sqrt((np.nanvar(g, ddof=1) if n > 1 else 0.0) / n + np.nanmean(np.square(ses)) / n))
+    return a, float(np.nanmean(g)), se, g, bests
+
+
+def diag_pass(world: str, design: str, level: float) -> bool | None:
+    """Whether the market's sample lies in the design's bands for every usable feature (note 7); None without data."""
+    mk = OUT / f"{world}_market_0.pkl"
+    if not mk.exists():
+        return None
+    m = G.load(mk)
+    sam = [G.load(p) for p in sorted(OUT.glob(f"{world}_{design}_*.pkl"))]
+    sam = [s for s in sam if "failed" not in s]
+    if len(sam) < N_SAMPLES or "failed" in m:
+        return None
+    lo, hi = (1 - level) / 2, (1 + level) / 2
+    for f in FEATURES:
+        v = np.array([s.get(f, np.nan) for s in sam], float)
+        x = m.get(f, np.nan)
+        if not np.isfinite(x) or np.isfinite(v).mean() < 0.8:
+            continue
+        a, b = np.nanquantile(v, [lo, hi])
+        if not (a <= x <= b):
+            return False
+    return True
+
+
+def decide(rule: str, par: dict, w: str, mats: dict) -> tuple[str, bool]:
+    """(strategy, departed) for one market and size."""
+    D = [d for d in DESIGNS if mats.get(d) is not None]
+    if rule == "diagnostic":
+        D = [d for d in D if diag_pass(w, d, par["level"])]
+        if not D:
+            return TWAP, False
+    a, g, se, gains, bests = _ens(mats, D)
+    if a == TWAP:
+        return TWAP, False
+    if rule == "gated":
+        ok = g - par["k"] * se > 0
+    elif rule == "agreement":
+        ok = np.mean([(b != TWAP) and (x > 0) for b, x in zip(bests, gains)]) >= par["q"] and g > par["g"]
+    elif rule == "sensitivity":
+        stable = all(len({_ens({v: mats[v]}, [v])[4][0] for v in vs}) == 1 for vs in CAPS.values())
+        ok = stable and g > par["g"]
+    else:  # diagnostic
+        ok = g > par["g"]
+    return (a, True) if ok else (TWAP, False)
+
+
+def rules(args) -> None:
+    from simrel.experiments import goal2_addendum8 as A
+
+    worlds = dev_markets()
+    truth = A.truth_tables(worlds)
+    rows = []
+    for w in worlds:
+        for size in (0.05, 0.15):
+            key = (w, size)
+            if key not in truth:
+                continue
+            mats = {d: _matrix(w, d, size) for d in DESIGNS + [v for vs in CAPS.values() for v in vs] + ["oracle"]}
+            base = {"world": w, "size": size, "core": w in DEV_CORE}
+            rows.append(dict(base, rule="always TWAP", par="", regret=A.regret_of(truth, key, TWAP), departed=False))
+            if mats["oracle"] is not None:
+                rows.append(dict(base, rule="oracle", par="", regret=A.regret_of(truth, key, A.pick(*mats["oracle"], range(100))), departed=np.nan))
+            for rule, grid in GRID.items():
+                if rule == "sensitivity" and any(mats[v] is None for vs in CAPS.values() for v in vs):
+                    continue
+                if rule == "diagnostic" and any(diag_pass(w, d, 0.9) is None for d in DESIGNS):
+                    continue
+                for par in grid:
+                    s, dep = decide(rule, par, w, mats)
+                    rows.append(dict(base, rule=rule, par=json.dumps(par), regret=A.regret_of(truth, key, s), departed=dep, chosen=s))
+    t = pd.DataFrame(rows)
+    # no-simulator rule: the strategy with the lowest mean regret on the other development markets, by size
+    for (w, size), _ in t.groupby(["world", "size"]):
+        others = [k for k in truth if k[1] == size and k[0] != w]
+        pols = truth[others[0]][0]
+        best = min(pols, key=lambda p: (np.mean([A.regret_of(truth, k, p) for k in others]), p))
+        t = pd.concat([t, pd.DataFrame([{"world": w, "size": size, "core": w in DEV_CORE, "rule": "no-simulator", "par": "",
+                                         "regret": A.regret_of(truth, (w, size), best), "departed": best != TWAP, "chosen": best}])])
+    tw = t[t.rule == "always TWAP"].set_index(["world", "size"]).regret
+    t["harmful"] = [r > tw[(w, s)] + 1e-9 for w, s, r in zip(t.world, t["size"], t.regret)]
+    out = G.BASE / "addendum10"
+    out.mkdir(parents=True, exist_ok=True)
+    t.to_csv(out / "dev_rules.csv", index=False)
+    pd.set_option("display.width", 220)
+    for label, sub in (("16 core development markets (selection set)", t[t.core]), ("all development markets", t)):
+        per = sub.groupby(["rule", "par", "world"]).agg(regret=("regret", "mean"), departed=("departed", "mean"), harmful=("harmful", "mean")).reset_index()
+        s = per.groupby(["rule", "par"]).agg(markets=("world", "nunique"), regret=("regret", "mean"), departed=("departed", "mean"),
+                                             harmful=("harmful", "mean")).reset_index().sort_values("regret")
+        print(f"\n{label}: mean regret (bps), departure and harmful-decision rates")
+        print(s.round(3).to_string(index=False))
+
+
 if __name__ == "__main__":
-    {"diag": diag}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules}[sys.argv[1]](sys.argv[2:])
