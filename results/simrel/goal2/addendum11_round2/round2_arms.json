@@ -1,0 +1,189 @@
+{
+  "rule": "simrel/reports/addendum11_round2_rule.md",
+  "markets": [
+    "XRP_pilot_a01",
+    "XRP_pilot_a02",
+    "XRP_pilot_a03",
+    "XRP_pilot_l01",
+    "XRP_pilot_l02",
+    "XRP_pilot_l03"
+  ],
+  "reference_volume": {
+    "XRP_pilot_a01": 88622.5,
+    "XRP_pilot_a02": 44107.5,
+    "XRP_pilot_a03": 108117.5,
+    "XRP_pilot_l01": 56737.5,
+    "XRP_pilot_l02": 37265.0,
+    "XRP_pilot_l03": 55777.5
+  },
+  "arms": {
+    "off": {
+      "strength": "off",
+      "changes": {}
+    },
+    "aggressive_medium": {
+      "strength": "medium",
+      "changes": {}
+    },
+    "aggressive_strong": {
+      "strength": "strong",
+      "changes": {}
+    },
+    "rational_medium": {
+      "strength": "medium",
+      "changes": {
+        "exit": "passive",
+        "gate_mult": 1.0
+      }
+    },
+    "rational_strong": {
+      "strength": "strong",
+      "changes": {
+        "exit": "passive",
+        "gate_mult": 1.0
+      }
+    },
+    "passive_ungated_strong": {
+      "strength": "strong",
+      "changes": {
+        "exit": "passive",
+        "gate_mult": 0.0
+      }
+    }
+  },
+  "params": {
+    "off": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 0.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 0,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "aggressive",
+      "gate_mult": 0.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    },
+    "aggressive_medium": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 1.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 2600,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "aggressive",
+      "gate_mult": 0.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    },
+    "aggressive_strong": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 2.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 7000,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "aggressive",
+      "gate_mult": 0.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    },
+    "rational_medium": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 1.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 2600,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "passive",
+      "gate_mult": 1.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    },
+    "rational_strong": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 2.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 7000,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "passive",
+      "gate_mult": 1.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    },
+    "passive_ungated_strong": {
+      "window_s": 240.0,
+      "min_matches": 8,
+      "gap_cv_tol": 0.03,
+      "size_cv_tol": 0.15,
+      "aggression": 2.0,
+      "lead_s": 2.0,
+      "max_hold_s": 900.0,
+      "unwind_halflife_s": 15.0,
+      "inventory_cap": 7000,
+      "ts_noise_s": 0.2,
+      "patience": 1.5,
+      "unwind_step_s": 5.0,
+      "flatten_after_s": 45.0,
+      "min_period_s": 5.0,
+      "exit": "passive",
+      "gate_mult": 0.0,
+      "exit_allowance": 0.5,
+      "exit_offset_ticks": 0,
+      "reprice_ticks": 1,
+      "passive_exit_s": 60.0
+    }
+  },
+  "seeds": "as in reactive_pilot.py"
+}

@@ -1,0 +1,4 @@
+arm,pilot_arm,n,max_abs_cost_diff_bps,max_abs_pnl_diff_ticks
+off,off,15600,0.0,0.0
+aggressive_medium,medium,15600,0.0,0.0
+aggressive_strong,strong,15600,0.0,0.0

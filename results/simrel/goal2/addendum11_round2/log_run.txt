@@ -1,0 +1,147 @@
+  [twins off] 50/240 jobs, 5s
+  [twins off] 100/240 jobs, 8s
+  [twins off] 150/240 jobs, 10s
+  [twins off] 200/240 jobs, 11s
+  [twins off] 240/240 jobs, 13s
+  [twins on] 50/1200 jobs, 4s
+  [twins on] 100/1200 jobs, 8s
+  [twins on] 150/1200 jobs, 11s
+  [twins on] 200/1200 jobs, 15s
+  [twins on] 250/1200 jobs, 18s
+  [twins on] 300/1200 jobs, 21s
+  [twins on] 350/1200 jobs, 24s
+  [twins on] 400/1200 jobs, 27s
+  [twins on] 450/1200 jobs, 30s
+  [twins on] 500/1200 jobs, 33s
+  [twins on] 550/1200 jobs, 36s
+  [twins on] 600/1200 jobs, 39s
+  [twins on] 650/1200 jobs, 42s
+  [twins on] 700/1200 jobs, 44s
+  [twins on] 750/1200 jobs, 48s
+  [twins on] 800/1200 jobs, 51s
+  [twins on] 850/1200 jobs, 52s
+  [twins on] 900/1200 jobs, 54s
+  [twins on] 950/1200 jobs, 55s
+  [twins on] 1000/1200 jobs, 56s
+  [twins on] 1050/1200 jobs, 58s
+  [twins on] 1100/1200 jobs, 60s
+  [twins on] 1150/1200 jobs, 61s
+  [twins on] 1200/1200 jobs, 63s
+  [passive] 50/1656 jobs, 6s
+  [passive] 100/1656 jobs, 11s
+  [passive] 150/1656 jobs, 15s
+  [passive] 200/1656 jobs, 19s
+  [passive] 250/1656 jobs, 22s
+  [passive] 300/1656 jobs, 25s
+  [passive] 350/1656 jobs, 28s
+  [passive] 400/1656 jobs, 31s
+  [passive] 450/1656 jobs, 35s
+  [passive] 500/1656 jobs, 37s
+  [passive] 550/1656 jobs, 40s
+  [passive] 600/1656 jobs, 43s
+  [passive] 650/1656 jobs, 46s
+  [passive] 700/1656 jobs, 48s
+  [passive] 750/1656 jobs, 51s
+  [passive] 800/1656 jobs, 54s
+  [passive] 850/1656 jobs, 56s
+  [passive] 900/1656 jobs, 58s
+  [passive] 950/1656 jobs, 60s
+  [passive] 1000/1656 jobs, 62s
+  [passive] 1050/1656 jobs, 64s
+  [passive] 1100/1656 jobs, 66s
+  [passive] 1150/1656 jobs, 68s
+  [passive] 1200/1656 jobs, 69s
+  [passive] 1250/1656 jobs, 71s
+  [passive] 1300/1656 jobs, 72s
+  [passive] 1350/1656 jobs, 73s
+  [passive] 1400/1656 jobs, 74s
+  [passive] 1450/1656 jobs, 76s
+  [passive] 1500/1656 jobs, 77s
+  [passive] 1550/1656 jobs, 79s
+  [passive] 1600/1656 jobs, 80s
+  [passive] 1650/1656 jobs, 82s
+  [passive] 1656/1656 jobs, 82s
+  [truth] 50/3600 jobs, 44s
+  [truth] 100/3600 jobs, 83s
+  [truth] 150/3600 jobs, 121s
+  [truth] 200/3600 jobs, 161s
+  [truth] 250/3600 jobs, 204s
+  [truth] 300/3600 jobs, 246s
+  [truth] 350/3600 jobs, 289s
+  [truth] 400/3600 jobs, 330s
+  [truth] 450/3600 jobs, 370s
+  [truth] 500/3600 jobs, 412s
+  [truth] 550/3600 jobs, 454s
+  [truth] 600/3600 jobs, 495s
+  [truth] 650/3600 jobs, 533s
+  [truth] 700/3600 jobs, 571s
+  [truth] 750/3600 jobs, 610s
+  [truth] 800/3600 jobs, 648s
+  [truth] 850/3600 jobs, 686s
+  [truth] 900/3600 jobs, 727s
+  [truth] 950/3600 jobs, 765s
+  [truth] 1000/3600 jobs, 804s
+  [truth] 1050/3600 jobs, 845s
+  [truth] 1100/3600 jobs, 887s
+  [truth] 1150/3600 jobs, 926s
+  [truth] 1200/3600 jobs, 964s
+  [truth] 1250/3600 jobs, 1000s
+  [truth] 1300/3600 jobs, 1034s
+  [truth] 1350/3600 jobs, 1070s
+  [truth] 1400/3600 jobs, 1104s
+  [truth] 1450/3600 jobs, 1141s
+  [truth] 1500/3600 jobs, 1176s
+  [truth] 1550/3600 jobs, 1213s
+  [truth] 1600/3600 jobs, 1249s
+  [truth] 1650/3600 jobs, 1284s
+  [truth] 1700/3600 jobs, 1320s
+  [truth] 1750/3600 jobs, 1358s
+  [truth] 1800/3600 jobs, 1395s
+  [truth] 1850/3600 jobs, 1422s
+  [truth] 1900/3600 jobs, 1466s
+  [truth] 1950/3600 jobs, 1501s
+  [truth] 2000/3600 jobs, 1531s
+  [truth] 2050/3600 jobs, 1561s
+  [truth] 2100/3600 jobs, 1589s
+  [truth] 2150/3600 jobs, 1617s
+  [truth] 2200/3600 jobs, 1645s
+  [truth] 2250/3600 jobs, 1673s
+  [truth] 2300/3600 jobs, 1701s
+  [truth] 2350/3600 jobs, 1729s
+  [truth] 2400/3600 jobs, 1756s
+  [truth] 2450/3600 jobs, 1772s
+  [truth] 2500/3600 jobs, 1787s
+  [truth] 2550/3600 jobs, 1804s
+  [truth] 2600/3600 jobs, 1820s
+  [truth] 2650/3600 jobs, 1836s
+  [truth] 2700/3600 jobs, 1852s
+  [truth] 2750/3600 jobs, 1868s
+  [truth] 2800/3600 jobs, 1884s
+  [truth] 2850/3600 jobs, 1901s
+  [truth] 2900/3600 jobs, 1918s
+  [truth] 2950/3600 jobs, 1935s
+  [truth] 3000/3600 jobs, 1953s
+  [truth] 3050/3600 jobs, 1972s
+  [truth] 3100/3600 jobs, 1991s
+  [truth] 3150/3600 jobs, 2011s
+  [truth] 3200/3600 jobs, 2030s
+  [truth] 3250/3600 jobs, 2048s
+  [truth] 3300/3600 jobs, 2067s
+  [truth] 3350/3600 jobs, 2086s
+  [truth] 3400/3600 jobs, 2107s
+  [truth] 3450/3600 jobs, 2125s
+  [truth] 3500/3600 jobs, 2145s
+  [truth] 3550/3600 jobs, 2165s
+  [truth] 3600/3600 jobs, 2183s
+  [e3] 50/600 jobs, 36s
+  [e3] 100/600 jobs, 56s
+  [e3] 150/600 jobs, 83s
+  [e3] 200/600 jobs, 114s
+  [e3] 250/600 jobs, 142s
+  [e3] 300/600 jobs, 168s
+  [e3] 350/600 jobs, 193s
+  [e3] 400/600 jobs, 218s
+  [e3] 450/600 jobs, 241s
+  [e3] 500/600 jobs, 252s
+  [e3] 550/600 jobs, 266s
+  [e3] 600/600 jobs, 281s
