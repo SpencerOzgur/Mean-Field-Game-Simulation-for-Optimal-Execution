@@ -138,11 +138,12 @@ def truth(world: str) -> pd.DataFrame:
 def fit_job(args) -> str:
     from simrel.adapters import hawkes_fit
 
-    world, kind, cap = args
-    path = RAW / f"fit_{world}_{kind}_cap{cap:g}.pkl"
+    world, kind, cap = args[:3]
+    r24 = len(args) > 3 and args[3] == "r24"  # recalibrated arm of addendum 10: the same fit on 24 episodes
+    path = RAW / f"fit_{world}_{kind}_cap{cap:g}{'_r24' if r24 else ''}.pkl"
     if path.exists():
         return "cached"
-    obs = load(REF / f"ref_{world}" / "fit_data.pkl")
+    obs = load(REF / f"ref_{world}" / ("fit_data24.pkl" if r24 else "fit_data.pkl"))
     multi = MULTI_BETAS if kind == "multi" else None
     p, info = hawkes_fit.fit(obs, betas=BETAS, lot=100, empirical=True, max_branching=cap, multi_betas=multi, **WEIGHT)
     save(path, {"params": p, "info": info})
@@ -159,6 +160,34 @@ def fit_qr_job(world: str) -> str:
     p, info = qr_candidate.fit(obs, p0=int(round(ref_info(world)["mean_price_ticks"])))
     save(path, {"params": p, "info": info})
     return f"{world} qr: {info['states_visited']} states visited"
+
+
+def obs24_job(world: str) -> str:
+    """24 observable episodes for the recalibrated arm; the first six are the study's fitting episodes."""
+    from simrel.configs import reference as C
+    from simrel.reference_worlds.data import observe
+
+    path = REF / f"ref_{world}" / "fit_data24.pkl"
+    if path.exists():
+        return "cached"
+    six = load(REF / f"ref_{world}" / "fit_data.pkl")
+    save(path, six + [observe(world, C.SEED_FIT + s) for s in range(len(six), 24)])
+    return f"{world}: 24 episodes"
+
+
+def fit_anchor_job(world: str) -> str:
+    """Simulated-moments fit of the corrected model (addendum 10, section 6) to the market's six fitting episodes."""
+    from simrel.adapters import anchored_hawkes as AH
+    from simrel.configs import reference as C
+    from simrel.reference_worlds.data import make
+
+    path = RAW / f"fit_{world}_anchor.pkl"
+    if path.exists():
+        return "cached"
+    data = [AH.episode_window(make(world)(C.SEED_FIT + s)) for s in range(C.N_FIT_EPISODES)]  # the same six episodes, as LOBSTER
+    ap, info = AH.fit_smm(make_factory(world, "h_c_f_m_k1"), data)
+    save(path, {"params": ap, "info": info})
+    return f"{world} anchor: {ap}, objective {info['objective_start']:.1f} -> {info['objective']:.1f}"
 
 
 def fit_chawkes_job(world: str) -> str:
@@ -185,6 +214,12 @@ def make_factory(world: str, name: str):
         knob = name[len("oracle-no-"):]
         removed = dataclasses.replace(params, **{knob: 0.0})
         return lambda seed: cls(removed, seed)
+    if name == "h_anchor":  # mechanism-corrected Hawkes (addendum 10, section 6)
+        from simrel.adapters.anchored_hawkes import AnchoredHawkes
+
+        base = make_factory(world, "h_c_f_m_k1")
+        ap = load(RAW / f"fit_{world}_anchor.pkl")["params"]
+        return lambda seed: AnchoredHawkes(base(seed), ap, seed)
     if name == "chawkes":  # compound Hawkes baseline (addendum 10, section 6)
         from simrel.adapters.compound_hawkes import CompoundHawkesLOB
 
@@ -198,8 +233,9 @@ def make_factory(world: str, name: str):
     from simrel.adapters.hawkes import MB, MS
     from simrel.adapters.hawkes_fast import FastHawkesLOB
 
-    o = family()[name]
-    fit = load(RAW / f"fit_{world}_{'multi' if o['multi'] else 'single'}_cap{o['cap']:g}.pkl")
+    r24 = name.endswith("_r24")  # recalibrated arm (addendum 10, section 6): h_k1_r24, h_c_f_m_k1_r24
+    o = family()[name[:-4] if r24 else name]
+    fit = load(RAW / f"fit_{world}_{'multi' if o['multi'] else 'single'}_cap{o['cap']:g}{'_r24' if r24 else ''}.pkl")
     p = fit["params"]
     lam_max = np.array(p.lam_max, dtype=float)
     extra = {}
@@ -383,10 +419,15 @@ if __name__ == "__main__":
                 reference_windows(w)
                 print(f"  {w}: {len(reference_windows(w))} held-out windows, true costs for {len(truth(w))} (size, strategy) pairs", flush=True)
         elif st == "fit":
-            if [n for n in names if n not in ("qr", "chawkes")]:
+            if [n for n in names if n.endswith("_r24")]:
+                R.pool_map(obs24_job, worlds, procs, "24 episodes")
+                R.pool_map(fit_job, [(w, k, 0.9, "r24") for w in worlds for k in ("single", "multi")], procs, "fit r24")
+            if [n for n in names if n not in ("qr", "chawkes", "h_anchor") and not n.endswith("_r24")]:
                 R.pool_map(fit_job, [(w, k, c) for w in worlds for k in ("single", "multi") for c in (0.8, 0.9, 0.95)], procs, "fit")
             if "chawkes" in names:
                 R.pool_map(fit_chawkes_job, worlds, procs, "chawkes fit")
+            if "h_anchor" in names:
+                R.pool_map(fit_anchor_job, worlds, procs, "anchor fit")
             if "qr" in names:
                 for w in worlds:
                     print("  ", fit_qr_job(w), flush=True)

@@ -76,3 +76,18 @@ Running log. Each entry is dated and written before the results it concerns exis
 15. Gate 1 is not met. Frozen agreement rule minus always-TWAP +0.84 bp [-0.01, +2.27]; minus the no-simulator rule
     +1.86 bp [+0.46, +3.62] (market bootstrap, 16 markets). It departed from TWAP in 9% of cells (25% on development).
     As section 4 requires, the rule goes to Test B unchanged and no new rule is developed; stage 3 proceeds.
+
+## 13 November 2026, 12:33 EST, stage 3 development: the corrected model (before its development-market evaluation)
+
+16. Specification. AnchoredHawkes (simrel/adapters/anchored_hawkes.py) adds to h_c_f_m_k1 a latent random-walk
+    fundamental with market orders towards it (rate f |V - mid|^p) and withdrawal of resting orders on the side facing
+    recent one-sided flow (gain w; flow half-life fixed at 30 s). The simulated-moments fit uses the section 4 features
+    plus two level features, 5-second mid volatility and mean spread: with scale-free features only, the first fits
+    produced markets 3.5 times more volatile than the data (deviation, made during development on R2a only).
+17. Parameter recovery (R2a). Fitted to R2a's six episodes the model leaves a large feature misfit (objective 353 to
+    294). Refitted to six episodes simulated from that fit, it matches the features (0.49) with very different parameters
+    (fundamental volatility 0.20 to 0.03, withdrawal gain 4.4 to 18). The two parameter sets predict TWAP costs of 67 and
+    32 bp (5% size; R2a's true cost 7.2 bp), recommend different strategies at both sizes, and rank strategies with
+    correlation 0.65 and 0.78. The parameters are not identified from six episodes, and observationally close settings
+    imply different decisions. Compound Hawkes recovered its own parameters (event rates, baselines, sizes).
+    As section 6 requires, the corrected model is still evaluated on the development markets and carried to Test B.
