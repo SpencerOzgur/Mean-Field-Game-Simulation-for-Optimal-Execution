@@ -39,7 +39,7 @@ DESIGNS = ["h_k1", "h_c_f_m_k1", "abides", "qr"]
 OUT = G.RAW / "diag"
 
 
-def sample_window(world: str, name: str, seed: int):
+def sample_window(world: str, name: str, seed: int, length_s: float = SAMPLE_S):
     """The LOBSTER stream of one observation sample of the market (name "market"), a design, or the true generator."""
     from simrel.data import lobster as L
     from simrel.lob import Book
@@ -50,9 +50,9 @@ def sample_window(world: str, name: str, seed: int):
 
         spec = G.abides_spec(world)
         AW.WORLDS[spec.name] = spec
-        ep = AW.run_episode(spec.name, seed, AW.Task(side="sell", total_qty=0, horizon_s=SAMPLE_S, n_slices=1, post_s=0),
+        ep = AW.run_episode(spec.name, seed, AW.Task(side="sell", total_qty=0, horizon_s=length_s, n_slices=1, post_s=0),
                             lambda s: 0, "none", warmup_s=WARMUP_S, keep_history=True)
-        w = L.abides_to_lobster(ep.history, ep.start_ns, 0, SAMPLE_S)
+        w = L.abides_to_lobster(ep.history, ep.start_ns, 0, length_s)
     else:
         if name in ("market", "oracle"):
             from simrel.reference_worlds.data import make
@@ -63,8 +63,8 @@ def sample_window(world: str, name: str, seed: int):
         book = Book()
         book.tape = []
         model.init_book(book)
-        model.advance(book, 0.0, WARMUP_S + SAMPLE_S, [])
-        w = L.tape_to_lobster(book.tape, WARMUP_S, SAMPLE_S, price_unit=100)
+        model.advance(book, 0.0, WARMUP_S + length_s, [])
+        w = L.tape_to_lobster(book.tape, WARMUP_S, length_s, price_unit=100)
     return R.two_sided(R.S.visible_window(w))[0]
 
 
@@ -300,6 +300,37 @@ def false_rejection(args) -> None:
     print(t.groupby("level")[["own samples failing", "market sample fails"]].mean().round(3).to_string())
 
 
+# ------------------------------------------------------------------ identifiability grid (section 5)
+IDENT = G.RAW / "ident"
+SEED_ID6, SEED_ID24, N_ID = 66_000, 67_000, 20
+
+
+def ident_job(args) -> str:
+    world, hours, k = args
+    path = IDENT / f"{world}_{hours}h_{k}.pkl"
+    if path.exists():
+        return "cached"
+    seed = (SEED_ID6 if hours == 3 else SEED_ID24) + k
+    try:
+        rec = features(sample_window(world, "market", seed, hours * 3600.0))
+    except Exception as err:
+        rec = {"failed": repr(err)[:300]}
+    rec.update(world=world, hours=hours, k=k, seed=seed)
+    G.save(path, rec)
+    return f"{world} {hours}h {k}" + (" FAILED" if "failed" in rec else "")
+
+
+def ident_obs(args) -> None:
+    """Observation samples of every grid market: N_ID of 3 hours (six episodes) and N_ID of 12 hours (24 episodes)."""
+    from simrel.reference_worlds import identgrid
+
+    procs = int(args[args.index("--procs") + 1]) if "--procs" in args else 4
+    IDENT.mkdir(parents=True, exist_ok=True)
+    jobs = [(w, h, k) for w in identgrid.markets() for h in (12, 3) for k in range(N_ID)]
+    jobs = [j for j in jobs if not (IDENT / f"{j[0]}_{j[1]}h_{j[2]}.pkl").exists()]
+    G.R.pool_map(ident_job, jobs, procs, "ident")
+
+
 TEST_A = [f"R1s0{k}" for k in range(1, 6)] + [f"R2s0{k}" for k in range(1, 6)] + [f"R3s0{k}" for k in range(1, 7)]
 
 
@@ -359,4 +390,4 @@ def test_a(args) -> None:
 
 
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs}[sys.argv[1]](sys.argv[2:])

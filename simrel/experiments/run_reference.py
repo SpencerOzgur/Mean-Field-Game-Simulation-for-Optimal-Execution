@@ -180,6 +180,10 @@ if __name__ == "__main__":
 
         if W in ablation.markets():  # ablation markets keep the base market's order size in shares (addendum 6)
             ref_volume = ablation.BASE_VOLUME[ablation.markets()[W][0]]
+        from simrel.reference_worlds import identgrid
+
+        if W in identgrid.markets():  # the identifiability grid keeps the agent-mix base order size (addendum 10, section 5)
+            ref_volume = ablation.BASE_VOLUME["am"]
         mean_price = float(np.mean([0.5 * (o.bid + o.ask).mean() for o in fit_data]))
         info = {"reference_volume": ref_volume, "mean_price_ticks": mean_price}
         # viability rule (addendum 3): the stability gate applied to every simulator, applied to the market itself
