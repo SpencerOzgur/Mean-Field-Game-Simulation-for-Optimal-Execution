@@ -1,3 +1,5 @@
+STOPPED, 13 November 2026: the predatory family is stopped by the rule in simrel/reports/addendum11_round2_rule.md; no Test R is drawn. See simrel/reports/addendum11_round2.md.
+
 # Reactive markets: do the frozen rules survive a market that responds to the schedule (design addendum 11, DRAFT)
 
 DRAFT. Not frozen, not checksummed. Fields marked TBD are open and need a team decision. Nothing in this draft has
