@@ -300,5 +300,63 @@ def false_rejection(args) -> None:
     print(t.groupby("level")[["own samples failing", "market sample fails"]].mean().round(3).to_string())
 
 
+TEST_A = [f"R1s0{k}" for k in range(1, 6)] + [f"R2s0{k}" for k in range(1, 6)] + [f"R3s0{k}" for k in range(1, 7)]
+
+
+def test_a(args) -> None:
+    """Test A (secondary), read once with the frozen rules (results/simrel/goal2/addendum10/rules10_frozen.json); gate 1."""
+    from simrel.experiments import goal2_addendum8 as A
+
+    out = G.BASE / "addendum10"
+    fz = json.loads((out / "rules10_frozen.json").read_text())
+    dev = dev_markets()
+    dtruth = A.truth_tables(dev)
+    nosim = {}
+    for size in (0.05, 0.15):
+        ks = [k for k in dtruth if k[1] == size]
+        pols = dtruth[ks[0]][0]
+        nosim[size] = min(pols, key=lambda p: (np.mean([A.regret_of(dtruth, k, p) for k in ks]), p))
+    truth = A.truth_tables(TEST_A)
+    rows = []
+    for w in TEST_A:
+        for size in (0.05, 0.15):
+            key = (w, size)
+            mats = {d: _matrix(w, d, size) for d in DESIGNS + [v for vs in CAPS.values() for v in vs] + ["oracle"]}
+            base = {"world": w, "size": size, "family": A.group(w) if not w.startswith("R3") else "held-out latent"}
+            add = lambda rule, strat, dep: rows.append(dict(base, rule=rule, chosen=strat, departed=dep, regret=A.regret_of(truth, key, strat),
+                                                            regret_cf=A.regret_of(truth, key, strat, crossfit=True)))
+            add("always TWAP", TWAP, False)
+            add("no-simulator", nosim[size], nosim[size] != TWAP)
+            add("oracle", A.pick(*mats["oracle"], range(100)), np.nan)
+            for rule, b in fz["per_rule_best"].items():
+                if rule == "sensitivity" and any(mats[v] is None for vs in CAPS.values() for v in vs):
+                    continue
+                s_, dep = decide(rule, b["params"], w, mats)
+                add(rule + (" (frozen)" if rule == fz["chosen_rule"] else ""), s_, dep)
+    t = pd.DataFrame(rows)
+    tw = t[t.rule == "always TWAP"].set_index(["world", "size"]).regret
+    t["harmful"] = [r > tw[(w, s_)] + 1e-9 for w, s_, r in zip(t.world, t["size"], t.regret)]
+    t.to_csv(out / "test_a.csv", index=False)
+    pd.set_option("display.width", 200)
+    per = t.groupby(["rule", "world"]).agg(regret=("regret", "mean"), regret_cf=("regret_cf", "mean"), departed=("departed", "mean"),
+                                          harmful=("harmful", "mean")).reset_index()
+    print("Test A (16 markets: 10 drawn, 6 held-out), frozen rules: mean regret (bps; cross-fitted truth), departure, harmful")
+    print(per.groupby("rule")[["regret", "regret_cf", "departed", "harmful"]].mean().sort_values("regret").round(3).to_string())
+    m = per.pivot(index="world", columns="rule", values="regret")
+    tw_m, orc = m["always TWAP"], m["oracle"]
+    chosen = fz["chosen_rule"] + " (frozen)"
+    rng = np.random.default_rng(20261113)
+    idx = [rng.integers(0, len(m), len(m)) for _ in range(2000)]
+    print("\ngate 1 (95% market bootstrap, 2,000 resamples; negative = the rule has lower regret)")
+    for ref in ("always TWAP", "no-simulator"):
+        d = (m[chosen] - m[ref]).to_numpy()
+        bs = [d[i].mean() for i in idx]
+        print(f"  {chosen} minus {ref}: {d.mean():+.2f} [{np.percentile(bs, 2.5):+.2f}, {np.percentile(bs, 97.5):+.2f}]")
+    print(f"  share of the TWAP-to-oracle gap captured by the frozen rule: {(tw_m.mean() - m[chosen].mean()) / (tw_m.mean() - orc.mean()):.2f}")
+    print("\nby family, mean regret")
+    fam = t.groupby(["family", "rule", "world"]).regret.mean().groupby(["family", "rule"]).mean().unstack(0)
+    print(fam.round(2).to_string())
+
+
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules, "false_rejection": false_rejection}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a}[sys.argv[1]](sys.argv[2:])

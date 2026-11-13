@@ -1,0 +1,225 @@
+world,size,family,rule,chosen,departed,regret,regret_cf,harmful
+R1s01,0.05,queue-reactive,always TWAP,P0_twap,False,0.23445384566190075,0.15922802247372925,False
+R1s01,0.05,queue-reactive,no-simulator,P6_signal_reversal,True,0.21323356721598508,0.15497851183060085,False
+R1s01,0.05,queue-reactive,oracle,P2_front_b4,,0.22832057741331546,0.13778705797988167,False
+R1s01,0.05,queue-reactive,agreement (frozen),P0_twap,False,0.23445384566190075,0.15922802247372925,False
+R1s01,0.05,queue-reactive,diagnostic,P0_twap,False,0.23445384566190075,0.15922802247372925,False
+R1s01,0.05,queue-reactive,gated,P2_front_b2,True,0.12903546013185707,0.002201028436171981,False
+R1s01,0.05,queue-reactive,sensitivity,P0_twap,False,0.23445384566190075,0.15922802247372925,False
+R1s01,0.15,queue-reactive,always TWAP,P0_twap,False,0.25117207548674436,0.24769556121256553,False
+R1s01,0.15,queue-reactive,no-simulator,P6_signal_reversal,True,0.04523815440804224,0.0,False
+R1s01,0.15,queue-reactive,oracle,P5_liquidity,,0.0827423356302388,-0.004147511583766139,False
+R1s01,0.15,queue-reactive,agreement (frozen),P0_twap,False,0.25117207548674436,0.24769556121256553,False
+R1s01,0.15,queue-reactive,diagnostic,P0_twap,False,0.25117207548674436,0.24769556121256553,False
+R1s01,0.15,queue-reactive,gated,P0_twap,False,0.25117207548674436,0.24769556121256553,False
+R1s01,0.15,queue-reactive,sensitivity,P0_twap,False,0.25117207548674436,0.24769556121256553,False
+R1s02,0.05,queue-reactive,always TWAP,P0_twap,False,0.023338345824601703,-0.18001006497256178,False
+R1s02,0.05,queue-reactive,no-simulator,P6_signal_reversal,True,0.006684988357883448,-0.2133167799059965,False
+R1s02,0.05,queue-reactive,oracle,P0_twap,,0.023338345824601703,-0.18001006497256178,False
+R1s02,0.05,queue-reactive,agreement (frozen),P0_twap,False,0.023338345824601703,-0.18001006497256178,False
+R1s02,0.05,queue-reactive,diagnostic,P0_twap,False,0.023338345824601703,-0.18001006497256178,False
+R1s02,0.05,queue-reactive,gated,P5_liquidity,True,0.0,-0.1933367482842625,False
+R1s02,0.05,queue-reactive,sensitivity,P0_twap,False,0.023338345824601703,-0.18001006497256178,False
+R1s02,0.15,queue-reactive,always TWAP,P0_twap,False,0.0242035103374576,-0.1386844625991177,False
+R1s02,0.15,queue-reactive,no-simulator,P6_signal_reversal,True,0.016680921369699675,-0.15050329564202602,False
+R1s02,0.15,queue-reactive,oracle,P0_twap,,0.0242035103374576,-0.1386844625991177,False
+R1s02,0.15,queue-reactive,agreement (frozen),P0_twap,False,0.0242035103374576,-0.1386844625991177,False
+R1s02,0.15,queue-reactive,diagnostic,P0_twap,False,0.0242035103374576,-0.1386844625991177,False
+R1s02,0.15,queue-reactive,gated,P5_liquidity,True,0.028504046899684,-0.10859091098326612,True
+R1s02,0.15,queue-reactive,sensitivity,P0_twap,False,0.0242035103374576,-0.1386844625991177,False
+R1s03,0.05,queue-reactive,always TWAP,P0_twap,False,0.7306497506520806,1.1215724845176993,False
+R1s03,0.05,queue-reactive,no-simulator,P6_signal_reversal,True,1.4258103541408396,1.5330699555575453,True
+R1s03,0.05,queue-reactive,oracle,P6_signal_momentum,,0.18821430206787682,0.15903276930240295,False
+R1s03,0.05,queue-reactive,agreement (frozen),P5_liquidity,True,0.5326141085700193,0.5873594189791156,False
+R1s03,0.05,queue-reactive,diagnostic,P0_twap,False,0.7306497506520806,1.1215724845176993,False
+R1s03,0.05,queue-reactive,gated,P5_liquidity,True,0.5326141085700193,0.5873594189791156,False
+R1s03,0.05,queue-reactive,sensitivity,P5_liquidity,True,0.5326141085700193,0.5873594189791156,False
+R1s03,0.15,queue-reactive,always TWAP,P0_twap,False,0.9341536574467568,1.0880123781819506,False
+R1s03,0.15,queue-reactive,no-simulator,P6_signal_reversal,True,2.4107181274022302,2.3456870022021867,True
+R1s03,0.15,queue-reactive,oracle,P6_signal_momentum,,1.109648083650658,1.7814445539098855,True
+R1s03,0.15,queue-reactive,agreement (frozen),P0_twap,False,0.9341536574467568,1.0880123781819506,False
+R1s03,0.15,queue-reactive,diagnostic,P0_twap,False,0.9341536574467568,1.0880123781819506,False
+R1s03,0.15,queue-reactive,gated,P5_liquidity,True,0.0,0.0,False
+R1s03,0.15,queue-reactive,sensitivity,P0_twap,False,0.9341536574467568,1.0880123781819506,False
+R1s04,0.05,queue-reactive,always TWAP,P0_twap,False,0.2794529052204,0.3588978737833255,False
+R1s04,0.05,queue-reactive,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R1s04,0.05,queue-reactive,oracle,P4_pov_2x,,0.7833153007031592,0.7586718805676433,True
+R1s04,0.05,queue-reactive,agreement (frozen),P0_twap,False,0.2794529052204,0.3588978737833255,False
+R1s04,0.05,queue-reactive,diagnostic,P0_twap,False,0.2794529052204,0.3588978737833255,False
+R1s04,0.05,queue-reactive,gated,P6_signal_momentum,True,0.48968536578170685,0.571486470239206,True
+R1s04,0.05,queue-reactive,sensitivity,P0_twap,False,0.2794529052204,0.3588978737833255,False
+R1s04,0.15,queue-reactive,always TWAP,P0_twap,False,0.2388960881923854,0.051411824488584834,False
+R1s04,0.15,queue-reactive,no-simulator,P6_signal_reversal,True,0.15930192196537707,-0.0838716322045574,False
+R1s04,0.15,queue-reactive,oracle,P0_twap,,0.2388960881923854,0.051411824488584834,False
+R1s04,0.15,queue-reactive,agreement (frozen),P0_twap,False,0.2388960881923854,0.051411824488584834,False
+R1s04,0.15,queue-reactive,diagnostic,P0_twap,False,0.2388960881923854,0.051411824488584834,False
+R1s04,0.15,queue-reactive,gated,P0_twap,False,0.2388960881923854,0.051411824488584834,False
+R1s04,0.15,queue-reactive,sensitivity,P0_twap,False,0.2388960881923854,0.051411824488584834,False
+R1s05,0.05,queue-reactive,always TWAP,P0_twap,False,0.6727601708162698,0.6134121061971767,False
+R1s05,0.05,queue-reactive,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R1s05,0.05,queue-reactive,oracle,P1_immediate,,1.355846255462751,1.4845790440640805,True
+R1s05,0.05,queue-reactive,agreement (frozen),P0_twap,False,0.6727601708162698,0.6134121061971767,False
+R1s05,0.05,queue-reactive,diagnostic,P0_twap,False,0.6727601708162698,0.6134121061971767,False
+R1s05,0.05,queue-reactive,gated,P0_twap,False,0.6727601708162698,0.6134121061971767,False
+R1s05,0.05,queue-reactive,sensitivity,P0_twap,False,0.6727601708162698,0.6134121061971767,False
+R1s05,0.15,queue-reactive,always TWAP,P0_twap,False,0.7292831945338811,1.2471389568385174,False
+R1s05,0.15,queue-reactive,no-simulator,P6_signal_reversal,True,0.7455713072644645,1.0979538417252659,True
+R1s05,0.15,queue-reactive,oracle,P2_front_b4,,1.535733173616734,1.3817090728216375,True
+R1s05,0.15,queue-reactive,agreement (frozen),P0_twap,False,0.7292831945338811,1.2471389568385174,False
+R1s05,0.15,queue-reactive,diagnostic,P0_twap,False,0.7292831945338811,1.2471389568385174,False
+R1s05,0.15,queue-reactive,gated,P5_liquidity,True,0.04044741135944463,0.0,False
+R1s05,0.15,queue-reactive,sensitivity,P0_twap,False,0.7292831945338811,1.2471389568385174,False
+R2s01,0.05,agent-mix,always TWAP,P0_twap,False,4.031138130711841,4.6590136535250135,False
+R2s01,0.05,agent-mix,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R2s01,0.05,agent-mix,oracle,P6_signal_reversal,,0.0,0.0,False
+R2s01,0.05,agent-mix,agreement (frozen),P0_twap,False,4.031138130711841,4.6590136535250135,False
+R2s01,0.05,agent-mix,diagnostic,P0_twap,False,4.031138130711841,4.6590136535250135,False
+R2s01,0.05,agent-mix,gated,P0_twap,False,4.031138130711841,4.6590136535250135,False
+R2s01,0.05,agent-mix,sensitivity,P0_twap,False,4.031138130711841,4.6590136535250135,False
+R2s01,0.15,agent-mix,always TWAP,P0_twap,False,3.483301721757604,3.238471382212257,False
+R2s01,0.15,agent-mix,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R2s01,0.15,agent-mix,oracle,P6_signal_reversal,,0.0,0.0,False
+R2s01,0.15,agent-mix,agreement (frozen),P0_twap,False,3.483301721757604,3.238471382212257,False
+R2s01,0.15,agent-mix,diagnostic,P0_twap,False,3.483301721757604,3.238471382212257,False
+R2s01,0.15,agent-mix,gated,P1_immediate,True,14.720303112934898,19.813988613369702,True
+R2s01,0.15,agent-mix,sensitivity,P0_twap,False,3.483301721757604,3.238471382212257,False
+R2s02,0.05,agent-mix,always TWAP,P0_twap,False,3.8919786609314393,-3.580679669110749,False
+R2s02,0.05,agent-mix,no-simulator,P6_signal_reversal,True,4.133240752894952,1.1940817818713514,True
+R2s02,0.05,agent-mix,oracle,P2_front_b4,,0.48555779805953136,0.6605326639632301,False
+R2s02,0.05,agent-mix,agreement (frozen),P0_twap,False,3.8919786609314393,-3.580679669110749,False
+R2s02,0.05,agent-mix,diagnostic,P0_twap,False,3.8919786609314393,-3.580679669110749,False
+R2s02,0.05,agent-mix,gated,P5_liquidity,True,11.531843195373797,5.738162461727128,True
+R2s02,0.05,agent-mix,sensitivity,P0_twap,False,3.8919786609314393,-3.580679669110749,False
+R2s02,0.15,agent-mix,always TWAP,P0_twap,False,10.68806323350789,2.058067143037068,False
+R2s02,0.15,agent-mix,no-simulator,P6_signal_reversal,True,0.0,-6.754569296081906,False
+R2s02,0.15,agent-mix,oracle,P0_twap,,10.68806323350789,2.058067143037068,False
+R2s02,0.15,agent-mix,agreement (frozen),P0_twap,False,10.68806323350789,2.058067143037068,False
+R2s02,0.15,agent-mix,diagnostic,P0_twap,False,10.68806323350789,2.058067143037068,False
+R2s02,0.15,agent-mix,gated,P5_liquidity,True,8.956079369300038,4.2495785988768695,False
+R2s02,0.15,agent-mix,sensitivity,P0_twap,False,10.68806323350789,2.058067143037068,False
+R2s03,0.05,agent-mix,always TWAP,P0_twap,False,2.6682774105693605,-4.049432362724682,False
+R2s03,0.05,agent-mix,no-simulator,P6_signal_reversal,True,0.0,-6.558065755266967,False
+R2s03,0.05,agent-mix,oracle,P6_signal_reversal,,0.0,-6.558065755266967,False
+R2s03,0.05,agent-mix,agreement (frozen),P0_twap,False,2.6682774105693605,-4.049432362724682,False
+R2s03,0.05,agent-mix,diagnostic,P0_twap,False,2.6682774105693605,-4.049432362724682,False
+R2s03,0.05,agent-mix,gated,P0_twap,False,2.6682774105693605,-4.049432362724682,False
+R2s03,0.05,agent-mix,sensitivity,P0_twap,False,2.6682774105693605,-4.049432362724682,False
+R2s03,0.15,agent-mix,always TWAP,P0_twap,False,1.687671313700962,-2.442499505284636,False
+R2s03,0.15,agent-mix,no-simulator,P6_signal_reversal,True,0.0,-4.3568393946930595,False
+R2s03,0.15,agent-mix,oracle,P0_twap,,1.687671313700962,-2.442499505284636,False
+R2s03,0.15,agent-mix,agreement (frozen),P1_immediate,True,20.509522654667308,23.87782837587943,True
+R2s03,0.15,agent-mix,diagnostic,P0_twap,False,1.687671313700962,-2.442499505284636,False
+R2s03,0.15,agent-mix,gated,P1_immediate,True,20.509522654667308,23.87782837587943,True
+R2s03,0.15,agent-mix,sensitivity,P1_immediate,True,20.509522654667308,23.87782837587943,True
+R2s04,0.05,agent-mix,always TWAP,P0_twap,False,0.9296417155733909,-1.575920422119574,False
+R2s04,0.05,agent-mix,no-simulator,P6_signal_reversal,True,0.0,-2.9003748535134513,False
+R2s04,0.05,agent-mix,oracle,P6_signal_reversal,,0.0,-2.9003748535134513,False
+R2s04,0.05,agent-mix,agreement (frozen),P0_twap,False,0.9296417155733909,-1.575920422119574,False
+R2s04,0.05,agent-mix,diagnostic,P0_twap,False,0.9296417155733909,-1.575920422119574,False
+R2s04,0.05,agent-mix,gated,P0_twap,False,0.9296417155733909,-1.575920422119574,False
+R2s04,0.05,agent-mix,sensitivity,P0_twap,False,0.9296417155733909,-1.575920422119574,False
+R2s04,0.15,agent-mix,always TWAP,P0_twap,False,0.5003328170521808,0.7859858164161659,False
+R2s04,0.15,agent-mix,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R2s04,0.15,agent-mix,oracle,P0_twap,,0.5003328170521808,0.7859858164161659,False
+R2s04,0.15,agent-mix,agreement (frozen),P0_twap,False,0.5003328170521808,0.7859858164161659,False
+R2s04,0.15,agent-mix,diagnostic,P0_twap,False,0.5003328170521808,0.7859858164161659,False
+R2s04,0.15,agent-mix,gated,P0_twap,False,0.5003328170521808,0.7859858164161659,False
+R2s04,0.15,agent-mix,sensitivity,P0_twap,False,0.5003328170521808,0.7859858164161659,False
+R2s05,0.05,agent-mix,always TWAP,P0_twap,False,3.0115302680206453,0.22173014735680452,False
+R2s05,0.05,agent-mix,no-simulator,P6_signal_reversal,True,2.3087171078754585,-3.0878649095088235,False
+R2s05,0.05,agent-mix,oracle,P3_back_b-2,,6.701293096412042,-3.6820791455920423,True
+R2s05,0.05,agent-mix,agreement (frozen),P0_twap,False,3.0115302680206453,0.22173014735680452,False
+R2s05,0.05,agent-mix,diagnostic,P0_twap,False,3.0115302680206453,0.22173014735680452,False
+R2s05,0.05,agent-mix,gated,P1_immediate,True,5.686220701327227,7.757397755371427,True
+R2s05,0.05,agent-mix,sensitivity,P1_immediate,True,5.686220701327227,7.757397755371427,True
+R2s05,0.15,agent-mix,always TWAP,P0_twap,False,7.0714209693958345,-1.5610104459612266,False
+R2s05,0.15,agent-mix,no-simulator,P6_signal_reversal,True,3.0446835593150414,-2.479330142741562,False
+R2s05,0.15,agent-mix,oracle,P2_front_b2,,0.0,0.0,False
+R2s05,0.15,agent-mix,agreement (frozen),P1_immediate,True,15.211710663212482,13.041096265675094,True
+R2s05,0.15,agent-mix,diagnostic,P0_twap,False,7.0714209693958345,-1.5610104459612266,False
+R2s05,0.15,agent-mix,gated,P1_immediate,True,15.211710663212482,13.041096265675094,True
+R2s05,0.15,agent-mix,sensitivity,P1_immediate,True,15.211710663212482,13.041096265675094,True
+R3s01,0.05,held-out latent,always TWAP,P0_twap,False,0.4458878230745347,0.27169344618314284,False
+R3s01,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s01,0.05,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s01,0.05,held-out latent,agreement (frozen),P0_twap,False,0.4458878230745347,0.27169344618314284,False
+R3s01,0.05,held-out latent,diagnostic,P0_twap,False,0.4458878230745347,0.27169344618314284,False
+R3s01,0.05,held-out latent,gated,P6_signal_momentum,True,0.887231117215908,0.8827716695121213,True
+R3s01,0.05,held-out latent,sensitivity,P0_twap,False,0.4458878230745347,0.27169344618314284,False
+R3s01,0.15,held-out latent,always TWAP,P0_twap,False,0.23227726024507955,0.1983155178461482,False
+R3s01,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s01,0.15,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s01,0.15,held-out latent,agreement (frozen),P0_twap,False,0.23227726024507955,0.1983155178461482,False
+R3s01,0.15,held-out latent,diagnostic,P1_immediate,True,0.5706691804119002,-0.323775540097758,True
+R3s01,0.15,held-out latent,gated,P0_twap,False,0.23227726024507955,0.1983155178461482,False
+R3s01,0.15,held-out latent,sensitivity,P0_twap,False,0.23227726024507955,0.1983155178461482,False
+R3s02,0.05,held-out latent,always TWAP,P0_twap,False,0.21990173156664383,0.18974988274268867,False
+R3s02,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s02,0.05,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s02,0.05,held-out latent,agreement (frozen),P0_twap,False,0.21990173156664383,0.18974988274268867,False
+R3s02,0.05,held-out latent,diagnostic,P0_twap,False,0.21990173156664383,0.18974988274268867,False
+R3s02,0.05,held-out latent,gated,P4_pov_1x,True,0.27017159218874465,0.30013418766677,True
+R3s02,0.05,held-out latent,sensitivity,P0_twap,False,0.21990173156664383,0.18974988274268867,False
+R3s02,0.15,held-out latent,always TWAP,P0_twap,False,0.23009795156368362,0.2110015317406937,False
+R3s02,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s02,0.15,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s02,0.15,held-out latent,agreement (frozen),P0_twap,False,0.23009795156368362,0.2110015317406937,False
+R3s02,0.15,held-out latent,diagnostic,P0_twap,False,0.23009795156368362,0.2110015317406937,False
+R3s02,0.15,held-out latent,gated,P4_pov_1x,True,0.13826643071731226,0.16058600857736138,False
+R3s02,0.15,held-out latent,sensitivity,P0_twap,False,0.23009795156368362,0.2110015317406937,False
+R3s03,0.05,held-out latent,always TWAP,P0_twap,False,0.5078431784297912,0.5718255178599607,False
+R3s03,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s03,0.05,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s03,0.05,held-out latent,agreement (frozen),P0_twap,False,0.5078431784297912,0.5718255178599607,False
+R3s03,0.05,held-out latent,diagnostic,P1_immediate,True,1.7335660206947567,1.5449851052674406,True
+R3s03,0.05,held-out latent,gated,P4_pov_2x,True,0.619893672794146,0.5820784077021468,True
+R3s03,0.05,held-out latent,sensitivity,P4_pov_2x,True,0.619893672794146,0.5820784077021468,True
+R3s03,0.15,held-out latent,always TWAP,P0_twap,False,0.36625033494183334,0.39819537192279686,False
+R3s03,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s03,0.15,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s03,0.15,held-out latent,agreement (frozen),P0_twap,False,0.36625033494183334,0.39819537192279686,False
+R3s03,0.15,held-out latent,diagnostic,P1_immediate,True,6.054276682057743,5.516150875078501,True
+R3s03,0.15,held-out latent,gated,P1_immediate,True,6.054276682057743,5.516150875078501,True
+R3s03,0.15,held-out latent,sensitivity,P1_immediate,True,6.054276682057743,5.516150875078501,True
+R3s04,0.05,held-out latent,always TWAP,P0_twap,False,0.4364649127014273,0.25655000503257686,False
+R3s04,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.11805404001125375,-0.012764495762752404,False
+R3s04,0.05,held-out latent,oracle,P2_front_b4,,0.41235581336120575,-0.5038879614504124,False
+R3s04,0.05,held-out latent,agreement (frozen),P0_twap,False,0.4364649127014273,0.25655000503257686,False
+R3s04,0.05,held-out latent,diagnostic,P0_twap,False,0.4364649127014273,0.25655000503257686,False
+R3s04,0.05,held-out latent,gated,P5_liquidity,True,0.0,0.0,False
+R3s04,0.05,held-out latent,sensitivity,P0_twap,False,0.4364649127014273,0.25655000503257686,False
+R3s04,0.15,held-out latent,always TWAP,P0_twap,False,0.41781733633172546,0.3627289093115058,False
+R3s04,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.011972217279021535,-0.07501587622275085,False
+R3s04,0.15,held-out latent,oracle,P6_signal_reversal,,0.011972217279021535,-0.07501587622275085,False
+R3s04,0.15,held-out latent,agreement (frozen),P0_twap,False,0.41781733633172546,0.3627289093115058,False
+R3s04,0.15,held-out latent,diagnostic,P0_twap,False,0.41781733633172546,0.3627289093115058,False
+R3s04,0.15,held-out latent,gated,P0_twap,False,0.41781733633172546,0.3627289093115058,False
+R3s04,0.15,held-out latent,sensitivity,P0_twap,False,0.41781733633172546,0.3627289093115058,False
+R3s05,0.05,held-out latent,always TWAP,P0_twap,False,0.717141746054363,-0.006270707298257072,False
+R3s05,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s05,0.05,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s05,0.05,held-out latent,agreement (frozen),P0_twap,False,0.717141746054363,-0.006270707298257072,False
+R3s05,0.05,held-out latent,diagnostic,P0_twap,False,0.717141746054363,-0.006270707298257072,False
+R3s05,0.05,held-out latent,gated,P0_twap,False,0.717141746054363,-0.006270707298257072,False
+R3s05,0.05,held-out latent,sensitivity,P0_twap,False,0.717141746054363,-0.006270707298257072,False
+R3s05,0.15,held-out latent,always TWAP,P0_twap,False,0.8417973940388919,0.4115099069063959,False
+R3s05,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s05,0.15,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s05,0.15,held-out latent,agreement (frozen),P0_twap,False,0.8417973940388919,0.4115099069063959,False
+R3s05,0.15,held-out latent,diagnostic,P0_twap,False,0.8417973940388919,0.4115099069063959,False
+R3s05,0.15,held-out latent,gated,P5_liquidity,True,0.7593344421945023,0.5108823378132445,False
+R3s05,0.15,held-out latent,sensitivity,P0_twap,False,0.8417973940388919,0.4115099069063959,False
+R3s06,0.05,held-out latent,always TWAP,P0_twap,False,0.54383146039088,0.07555144868363328,False
+R3s06,0.05,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s06,0.05,held-out latent,oracle,P2_front_b4,,0.2780963403828256,-0.9691779861843095,False
+R3s06,0.05,held-out latent,agreement (frozen),P0_twap,False,0.54383146039088,0.07555144868363328,False
+R3s06,0.05,held-out latent,diagnostic,P0_twap,False,0.54383146039088,0.07555144868363328,False
+R3s06,0.05,held-out latent,gated,P5_liquidity,True,0.6265055317471058,0.41064235104823954,True
+R3s06,0.05,held-out latent,sensitivity,P0_twap,False,0.54383146039088,0.07555144868363328,False
+R3s06,0.15,held-out latent,always TWAP,P0_twap,False,0.47676011120601736,0.22744194380518046,False
+R3s06,0.15,held-out latent,no-simulator,P6_signal_reversal,True,0.0,0.0,False
+R3s06,0.15,held-out latent,oracle,P6_signal_reversal,,0.0,0.0,False
+R3s06,0.15,held-out latent,agreement (frozen),P0_twap,False,0.47676011120601736,0.22744194380518046,False
+R3s06,0.15,held-out latent,diagnostic,P0_twap,False,0.47676011120601736,0.22744194380518046,False
+R3s06,0.15,held-out latent,gated,P5_liquidity,True,0.23832939171341838,0.13792199309136066,False
+R3s06,0.15,held-out latent,sensitivity,P0_twap,False,0.47676011120601736,0.22744194380518046,False

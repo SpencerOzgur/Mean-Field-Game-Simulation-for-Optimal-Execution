@@ -70,3 +70,9 @@ Running log. Each entry is dated and written before the results it concerns exis
     is treated as not passing.
 14. Test B viability: all 60 of the first 20 draws per family are viable, so B-U is TBq_d01-16, TBa_d01-16 and
     TBl_d01-16 (only info.json was read).
+
+## 13 November 2026, 10:09 EST, Test A read once with the frozen rules (results/simrel/goal2/addendum10/test_a.csv)
+
+15. Gate 1 is not met. Frozen agreement rule minus always-TWAP +0.84 bp [-0.01, +2.27]; minus the no-simulator rule
+    +1.86 bp [+0.46, +3.62] (market bootstrap, 16 markets). It departed from TWAP in 9% of cells (25% on development).
+    As section 4 requires, the rule goes to Test B unchanged and no new rule is developed; stage 3 proceeds.
