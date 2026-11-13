@@ -161,6 +161,17 @@ def fit_qr_job(world: str) -> str:
     return f"{world} qr: {info['states_visited']} states visited"
 
 
+def fit_chawkes_job(world: str) -> str:
+    from simrel.adapters import compound_hawkes
+
+    path = RAW / f"fit_{world}_chawkes.pkl"
+    if path.exists():
+        return "cached"
+    p, info = compound_hawkes.fit(load(REF / f"ref_{world}" / "fit_data.pkl"))
+    save(path, {"params": p, "info": info})
+    return f"{world} chawkes: branching {info['branching_ratio']:.2f}, spread exponent {info['s_exp']}"
+
+
 def make_factory(world: str, name: str):
     """seed -> simulator model (Hawkes family) built from the fits and the options of this family member."""
     if name == "oracle":  # the market's own generator with its true parameters (addendum 6, positive control)
@@ -174,6 +185,11 @@ def make_factory(world: str, name: str):
         knob = name[len("oracle-no-"):]
         removed = dataclasses.replace(params, **{knob: 0.0})
         return lambda seed: cls(removed, seed)
+    if name == "chawkes":  # compound Hawkes baseline (addendum 10, section 6)
+        from simrel.adapters.compound_hawkes import CompoundHawkesLOB
+
+        p = load(RAW / f"fit_{world}_chawkes.pkl")["params"]
+        return lambda seed: CompoundHawkesLOB(p, seed)
     if name == "qr":
         from simrel.adapters.qr_candidate import QRCandidate
 
@@ -367,8 +383,10 @@ if __name__ == "__main__":
                 reference_windows(w)
                 print(f"  {w}: {len(reference_windows(w))} held-out windows, true costs for {len(truth(w))} (size, strategy) pairs", flush=True)
         elif st == "fit":
-            if names != ["qr"]:
+            if [n for n in names if n not in ("qr", "chawkes")]:
                 R.pool_map(fit_job, [(w, k, c) for w in worlds for k in ("single", "multi") for c in (0.8, 0.9, 0.95)], procs, "fit")
+            if "chawkes" in names:
+                R.pool_map(fit_chawkes_job, worlds, procs, "chawkes fit")
             if "qr" in names:
                 for w in worlds:
                     print("  ", fit_qr_job(w), flush=True)
