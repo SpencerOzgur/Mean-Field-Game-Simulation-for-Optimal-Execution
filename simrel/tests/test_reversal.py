@@ -4,6 +4,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
@@ -113,3 +114,60 @@ def test_missing_quotes_drop_the_window_and_the_returns_that_touch_them():
     bid[126] = np.nan  # a decision time of the second window
     s = RV.segment_summary(bid, ask, np.zeros((0, 2)), 1.0)
     assert s["n_missing"] == 2 and len(s["windows"]) == 5
+
+
+# ---- horizon sweep (simrel/reports/reversal_horizons_plan.md)
+def _random_segment(seed=2):
+    rng = np.random.default_rng(seed)
+    mid = 1000.0 + np.cumsum(rng.choice([-1.0, 0.0, 0.0, 1.0], size=721))
+    trades = np.c_[np.sort(rng.uniform(0, 3600, 900)), rng.choice([-300.0, 200.0, 500.0], 900)]
+    return mid, trades
+
+
+def test_default_horizon_is_the_committed_30_s_summary():
+    mid, trades = _random_segment()
+    a = RV.segment_summary(mid - 0.5, mid + 0.5, trades, 1.0)
+    b = RV.segment_summary(mid - 0.5, mid + 0.5, trades, 1.0, bin_s=30.0)
+    assert a["n_bins"] == b["n_bins"] == 120 and len(a["windows"]) == 6 and len(a["windows"][0]["mid"]) == 20
+    for k in ("s1_num", "s2_num", "s2_den", "volume"):
+        assert a[k] == b[k]
+    assert np.array_equal(a["s3_x"], b["s3_x"]) and np.allclose(a["s3_x"], 0.5 * (a["s3_imb"] + a["s3_ret"]), atol=1e-6)
+    w = a["windows"][2]
+    r0, r1 = RV.backtest(w["mid"], w["vol"], w["signed"], 9000), RV.backtest(w["mid"], w["vol"], w["signed"], 9000, lot=100, component="both")
+    assert r0 == r1
+
+
+def test_bins_decisions_and_zero_counts_at_each_horizon():
+    mid, trades = _random_segment()
+    for h, n_bins, n_dec in ((5, 720, 120), (10, 360, 60), (30, 120, 20), (60, 60, 10), (120, 30, 5)):
+        s = RV.segment_summary(mid - 0.5, mid + 0.5, trades, 1.0, bin_s=float(h))
+        assert s["n_bins"] == n_bins and len(s["windows"]) == 6 and all(len(w["mid"]) == n_dec for w in s["windows"])
+        assert np.array_equal(s["windows"][1]["mid"], mid[120:240:h // 5])  # decisions h seconds apart inside the second window
+        assert len(s["s3_x"]) == n_bins - 1 and s["zero_signal_n"] == int((s["s3_x"] == 0).sum())
+        assert s["volume"] == np.abs(trades[:, 1]).sum()
+        vol, signed = RV.bin_flows(trades, n_bins, float(h))
+        j = 3
+        inbin = (trades[:, 0] >= h * j) & (trades[:, 0] < h * (j + 1))
+        assert vol[j] == np.abs(trades[inbin, 1]).sum() and signed[j] == trades[inbin, 1].sum()
+        w = s["windows"][0]
+        r = RV.backtest(w["mid"], w["vol"], w["signed"], 9000, lot=1)
+        assert sum(r["twap_sched"]) == sum(r["p6_sched"]) == 9000 and len(r["p6_sched"]) == n_dec
+        assert max(r["twap_sched"]) - min(r["twap_sched"]) <= 1 or n_dec == 5  # lot 1: an even schedule
+    with pytest.raises(AssertionError):
+        RV.segment_summary(mid - 0.5, mid + 0.5, trades, 1.0, bin_s=45.0)
+
+
+def test_components_show_the_strategy_one_part_of_the_signal():
+    mid = np.full(20, 1000.0)
+    mid[5:] = 999.0
+    vol, signed = np.zeros(20), np.zeros(20)
+    vol[5], signed[5] = 1000.0, -800.0  # before decision 5: the price fell and sellers dominated
+    both = RV.backtest(mid, vol, signed, 20_000)["p6_sched"][5]
+    flow = RV.backtest(mid, vol, signed, 20_000, component="flow")["p6_sched"][5]
+    ret = RV.backtest(mid, vol, signed, 20_000, component="ret")["p6_sched"][5]
+    assert (both, flow, ret) == (1900, 1400, 1500)  # 1 + 0.5 x (0.8 + 1), 1 + 0.5 x 0.8, 1 + 0.5 x 1 times the even pace
+    m, trades = _random_segment()
+    seg = RV.segment_summary(m - 0.5, m + 0.5, trades, 1.0)
+    for key in ("s3_x", "s3_imb", "s3_ret"):  # the regression on a component is the committed regression with another regressor
+        x, y = seg[key].astype(float), seg["s3_y"].astype(float)
+        assert abs(RV.s3([seg, seg], key)[0] - np.polyfit(x, y, 1)[0]) < 1e-9

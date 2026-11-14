@@ -33,11 +33,11 @@ def _acf_sums(x: np.ndarray) -> tuple[float, float]:
     return float((x[1:][ok] * x[:-1][ok]).sum()), float(np.nansum(x * x))
 
 
-def bin_flows(trades: np.ndarray, n_bins: int) -> tuple[np.ndarray, np.ndarray]:
-    """Total and signed traded shares in each 30 s bin [30 j, 30 (j + 1))."""
+def bin_flows(trades: np.ndarray, n_bins: int, bin_s: float = BIN_S) -> tuple[np.ndarray, np.ndarray]:
+    """Total and signed traded shares in each bin [bin_s j, bin_s (j + 1)); 30 s bins by default."""
     vol, signed = np.zeros(n_bins), np.zeros(n_bins)
     if len(trades):
-        j = np.floor(trades[:, 0] / BIN_S).astype(int)
+        j = np.floor(trades[:, 0] / bin_s).astype(int)
         ok = (j >= 0) & (j < n_bins)
         np.add.at(vol, j[ok], np.abs(trades[ok, 1]))
         np.add.at(signed, j[ok], trades[ok, 1])
@@ -51,15 +51,20 @@ def sell_signal(vol: np.ndarray, signed: np.ndarray, dmid: np.ndarray) -> np.nda
 
 
 def backtest(mid: np.ndarray, vol: np.ndarray, signed: np.ndarray, qty: int, side: str = "sell", own_flow: bool = False,
-             bid: np.ndarray | None = None, ask: np.ndarray | None = None) -> dict:
+             bid: np.ndarray | None = None, ask: np.ndarray | None = None, lot: int = LOT, component: str = "both") -> dict:
     """Impact-free timing cost (bp of the arrival mid) of TWAP and P6_signal_reversal on one window.
 
-    mid[k] is the mid at decision k (k = 0..19); vol[k] and signed[k] are the public flows of the 30 s before
-    decision k (index 0 is ignored: the engine shows zeros at the first decision). own_flow adds the trader's own
-    previous child to those flows, as the engine does, with no effect on prices.
+    mid[k] is the mid at decision k (k = 0..n-1; n = 20 in the study); vol[k] and signed[k] are the public flows of the
+    slice before decision k (index 0 is ignored: the engine shows zeros at the first decision). own_flow adds the
+    trader's own previous child to those flows, as the engine does, with no effect on prices.
+
+    component (horizon sweep) shows the strategy only one part of its signal, by changing the observation and not the
+    policy: "flow" sets the previous mid change to zero (signal = 0.5 x imbalance), "ret" sets the volumes to zero
+    (signal = 0.5 x return sign), "both" is the study's signal.
     """
+    assert component in ("both", "flow", "ret")
     pol = candidate_set(SIZE_FRAC)
-    n, sgn = N_SLICES, (1.0 if side == "sell" else -1.0)
+    n, sgn = len(mid), (1.0 if side == "sell" else -1.0)
     bid = mid if bid is None else bid
     ask = mid if ask is None else ask
     out = {}
@@ -70,10 +75,15 @@ def backtest(mid: np.ndarray, vol: np.ndarray, signed: np.ndarray, qty: int, sid
             sv = 0.0 if k == 0 else float(signed[k])
             if own_flow:
                 mv, sv = mv + own_last, sv + (-own_last if side == "sell" else own_last)
-            obs = Observation(k=k, n=n, t=k * BIN_S, bid=float(bid[k]), ask=float(ask[k]), bid_depth1=0.0, ask_depth1=0.0, bid_depth5=0.0,
+            dm = 0.0 if k == 0 else float(mid[k] - mid[k - 1])
+            if component == "flow":
+                dm = 0.0
+            elif component == "ret":
+                mv, sv = 0.0, 0.0
+            obs = Observation(k=k, n=n, t=k * WINDOW_S / n, bid=float(bid[k]), ask=float(ask[k]), bid_depth1=0.0, ask_depth1=0.0, bid_depth5=0.0,
                               ask_depth5=0.0, market_volume_last=mv, signed_volume_last=sv,
-                              mid_change_last=0.0 if k == 0 else float(mid[k] - mid[k - 1]), arrival_mid=float(mid[0]), total_qty=qty, side=side)
-            q = child_quantity(pol[name], obs, remaining, state, LOT)
+                              mid_change_last=dm, arrival_mid=float(mid[0]), total_qty=qty, side=side)
+            q = child_quantity(pol[name], obs, remaining, state, lot)
             remaining -= q
             own_last = float(q)
             cost += q * sgn * (mid[0] - mid[k])
@@ -83,8 +93,14 @@ def backtest(mid: np.ndarray, vol: np.ndarray, signed: np.ndarray, qty: int, sid
     return out
 
 
-def segment_summary(bid: np.ndarray, ask: np.ndarray, trades: np.ndarray, tick: float) -> dict:
-    """Sums for S1 to S3, the per-window inputs of S4, and the tick and spread context of one segment."""
+def segment_summary(bid: np.ndarray, ask: np.ndarray, trades: np.ndarray, tick: float, bin_s: float = BIN_S) -> dict:
+    """Sums for S1 to S3, the per-window inputs of S4, and the tick and spread context of one segment.
+
+    bin_s is the horizon (the bin of S2 and S3 and the decision interval of S4); the default, 30 s, is the study's
+    slice and the committed check. The window stays 600 s, so there are 600 / bin_s decisions per window.
+    """
+    k_bin, n_slices = int(round(bin_s / GRID_S)), int(round(WINDOW_S / bin_s))
+    assert abs(k_bin * GRID_S - bin_s) < 1e-9 and abs(n_slices * bin_s - WINDOW_S) < 1e-9, "the horizon must divide 600 s and be a multiple of 5 s"
     bid, ask = np.asarray(bid, float), np.asarray(ask, float)
     mid = 0.5 * (bid + ask)
     spread = ask - bid
@@ -93,27 +109,32 @@ def segment_summary(bid: np.ndarray, ask: np.ndarray, trades: np.ndarray, tick: 
     n5 = len(mid)
     out = {"n_grid": int(n5), "n_missing": int((~ok).sum())}
     out["s1_num"], out["s1_den"] = _acf_sums(np.diff(mid))
-    m30 = mid[::K_BIN]
+    m30 = mid[::k_bin]  # the mid at the bin boundaries (named for the default horizon)
     d30 = np.diff(m30)
     n_bins = len(d30)
     out["s2_num"], out["s2_den"] = _acf_sums(d30)
-    vol, signed = bin_flows(trades, n_bins)
+    vol, signed = bin_flows(trades, n_bins, bin_s)
     # S3: signal from bin j - 1, return over bin j in bp of the mid at the start of bin j
     x = sell_signal(vol[:-1], signed[:-1], d30[:-1])
     y = d30[1:] / m30[1:-1] * 1e4
     good = np.isfinite(x) & np.isfinite(y)
     out["s3_x"], out["s3_y"] = x[good].astype(np.float32), y[good].astype(np.float32)
-    # S4 inputs: for each 600 s window, the mids at the 20 decisions and the flows of the 30 s before each
+    # the two components of the signal (horizon sweep): order-flow imbalance and the sign of the mid change
+    v0, s0 = vol[:-1], signed[:-1]
+    imb = np.divide(s0, v0, out=np.zeros_like(s0, dtype=float), where=v0 > 0)
+    out["s3_imb"], out["s3_ret"] = imb[good].astype(np.float32), np.sign(d30[:-1])[good].astype(np.float32)
+    out["zero_signal_n"], out["zero_volume_n"], out["zero_move_n"] = int((x[good] == 0).sum()), int((v0[good] == 0).sum()), int((d30[:-1][good] == 0).sum())
+    # S4 inputs: for each 600 s window, the mids at the decisions and the flows of the slice before each
     wins = []
-    for w in range(n_bins // N_SLICES):
-        a = w * N_SLICES
-        mk = m30[a:a + N_SLICES]
+    for w in range(n_bins // n_slices):
+        a = w * n_slices
+        mk = m30[a:a + n_slices]
         if not np.isfinite(mk).all():
             continue
-        v = np.r_[0.0, vol[a:a + N_SLICES - 1]]
-        s = np.r_[0.0, signed[a:a + N_SLICES - 1]]
-        wins.append({"mid": mk, "vol": v, "signed": s, "bid": bid[::K_BIN][a:a + N_SLICES], "ask": ask[::K_BIN][a:a + N_SLICES],
-                     "window_volume": float(vol[a:a + N_SLICES].sum())})
+        v = np.r_[0.0, vol[a:a + n_slices - 1]]
+        s = np.r_[0.0, signed[a:a + n_slices - 1]]
+        wins.append({"mid": mk, "vol": v, "signed": s, "bid": bid[::k_bin][a:a + n_slices], "ask": ask[::k_bin][a:a + n_slices],
+                     "window_volume": float(vol[a:a + n_slices].sum())})
     out["windows"] = wins
     out["volume"] = float(vol.sum())
     out["n_bins"] = int(n_bins)
@@ -136,9 +157,10 @@ def s2(segs: list) -> float:
     return _ratio(sum(s["s2_num"] for s in segs), sum(s["s2_den"] for s in segs))
 
 
-def s3(segs: list) -> tuple[float, float]:
-    """Pooled OLS slope of the next 30 s return (bp) on the signal, and its t-statistic clustered by segment."""
-    x = np.concatenate([s["s3_x"] for s in segs]).astype(float)
+def s3(segs: list, key: str = "s3_x") -> tuple[float, float]:
+    """Pooled OLS slope of the next bin's return (bp) on the signal, and its t-statistic clustered by segment.
+    key selects the regressor: the combined signal (default), "s3_imb" or "s3_ret"."""
+    x = np.concatenate([s[key] for s in segs]).astype(float)
     y = np.concatenate([s["s3_y"] for s in segs]).astype(float)
     xm, ym = x.mean(), y.mean()
     sxx = ((x - xm) ** 2).sum()
@@ -148,7 +170,7 @@ def s3(segs: list) -> tuple[float, float]:
     resid = (y - ym) - b * (x - xm)
     g, i = [], 0
     for s in segs:
-        n = len(s["s3_x"])
+        n = len(s[key])
         g.append(((x[i:i + n] - xm) * resid[i:i + n]).sum())
         i += n
     g = np.array(g)
