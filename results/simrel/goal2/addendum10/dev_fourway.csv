@@ -1,0 +1,789 @@
+world,size,core,arm,regret
+R1a_qr_resilient,0.05,True,always TWAP,0.17775563161675745
+R1a_qr_resilient,0.05,True,oracle,0.02707710204106828
+R1a_qr_resilient,0.05,True,original h_k1,0.222320824951173
+R1a_qr_resilient,0.05,True,original h_c_f_m_k1,0.14442932182604817
+R1a_qr_resilient,0.05,True,recalibrated h_k1,0.17775563161675745
+R1a_qr_resilient,0.05,True,recalibrated h_c_f_m_k1,0.02707710204106828
+R1a_qr_resilient,0.05,True,compound Hawkes,0.15083103754131333
+R1a_qr_resilient,0.05,True,corrected,0.15083103754131333
+R1a_qr_resilient,0.05,True,corrected + frozen rule,0.17775563161675745
+R1a_qr_resilient,0.05,True,frozen rule (design set D),0.17775563161675745
+R1a_qr_resilient,0.15,True,always TWAP,0.05391148691359593
+R1a_qr_resilient,0.15,True,oracle,0.21109694330966366
+R1a_qr_resilient,0.15,True,original h_k1,0.1251765771290989
+R1a_qr_resilient,0.15,True,original h_c_f_m_k1,0.12115912874718582
+R1a_qr_resilient,0.15,True,recalibrated h_k1,0.28292648372221496
+R1a_qr_resilient,0.15,True,recalibrated h_c_f_m_k1,0.1251765771290989
+R1a_qr_resilient,0.15,True,compound Hawkes,0.0
+R1a_qr_resilient,0.15,True,corrected,0.08982915083596232
+R1a_qr_resilient,0.15,True,corrected + frozen rule,0.05391148691359593
+R1a_qr_resilient,0.15,True,frozen rule (design set D),0.05391148691359593
+R1b_qr_fragile,0.05,True,always TWAP,1.0069896039304478
+R1b_qr_fragile,0.05,True,oracle,0.802422212581483
+R1b_qr_fragile,0.05,True,original h_k1,0.49956486604656547
+R1b_qr_fragile,0.05,True,original h_c_f_m_k1,0.49956486604656547
+R1b_qr_fragile,0.05,True,recalibrated h_k1,2.8592045601207463
+R1b_qr_fragile,0.05,True,recalibrated h_c_f_m_k1,0.38906238155417583
+R1b_qr_fragile,0.05,True,compound Hawkes,5.818220523158409
+R1b_qr_fragile,0.05,True,corrected,0.0
+R1b_qr_fragile,0.05,True,corrected + frozen rule,0.49956486604656547
+R1b_qr_fragile,0.05,True,frozen rule (design set D),1.0069896039304478
+R1b_qr_fragile,0.15,True,always TWAP,0.0
+R1b_qr_fragile,0.15,True,oracle,1.276014462383344
+R1b_qr_fragile,0.15,True,original h_k1,0.5983743120585814
+R1b_qr_fragile,0.15,True,original h_c_f_m_k1,0.5797438855791448
+R1b_qr_fragile,0.15,True,recalibrated h_k1,0.5983743120585814
+R1b_qr_fragile,0.15,True,recalibrated h_c_f_m_k1,0.5983743120585814
+R1b_qr_fragile,0.15,True,compound Hawkes,16.688166533203525
+R1b_qr_fragile,0.15,True,corrected,1.6489126039671014
+R1b_qr_fragile,0.15,True,corrected + frozen rule,0.0
+R1b_qr_fragile,0.15,True,frozen rule (design set D),0.0
+R1c_qr_thin,0.05,True,always TWAP,0.0
+R1c_qr_thin,0.05,True,oracle,0.23004059077484307
+R1c_qr_thin,0.05,True,original h_k1,0.4025093462610112
+R1c_qr_thin,0.05,True,original h_c_f_m_k1,0.26984370599367047
+R1c_qr_thin,0.05,True,recalibrated h_k1,0.4025093462610112
+R1c_qr_thin,0.05,True,recalibrated h_c_f_m_k1,0.26984370599367047
+R1c_qr_thin,0.05,True,compound Hawkes,1.4828576794421071
+R1c_qr_thin,0.05,True,corrected,0.46953933993060737
+R1c_qr_thin,0.05,True,corrected + frozen rule,0.0
+R1c_qr_thin,0.05,True,frozen rule (design set D),0.0
+R1c_qr_thin,0.15,True,always TWAP,1.2152008976348494
+R1c_qr_thin,0.15,True,oracle,1.150521286129294
+R1c_qr_thin,0.15,True,original h_k1,0.0
+R1c_qr_thin,0.15,True,original h_c_f_m_k1,0.0
+R1c_qr_thin,0.15,True,recalibrated h_k1,1.205314596688396
+R1c_qr_thin,0.15,True,recalibrated h_c_f_m_k1,0.0
+R1c_qr_thin,0.15,True,compound Hawkes,1.205314596688396
+R1c_qr_thin,0.15,True,corrected,2.3402428927870496
+R1c_qr_thin,0.15,True,corrected + frozen rule,1.2152008976348494
+R1c_qr_thin,0.15,True,frozen rule (design set D),1.2152008976348494
+R1d_qr_momentum,0.05,True,always TWAP,0.38168578371711703
+R1d_qr_momentum,0.05,True,oracle,1.5679600471853679
+R1d_qr_momentum,0.05,True,original h_k1,0.385876759100773
+R1d_qr_momentum,0.05,True,original h_c_f_m_k1,0.14526172866313836
+R1d_qr_momentum,0.05,True,recalibrated h_k1,0.38168578371711703
+R1d_qr_momentum,0.05,True,recalibrated h_c_f_m_k1,0.385876759100773
+R1d_qr_momentum,0.05,True,compound Hawkes,2.4813450009459483
+R1d_qr_momentum,0.05,True,corrected,0.29079688632182155
+R1d_qr_momentum,0.05,True,corrected + frozen rule,0.38168578371711703
+R1d_qr_momentum,0.05,True,frozen rule (design set D),0.38168578371711703
+R1d_qr_momentum,0.15,True,always TWAP,1.1915704299072374
+R1d_qr_momentum,0.15,True,oracle,0.0
+R1d_qr_momentum,0.15,True,original h_k1,0.6917808841946709
+R1d_qr_momentum,0.15,True,original h_c_f_m_k1,0.6917808841946709
+R1d_qr_momentum,0.15,True,recalibrated h_k1,0.6917808841946709
+R1d_qr_momentum,0.15,True,recalibrated h_c_f_m_k1,0.6917808841946709
+R1d_qr_momentum,0.15,True,compound Hawkes,18.91480732084655
+R1d_qr_momentum,0.15,True,corrected,1.1915704299072374
+R1d_qr_momentum,0.15,True,corrected + frozen rule,1.1915704299072374
+R1d_qr_momentum,0.15,True,frozen rule (design set D),0.6917808841946709
+R1e_qr_deep,0.05,True,always TWAP,8.881784197001252e-16
+R1e_qr_deep,0.05,True,oracle,8.881784197001252e-16
+R1e_qr_deep,0.05,True,original h_k1,8.881784197001252e-16
+R1e_qr_deep,0.05,True,original h_c_f_m_k1,8.881784197001252e-16
+R1e_qr_deep,0.05,True,recalibrated h_k1,8.881784197001252e-16
+R1e_qr_deep,0.05,True,recalibrated h_c_f_m_k1,0.0
+R1e_qr_deep,0.05,True,compound Hawkes,8.881784197001252e-16
+R1e_qr_deep,0.05,True,corrected,0.0
+R1e_qr_deep,0.05,True,corrected + frozen rule,8.881784197001252e-16
+R1e_qr_deep,0.05,True,frozen rule (design set D),8.881784197001252e-16
+R1e_qr_deep,0.15,True,always TWAP,0.0
+R1e_qr_deep,0.15,True,oracle,0.0
+R1e_qr_deep,0.15,True,original h_k1,8.881784197001252e-16
+R1e_qr_deep,0.15,True,original h_c_f_m_k1,0.0
+R1e_qr_deep,0.15,True,recalibrated h_k1,0.0
+R1e_qr_deep,0.15,True,recalibrated h_c_f_m_k1,0.0
+R1e_qr_deep,0.15,True,compound Hawkes,0.0
+R1e_qr_deep,0.15,True,corrected,0.0
+R1e_qr_deep,0.15,True,corrected + frozen rule,0.0
+R1e_qr_deep,0.15,True,frozen rule (design set D),0.0
+R2a_am_anchored,0.05,True,always TWAP,2.760951790245035
+R2a_am_anchored,0.05,True,oracle,0.0
+R2a_am_anchored,0.05,True,original h_k1,0.0
+R2a_am_anchored,0.05,True,original h_c_f_m_k1,4.257487311379009
+R2a_am_anchored,0.05,True,recalibrated h_k1,4.257487311379009
+R2a_am_anchored,0.05,True,recalibrated h_c_f_m_k1,4.257487311379009
+R2a_am_anchored,0.05,True,compound Hawkes,11.054033596274062
+R2a_am_anchored,0.05,True,corrected,7.277206576949176
+R2a_am_anchored,0.05,True,corrected + frozen rule,4.257487311379009
+R2a_am_anchored,0.05,True,frozen rule (design set D),4.257487311379009
+R2a_am_anchored,0.15,True,always TWAP,2.1953991452654904
+R2a_am_anchored,0.15,True,oracle,0.0
+R2a_am_anchored,0.15,True,original h_k1,18.35658649338346
+R2a_am_anchored,0.15,True,original h_c_f_m_k1,18.35658649338346
+R2a_am_anchored,0.15,True,recalibrated h_k1,18.35658649338346
+R2a_am_anchored,0.15,True,recalibrated h_c_f_m_k1,20.311455588398115
+R2a_am_anchored,0.15,True,compound Hawkes,18.35658649338346
+R2a_am_anchored,0.15,True,corrected,1.9820648142698403
+R2a_am_anchored,0.15,True,corrected + frozen rule,18.35658649338346
+R2a_am_anchored,0.15,True,frozen rule (design set D),18.35658649338346
+R2b_am_trending,0.05,True,always TWAP,3.263580858970598
+R2b_am_trending,0.05,True,oracle,0.0
+R2b_am_trending,0.05,True,original h_k1,13.005956956520215
+R2b_am_trending,0.05,True,original h_c_f_m_k1,4.908531987402571
+R2b_am_trending,0.05,True,recalibrated h_k1,4.908531987402571
+R2b_am_trending,0.05,True,recalibrated h_c_f_m_k1,0.0
+R2b_am_trending,0.05,True,compound Hawkes,13.005956956520215
+R2b_am_trending,0.05,True,corrected,13.005956956520215
+R2b_am_trending,0.05,True,corrected + frozen rule,3.263580858970598
+R2b_am_trending,0.05,True,frozen rule (design set D),3.263580858970598
+R2b_am_trending,0.15,True,always TWAP,2.706877265228524
+R2b_am_trending,0.15,True,oracle,4.576097733427769
+R2b_am_trending,0.15,True,original h_k1,21.619358122172635
+R2b_am_trending,0.15,True,original h_c_f_m_k1,24.268669514895038
+R2b_am_trending,0.15,True,recalibrated h_k1,6.515155340617531
+R2b_am_trending,0.15,True,recalibrated h_c_f_m_k1,24.268669514895038
+R2b_am_trending,0.15,True,compound Hawkes,9.352411120902575
+R2b_am_trending,0.15,True,corrected,6.515155340617531
+R2b_am_trending,0.15,True,corrected + frozen rule,2.706877265228524
+R2b_am_trending,0.15,True,frozen rule (design set D),2.706877265228524
+R2c_am_anchor,0.05,True,always TWAP,0.6861763965848842
+R2c_am_anchor,0.05,True,oracle,0.0
+R2c_am_anchor,0.05,True,original h_k1,11.045122921103715
+R2c_am_anchor,0.05,True,original h_c_f_m_k1,11.045122921103715
+R2c_am_anchor,0.05,True,recalibrated h_k1,4.872895107732063
+R2c_am_anchor,0.05,True,recalibrated h_c_f_m_k1,0.4860203321063685
+R2c_am_anchor,0.05,True,compound Hawkes,11.045122921103715
+R2c_am_anchor,0.05,True,corrected,0.4860203321063685
+R2c_am_anchor,0.05,True,corrected + frozen rule,0.6861763965848842
+R2c_am_anchor,0.05,True,frozen rule (design set D),0.6861763965848842
+R2c_am_anchor,0.15,True,always TWAP,0.7999453019120999
+R2c_am_anchor,0.15,True,oracle,0.1660053997595874
+R2c_am_anchor,0.15,True,original h_k1,14.967807631513669
+R2c_am_anchor,0.15,True,original h_c_f_m_k1,14.967807631513669
+R2c_am_anchor,0.15,True,recalibrated h_k1,14.967807631513669
+R2c_am_anchor,0.15,True,recalibrated h_c_f_m_k1,14.967807631513669
+R2c_am_anchor,0.15,True,compound Hawkes,2.271860150216934
+R2c_am_anchor,0.15,True,corrected,0.1660053997595874
+R2c_am_anchor,0.15,True,corrected + frozen rule,14.967807631513669
+R2c_am_anchor,0.15,True,frozen rule (design set D),14.967807631513669
+R2d_am_toxic,0.05,True,always TWAP,6.883000455339747
+R2d_am_toxic,0.05,True,oracle,1.2695453784826967
+R2d_am_toxic,0.05,True,original h_k1,0.0
+R2d_am_toxic,0.05,True,original h_c_f_m_k1,9.423853899874494
+R2d_am_toxic,0.05,True,recalibrated h_k1,2.978228871280372
+R2d_am_toxic,0.05,True,recalibrated h_c_f_m_k1,9.423853899874494
+R2d_am_toxic,0.05,True,compound Hawkes,7.751757985016862
+R2d_am_toxic,0.05,True,corrected,1.2695453784826967
+R2d_am_toxic,0.05,True,corrected + frozen rule,6.883000455339747
+R2d_am_toxic,0.05,True,frozen rule (design set D),6.883000455339747
+R2d_am_toxic,0.15,True,always TWAP,11.994231985662768
+R2d_am_toxic,0.15,True,oracle,11.994231985662768
+R2d_am_toxic,0.15,True,original h_k1,8.929728835541479
+R2d_am_toxic,0.15,True,original h_c_f_m_k1,23.087715389683826
+R2d_am_toxic,0.15,True,recalibrated h_k1,24.724691003287386
+R2d_am_toxic,0.15,True,recalibrated h_c_f_m_k1,23.087715389683826
+R2d_am_toxic,0.15,True,compound Hawkes,23.087715389683826
+R2d_am_toxic,0.15,True,corrected,0.0
+R2d_am_toxic,0.15,True,corrected + frozen rule,15.723034050637029
+R2d_am_toxic,0.15,True,frozen rule (design set D),15.723034050637029
+R2e_am_calm,0.05,True,always TWAP,1.4500847882887338
+R2e_am_calm,0.05,True,oracle,0.0
+R2e_am_calm,0.05,True,original h_k1,2.730616205563789
+R2e_am_calm,0.05,True,original h_c_f_m_k1,2.7611567757776574
+R2e_am_calm,0.05,True,recalibrated h_k1,2.730616205563789
+R2e_am_calm,0.05,True,recalibrated h_c_f_m_k1,1.5118969167655156
+R2e_am_calm,0.05,True,compound Hawkes,2.9596438781319923
+R2e_am_calm,0.05,True,corrected,1.5118969167655156
+R2e_am_calm,0.05,True,corrected + frozen rule,1.4500847882887338
+R2e_am_calm,0.05,True,frozen rule (design set D),1.4500847882887338
+R2e_am_calm,0.15,True,always TWAP,0.9737862922597511
+R2e_am_calm,0.15,True,oracle,0.0
+R2e_am_calm,0.15,True,original h_k1,7.91210947134131
+R2e_am_calm,0.15,True,original h_c_f_m_k1,7.91210947134131
+R2e_am_calm,0.15,True,recalibrated h_k1,7.91210947134131
+R2e_am_calm,0.15,True,recalibrated h_c_f_m_k1,1.8589174234655674
+R2e_am_calm,0.15,True,compound Hawkes,0.0
+R2e_am_calm,0.15,True,corrected,1.8589174234655674
+R2e_am_calm,0.15,True,corrected + frozen rule,0.9737862922597511
+R2e_am_calm,0.15,True,frozen rule (design set D),0.9737862922597511
+W1_hk1_R1a,0.05,True,always TWAP,0.563100008796698
+W1_hk1_R1a,0.05,True,oracle,0.0
+W1_hk1_R1a,0.05,True,original h_k1,0.06949194207185005
+W1_hk1_R1a,0.05,True,original h_c_f_m_k1,0.46776188826942544
+W1_hk1_R1a,0.05,True,recalibrated h_k1,0.13089963630751456
+W1_hk1_R1a,0.05,True,recalibrated h_c_f_m_k1,0.4862437141421667
+W1_hk1_R1a,0.05,True,compound Hawkes,0.13089963630751456
+W1_hk1_R1a,0.05,True,corrected,0.3597540641193504
+W1_hk1_R1a,0.05,True,corrected + frozen rule,0.563100008796698
+W1_hk1_R1a,0.05,True,frozen rule (design set D),0.563100008796698
+W1_hk1_R1a,0.15,True,always TWAP,0.40005286512180405
+W1_hk1_R1a,0.15,True,oracle,0.0
+W1_hk1_R1a,0.15,True,original h_k1,0.4947323643798427
+W1_hk1_R1a,0.15,True,original h_c_f_m_k1,0.8870690646479353
+W1_hk1_R1a,0.15,True,recalibrated h_k1,0.899602499305642
+W1_hk1_R1a,0.15,True,recalibrated h_c_f_m_k1,0.40005286512180405
+W1_hk1_R1a,0.15,True,compound Hawkes,2.704353195257049
+W1_hk1_R1a,0.15,True,corrected,0.8870690646479353
+W1_hk1_R1a,0.15,True,corrected + frozen rule,0.40005286512180405
+W1_hk1_R1a,0.15,True,frozen rule (design set D),0.40005286512180405
+W2_hcfm_R1a,0.05,True,always TWAP,0.2892215610674711
+W2_hcfm_R1a,0.05,True,oracle,0.18782643172172442
+W2_hcfm_R1a,0.05,True,original h_k1,0.1820234594731751
+W2_hcfm_R1a,0.05,True,original h_c_f_m_k1,0.21137996314446106
+W2_hcfm_R1a,0.05,True,recalibrated h_k1,0.21137996314446106
+W2_hcfm_R1a,0.05,True,recalibrated h_c_f_m_k1,0.14557880614257357
+W2_hcfm_R1a,0.05,True,compound Hawkes,0.13777972451827658
+W2_hcfm_R1a,0.05,True,corrected,0.13777972451827658
+W2_hcfm_R1a,0.05,True,corrected + frozen rule,0.2892215610674711
+W2_hcfm_R1a,0.05,True,frozen rule (design set D),0.2892215610674711
+W2_hcfm_R1a,0.15,True,always TWAP,0.11251878694970951
+W2_hcfm_R1a,0.15,True,oracle,0.24339658270857356
+W2_hcfm_R1a,0.15,True,original h_k1,0.4772524150377846
+W2_hcfm_R1a,0.15,True,original h_c_f_m_k1,1.3775155503250573
+W2_hcfm_R1a,0.15,True,recalibrated h_k1,2.9571425357646692
+W2_hcfm_R1a,0.15,True,recalibrated h_c_f_m_k1,2.9571425357646692
+W2_hcfm_R1a,0.15,True,compound Hawkes,0.0014874674912679353
+W2_hcfm_R1a,0.15,True,corrected,0.0014874674912679353
+W2_hcfm_R1a,0.15,True,corrected + frozen rule,0.11251878694970951
+W2_hcfm_R1a,0.15,True,frozen rule (design set D),0.11251878694970951
+W3_hk1_R1b,0.05,True,always TWAP,2.4843899414668424
+W3_hk1_R1b,0.05,True,oracle,2.4843899414668424
+W3_hk1_R1b,0.05,True,original h_k1,14.40904455274061
+W3_hk1_R1b,0.05,True,original h_c_f_m_k1,7.472252379820667
+W3_hk1_R1b,0.05,True,recalibrated h_k1,2.4843899414668424
+W3_hk1_R1b,0.05,True,recalibrated h_c_f_m_k1,4.016457803757239
+W3_hk1_R1b,0.05,True,compound Hawkes,14.40904455274061
+W3_hk1_R1b,0.05,True,corrected,4.216696866947439
+W3_hk1_R1b,0.05,True,corrected + frozen rule,2.4843899414668424
+W3_hk1_R1b,0.05,True,frozen rule (design set D),2.4843899414668424
+W3_hk1_R1b,0.15,True,always TWAP,3.72474584789623
+W3_hk1_R1b,0.15,True,oracle,0.0
+W3_hk1_R1b,0.15,True,original h_k1,10.501704829911517
+W3_hk1_R1b,0.15,True,original h_c_f_m_k1,7.282462748534897
+W3_hk1_R1b,0.15,True,recalibrated h_k1,9.561610057637886
+W3_hk1_R1b,0.15,True,recalibrated h_c_f_m_k1,21.65915333484473
+W3_hk1_R1b,0.15,True,compound Hawkes,21.65915333484473
+W3_hk1_R1b,0.15,True,corrected,6.377372833379006
+W3_hk1_R1b,0.15,True,corrected + frozen rule,3.72474584789623
+W3_hk1_R1b,0.15,True,frozen rule (design set D),3.72474584789623
+W4_hcfm_R1b,0.05,True,always TWAP,1.4628760296136853
+W4_hcfm_R1b,0.05,True,oracle,0.0
+W4_hcfm_R1b,0.05,True,original h_k1,1.4628760296136853
+W4_hcfm_R1b,0.05,True,original h_c_f_m_k1,1.5734439407875396
+W4_hcfm_R1b,0.05,True,recalibrated h_k1,11.482785758926646
+W4_hcfm_R1b,0.05,True,recalibrated h_c_f_m_k1,1.5734439407875396
+W4_hcfm_R1b,0.05,True,compound Hawkes,11.482785758926646
+W4_hcfm_R1b,0.05,True,corrected,1.532916235197403
+W4_hcfm_R1b,0.05,True,corrected + frozen rule,0.0
+W4_hcfm_R1b,0.05,True,frozen rule (design set D),0.0
+W4_hcfm_R1b,0.15,True,always TWAP,1.5376621556060712
+W4_hcfm_R1b,0.15,True,oracle,0.0
+W4_hcfm_R1b,0.15,True,original h_k1,1.5376621556060712
+W4_hcfm_R1b,0.15,True,original h_c_f_m_k1,4.5076256671625
+W4_hcfm_R1b,0.15,True,recalibrated h_k1,0.0
+W4_hcfm_R1b,0.15,True,recalibrated h_c_f_m_k1,0.0
+W4_hcfm_R1b,0.15,True,compound Hawkes,35.940967918789376
+W4_hcfm_R1b,0.15,True,corrected,15.720371319537655
+W4_hcfm_R1b,0.15,True,corrected + frozen rule,1.5376621556060712
+W4_hcfm_R1b,0.15,True,frozen rule (design set D),1.5376621556060712
+W5_hk1_R2a,0.05,True,always TWAP,4.644544810118617
+W5_hk1_R2a,0.05,True,oracle,1.0202032438721567
+W5_hk1_R2a,0.05,True,original h_k1,3.2924399500905253
+W5_hk1_R2a,0.05,True,original h_c_f_m_k1,3.2924399500905253
+W5_hk1_R2a,0.05,True,recalibrated h_k1,9.455722656674762
+W5_hk1_R2a,0.05,True,recalibrated h_c_f_m_k1,0.0
+W5_hk1_R2a,0.05,True,compound Hawkes,8.105841177868808
+W5_hk1_R2a,0.05,True,corrected,4.57273522203862
+W5_hk1_R2a,0.05,True,corrected + frozen rule,4.644544810118617
+W5_hk1_R2a,0.05,True,frozen rule (design set D),4.644544810118617
+W5_hk1_R2a,0.15,True,always TWAP,14.783209900406987
+W5_hk1_R2a,0.15,True,oracle,10.679011185370335
+W5_hk1_R2a,0.15,True,original h_k1,0.0
+W5_hk1_R2a,0.15,True,original h_c_f_m_k1,0.0
+W5_hk1_R2a,0.15,True,recalibrated h_k1,0.0
+W5_hk1_R2a,0.15,True,recalibrated h_c_f_m_k1,0.0
+W5_hk1_R2a,0.15,True,compound Hawkes,0.0
+W5_hk1_R2a,0.15,True,corrected,14.783209900406987
+W5_hk1_R2a,0.15,True,corrected + frozen rule,14.783209900406987
+W5_hk1_R2a,0.15,True,frozen rule (design set D),0.0
+W6_hcfm_R2a,0.05,True,always TWAP,2.8259695641409515
+W6_hcfm_R2a,0.05,True,oracle,0.0
+W6_hcfm_R2a,0.05,True,original h_k1,0.19490999870442138
+W6_hcfm_R2a,0.05,True,original h_c_f_m_k1,1.667066891846364
+W6_hcfm_R2a,0.05,True,recalibrated h_k1,0.19490999870442138
+W6_hcfm_R2a,0.05,True,recalibrated h_c_f_m_k1,4.3139918308520855
+W6_hcfm_R2a,0.05,True,compound Hawkes,0.19490999870442138
+W6_hcfm_R2a,0.05,True,corrected,0.0
+W6_hcfm_R2a,0.05,True,corrected + frozen rule,2.8259695641409515
+W6_hcfm_R2a,0.05,True,frozen rule (design set D),2.8259695641409515
+W6_hcfm_R2a,0.15,True,always TWAP,16.520124911147782
+W6_hcfm_R2a,0.15,True,oracle,0.0
+W6_hcfm_R2a,0.15,True,original h_k1,0.0
+W6_hcfm_R2a,0.15,True,original h_c_f_m_k1,0.0
+W6_hcfm_R2a,0.15,True,recalibrated h_k1,0.0
+W6_hcfm_R2a,0.15,True,recalibrated h_c_f_m_k1,0.0
+W6_hcfm_R2a,0.15,True,compound Hawkes,0.0
+W6_hcfm_R2a,0.15,True,corrected,17.100754409447738
+W6_hcfm_R2a,0.15,True,corrected + frozen rule,16.520124911147782
+W6_hcfm_R2a,0.15,True,frozen rule (design set D),0.0
+Xqr_join_0.3,0.05,False,always TWAP,0.30813481759537886
+Xqr_join_0.3,0.05,False,original h_k1,0.2803530145563258
+Xqr_join_0.3,0.05,False,original h_c_f_m_k1,0.1600682730372407
+Xqr_join_0.3,0.05,False,recalibrated h_k1,0.2803530145563258
+Xqr_join_0.3,0.05,False,recalibrated h_c_f_m_k1,0.1600682730372407
+Xqr_join_0.3,0.05,False,compound Hawkes,0.0
+Xqr_join_0.3,0.05,False,corrected,0.1600682730372407
+Xqr_join_0.3,0.05,False,corrected + frozen rule,0.30813481759537886
+Xqr_join_0.3,0.05,False,frozen rule (design set D),0.30813481759537886
+Xqr_join_0.3,0.15,False,always TWAP,0.3029781419914652
+Xqr_join_0.3,0.15,False,original h_k1,0.6631462972457651
+Xqr_join_0.3,0.15,False,original h_c_f_m_k1,0.10787925338121696
+Xqr_join_0.3,0.15,False,recalibrated h_k1,0.10787925338121696
+Xqr_join_0.3,0.15,False,recalibrated h_c_f_m_k1,0.10787925338121696
+Xqr_join_0.3,0.15,False,compound Hawkes,0.3029781419914652
+Xqr_join_0.3,0.15,False,corrected,0.39754045299010166
+Xqr_join_0.3,0.15,False,corrected + frozen rule,0.3029781419914652
+Xqr_join_0.3,0.15,False,frozen rule (design set D),0.3029781419914652
+Xqr_join_0.6,0.05,False,always TWAP,0.24739743071897546
+Xqr_join_0.6,0.05,False,original h_k1,0.40017048123547205
+Xqr_join_0.6,0.05,False,original h_c_f_m_k1,0.3046270872497203
+Xqr_join_0.6,0.05,False,recalibrated h_k1,0.4263151055973484
+Xqr_join_0.6,0.05,False,recalibrated h_c_f_m_k1,0.3046270872497203
+Xqr_join_0.6,0.05,False,compound Hawkes,0.26889929228882803
+Xqr_join_0.6,0.05,False,corrected,0.26889929228882803
+Xqr_join_0.6,0.05,False,corrected + frozen rule,0.24739743071897546
+Xqr_join_0.6,0.05,False,frozen rule (design set D),0.24739743071897546
+Xqr_join_0.6,0.15,False,always TWAP,0.599651109199117
+Xqr_join_0.6,0.15,False,original h_k1,1.082647008369909
+Xqr_join_0.6,0.15,False,original h_c_f_m_k1,0.0
+Xqr_join_0.6,0.15,False,recalibrated h_k1,1.082647008369909
+Xqr_join_0.6,0.15,False,recalibrated h_c_f_m_k1,0.0
+Xqr_join_0.6,0.15,False,compound Hawkes,1.080885178877974
+Xqr_join_0.6,0.15,False,corrected,0.5557054552090648
+Xqr_join_0.6,0.15,False,corrected + frozen rule,0.599651109199117
+Xqr_join_0.6,0.15,False,frozen rule (design set D),0.599651109199117
+Xqr_base,0.05,False,always TWAP,0.2570909730913584
+Xqr_base,0.05,False,original h_k1,0.13095375142267862
+Xqr_base,0.05,False,original h_c_f_m_k1,0.09758959528450273
+Xqr_base,0.05,False,recalibrated h_k1,0.2570909730913584
+Xqr_base,0.05,False,recalibrated h_c_f_m_k1,0.04763857325945686
+Xqr_base,0.05,False,compound Hawkes,0.154737318788702
+Xqr_base,0.05,False,corrected,0.154737318788702
+Xqr_base,0.05,False,corrected + frozen rule,0.2570909730913584
+Xqr_base,0.05,False,frozen rule (design set D),0.2570909730913584
+Xqr_base,0.15,False,always TWAP,0.0
+Xqr_base,0.15,False,original h_k1,0.15220860134537695
+Xqr_base,0.15,False,original h_c_f_m_k1,0.1602942043071982
+Xqr_base,0.15,False,recalibrated h_k1,0.3023413693599668
+Xqr_base,0.15,False,recalibrated h_c_f_m_k1,0.15220860134537695
+Xqr_base,0.15,False,compound Hawkes,0.2115860755041803
+Xqr_base,0.15,False,corrected,0.07107881404171401
+Xqr_base,0.15,False,corrected + frozen rule,0.0
+Xqr_base,0.15,False,frozen rule (design set D),0.0
+Xqr_join_2.4,0.05,False,always TWAP,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,original h_k1,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,original h_c_f_m_k1,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,recalibrated h_k1,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,recalibrated h_c_f_m_k1,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,compound Hawkes,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,corrected,0.0
+Xqr_join_2.4,0.05,False,corrected + frozen rule,8.881784197001252e-16
+Xqr_join_2.4,0.05,False,frozen rule (design set D),8.881784197001252e-16
+Xqr_join_2.4,0.15,False,always TWAP,0.0
+Xqr_join_2.4,0.15,False,original h_k1,0.0
+Xqr_join_2.4,0.15,False,original h_c_f_m_k1,8.881784197001252e-16
+Xqr_join_2.4,0.15,False,recalibrated h_k1,8.881784197001252e-16
+Xqr_join_2.4,0.15,False,recalibrated h_c_f_m_k1,8.881784197001252e-16
+Xqr_join_2.4,0.15,False,compound Hawkes,8.881784197001252e-16
+Xqr_join_2.4,0.15,False,corrected,1.7763568394002505e-15
+Xqr_join_2.4,0.15,False,corrected + frozen rule,0.0
+Xqr_join_2.4,0.15,False,frozen rule (design set D),0.0
+Xqr_join_4.8,0.05,False,always TWAP,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,original h_k1,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,original h_c_f_m_k1,0.0
+Xqr_join_4.8,0.05,False,recalibrated h_k1,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,recalibrated h_c_f_m_k1,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,compound Hawkes,0.0
+Xqr_join_4.8,0.05,False,corrected,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,corrected + frozen rule,8.881784197001252e-16
+Xqr_join_4.8,0.05,False,frozen rule (design set D),8.881784197001252e-16
+Xqr_join_4.8,0.15,False,always TWAP,0.0
+Xqr_join_4.8,0.15,False,original h_k1,0.0
+Xqr_join_4.8,0.15,False,original h_c_f_m_k1,0.0
+Xqr_join_4.8,0.15,False,recalibrated h_k1,0.0
+Xqr_join_4.8,0.15,False,recalibrated h_c_f_m_k1,0.0
+Xqr_join_4.8,0.15,False,compound Hawkes,8.881784197001252e-16
+Xqr_join_4.8,0.15,False,corrected,0.0
+Xqr_join_4.8,0.15,False,corrected + frozen rule,0.0
+Xqr_join_4.8,0.15,False,frozen rule (design set D),0.0
+Xqr_theta_0.4,0.05,False,always TWAP,0.0
+Xqr_theta_0.4,0.05,False,original h_k1,0.011875002968751325
+Xqr_theta_0.4,0.05,False,original h_c_f_m_k1,0.00714404940505986
+Xqr_theta_0.4,0.05,False,recalibrated h_k1,0.009521430951786591
+Xqr_theta_0.4,0.05,False,recalibrated h_c_f_m_k1,0.014307146433929496
+Xqr_theta_0.4,0.05,False,compound Hawkes,0.011875002968751325
+Xqr_theta_0.4,0.05,False,corrected,0.009521430951786591
+Xqr_theta_0.4,0.05,False,corrected + frozen rule,0.004759524999404796
+Xqr_theta_0.4,0.05,False,frozen rule (design set D),0.004759524999404796
+Xqr_theta_0.4,0.15,False,always TWAP,0.12430674681435505
+Xqr_theta_0.4,0.15,False,original h_k1,0.03986915059228746
+Xqr_theta_0.4,0.15,False,original h_c_f_m_k1,0.03986915059228746
+Xqr_theta_0.4,0.15,False,recalibrated h_k1,0.03986915059228746
+Xqr_theta_0.4,0.15,False,recalibrated h_c_f_m_k1,0.03986915059228746
+Xqr_theta_0.4,0.15,False,compound Hawkes,0.0
+Xqr_theta_0.4,0.15,False,corrected,0.03986915059228746
+Xqr_theta_0.4,0.15,False,corrected + frozen rule,0.12430674681435505
+Xqr_theta_0.4,0.15,False,frozen rule (design set D),0.12430674681435505
+Xqr_theta_0.8,0.05,False,always TWAP,0.06667381665414673
+Xqr_theta_0.8,0.05,False,original h_k1,0.0
+Xqr_theta_0.8,0.05,False,original h_c_f_m_k1,0.0
+Xqr_theta_0.8,0.05,False,recalibrated h_k1,0.16192624043872428
+Xqr_theta_0.8,0.05,False,recalibrated h_c_f_m_k1,0.0
+Xqr_theta_0.8,0.05,False,compound Hawkes,0.0
+Xqr_theta_0.8,0.05,False,corrected,0.1285572177751142
+Xqr_theta_0.8,0.05,False,corrected + frozen rule,0.06667381665414673
+Xqr_theta_0.8,0.05,False,frozen rule (design set D),0.06667381665414673
+Xqr_theta_0.8,0.15,False,always TWAP,0.039933872553505445
+Xqr_theta_0.8,0.15,False,original h_k1,0.0
+Xqr_theta_0.8,0.15,False,original h_c_f_m_k1,0.08905315023360583
+Xqr_theta_0.8,0.15,False,recalibrated h_k1,0.003196743035605465
+Xqr_theta_0.8,0.15,False,recalibrated h_c_f_m_k1,0.01886707197665327
+Xqr_theta_0.8,0.15,False,compound Hawkes,0.0
+Xqr_theta_0.8,0.15,False,corrected,0.003196743035605465
+Xqr_theta_0.8,0.15,False,corrected + frozen rule,0.039933872553505445
+Xqr_theta_0.8,0.15,False,frozen rule (design set D),0.039933872553505445
+Xqr_theta_2,0.05,False,always TWAP,0.2399751281341418
+Xqr_theta_2,0.05,False,original h_k1,0.4877109476744774
+Xqr_theta_2,0.05,False,original h_c_f_m_k1,0.0
+Xqr_theta_2,0.05,False,recalibrated h_k1,0.2540607113872708
+Xqr_theta_2,0.05,False,recalibrated h_c_f_m_k1,0.4877109476744774
+Xqr_theta_2,0.05,False,compound Hawkes,0.5016122737079236
+Xqr_theta_2,0.05,False,corrected,0.4877109476744774
+Xqr_theta_2,0.05,False,corrected + frozen rule,0.2399751281341418
+Xqr_theta_2,0.05,False,frozen rule (design set D),0.2399751281341418
+Xqr_theta_2,0.15,False,always TWAP,0.0
+Xqr_theta_2,0.15,False,original h_k1,0.13418520317754457
+Xqr_theta_2,0.15,False,original h_c_f_m_k1,0.06984563039653402
+Xqr_theta_2,0.15,False,recalibrated h_k1,0.3336568430133129
+Xqr_theta_2,0.15,False,recalibrated h_c_f_m_k1,0.13418520317754457
+Xqr_theta_2,0.15,False,compound Hawkes,0.3336568430133129
+Xqr_theta_2,0.15,False,corrected,0.0
+Xqr_theta_2,0.15,False,corrected + frozen rule,0.0
+Xqr_theta_2,0.15,False,frozen rule (design set D),0.0
+Xqr_theta_2.8,0.05,False,always TWAP,1.274535675128683
+Xqr_theta_2.8,0.05,False,original h_k1,0.8869741040473231
+Xqr_theta_2.8,0.05,False,original h_c_f_m_k1,1.2559720423804643
+Xqr_theta_2.8,0.05,False,recalibrated h_k1,1.0761166582954225
+Xqr_theta_2.8,0.05,False,recalibrated h_c_f_m_k1,0.0
+Xqr_theta_2.8,0.05,False,compound Hawkes,1.0761166582954225
+Xqr_theta_2.8,0.05,False,corrected,1.9194260677573851
+Xqr_theta_2.8,0.05,False,corrected + frozen rule,1.274535675128683
+Xqr_theta_2.8,0.05,False,frozen rule (design set D),1.274535675128683
+Xqr_theta_2.8,0.15,False,always TWAP,0.7605627044938466
+Xqr_theta_2.8,0.15,False,original h_k1,0.48148002947221435
+Xqr_theta_2.8,0.15,False,original h_c_f_m_k1,0.7605627044938466
+Xqr_theta_2.8,0.15,False,recalibrated h_k1,0.7605627044938466
+Xqr_theta_2.8,0.15,False,recalibrated h_c_f_m_k1,2.0284563300117053
+Xqr_theta_2.8,0.15,False,compound Hawkes,0.0
+Xqr_theta_2.8,0.15,False,corrected,0.7405032159817857
+Xqr_theta_2.8,0.15,False,corrected + frozen rule,0.7605627044938466
+Xqr_theta_2.8,0.15,False,frozen rule (design set D),0.7605627044938466
+Xam_fund_0.025,0.05,False,always TWAP,5.1367253511035
+Xam_fund_0.025,0.05,False,original h_k1,9.681096140199429
+Xam_fund_0.025,0.05,False,original h_c_f_m_k1,9.681096140199429
+Xam_fund_0.025,0.05,False,recalibrated h_k1,6.1543221789222535
+Xam_fund_0.025,0.05,False,recalibrated h_c_f_m_k1,9.681096140199429
+Xam_fund_0.025,0.05,False,compound Hawkes,6.1543221789222535
+Xam_fund_0.025,0.05,False,corrected,6.1543221789222535
+Xam_fund_0.025,0.05,False,corrected + frozen rule,5.1367253511035
+Xam_fund_0.025,0.05,False,frozen rule (design set D),5.1367253511035
+Xam_fund_0.025,0.15,False,always TWAP,4.459369702989914
+Xam_fund_0.025,0.15,False,original h_k1,21.23617893060902
+Xam_fund_0.025,0.15,False,original h_c_f_m_k1,7.035964326414227
+Xam_fund_0.025,0.15,False,recalibrated h_k1,21.23617893060902
+Xam_fund_0.025,0.15,False,recalibrated h_c_f_m_k1,7.035964326414227
+Xam_fund_0.025,0.15,False,compound Hawkes,10.292128627398395
+Xam_fund_0.025,0.15,False,corrected,22.631859057117587
+Xam_fund_0.025,0.15,False,corrected + frozen rule,4.459369702989914
+Xam_fund_0.025,0.15,False,frozen rule (design set D),7.035964326414227
+Xam_fund_0.05,0.05,False,always TWAP,3.2336767532253123
+Xam_fund_0.05,0.05,False,original h_k1,0.0
+Xam_fund_0.05,0.05,False,original h_c_f_m_k1,6.184064453324728
+Xam_fund_0.05,0.05,False,recalibrated h_k1,6.184064453324728
+Xam_fund_0.05,0.05,False,recalibrated h_c_f_m_k1,6.184064453324728
+Xam_fund_0.05,0.05,False,compound Hawkes,6.644293846443496
+Xam_fund_0.05,0.05,False,corrected,6.644293846443496
+Xam_fund_0.05,0.05,False,corrected + frozen rule,3.2336767532253123
+Xam_fund_0.05,0.05,False,frozen rule (design set D),3.2336767532253123
+Xam_fund_0.05,0.15,False,always TWAP,2.5288736184295892
+Xam_fund_0.05,0.15,False,original h_k1,17.794961964149497
+Xam_fund_0.05,0.15,False,original h_c_f_m_k1,4.347874377347903
+Xam_fund_0.05,0.15,False,recalibrated h_k1,17.794961964149497
+Xam_fund_0.05,0.15,False,recalibrated h_c_f_m_k1,4.347874377347903
+Xam_fund_0.05,0.15,False,compound Hawkes,17.794961964149497
+Xam_fund_0.05,0.15,False,corrected,17.794961964149497
+Xam_fund_0.05,0.15,False,corrected + frozen rule,17.794961964149497
+Xam_fund_0.05,0.15,False,frozen rule (design set D),2.5288736184295892
+Xam_base,0.05,False,always TWAP,2.3290828502191525
+Xam_base,0.05,False,original h_k1,0.0
+Xam_base,0.05,False,original h_c_f_m_k1,4.104816366328856
+Xam_base,0.05,False,recalibrated h_k1,4.104816366328856
+Xam_base,0.05,False,recalibrated h_c_f_m_k1,4.104816366328856
+Xam_base,0.05,False,compound Hawkes,7.521692526035877
+Xam_base,0.05,False,corrected,5.7301893352186655
+Xam_base,0.05,False,corrected + frozen rule,4.104816366328856
+Xam_base,0.05,False,frozen rule (design set D),4.104816366328856
+Xam_base,0.15,False,always TWAP,2.3088709230183913
+Xam_base,0.15,False,original h_k1,15.72146106355833
+Xam_base,0.15,False,original h_c_f_m_k1,15.72146106355833
+Xam_base,0.15,False,recalibrated h_k1,15.72146106355833
+Xam_base,0.15,False,recalibrated h_c_f_m_k1,17.782591741547638
+Xam_base,0.15,False,compound Hawkes,15.72146106355833
+Xam_base,0.15,False,corrected,1.082980464343665
+Xam_base,0.15,False,corrected + frozen rule,15.72146106355833
+Xam_base,0.15,False,frozen rule (design set D),15.72146106355833
+Xam_fund_0.2,0.05,False,always TWAP,0.8474179913633133
+Xam_fund_0.2,0.05,False,original h_k1,9.0368008790905
+Xam_fund_0.2,0.05,False,original h_c_f_m_k1,9.0368008790905
+Xam_fund_0.2,0.05,False,recalibrated h_k1,0.8474179913633133
+Xam_fund_0.2,0.05,False,recalibrated h_c_f_m_k1,9.0368008790905
+Xam_fund_0.2,0.05,False,compound Hawkes,9.0368008790905
+Xam_fund_0.2,0.05,False,corrected,9.0368008790905
+Xam_fund_0.2,0.05,False,corrected + frozen rule,9.0368008790905
+Xam_fund_0.2,0.05,False,frozen rule (design set D),9.0368008790905
+Xam_fund_0.2,0.15,False,always TWAP,6.765452826117098
+Xam_fund_0.2,0.15,False,original h_k1,19.432180881721816
+Xam_fund_0.2,0.15,False,original h_c_f_m_k1,17.86474838867452
+Xam_fund_0.2,0.15,False,recalibrated h_k1,19.432180881721816
+Xam_fund_0.2,0.15,False,recalibrated h_c_f_m_k1,17.86474838867452
+Xam_fund_0.2,0.15,False,compound Hawkes,19.432180881721816
+Xam_fund_0.2,0.15,False,corrected,19.432180881721816
+Xam_fund_0.2,0.15,False,corrected + frozen rule,6.765452826117098
+Xam_fund_0.2,0.15,False,frozen rule (design set D),19.432180881721816
+Xam_fund_0.4,0.05,False,always TWAP,4.695015658293322
+Xam_fund_0.4,0.05,False,original h_k1,7.095352454277613
+Xam_fund_0.4,0.05,False,original h_c_f_m_k1,13.857849598457761
+Xam_fund_0.4,0.05,False,recalibrated h_k1,13.857849598457761
+Xam_fund_0.4,0.05,False,recalibrated h_c_f_m_k1,13.857849598457761
+Xam_fund_0.4,0.05,False,compound Hawkes,13.857849598457761
+Xam_fund_0.4,0.05,False,corrected,0.0
+Xam_fund_0.4,0.05,False,corrected + frozen rule,4.695015658293322
+Xam_fund_0.4,0.05,False,frozen rule (design set D),4.695015658293322
+Xam_fund_0.4,0.15,False,always TWAP,4.285981776708855
+Xam_fund_0.4,0.15,False,original h_k1,21.420100499576886
+Xam_fund_0.4,0.15,False,original h_c_f_m_k1,18.58604755635537
+Xam_fund_0.4,0.15,False,recalibrated h_k1,10.844274728352143
+Xam_fund_0.4,0.15,False,recalibrated h_c_f_m_k1,18.58604755635537
+Xam_fund_0.4,0.15,False,compound Hawkes,9.721812204408653
+Xam_fund_0.4,0.15,False,corrected,7.161918415426527
+Xam_fund_0.4,0.15,False,corrected + frozen rule,6.4701774580611335
+Xam_fund_0.4,0.15,False,frozen rule (design set D),7.230804875988255
+Xam_withdraw_0.5,0.05,False,always TWAP,3.5215155329472196
+Xam_withdraw_0.5,0.05,False,original h_k1,4.771202257321395
+Xam_withdraw_0.5,0.05,False,original h_c_f_m_k1,4.771202257321395
+Xam_withdraw_0.5,0.05,False,recalibrated h_k1,4.771202257321395
+Xam_withdraw_0.5,0.05,False,recalibrated h_c_f_m_k1,4.523484212672049
+Xam_withdraw_0.5,0.05,False,compound Hawkes,6.439940138094688
+Xam_withdraw_0.5,0.05,False,corrected,6.439940138094688
+Xam_withdraw_0.5,0.05,False,corrected + frozen rule,3.5215155329472196
+Xam_withdraw_0.5,0.05,False,frozen rule (design set D),3.5215155329472196
+Xam_withdraw_0.5,0.15,False,always TWAP,3.8715192360468134
+Xam_withdraw_0.5,0.15,False,original h_k1,15.312723419814665
+Xam_withdraw_0.5,0.15,False,original h_c_f_m_k1,15.312723419814665
+Xam_withdraw_0.5,0.15,False,recalibrated h_k1,15.312723419814665
+Xam_withdraw_0.5,0.15,False,recalibrated h_c_f_m_k1,6.334769891569518
+Xam_withdraw_0.5,0.15,False,compound Hawkes,15.312723419814665
+Xam_withdraw_0.5,0.15,False,corrected,4.795312533643985
+Xam_withdraw_0.5,0.15,False,corrected + frozen rule,3.8715192360468134
+Xam_withdraw_0.5,0.15,False,frozen rule (design set D),3.8715192360468134
+Xam_withdraw_1,0.05,False,always TWAP,2.52299503748136
+Xam_withdraw_1,0.05,False,original h_k1,6.536825470652577
+Xam_withdraw_1,0.05,False,original h_c_f_m_k1,6.536825470652577
+Xam_withdraw_1,0.05,False,recalibrated h_k1,2.52299503748136
+Xam_withdraw_1,0.05,False,recalibrated h_c_f_m_k1,6.321645447930351
+Xam_withdraw_1,0.05,False,compound Hawkes,6.536825470652577
+Xam_withdraw_1,0.05,False,corrected,6.536825470652577
+Xam_withdraw_1,0.05,False,corrected + frozen rule,2.52299503748136
+Xam_withdraw_1,0.05,False,frozen rule (design set D),2.52299503748136
+Xam_withdraw_1,0.15,False,always TWAP,2.0620658559441196
+Xam_withdraw_1,0.15,False,original h_k1,15.874691372363367
+Xam_withdraw_1,0.15,False,original h_c_f_m_k1,15.874691372363367
+Xam_withdraw_1,0.15,False,recalibrated h_k1,15.874691372363367
+Xam_withdraw_1,0.15,False,recalibrated h_c_f_m_k1,15.874691372363367
+Xam_withdraw_1,0.15,False,compound Hawkes,15.874691372363367
+Xam_withdraw_1,0.15,False,corrected,15.874691372363367
+Xam_withdraw_1,0.15,False,corrected + frozen rule,15.874691372363367
+Xam_withdraw_1,0.15,False,frozen rule (design set D),15.874691372363367
+Xam_withdraw_4,0.05,False,always TWAP,1.344950669987111
+Xam_withdraw_4,0.05,False,original h_k1,6.077589316136353
+Xam_withdraw_4,0.05,False,original h_c_f_m_k1,6.077589316136353
+Xam_withdraw_4,0.05,False,recalibrated h_k1,6.077589316136353
+Xam_withdraw_4,0.05,False,recalibrated h_c_f_m_k1,6.077589316136353
+Xam_withdraw_4,0.05,False,compound Hawkes,8.394121437583486
+Xam_withdraw_4,0.05,False,corrected,0.9051666381302477
+Xam_withdraw_4,0.05,False,corrected + frozen rule,1.344950669987111
+Xam_withdraw_4,0.05,False,frozen rule (design set D),1.344950669987111
+Xam_withdraw_4,0.15,False,always TWAP,0.9991841501643783
+Xam_withdraw_4,0.15,False,original h_k1,3.5030426989225347
+Xam_withdraw_4,0.15,False,original h_c_f_m_k1,17.913855086796335
+Xam_withdraw_4,0.15,False,recalibrated h_k1,10.1741641802599
+Xam_withdraw_4,0.15,False,recalibrated h_c_f_m_k1,17.913855086796335
+Xam_withdraw_4,0.15,False,compound Hawkes,3.5030426989225347
+Xam_withdraw_4,0.15,False,corrected,0.6283144045108102
+Xam_withdraw_4,0.15,False,corrected + frozen rule,0.9991841501643783
+Xam_withdraw_4,0.15,False,frozen rule (design set D),0.9991841501643783
+Xam_withdraw_6,0.05,False,always TWAP,2.1889723388673072
+Xam_withdraw_6,0.05,False,original h_k1,1.407300223539476
+Xam_withdraw_6,0.05,False,original h_c_f_m_k1,0.5850620221864755
+Xam_withdraw_6,0.05,False,recalibrated h_k1,1.407300223539476
+Xam_withdraw_6,0.05,False,recalibrated h_c_f_m_k1,2.1889723388673072
+Xam_withdraw_6,0.05,False,compound Hawkes,0.19750790261251971
+Xam_withdraw_6,0.05,False,corrected,1.2808232764292509
+Xam_withdraw_6,0.05,False,corrected + frozen rule,1.407300223539476
+Xam_withdraw_6,0.05,False,frozen rule (design set D),2.1889723388673072
+Xam_withdraw_6,0.15,False,always TWAP,0.0
+Xam_withdraw_6,0.15,False,original h_k1,11.449787385383829
+Xam_withdraw_6,0.15,False,original h_c_f_m_k1,13.162048565874471
+Xam_withdraw_6,0.15,False,recalibrated h_k1,17.648953032394594
+Xam_withdraw_6,0.15,False,recalibrated h_c_f_m_k1,18.047431449508444
+Xam_withdraw_6,0.15,False,compound Hawkes,1.0509650980858325
+Xam_withdraw_6,0.15,False,corrected,2.694266185436213
+Xam_withdraw_6,0.15,False,corrected + frozen rule,0.0
+Xam_withdraw_6,0.15,False,frozen rule (design set D),0.0
+Xam_trend_0.0125,0.05,False,always TWAP,3.3410335360683465
+Xam_trend_0.0125,0.05,False,original h_k1,7.727472160667864
+Xam_trend_0.0125,0.05,False,original h_c_f_m_k1,7.727472160667864
+Xam_trend_0.0125,0.05,False,recalibrated h_k1,7.727472160667864
+Xam_trend_0.0125,0.05,False,recalibrated h_c_f_m_k1,7.905928069884014
+Xam_trend_0.0125,0.05,False,compound Hawkes,7.727472160667864
+Xam_trend_0.0125,0.05,False,corrected,7.727472160667864
+Xam_trend_0.0125,0.05,False,corrected + frozen rule,7.727472160667864
+Xam_trend_0.0125,0.05,False,frozen rule (design set D),3.3410335360683465
+Xam_trend_0.0125,0.15,False,always TWAP,1.8011216217722836
+Xam_trend_0.0125,0.15,False,original h_k1,16.78857690324689
+Xam_trend_0.0125,0.15,False,original h_c_f_m_k1,16.78857690324689
+Xam_trend_0.0125,0.15,False,recalibrated h_k1,16.78857690324689
+Xam_trend_0.0125,0.15,False,recalibrated h_c_f_m_k1,16.78857690324689
+Xam_trend_0.0125,0.15,False,compound Hawkes,16.78857690324689
+Xam_trend_0.0125,0.15,False,corrected,16.78857690324689
+Xam_trend_0.0125,0.15,False,corrected + frozen rule,16.78857690324689
+Xam_trend_0.0125,0.15,False,frozen rule (design set D),16.78857690324689
+Xam_trend_0.025,0.05,False,always TWAP,2.6876260530933953
+Xam_trend_0.025,0.05,False,original h_k1,4.79166284596415
+Xam_trend_0.025,0.05,False,original h_c_f_m_k1,0.0
+Xam_trend_0.025,0.05,False,recalibrated h_k1,4.79166284596415
+Xam_trend_0.025,0.05,False,recalibrated h_c_f_m_k1,4.79166284596415
+Xam_trend_0.025,0.05,False,compound Hawkes,7.547840021649805
+Xam_trend_0.025,0.05,False,corrected,7.547840021649805
+Xam_trend_0.025,0.05,False,corrected + frozen rule,4.79166284596415
+Xam_trend_0.025,0.05,False,frozen rule (design set D),4.79166284596415
+Xam_trend_0.025,0.15,False,always TWAP,1.4238694000280248
+Xam_trend_0.025,0.15,False,original h_k1,0.0
+Xam_trend_0.025,0.15,False,original h_c_f_m_k1,15.710270994504242
+Xam_trend_0.025,0.15,False,recalibrated h_k1,15.710270994504242
+Xam_trend_0.025,0.15,False,recalibrated h_c_f_m_k1,15.710270994504242
+Xam_trend_0.025,0.15,False,compound Hawkes,1.7222057304962934
+Xam_trend_0.025,0.15,False,corrected,15.710270994504242
+Xam_trend_0.025,0.15,False,corrected + frozen rule,15.710270994504242
+Xam_trend_0.025,0.15,False,frozen rule (design set D),1.4238694000280248
+Xam_trend_0.1,0.05,False,always TWAP,1.1802425196905801
+Xam_trend_0.1,0.05,False,original h_k1,0.0
+Xam_trend_0.1,0.05,False,original h_c_f_m_k1,4.266298243551217
+Xam_trend_0.1,0.05,False,recalibrated h_k1,1.1802425196905801
+Xam_trend_0.1,0.05,False,recalibrated h_c_f_m_k1,4.266298243551217
+Xam_trend_0.1,0.05,False,compound Hawkes,7.0423700574087
+Xam_trend_0.1,0.05,False,corrected,1.464115244787731
+Xam_trend_0.1,0.05,False,corrected + frozen rule,4.266298243551217
+Xam_trend_0.1,0.05,False,frozen rule (design set D),4.266298243551217
+Xam_trend_0.1,0.15,False,always TWAP,3.335728740041244
+Xam_trend_0.1,0.15,False,original h_k1,18.936643288787618
+Xam_trend_0.1,0.15,False,original h_c_f_m_k1,19.922892621422672
+Xam_trend_0.1,0.15,False,recalibrated h_k1,16.251896859565854
+Xam_trend_0.1,0.15,False,recalibrated h_c_f_m_k1,18.936643288787618
+Xam_trend_0.1,0.15,False,compound Hawkes,19.922892621422672
+Xam_trend_0.1,0.15,False,corrected,8.747742740336957
+Xam_trend_0.1,0.15,False,corrected + frozen rule,16.251896859565854
+Xam_trend_0.1,0.15,False,frozen rule (design set D),16.251896859565854
+Xam_trend_0.2,0.05,False,always TWAP,0.0
+Xam_trend_0.2,0.05,False,original h_k1,4.312685720700436
+Xam_trend_0.2,0.05,False,original h_c_f_m_k1,2.8621638087033996
+Xam_trend_0.2,0.05,False,recalibrated h_k1,4.312685720700436
+Xam_trend_0.2,0.05,False,recalibrated h_c_f_m_k1,2.8621638087033996
+Xam_trend_0.2,0.05,False,compound Hawkes,2.6817932384642673
+Xam_trend_0.2,0.05,False,corrected,9.722688407633488
+Xam_trend_0.2,0.05,False,corrected + frozen rule,0.0
+Xam_trend_0.2,0.05,False,frozen rule (design set D),0.0
+Xam_trend_0.2,0.15,False,always TWAP,3.280050431545014
+Xam_trend_0.2,0.15,False,original h_k1,11.62402385981773
+Xam_trend_0.2,0.15,False,original h_c_f_m_k1,20.66874807694981
+Xam_trend_0.2,0.15,False,recalibrated h_k1,7.295950637734965
+Xam_trend_0.2,0.15,False,recalibrated h_c_f_m_k1,21.352158144086467
+Xam_trend_0.2,0.15,False,compound Hawkes,11.62402385981773
+Xam_trend_0.2,0.15,False,corrected,8.657708435138844
+Xam_trend_0.2,0.15,False,corrected + frozen rule,11.62402385981773
+Xam_trend_0.2,0.15,False,frozen rule (design set D),11.62402385981773
+Xam_flow_halflife_5,0.05,False,always TWAP,2.808622834442108
+Xam_flow_halflife_5,0.05,False,original h_k1,2.808622834442108
+Xam_flow_halflife_5,0.05,False,original h_c_f_m_k1,5.623637939893431
+Xam_flow_halflife_5,0.05,False,recalibrated h_k1,0.0
+Xam_flow_halflife_5,0.05,False,recalibrated h_c_f_m_k1,5.623637939893431
+Xam_flow_halflife_5,0.05,False,compound Hawkes,6.012868047153502
+Xam_flow_halflife_5,0.05,False,corrected,2.0151211106957776
+Xam_flow_halflife_5,0.05,False,corrected + frozen rule,2.808622834442108
+Xam_flow_halflife_5,0.05,False,frozen rule (design set D),7.101228536636622
+Xam_flow_halflife_5,0.15,False,always TWAP,2.2263681024334154
+Xam_flow_halflife_5,0.15,False,original h_k1,17.31460621105728
+Xam_flow_halflife_5,0.15,False,original h_c_f_m_k1,17.31460621105728
+Xam_flow_halflife_5,0.15,False,recalibrated h_k1,17.31460621105728
+Xam_flow_halflife_5,0.15,False,recalibrated h_c_f_m_k1,17.31460621105728
+Xam_flow_halflife_5,0.15,False,compound Hawkes,5.208428001605519
+Xam_flow_halflife_5,0.15,False,corrected,2.8112866425663743
+Xam_flow_halflife_5,0.15,False,corrected + frozen rule,17.31460621105728
+Xam_flow_halflife_5,0.15,False,frozen rule (design set D),17.31460621105728
+Xam_flow_halflife_10,0.05,False,always TWAP,2.302444283973019
+Xam_flow_halflife_10,0.05,False,original h_k1,3.534235914240355
+Xam_flow_halflife_10,0.05,False,original h_c_f_m_k1,5.14122942052575
+Xam_flow_halflife_10,0.05,False,recalibrated h_k1,8.224861306927087
+Xam_flow_halflife_10,0.05,False,recalibrated h_c_f_m_k1,3.7853626404421945
+Xam_flow_halflife_10,0.05,False,compound Hawkes,1.286005312674913
+Xam_flow_halflife_10,0.05,False,corrected,5.14122942052575
+Xam_flow_halflife_10,0.05,False,corrected + frozen rule,2.302444283973019
+Xam_flow_halflife_10,0.05,False,frozen rule (design set D),2.302444283973019
+Xam_flow_halflife_10,0.15,False,always TWAP,0.9402512531114429
+Xam_flow_halflife_10,0.15,False,original h_k1,14.939146204793808
+Xam_flow_halflife_10,0.15,False,original h_c_f_m_k1,14.939146204793808
+Xam_flow_halflife_10,0.15,False,recalibrated h_k1,14.939146204793808
+Xam_flow_halflife_10,0.15,False,recalibrated h_c_f_m_k1,14.939146204793808
+Xam_flow_halflife_10,0.15,False,compound Hawkes,9.610636861800756
+Xam_flow_halflife_10,0.15,False,corrected,14.939146204793808
+Xam_flow_halflife_10,0.15,False,corrected + frozen rule,14.939146204793808
+Xam_flow_halflife_10,0.15,False,frozen rule (design set D),17.363704834671374
+Xam_flow_halflife_40,0.05,False,always TWAP,2.2263101454673695
+Xam_flow_halflife_40,0.05,False,original h_k1,6.621162067118382
+Xam_flow_halflife_40,0.05,False,original h_c_f_m_k1,3.7979263992008576
+Xam_flow_halflife_40,0.05,False,recalibrated h_k1,0.0
+Xam_flow_halflife_40,0.05,False,recalibrated h_c_f_m_k1,8.067261022180094
+Xam_flow_halflife_40,0.05,False,compound Hawkes,8.067261022180094
+Xam_flow_halflife_40,0.05,False,corrected,8.067261022180094
+Xam_flow_halflife_40,0.05,False,corrected + frozen rule,2.2263101454673695
+Xam_flow_halflife_40,0.05,False,frozen rule (design set D),8.352701242799046
+Xam_flow_halflife_40,0.15,False,always TWAP,0.6317984988595171
+Xam_flow_halflife_40,0.15,False,original h_k1,0.0
+Xam_flow_halflife_40,0.15,False,original h_c_f_m_k1,15.882992824286585
+Xam_flow_halflife_40,0.15,False,recalibrated h_k1,15.882992824286585
+Xam_flow_halflife_40,0.15,False,recalibrated h_c_f_m_k1,15.882992824286585
+Xam_flow_halflife_40,0.15,False,compound Hawkes,17.15107864493437
+Xam_flow_halflife_40,0.15,False,corrected,15.882992824286585
+Xam_flow_halflife_40,0.15,False,corrected + frozen rule,15.882992824286585
+Xam_flow_halflife_40,0.15,False,frozen rule (design set D),15.882992824286585
+Xam_flow_halflife_80,0.05,False,always TWAP,2.711654363551748
+Xam_flow_halflife_80,0.05,False,original h_k1,4.033311538375376
+Xam_flow_halflife_80,0.05,False,original h_c_f_m_k1,4.439295840346865
+Xam_flow_halflife_80,0.05,False,recalibrated h_k1,2.711654363551748
+Xam_flow_halflife_80,0.05,False,recalibrated h_c_f_m_k1,4.439295840346865
+Xam_flow_halflife_80,0.05,False,compound Hawkes,10.983620427795747
+Xam_flow_halflife_80,0.05,False,corrected,4.439295840346865
+Xam_flow_halflife_80,0.05,False,corrected + frozen rule,2.711654363551748
+Xam_flow_halflife_80,0.05,False,frozen rule (design set D),2.711654363551748
+Xam_flow_halflife_80,0.15,False,always TWAP,1.2626784023949824
+Xam_flow_halflife_80,0.15,False,original h_k1,5.512799821753925
+Xam_flow_halflife_80,0.15,False,original h_c_f_m_k1,18.23096814880902
+Xam_flow_halflife_80,0.15,False,recalibrated h_k1,17.777131283863632
+Xam_flow_halflife_80,0.15,False,recalibrated h_c_f_m_k1,18.23096814880902
+Xam_flow_halflife_80,0.15,False,compound Hawkes,18.23096814880902
+Xam_flow_halflife_80,0.15,False,corrected,5.1987772567802235
+Xam_flow_halflife_80,0.15,False,corrected + frozen rule,1.2626784023949824
+Xam_flow_halflife_80,0.15,False,frozen rule (design set D),1.2626784023949824

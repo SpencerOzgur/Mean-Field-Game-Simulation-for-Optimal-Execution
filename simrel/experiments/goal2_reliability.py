@@ -390,6 +390,59 @@ def ident(args) -> None:
             print(f"  pairs differing only in {k}: equivalent {sub.equivalent.mean():.0%}, decision-relevant {sub.decision_relevant.mean():.0%}, median AUC {sub.auc.median():.2f}")
 
 
+def fourway(args) -> None:
+    """Section 6 on the development markets: original, recalibrated, compound Hawkes and corrected designs; gate 3."""
+    from simrel.experiments import goal2_addendum8 as A
+
+    worlds = dev_markets()
+    truth = A.truth_tables(worlds)
+    fz = json.loads((G.BASE / "addendum10" / "rules10_frozen.json").read_text())
+    arms = {"original h_k1": "h_k1", "original h_c_f_m_k1": "h_c_f_m_k1", "recalibrated h_k1": "h_k1_r24",
+            "recalibrated h_c_f_m_k1": "h_c_f_m_k1_r24", "compound Hawkes": "chawkes", "corrected": "h_anchor"}
+    rows = []
+    for w in worlds:
+        for size in (0.05, 0.15):
+            key = (w, size)
+            mats = {d: _matrix(w, d, size) for d in set(arms.values()) | set(DESIGNS) | {"oracle"}}
+            base = {"world": w, "size": size, "core": w in DEV_CORE}
+            rows.append(dict(base, arm="always TWAP", regret=A.regret_of(truth, key, TWAP)))
+            if mats["oracle"] is not None:
+                rows.append(dict(base, arm="oracle", regret=A.regret_of(truth, key, A.pick(*mats["oracle"], range(100)))))
+            for label, d in arms.items():
+                if mats[d] is not None:
+                    rows.append(dict(base, arm=label, regret=A.regret_of(truth, key, A.pick(*mats[d], range(100)))))
+            # the corrected model inside the frozen rule: the design set with the corrected model added
+            m2 = dict(mats)
+            DESIGNS.append("h_anchor")
+            try:
+                s_, dep = decide(fz["chosen_rule"], fz["chosen_params"], w, m2)
+            finally:
+                DESIGNS.remove("h_anchor")
+            rows.append(dict(base, arm="corrected + frozen rule", regret=A.regret_of(truth, key, s_)))
+            s_, dep = decide(fz["chosen_rule"], fz["chosen_params"], w, mats)
+            rows.append(dict(base, arm="frozen rule (design set D)", regret=A.regret_of(truth, key, s_)))
+    t = pd.DataFrame(rows)
+    out = G.BASE / "addendum10"
+    t.to_csv(out / "dev_fourway.csv", index=False)
+    per = t.groupby(["arm", "world", "core"]).regret.mean().reset_index()
+    pd.set_option("display.width", 200)
+    print("development markets: mean regret (bps), 100 decision seeds")
+    print(pd.concat({"all 42": per.groupby("arm").regret.mean(), "16 core": per[per.core].groupby("arm").regret.mean(),
+                     "26 ablation": per[~per.core].groupby("arm").regret.mean()}, axis=1).sort_values("all 42").round(2).to_string())
+    m = per.pivot(index="world", columns="arm", values="regret")
+    rng = np.random.default_rng(20261114)
+    idx = [rng.integers(0, len(m), len(m)) for _ in range(2000)]
+    print("\ngate 3 (95% market bootstrap over the 42 development markets; negative = corrected is better)")
+    for ref in ("original h_c_f_m_k1", "compound Hawkes", "recalibrated h_c_f_m_k1", "always TWAP"):
+        d = (m["corrected"] - m[ref]).to_numpy()
+        bs = [d[i].mean() for i in idx]
+        print(f"  corrected minus {ref}: {d.mean():+.2f} [{np.percentile(bs, 2.5):+.2f}, {np.percentile(bs, 97.5):+.2f}]")
+    for ref in ("original h_k1", "original h_c_f_m_k1"):
+        d = (m["compound Hawkes"] - m[ref]).to_numpy()
+        bs = [d[i].mean() for i in idx]
+        print(f"  compound Hawkes minus {ref}: {d.mean():+.2f} [{np.percentile(bs, 2.5):+.2f}, {np.percentile(bs, 97.5):+.2f}]")
+
+
 TEST_A = [f"R1s0{k}" for k in range(1, 6)] + [f"R2s0{k}" for k in range(1, 6)] + [f"R3s0{k}" for k in range(1, 7)]
 
 
@@ -449,4 +502,4 @@ def test_a(args) -> None:
 
 
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs, "ident": ident}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs, "ident": ident, "fourway": fourway}[sys.argv[1]](sys.argv[2:])

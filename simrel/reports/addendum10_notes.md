@@ -91,3 +91,18 @@ Running log. Each entry is dated and written before the results it concerns exis
     correlation 0.65 and 0.78. The parameters are not identified from six episodes, and observationally close settings
     imply different decisions. Compound Hawkes recovered its own parameters (event rates, baselines, sizes).
     As section 6 requires, the corrected model is still evaluated on the development markets and carried to Test B.
+
+## 14 November 2026, 09:15 EST, identifiability grid and the development-market comparison
+
+18. Identifiability (section 5). 73 of the 81 grid markets are viable (the 8 others combine low replenishment, 0.7,
+    with medium or strong anchoring or trend). Of 1,932 decision-relevant pairs, 1.0% are observationally equivalent at
+    six episodes (0.9% at 24; median AUC 0.99): outcome I1, identifiable. Pairs differing only in withdrawal are the
+    hardest (17% equivalent, median AUC 0.87). Within the agent-mix family the observable features do separate the
+    mechanisms; the corrected model's own parameters are not identified (note 17), so the obstacle is the candidate's
+    structure, not the data. The wrong-mechanism test (the corrected model fitted to every grid market) is still to run.
+19. Gate 3 (section 6), 42 development markets, 100 decision seeds: corrected minus original h_c_f_m_k1 -1.60 bp
+    [-3.22, -0.05]; minus compound Hawkes -2.25 [-3.81, -0.55]: gate 3 is met. Corrected minus always-TWAP +2.43
+    [+1.18, +3.72]; recalibration (24 episodes) does not help (6.05 against 6.13); compound Hawkes is not better than
+    the study's Hawkes designs. 26 of the 42 markets are ablation variants of two base markets, so the bootstrap,
+    which treats markets as independent, is optimistic; the ordering is the same on the 16 core markets.
+    Section 8 now applies: TRADES on six representative development markets, to be specified in a further addendum.
