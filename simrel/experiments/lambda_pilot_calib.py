@@ -17,6 +17,7 @@ Final pass (stage "final"), which defines the pilot markets:
     finalise        writes the market list (pilot_markets.json), the arms (arms.json) and the table (calib_final.csv)
     persist_final   persistence of the final markets at the three levels, per market and pooled (description only;
                     the levels are not re-picked)
+    exclusion_table the rule's exclusion, from the lambda = 0 runs of persist_final
 
     python simrel/experiments/lambda_pilot_calib.py grid|final [procs]
 """
@@ -42,6 +43,7 @@ DESC = ["volume_10min", "n_trades", "vol5_ticks", "ret5_ac1", "ret60_ac1", "abs5
 GRID_MARKETS = [f"{LW.PILOT_PREFIX}a{k:02d}" for k in range(1, 7)]  # first pass: the first six draws
 CAP = 20  # the final search goes at most through XLP_pilot_a20
 EQ_LO, EQ_HI = 0.80, 1.25  # equivalence bounds for the check-seed variance ratio
+EXCLUDE_SE_BP = 1.0  # exclusion of the rule: s.e. of the drift-adjusted lambda = 0 TWAP cost, at 100 seeds
 TRADER_LEVEL = "band_low"  # the trader-only comparison arm uses this level's lambda
 
 
@@ -303,6 +305,27 @@ def persist_final(procs: int) -> pd.DataFrame:
     return out
 
 
+def exclusion_table() -> pd.DataFrame:
+    """The exclusion of the rule, fixed before the main run from the lambda = 0 runs of persist_final.
+
+    Drift-adjusted TWAP cost: implementation shortfall minus the unperturbed twin's mid change weighted by the TWAP
+    schedule, on the same seed. That is the fills measured against the twin's mid at each decision time, impact_bps of
+    simrel/metrics/cost.py. Its standard error over the 300 calibration seeds is scaled to 100 seeds; a market is
+    excluded if it exceeds EXCLUDE_SE_BP at either size.
+    """
+    import pickle
+
+    d = pd.DataFrame(pickle.load(open(P.RAW / "calib_persist_final.pkl", "rb")))
+    d = d[(d["tag"] == "0.0") & d["impact_bps"].notna()]
+    g = d.groupby(["market", "size_frac"]).agg(n=("impact_bps", "count"), drift_adjusted_cost_bps=("impact_bps", "mean"), drift_adjusted_sd=("impact_bps", "std"),
+                                               raw_cost_bps=("is_bps", "mean"), raw_sd=("is_bps", "std")).reset_index()
+    g["drift_adjusted_se_at_100_seeds"] = g["drift_adjusted_sd"] / np.sqrt(P.N_TRUTH)
+    g["raw_se_at_100_seeds"] = g["raw_sd"] / np.sqrt(P.N_TRUTH)
+    g["excluded"] = g["market"].map(g.groupby("market")["drift_adjusted_se_at_100_seeds"].max() > EXCLUDE_SE_BP)
+    g.to_csv(P.OUT / "calib_exclusion.csv", index=False)
+    return g
+
+
 def main(stage: str, procs: int) -> None:
     if stage == "grid":
         vol = vol_stage(procs)
@@ -313,6 +336,7 @@ def main(stage: str, procs: int) -> None:
         doc = finalise(final)
         print(f"kept {doc['kept']}: {len(doc['kept'])} of {doc['agent_mix_draws_examined']} draws")
         out = persist_final(procs)
+        print(exclusion_table().round(2).to_string(index=False))
     print(out[out["market"] == "pooled"].round(3).to_string(index=False))
 
 

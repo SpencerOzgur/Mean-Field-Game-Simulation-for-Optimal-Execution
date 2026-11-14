@@ -30,7 +30,7 @@ from simrel.experiments.lambda_pilot_run import ARMS  # noqa: E402
 
 OUT = P.OUT
 JUDGED = ["all_band_low", "all_max_feasible"]
-SE_LIMIT_BP, REGRET_RISE_BP, BEST_SHARE = 2.0, 1.0, 0.5
+REGRET_RISE_BP, BEST_SHARE, KEEP_COST_BP = 1.0, 0.5, 0.5  # rule (b); share of cells and cost threshold of rule (a)
 BAND = (2.0 / 3.0, 0.87)  # literature values of end over peak (lob_impact_design.md); not measured on our data
 REV = "P6_signal_reversal"
 
@@ -84,11 +84,14 @@ def e1(truth: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         ba, bb = ha.mean().idxmin(), hb.mean().idxmin()
         xfit = 0.5 * ((hb["P0_twap"] - hb[ba]).mean() + (ha["P0_twap"] - ha[bb]).mean())
         b0 = base[(m, f)].mean().idxmin()
+        # rule (a): cost of keeping the lambda = 0 best over the arm's best, the arm's best chosen on the other half of the seeds
+        keep = 0.5 * ((hb[b0] - hb[ba]).mean() + (ha[b0] - ha[bb]).mean())
         summ.append({"market": m, "family": fam(m), "arm": a, "size_frac": f, "n": len(d), "twap_cost_bps": means["P0_twap"], "twap_cost_se": se(d["P0_twap"]),
                      "best_policy": best, "best_cost_bps": means[best], "second_policy": order.index[1], "second_minus_best_bps": order.iloc[1] - order.iloc[0],
                      "second_minus_best_se": se(d[order.index[1]] - d[best]),
                      "lam0_best_policy": b0, "best_differs_from_lam0": bool(best != b0),
                      "lam0_best_minus_best_bps": means[b0] - means[best], "lam0_best_minus_best_se": se(d[b0] - d[best]),
+                     "keep_lam0_best_crossfit_bps": keep, "cell_changed": bool(keep >= KEEP_COST_BP),
                      "twap_regret_bps": means["P0_twap"] - means[best], "twap_regret_se": se(d["P0_twap"] - d[best]),
                      "best_policy_half_a": ba, "best_policy_half_b": bb, "twap_regret_crossfit_bps": xfit,
                      "reversal_minus_best_bps": means[REV] - means[best], "reversal_minus_best_se": se(d[REV] - d[best]),
@@ -102,30 +105,33 @@ def e1(truth: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 # ---- verdict
 def verdict(summ: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, list]:
+    """The rule of lambda_pilot_rule.md. Exclusions were fixed before the run from the lambda = 0 calibration runs
+    (calib_exclusion.csv, lambda_pilot_calib.exclusion_table)."""
+    ex = pd.read_csv(OUT / "calib_exclusion.csv")
+    excluded = sorted(ex[ex["excluded"]]["market"].unique())
     am = summ[summ["family"] == "agent-mix"]
-    base = am[am["arm"] == "lam0"]
-    worst = base.groupby("market")["twap_cost_se"].max()
-    excluded = sorted(worst[worst > SE_LIMIT_BP].index)
-    kept = [m for m in worst.index if m not in excluded]
+    kept = [m for m in sorted(am["market"].unique()) if m not in excluded]
+    base = am[(am["arm"] == "lam0") & am["market"].isin(kept)].set_index(["market", "size_frac"])
     rows, cells = [], []
     for arm in [a for a in ARMS if a != "lam0"]:
-        d = am[(am["arm"] == arm) & am["market"].isin(kept)]
-        b = base[base["market"].isin(kept)].set_index(["market", "size_frac"])
-        dd = d.set_index(["market", "size_frac"])
-        n_cells, n_diff = len(dd), int(dd["best_differs_from_lam0"].sum())
+        dd = am[(am["arm"] == arm) & am["market"].isin(kept)].set_index(["market", "size_frac"])
+        n_cells, n_changed = len(dd), int(dd["cell_changed"].sum())
         # (b): cross-fitted regret averaged over sizes within market, then the mean over markets
-        rise_m = (dd["twap_regret_crossfit_bps"] - b["twap_regret_crossfit_bps"]).groupby(level=0).mean()
-        plain_m = (dd["twap_regret_bps"] - b["twap_regret_bps"]).groupby(level=0).mean()
-        a_ok, b_ok = n_diff >= BEST_SHARE * n_cells, rise_m.mean() >= REGRET_RISE_BP
-        rows.append({"arm": arm, "judged_by_rule": arm in JUDGED, "markets": len(kept), "cells": n_cells, "a_cells_best_differs": n_diff,
-                     "a_share": n_diff / n_cells, "a_holds": bool(a_ok), "b_crossfit_regret_lam0_bps": b["twap_regret_crossfit_bps"].groupby(level=0).mean().mean(),
+        rise_m = (dd["twap_regret_crossfit_bps"] - base["twap_regret_crossfit_bps"]).groupby(level=0).mean()
+        plain_m = (dd["twap_regret_bps"] - base["twap_regret_bps"]).groupby(level=0).mean()
+        a_ok, b_ok = n_changed >= BEST_SHARE * n_cells, rise_m.mean() >= REGRET_RISE_BP
+        rows.append({"arm": arm, "judged_by_rule": arm in JUDGED, "markets": len(kept), "cells": n_cells, "a_cells_changed": n_changed,
+                     "a_share": n_changed / n_cells, "a_holds": bool(a_ok), "a_mean_keep_cost_bps": dd["keep_lam0_best_crossfit_bps"].mean(),
+                     "label_changes_description": int(dd["best_differs_from_lam0"].sum()),
+                     "b_crossfit_regret_lam0_bps": base["twap_regret_crossfit_bps"].groupby(level=0).mean().mean(),
                      "b_crossfit_regret_arm_bps": dd["twap_regret_crossfit_bps"].groupby(level=0).mean().mean(), "b_rise_bps": rise_m.mean(),
                      "b_rise_se_over_markets": se(rise_m), "b_markets_rising": int((rise_m > 0).sum()), "b_holds": bool(b_ok),
                      "plain_regret_rise_bps": plain_m.mean(), "passes": bool(a_ok or b_ok) if arm in JUDGED else None})
         for (m, f), r in dd.iterrows():
-            cells.append({"arm": arm, "market": m, "size_frac": f, "lam0_best": b.loc[(m, f), "best_policy"], "best": r["best_policy"],
-                          "differs": r["best_differs_from_lam0"], "lam0_best_minus_best_bps": r["lam0_best_minus_best_bps"],
-                          "lam0_best_minus_best_se": r["lam0_best_minus_best_se"], "crossfit_regret_lam0": b.loc[(m, f), "twap_regret_crossfit_bps"],
+            cells.append({"arm": arm, "market": m, "size_frac": f, "lam0_best": base.loc[(m, f), "best_policy"], "best": r["best_policy"],
+                          "label_differs": r["best_differs_from_lam0"], "keep_lam0_best_crossfit_bps": r["keep_lam0_best_crossfit_bps"],
+                          "cell_changed": r["cell_changed"], "lam0_best_minus_best_bps": r["lam0_best_minus_best_bps"],
+                          "lam0_best_minus_best_se": r["lam0_best_minus_best_se"], "crossfit_regret_lam0": base.loc[(m, f), "twap_regret_crossfit_bps"],
                           "crossfit_regret": r["twap_regret_crossfit_bps"]})
     return pd.DataFrame(rows), pd.DataFrame(cells), excluded
 
@@ -252,10 +258,10 @@ def figure(summ: pd.DataFrame, per: pd.DataFrame, ver: pd.DataFrame, excluded: l
     ax.axhline(REGRET_RISE_BP, color="#b42318", lw=1, ls="--")
     ax.text(len(v) - 0.5, REGRET_RISE_BP, " rule (b): 1.0 bp", color="#b42318", fontsize=8, va="bottom", ha="right")
     for i, a in enumerate(v.index):
-        ax.text(i, min(v["b_rise_bps"].min(), 0) - 0.02, f"(a) {int(v.loc[a, 'a_cells_best_differs'])}/{int(v.loc[a, 'cells'])}", ha="center", va="top", fontsize=8, color=ink)
+        ax.text(i, min(v["b_rise_bps"].min(), 0) - 0.02, f"(a) {int(v.loc[a, 'a_cells_changed'])}/{int(v.loc[a, 'cells'])}", ha="center", va="top", fontsize=8, color=ink)
     ax.set_xticks(x, [lab[a].replace(" (comparison)", "\n(comparison)") for a in v.index], fontsize=8)
     ax.axhline(0, color=muted, lw=0.8)
-    ax.set_title("Rise of cross-fitted TWAP regret over lambda 0 (bp);\n(a): cells where the best strategy differs", color=ink, fontsize=10, loc="left")
+    ax.set_title("Rise of cross-fitted TWAP regret over lambda 0 (bp);\n(a): cells where keeping the lambda 0 best costs 0.5 bp or more", color=ink, fontsize=10, loc="left")
     # 3: persistence
     ax = axes[2]
     p = per[(per["market"] == "pooled agent-mix") & (per["size_frac"] == 0.15)].set_index("arm").reindex(ARMS)
@@ -297,7 +303,7 @@ def main() -> None:
     ident.to_csv(OUT / "e2_identity.csv", index=False)
     figure(summ, per, ver, excluded)
     pd.set_option("display.width", 250)
-    print("excluded (lambda 0 TWAP cost s.e. above 2 bp at either size):", excluded)
+    print("excluded (calib_exclusion.csv):", excluded)
     print(ver.round(3).to_string(index=False))
     print(cells.round(2).to_string(index=False))
     print(noise.groupby("arm")["share_of_resamples_with_another_best"].mean().round(2).to_string())
