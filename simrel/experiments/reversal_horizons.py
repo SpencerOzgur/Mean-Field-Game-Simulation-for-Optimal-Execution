@@ -206,6 +206,26 @@ def reproduction(t: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def segments_identical(sim: list, real: list) -> dict:
+    """Bit-for-bit comparison of the sweep's h = 30 inputs with the stored summaries of the committed check: the S2
+    sums, the S3 arrays and the per-window S4 gaps (lot 100, combined signal) of every segment."""
+    qs, qr = quantities()
+    out = {}
+    for name, new, path, keyf, qty in (("simulated", sim, RAW / "sim_passive.pkl", lambda x: (x["market"], x["seed"]), qs),
+                                       ("real", real, RAW / "real_segments.pkl", lambda x: (x["symbol"], x["day"]), qr)):
+        if not path.exists():
+            out[name] = "stored summaries of the committed check not on this machine"
+            continue
+        old = {keyf(x): x for x in pickle.load(open(path, "rb"))}
+        same = 0
+        for x in new:
+            a, b = old[(x["unit"], x["segment"])], x[30]
+            same += bool(a["s2_num"] == b["s2_num"] and a["s2_den"] == b["s2_den"] and np.array_equal(a["s3_x"], b["s3_x"])
+                         and np.array_equal(a["s3_y"], b["s3_y"]) and np.array_equal(RV.window_gaps(a, qty[x["unit"]])["s4"], b["gap_100_both"]))
+        out[name] = f"{same} of {len(new)} segments bit-identical"
+    return out
+
+
 def figure(t: pd.DataFrame) -> None:
     import matplotlib
 
@@ -266,5 +286,10 @@ if __name__ == "__main__":
         t = table(sim, real)
         rep = reproduction(t)
         pts = rep[~rep["statistic"].str.contains("interval")]
-        print("reproduction at h = 30: point estimates identical:", bool(pts["identical"].all()), " largest difference:", float(pts["difference"].abs().max()))
+        rel = (pts["difference"].abs() / pts["committed"].abs().clip(lower=1e-300)).max()
+        print("reproduction at h = 30 against the committed tables: largest absolute difference", float(pts["difference"].abs().max()),
+              " largest relative difference", float(rel))
+        ident = segments_identical(sim, real)
+        print("reproduction at h = 30, segment inputs:", ident)
+        (OUT / "horizons_reproduction_inputs.json").write_text(__import__("json").dumps(ident, indent=2))
         figure(t)
