@@ -204,7 +204,7 @@ The slope per unit of each component alone, and the backtest with P6 shown one c
 | latent (simulated) | -0.041 [-0.181, 0.098] | -0.102 [-0.223, 0.019] | -0.141 [-0.228, -0.056] | -0.143 [-0.222, -0.063] | -0.126 [-0.196, -0.059] |
 
 With lot 100 the even pace is below one lot at 5 and 10 s, both schedules wait and then send round lots, and the
-values there measure rounding as much as timing: the intervals at 5 s are two to five times wider than with lot 1
+values there measure rounding as much as timing: the intervals at 5 s are about two to seven times wider than with lot 1
 and the point estimates shift (INTC -0.055 against +0.002). From 30 s up lot 100 and lot 1 agree. The reading uses
 lot 1, as the plan fixed.
 
@@ -242,9 +242,9 @@ lot 1, as the plan fixed.
 | latent (simulated) | 80% | 70% | 50% | 37% | 27% |
 
 At 5 s the signal is zero in 42% and 48% of the bins of INTC and CSCO, so S3 there rests on the other half. The
-simulated mid moves far less often than the real one at every horizon (it does not change in 64% to 77% of 30 s
-bins, against 9% to 36% for the stocks), which is the 10 bp tick. In the latent markets about one bin in six has
-flow and return of opposite sign that cancel exactly.
+simulated mid moves far less often than the real one at every horizon (it does not change in 50% to 77% of 30 s
+bins, against 9% to 36% for the stocks), which is the 10 bp tick. In the latent markets the signal is exactly zero in about one bin
+in six at 30 s and above although almost every bin has trades; the cause was not examined.
 
 ## 5. Decay with horizon
 
