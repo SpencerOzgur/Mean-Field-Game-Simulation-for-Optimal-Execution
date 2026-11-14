@@ -331,6 +331,65 @@ def ident_obs(args) -> None:
     G.R.pool_map(ident_job, jobs, procs, "ident")
 
 
+def ident(args) -> None:
+    """Section 5: observational equivalence of grid-market pairs at six and 24 episodes, and its decision relevance."""
+    import itertools
+
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.metrics import roc_auc_score
+    from sklearn.model_selection import StratifiedKFold, cross_val_predict
+
+    from simrel.experiments import goal2_addendum8 as A
+    from simrel.reference_worlds import identgrid
+
+    grid = identgrid.markets()
+    viable = [w for w in grid if (G.REF / f"ref_{w}" / "rows_reference.pkl").exists()
+              and json.loads((G.REF / f"ref_{w}" / "info.json").read_text()).get("viable", True)]
+    truth = A.truth_tables(viable)
+    out = G.BASE / "addendum10"
+    rows = []
+    for hours in (3, 12):
+        X = {}
+        for w in viable:
+            recs = [G.load(p) for p in sorted(IDENT.glob(f"{w}_{hours}h_*.pkl"))]
+            X[w] = np.array([[r.get(f, np.nan) for f in FEATURES] for r in recs if "failed" not in r], float)
+        allX = np.vstack(list(X.values()))
+        keep = np.isfinite(allX).mean(axis=0) >= 0.8  # features usable across the grid (note 7's rule, pooled)
+        med = np.nanmedian(allX[:, keep], axis=0)
+        mu, sd = med, np.nanstd(allX[:, keep], axis=0) + 1e-12
+        Z = {w: (np.where(np.isfinite(x[:, keep]), x[:, keep], med) - mu) / sd for w, x in X.items()}
+        cv = StratifiedKFold(5, shuffle=True, random_state=0)
+        for a_, b_ in itertools.combinations(viable, 2):
+            Xa, Xb = Z[a_], Z[b_]
+            XX, yy = np.vstack([Xa, Xb]), np.r_[np.zeros(len(Xa)), np.ones(len(Xb))]
+            prob = cross_val_predict(LogisticRegression(C=1.0, max_iter=500), XX, yy, cv=cv, method="predict_proba")[:, 1]
+            auc = float(roc_auc_score(yy, prob))
+            cost = []
+            for size in (0.05, 0.15):
+                ka, kb = (a_, size), (b_, size)
+                pa, ma = truth[ka][0], pd.Series(truth[ka][1], index=truth[ka][0])
+                mb = pd.Series(truth[kb][1], index=truth[kb][0])
+                ba, bb = ma.idxmin(), mb.idxmin()
+                cost.append(max(mb[ba] - mb.min(), ma[bb] - ma.min()))
+            rows.append({"hours": hours, "a": a_, "b": b_, "auc": max(auc, 1 - auc), "equivalent": max(auc, 1 - auc) < 0.65,
+                         "cross_regret": float(max(cost)), "decision_relevant": float(max(cost)) >= 1.0,
+                         **{f"d_{k}": grid[b_][1][k] != grid[a_][1][k] for k in identgrid.LEVELS}})
+    t = pd.DataFrame(rows)
+    t.to_csv(out / "identifiability_pairs.csv", index=False)
+    print(f"{len(viable)} viable grid markets of {len(grid)}; features used: {[f for f, k in zip(FEATURES, keep) if k]}")
+    for hours, g in t.groupby("hours"):
+        rel = g[g.decision_relevant]
+        share = float(rel.equivalent.mean()) if len(rel) else np.nan
+        verdict = "I1 (identifiable)" if share < 0.10 else ("I2 (partially identifiable)" if share <= 0.50 else "I3 (not identifiable)")
+        print(f"\n{hours} h of data ({hours * 2} episodes): {len(g)} pairs, {len(rel)} decision-relevant; "
+              f"equivalent among decision-relevant: {share:.1%} -> {verdict}")
+        print(f"  equivalent among all pairs: {g.equivalent.mean():.1%}; median AUC {g.auc.median():.2f}")
+        one = g[g[[f"d_{k}" for k in identgrid.LEVELS]].sum(axis=1) == 1]
+        for k in identgrid.LEVELS:
+            sub = one[one[f"d_{k}"]]
+            print(f"  pairs differing only in {k}: equivalent {sub.equivalent.mean():.0%}, decision-relevant {sub.decision_relevant.mean():.0%}, median AUC {sub.auc.median():.2f}")
+
+
 TEST_A = [f"R1s0{k}" for k in range(1, 6)] + [f"R2s0{k}" for k in range(1, 6)] + [f"R3s0{k}" for k in range(1, 7)]
 
 
@@ -390,4 +449,4 @@ def test_a(args) -> None:
 
 
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs, "ident": ident}[sys.argv[1]](sys.argv[2:])
