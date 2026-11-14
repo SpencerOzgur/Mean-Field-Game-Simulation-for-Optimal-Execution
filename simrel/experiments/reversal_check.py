@@ -8,7 +8,9 @@ markets present in real data? Descriptive.
                                                                  runs (S5); writes sim_table.csv
     python simrel/experiments/reversal_check.py files            size and message count of every real data file
     python simrel/experiments/reversal_check.py real [procs]     real side (S1 to S4); writes real_table.csv
-    python simrel/experiments/reversal_check.py report           the combined tables
+    python simrel/experiments/reversal_check.py tables           combined S1 to S4 table and figure, real against
+                                                                 simulated (simulated only if the real table is absent)
+    python simrel/experiments/reversal_check.py report           print the stored tables
 
 No Test B market is read or simulated: reference_worlds.data.registry() (which builds the Test B draws) is not
 called; worlds are built directly from their parameter classes.
@@ -272,6 +274,16 @@ def day_segment(symbol: str, day: str) -> dict:
     return s
 
 
+def _clock(ns: int) -> str:
+    s = ns / 1e9
+    return f"{int(s // 3600):02d}:{int(s % 3600 // 60):02d}:{s % 60:06.3f}"
+
+
+def missing_files() -> list:
+    d = Path(CS.DATA_DIR).expanduser()
+    return [f"{s}_{day}.npz" for s in SYMBOLS for day in DAYS if not (d / f"{s}_{day}.npz").exists()]
+
+
 def files() -> pd.DataFrame:
     d = Path(CS.DATA_DIR).expanduser()
     man = json.loads((d / "manifest.json").read_text()) if (d / "manifest.json").exists() else {}
@@ -285,6 +297,7 @@ def files() -> pd.DataFrame:
                 m = z["message"]
                 row.update({"bytes": p.stat().st_size, "messages": int(len(m)), "book_rows": int(len(z["book"])), "executions": int((m[:, 1] == 4).sum()),
                             "hidden_executions": int((m[:, 1] == 5).sum()), "first_ns": int(m[0, 0]), "last_ns": int(m[-1, 0]),
+                            "first_time": _clock(int(m[0, 0])), "last_time": _clock(int(m[-1, 0])),
                             "manifest_events": man.get(f"{s}_{day}", {}).get("events")})
             rows.append(row)
     out = pd.DataFrame(rows)
@@ -300,7 +313,10 @@ def _day_job(args):
 def real(procs: int) -> None:
     from simrel.experiments.run_reference import pool_map
 
-    segs = cached("real_segments", lambda: pool_map(_day_job, [(s, d) for s in SYMBOLS for d in DAYS], procs, "real days"))
+    # always recomputed from the files (never read from a cache), then stored for the report
+    segs = pool_map(_day_job, [(s, d) for s in SYMBOLS for d in DAYS], procs, "real days")
+    RAW.mkdir(parents=True, exist_ok=True)
+    pickle.dump(segs, open(RAW / "real_segments.pkl", "wb"))
     rng = np.random.default_rng(1)
     rows = []
     for sym in SYMBOLS:
@@ -317,6 +333,59 @@ def real(procs: int) -> None:
     pd.DataFrame(rows).to_csv(OUT / "real_table.csv", index=False)
 
 
+# ---- combined table and figure (no interpretation)
+STATS = ["S1", "S2", "S3_slope", "S4", "S4b"]
+LABEL = {"S1": "S1: lag-1 autocorrelation of 5 s mid changes", "S2": "S2: lag-1 autocorrelation of 30 s mid changes",
+         "S3_slope": "S3: next 30 s return on P6's signal (bp per unit)", "S4": "S4: impact-free P6 minus TWAP (bp)",
+         "S4b": "S4b: the same with own flow in the signal (bp)"}
+
+
+def tables() -> pd.DataFrame:
+    """One table of S1 to S4b for every real stock and simulated family and market, and a figure of the pooled rows."""
+    parts = [pd.read_csv(OUT / "sim_table.csv")]
+    have_real = (OUT / "real_table.csv").exists()
+    if have_real:
+        parts.insert(0, pd.read_csv(OUT / "real_table.csv"))
+    t = pd.concat(parts, ignore_index=True)
+    cols = ["side", "family", "unit", "n_segments", "n_windows"] + [c for k in STATS for c in (k, k + "_lo", k + "_hi")] + [
+        "S3_t", "S4_se_windows", "S4_share_p6_cheaper", "S4_share_tie", "S4_buy", "tick_bp", "spread_ticks", "spread_bp", "share_one_tick"]
+    t = t[[c for c in cols if c in t.columns]]
+    t.to_csv(OUT / "combined_table.csv", index=False)
+
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    ink, muted, grid = "#1f2933", "#52606d", "#d9dee4"
+    color = {"real": "#c2571a", "simulated": "#2a78d6"}
+    head = t[(t["side"] == "real") & (t["unit"] == "8 days") | (t["side"] == "simulated") & (t["unit"] == "pooled")].reset_index(drop=True)
+    per = t[(t["side"] == "simulated") & (t["unit"] != "pooled")]
+    fig, axes = plt.subplots(1, len(STATS), figsize=(3.5 * len(STATS), 3.9), sharey=True)
+    y = np.arange(len(head))[::-1]
+    for ax, k in zip(axes, STATS):
+        for yi, (_, r) in zip(y, head.iterrows()):
+            if r["side"] == "simulated":  # the family's markets, as small marks behind the pooled value
+                v = per[per["family"] == r["family"]][k].dropna()
+                ax.scatter(v, np.full(len(v), yi), s=14, color=color["simulated"], alpha=0.25, linewidths=0, zorder=2)
+            ax.plot([r[k + "_lo"], r[k + "_hi"]], [yi, yi], color=color[r["side"]], lw=2, solid_capstyle="round", zorder=3)
+            ax.scatter([r[k]], [yi], s=46, color=color[r["side"]], edgecolors="white", linewidths=1.5, zorder=4)
+        ax.axvline(0, color=muted, lw=0.8, zorder=1)
+        ax.set_title(LABEL[k], fontsize=8.5, color=ink, loc="left")
+        ax.set_yticks(y, [f"{r['family']}" + (" (real)" if r["side"] == "real" else " (simulated)") for _, r in head.iterrows()], fontsize=8.5)
+        ax.grid(axis="x", color=grid, lw=0.6)
+        ax.set_axisbelow(True)
+        ax.tick_params(colors=muted, labelsize=8)
+        for sp in ("top", "right", "left"):
+            ax.spines[sp].set_visible(False)
+    fig.suptitle("Reversal check: estimates with 95% bootstrap intervals; faint marks are single simulated markets"
+                 + ("" if have_real else "  [real data absent: simulated side only]"), fontsize=9.5, color=ink, x=0.01, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.savefig(OUT / "fig_reversal_check.png", dpi=160)
+    plt.close(fig)
+    return head
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "report"
     procs = int(sys.argv[2]) if len(sys.argv) > 2 else 6
@@ -327,8 +396,15 @@ if __name__ == "__main__":
         sim(procs)
     elif cmd == "files":
         print(files().to_string(index=False))
+        print("missing:", missing_files() or "none")
     elif cmd == "real":
+        miss = missing_files()
+        if miss:
+            print("real side not run; missing files:", miss)
+            sys.exit(3)
         real(procs)
+    elif cmd == "tables":
+        print(tables().round(3).to_string(index=False))
     else:
         for name in ("sim_table.csv", "real_table.csv"):
             if (OUT / name).exists():
