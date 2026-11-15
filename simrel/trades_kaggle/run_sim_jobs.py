@@ -28,6 +28,7 @@ def main():
     ap.add_argument("--hours", type=float, default=10.5)
     ap.add_argument("--ddim-steps", type=int, default=10)
     ap.add_argument("--device", default="cuda", help="one device, or a comma-separated list assigned to jobs in turn (e.g. cuda,cpu)")
+    ap.add_argument("--symbol", default="INTC", help="SYN for the synthetic markets of addendum 11")
     args = ap.parse_args()
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -51,7 +52,7 @@ def main():
         if time.time() > deadline:
             return f"{stem} skipped (time limit)"
         cmd = [sys.executable, "-u", str(HERE / "run_trades_episode.py"), "--deepmarket", args.deepmarket, "--ckpt", args.ckpt,
-               "--seed", seed, "--qty", qty, "--side", "sell", "--policy", policy, "--symbol", "INTC", "--date", date,
+               "--seed", seed, "--qty", qty, "--side", "sell", "--policy", policy, "--symbol", args.symbol, "--date", date,
                "--ddim-steps", str(args.ddim_steps), "--device", device, "--out", str(path)]
         w0 = time.time()
         print(f"{stem} started on {device} (elapsed {(time.time() - t0) / 3600:.2f} h)", flush=True)
