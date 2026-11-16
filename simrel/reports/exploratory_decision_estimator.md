@@ -30,3 +30,14 @@ The direction is worth a design addendum only if, on at least one held-out famil
 the estimator beats both always-TWAP and the no-simulator rule with intervals excluding zero, while departing from TWAP
 in at least 25% of market-size cells, and is not significantly worse than TWAP on any held-out family. Otherwise the
 methodological pivot stops and the result is reported as further negative evidence.
+
+## Result (16 November 2026, appended after the run; results/simrel/goal2/exploratory/decision_estimator.csv)
+
+179 markets (agent-mix 116, queue-reactive 35, latent 22, Hawkes-built 6). Held-out family, estimator minus always-TWAP
+and minus the no-simulator rule (bp, 95% market bootstrap): agent-mix +0.48 [-0.43, +1.24] and -2.11 [-3.36, -1.00];
+latent -0.09 [-0.14, -0.05] and +0.14 [+0.00, +0.29]; queue-reactive +0.50 [+0.09, +1.19] and +0.49 [+0.11, +1.12];
+Hawkes-built -0.32 [-1.68, +1.40] and -1.22 [-3.06, +0.74]. The estimator departed from TWAP in 93-100% of cells.
+
+Gate not met: no held-out family where it beats both references, and it is significantly worse than TWAP on the
+queue-reactive family. The methodological pivot stops. The no-simulator rule also fails out of family (agent-mix held
+out: 6.80 bp against TWAP's 4.22), confirming that its earlier advantage came from families sharing a winning strategy.
