@@ -112,3 +112,8 @@ Running log. Each entry is dated and written before the results it concerns exis
 20. The ABIDES decision seed of TBa_d09 that the Kaggle notebook did not finish (freeze file, last deviation) ran
     locally for 9 hours without completing and was stopped. ABIDES in TBa_d09 uses the 99 completed seeds; the analysis
     averages over available seeds. Nothing else changes; the freeze file is not edited.
+21. Defect fix after the freeze, before any Test B result was computed (the first run stopped with an error before
+    output). The queue-reactive design's fitted market in TBa_d07 has no trades (background volume 0, every order
+    unfilled), so its 2,400 rows carry no cost value and the analysis failed. Such a design is now treated as unavailable
+    in that market (simrel/experiments/goal2_reliability.py, _matrix), as the rule definition already does for missing
+    designs: in TBa_d07 the agreement rule uses three designs. No other market or design is affected.

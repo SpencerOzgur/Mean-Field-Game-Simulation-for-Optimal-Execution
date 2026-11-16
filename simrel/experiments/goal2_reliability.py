@@ -156,7 +156,10 @@ def dev_markets() -> list:
 def _matrix(w, name, size):
     from simrel.experiments import goal2_budget as GB
 
-    return GB.matrix(w, name, size, 100)
+    m = GB.matrix(w, name, size, 100)
+    if m is not None and len(m[0]) == 0:  # note 21: a design whose runs give no cost value (e.g. a market with no trades) is unavailable
+        return None
+    return m
 
 
 def _ens(mats: dict, designs: list):
