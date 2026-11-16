@@ -38,6 +38,11 @@ def registry() -> dict:
     for k, (params, _) in identgrid.markets().items():
         out[k] = (agent_mix.AgentMix, params)
 
+    from . import extvalid  # external-validity draws (review_audit.md, section 4)
+
+    for k, (fam, vals) in extvalid.draws().items():
+        out[k] = (latent.LatentLiquidity if fam == "latent" else agent_mix.AgentMix, extvalid.params(fam, vals))
+
     from . import testb  # Test B draws of addendum 10, generated from fixed streams (no listing file needed)
 
     for k, (fam, vals) in testb.all_draws().items():

@@ -102,3 +102,15 @@ mechanism, Test B by family, own-execution curves with intervals); Table 1 rebui
 regrets and hypotheses); complete references (verify Joshi et al. 2024; add Naviglio, Fujiwara, Chen-Horst-Tran, Dann
 et al., already verified); reproducibility section with repository, seeds, checksums and the data source of the ITCH
 sample files; no TODOs.
+
+## 6. Stage 0 implementation (16 November 2026, 18:21 EST, before any draw was evaluated)
+
+- Draws: simrel/reference_worlds/extvalid.py (stream 20261117; 200 draws per family, latent then agent-mix; ranges
+  listed there with the original ranges).
+- Probe per draw (simrel/experiments/extvalid_screen.py): one 3-hour observation sample (seed 63000) giving R(100)/R(1)
+  and H with the study's feature code; the reference volume taken as the mean traded volume per 10 minutes in that
+  sample; TWAP at 5% and 15% of it, 20 seeds each (seeds 90000-90019), with the unperturbed twin; impact = the twin-paired
+  displacement at the end of execution (disp_end_bps, as in the earlier feasibility check); exponent = log(I15 / I5) /
+  log 3; viability = the study's rule applied to the 20 twins (failed share and share of twins moving more than 300 bp).
+- Acceptance: R(100)/R(1) in [1.0, 3.5], exponent in [0.25, 0.65], H in [0.45, 0.55], viable. The first 6 accepted
+  draws per family in draw order are the markets. No strategy cost other than TWAP's impact is computed.
