@@ -443,6 +443,111 @@ def fourway(args) -> None:
         print(f"  compound Hawkes minus {ref}: {d.mean():+.2f} [{np.percentile(bs, 2.5):+.2f}, {np.percentile(bs, 97.5):+.2f}]")
 
 
+# ------------------------------------------------------------------ Test B-U (section 9); run only after the stage-4 freeze
+TEST_B = [f"TB{f}_d{k:02d}" for f in "qal" for k in range(1, 17)]
+FAMILY = {"q": "queue-reactive", "a": "agent-mix", "l": "latent"}
+
+
+def _decide_seeds(rule, par, w, mats, trust, rec):
+    """decide() with given trust and recommendation seed indices (for the seed bootstrap)."""
+    global TRUST, REC
+    old = (TRUST, REC)
+    TRUST, REC = trust, rec
+    try:
+        return decide(rule, par, w, mats)
+    finally:
+        TRUST, REC = old
+
+
+def test_b(args) -> None:
+    """H10.1-H10.4 on the 48 unfiltered Test B markets: market bootstrap with decision seeds resampled, Holm at 0.025."""
+    from simrel.experiments import goal2_addendum8 as A
+
+    dry = "--dry-dev" in args  # code check on six development markets; never reads Test B
+    out = G.BASE / "addendum10" / ("dry_run" if dry else "")
+    out.mkdir(parents=True, exist_ok=True)
+    fz = json.loads((G.BASE / "addendum10" / "rules10_frozen.json").read_text())
+    freeze = {"frozen_on": "dry run"} if dry else json.loads((G.BASE / "addendum10" / "testb_freeze.json").read_text())
+    markets = ["R1a_qr_resilient", "R1b_qr_fragile", "R2a_am_anchored", "R2b_am_trending", "W1_hk1_R1a", "W5_hk1_R2a"] if dry else TEST_B
+    fam = (lambda w: w[:2]) if dry else (lambda w: FAMILY[w[2]])
+    dev = dev_markets()
+    dtruth = A.truth_tables(dev)
+    nosim = {}
+    for size in (0.05, 0.15):
+        ks = [k for k in dtruth if k[1] == size]
+        pols = dtruth[ks[0]][0]
+        nosim[size] = min(pols, key=lambda p: (np.mean([A.regret_of(dtruth, k, p) for k in ks]), p))
+    truth = A.truth_tables(markets)
+    names = DESIGNS + ["chawkes", "h_anchor"]
+    mats = {(w, s): {d: _matrix(w, d, s) for d in names} for w in markets for s in (0.05, 0.15)}
+    rule, par = fz["chosen_rule"], fz["chosen_params"]
+
+    def arms(w, s, m, trust, rec, idx):
+        r = {"always TWAP": TWAP, "no-simulator": nosim[s]}
+        r["rule"], dep = _decide_seeds(rule, par, w, m, trust, rec)
+        for d, lab in (("h_anchor", "corrected"), ("h_c_f_m_k1", "original h_c_f_m_k1"), ("chawkes", "compound Hawkes")):
+            r[lab] = A.pick(*m[d], idx) if m[d] is not None else None
+        return r, dep
+
+    rows = []
+    for (w, s), m in mats.items():
+        r, dep = arms(w, s, m, TRUST, REC, range(100))
+        for lab, strat in r.items():
+            rows.append({"world": w, "family": fam(w), "size": s, "arm": lab, "chosen": strat, "departed": dep if lab == "rule" else np.nan,
+                         "regret": A.regret_of(truth, (w, s), strat, crossfit=True), "regret_full": A.regret_of(truth, (w, s), strat)})
+    t = pd.DataFrame(rows)
+    t.to_csv(out / "test_b.csv", index=False)
+    per = t.groupby(["arm", "world", "family"]).regret.mean().reset_index()
+    pv = per.pivot(index="world", columns="arm", values="regret")
+    H = {"H10.1 rule < always TWAP": ("rule", "always TWAP"), "H10.2 rule < no-simulator": ("rule", "no-simulator"),
+         "H10.3 corrected < original h_c_f_m_k1": ("corrected", "original h_c_f_m_k1"), "H10.4 corrected < compound Hawkes": ("corrected", "compound Hawkes")}
+    rng = np.random.default_rng(20261116)
+    B = 50 if dry else 2000
+    boot = {h: [] for h in H}
+    W = list(pv.index)
+    for _ in range(B):
+        ws = rng.choice(W, len(W))
+        acc = {h: [] for h in H}
+        for w in ws:
+            vals = {}
+            for s in (0.05, 0.15):
+                m = mats[(w, s)]
+                tr = rng.choice(np.arange(0, 50), 50)
+                rc = rng.choice(np.arange(50, 100), 50)
+                al = rng.choice(np.arange(0, 100), 100)
+                r, _ = arms(w, s, m, list(tr), list(rc), list(al))
+                for lab, strat in r.items():
+                    vals.setdefault(lab, []).append(A.regret_of(truth, (w, s), strat, crossfit=True))
+            for h, (a_, b_) in H.items():
+                acc[h].append(np.mean(vals[a_]) - np.mean(vals[b_]))
+        for h in H:
+            boot[h].append(float(np.mean(acc[h])))
+    res = []
+    for h, (a_, b_) in H.items():
+        d = float((pv[a_] - pv[b_]).mean())
+        bs = np.array(boot[h])
+        res.append({"hypothesis": h, "estimate": d, "ci_lo": float(np.percentile(bs, 2.5)), "ci_hi": float(np.percentile(bs, 97.5)),
+                    "p_one_sided": float(np.mean(bs >= 0))})
+    r = pd.DataFrame(res).sort_values("p_one_sided").reset_index(drop=True)
+    alpha, k = 0.025, len(r)
+    ok, stop = [], False
+    for i, p in enumerate(r.p_one_sided):
+        thr = alpha / (k - i)
+        stop = stop or p > thr
+        ok.append(not stop)
+    r["holm_threshold"] = [alpha / (k - i) for i in range(k)]
+    r["supported"] = ok
+    r.to_csv(out / "test_b_hypotheses.csv", index=False)
+    dep = float(t[t.arm == "rule"].departed.mean())
+    pd.set_option("display.width", 200)
+    print(f"Test B-U: {len(W)} markets; frozen rule {rule} {par} departs from TWAP in {dep:.0%} of cells; freeze {freeze['frozen_on']}")
+    print(per.groupby("arm").regret.mean().sort_values().round(2).to_string())
+    print("\nby family"); print(per.pivot_table(index="arm", columns="family", values="regret").round(2).to_string())
+    print("\nconfirmatory tests (negative estimate = first arm better; Holm over four at 0.025)"); print(r.round(3).to_string(index=False))
+    print(f"\nmethod-paper criterion (H10.1 and H10.2 supported, departure >= 25%): "
+          f"{bool(r.set_index('hypothesis').loc[['H10.1 rule < always TWAP', 'H10.2 rule < no-simulator'], 'supported'].all() and dep >= 0.25)}")
+
+
 TEST_A = [f"R1s0{k}" for k in range(1, 6)] + [f"R2s0{k}" for k in range(1, 6)] + [f"R3s0{k}" for k in range(1, 7)]
 
 
@@ -502,4 +607,4 @@ def test_a(args) -> None:
 
 
 if __name__ == "__main__":
-    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs, "ident": ident, "fourway": fourway}[sys.argv[1]](sys.argv[2:])
+    {"diag": diag, "rules": rules, "false_rejection": false_rejection, "test_a": test_a, "ident_obs": ident_obs, "ident": ident, "fourway": fourway, "test_b": test_b}[sys.argv[1]](sys.argv[2:])
