@@ -35,7 +35,7 @@ missing mechanisms added improves on uncorrected baselines on development market
 markets; a learned diffusion generator (TRADES) and a direct feature-to-decision estimator do not help either. The
 decision-relevant mechanisms are, however, identifiable from observable data within a model family: the obstacle is
 the candidate simulators' structure, not the information in the data. A desk's remaining evidence, its own past
-executions, is weak at realistic budgets (about 1,200 trades to match TWAP in our agent-mix markets), and a
+executions, is weak at realistic budgets (of the order of 1,200 trades or more to match TWAP in our agent-mix markets), and a
 misspecified simulator used as a prior makes it weaker. We release the reference markets, protocol and
 code as a benchmark for decision reliability.
 \end{abstract}
@@ -259,7 +259,9 @@ at about 100 executions per strategy (12 strategies, about 1,200 trades); requir
 errors stays at TWAP. A Bayesian combination with the candidates' predictions as a prior, its variance set from the
 simulators' errors on the other markets, is worse than own data alone at every budget in agent-mix markets (7.17\bp{}
 at two executions per strategy, 3.56 at 100, against 2.88 for TWAP). Where the candidates are correctly specified (the
-Hawkes-built markets) the same prior reaches TWAP's regret with five executions per strategy against 20--50 for own data.
+Hawkes-built markets) the same prior reaches TWAP's regret with five executions per strategy against 20--50 for own data. On the 16 Test~A markets, with the prior variance fixed at its development value, the finding replicates and is
+stronger: in agent-mix markets own data does not reach TWAP's regret by 100 executions per strategy (3.77\bp{} against
+3.04) and the simulator prior is worse at every budget (4.53\bp{} at 100).
 
 \section{Discussion}
 \label{sec:discussion}

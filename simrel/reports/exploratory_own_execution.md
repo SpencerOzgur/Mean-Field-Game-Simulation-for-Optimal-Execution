@@ -39,3 +39,15 @@ specified, the hybrid reaches TWAP's regret at n = 5 against 20-50 for own data.
 Gate not met (the hybrid is worse than own data in agent-mix markets at every n). No design addendum. Reported in the
 evaluation paper: own executions are a weak source of evidence at realistic budgets, and a misspecified simulator prior
 makes them weaker; a simulator prior helps only where the simulator's mechanisms are right.
+
+## Replication on Test A (written 16 November 2026, before running)
+
+Same analysis on the 16 Test A markets (10 drawn, 6 held-out latent), which played no part in developing it. The
+hybrid's prior variance is fixed at its development-market value (no re-estimation on Test A). Only the four-design
+ensemble hybrid is replicated: the corrected model was not run on Test A. Test B is not used.
+
+Result on Test A (appended after the run; results/simrel/goal2/exploratory/own_execution_test_a.csv): agent-mix (5
+markets), own data 5.14, 4.64, 4.24, 3.77 bp at n = 2, 10, 50, 100 against always-TWAP 3.04, so own data does not reach
+TWAP by 100 executions per strategy; the hybrid is worse at every n (6.70, 5.73, 5.11, 4.53). Latent (6): no rule reaches
+TWAP by n = 100. Queue-reactive (5): own data and hybrid reach TWAP's 0.61 bp at n = 10. The development finding
+replicates.

@@ -1,0 +1,641 @@
+world,family,size,rule,n,regret
+R1s01,queue-reactive,0.05,always TWAP,0,0.15922802247372925
+R1s01,queue-reactive,0.05,simulator (ensemble),0,0.0022010284361728694
+R1s01,queue-reactive,0.05,own data,2,0.10363616399403172
+R1s01,queue-reactive,0.05,"own data, gated",2,0.1569438309481737
+R1s01,queue-reactive,0.05,hybrid (ensemble),2,0.08738350426351835
+R1s01,queue-reactive,0.05,own data,5,0.08185898509533437
+R1s01,queue-reactive,0.05,"own data, gated",5,0.15797083177229396
+R1s01,queue-reactive,0.05,hybrid (ensemble),5,0.08281477572180652
+R1s01,queue-reactive,0.05,own data,10,0.07273125028309167
+R1s01,queue-reactive,0.05,"own data, gated",10,0.15465802244897306
+R1s01,queue-reactive,0.05,hybrid (ensemble),10,0.0732018972802873
+R1s01,queue-reactive,0.05,own data,20,0.07291913689076666
+R1s01,queue-reactive,0.05,"own data, gated",20,0.15173323716173773
+R1s01,queue-reactive,0.05,hybrid (ensemble),20,0.07347641860021324
+R1s01,queue-reactive,0.05,own data,50,0.0642249531106935
+R1s01,queue-reactive,0.05,"own data, gated",50,0.15350735206005112
+R1s01,queue-reactive,0.05,hybrid (ensemble),50,0.06334685934459473
+R1s01,queue-reactive,0.05,own data,100,0.04985731608898922
+R1s01,queue-reactive,0.05,"own data, gated",100,0.15788362940773795
+R1s01,queue-reactive,0.05,hybrid (ensemble),100,0.049222215093220306
+R1s01,queue-reactive,0.15,always TWAP,0,0.41141150985997665
+R1s01,queue-reactive,0.15,simulator (ensemble),0,0.41141150985997665
+R1s01,queue-reactive,0.15,own data,2,0.35933679825151754
+R1s01,queue-reactive,0.15,"own data, gated",2,0.41298739925627354
+R1s01,queue-reactive,0.15,hybrid (ensemble),2,0.3674188858830204
+R1s01,queue-reactive,0.15,own data,5,0.3345562522334012
+R1s01,queue-reactive,0.15,"own data, gated",5,0.41573175708910726
+R1s01,queue-reactive,0.15,hybrid (ensemble),5,0.33201212922768275
+R1s01,queue-reactive,0.15,own data,10,0.2908299970441378
+R1s01,queue-reactive,0.15,"own data, gated",10,0.4042469967102516
+R1s01,queue-reactive,0.15,hybrid (ensemble),10,0.28603347064434465
+R1s01,queue-reactive,0.15,own data,20,0.21152169856903988
+R1s01,queue-reactive,0.15,"own data, gated",20,0.4085098793051153
+R1s01,queue-reactive,0.15,hybrid (ensemble),20,0.21413234829223035
+R1s01,queue-reactive,0.15,own data,50,0.1817128051011665
+R1s01,queue-reactive,0.15,"own data, gated",50,0.3890691743238003
+R1s01,queue-reactive,0.15,hybrid (ensemble),50,0.1817128051011665
+R1s01,queue-reactive,0.15,own data,100,0.1526789129686421
+R1s01,queue-reactive,0.15,"own data, gated",100,0.4114115098599767
+R1s01,queue-reactive,0.15,hybrid (ensemble),100,0.1526789129686421
+R1s02,queue-reactive,0.05,always TWAP,0,0.03332336163421967
+R1s02,queue-reactive,0.05,simulator (ensemble),0,0.02332501914461904
+R1s02,queue-reactive,0.05,own data,2,0.08050578710098563
+R1s02,queue-reactive,0.05,"own data, gated",2,0.0515623982292591
+R1s02,queue-reactive,0.05,hybrid (ensemble),2,0.05335170188427325
+R1s02,queue-reactive,0.05,own data,5,0.0727385320970983
+R1s02,queue-reactive,0.05,"own data, gated",5,0.04139334578684629
+R1s02,queue-reactive,0.05,hybrid (ensemble),5,0.06162073638621321
+R1s02,queue-reactive,0.05,own data,10,0.0659884869788997
+R1s02,queue-reactive,0.05,"own data, gated",10,0.03872584505340427
+R1s02,queue-reactive,0.05,hybrid (ensemble),10,0.05747065918377462
+R1s02,queue-reactive,0.05,own data,20,0.07365673972804808
+R1s02,queue-reactive,0.05,"own data, gated",20,0.04164132247972749
+R1s02,queue-reactive,0.05,hybrid (ensemble),20,0.07007391270070543
+R1s02,queue-reactive,0.05,own data,50,0.07285326048740468
+R1s02,queue-reactive,0.05,"own data, gated",50,0.03470682051311817
+R1s02,queue-reactive,0.05,hybrid (ensemble),50,0.06798725740703299
+R1s02,queue-reactive,0.05,own data,100,0.07468556114518018
+R1s02,queue-reactive,0.05,"own data, gated",100,0.03332336163421967
+R1s02,queue-reactive,0.05,hybrid (ensemble),100,0.06970311686828264
+R1s02,queue-reactive,0.15,always TWAP,0,0.04305164299198605
+R1s02,queue-reactive,0.15,simulator (ensemble),0,0.07314519460783764
+R1s02,queue-reactive,0.15,own data,2,0.08424593838633651
+R1s02,queue-reactive,0.15,"own data, gated",2,0.04971377860428808
+R1s02,queue-reactive,0.15,hybrid (ensemble),2,0.08235765833357293
+R1s02,queue-reactive,0.15,own data,5,0.10467272015267681
+R1s02,queue-reactive,0.15,"own data, gated",5,0.051736736968648424
+R1s02,queue-reactive,0.15,hybrid (ensemble),5,0.0930826722583053
+R1s02,queue-reactive,0.15,own data,10,0.09297372361840622
+R1s02,queue-reactive,0.15,"own data, gated",10,0.04562358040948608
+R1s02,queue-reactive,0.15,hybrid (ensemble),10,0.08749794130367512
+R1s02,queue-reactive,0.15,own data,20,0.09036618231062313
+R1s02,queue-reactive,0.15,"own data, gated",20,0.04609399877380662
+R1s02,queue-reactive,0.15,hybrid (ensemble),20,0.08044140922946962
+R1s02,queue-reactive,0.15,own data,50,0.09814269967259348
+R1s02,queue-reactive,0.15,"own data, gated",50,0.045073950755546995
+R1s02,queue-reactive,0.15,hybrid (ensemble),50,0.09463014122462589
+R1s02,queue-reactive,0.15,own data,100,0.1206720322433365
+R1s02,queue-reactive,0.15,"own data, gated",100,0.04305164299198605
+R1s02,queue-reactive,0.15,hybrid (ensemble),100,0.11622381735758851
+R1s03,queue-reactive,0.05,always TWAP,0,1.1215724845176993
+R1s03,queue-reactive,0.05,simulator (ensemble),0,0.5873594189791156
+R1s03,queue-reactive,0.05,own data,2,1.058117530487264
+R1s03,queue-reactive,0.05,"own data, gated",2,1.0901742295322179
+R1s03,queue-reactive,0.05,hybrid (ensemble),2,0.8560502602104322
+R1s03,queue-reactive,0.05,own data,5,0.9270334727000007
+R1s03,queue-reactive,0.05,"own data, gated",5,1.0951134749623348
+R1s03,queue-reactive,0.05,hybrid (ensemble),5,0.78275757270691
+R1s03,queue-reactive,0.05,own data,10,0.8732211575774107
+R1s03,queue-reactive,0.05,"own data, gated",10,1.0838520463399703
+R1s03,queue-reactive,0.05,hybrid (ensemble),10,0.7431634816670041
+R1s03,queue-reactive,0.05,own data,20,0.7543345992398369
+R1s03,queue-reactive,0.05,"own data, gated",20,1.064001121520194
+R1s03,queue-reactive,0.05,hybrid (ensemble),20,0.6920008480363518
+R1s03,queue-reactive,0.05,own data,50,0.7159820994601955
+R1s03,queue-reactive,0.05,"own data, gated",50,1.1098202586911974
+R1s03,queue-reactive,0.05,hybrid (ensemble),50,0.6394513801000408
+R1s03,queue-reactive,0.05,own data,100,0.6521146934514781
+R1s03,queue-reactive,0.05,"own data, gated",100,1.122651874283363
+R1s03,queue-reactive,0.05,hybrid (ensemble),100,0.5694906925108216
+R1s03,queue-reactive,0.15,always TWAP,0,1.0880123781819506
+R1s03,queue-reactive,0.15,simulator (ensemble),0,0.0
+R1s03,queue-reactive,0.15,own data,2,2.94449003619754
+R1s03,queue-reactive,0.15,"own data, gated",2,1.5095275093377762
+R1s03,queue-reactive,0.15,hybrid (ensemble),2,2.4491851672457123
+R1s03,queue-reactive,0.15,own data,5,2.404071999352663
+R1s03,queue-reactive,0.15,"own data, gated",5,1.2896471309939295
+R1s03,queue-reactive,0.15,hybrid (ensemble),5,2.2180306291448653
+R1s03,queue-reactive,0.15,own data,10,1.9752469398957977
+R1s03,queue-reactive,0.15,"own data, gated",10,1.1470582531354452
+R1s03,queue-reactive,0.15,hybrid (ensemble),10,1.8376299240928093
+R1s03,queue-reactive,0.15,own data,20,2.3493463685644116
+R1s03,queue-reactive,0.15,"own data, gated",20,1.197859141536684
+R1s03,queue-reactive,0.15,hybrid (ensemble),20,2.1489476992449656
+R1s03,queue-reactive,0.15,own data,50,1.7149124839981331
+R1s03,queue-reactive,0.15,"own data, gated",50,1.0840665761574106
+R1s03,queue-reactive,0.15,hybrid (ensemble),50,1.6080774716308737
+R1s03,queue-reactive,0.15,own data,100,1.1240668275379635
+R1s03,queue-reactive,0.15,"own data, gated",100,1.0880123781819506
+R1s03,queue-reactive,0.15,hybrid (ensemble),100,1.1113870221581523
+R1s04,queue-reactive,0.05,always TWAP,0,0.3588978737833264
+R1s04,queue-reactive,0.05,simulator (ensemble),0,0.571486470239206
+R1s04,queue-reactive,0.05,own data,2,0.3466874975748954
+R1s04,queue-reactive,0.05,"own data, gated",2,0.3462076099185451
+R1s04,queue-reactive,0.05,hybrid (ensemble),2,0.3061841286534517
+R1s04,queue-reactive,0.05,own data,5,0.35878297302888035
+R1s04,queue-reactive,0.05,"own data, gated",5,0.35852418103316225
+R1s04,queue-reactive,0.05,hybrid (ensemble),5,0.3302800640294777
+R1s04,queue-reactive,0.05,own data,10,0.3445235492408218
+R1s04,queue-reactive,0.05,"own data, gated",10,0.3426965352889685
+R1s04,queue-reactive,0.05,hybrid (ensemble),10,0.30555787383663174
+R1s04,queue-reactive,0.05,own data,20,0.3436520992978353
+R1s04,queue-reactive,0.05,"own data, gated",20,0.3560537241786388
+R1s04,queue-reactive,0.05,hybrid (ensemble),20,0.3245368900035849
+R1s04,queue-reactive,0.05,own data,50,0.26059651148083623
+R1s04,queue-reactive,0.05,"own data, gated",50,0.3537446256188318
+R1s04,queue-reactive,0.05,hybrid (ensemble),50,0.25631363290124176
+R1s04,queue-reactive,0.05,own data,100,0.20275579616177508
+R1s04,queue-reactive,0.05,"own data, gated",100,0.35889787378332644
+R1s04,queue-reactive,0.05,hybrid (ensemble),100,0.19705051056169112
+R1s04,queue-reactive,0.15,always TWAP,0,0.2665088298976883
+R1s04,queue-reactive,0.15,simulator (ensemble),0,0.24156581477923833
+R1s04,queue-reactive,0.15,own data,2,0.45383769800164686
+R1s04,queue-reactive,0.15,"own data, gated",2,0.3110698814400261
+R1s04,queue-reactive,0.15,hybrid (ensemble),2,0.41031752435026836
+R1s04,queue-reactive,0.15,own data,5,0.3314831465036094
+R1s04,queue-reactive,0.15,"own data, gated",5,0.27650343298777874
+R1s04,queue-reactive,0.15,hybrid (ensemble),5,0.3195542484017752
+R1s04,queue-reactive,0.15,own data,10,0.3032016402872669
+R1s04,queue-reactive,0.15,"own data, gated",10,0.2646097077053932
+R1s04,queue-reactive,0.15,hybrid (ensemble),10,0.27042242781927694
+R1s04,queue-reactive,0.15,own data,20,0.3298641797207116
+R1s04,queue-reactive,0.15,"own data, gated",20,0.2633661559508503
+R1s04,queue-reactive,0.15,hybrid (ensemble),20,0.3110765958858628
+R1s04,queue-reactive,0.15,own data,50,0.23176079289882956
+R1s04,queue-reactive,0.15,"own data, gated",50,0.26105094135224394
+R1s04,queue-reactive,0.15,hybrid (ensemble),50,0.22715754648621087
+R1s04,queue-reactive,0.15,own data,100,0.15175300910801098
+R1s04,queue-reactive,0.15,"own data, gated",100,0.26506123524689384
+R1s04,queue-reactive,0.15,hybrid (ensemble),100,0.15175300910801098
+R1s05,queue-reactive,0.05,always TWAP,0,0.6134121061971758
+R1s05,queue-reactive,0.05,simulator (ensemble),0,0.6604404504389425
+R1s05,queue-reactive,0.05,own data,2,0.5711446914601119
+R1s05,queue-reactive,0.05,"own data, gated",2,0.5787252661690513
+R1s05,queue-reactive,0.05,hybrid (ensemble),2,0.5233628815646978
+R1s05,queue-reactive,0.05,own data,5,0.5644794248699102
+R1s05,queue-reactive,0.05,"own data, gated",5,0.5865230685685622
+R1s05,queue-reactive,0.05,hybrid (ensemble),5,0.5158203181707021
+R1s05,queue-reactive,0.05,own data,10,0.4534345274797528
+R1s05,queue-reactive,0.05,"own data, gated",10,0.5736443951110273
+R1s05,queue-reactive,0.05,hybrid (ensemble),10,0.4334349344359745
+R1s05,queue-reactive,0.05,own data,20,0.4510167344917707
+R1s05,queue-reactive,0.05,"own data, gated",20,0.6027928034551823
+R1s05,queue-reactive,0.05,hybrid (ensemble),20,0.4401086722898267
+R1s05,queue-reactive,0.05,own data,50,0.41721222759070925
+R1s05,queue-reactive,0.05,"own data, gated",50,0.6052486097285222
+R1s05,queue-reactive,0.05,hybrid (ensemble),50,0.4147762682608782
+R1s05,queue-reactive,0.05,own data,100,0.23484137160309027
+R1s05,queue-reactive,0.05,"own data, gated",100,0.6134121061971758
+R1s05,queue-reactive,0.05,hybrid (ensemble),100,0.24949405931549634
+R1s05,queue-reactive,0.15,always TWAP,0,2.034622087470801
+R1s05,queue-reactive,0.15,simulator (ensemble),0,0.7874831306322854
+R1s05,queue-reactive,0.15,own data,2,1.7573026961527167
+R1s05,queue-reactive,0.15,"own data, gated",2,1.9773127802494121
+R1s05,queue-reactive,0.15,hybrid (ensemble),2,1.6904661188801555
+R1s05,queue-reactive,0.15,own data,5,1.6043626232241126
+R1s05,queue-reactive,0.15,"own data, gated",5,1.9996382701107427
+R1s05,queue-reactive,0.15,hybrid (ensemble),5,1.5689263168944603
+R1s05,queue-reactive,0.15,own data,10,1.6510456642788207
+R1s05,queue-reactive,0.15,"own data, gated",10,1.9814041980417436
+R1s05,queue-reactive,0.15,hybrid (ensemble),10,1.609413152105883
+R1s05,queue-reactive,0.15,own data,20,1.5682066625744784
+R1s05,queue-reactive,0.15,"own data, gated",20,1.9931162844482475
+R1s05,queue-reactive,0.15,hybrid (ensemble),20,1.5339906434858697
+R1s05,queue-reactive,0.15,own data,50,1.2240633328982147
+R1s05,queue-reactive,0.15,"own data, gated",50,2.007294246236334
+R1s05,queue-reactive,0.15,hybrid (ensemble),50,1.21846220800449
+R1s05,queue-reactive,0.15,own data,100,1.4263430969867137
+R1s05,queue-reactive,0.15,"own data, gated",100,2.034622087470801
+R1s05,queue-reactive,0.15,hybrid (ensemble),100,1.4168045564398277
+R2s01,agent-mix,0.05,always TWAP,0,4.6590136535250135
+R2s01,agent-mix,0.05,simulator (ensemble),0,5.491696762946249
+R2s01,agent-mix,0.05,own data,2,5.539028797274548
+R2s01,agent-mix,0.05,"own data, gated",2,4.819629541887002
+R2s01,agent-mix,0.05,hybrid (ensemble),2,6.610677916917369
+R2s01,agent-mix,0.05,own data,5,5.336955882868802
+R2s01,agent-mix,0.05,"own data, gated",5,4.787976024158317
+R2s01,agent-mix,0.05,hybrid (ensemble),5,6.438555789434697
+R2s01,agent-mix,0.05,own data,10,5.133212651370907
+R2s01,agent-mix,0.05,"own data, gated",10,4.8878521536518935
+R2s01,agent-mix,0.05,hybrid (ensemble),10,6.089698774707277
+R2s01,agent-mix,0.05,own data,20,5.442069718844976
+R2s01,agent-mix,0.05,"own data, gated",20,4.849393028428443
+R2s01,agent-mix,0.05,hybrid (ensemble),20,6.106852995809477
+R2s01,agent-mix,0.05,own data,50,4.977530031431287
+R2s01,agent-mix,0.05,"own data, gated",50,4.613290161935755
+R2s01,agent-mix,0.05,hybrid (ensemble),50,5.350250272703388
+R2s01,agent-mix,0.05,own data,100,4.602518446256056
+R2s01,agent-mix,0.05,"own data, gated",100,4.669270971556755
+R2s01,agent-mix,0.05,hybrid (ensemble),100,5.429411101507273
+R2s01,agent-mix,0.15,always TWAP,0,3.238471382212258
+R2s01,agent-mix,0.15,simulator (ensemble),0,19.813988613369702
+R2s01,agent-mix,0.15,own data,2,4.970538786280942
+R2s01,agent-mix,0.15,"own data, gated",2,3.5955264030501497
+R2s01,agent-mix,0.15,hybrid (ensemble),2,6.663527880029981
+R2s01,agent-mix,0.15,own data,5,4.724193903102687
+R2s01,agent-mix,0.15,"own data, gated",5,3.569382230313475
+R2s01,agent-mix,0.15,hybrid (ensemble),5,5.654694262875374
+R2s01,agent-mix,0.15,own data,10,4.098493856140153
+R2s01,agent-mix,0.15,"own data, gated",10,3.3186329957566283
+R2s01,agent-mix,0.15,hybrid (ensemble),10,4.474264390843968
+R2s01,agent-mix,0.15,own data,20,4.169361474625284
+R2s01,agent-mix,0.15,"own data, gated",20,3.3533915529577984
+R2s01,agent-mix,0.15,hybrid (ensemble),20,4.351473840094201
+R2s01,agent-mix,0.15,own data,50,3.326847954315062
+R2s01,agent-mix,0.15,"own data, gated",50,3.167903049326632
+R2s01,agent-mix,0.15,hybrid (ensemble),50,3.4131698896412836
+R2s01,agent-mix,0.15,own data,100,1.7475958857736646
+R2s01,agent-mix,0.15,"own data, gated",100,3.222279025301197
+R2s01,agent-mix,0.15,hybrid (ensemble),100,1.8895876538198135
+R2s02,agent-mix,0.05,always TWAP,0,0.0
+R2s02,agent-mix,0.05,simulator (ensemble),0,9.318842130837877
+R2s02,agent-mix,0.05,own data,2,6.340663814918223
+R2s02,agent-mix,0.05,"own data, gated",2,1.069613480688392
+R2s02,agent-mix,0.05,hybrid (ensemble),2,7.833104020457714
+R2s02,agent-mix,0.05,own data,5,6.180557193107241
+R2s02,agent-mix,0.05,"own data, gated",5,0.6904131841850011
+R2s02,agent-mix,0.05,hybrid (ensemble),5,6.905740125932794
+R2s02,agent-mix,0.05,own data,10,5.920035217445352
+R2s02,agent-mix,0.05,"own data, gated",10,0.3884705131948389
+R2s02,agent-mix,0.05,hybrid (ensemble),10,6.971774614848898
+R2s02,agent-mix,0.05,own data,20,5.629235170848508
+R2s02,agent-mix,0.05,"own data, gated",20,0.2935208727138177
+R2s02,agent-mix,0.05,hybrid (ensemble),20,6.46911381843164
+R2s02,agent-mix,0.05,own data,50,4.644357759937332
+R2s02,agent-mix,0.05,"own data, gated",50,0.2409789474695936
+R2s02,agent-mix,0.05,hybrid (ensemble),50,5.215158125460644
+R2s02,agent-mix,0.05,own data,100,3.979104042978682
+R2s02,agent-mix,0.05,"own data, gated",100,0.01790339834555375
+R2s02,agent-mix,0.05,hybrid (ensemble),100,4.104717946780301
+R2s02,agent-mix,0.15,always TWAP,0,11.171187208330986
+R2s02,agent-mix,0.15,simulator (ensemble),0,16.575570072365196
+R2s02,agent-mix,0.15,own data,2,9.17564773262527
+R2s02,agent-mix,0.15,"own data, gated",2,10.757137470719464
+R2s02,agent-mix,0.15,hybrid (ensemble),2,11.300612991552645
+R2s02,agent-mix,0.15,own data,5,9.724458116009124
+R2s02,agent-mix,0.15,"own data, gated",5,11.239030368947732
+R2s02,agent-mix,0.15,hybrid (ensemble),5,11.937239576354028
+R2s02,agent-mix,0.15,own data,10,8.65671990643993
+R2s02,agent-mix,0.15,"own data, gated",10,11.082225647372939
+R2s02,agent-mix,0.15,hybrid (ensemble),10,10.772301565214583
+R2s02,agent-mix,0.15,own data,20,9.578164271338169
+R2s02,agent-mix,0.15,"own data, gated",20,11.106543354705023
+R2s02,agent-mix,0.15,hybrid (ensemble),20,10.74636966248233
+R2s02,agent-mix,0.15,own data,50,9.933369411513311
+R2s02,agent-mix,0.15,"own data, gated",50,11.195405310248224
+R2s02,agent-mix,0.15,hybrid (ensemble),50,10.696669818710141
+R2s02,agent-mix,0.15,own data,100,9.599171722899868
+R2s02,agent-mix,0.15,"own data, gated",100,10.952855446640992
+R2s02,agent-mix,0.15,hybrid (ensemble),100,9.85266679332643
+R2s03,agent-mix,0.05,always TWAP,0,2.5086333925422846
+R2s03,agent-mix,0.05,simulator (ensemble),0,2.5086333925422846
+R2s03,agent-mix,0.05,own data,2,5.361333869524725
+R2s03,agent-mix,0.05,"own data, gated",2,3.4391199706052347
+R2s03,agent-mix,0.05,hybrid (ensemble),2,4.436864183028542
+R2s03,agent-mix,0.05,own data,5,4.735371844619037
+R2s03,agent-mix,0.05,"own data, gated",5,2.895770717001128
+R2s03,agent-mix,0.05,hybrid (ensemble),5,4.015496926866184
+R2s03,agent-mix,0.05,own data,10,4.678323320580246
+R2s03,agent-mix,0.05,"own data, gated",10,2.995457216022447
+R2s03,agent-mix,0.05,hybrid (ensemble),10,4.0653542619409535
+R2s03,agent-mix,0.05,own data,20,4.535666516145882
+R2s03,agent-mix,0.05,"own data, gated",20,2.789620129305604
+R2s03,agent-mix,0.05,hybrid (ensemble),20,3.829544891237057
+R2s03,agent-mix,0.05,own data,50,3.703248476419574
+R2s03,agent-mix,0.05,"own data, gated",50,2.728195460138804
+R2s03,agent-mix,0.05,hybrid (ensemble),50,3.5482168688139843
+R2s03,agent-mix,0.05,own data,100,3.3415111434966116
+R2s03,agent-mix,0.05,"own data, gated",100,2.540736057628373
+R2s03,agent-mix,0.05,hybrid (ensemble),100,3.465972518845655
+R2s03,agent-mix,0.15,always TWAP,0,1.9143398894084234
+R2s03,agent-mix,0.15,simulator (ensemble),0,28.234667770572486
+R2s03,agent-mix,0.15,own data,2,5.139922324322064
+R2s03,agent-mix,0.15,"own data, gated",2,2.772181555525657
+R2s03,agent-mix,0.15,hybrid (ensemble),2,8.769872775059167
+R2s03,agent-mix,0.15,own data,5,4.508933897763922
+R2s03,agent-mix,0.15,"own data, gated",5,2.3369008261017266
+R2s03,agent-mix,0.15,hybrid (ensemble),5,6.921212179209758
+R2s03,agent-mix,0.15,own data,10,3.849489552888564
+R2s03,agent-mix,0.15,"own data, gated",10,1.9612489845786412
+R2s03,agent-mix,0.15,hybrid (ensemble),10,4.952992111452605
+R2s03,agent-mix,0.15,own data,20,3.563178974987531
+R2s03,agent-mix,0.15,"own data, gated",20,2.0816314072154225
+R2s03,agent-mix,0.15,hybrid (ensemble),20,4.084193968494019
+R2s03,agent-mix,0.15,own data,50,2.9730676686084836
+R2s03,agent-mix,0.15,"own data, gated",50,2.0051308748886454
+R2s03,agent-mix,0.15,hybrid (ensemble),50,3.1572667104706107
+R2s03,agent-mix,0.15,own data,100,2.1831128159258975
+R2s03,agent-mix,0.15,"own data, gated",100,1.89519649051434
+R2s03,agent-mix,0.15,hybrid (ensemble),100,2.3893935697086914
+R2s04,agent-mix,0.05,always TWAP,0,1.3244544313938764
+R2s04,agent-mix,0.05,simulator (ensemble),0,2.6798494506307176
+R2s04,agent-mix,0.05,own data,2,2.3011175678652123
+R2s04,agent-mix,0.05,"own data, gated",2,1.6507057495076691
+R2s04,agent-mix,0.05,hybrid (ensemble),2,2.430562969181114
+R2s04,agent-mix,0.05,own data,5,2.43435031197371
+R2s04,agent-mix,0.05,"own data, gated",5,1.493578075495813
+R2s04,agent-mix,0.05,hybrid (ensemble),5,2.3229599076208025
+R2s04,agent-mix,0.05,own data,10,2.19765678328249
+R2s04,agent-mix,0.05,"own data, gated",10,1.4672089363376792
+R2s04,agent-mix,0.05,hybrid (ensemble),10,2.1088370159664294
+R2s04,agent-mix,0.05,own data,20,2.1444543720261438
+R2s04,agent-mix,0.05,"own data, gated",20,1.3856247141365694
+R2s04,agent-mix,0.05,hybrid (ensemble),20,2.030303448370595
+R2s04,agent-mix,0.05,own data,50,2.0670704869868
+R2s04,agent-mix,0.05,"own data, gated",50,1.3670461310128927
+R2s04,agent-mix,0.05,hybrid (ensemble),50,1.9152568292688565
+R2s04,agent-mix,0.05,own data,100,1.7798236476751248
+R2s04,agent-mix,0.05,"own data, gated",100,1.3323340335044742
+R2s04,agent-mix,0.05,hybrid (ensemble),100,1.9077826392110098
+R2s04,agent-mix,0.15,always TWAP,0,0.7859858164161668
+R2s04,agent-mix,0.15,simulator (ensemble),0,1.390552521110327
+R2s04,agent-mix,0.15,own data,2,2.8795902073961077
+R2s04,agent-mix,0.15,"own data, gated",2,1.3919101798591504
+R2s04,agent-mix,0.15,hybrid (ensemble),2,2.692212709591487
+R2s04,agent-mix,0.15,own data,5,2.179584355698675
+R2s04,agent-mix,0.15,"own data, gated",5,0.9179829035424406
+R2s04,agent-mix,0.15,hybrid (ensemble),5,2.1750086221328098
+R2s04,agent-mix,0.15,own data,10,2.1544135860597735
+R2s04,agent-mix,0.15,"own data, gated",10,1.0033517699217704
+R2s04,agent-mix,0.15,hybrid (ensemble),10,1.980959795339537
+R2s04,agent-mix,0.15,own data,20,1.5610569817484672
+R2s04,agent-mix,0.15,"own data, gated",20,0.8667920175132838
+R2s04,agent-mix,0.15,hybrid (ensemble),20,1.4731475477279616
+R2s04,agent-mix,0.15,own data,50,1.2921302481177668
+R2s04,agent-mix,0.15,"own data, gated",50,0.7873924726303189
+R2s04,agent-mix,0.15,hybrid (ensemble),50,1.289816496345005
+R2s04,agent-mix,0.15,own data,100,1.054115333953124
+R2s04,agent-mix,0.15,"own data, gated",100,0.7859858164161667
+R2s04,agent-mix,0.15,hybrid (ensemble),100,1.048888031762296
+R2s05,agent-mix,0.05,always TWAP,0,3.9038092929488464
+R2s05,agent-mix,0.05,simulator (ensemble),0,11.439476900963472
+R2s05,agent-mix,0.05,own data,2,4.147798276281309
+R2s05,agent-mix,0.05,"own data, gated",2,3.964576155532594
+R2s05,agent-mix,0.05,hybrid (ensemble),2,7.624762008525502
+R2s05,agent-mix,0.05,own data,5,4.1833992128138
+R2s05,agent-mix,0.05,"own data, gated",5,3.8462808988276653
+R2s05,agent-mix,0.05,hybrid (ensemble),5,8.029647120441009
+R2s05,agent-mix,0.05,own data,10,4.6311600386022365
+R2s05,agent-mix,0.05,"own data, gated",10,3.898621230517458
+R2s05,agent-mix,0.05,hybrid (ensemble),10,7.355004200083215
+R2s05,agent-mix,0.05,own data,20,4.073669830788556
+R2s05,agent-mix,0.05,"own data, gated",20,3.859391872326554
+R2s05,agent-mix,0.05,hybrid (ensemble),20,7.063037325246101
+R2s05,agent-mix,0.05,own data,50,4.335095209357413
+R2s05,agent-mix,0.05,"own data, gated",50,3.908398637051188
+R2s05,agent-mix,0.05,hybrid (ensemble),50,7.557136221134226
+R2s05,agent-mix,0.05,own data,100,4.973973902730245
+R2s05,agent-mix,0.05,"own data, gated",100,3.914932278010574
+R2s05,agent-mix,0.05,hybrid (ensemble),100,8.917023383877362
+R2s05,agent-mix,0.15,always TWAP,0,0.9183196967803342
+R2s05,agent-mix,0.15,simulator (ensemble),0,15.520426408416654
+R2s05,agent-mix,0.15,own data,2,5.535055158308335
+R2s05,agent-mix,0.15,"own data, gated",2,1.5390344429303509
+R2s05,agent-mix,0.15,hybrid (ensemble),2,8.606735468385809
+R2s05,agent-mix,0.15,own data,5,4.847890387063568
+R2s05,agent-mix,0.15,"own data, gated",5,1.2644095701929032
+R2s05,agent-mix,0.15,hybrid (ensemble),5,8.232836241214136
+R2s05,agent-mix,0.15,own data,10,5.038186846409037
+R2s05,agent-mix,0.15,"own data, gated",10,1.1592860089763521
+R2s05,agent-mix,0.15,hybrid (ensemble),10,8.546026139701388
+R2s05,agent-mix,0.15,own data,20,5.422859588119731
+R2s05,agent-mix,0.15,"own data, gated",20,1.0517157188949395
+R2s05,agent-mix,0.15,hybrid (ensemble),20,8.586861845605592
+R2s05,agent-mix,0.15,own data,50,5.1647548499669345
+R2s05,agent-mix,0.15,"own data, gated",50,0.92612474901014
+R2s05,agent-mix,0.15,hybrid (ensemble),50,8.916435436731598
+R2s05,agent-mix,0.15,own data,100,4.4545073800151735
+R2s05,agent-mix,0.15,"own data, gated",100,0.9183196967803339
+R2s05,agent-mix,0.15,hybrid (ensemble),100,6.252109624678354
+R3s01,latent,0.05,always TWAP,0,0.9357008371776976
+R3s01,latent,0.05,simulator (ensemble),0,1.546779060506676
+R3s01,latent,0.05,own data,2,1.052673776688877
+R3s01,latent,0.05,"own data, gated",2,0.9607166007732788
+R3s01,latent,0.05,hybrid (ensemble),2,1.0541345809503264
+R3s01,latent,0.05,own data,5,1.0765599861891109
+R3s01,latent,0.05,"own data, gated",5,0.9769966969684121
+R3s01,latent,0.05,hybrid (ensemble),5,1.0761148849245996
+R3s01,latent,0.05,own data,10,1.0934491543855651
+R3s01,latent,0.05,"own data, gated",10,0.9600319771025881
+R3s01,latent,0.05,hybrid (ensemble),10,1.1001289607593552
+R3s01,latent,0.05,own data,20,1.0553419191931888
+R3s01,latent,0.05,"own data, gated",20,0.9596147988946236
+R3s01,latent,0.05,hybrid (ensemble),20,1.051043331099372
+R3s01,latent,0.05,own data,50,1.0430505569146526
+R3s01,latent,0.05,"own data, gated",50,0.9489486299497605
+R3s01,latent,0.05,hybrid (ensemble),50,1.0453935494053765
+R3s01,latent,0.05,own data,100,1.009428728602764
+R3s01,latent,0.05,"own data, gated",100,0.9368022574973217
+R3s01,latent,0.05,hybrid (ensemble),100,1.009611774732287
+R3s01,latent,0.15,always TWAP,0,0.7290609120137059
+R3s01,latent,0.15,simulator (ensemble),0,1.0286452670389457
+R3s01,latent,0.15,own data,2,0.7270945863985991
+R3s01,latent,0.15,"own data, gated",2,0.7102093225658787
+R3s01,latent,0.15,hybrid (ensemble),2,0.732394901109699
+R3s01,latent,0.15,own data,5,0.7059489015955941
+R3s01,latent,0.15,"own data, gated",5,0.7142430230969328
+R3s01,latent,0.15,hybrid (ensemble),5,0.7032028878712108
+R3s01,latent,0.15,own data,10,0.7084346398821225
+R3s01,latent,0.15,"own data, gated",10,0.7256543938609532
+R3s01,latent,0.15,hybrid (ensemble),10,0.7040081377335121
+R3s01,latent,0.15,own data,20,0.7052021950598746
+R3s01,latent,0.15,"own data, gated",20,0.7204119728544146
+R3s01,latent,0.15,hybrid (ensemble),20,0.7052021950598746
+R3s01,latent,0.15,own data,50,0.7043699222961881
+R3s01,latent,0.15,"own data, gated",50,0.7250687452670287
+R3s01,latent,0.15,hybrid (ensemble),50,0.7043699222961881
+R3s01,latent,0.15,own data,100,0.7098370969254681
+R3s01,latent,0.15,"own data, gated",100,0.729060912013706
+R3s01,latent,0.15,hybrid (ensemble),100,0.7086994909081947
+R3s02,latent,0.05,always TWAP,0,0.3272272874625042
+R3s02,latent,0.05,simulator (ensemble),0,0.23361383987320483
+R3s02,latent,0.05,own data,2,0.37665937717878295
+R3s02,latent,0.05,"own data, gated",2,0.3442422395995107
+R3s02,latent,0.05,hybrid (ensemble),2,0.3625988951493799
+R3s02,latent,0.05,own data,5,0.37249156247475357
+R3s02,latent,0.05,"own data, gated",5,0.33982276004186235
+R3s02,latent,0.05,hybrid (ensemble),5,0.3651551840400421
+R3s02,latent,0.05,own data,10,0.3873817205981491
+R3s02,latent,0.05,"own data, gated",10,0.33502758352681306
+R3s02,latent,0.05,hybrid (ensemble),10,0.3870281491878212
+R3s02,latent,0.05,own data,20,0.3784494616823729
+R3s02,latent,0.05,"own data, gated",20,0.34131972419670903
+R3s02,latent,0.05,hybrid (ensemble),20,0.37595732001329574
+R3s02,latent,0.05,own data,50,0.3763725033458323
+R3s02,latent,0.05,"own data, gated",50,0.32758774318330114
+R3s02,latent,0.05,hybrid (ensemble),50,0.37622355738239976
+R3s02,latent,0.05,own data,100,0.39096045952547315
+R3s02,latent,0.05,"own data, gated",100,0.3272272874625042
+R3s02,latent,0.05,hybrid (ensemble),100,0.39096045952547315
+R3s02,latent,0.15,always TWAP,0,0.4697186964173108
+R3s02,latent,0.15,simulator (ensemble),0,0.4193031732539776
+R3s02,latent,0.15,own data,2,0.4647764230141106
+R3s02,latent,0.15,"own data, gated",2,0.4674594189906516
+R3s02,latent,0.15,hybrid (ensemble),2,0.4517534080089135
+R3s02,latent,0.15,own data,5,0.4659693009670274
+R3s02,latent,0.15,"own data, gated",5,0.47180685520522075
+R3s02,latent,0.15,hybrid (ensemble),5,0.4626231920830397
+R3s02,latent,0.15,own data,10,0.45852922957899295
+R3s02,latent,0.15,"own data, gated",10,0.47330223176284136
+R3s02,latent,0.15,hybrid (ensemble),10,0.4556553836651901
+R3s02,latent,0.15,own data,20,0.4534980632480011
+R3s02,latent,0.15,"own data, gated",20,0.4691084551445833
+R3s02,latent,0.15,hybrid (ensemble),20,0.45193192910484853
+R3s02,latent,0.15,own data,50,0.48355086525260715
+R3s02,latent,0.15,"own data, gated",50,0.4679825280507695
+R3s02,latent,0.15,hybrid (ensemble),50,0.48355086525260715
+R3s02,latent,0.15,own data,100,0.47217159487144633
+R3s02,latent,0.15,"own data, gated",100,0.46971869641731073
+R3s02,latent,0.15,hybrid (ensemble),100,0.47275661049526796
+R3s03,latent,0.05,always TWAP,0,0.5718255178599607
+R3s03,latent,0.05,simulator (ensemble),0,0.5820784077021468
+R3s03,latent,0.05,own data,2,0.5566792788005139
+R3s03,latent,0.05,"own data, gated",2,0.5688681352573343
+R3s03,latent,0.05,hybrid (ensemble),2,0.5640821864845109
+R3s03,latent,0.05,own data,5,0.5551332637953889
+R3s03,latent,0.05,"own data, gated",5,0.5596463651875675
+R3s03,latent,0.05,hybrid (ensemble),5,0.5336040119224841
+R3s03,latent,0.05,own data,10,0.5134361078205973
+R3s03,latent,0.05,"own data, gated",10,0.5582181499664899
+R3s03,latent,0.05,hybrid (ensemble),10,0.5145209455142732
+R3s03,latent,0.05,own data,20,0.5609525176617566
+R3s03,latent,0.05,"own data, gated",20,0.5735185382052973
+R3s03,latent,0.05,hybrid (ensemble),20,0.5198358670555667
+R3s03,latent,0.05,own data,50,0.47626177572097506
+R3s03,latent,0.05,"own data, gated",50,0.5654490398198204
+R3s03,latent,0.05,hybrid (ensemble),50,0.45676438161671506
+R3s03,latent,0.05,own data,100,0.44830062895716827
+R3s03,latent,0.05,"own data, gated",100,0.5679038853945483
+R3s03,latent,0.05,hybrid (ensemble),100,0.45102262171633584
+R3s03,latent,0.15,always TWAP,0,0.39819537192279864
+R3s03,latent,0.15,simulator (ensemble),0,5.516150875078504
+R3s03,latent,0.15,own data,2,0.5722247096196788
+R3s03,latent,0.15,"own data, gated",2,0.4292080001346145
+R3s03,latent,0.15,hybrid (ensemble),2,0.6079277693116737
+R3s03,latent,0.15,own data,5,0.48348805339704026
+R3s03,latent,0.15,"own data, gated",5,0.38480944437156417
+R3s03,latent,0.15,hybrid (ensemble),5,0.4881711739662746
+R3s03,latent,0.15,own data,10,0.4565154534320213
+R3s03,latent,0.15,"own data, gated",10,0.4015993780382187
+R3s03,latent,0.15,hybrid (ensemble),10,0.4686889523779236
+R3s03,latent,0.15,own data,20,0.4479279484557322
+R3s03,latent,0.15,"own data, gated",20,0.3942770097463519
+R3s03,latent,0.15,hybrid (ensemble),20,0.4529594940678717
+R3s03,latent,0.15,own data,50,0.363507281960118
+R3s03,latent,0.15,"own data, gated",50,0.39320598121867223
+R3s03,latent,0.15,hybrid (ensemble),50,0.36306077745890436
+R3s03,latent,0.15,own data,100,0.28779546010411694
+R3s03,latent,0.15,"own data, gated",100,0.3981953719227987
+R3s03,latent,0.15,hybrid (ensemble),100,0.2903334446577667
+R3s04,latent,0.05,always TWAP,0,0.8131978916306508
+R3s04,latent,0.05,simulator (ensemble),0,0.5566478865980722
+R3s04,latent,0.05,own data,2,0.9089987980591961
+R3s04,latent,0.05,"own data, gated",2,0.8532908365329591
+R3s04,latent,0.05,hybrid (ensemble),2,0.8868134353057988
+R3s04,latent,0.05,own data,5,0.8204976677988154
+R3s04,latent,0.05,"own data, gated",5,0.8095934072785034
+R3s04,latent,0.05,hybrid (ensemble),5,0.7702948103151113
+R3s04,latent,0.05,own data,10,0.8486905700286235
+R3s04,latent,0.05,"own data, gated",10,0.8248196470289098
+R3s04,latent,0.05,hybrid (ensemble),10,0.7734655610918862
+R3s04,latent,0.05,own data,20,0.896887742265981
+R3s04,latent,0.05,"own data, gated",20,0.8241391182060508
+R3s04,latent,0.05,hybrid (ensemble),20,0.8971257970450652
+R3s04,latent,0.05,own data,50,0.8881093786001117
+R3s04,latent,0.05,"own data, gated",50,0.8201467965103533
+R3s04,latent,0.05,hybrid (ensemble),50,0.8866079610205594
+R3s04,latent,0.05,own data,100,0.9691042644171313
+R3s04,latent,0.05,"own data, gated",100,0.8131978916306508
+R3s04,latent,0.05,hybrid (ensemble),100,0.9575446449124676
+R3s04,latent,0.15,always TWAP,0,0.43774478553425666
+R3s04,latent,0.15,simulator (ensemble),0,0.43774478553425666
+R3s04,latent,0.15,own data,2,0.6349123594973143
+R3s04,latent,0.15,"own data, gated",2,0.49660595427230214
+R3s04,latent,0.15,hybrid (ensemble),2,0.6667877708858359
+R3s04,latent,0.15,own data,5,0.5553010207122795
+R3s04,latent,0.15,"own data, gated",5,0.46903931492537
+R3s04,latent,0.15,hybrid (ensemble),5,0.5514232611415167
+R3s04,latent,0.15,own data,10,0.5617143059801464
+R3s04,latent,0.15,"own data, gated",10,0.4245687376996789
+R3s04,latent,0.15,hybrid (ensemble),10,0.5170213021587717
+R3s04,latent,0.15,own data,20,0.5812821570225037
+R3s04,latent,0.15,"own data, gated",20,0.45052756158496804
+R3s04,latent,0.15,hybrid (ensemble),20,0.5455891544811844
+R3s04,latent,0.15,own data,50,0.4437614627188035
+R3s04,latent,0.15,"own data, gated",50,0.43632236137407676
+R3s04,latent,0.15,hybrid (ensemble),50,0.43162011808876133
+R3s04,latent,0.15,own data,100,0.43027556704128583
+R3s04,latent,0.15,"own data, gated",100,0.43774478553425666
+R3s04,latent,0.15,hybrid (ensemble),100,0.41328015561016895
+R3s05,latent,0.05,always TWAP,0,1.1264314630835335
+R3s05,latent,0.05,simulator (ensemble),0,0.5687711834412541
+R3s05,latent,0.05,own data,2,1.4996391575940486
+R3s05,latent,0.05,"own data, gated",2,1.2254734772112286
+R3s05,latent,0.05,hybrid (ensemble),2,1.312358266745292
+R3s05,latent,0.05,own data,5,1.3866991882271578
+R3s05,latent,0.05,"own data, gated",5,1.1743979236862623
+R3s05,latent,0.05,hybrid (ensemble),5,1.3063741097804982
+R3s05,latent,0.05,own data,10,1.4778699446671137
+R3s05,latent,0.05,"own data, gated",10,1.1750245157232415
+R3s05,latent,0.05,hybrid (ensemble),10,1.306886565652441
+R3s05,latent,0.05,own data,20,1.4153664806927893
+R3s05,latent,0.05,"own data, gated",20,1.1666006637328548
+R3s05,latent,0.05,hybrid (ensemble),20,1.353778332793405
+R3s05,latent,0.05,own data,50,1.465569177170253
+R3s05,latent,0.05,"own data, gated",50,1.1365531176581583
+R3s05,latent,0.05,hybrid (ensemble),50,1.4324923618281966
+R3s05,latent,0.05,own data,100,1.3697257352884318
+R3s05,latent,0.05,"own data, gated",100,1.13332361106044
+R3s05,latent,0.05,hybrid (ensemble),100,1.3559287053565081
+R3s05,latent,0.15,always TWAP,0,0.9538961112206623
+R3s05,latent,0.15,simulator (ensemble),0,1.0532685421275128
+R3s05,latent,0.15,own data,2,1.047970555004834
+R3s05,latent,0.15,"own data, gated",2,0.99629027259646
+R3s05,latent,0.15,hybrid (ensemble),2,1.05422777809408
+R3s05,latent,0.15,own data,5,1.0958768480062968
+R3s05,latent,0.15,"own data, gated",5,0.9588606314824493
+R3s05,latent,0.15,hybrid (ensemble),5,1.0444012068873345
+R3s05,latent,0.15,own data,10,1.0155923057672598
+R3s05,latent,0.15,"own data, gated",10,0.9690604551500958
+R3s05,latent,0.15,hybrid (ensemble),10,0.9711866517163494
+R3s05,latent,0.15,own data,20,0.9929711538814229
+R3s05,latent,0.15,"own data, gated",20,0.9694380893040097
+R3s05,latent,0.15,hybrid (ensemble),20,0.9968116508111728
+R3s05,latent,0.15,own data,50,0.971751986332566
+R3s05,latent,0.15,"own data, gated",50,0.9474414681201219
+R3s05,latent,0.15,hybrid (ensemble),50,0.9744314863449983
+R3s05,latent,0.15,own data,100,0.8297327337950562
+R3s05,latent,0.15,"own data, gated",100,0.9497810121515982
+R3s05,latent,0.15,hybrid (ensemble),100,0.834966645496555
+R3s06,latent,0.05,always TWAP,0,1.1940346695150188
+R3s06,latent,0.05,simulator (ensemble),0,1.5291255718796268
+R3s06,latent,0.05,own data,2,1.4369049267451424
+R3s06,latent,0.05,"own data, gated",2,1.2573799323768677
+R3s06,latent,0.05,hybrid (ensemble),2,1.288679120667428
+R3s06,latent,0.05,own data,5,1.4636672736396732
+R3s06,latent,0.05,"own data, gated",5,1.2270613191906612
+R3s06,latent,0.05,hybrid (ensemble),5,1.2685531436528161
+R3s06,latent,0.05,own data,10,1.4401929518742327
+R3s06,latent,0.05,"own data, gated",10,1.210101145701529
+R3s06,latent,0.05,hybrid (ensemble),10,1.3289354456504834
+R3s06,latent,0.05,own data,20,1.3889821368168078
+R3s06,latent,0.05,"own data, gated",20,1.2127226550275563
+R3s06,latent,0.05,hybrid (ensemble),20,1.3175411948350544
+R3s06,latent,0.05,own data,50,1.516222275786866
+R3s06,latent,0.05,"own data, gated",50,1.2170916337629862
+R3s06,latent,0.05,hybrid (ensemble),50,1.475660056181251
+R3s06,latent,0.05,own data,100,1.4323143773056717
+R3s06,latent,0.05,"own data, gated",100,1.1935639932312514
+R3s06,latent,0.05,hybrid (ensemble),100,1.4015843422264807
+R3s06,latent,0.15,always TWAP,0,0.8450863748181598
+R3s06,latent,0.15,simulator (ensemble),0,0.75556642410434
+R3s06,latent,0.15,own data,2,0.8741536201588557
+R3s06,latent,0.15,"own data, gated",2,0.884752738018132
+R3s06,latent,0.15,hybrid (ensemble),2,0.8332296055894034
+R3s06,latent,0.15,own data,5,0.983885509075302
+R3s06,latent,0.15,"own data, gated",5,0.8608613157468881
+R3s06,latent,0.15,hybrid (ensemble),5,0.9594949171264591
+R3s06,latent,0.15,own data,10,0.9261673258234715
+R3s06,latent,0.15,"own data, gated",10,0.8680709123167755
+R3s06,latent,0.15,hybrid (ensemble),10,0.908161733159122
+R3s06,latent,0.15,own data,20,0.8892775817344887
+R3s06,latent,0.15,"own data, gated",20,0.8314726659199174
+R3s06,latent,0.15,hybrid (ensemble),20,0.8905678153664973
+R3s06,latent,0.15,own data,50,0.8788458144574957
+R3s06,latent,0.15,"own data, gated",50,0.8584324399045983
+R3s06,latent,0.15,hybrid (ensemble),50,0.8882192582065755
+R3s06,latent,0.15,own data,100,0.8748397156777553
+R3s06,latent,0.15,"own data, gated",100,0.8456466450992893
+R3s06,latent,0.15,hybrid (ensemble),100,0.8737191751154962

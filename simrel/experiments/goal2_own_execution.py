@@ -47,7 +47,8 @@ def sim_pred(w: str, size: float, design: str | list) -> pd.Series | None:
 
 
 def main() -> None:
-    worlds = R.dev_markets()
+    test_a = "--test-a" in sys.argv  # replication: prior variance from the development markets, ensemble hybrid only
+    worlds = R.dev_markets() + (R.TEST_A if test_a else [])
     rng = np.random.default_rng(20261116)
     data, sims = {}, {}
     for w in worlds:
@@ -66,6 +67,8 @@ def main() -> None:
         err[(w, size, lab)] = float(np.nanmean(((d - (truth - truth[TWAP])).drop(TWAP)) ** 2))
     rows = []
     for (w, size), (pols, own, truth) in data.items():
+        if test_a and w not in R.TEST_A:
+            continue
         ti = pols.index(TWAP)
         regret = lambda j: float(truth.iloc[j] - truth.min())  # noqa: E731
         base = {"world": w, "family": DE.family(w), "size": size}
@@ -88,7 +91,8 @@ def main() -> None:
                 for lab in ("ensemble", "corrected"):
                     if (w, size, lab) not in sims:
                         continue
-                    tau2 = np.nanmean([e for (w2, s2, l2), e in err.items() if w2 != w and s2 == size and l2 == lab])
+                    dev = set(R.dev_markets())
+                    tau2 = np.nanmean([e for (w2, s2, l2), e in err.items() if w2 != w and w2 in dev and s2 == size and l2 == lab])
                     prior = sims[(w, size, lab)].to_numpy()
                     post = (prior / tau2 + d_own / np.maximum(v_own, 1e-9)) / (1 / tau2 + 1 / np.maximum(v_own, 1e-9))
                     post[ti] = 0.0
@@ -99,7 +103,7 @@ def main() -> None:
     t = pd.DataFrame(rows)
     out = G.BASE / "exploratory"
     out.mkdir(parents=True, exist_ok=True)
-    t.to_csv(out / "own_execution.csv", index=False)
+    t.to_csv(out / ("own_execution_test_a.csv" if test_a else "own_execution.csv"), index=False)
     per = t.groupby(["family", "rule", "n", "world"]).regret.mean().groupby(["family", "rule", "n"]).mean().unstack("n")
     pd.set_option("display.width", 220)
     print("mean regret (bp) by family, rule and number of own executions per strategy (n = 0: no own data)")
