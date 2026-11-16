@@ -34,7 +34,9 @@ using only observable evidence are significantly worse than TWAP (+1.00\bp{} [+0
 missing mechanisms added improves on uncorrected baselines on development markets but not significantly on the test
 markets; a learned diffusion generator (TRADES) and a direct feature-to-decision estimator do not help either. The
 decision-relevant mechanisms are, however, identifiable from observable data within a model family: the obstacle is
-the candidate simulators' structure, not the information in the data. We release the reference markets, protocol and
+the candidate simulators' structure, not the information in the data. A desk's remaining evidence, its own past
+executions, is weak at realistic budgets (about 1,200 trades to match TWAP in our agent-mix markets), and a
+misspecified simulator used as a prior makes it weaker. We release the reference markets, protocol and
 code as a benchmark for decision reliability.
 \end{abstract}
 
@@ -84,6 +86,16 @@ the simulator and its validation rather than an agent's experimentation.
 \citep{thumm2026causal}; regime-conditioned diffusion generates counterfactual trajectories \citep{wang2026difflob};
 self-calibrating simulators track recorded data \citep{zhong2026evomarket}; compound Hawkes models add realistic order
 sizes and spread dependence \citep{jain2024compound}. We include compound Hawkes and TRADES as modern baselines.
+\paragraph{Identification of the response to one's own orders.} Models calibrated on public data reproduce order-flow
+statistics yet misdescribe metaorder price paths, because they misattribute the origin of order-flow autocorrelation
+\citep{naviglio2026metaorder}; impact decay is not statistically identifiable by propagator estimation when prices are
+diffusive and order flow has long memory \citep{fujiwara2026decay}; and the optimal liquidation schedule depends on the
+feedback of one's own trades on later order flow \citep{chen2025endogenous}. Together these imply that a simulator can
+match observational statistics while getting the execution decision wrong. Our contribution is to measure how often and
+how costly this is across simulator families, to show that no observable evidence we tested repairs it, and to quantify
+the remaining source of evidence, the trader's own executions. Policy-aware simulator learning
+\citep{dann2026policyaware} addresses the same gap with interaction data; it needs exactly the own-execution data whose
+scarcity we quantify.
 \paragraph{Robust execution and decisions under ambiguity.} Robust execution under misspecified dynamics
 \citep{schied2013robust}, decisions under partial identification \citep{manski2011choosing}, safe improvement over a
 baseline policy \citep{laroche2019spibb,joshi2024safe} and policy-specific model selection \citep{dong2023local} are
@@ -241,6 +253,14 @@ to strategy cost differences, evaluated leaving one market family out, beat TWAP
 significantly worse than TWAP on the held-out queue-reactive family; the no-simulator rule, which reuses the strategy
 that won on the training families, also failed out of family (6.80\bp{} against TWAP's 4.22 on agent-mix markets).
 
+\paragraph{Own executions.} Using the reference runs as a desk's past executions (unpaired, a different day per
+execution), choosing the strategy with the lowest average realised cost first matches always-TWAP in agent-mix markets
+at about 100 executions per strategy (12 strategies, about 1,200 trades); requiring the saving to exceed two standard
+errors stays at TWAP. A Bayesian combination with the candidates' predictions as a prior, its variance set from the
+simulators' errors on the other markets, is worse than own data alone at every budget in agent-mix markets (7.17\bp{}
+at two executions per strategy, 3.56 at 100, against 2.88 for TWAP). Where the candidates are correctly specified (the
+Hawkes-built markets) the same prior reaches TWAP's regret with five executions per strategy against 20--50 for own data.
+
 \section{Discussion}
 \label{sec:discussion}
 
@@ -249,9 +269,14 @@ mechanism diagnostics computed from observable data do not tell a trader when a 
 advice is reliable, and optimisation turns the simulator's errors into confident recommendations. Because the
 decision-relevant mechanisms are identifiable from the same data, the obstacle is the candidate's structure: fitted
 families have directions along which the fit to observable data stays good while the decision changes. Adding the
-missing mechanism narrows the damage without making the simulator worth following. A practical reading: a simulator's
+missing mechanism narrows the damage without making the simulator worth following. The results form an evidence triangle. Passive
+market data cannot identify the response to one's own orders \citep{naviglio2026metaorder,fujiwara2026decay}, and no
+observable check we tested tells when a fitted simulator's advice is safe; simulators fitted to those data are
+confidently wrong when misspecified; and the trader's own executions resolve the decision only at budgets of the order
+of a thousand trades, more slowly still with a misspecified simulator as a prior. Away from markets whose mechanisms are
+known, the execution decision is effectively not validated by any of the three. A practical reading: a simulator's
 promised saving over TWAP is not evidence on its own, and a simulator should be trusted for execution only where its
-mechanisms are known to match the market's.
+mechanisms are known to match the market's, which is also the only case in which it makes a desk's own data go further.
 
 \paragraph{Limitations.} Real-data results cover three large US stocks, eight public sample days and sell orders; real
 data cannot say which simulator is right. The synthetic markets are of our own design and differ from Nasdaq in their
@@ -278,7 +303,8 @@ drawn markets, confirmatory hypotheses C1--C4, decision rules, well-specified ma
 mechanisms, 30-minute task, removed-mechanism experiment, budget curves).
 \item 12--15 Nov: addendum 10 (trust rules, identifiability, mechanism correction, Test~B) with amendment 1 (diagnostic
 band level); addendum 11 (TRADES); Test~B freeze.
-\item 16 Nov: Test~B read once; exploratory direct estimator (gate fixed before running).
+\item 16 Nov: Test~B read once; exploratory direct estimator and own-execution study (gates fixed and checksummed
+before running; neither met).
 \end{itemize}
 Deviations and corrected errors are listed in \texttt{simrel/reports/addendum10\_notes.md} and the study report.
 \todo{condense the deviations table into the appendix}
