@@ -27,3 +27,15 @@ right strategy, and does a misspecified simulator used as a prior reduce that nu
 Worth a design addendum and fresh confirmation markets only if, in agent-mix markets, the hybrid reaches always-TWAP's
 regret with at most half the own executions the better of the two own-data rules needs, while never being worse than
 the own-data rules by more than 0.5 bp at any n in any family.
+
+## Result (16 November 2026, appended after the run; results/simrel/goal2/exploratory/own_execution.csv)
+
+Agent-mix markets, mean regret (bp) at n = 2, 10, 50, 100 own executions per strategy (12 strategies): own data 5.20,
+4.59, 3.62, 2.79; gated 3.54, 3.08, 2.90, 2.89; hybrid with the four-design ensemble as prior 7.17, 5.85, 4.37, 3.56;
+always-TWAP 2.88. Own data alone first reaches TWAP's regret at n = 100 (about 1,200 executions); the hybrid never
+does by n = 100 and is worse than own data at every n. In the Hawkes-built markets, where the candidates are correctly
+specified, the hybrid reaches TWAP's regret at n = 5 against 20-50 for own data.
+
+Gate not met (the hybrid is worse than own data in agent-mix markets at every n). No design addendum. Reported in the
+evaluation paper: own executions are a weak source of evidence at realistic budgets, and a misspecified simulator prior
+makes them weaker; a simulator prior helps only where the simulator's mechanisms are right.

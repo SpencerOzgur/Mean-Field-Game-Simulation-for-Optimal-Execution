@@ -1,0 +1,2269 @@
+world,family,size,rule,n,regret
+R1a_qr_resilient,queue-reactive,0.05,always TWAP,0,0.1999762213178231
+R1a_qr_resilient,queue-reactive,0.05,simulator (ensemble),0,0.26357641497722817
+R1a_qr_resilient,queue-reactive,0.05,simulator (corrected),0,0.26357641497722817
+R1a_qr_resilient,queue-reactive,0.05,own data,2,0.21836253599830271
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",2,0.2008048624262938
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),2,0.21569984554045998
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),2,0.2091708054514139
+R1a_qr_resilient,queue-reactive,0.05,own data,5,0.1888465169431992
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",5,0.2003119785142642
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),5,0.19350172262009593
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),5,0.1888465169431992
+R1a_qr_resilient,queue-reactive,0.05,own data,10,0.17079826022229688
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",10,0.19599811026425917
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),10,0.17226342564379407
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),10,0.17298953203905681
+R1a_qr_resilient,queue-reactive,0.05,own data,20,0.17121380459913538
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",20,0.19717513103761994
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),20,0.1727719685462469
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),20,0.1732459165349747
+R1a_qr_resilient,queue-reactive,0.05,own data,50,0.1861919119810839
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",50,0.1925208142239423
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),50,0.18482931633592592
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),50,0.18541396791253717
+R1a_qr_resilient,queue-reactive,0.05,own data,100,0.175880669393273
+R1a_qr_resilient,queue-reactive,0.05,"own data, gated",100,0.1990567162635105
+R1a_qr_resilient,queue-reactive,0.05,hybrid (ensemble),100,0.17619967426360006
+R1a_qr_resilient,queue-reactive,0.05,hybrid (corrected),100,0.17667473244959647
+R1a_qr_resilient,queue-reactive,0.15,always TWAP,0,0.15987633452957528
+R1a_qr_resilient,queue-reactive,0.15,simulator (ensemble),0,0.40038150032510966
+R1a_qr_resilient,queue-reactive,0.15,simulator (corrected),0,0.40038150032510966
+R1a_qr_resilient,queue-reactive,0.15,own data,2,0.2972533231893243
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",2,0.16790654467224747
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),2,0.2950919235250085
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),2,0.297317110931046
+R1a_qr_resilient,queue-reactive,0.15,own data,5,0.27284117386539763
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",5,0.16445906741488472
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),5,0.2711858468313865
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),5,0.2732590444460988
+R1a_qr_resilient,queue-reactive,0.15,own data,10,0.2596970481789213
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",10,0.1697943758264159
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),10,0.2599584528937978
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),10,0.25932768642104365
+R1a_qr_resilient,queue-reactive,0.15,own data,20,0.2604748302269051
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",20,0.17690152893966882
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),20,0.2619779189879292
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),20,0.2604748302269051
+R1a_qr_resilient,queue-reactive,0.15,own data,50,0.2661006251254317
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",50,0.1636089905609758
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),50,0.267589244619505
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),50,0.2666412102701509
+R1a_qr_resilient,queue-reactive,0.15,own data,100,0.2920594652826437
+R1a_qr_resilient,queue-reactive,0.15,"own data, gated",100,0.15987633452957528
+R1a_qr_resilient,queue-reactive,0.15,hybrid (ensemble),100,0.2920594652826437
+R1a_qr_resilient,queue-reactive,0.15,hybrid (corrected),100,0.2920594652826437
+R1b_qr_fragile,queue-reactive,0.05,always TWAP,0,2.191681684964383
+R1b_qr_fragile,queue-reactive,0.05,simulator (ensemble),0,2.289347305413626
+R1b_qr_fragile,queue-reactive,0.05,simulator (corrected),0,0.022421800308261908
+R1b_qr_fragile,queue-reactive,0.05,own data,2,1.6556993928991535
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",2,2.0254019023504157
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),2,2.059922072843994
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),2,1.258162658404729
+R1b_qr_fragile,queue-reactive,0.05,own data,5,1.635585056963038
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",5,2.0650410622214044
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),5,1.9948018133461232
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),5,1.096365465291371
+R1b_qr_fragile,queue-reactive,0.05,own data,10,1.707708801943965
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",10,2.1524284727966148
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),10,1.999832178404685
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),10,1.3264988109009068
+R1b_qr_fragile,queue-reactive,0.05,own data,20,1.5310470138584156
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",20,2.173826871669328
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),20,1.7543388047154485
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),20,1.232630972291917
+R1b_qr_fragile,queue-reactive,0.05,own data,50,1.5937514702940387
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",50,2.15237190789926
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),50,1.8217761347784562
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),50,1.3956090007418018
+R1b_qr_fragile,queue-reactive,0.05,own data,100,1.7096378833495893
+R1b_qr_fragile,queue-reactive,0.05,"own data, gated",100,2.192170013066629
+R1b_qr_fragile,queue-reactive,0.05,hybrid (ensemble),100,1.8308236748094293
+R1b_qr_fragile,queue-reactive,0.05,hybrid (corrected),100,1.5470557287139104
+R1b_qr_fragile,queue-reactive,0.15,always TWAP,0,0.0
+R1b_qr_fragile,queue-reactive,0.15,simulator (ensemble),0,2.459379612303536
+R1b_qr_fragile,queue-reactive,0.15,simulator (corrected),0,0.2630920171397335
+R1b_qr_fragile,queue-reactive,0.15,own data,2,2.066497479068667
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",2,0.6523094174076723
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),2,1.9799086549316918
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),2,1.261827714993716
+R1b_qr_fragile,queue-reactive,0.15,own data,5,2.230371100751374
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",5,0.2836451990403778
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),5,1.9111011192548342
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),5,1.3774156798855024
+R1b_qr_fragile,queue-reactive,0.15,own data,10,2.0230829131760335
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",10,0.28275554647166934
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),10,1.8477154158683549
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),10,1.6403484249691664
+R1b_qr_fragile,queue-reactive,0.15,own data,20,2.0865033594018616
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",20,0.06704039522105124
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),20,1.9795122881444813
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),20,1.7618937347013028
+R1b_qr_fragile,queue-reactive,0.15,own data,50,2.2774089160632998
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",50,0.10392009088154182
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),50,2.1817828517917466
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),50,2.1715618205379856
+R1b_qr_fragile,queue-reactive,0.15,own data,100,2.097681709677448
+R1b_qr_fragile,queue-reactive,0.15,"own data, gated",100,0.0
+R1b_qr_fragile,queue-reactive,0.15,hybrid (ensemble),100,2.0774188080296567
+R1b_qr_fragile,queue-reactive,0.15,hybrid (corrected),100,2.1275566063696636
+R1c_qr_thin,queue-reactive,0.05,always TWAP,0,0.27865908725280875
+R1c_qr_thin,queue-reactive,0.05,simulator (ensemble),0,0.5444978859905998
+R1c_qr_thin,queue-reactive,0.05,simulator (corrected),0,0.30285282201597497
+R1c_qr_thin,queue-reactive,0.05,own data,2,0.7553418410840474
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",2,0.4216770126964343
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),2,0.6859555701755943
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),2,0.7046654103880112
+R1c_qr_thin,queue-reactive,0.05,own data,5,0.8026969411381372
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",5,0.3572938520380877
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),5,0.6960175059697131
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),5,0.7227088131262867
+R1c_qr_thin,queue-reactive,0.05,own data,10,0.7742984036124899
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",10,0.3375272093209229
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),10,0.6974427052909252
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),10,0.7005108348519681
+R1c_qr_thin,queue-reactive,0.05,own data,20,0.7005304351904956
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",20,0.3416660580616643
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),20,0.6281217100884595
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),20,0.6910569984669342
+R1c_qr_thin,queue-reactive,0.05,own data,50,0.7568979539029577
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",50,0.2826312173956852
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),50,0.7011094805794685
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),50,0.6867169415811244
+R1c_qr_thin,queue-reactive,0.05,own data,100,0.7154645295030878
+R1c_qr_thin,queue-reactive,0.05,"own data, gated",100,0.27865908725280875
+R1c_qr_thin,queue-reactive,0.05,hybrid (ensemble),100,0.6730816061746677
+R1c_qr_thin,queue-reactive,0.05,hybrid (corrected),100,0.7012410995265
+R1c_qr_thin,queue-reactive,0.15,always TWAP,0,0.7784563304055325
+R1c_qr_thin,queue-reactive,0.15,simulator (ensemble),0,0.4249189142925758
+R1c_qr_thin,queue-reactive,0.15,simulator (corrected),0,2.9308617295550192
+R1c_qr_thin,queue-reactive,0.15,own data,2,1.6268633636478602
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",2,0.978189886903914
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),2,1.459674364001449
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),2,1.8471116103510703
+R1c_qr_thin,queue-reactive,0.15,own data,5,1.4589570085389207
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",5,0.8041088418242478
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),5,1.3065739233717588
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),5,1.5844194272540508
+R1c_qr_thin,queue-reactive,0.15,own data,10,1.289041448596406
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",10,0.8073778301911357
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),10,1.1913457947773805
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),10,1.2884749280905103
+R1c_qr_thin,queue-reactive,0.15,own data,20,1.0073407737117632
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",20,0.7608823829755639
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),20,0.9600692114876564
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),20,1.1297571907922697
+R1c_qr_thin,queue-reactive,0.15,own data,50,0.8628630799197381
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",50,0.7667794854494495
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),50,0.8372075284397491
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),50,0.8574842830312588
+R1c_qr_thin,queue-reactive,0.15,own data,100,0.41025038618493276
+R1c_qr_thin,queue-reactive,0.15,"own data, gated",100,0.7745640487535048
+R1c_qr_thin,queue-reactive,0.15,hybrid (ensemble),100,0.3731913670673401
+R1c_qr_thin,queue-reactive,0.15,hybrid (corrected),100,0.44931605175171346
+R1d_qr_momentum,queue-reactive,0.05,always TWAP,0,0.7379298648980175
+R1d_qr_momentum,queue-reactive,0.05,simulator (ensemble),0,0.0
+R1d_qr_momentum,queue-reactive,0.05,simulator (corrected),0,1.4700194080853457
+R1d_qr_momentum,queue-reactive,0.05,own data,2,0.9251456913789885
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",2,0.8205395120526633
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),2,0.8546399010346158
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),2,0.9710860133314373
+R1d_qr_momentum,queue-reactive,0.05,own data,5,1.0005031187496851
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",5,0.7998206743785242
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),5,0.8124441878121829
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),5,1.0646226632509916
+R1d_qr_momentum,queue-reactive,0.05,own data,10,1.0309200933408946
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",10,0.7819614136328563
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),10,0.9027532396686465
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),10,1.0286259031759528
+R1d_qr_momentum,queue-reactive,0.05,own data,20,1.0421998446422212
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",20,0.7723601564651343
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),20,0.9780464047931438
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),20,1.0411035989648627
+R1d_qr_momentum,queue-reactive,0.05,own data,50,1.15149331418077
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",50,0.7634056727239925
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),50,1.0559458514514015
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),50,1.1489563110129615
+R1d_qr_momentum,queue-reactive,0.05,own data,100,1.211166860971871
+R1d_qr_momentum,queue-reactive,0.05,"own data, gated",100,0.7415903126139541
+R1d_qr_momentum,queue-reactive,0.05,hybrid (ensemble),100,1.1948368509519145
+R1d_qr_momentum,queue-reactive,0.05,hybrid (corrected),100,1.211166860971871
+R1d_qr_momentum,queue-reactive,0.15,always TWAP,0,1.5285324272901484
+R1d_qr_momentum,queue-reactive,0.15,simulator (ensemble),0,1.1562733864751138
+R1d_qr_momentum,queue-reactive,0.15,simulator (corrected),0,1.5285324272901484
+R1d_qr_momentum,queue-reactive,0.15,own data,2,1.5103493746340582
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",2,1.597688439855708
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),2,1.424627552402957
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),2,1.4893210758733466
+R1d_qr_momentum,queue-reactive,0.15,own data,5,1.3941135737387316
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",5,1.5520827333204936
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),5,1.253217558934457
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),5,1.1877925415625636
+R1d_qr_momentum,queue-reactive,0.15,own data,10,1.2855422549478337
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",10,1.4748632439850806
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),10,1.1963830820809611
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),10,1.1982710457732297
+R1d_qr_momentum,queue-reactive,0.15,own data,20,1.2451191867268492
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",20,1.4756152918043046
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),20,1.2025964253435368
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),20,1.2330773951856837
+R1d_qr_momentum,queue-reactive,0.15,own data,50,1.0423116036023001
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",50,1.4820885185934878
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),50,1.0443181692025292
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),50,1.0480929705346755
+R1d_qr_momentum,queue-reactive,0.15,own data,100,0.8894152564450033
+R1d_qr_momentum,queue-reactive,0.15,"own data, gated",100,1.5125883643563158
+R1d_qr_momentum,queue-reactive,0.15,hybrid (ensemble),100,0.8959512320881526
+R1d_qr_momentum,queue-reactive,0.15,hybrid (corrected),100,0.8970579185814542
+R1e_qr_deep,queue-reactive,0.05,always TWAP,0,0.0
+R1e_qr_deep,queue-reactive,0.05,simulator (ensemble),0,0.0
+R1e_qr_deep,queue-reactive,0.05,simulator (corrected),0,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,2,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",2,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),2,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),2,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,5,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",5,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),5,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),5,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,10,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",10,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),10,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),10,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,20,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",20,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),20,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),20,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,50,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",50,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),50,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),50,0.0
+R1e_qr_deep,queue-reactive,0.05,own data,100,0.0
+R1e_qr_deep,queue-reactive,0.05,"own data, gated",100,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (ensemble),100,0.0
+R1e_qr_deep,queue-reactive,0.05,hybrid (corrected),100,0.0
+R1e_qr_deep,queue-reactive,0.15,always TWAP,0,0.0
+R1e_qr_deep,queue-reactive,0.15,simulator (ensemble),0,0.0
+R1e_qr_deep,queue-reactive,0.15,simulator (corrected),0,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,2,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",2,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),2,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),2,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,5,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",5,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),5,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),5,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,10,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",10,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),10,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),10,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,20,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",20,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),20,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),20,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,50,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",50,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),50,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),50,0.0
+R1e_qr_deep,queue-reactive,0.15,own data,100,0.0
+R1e_qr_deep,queue-reactive,0.15,"own data, gated",100,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (ensemble),100,0.0
+R1e_qr_deep,queue-reactive,0.15,hybrid (corrected),100,0.0
+R2a_am_anchored,agent-mix,0.05,always TWAP,0,3.064905610396388
+R2a_am_anchored,agent-mix,0.05,simulator (ensemble),0,4.068880694105655
+R2a_am_anchored,agent-mix,0.05,simulator (corrected),0,9.189738101699948
+R2a_am_anchored,agent-mix,0.05,own data,2,4.800770871687481
+R2a_am_anchored,agent-mix,0.05,"own data, gated",2,3.6333453025797393
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),2,4.833659528688848
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),2,8.330875345741363
+R2a_am_anchored,agent-mix,0.05,own data,5,4.4267705143750975
+R2a_am_anchored,agent-mix,0.05,"own data, gated",5,3.319997429888531
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),5,4.259003935607077
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),5,7.712411409234046
+R2a_am_anchored,agent-mix,0.05,own data,10,4.152155540183944
+R2a_am_anchored,agent-mix,0.05,"own data, gated",10,3.242350531518257
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),10,4.264522461696795
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),10,6.025852057157369
+R2a_am_anchored,agent-mix,0.05,own data,20,4.057558401574513
+R2a_am_anchored,agent-mix,0.05,"own data, gated",20,3.140082777310422
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),20,3.720261224090342
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),20,5.346556864884454
+R2a_am_anchored,agent-mix,0.05,own data,50,3.3431904152031366
+R2a_am_anchored,agent-mix,0.05,"own data, gated",50,3.1005733528733184
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),50,3.24259246372666
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),50,3.9592573983029524
+R2a_am_anchored,agent-mix,0.05,own data,100,2.403952397275595
+R2a_am_anchored,agent-mix,0.05,"own data, gated",100,3.064905610396388
+R2a_am_anchored,agent-mix,0.05,hybrid (ensemble),100,2.6549091156440805
+R2a_am_anchored,agent-mix,0.05,hybrid (corrected),100,3.1772088477817544
+R2a_am_anchored,agent-mix,0.15,always TWAP,0,1.6148187241603522
+R2a_am_anchored,agent-mix,0.15,simulator (ensemble),0,23.643540506008762
+R2a_am_anchored,agent-mix,0.15,simulator (corrected),0,3.469691549040507
+R2a_am_anchored,agent-mix,0.15,own data,2,3.801785573744129
+R2a_am_anchored,agent-mix,0.15,"own data, gated",2,2.3869334088054264
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),2,7.450251039326298
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),2,4.494183888520832
+R2a_am_anchored,agent-mix,0.15,own data,5,3.294606068921248
+R2a_am_anchored,agent-mix,0.15,"own data, gated",5,1.9563291852892426
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),5,4.8997665232489345
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),5,3.2641479684986567
+R2a_am_anchored,agent-mix,0.15,own data,10,2.849109974835573
+R2a_am_anchored,agent-mix,0.15,"own data, gated",10,1.6606989884316328
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),10,4.377153755245752
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),10,2.9697575352830525
+R2a_am_anchored,agent-mix,0.15,own data,20,2.3544835712464756
+R2a_am_anchored,agent-mix,0.15,"own data, gated",20,1.6278712429442177
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),20,2.7929010529218483
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),20,2.4286870878330884
+R2a_am_anchored,agent-mix,0.15,own data,50,2.0374869473328463
+R2a_am_anchored,agent-mix,0.15,"own data, gated",50,1.6117417864885193
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),50,2.2458859731056635
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),50,2.2204734667886954
+R2a_am_anchored,agent-mix,0.15,own data,100,1.521203247165336
+R2a_am_anchored,agent-mix,0.15,"own data, gated",100,1.614818724160352
+R2a_am_anchored,agent-mix,0.15,hybrid (ensemble),100,1.7007357004227242
+R2a_am_anchored,agent-mix,0.15,hybrid (corrected),100,1.8886588803351854
+R2b_am_trending,agent-mix,0.05,always TWAP,0,2.9874501022779767
+R2b_am_trending,agent-mix,0.05,simulator (ensemble),0,6.72149739607048
+R2b_am_trending,agent-mix,0.05,simulator (corrected),0,19.61954698889729
+R2b_am_trending,agent-mix,0.05,own data,2,5.728906339646606
+R2b_am_trending,agent-mix,0.05,"own data, gated",2,3.7721523724995767
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),2,6.181620875672529
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),2,11.096353117707395
+R2b_am_trending,agent-mix,0.05,own data,5,5.82120934179779
+R2b_am_trending,agent-mix,0.05,"own data, gated",5,3.5405532776630895
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),5,6.037666676392616
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),5,11.564911416419788
+R2b_am_trending,agent-mix,0.05,own data,10,5.674514659342505
+R2b_am_trending,agent-mix,0.05,"own data, gated",10,3.2130854836466325
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),10,5.867453790471478
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),10,9.795965011989942
+R2b_am_trending,agent-mix,0.05,own data,20,5.04264693229881
+R2b_am_trending,agent-mix,0.05,"own data, gated",20,3.1568527640664343
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),20,5.53849244979342
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),20,7.795900479584803
+R2b_am_trending,agent-mix,0.05,own data,50,4.980903086769242
+R2b_am_trending,agent-mix,0.05,"own data, gated",50,3.1241429926517923
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),50,5.365074426619559
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),50,6.529778068840226
+R2b_am_trending,agent-mix,0.05,own data,100,3.6300784577013214
+R2b_am_trending,agent-mix,0.05,"own data, gated",100,2.972512851766586
+R2b_am_trending,agent-mix,0.05,hybrid (ensemble),100,4.219200178606479
+R2b_am_trending,agent-mix,0.05,hybrid (corrected),100,4.449277868717456
+R2b_am_trending,agent-mix,0.15,always TWAP,0,3.3593656642660283
+R2b_am_trending,agent-mix,0.15,simulator (ensemble),0,8.2700397270434
+R2b_am_trending,agent-mix,0.15,simulator (corrected),0,8.2700397270434
+R2b_am_trending,agent-mix,0.15,own data,2,6.985526679642843
+R2b_am_trending,agent-mix,0.15,"own data, gated",2,4.559442019735598
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),2,9.653510141634104
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),2,5.835025384116147
+R2b_am_trending,agent-mix,0.15,own data,5,6.222674265948164
+R2b_am_trending,agent-mix,0.15,"own data, gated",5,4.230066487565036
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),5,9.800502045517284
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),5,5.212319654381738
+R2b_am_trending,agent-mix,0.15,own data,10,5.355800244320543
+R2b_am_trending,agent-mix,0.15,"own data, gated",10,3.557836172082676
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),10,8.557602785924159
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),10,4.344301394349385
+R2b_am_trending,agent-mix,0.15,own data,20,4.608236326968198
+R2b_am_trending,agent-mix,0.15,"own data, gated",20,3.3860996129236
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),20,7.586656605498534
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),20,3.828714182606899
+R2b_am_trending,agent-mix,0.15,own data,50,3.6380494787197195
+R2b_am_trending,agent-mix,0.15,"own data, gated",50,3.362002956499856
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),50,6.336310792390503
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),50,3.07846223361008
+R2b_am_trending,agent-mix,0.15,own data,100,2.1585272432751763
+R2b_am_trending,agent-mix,0.15,"own data, gated",100,3.3425688359446983
+R2b_am_trending,agent-mix,0.15,hybrid (ensemble),100,3.9774866409634706
+R2b_am_trending,agent-mix,0.15,hybrid (corrected),100,1.6676881510352297
+R2c_am_anchor,agent-mix,0.05,always TWAP,0,1.3141017997313604
+R2c_am_anchor,agent-mix,0.05,simulator (ensemble),0,2.297733048501504
+R2c_am_anchor,agent-mix,0.05,simulator (corrected),0,2.297733048501504
+R2c_am_anchor,agent-mix,0.05,own data,2,3.472412345206361
+R2c_am_anchor,agent-mix,0.05,"own data, gated",2,1.9416383280535598
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),2,3.2201987091345647
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),2,3.670308654488034
+R2c_am_anchor,agent-mix,0.05,own data,5,3.3922476555895185
+R2c_am_anchor,agent-mix,0.05,"own data, gated",5,1.5557790462830083
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),5,2.8497724900905235
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),5,3.334933247312081
+R2c_am_anchor,agent-mix,0.05,own data,10,3.6768453298828945
+R2c_am_anchor,agent-mix,0.05,"own data, gated",10,1.4609184320001183
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),10,3.2712127205306682
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),10,3.7447761173660705
+R2c_am_anchor,agent-mix,0.05,own data,20,4.162625648297611
+R2c_am_anchor,agent-mix,0.05,"own data, gated",20,1.3587076201104396
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),20,2.5280501541376372
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),20,3.009486390015096
+R2c_am_anchor,agent-mix,0.05,own data,50,5.040549075727724
+R2c_am_anchor,agent-mix,0.05,"own data, gated",50,1.3724191373092658
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),50,2.3621187732572007
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),50,3.3247674202359807
+R2c_am_anchor,agent-mix,0.05,own data,100,5.10390111370768
+R2c_am_anchor,agent-mix,0.05,"own data, gated",100,1.3075312907327037
+R2c_am_anchor,agent-mix,0.05,hybrid (ensemble),100,2.069647602606362
+R2c_am_anchor,agent-mix,0.05,hybrid (corrected),100,4.082638597178689
+R2c_am_anchor,agent-mix,0.15,always TWAP,0,1.3523210976876867
+R2c_am_anchor,agent-mix,0.15,simulator (ensemble),0,19.386700793303223
+R2c_am_anchor,agent-mix,0.15,simulator (corrected),0,0.020746685263658193
+R2c_am_anchor,agent-mix,0.15,own data,2,3.3305844939364637
+R2c_am_anchor,agent-mix,0.15,"own data, gated",2,1.7655753269870287
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),2,6.832397628831997
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),2,1.4064554929174604
+R2c_am_anchor,agent-mix,0.15,own data,5,2.8760875592809727
+R2c_am_anchor,agent-mix,0.15,"own data, gated",5,1.4694867475058073
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),5,4.165582816524391
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),5,0.7806278725626317
+R2c_am_anchor,agent-mix,0.15,own data,10,2.227526695368198
+R2c_am_anchor,agent-mix,0.15,"own data, gated",10,1.4965156023504387
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),10,2.9967572174813135
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),10,1.2195078007249989
+R2c_am_anchor,agent-mix,0.15,own data,20,2.3962027160066506
+R2c_am_anchor,agent-mix,0.15,"own data, gated",20,1.4389375233564068
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),20,2.8502905652082613
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),20,1.1425200067595593
+R2c_am_anchor,agent-mix,0.15,own data,50,2.025693181030037
+R2c_am_anchor,agent-mix,0.15,"own data, gated",50,1.35806751430246
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),50,2.103751629164193
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),50,1.489280707855738
+R2c_am_anchor,agent-mix,0.15,own data,100,1.6759247232627907
+R2c_am_anchor,agent-mix,0.15,"own data, gated",100,1.3605358228272764
+R2c_am_anchor,agent-mix,0.15,hybrid (ensemble),100,1.6560463076510865
+R2c_am_anchor,agent-mix,0.15,hybrid (corrected),100,1.0800810416437867
+R2d_am_toxic,agent-mix,0.05,always TWAP,0,0.9352091743325524
+R2d_am_toxic,agent-mix,0.05,simulator (ensemble),0,5.841444145635267
+R2d_am_toxic,agent-mix,0.05,simulator (corrected),0,2.790556121495724
+R2d_am_toxic,agent-mix,0.05,own data,2,5.195727912693784
+R2d_am_toxic,agent-mix,0.05,"own data, gated",2,2.128077040096776
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),2,6.352816712355236
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),2,4.034008427730456
+R2d_am_toxic,agent-mix,0.05,own data,5,5.227750478853627
+R2d_am_toxic,agent-mix,0.05,"own data, gated",5,1.5817607342901439
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),5,6.635954920660013
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),5,3.8291699313111702
+R2d_am_toxic,agent-mix,0.05,own data,10,4.446477485868417
+R2d_am_toxic,agent-mix,0.05,"own data, gated",10,1.5071803807176456
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),10,6.754431140016764
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),10,3.654485548130761
+R2d_am_toxic,agent-mix,0.05,own data,20,4.743281383575912
+R2d_am_toxic,agent-mix,0.05,"own data, gated",20,1.1826481566604077
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),20,6.3783579245002535
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),20,3.84166554799794
+R2d_am_toxic,agent-mix,0.05,own data,50,4.480177477503877
+R2d_am_toxic,agent-mix,0.05,"own data, gated",50,1.0635667534698365
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),50,6.740913208686858
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),50,3.829902559042364
+R2d_am_toxic,agent-mix,0.05,own data,100,3.5904222233782637
+R2d_am_toxic,agent-mix,0.05,"own data, gated",100,0.9856981067649312
+R2d_am_toxic,agent-mix,0.05,hybrid (ensemble),100,7.135234422058331
+R2d_am_toxic,agent-mix,0.05,hybrid (corrected),100,3.2673228754191497
+R2d_am_toxic,agent-mix,0.15,always TWAP,0,5.075731923516592
+R2d_am_toxic,agent-mix,0.15,simulator (ensemble),0,17.510475176678312
+R2d_am_toxic,agent-mix,0.15,simulator (corrected),0,0.0
+R2d_am_toxic,agent-mix,0.15,own data,2,13.22021408103145
+R2d_am_toxic,agent-mix,0.15,"own data, gated",2,6.583854671857564
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),2,17.393405931048516
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),2,5.305112587631727
+R2d_am_toxic,agent-mix,0.15,own data,5,10.933562932148098
+R2d_am_toxic,agent-mix,0.15,"own data, gated",5,5.889141973961958
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),5,17.623790412251555
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),5,4.144934593931052
+R2d_am_toxic,agent-mix,0.15,own data,10,11.501290752615898
+R2d_am_toxic,agent-mix,0.15,"own data, gated",10,5.897746609504914
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),10,17.621288251112507
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),10,3.559179607154272
+R2d_am_toxic,agent-mix,0.15,own data,20,11.176906964477093
+R2d_am_toxic,agent-mix,0.15,"own data, gated",20,5.852613524318741
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),20,17.47603701366004
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),20,3.3845365798389775
+R2d_am_toxic,agent-mix,0.15,own data,50,10.871671687969773
+R2d_am_toxic,agent-mix,0.15,"own data, gated",50,5.427313242733128
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),50,17.49797967904341
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),50,3.3449782372231454
+R2d_am_toxic,agent-mix,0.15,own data,100,10.420788210312217
+R2d_am_toxic,agent-mix,0.15,"own data, gated",100,5.826654057357071
+R2d_am_toxic,agent-mix,0.15,hybrid (ensemble),100,17.566076552236044
+R2d_am_toxic,agent-mix,0.15,hybrid (corrected),100,1.7394966736436306
+R2e_am_calm,agent-mix,0.05,always TWAP,0,1.7378112154719259
+R2e_am_calm,agent-mix,0.05,simulator (ensemble),0,3.4261230386897203
+R2e_am_calm,agent-mix,0.05,simulator (corrected),0,1.2855926341864272
+R2e_am_calm,agent-mix,0.05,own data,2,1.9376374565739893
+R2e_am_calm,agent-mix,0.05,"own data, gated",2,1.8504981822626638
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),2,2.322487117699725
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),2,2.0905581055138116
+R2e_am_calm,agent-mix,0.05,own data,5,2.121837314616997
+R2e_am_calm,agent-mix,0.05,"own data, gated",5,1.7724052254348392
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),5,2.3599140078291283
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),5,2.225338961109509
+R2e_am_calm,agent-mix,0.05,own data,10,1.922955703607391
+R2e_am_calm,agent-mix,0.05,"own data, gated",10,1.789248790985176
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),10,2.2428629789351335
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),10,1.9785012542813474
+R2e_am_calm,agent-mix,0.05,own data,20,1.8935493707840592
+R2e_am_calm,agent-mix,0.05,"own data, gated",20,1.7677886059090142
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),20,2.0992202651177516
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),20,1.9733016277486115
+R2e_am_calm,agent-mix,0.05,own data,50,2.624281574491921
+R2e_am_calm,agent-mix,0.05,"own data, gated",50,1.953751491724745
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),50,2.786251174612649
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),50,2.725296236905714
+R2e_am_calm,agent-mix,0.05,own data,100,4.039100229186983
+R2e_am_calm,agent-mix,0.05,"own data, gated",100,2.083830688406311
+R2e_am_calm,agent-mix,0.05,hybrid (ensemble),100,4.195069586343097
+R2e_am_calm,agent-mix,0.05,hybrid (corrected),100,4.1470588123960646
+R2e_am_calm,agent-mix,0.15,always TWAP,0,0.9687129065803131
+R2e_am_calm,agent-mix,0.15,simulator (ensemble),0,1.7230641264985271
+R2e_am_calm,agent-mix,0.15,simulator (corrected),0,1.6785800224371092
+R2e_am_calm,agent-mix,0.15,own data,2,1.576264475216011
+R2e_am_calm,agent-mix,0.15,"own data, gated",2,1.199315433514591
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),2,1.7040344952163458
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),2,1.5710210158788596
+R2e_am_calm,agent-mix,0.15,own data,5,1.6596602344203029
+R2e_am_calm,agent-mix,0.15,"own data, gated",5,1.0283809606094525
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),5,1.6524349785713819
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),5,1.61095415909936
+R2e_am_calm,agent-mix,0.15,own data,10,1.3406549772013332
+R2e_am_calm,agent-mix,0.15,"own data, gated",10,0.9898444636154441
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),10,1.3622023912204568
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),10,1.320198126952098
+R2e_am_calm,agent-mix,0.15,own data,20,1.3084346366237711
+R2e_am_calm,agent-mix,0.15,"own data, gated",20,0.9890639970833657
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),20,1.3094817470951439
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),20,1.2496510912650292
+R2e_am_calm,agent-mix,0.15,own data,50,1.2000703616069333
+R2e_am_calm,agent-mix,0.15,"own data, gated",50,0.9617257251807905
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),50,1.1960467470523226
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),50,1.1645183361320397
+R2e_am_calm,agent-mix,0.15,own data,100,1.1044155339265955
+R2e_am_calm,agent-mix,0.15,"own data, gated",100,0.9773046578644496
+R2e_am_calm,agent-mix,0.15,hybrid (ensemble),100,1.1268657842288128
+R2e_am_calm,agent-mix,0.15,hybrid (corrected),100,1.084016606058391
+W1_hk1_R1a,Hawkes-built,0.05,always TWAP,0,0.5306075897749096
+W1_hk1_R1a,Hawkes-built,0.05,simulator (ensemble),0,0.4357555262946775
+W1_hk1_R1a,Hawkes-built,0.05,simulator (corrected),0,0.4357555262946775
+W1_hk1_R1a,Hawkes-built,0.05,own data,2,0.4581487450879253
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",2,0.5178779185981518
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),2,0.4409915971153805
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),2,0.44356312481760585
+W1_hk1_R1a,Hawkes-built,0.05,own data,5,0.4940612586799497
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",5,0.529068322630359
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),5,0.4558768536535656
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),5,0.48105158141758125
+W1_hk1_R1a,Hawkes-built,0.05,own data,10,0.5198764679083729
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",10,0.5279961870573264
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),10,0.45618975522255717
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),10,0.49072143586791866
+W1_hk1_R1a,Hawkes-built,0.05,own data,20,0.4676419320022481
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",20,0.5210694631482525
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),20,0.4380209962769183
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),20,0.4578679790312693
+W1_hk1_R1a,Hawkes-built,0.05,own data,50,0.4408461639036274
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",50,0.5208129105958577
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),50,0.4224968603599607
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),50,0.430103209531287
+W1_hk1_R1a,Hawkes-built,0.05,own data,100,0.3337844898167451
+W1_hk1_R1a,Hawkes-built,0.05,"own data, gated",100,0.527673222259373
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (ensemble),100,0.3263332606625224
+W1_hk1_R1a,Hawkes-built,0.05,hybrid (corrected),100,0.3169696503001266
+W1_hk1_R1a,Hawkes-built,0.15,always TWAP,0,0.2910425329550943
+W1_hk1_R1a,Hawkes-built,0.15,simulator (ensemble),0,0.2910425329550943
+W1_hk1_R1a,Hawkes-built,0.15,simulator (corrected),0,0.8862483642244605
+W1_hk1_R1a,Hawkes-built,0.15,own data,2,0.732759326567202
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",2,0.413525545464868
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),2,0.642448647984423
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),2,0.6395376475381501
+W1_hk1_R1a,Hawkes-built,0.15,own data,5,0.7657025307686867
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",5,0.38496756502276513
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),5,0.6425322955896442
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),5,0.6522584792775623
+W1_hk1_R1a,Hawkes-built,0.15,own data,10,0.714642665009809
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",10,0.32188107491839496
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),10,0.5955205415123049
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),10,0.6317540662167604
+W1_hk1_R1a,Hawkes-built,0.15,own data,20,0.6995102144951929
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",20,0.33609020135443457
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),20,0.6056902909730304
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),20,0.6285163879439648
+W1_hk1_R1a,Hawkes-built,0.15,own data,50,0.5454548440265731
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",50,0.29721204390633693
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),50,0.5276342633932507
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),50,0.5297840749372639
+W1_hk1_R1a,Hawkes-built,0.15,own data,100,0.43158099795400995
+W1_hk1_R1a,Hawkes-built,0.15,"own data, gated",100,0.2928205960215584
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (ensemble),100,0.4299643600883901
+W1_hk1_R1a,Hawkes-built,0.15,hybrid (corrected),100,0.4283810649579995
+W2_hcfm_R1a,Hawkes-built,0.05,always TWAP,0,0.3730328138707044
+W2_hcfm_R1a,Hawkes-built,0.05,simulator (ensemble),0,0.0
+W2_hcfm_R1a,Hawkes-built,0.05,simulator (corrected),0,0.13375070863611782
+W2_hcfm_R1a,Hawkes-built,0.05,own data,2,0.3113103587907115
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",2,0.3705329251628757
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),2,0.2743910239406731
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),2,0.287218958190893
+W2_hcfm_R1a,Hawkes-built,0.05,own data,5,0.29540739034205
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",5,0.360384595725775
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),5,0.269388817654627
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),5,0.28047474088590685
+W2_hcfm_R1a,Hawkes-built,0.05,own data,10,0.3017368390352755
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",10,0.3704254791082448
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),10,0.2818462451838813
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),10,0.28732192122517325
+W2_hcfm_R1a,Hawkes-built,0.05,own data,20,0.33611951446511945
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",20,0.3687477177827392
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),20,0.31399092725474814
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),20,0.32869909355509236
+W2_hcfm_R1a,Hawkes-built,0.05,own data,50,0.3124500679254848
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",50,0.3676832895445248
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),50,0.3076361657369211
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),50,0.3082101574676088
+W2_hcfm_R1a,Hawkes-built,0.05,own data,100,0.3467761837194759
+W2_hcfm_R1a,Hawkes-built,0.05,"own data, gated",100,0.36924749412524804
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (ensemble),100,0.34109831798663803
+W2_hcfm_R1a,Hawkes-built,0.05,hybrid (corrected),100,0.3469722347282172
+W2_hcfm_R1a,Hawkes-built,0.15,always TWAP,0,0.005053911669797628
+W2_hcfm_R1a,Hawkes-built,0.15,simulator (ensemble),0,0.005053911669797628
+W2_hcfm_R1a,Hawkes-built,0.15,simulator (corrected),0,0.0
+W2_hcfm_R1a,Hawkes-built,0.15,own data,2,0.49214395930667104
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",2,0.1455579771117846
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),2,0.3807258188863931
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),2,0.41776860097093693
+W2_hcfm_R1a,Hawkes-built,0.15,own data,5,0.5415591493629398
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",5,0.0827682219896208
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),5,0.4181260065666348
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),5,0.41764669080828193
+W2_hcfm_R1a,Hawkes-built,0.15,own data,10,0.42408304199828245
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",10,0.06467540495441325
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),10,0.37145819635564054
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),10,0.35091212850354125
+W2_hcfm_R1a,Hawkes-built,0.15,own data,20,0.2474162180071186
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",20,0.03397690825670679
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),20,0.2402623955819486
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),20,0.2447972063420015
+W2_hcfm_R1a,Hawkes-built,0.15,own data,50,0.19566321117024202
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",50,0.018439266144631667
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),50,0.18016230587979556
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),50,0.18786503516495565
+W2_hcfm_R1a,Hawkes-built,0.15,own data,100,0.11334726046282795
+W2_hcfm_R1a,Hawkes-built,0.15,"own data, gated",100,0.005053911669797628
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (ensemble),100,0.11339124888232416
+W2_hcfm_R1a,Hawkes-built,0.15,hybrid (corrected),100,0.11198524432053926
+W3_hk1_R1b,Hawkes-built,0.05,always TWAP,0,4.091880671116387
+W3_hk1_R1b,Hawkes-built,0.05,simulator (ensemble),0,8.116020542451698
+W3_hk1_R1b,Hawkes-built,0.05,simulator (corrected),0,6.872795064804269
+W3_hk1_R1b,Hawkes-built,0.05,own data,2,5.617254424677985
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",2,4.676806861702476
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),2,6.190636527743749
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),2,5.924530614110247
+W3_hk1_R1b,Hawkes-built,0.05,own data,5,5.4370673003398515
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",5,4.189673623428869
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),5,6.197316682632977
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),5,5.51600834419794
+W3_hk1_R1b,Hawkes-built,0.05,own data,10,5.339385271977971
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",10,4.13608363528314
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),10,5.479394178471434
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),10,4.9088265890162015
+W3_hk1_R1b,Hawkes-built,0.05,own data,20,4.893750625366658
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",20,4.205056310608309
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),20,5.075715529702335
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),20,4.780260550919679
+W3_hk1_R1b,Hawkes-built,0.05,own data,50,3.908529707603033
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",50,4.07990775400561
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),50,3.9820345051431216
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),50,3.856939429988216
+W3_hk1_R1b,Hawkes-built,0.05,own data,100,2.863240966029041
+W3_hk1_R1b,Hawkes-built,0.05,"own data, gated",100,4.078112777021369
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (ensemble),100,3.034889183735026
+W3_hk1_R1b,Hawkes-built,0.05,hybrid (corrected),100,3.0135009928906644
+W3_hk1_R1b,Hawkes-built,0.15,always TWAP,0,2.514613655187148
+W3_hk1_R1b,Hawkes-built,0.15,simulator (ensemble),0,2.514613655187148
+W3_hk1_R1b,Hawkes-built,0.15,simulator (corrected),0,4.325867720864469
+W3_hk1_R1b,Hawkes-built,0.15,own data,2,5.260873605463021
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",2,3.1240677595295097
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),2,4.516353521017562
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),2,3.586248613296202
+W3_hk1_R1b,Hawkes-built,0.15,own data,5,4.045000498246555
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",5,2.713534122094296
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),5,3.817567328574603
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),5,2.6964586356372977
+W3_hk1_R1b,Hawkes-built,0.15,own data,10,4.188498825391633
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",10,2.537238490155696
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),10,3.416153495278527
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),10,2.771385785024025
+W3_hk1_R1b,Hawkes-built,0.15,own data,20,3.024039783002063
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",20,2.5689937129454163
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),20,3.0742679244996767
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),20,2.7134157625221387
+W3_hk1_R1b,Hawkes-built,0.15,own data,50,1.7471261112582193
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",50,2.5148387542187636
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),50,1.5966372504545114
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),50,1.349815985230998
+W3_hk1_R1b,Hawkes-built,0.15,own data,100,0.6500926241362375
+W3_hk1_R1b,Hawkes-built,0.15,"own data, gated",100,2.502040586911212
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (ensemble),100,0.717481219351163
+W3_hk1_R1b,Hawkes-built,0.15,hybrid (corrected),100,0.6072806547570179
+W4_hcfm_R1b,Hawkes-built,0.05,always TWAP,0,3.3418812921417986
+W4_hcfm_R1b,Hawkes-built,0.05,simulator (ensemble),0,0.0
+W4_hcfm_R1b,Hawkes-built,0.05,simulator (corrected),0,1.778738692710947
+W4_hcfm_R1b,Hawkes-built,0.05,own data,2,3.3957471380553135
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",2,3.2880258033933587
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),2,2.5974222148921005
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),2,2.0717872748681696
+W4_hcfm_R1b,Hawkes-built,0.05,own data,5,3.134876106582344
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",5,3.238451430555052
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),5,2.12042509750417
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),5,1.7453462684081926
+W4_hcfm_R1b,Hawkes-built,0.05,own data,10,2.736509321553844
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",10,3.301832573300805
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),10,2.4226057032477013
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),10,1.8778261874279147
+W4_hcfm_R1b,Hawkes-built,0.05,own data,20,2.886913819768405
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",20,3.314249335410095
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),20,2.681966864760657
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),20,2.1641475439297606
+W4_hcfm_R1b,Hawkes-built,0.05,own data,50,2.4312481446011165
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",50,3.3417035278983427
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),50,2.287968398835568
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),50,2.0591558315913994
+W4_hcfm_R1b,Hawkes-built,0.05,own data,100,2.670079706071138
+W4_hcfm_R1b,Hawkes-built,0.05,"own data, gated",100,3.3418812921417986
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (ensemble),100,2.603142842496547
+W4_hcfm_R1b,Hawkes-built,0.05,hybrid (corrected),100,2.299005825917173
+W4_hcfm_R1b,Hawkes-built,0.15,always TWAP,0,2.34844070563312
+W4_hcfm_R1b,Hawkes-built,0.15,simulator (ensemble),0,2.34844070563312
+W4_hcfm_R1b,Hawkes-built,0.15,simulator (corrected),0,16.018447612252338
+W4_hcfm_R1b,Hawkes-built,0.15,own data,2,6.0120079585825685
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",2,3.267037503748219
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),2,6.084042842660051
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),2,15.234878789972818
+W4_hcfm_R1b,Hawkes-built,0.15,own data,5,4.756950362673163
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",5,2.5500155473007493
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),5,4.706579474409969
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),5,15.244279646048938
+W4_hcfm_R1b,Hawkes-built,0.15,own data,10,4.055787181246197
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",10,2.4856417690712136
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),10,3.6492368388457272
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),10,13.628573877061012
+W4_hcfm_R1b,Hawkes-built,0.15,own data,20,3.090408358017612
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",20,2.400602309240424
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),20,2.824459141135814
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),20,9.299371049612049
+W4_hcfm_R1b,Hawkes-built,0.15,own data,50,2.170422492848862
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",50,2.3445653121514742
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),50,2.0345960536961964
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),50,2.836059243737434
+W4_hcfm_R1b,Hawkes-built,0.15,own data,100,1.2923433551984298
+W4_hcfm_R1b,Hawkes-built,0.15,"own data, gated",100,2.34844070563312
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (ensemble),100,1.2559878998245668
+W4_hcfm_R1b,Hawkes-built,0.15,hybrid (corrected),100,1.2416278677788253
+W5_hk1_R2a,Hawkes-built,0.05,always TWAP,0,1.5106797983133458
+W5_hk1_R2a,Hawkes-built,0.05,simulator (ensemble),0,6.094526223999692
+W5_hk1_R2a,Hawkes-built,0.05,simulator (corrected),0,3.8570794828121606
+W5_hk1_R2a,Hawkes-built,0.05,own data,2,4.497281475976324
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",2,2.272866531036518
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),2,6.510812618011779
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),2,4.024301257172014
+W5_hk1_R2a,Hawkes-built,0.05,own data,5,4.056567055913572
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",5,1.9202124761827144
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),5,6.484144118249667
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),5,4.0656881130816895
+W5_hk1_R2a,Hawkes-built,0.05,own data,10,3.87453843325533
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",10,1.7981531578356
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),10,7.105168772023576
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),10,3.940606217790398
+W5_hk1_R2a,Hawkes-built,0.05,own data,20,4.555335432106478
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",20,2.013257633035841
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),20,7.09628033141111
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),20,4.696087227032108
+W5_hk1_R2a,Hawkes-built,0.05,own data,50,5.281511284154456
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",50,2.688736079775931
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),50,8.911595289882083
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),50,6.021597160429098
+W5_hk1_R2a,Hawkes-built,0.05,own data,100,7.740183823899797
+W5_hk1_R2a,Hawkes-built,0.05,"own data, gated",100,3.8378437813536936
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (ensemble),100,10.410894112151563
+W5_hk1_R2a,Hawkes-built,0.05,hybrid (corrected),100,9.082557145310524
+W5_hk1_R2a,Hawkes-built,0.15,always TWAP,0,8.915634489647665
+W5_hk1_R2a,Hawkes-built,0.15,simulator (ensemble),0,0.0
+W5_hk1_R2a,Hawkes-built,0.15,simulator (corrected),0,8.915634489647665
+W5_hk1_R2a,Hawkes-built,0.15,own data,2,9.975572192885272
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",2,9.442175253801283
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),2,6.8225087770747
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),2,10.408733686891637
+W5_hk1_R2a,Hawkes-built,0.15,own data,5,9.844533405682428
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",5,8.913045095555793
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),5,5.6405622925988
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),5,9.849384418815944
+W5_hk1_R2a,Hawkes-built,0.15,own data,10,8.65198259989604
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",10,8.773002103180161
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),10,5.7525870597526305
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),10,9.037664212692079
+W5_hk1_R2a,Hawkes-built,0.15,own data,20,8.221947250624849
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",20,8.616453090790614
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),20,4.715744216497485
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),20,7.568548530177248
+W5_hk1_R2a,Hawkes-built,0.15,own data,50,4.014409907978251
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",50,6.981919482610911
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),50,2.3534717657181465
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),50,3.637853375023255
+W5_hk1_R2a,Hawkes-built,0.15,own data,100,0.9593424141137293
+W5_hk1_R2a,Hawkes-built,0.15,"own data, gated",100,2.1768680702557095
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (ensemble),100,0.19957289393946406
+W5_hk1_R2a,Hawkes-built,0.15,hybrid (corrected),100,0.6205989297371594
+W6_hcfm_R2a,Hawkes-built,0.05,always TWAP,0,5.71197215349045
+W6_hcfm_R2a,Hawkes-built,0.05,simulator (ensemble),0,5.34884046496564
+W6_hcfm_R2a,Hawkes-built,0.05,simulator (corrected),0,2.146544036575566
+W6_hcfm_R2a,Hawkes-built,0.05,own data,2,6.003267584883503
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",2,5.811881778654184
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),2,5.146181469027392
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),2,4.5628373706434155
+W6_hcfm_R2a,Hawkes-built,0.05,own data,5,5.916278872500186
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",5,5.821262614436981
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),5,5.144669352537935
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),5,4.853553835065225
+W6_hcfm_R2a,Hawkes-built,0.05,own data,10,5.423073786894156
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",10,5.645098228523236
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),10,4.8970471649116245
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),10,4.133247427320592
+W6_hcfm_R2a,Hawkes-built,0.05,own data,20,5.106526593563256
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",20,5.671228400207177
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),20,4.915232311873381
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),20,3.9893487770368767
+W6_hcfm_R2a,Hawkes-built,0.05,own data,50,4.6394993703409515
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",50,5.672227256602539
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),50,4.520354798425831
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),50,3.5936361975061386
+W6_hcfm_R2a,Hawkes-built,0.05,own data,100,4.1593965805574475
+W6_hcfm_R2a,Hawkes-built,0.05,"own data, gated",100,5.71197215349045
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (ensemble),100,4.27999828051322
+W6_hcfm_R2a,Hawkes-built,0.05,hybrid (corrected),100,3.612541779737883
+W6_hcfm_R2a,Hawkes-built,0.15,always TWAP,0,16.976786755378797
+W6_hcfm_R2a,Hawkes-built,0.15,simulator (ensemble),0,0.0
+W6_hcfm_R2a,Hawkes-built,0.15,simulator (corrected),0,18.42154979825243
+W6_hcfm_R2a,Hawkes-built,0.15,own data,2,18.24160469607414
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",2,17.303723146011368
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),2,9.067930701815996
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),2,19.63317075595178
+W6_hcfm_R2a,Hawkes-built,0.15,own data,5,15.987530117602637
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",5,16.389600843702866
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),5,6.1609221909709735
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),5,19.056633742278123
+W6_hcfm_R2a,Hawkes-built,0.15,own data,10,16.318260551222675
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",10,17.01128648402742
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),10,8.858148523670112
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),10,19.904232072623934
+W6_hcfm_R2a,Hawkes-built,0.15,own data,20,13.455388936349104
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",20,16.339559529867884
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),20,7.027633748727331
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),20,19.509948029618972
+W6_hcfm_R2a,Hawkes-built,0.15,own data,50,8.807042155000874
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",50,15.5594468485073
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),50,4.246462983456499
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),50,16.930165890467407
+W6_hcfm_R2a,Hawkes-built,0.15,own data,100,1.2375247265901697
+W6_hcfm_R2a,Hawkes-built,0.15,"own data, gated",100,13.496545470526142
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (ensemble),100,0.08118529130526575
+W6_hcfm_R2a,Hawkes-built,0.15,hybrid (corrected),100,6.7895286822313325
+Xqr_join_0.3,queue-reactive,0.05,always TWAP,0,1.4008612465461052
+Xqr_join_0.3,queue-reactive,0.05,simulator (ensemble),0,0.3823027050826884
+Xqr_join_0.3,queue-reactive,0.05,simulator (corrected),0,0.3823027050826884
+Xqr_join_0.3,queue-reactive,0.05,own data,2,1.4835090999396974
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",2,1.4023695353873498
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),2,1.3745182908093991
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),2,1.4550436669228841
+Xqr_join_0.3,queue-reactive,0.05,own data,5,1.358908193200345
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",5,1.3862528384084931
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),5,1.373739543180547
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),5,1.3779087889893447
+Xqr_join_0.3,queue-reactive,0.05,own data,10,1.2381987399085548
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",10,1.3919289754660755
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),10,1.2181869673507417
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),10,1.2566762268460443
+Xqr_join_0.3,queue-reactive,0.05,own data,20,1.290664159195599
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",20,1.409737145029257
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),20,1.2673904188031309
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),20,1.2833974489845954
+Xqr_join_0.3,queue-reactive,0.05,own data,50,1.3393068391788379
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",50,1.3597785385592038
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),50,1.3398838945478895
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),50,1.329376490744041
+Xqr_join_0.3,queue-reactive,0.05,own data,100,1.1547108595466602
+Xqr_join_0.3,queue-reactive,0.05,"own data, gated",100,1.4008612465461052
+Xqr_join_0.3,queue-reactive,0.05,hybrid (ensemble),100,1.114835422821295
+Xqr_join_0.3,queue-reactive,0.05,hybrid (corrected),100,1.15654179006071
+Xqr_join_0.3,queue-reactive,0.15,always TWAP,0,1.8554611109975792
+Xqr_join_0.3,queue-reactive,0.15,simulator (ensemble),0,0.0
+Xqr_join_0.3,queue-reactive,0.15,simulator (corrected),0,0.0
+Xqr_join_0.3,queue-reactive,0.15,own data,2,1.908823249725938
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",2,1.9320785001831422
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),2,1.845816248673602
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),2,1.8565996955573485
+Xqr_join_0.3,queue-reactive,0.15,own data,5,1.5810517289287866
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",5,1.7580990514884434
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),5,1.568100545188547
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),5,1.573233117519904
+Xqr_join_0.3,queue-reactive,0.15,own data,10,1.7167979484484268
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",10,1.8586235357854601
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),10,1.7031009320314903
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),10,1.7156613816296242
+Xqr_join_0.3,queue-reactive,0.15,own data,20,1.7487223139333594
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",20,1.8191755364944564
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),20,1.7456263464791375
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),20,1.7456263464791375
+Xqr_join_0.3,queue-reactive,0.15,own data,50,1.5234904175505664
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",50,1.8510169013485755
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),50,1.5337332431698143
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),50,1.5294076834779622
+Xqr_join_0.3,queue-reactive,0.15,own data,100,1.5030927130623786
+Xqr_join_0.3,queue-reactive,0.15,"own data, gated",100,1.8554611109975798
+Xqr_join_0.3,queue-reactive,0.15,hybrid (ensemble),100,1.4983719543222458
+Xqr_join_0.3,queue-reactive,0.15,hybrid (corrected),100,1.4991273872583593
+Xqr_join_0.6,queue-reactive,0.05,always TWAP,0,1.143258358497024
+Xqr_join_0.6,queue-reactive,0.05,simulator (ensemble),0,0.0
+Xqr_join_0.6,queue-reactive,0.05,simulator (corrected),0,0.3419834598215856
+Xqr_join_0.6,queue-reactive,0.05,own data,2,0.9870804273993095
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",2,1.0792888359885702
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),2,1.0674723746709436
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),2,1.0329175614194694
+Xqr_join_0.6,queue-reactive,0.05,own data,5,0.9299454397215127
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",5,1.0970902965703337
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),5,0.9579285810500616
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),5,0.9189804599093722
+Xqr_join_0.6,queue-reactive,0.05,own data,10,0.86167770641904
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",10,1.0931401531981524
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),10,0.8369385578004491
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),10,0.8624966464889369
+Xqr_join_0.6,queue-reactive,0.05,own data,20,0.9259852937260754
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",20,1.1136893926145999
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),20,0.8748576388657203
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),20,0.9237571560333125
+Xqr_join_0.6,queue-reactive,0.05,own data,50,1.1822812809549474
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",50,1.156974668083786
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),50,1.1413443134617285
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),50,1.1896118292849278
+Xqr_join_0.6,queue-reactive,0.05,own data,100,1.8222904565580313
+Xqr_join_0.6,queue-reactive,0.05,"own data, gated",100,1.1839589990133073
+Xqr_join_0.6,queue-reactive,0.05,hybrid (ensemble),100,1.753941648431716
+Xqr_join_0.6,queue-reactive,0.05,hybrid (corrected),100,1.8084340366622893
+Xqr_join_0.6,queue-reactive,0.15,always TWAP,0,0.8505585098414841
+Xqr_join_0.6,queue-reactive,0.15,simulator (ensemble),0,0.0
+Xqr_join_0.6,queue-reactive,0.15,simulator (corrected),0,1.0512102041233966
+Xqr_join_0.6,queue-reactive,0.15,own data,2,1.4013439628696398
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",2,1.0063818874453827
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),2,1.412086492625764
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),2,1.4081614930513684
+Xqr_join_0.6,queue-reactive,0.15,own data,5,1.4015643359246002
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",5,0.90022825527115
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),5,1.3678293348856498
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),5,1.3799114101703625
+Xqr_join_0.6,queue-reactive,0.15,own data,10,1.2895759960333566
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",10,0.9183360163866539
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),10,1.2895759960333566
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),10,1.2895759960333566
+Xqr_join_0.6,queue-reactive,0.15,own data,20,1.3512285673409752
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",20,0.9228359796035548
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),20,1.346440126197255
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),20,1.3376311223766637
+Xqr_join_0.6,queue-reactive,0.15,own data,50,1.067341505993776
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",50,0.8554575311388538
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),50,1.067341505993776
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),50,1.067341505993776
+Xqr_join_0.6,queue-reactive,0.15,own data,100,0.8271269441696398
+Xqr_join_0.6,queue-reactive,0.15,"own data, gated",100,0.851943691028074
+Xqr_join_0.6,queue-reactive,0.15,hybrid (ensemble),100,0.8226735056460577
+Xqr_join_0.6,queue-reactive,0.15,hybrid (corrected),100,0.8271269441696398
+Xqr_base,queue-reactive,0.05,always TWAP,0,0.5042344665504768
+Xqr_base,queue-reactive,0.05,simulator (ensemble),0,0.44716799477072744
+Xqr_base,queue-reactive,0.05,simulator (corrected),0,0.44716799477072744
+Xqr_base,queue-reactive,0.05,own data,2,0.3963703518288504
+Xqr_base,queue-reactive,0.05,"own data, gated",2,0.48672064012411625
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),2,0.40269793809144333
+Xqr_base,queue-reactive,0.05,hybrid (corrected),2,0.39788670759092476
+Xqr_base,queue-reactive,0.05,own data,5,0.40886226148204835
+Xqr_base,queue-reactive,0.05,"own data, gated",5,0.5009483064883004
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),5,0.4041539524991643
+Xqr_base,queue-reactive,0.05,hybrid (corrected),5,0.40638845162707155
+Xqr_base,queue-reactive,0.05,own data,10,0.4180984883684768
+Xqr_base,queue-reactive,0.05,"own data, gated",10,0.4986146625765494
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),10,0.4135739934234283
+Xqr_base,queue-reactive,0.05,hybrid (corrected),10,0.4180984883684768
+Xqr_base,queue-reactive,0.05,own data,20,0.41062628964320697
+Xqr_base,queue-reactive,0.05,"own data, gated",20,0.4916652413923893
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),20,0.40672442905410805
+Xqr_base,queue-reactive,0.05,hybrid (corrected),20,0.41119838511742374
+Xqr_base,queue-reactive,0.05,own data,50,0.40871390816552755
+Xqr_base,queue-reactive,0.05,"own data, gated",50,0.49166343178987204
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),50,0.40809445734314836
+Xqr_base,queue-reactive,0.05,hybrid (corrected),50,0.40871390816552755
+Xqr_base,queue-reactive,0.05,own data,100,0.40328649336038097
+Xqr_base,queue-reactive,0.05,"own data, gated",100,0.5002809216560581
+Xqr_base,queue-reactive,0.05,hybrid (ensemble),100,0.40328649336038097
+Xqr_base,queue-reactive,0.05,hybrid (corrected),100,0.40328649336038097
+Xqr_base,queue-reactive,0.15,always TWAP,0,0.0
+Xqr_base,queue-reactive,0.15,simulator (ensemble),0,0.7903247700192608
+Xqr_base,queue-reactive,0.15,simulator (corrected),0,0.7903247700192608
+Xqr_base,queue-reactive,0.15,own data,2,0.5481473562144522
+Xqr_base,queue-reactive,0.15,"own data, gated",2,0.03801903482341788
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),2,0.5457965186646931
+Xqr_base,queue-reactive,0.15,hybrid (corrected),2,0.5561589091148407
+Xqr_base,queue-reactive,0.15,own data,5,0.5098023932915318
+Xqr_base,queue-reactive,0.15,"own data, gated",5,0.01895015455929626
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),5,0.5240941594140275
+Xqr_base,queue-reactive,0.15,hybrid (corrected),5,0.5110871259661508
+Xqr_base,queue-reactive,0.15,own data,10,0.5092237242290472
+Xqr_base,queue-reactive,0.15,"own data, gated",10,0.0428269633953787
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),10,0.5119380464172301
+Xqr_base,queue-reactive,0.15,hybrid (corrected),10,0.5072571551256811
+Xqr_base,queue-reactive,0.15,own data,20,0.5360704786318231
+Xqr_base,queue-reactive,0.15,"own data, gated",20,0.06533718885503859
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),20,0.5407241782445117
+Xqr_base,queue-reactive,0.15,hybrid (corrected),20,0.5360704786318231
+Xqr_base,queue-reactive,0.15,own data,50,0.5523845986643653
+Xqr_base,queue-reactive,0.15,"own data, gated",50,0.02139656659366584
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),50,0.5561178169308139
+Xqr_base,queue-reactive,0.15,hybrid (corrected),50,0.5523845986643653
+Xqr_base,queue-reactive,0.15,own data,100,0.6215019270950587
+Xqr_base,queue-reactive,0.15,"own data, gated",100,0.007903247700192607
+Xqr_base,queue-reactive,0.15,hybrid (ensemble),100,0.6249376054410748
+Xqr_base,queue-reactive,0.15,hybrid (corrected),100,0.6215019270950587
+Xqr_join_2.4,queue-reactive,0.05,always TWAP,0,8.881784197001252e-16
+Xqr_join_2.4,queue-reactive,0.05,simulator (ensemble),0,0.0
+Xqr_join_2.4,queue-reactive,0.05,simulator (corrected),0,0.0
+Xqr_join_2.4,queue-reactive,0.05,own data,2,5.773159728050814e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",2,8.08242361927114e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),2,4.707345624410664e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),2,4.1300296516055825e-16
+Xqr_join_2.4,queue-reactive,0.05,own data,5,4.3520742565306136e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",5,7.771561172376096e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),5,4.884981308350689e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),5,4.529709940470639e-16
+Xqr_join_2.4,queue-reactive,0.05,own data,10,4.884981308350689e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",10,8.171241461241152e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),10,5.151434834260726e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),10,4.884981308350689e-16
+Xqr_join_2.4,queue-reactive,0.05,own data,20,5.595524044110789e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",20,8.526512829121202e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),20,5.639932965095795e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),20,5.551115123125783e-16
+Xqr_join_2.4,queue-reactive,0.05,own data,50,4.840572387365683e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",50,8.748557434046233e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),50,4.973799150320702e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),50,4.840572387365683e-16
+Xqr_join_2.4,queue-reactive,0.05,own data,100,5.773159728050814e-16
+Xqr_join_2.4,queue-reactive,0.05,"own data, gated",100,8.881784197001252e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (ensemble),100,5.684341886080802e-16
+Xqr_join_2.4,queue-reactive,0.05,hybrid (corrected),100,5.639932965095795e-16
+Xqr_join_2.4,queue-reactive,0.15,always TWAP,0,0.0
+Xqr_join_2.4,queue-reactive,0.15,simulator (ensemble),0,0.0
+Xqr_join_2.4,queue-reactive,0.15,simulator (corrected),0,8.881784197001252e-16
+Xqr_join_2.4,queue-reactive,0.15,own data,2,0.005909204602300968
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",2,0.002188594297148505
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),2,0.0048149074537267335
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),2,0.002407453726863613
+Xqr_join_2.4,queue-reactive,0.15,own data,5,0.009939643109910681
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",5,0.0010942971485742613
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),5,0.009501924250480997
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),5,0.007969908242477125
+Xqr_join_2.4,queue-reactive,0.15,own data,10,0.0045960480240119055
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",10,0.00021885942971486383
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),10,0.005471485742871316
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),10,0.0030640320160080004
+Xqr_join_2.4,queue-reactive,0.15,own data,20,0.003939469734867389
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",20,0.0006565782891445604
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),20,0.004377188594297085
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),20,0.0037206103051525743
+Xqr_join_2.4,queue-reactive,0.15,own data,50,0.0028451725862931633
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",50,0.000437718859429701
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),50,0.003064032016008009
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),50,0.002626313156578326
+Xqr_join_2.4,queue-reactive,0.15,own data,100,0.0026263131565782993
+Xqr_join_2.4,queue-reactive,0.15,"own data, gated",100,0.0
+Xqr_join_2.4,queue-reactive,0.15,hybrid (ensemble),100,0.003282891445722851
+Xqr_join_2.4,queue-reactive,0.15,hybrid (corrected),100,0.0028451725862931585
+Xqr_join_4.8,queue-reactive,0.05,always TWAP,0,8.881784197001252e-16
+Xqr_join_4.8,queue-reactive,0.05,simulator (ensemble),0,8.881784197001252e-16
+Xqr_join_4.8,queue-reactive,0.05,simulator (corrected),0,8.881784197001252e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,2,5.773159728050814e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",2,7.993605777301127e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),2,7.194245199571015e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),2,6.439293542825908e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,5,5.506706202140776e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",5,8.260059303211165e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),5,6.883382752675971e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),5,6.306066779870889e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,10,5.595524044110789e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",10,8.393286066166183e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),10,6.52811138479592e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),10,6.217248937900876e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,20,5.773159728050814e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",20,8.348877145181177e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),20,6.261657858885883e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),20,6.17284001691587e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,50,5.506706202140776e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",50,8.659739592076221e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),50,5.773159728050814e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),50,5.506706202140776e-16
+Xqr_join_4.8,queue-reactive,0.05,own data,100,5.995204332975846e-16
+Xqr_join_4.8,queue-reactive,0.05,"own data, gated",100,8.881784197001252e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (ensemble),100,6.17284001691587e-16
+Xqr_join_4.8,queue-reactive,0.05,hybrid (corrected),100,6.084022174945858e-16
+Xqr_join_4.8,queue-reactive,0.15,always TWAP,0,0.0
+Xqr_join_4.8,queue-reactive,0.15,simulator (ensemble),0,0.0
+Xqr_join_4.8,queue-reactive,0.15,simulator (corrected),0,0.0
+Xqr_join_4.8,queue-reactive,0.15,own data,2,8.881784197001253e-18
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",2,0.0
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),2,2.2204460492503132e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),2,7.549516567451065e-17
+Xqr_join_4.8,queue-reactive,0.15,own data,5,4.4408920985006264e-17
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",5,1.7763568394002505e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),5,4.884981308350689e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),5,1.021405182655144e-16
+Xqr_join_4.8,queue-reactive,0.15,own data,10,6.661338147750939e-17
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",10,8.881784197001253e-18
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),10,7.105427357601002e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),10,1.021405182655144e-16
+Xqr_join_4.8,queue-reactive,0.15,own data,20,6.217248937900877e-17
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",20,0.0
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),20,6.217248937900877e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),20,8.43769498715119e-17
+Xqr_join_4.8,queue-reactive,0.15,own data,50,7.549516567451065e-17
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",50,8.881784197001253e-18
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),50,7.993605777301127e-17
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),50,7.993605777301127e-17
+Xqr_join_4.8,queue-reactive,0.15,own data,100,1.021405182655144e-16
+Xqr_join_4.8,queue-reactive,0.15,"own data, gated",100,0.0
+Xqr_join_4.8,queue-reactive,0.15,hybrid (ensemble),100,1.021405182655144e-16
+Xqr_join_4.8,queue-reactive,0.15,hybrid (corrected),100,1.1990408665951691e-16
+Xqr_theta_0.4,queue-reactive,0.05,always TWAP,0,0.04764286905357462
+Xqr_theta_0.4,queue-reactive,0.05,simulator (ensemble),0,0.028585721432144773
+Xqr_theta_0.4,queue-reactive,0.05,simulator (corrected),0,0.0
+Xqr_theta_0.4,queue-reactive,0.05,own data,2,0.10335419950661982
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",2,0.06959081851745401
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),2,0.08217881139414328
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),2,0.056737519319534545
+Xqr_theta_0.4,queue-reactive,0.05,own data,5,0.0767797540212709
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",5,0.0528835846494678
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),5,0.06073609517118625
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),5,0.05797280876607893
+Xqr_theta_0.4,queue-reactive,0.05,own data,10,0.053113236122614295
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",10,0.047166440363038874
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),10,0.051546159167119195
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),10,0.048020586857154685
+Xqr_theta_0.4,queue-reactive,0.05,own data,20,0.05454594734307019
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",20,0.04892922651802114
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),20,0.05145258600343643
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),20,0.05478416168833808
+Xqr_theta_0.4,queue-reactive,0.05,own data,50,0.05645508725406161
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",50,0.04764286905357462
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),50,0.05707615712618237
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),50,0.05564515848015086
+Xqr_theta_0.4,queue-reactive,0.05,own data,100,0.06215853094509639
+Xqr_theta_0.4,queue-reactive,0.05,"own data, gated",100,0.04764286905357462
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (ensemble),100,0.061683814828984926
+Xqr_theta_0.4,queue-reactive,0.05,hybrid (corrected),100,0.06206324520698924
+Xqr_theta_0.4,queue-reactive,0.15,always TWAP,0,0.2188594297148576
+Xqr_theta_0.4,queue-reactive,0.15,simulator (ensemble),0,0.29074541014890887
+Xqr_theta_0.4,queue-reactive,0.15,simulator (corrected),0,0.21260630315157591
+Xqr_theta_0.4,queue-reactive,0.15,own data,2,0.22035274558369322
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",2,0.21663841403385484
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),2,0.21939499364758164
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),2,0.19598203005126777
+Xqr_theta_0.4,queue-reactive,0.15,own data,5,0.24037276439221159
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",5,0.21910821177592987
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),5,0.24337211188755525
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),5,0.22778975280989477
+Xqr_theta_0.4,queue-reactive,0.15,own data,10,0.20868988666292368
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",10,0.21976575844087812
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),10,0.20887695083225588
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),10,0.20753296499794444
+Xqr_theta_0.4,queue-reactive,0.15,own data,20,0.2080328721217977
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",20,0.2195784143944165
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),20,0.20288961314829584
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),20,0.2052654574922569
+Xqr_theta_0.4,queue-reactive,0.15,own data,50,0.214879827957039
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",50,0.2181712111672413
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),50,0.2144108434647929
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),50,0.214879827957039
+Xqr_theta_0.4,queue-reactive,0.15,own data,100,0.25309688181593953
+Xqr_theta_0.4,queue-reactive,0.15,"own data, gated",100,0.2206565792257089
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (ensemble),100,0.2526278973236934
+Xqr_theta_0.4,queue-reactive,0.15,hybrid (corrected),100,0.2526278973236934
+Xqr_theta_0.8,queue-reactive,0.05,always TWAP,0,0.04764286905357373
+Xqr_theta_0.8,queue-reactive,0.05,simulator (ensemble),0,0.01908577628585828
+Xqr_theta_0.8,queue-reactive,0.05,simulator (corrected),0,0.1429286071607221
+Xqr_theta_0.8,queue-reactive,0.05,own data,2,0.22833381686902712
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",2,0.08208519089754368
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),2,0.16589177033654678
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),2,0.18113476871056974
+Xqr_theta_0.8,queue-reactive,0.05,own data,5,0.18251770020302296
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",5,0.06650778052956811
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),5,0.1699450298311874
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),5,0.17161152824480744
+Xqr_theta_0.8,queue-reactive,0.05,own data,10,0.14898240068361424
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",10,0.050215583982466755
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),10,0.14564854499644103
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),10,0.1498876151956321
+Xqr_theta_0.8,queue-reactive,0.05,own data,20,0.15322376117595923
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",20,0.04764286905357373
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),20,0.14969876143928326
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),20,0.15384297533033353
+Xqr_theta_0.8,queue-reactive,0.05,own data,50,0.13578718681896162
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",50,0.051644870054073984
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),50,0.13669240133097954
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),50,0.13578718681896162
+Xqr_theta_0.8,queue-reactive,0.05,own data,100,0.13740890522997112
+Xqr_theta_0.8,queue-reactive,0.05,"own data, gated",100,0.04983444103003816
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (ensemble),100,0.135551119623526
+Xqr_theta_0.8,queue-reactive,0.05,hybrid (corrected),100,0.13793297678956043
+Xqr_theta_0.8,queue-reactive,0.15,always TWAP,0,0.24401258604070186
+Xqr_theta_0.8,queue-reactive,0.15,simulator (ensemble),0,0.24087349771837285
+Xqr_theta_0.8,queue-reactive,0.15,simulator (corrected),0,0.07515940003048716
+Xqr_theta_0.8,queue-reactive,0.15,own data,2,0.3040928380254096
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",2,0.2554982992797226
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),2,0.265049175824735
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),2,0.27246358495691764
+Xqr_theta_0.8,queue-reactive,0.15,own data,5,0.2754155024491221
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",5,0.2444471795835683
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),5,0.24941104741595424
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),5,0.25754434822954925
+Xqr_theta_0.8,queue-reactive,0.15,own data,10,0.25044800249004034
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",10,0.244778172262833
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),10,0.23651520962931016
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),10,0.24378686022945803
+Xqr_theta_0.8,queue-reactive,0.15,own data,20,0.25379508051721417
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",20,0.24279252311049834
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),20,0.24713548432036028
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),20,0.25099707169280505
+Xqr_theta_0.8,queue-reactive,0.15,own data,50,0.21386686600526644
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",50,0.23932025599111761
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),50,0.21386686600526644
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),50,0.21386686600526644
+Xqr_theta_0.8,queue-reactive,0.15,own data,100,0.18934099328253415
+Xqr_theta_0.8,queue-reactive,0.15,"own data, gated",100,0.24316832011065082
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (ensemble),100,0.18934099328253415
+Xqr_theta_0.8,queue-reactive,0.15,hybrid (corrected),100,0.18934099328253415
+Xqr_theta_2,queue-reactive,0.05,always TWAP,0,0.6460187177654211
+Xqr_theta_2,queue-reactive,0.05,simulator (ensemble),0,0.14036138109645524
+Xqr_theta_2,queue-reactive,0.05,simulator (corrected),0,0.6462559960405763
+Xqr_theta_2,queue-reactive,0.05,own data,2,0.6204137231051703
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",2,0.6458472535631172
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),2,0.6396349489648899
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),2,0.627351823250211
+Xqr_theta_2,queue-reactive,0.05,own data,5,0.6288199289386247
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",5,0.6411508177626212
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),5,0.6547255738494002
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),5,0.6256931723975554
+Xqr_theta_2,queue-reactive,0.05,own data,10,0.6187467046768546
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",10,0.6487511387270974
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),10,0.618366444845819
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),10,0.6160285870349912
+Xqr_theta_2,queue-reactive,0.05,own data,20,0.6307296963595266
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",20,0.6453795722897031
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),20,0.6350447736995048
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),20,0.6307296963595266
+Xqr_theta_2,queue-reactive,0.05,own data,50,0.5931603394622407
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",50,0.6427732547821546
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),50,0.59653321251285
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),50,0.5931603394622407
+Xqr_theta_2,queue-reactive,0.05,own data,100,0.529243334394768
+Xqr_theta_2,queue-reactive,0.05,"own data, gated",100,0.6460187177654211
+Xqr_theta_2,queue-reactive,0.05,hybrid (ensemble),100,0.5317234243460282
+Xqr_theta_2,queue-reactive,0.05,hybrid (corrected),100,0.530483379370398
+Xqr_theta_2,queue-reactive,0.15,always TWAP,0,0.07458885223208167
+Xqr_theta_2,queue-reactive,0.15,simulator (ensemble),0,0.07458885223208167
+Xqr_theta_2,queue-reactive,0.15,simulator (corrected),0,0.07458885223208167
+Xqr_theta_2,queue-reactive,0.15,own data,2,0.3679714500659674
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",2,0.17558424238897297
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),2,0.38090515571688355
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),2,0.3746683154064246
+Xqr_theta_2,queue-reactive,0.15,own data,5,0.3764404530407593
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",5,0.1129912649145909
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),5,0.3685093370809331
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),5,0.36810875930510034
+Xqr_theta_2,queue-reactive,0.15,own data,10,0.4061016927791772
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",10,0.10064109491315293
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),10,0.41202757603661994
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),10,0.4061016927791772
+Xqr_theta_2,queue-reactive,0.15,own data,20,0.3297997932279515
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",20,0.09880139805051223
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),20,0.3297997932279515
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),20,0.3297997932279515
+Xqr_theta_2,queue-reactive,0.15,own data,50,0.3047042572421522
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",50,0.08842845654513877
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),50,0.3047042572421522
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),50,0.3047042572421522
+Xqr_theta_2,queue-reactive,0.15,own data,100,0.3072596797900338
+Xqr_theta_2,queue-reactive,0.15,"own data, gated",100,0.07458885223208167
+Xqr_theta_2,queue-reactive,0.15,hybrid (ensemble),100,0.3072596797900338
+Xqr_theta_2,queue-reactive,0.15,hybrid (corrected),100,0.3072596797900338
+Xqr_theta_2.8,queue-reactive,0.05,always TWAP,0,3.8489496822153466
+Xqr_theta_2.8,queue-reactive,0.05,simulator (ensemble),0,4.615856240355058
+Xqr_theta_2.8,queue-reactive,0.05,simulator (corrected),0,4.313632541300729
+Xqr_theta_2.8,queue-reactive,0.05,own data,2,3.4482562048231773
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",2,3.727603770264028
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),2,3.5224226213509073
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),2,3.594991556419023
+Xqr_theta_2.8,queue-reactive,0.05,own data,5,3.5630868386050496
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",5,3.8168045656384186
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),5,3.581537466046725
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),5,3.5991679436967754
+Xqr_theta_2.8,queue-reactive,0.05,own data,10,3.3826050091588455
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",10,3.766147136132996
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),10,3.4083707755125476
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),10,3.4599901079669517
+Xqr_theta_2.8,queue-reactive,0.05,own data,20,3.392206533501682
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",20,3.7859575157166137
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),20,3.3552488463145975
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),20,3.4120514811215346
+Xqr_theta_2.8,queue-reactive,0.05,own data,50,3.210957758524408
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",50,3.806269149956115
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),50,3.2066771843955952
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),50,3.2165137691977974
+Xqr_theta_2.8,queue-reactive,0.05,own data,100,2.6852958705429955
+Xqr_theta_2.8,queue-reactive,0.05,"own data, gated",100,3.848949682215348
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (ensemble),100,2.740686599210574
+Xqr_theta_2.8,queue-reactive,0.05,hybrid (corrected),100,2.731787842876148
+Xqr_theta_2.8,queue-reactive,0.15,always TWAP,0,2.469046959452001
+Xqr_theta_2.8,queue-reactive,0.15,simulator (ensemble),0,2.4140216131948815
+Xqr_theta_2.8,queue-reactive,0.15,simulator (corrected),0,2.4140216131948815
+Xqr_theta_2.8,queue-reactive,0.15,own data,2,1.9550038684914413
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",2,2.3005615290040002
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),2,1.9355549195622308
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),2,1.9797795250252523
+Xqr_theta_2.8,queue-reactive,0.15,own data,5,1.935464418793444
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",5,2.372064606802208
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),5,1.914667195909124
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),5,1.932741402945234
+Xqr_theta_2.8,queue-reactive,0.15,own data,10,1.9118534628783725
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",10,2.377459873870385
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),10,1.9302855766951337
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),10,1.9578412000673688
+Xqr_theta_2.8,queue-reactive,0.15,own data,20,1.8926422733367587
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",20,2.36339717769742
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),20,1.901474224452544
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),20,1.9113414695317774
+Xqr_theta_2.8,queue-reactive,0.15,own data,50,1.716412892461556
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",50,2.450094528569929
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),50,1.708119911493524
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),50,1.7213680145428218
+Xqr_theta_2.8,queue-reactive,0.15,own data,100,1.5976801330976005
+Xqr_theta_2.8,queue-reactive,0.15,"own data, gated",100,2.462163885513541
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (ensemble),100,1.6008403128633955
+Xqr_theta_2.8,queue-reactive,0.15,hybrid (corrected),100,1.6215239684177356
+Xam_fund_0.025,agent-mix,0.05,always TWAP,0,4.786574711001077
+Xam_fund_0.025,agent-mix,0.05,simulator (ensemble),0,6.814439016363666
+Xam_fund_0.025,agent-mix,0.05,simulator (corrected),0,18.53330926765583
+Xam_fund_0.025,agent-mix,0.05,own data,2,6.744778352075673
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",2,5.48936097536633
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),2,7.833775421200629
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),2,15.55184600087532
+Xam_fund_0.025,agent-mix,0.05,own data,5,6.139395453792888
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",5,4.9962409766207365
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),5,7.335353335206519
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),5,15.85235185508957
+Xam_fund_0.025,agent-mix,0.05,own data,10,6.207332409158211
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",10,5.124553952787637
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),10,7.675459144666043
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),10,15.700798881260845
+Xam_fund_0.025,agent-mix,0.05,own data,20,5.568066817967085
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",20,5.0868130145154575
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),20,8.220763418936356
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),20,14.664600551111228
+Xam_fund_0.025,agent-mix,0.05,own data,50,4.750330131434449
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",50,4.807193507708003
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),50,7.240617235832186
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),50,14.629999076440015
+Xam_fund_0.025,agent-mix,0.05,own data,100,4.092628174049773
+Xam_fund_0.025,agent-mix,0.05,"own data, gated",100,4.642977469671045
+Xam_fund_0.025,agent-mix,0.05,hybrid (ensemble),100,7.5056225564442
+Xam_fund_0.025,agent-mix,0.05,hybrid (corrected),100,14.299455257937366
+Xam_fund_0.025,agent-mix,0.15,always TWAP,0,3.946166925135734
+Xam_fund_0.025,agent-mix,0.15,simulator (ensemble),0,4.195455697310471
+Xam_fund_0.025,agent-mix,0.15,simulator (corrected),0,25.33570290080344
+Xam_fund_0.025,agent-mix,0.15,own data,2,7.302162147486482
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",2,5.06084091421162
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),2,9.826656345259122
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),2,17.879834937975
+Xam_fund_0.025,agent-mix,0.15,own data,5,7.109960639626568
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",5,4.482221000731746
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),5,7.873969023397317
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),5,16.62980560133266
+Xam_fund_0.025,agent-mix,0.15,own data,10,5.449081984100866
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",10,3.967670270330174
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),10,6.029965580232299
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),10,12.560594943356927
+Xam_fund_0.025,agent-mix,0.15,own data,20,4.160666623779476
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",20,3.871401804520947
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),20,4.756755532810842
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),20,8.70232042573439
+Xam_fund_0.025,agent-mix,0.15,own data,50,2.978941995991256
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",50,3.8918391148393776
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),50,3.1451763373850143
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),50,4.402216267510068
+Xam_fund_0.025,agent-mix,0.15,own data,100,1.0295514679420963
+Xam_fund_0.025,agent-mix,0.15,"own data, gated",100,3.886974421258698
+Xam_fund_0.025,agent-mix,0.15,hybrid (ensemble),100,1.1703972866403285
+Xam_fund_0.025,agent-mix,0.15,hybrid (corrected),100,1.207216951608479
+Xam_fund_0.05,agent-mix,0.05,always TWAP,0,2.788924683595744
+Xam_fund_0.05,agent-mix,0.05,simulator (ensemble),0,6.6212091308064345
+Xam_fund_0.05,agent-mix,0.05,simulator (corrected),0,12.73396437906633
+Xam_fund_0.05,agent-mix,0.05,own data,2,5.092322122409179
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",2,3.5667220850818238
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),2,5.384574207167032
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),2,11.212492256209176
+Xam_fund_0.05,agent-mix,0.05,own data,5,5.106824284764391
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",5,3.1201076182688507
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),5,4.573890619130853
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),5,11.153328321699968
+Xam_fund_0.05,agent-mix,0.05,own data,10,4.700306733035237
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",10,3.000250535631385
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),10,4.025365012055909
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),10,10.707295100571073
+Xam_fund_0.05,agent-mix,0.05,own data,20,3.8193644231010677
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",20,2.876698810874136
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),20,3.5194618404577147
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),20,10.556498642007472
+Xam_fund_0.05,agent-mix,0.05,own data,50,3.4190556544752972
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",50,2.81553734226911
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),50,2.871262161244801
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),50,10.058108717617019
+Xam_fund_0.05,agent-mix,0.05,own data,100,1.890328772899896
+Xam_fund_0.05,agent-mix,0.05,"own data, gated",100,2.7749800601777657
+Xam_fund_0.05,agent-mix,0.05,hybrid (ensemble),100,1.7271984179053392
+Xam_fund_0.05,agent-mix,0.05,hybrid (corrected),100,9.836307253034002
+Xam_fund_0.05,agent-mix,0.15,always TWAP,0,1.5926742503279794
+Xam_fund_0.05,agent-mix,0.15,simulator (ensemble),0,3.537412090425452
+Xam_fund_0.05,agent-mix,0.15,simulator (corrected),0,22.00826362493875
+Xam_fund_0.05,agent-mix,0.15,own data,2,4.523467730708238
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",2,2.4625924425207892
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),2,5.412334249413477
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),2,19.077019795334962
+Xam_fund_0.05,agent-mix,0.15,own data,5,4.036412963771378
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",5,1.9260165444559885
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),5,4.18548187818003
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),5,18.681628326845225
+Xam_fund_0.05,agent-mix,0.15,own data,10,3.63790468778648
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",10,1.925174084412188
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),10,3.840323207661447
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),10,14.981174678590376
+Xam_fund_0.05,agent-mix,0.15,own data,20,2.7716783317769593
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",20,1.6307154513301003
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),20,2.796929457064228
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),20,8.141667855341854
+Xam_fund_0.05,agent-mix,0.15,own data,50,2.1180930459185907
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",50,1.5608207653214197
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),50,2.1478215683215907
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),50,3.2721365927403063
+Xam_fund_0.05,agent-mix,0.15,own data,100,0.8396747705891598
+Xam_fund_0.05,agent-mix,0.15,"own data, gated",100,1.5926742503279794
+Xam_fund_0.05,agent-mix,0.15,hybrid (ensemble),100,0.8699726090729472
+Xam_fund_0.05,agent-mix,0.15,hybrid (corrected),100,1.2750877888613692
+Xam_base,agent-mix,0.05,always TWAP,0,1.9453374905955663
+Xam_base,agent-mix,0.05,simulator (ensemble),0,3.080983679358325
+Xam_base,agent-mix,0.05,simulator (corrected),0,6.82673218427945
+Xam_base,agent-mix,0.05,own data,2,3.8936916230381007
+Xam_base,agent-mix,0.05,"own data, gated",2,2.6095751714529376
+Xam_base,agent-mix,0.05,hybrid (ensemble),2,3.495116019881108
+Xam_base,agent-mix,0.05,hybrid (corrected),2,5.9528691542730225
+Xam_base,agent-mix,0.05,own data,5,3.461163179731277
+Xam_base,agent-mix,0.05,"own data, gated",5,2.0992794621900646
+Xam_base,agent-mix,0.05,hybrid (ensemble),5,3.206130514993585
+Xam_base,agent-mix,0.05,hybrid (corrected),5,5.814025672006498
+Xam_base,agent-mix,0.05,own data,10,3.6107599588218693
+Xam_base,agent-mix,0.05,"own data, gated",10,2.169866920022733
+Xam_base,agent-mix,0.05,hybrid (ensemble),10,2.9758030123422623
+Xam_base,agent-mix,0.05,hybrid (corrected),10,4.600625830366802
+Xam_base,agent-mix,0.05,own data,20,3.1532389792499838
+Xam_base,agent-mix,0.05,"own data, gated",20,2.0031008066248064
+Xam_base,agent-mix,0.05,hybrid (ensemble),20,2.763929445424145
+Xam_base,agent-mix,0.05,hybrid (corrected),20,3.8385802198359045
+Xam_base,agent-mix,0.05,own data,50,2.308882944282685
+Xam_base,agent-mix,0.05,"own data, gated",50,1.9159069377107079
+Xam_base,agent-mix,0.05,hybrid (ensemble),50,2.4808078261474007
+Xam_base,agent-mix,0.05,hybrid (corrected),50,2.966596980064096
+Xam_base,agent-mix,0.05,own data,100,1.6984579650514666
+Xam_base,agent-mix,0.05,"own data, gated",100,1.945337490595566
+Xam_base,agent-mix,0.05,hybrid (ensemble),100,1.8019311491105288
+Xam_base,agent-mix,0.05,hybrid (corrected),100,2.0502746648104484
+Xam_base,agent-mix,0.15,always TWAP,0,0.9075449929616806
+Xam_base,agent-mix,0.15,simulator (ensemble),0,23.676946811958857
+Xam_base,agent-mix,0.15,simulator (corrected),0,2.848607618877148
+Xam_base,agent-mix,0.15,own data,2,3.893686960009562
+Xam_base,agent-mix,0.15,"own data, gated",2,1.8465823178613683
+Xam_base,agent-mix,0.15,hybrid (ensemble),2,7.136957199330213
+Xam_base,agent-mix,0.15,hybrid (corrected),2,4.146576824607175
+Xam_base,agent-mix,0.15,own data,5,3.060671549122187
+Xam_base,agent-mix,0.15,"own data, gated",5,1.2841084816042883
+Xam_base,agent-mix,0.15,hybrid (ensemble),5,5.222779161580319
+Xam_base,agent-mix,0.15,hybrid (corrected),5,3.0927242713568237
+Xam_base,agent-mix,0.15,own data,10,2.6581634607498303
+Xam_base,agent-mix,0.15,"own data, gated",10,1.0335562535238303
+Xam_base,agent-mix,0.15,hybrid (ensemble),10,4.144483206165414
+Xam_base,agent-mix,0.15,hybrid (corrected),10,2.636298526993237
+Xam_base,agent-mix,0.15,own data,20,2.1518272113035226
+Xam_base,agent-mix,0.15,"own data, gated",20,0.9118177285683288
+Xam_base,agent-mix,0.15,hybrid (ensemble),20,2.7224156074894057
+Xam_base,agent-mix,0.15,hybrid (corrected),20,2.0551467033303323
+Xam_base,agent-mix,0.15,own data,50,1.465341771471879
+Xam_base,agent-mix,0.15,"own data, gated",50,0.910332176929275
+Xam_base,agent-mix,0.15,hybrid (ensemble),50,1.719975090439724
+Xam_base,agent-mix,0.15,hybrid (corrected),50,1.6522588679269796
+Xam_base,agent-mix,0.15,own data,100,1.2012738596934853
+Xam_base,agent-mix,0.15,"own data, gated",100,0.9075449929616807
+Xam_base,agent-mix,0.15,hybrid (ensemble),100,1.3822129310678406
+Xam_base,agent-mix,0.15,hybrid (corrected),100,1.4753058888447774
+Xam_fund_0.2,agent-mix,0.05,always TWAP,0,1.1937361878029842
+Xam_fund_0.2,agent-mix,0.05,simulator (ensemble),0,10.493845847121094
+Xam_fund_0.2,agent-mix,0.05,simulator (corrected),0,10.493845847121094
+Xam_fund_0.2,agent-mix,0.05,own data,2,4.109677449197534
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",2,2.0554614812755627
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),2,7.244236375334861
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),2,8.256852030548348
+Xam_fund_0.2,agent-mix,0.05,own data,5,3.9905894019330526
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",5,1.5622348192329525
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),5,6.7307411462150695
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),5,8.343391841043063
+Xam_fund_0.2,agent-mix,0.05,own data,10,3.188469071776351
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",10,1.5209566272979862
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),10,4.765527138891082
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),10,7.55975229763862
+Xam_fund_0.2,agent-mix,0.05,own data,20,3.201875533861961
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",20,1.4084339521499314
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),20,3.236805211107901
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),20,6.100455582328614
+Xam_fund_0.2,agent-mix,0.05,own data,50,2.858172574528579
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",50,1.2859925754740151
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),50,2.2561638865090385
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),50,4.279871333348777
+Xam_fund_0.2,agent-mix,0.05,own data,100,2.0143471077805573
+Xam_fund_0.2,agent-mix,0.05,"own data, gated",100,1.193736187802984
+Xam_fund_0.2,agent-mix,0.05,hybrid (ensemble),100,1.9114325641817806
+Xam_fund_0.2,agent-mix,0.05,hybrid (corrected),100,3.242109298899978
+Xam_fund_0.2,agent-mix,0.15,always TWAP,0,7.684888707148303
+Xam_fund_0.2,agent-mix,0.15,simulator (ensemble),0,21.099970209195877
+Xam_fund_0.2,agent-mix,0.15,simulator (corrected),0,21.099970209195877
+Xam_fund_0.2,agent-mix,0.15,own data,2,8.96291742976481
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",2,8.354352272896858
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),2,14.844709640282671
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),2,15.207433548184156
+Xam_fund_0.2,agent-mix,0.15,own data,5,8.586900160489387
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",5,7.853511182413262
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),5,14.416286186565536
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),5,14.925339361217752
+Xam_fund_0.2,agent-mix,0.15,own data,10,8.810958691349821
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",10,7.906617180092059
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),10,13.592521645644638
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),10,14.494864179278782
+Xam_fund_0.2,agent-mix,0.15,own data,20,8.381239993269395
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",20,7.533293108783968
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),20,11.620256929834651
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),20,12.268861117221377
+Xam_fund_0.2,agent-mix,0.15,own data,50,5.903540065920789
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",50,7.49821802133145
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),50,7.093228938052311
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),50,8.598989683650814
+Xam_fund_0.2,agent-mix,0.15,own data,100,2.264582616321642
+Xam_fund_0.2,agent-mix,0.15,"own data, gated",100,7.6080398200768204
+Xam_fund_0.2,agent-mix,0.15,hybrid (ensemble),100,2.6003311150837307
+Xam_fund_0.2,agent-mix,0.15,hybrid (corrected),100,3.428900085499672
+Xam_fund_0.4,agent-mix,0.05,always TWAP,0,15.244520838669947
+Xam_fund_0.4,agent-mix,0.05,simulator (ensemble),0,12.240771305776631
+Xam_fund_0.4,agent-mix,0.05,simulator (corrected),0,0.0
+Xam_fund_0.4,agent-mix,0.05,own data,2,12.307604881888755
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",2,14.707705498610308
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),2,13.020631068672573
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),2,9.31794577198741
+Xam_fund_0.4,agent-mix,0.05,own data,5,11.714807889881172
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",5,15.122223077786668
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),5,13.62246032213011
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),5,9.070445565807042
+Xam_fund_0.4,agent-mix,0.05,own data,10,11.794974693952527
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",10,15.277010394229366
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),10,13.710632185683487
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),10,9.363933603085659
+Xam_fund_0.4,agent-mix,0.05,own data,20,10.190386515211866
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",20,15.21145987622752
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),20,13.89592854115242
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),20,8.989417415032321
+Xam_fund_0.4,agent-mix,0.05,own data,50,9.458000217221613
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",50,14.784153708802226
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),50,14.882715268236057
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),50,8.000188741341665
+Xam_fund_0.4,agent-mix,0.05,own data,100,6.706394527673187
+Xam_fund_0.4,agent-mix,0.05,"own data, gated",100,15.244520838669951
+Xam_fund_0.4,agent-mix,0.05,hybrid (ensemble),100,14.741862501307645
+Xam_fund_0.4,agent-mix,0.05,hybrid (corrected),100,4.235341567847451
+Xam_fund_0.4,agent-mix,0.15,always TWAP,0,3.0613874023424863
+Xam_fund_0.4,agent-mix,0.15,simulator (ensemble),0,3.547301771570371
+Xam_fund_0.4,agent-mix,0.15,simulator (corrected),0,2.5027624667815687
+Xam_fund_0.4,agent-mix,0.15,own data,2,3.852539551015844
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",2,3.2750677627893516
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),2,4.079062780259528
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),2,2.9079767785827006
+Xam_fund_0.4,agent-mix,0.15,own data,5,3.600789008731765
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",5,3.2264124900992677
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),5,4.160023770209678
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),5,2.6658258893932474
+Xam_fund_0.4,agent-mix,0.15,own data,10,2.758741752774427
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",10,3.0121076583189894
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),10,3.268005587987405
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),10,2.7026701174626515
+Xam_fund_0.4,agent-mix,0.15,own data,20,2.6739285941395554
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",20,3.040716847698874
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),20,3.260872364896423
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),20,2.654048259632833
+Xam_fund_0.4,agent-mix,0.15,own data,50,2.382222363726092
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",50,2.954965911506455
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),50,2.344513436295711
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),50,2.0369546155230394
+Xam_fund_0.4,agent-mix,0.15,own data,100,1.6106481531908923
+Xam_fund_0.4,agent-mix,0.15,"own data, gated",100,3.048810646872488
+Xam_fund_0.4,agent-mix,0.15,hybrid (ensemble),100,2.1903024788415553
+Xam_fund_0.4,agent-mix,0.15,hybrid (corrected),100,1.3935854146576014
+Xam_withdraw_0.5,agent-mix,0.05,always TWAP,0,3.0083160712904617
+Xam_withdraw_0.5,agent-mix,0.05,simulator (ensemble),0,3.0083160712904617
+Xam_withdraw_0.5,agent-mix,0.05,simulator (corrected),0,11.403686281523713
+Xam_withdraw_0.5,agent-mix,0.05,own data,2,4.3343934996795035
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",2,3.4780170671096537
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),2,4.388860294031675
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),2,7.7337615776280835
+Xam_withdraw_0.5,agent-mix,0.05,own data,5,3.9146972495866703
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",5,3.1819171691562365
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),5,4.010583762940411
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),5,7.869555349264865
+Xam_withdraw_0.5,agent-mix,0.05,own data,10,3.549636200828181
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",10,3.0673154139878505
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),10,3.852387398178712
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),10,5.577710240133748
+Xam_withdraw_0.5,agent-mix,0.05,own data,20,3.4765871706391334
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",20,2.950657703682366
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),20,3.465496719272013
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),20,4.580137224614866
+Xam_withdraw_0.5,agent-mix,0.05,own data,50,2.850949362336436
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",50,3.0120882404808857
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),50,3.068670542289033
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),50,3.62508210766785
+Xam_withdraw_0.5,agent-mix,0.05,own data,100,1.5755615331957884
+Xam_withdraw_0.5,agent-mix,0.05,"own data, gated",100,3.0002080799986
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (ensemble),100,2.166166781604753
+Xam_withdraw_0.5,agent-mix,0.05,hybrid (corrected),100,2.2196330310524903
+Xam_withdraw_0.5,agent-mix,0.15,always TWAP,0,1.2105953649513967
+Xam_withdraw_0.5,agent-mix,0.15,simulator (ensemble),0,19.902734434618456
+Xam_withdraw_0.5,agent-mix,0.15,simulator (corrected),0,2.349418869741383
+Xam_withdraw_0.5,agent-mix,0.15,own data,2,3.59867655570274
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",2,1.8218136028089775
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),2,4.999877440744212
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),2,3.0864930420812073
+Xam_withdraw_0.5,agent-mix,0.15,own data,5,3.6896413382047273
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",5,1.5360245175175777
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),5,3.7233481657150316
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),5,2.3750462016877862
+Xam_withdraw_0.5,agent-mix,0.15,own data,10,3.420051676698895
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",10,1.5359128287597479
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),10,3.374562077375957
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),10,2.1919190065220344
+Xam_withdraw_0.5,agent-mix,0.15,own data,20,2.5394763811448784
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",20,1.3606778317245034
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),20,2.4004850932384234
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),20,1.8209011242600734
+Xam_withdraw_0.5,agent-mix,0.15,own data,50,1.777834025403496
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",50,1.24536723347616
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),50,1.7846635108382578
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),50,1.0978991561160318
+Xam_withdraw_0.5,agent-mix,0.15,own data,100,1.0430112314011828
+Xam_withdraw_0.5,agent-mix,0.15,"own data, gated",100,1.224668109009553
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (ensemble),100,1.0253746885849302
+Xam_withdraw_0.5,agent-mix,0.15,hybrid (corrected),100,0.5100412739912746
+Xam_withdraw_1,agent-mix,0.05,always TWAP,0,2.51414096361318
+Xam_withdraw_1,agent-mix,0.05,simulator (ensemble),0,4.088080097972235
+Xam_withdraw_1,agent-mix,0.05,simulator (corrected),0,12.688797914016885
+Xam_withdraw_1,agent-mix,0.05,own data,2,4.476303525976153
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",2,3.0806986995513546
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),2,5.015534216605175
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),2,9.785110860933484
+Xam_withdraw_1,agent-mix,0.05,own data,5,4.245606567329553
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",5,2.853351085535645
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),5,4.748023919757438
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),5,9.698576041257494
+Xam_withdraw_1,agent-mix,0.05,own data,10,4.210033157620444
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",10,2.781438424944738
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),10,4.4646220439142335
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),10,8.563267354010122
+Xam_withdraw_1,agent-mix,0.05,own data,20,4.140832131529409
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",20,2.6696648962262204
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),20,4.569776124720614
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),20,7.201666147123344
+Xam_withdraw_1,agent-mix,0.05,own data,50,3.09864070636182
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",50,2.5678189156211544
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),50,3.6593247224498713
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),50,5.407536219943017
+Xam_withdraw_1,agent-mix,0.05,own data,100,2.1480830846396595
+Xam_withdraw_1,agent-mix,0.05,"own data, gated",100,2.51414096361318
+Xam_withdraw_1,agent-mix,0.05,hybrid (ensemble),100,2.999381166895897
+Xam_withdraw_1,agent-mix,0.05,hybrid (corrected),100,4.8652408227491
+Xam_withdraw_1,agent-mix,0.15,always TWAP,0,1.8266637313041376
+Xam_withdraw_1,agent-mix,0.15,simulator (ensemble),0,21.896299130527474
+Xam_withdraw_1,agent-mix,0.15,simulator (corrected),0,21.896299130527474
+Xam_withdraw_1,agent-mix,0.15,own data,2,3.9062033305117416
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",2,2.4660733512436397
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),2,8.684110384254911
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),2,14.607190440968344
+Xam_withdraw_1,agent-mix,0.15,own data,5,3.7643882825371198
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",5,2.1930213565963586
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),5,5.114575975994317
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),5,12.679281716683885
+Xam_withdraw_1,agent-mix,0.15,own data,10,3.784645605183096
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",10,2.1854305548952295
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),10,4.098681347286347
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),10,9.457791777075874
+Xam_withdraw_1,agent-mix,0.15,own data,20,3.397142194668079
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",20,1.9776543954869124
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),20,3.509050685287257
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),20,5.667928431865544
+Xam_withdraw_1,agent-mix,0.15,own data,50,2.655058077225883
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",50,1.8211320843263388
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),50,2.775103356870303
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),50,3.581739617181268
+Xam_withdraw_1,agent-mix,0.15,own data,100,1.7089394561614148
+Xam_withdraw_1,agent-mix,0.15,"own data, gated",100,1.8175304126476168
+Xam_withdraw_1,agent-mix,0.15,hybrid (ensemble),100,1.7526760741449423
+Xam_withdraw_1,agent-mix,0.15,hybrid (corrected),100,1.845051198209647
+Xam_withdraw_4,agent-mix,0.05,always TWAP,0,2.0263491465024934
+Xam_withdraw_4,agent-mix,0.05,simulator (ensemble),0,3.148434198343128
+Xam_withdraw_4,agent-mix,0.05,simulator (corrected),0,3.7770373102325796
+Xam_withdraw_4,agent-mix,0.05,own data,2,4.295879972638866
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",2,2.8571014383005386
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),2,3.3863146587065773
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),2,5.266262943908053
+Xam_withdraw_4,agent-mix,0.05,own data,5,3.6374271747387663
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",5,2.194239526582048
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),5,3.240344668446812
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),5,4.921543901247478
+Xam_withdraw_4,agent-mix,0.05,own data,10,3.516505465946831
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",10,2.243722442448622
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),10,3.22311154254779
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),10,4.659658617798256
+Xam_withdraw_4,agent-mix,0.05,own data,20,3.1950020239073558
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",20,2.1748398914273834
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),20,3.068766657187234
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),20,4.246094765699707
+Xam_withdraw_4,agent-mix,0.05,own data,50,2.7739027621874435
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",50,2.1309889615886566
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),50,2.8180070914509865
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),50,3.633027485265723
+Xam_withdraw_4,agent-mix,0.05,own data,100,2.7279483124223765
+Xam_withdraw_4,agent-mix,0.05,"own data, gated",100,2.0263491465024934
+Xam_withdraw_4,agent-mix,0.05,hybrid (ensemble),100,2.659525674802826
+Xam_withdraw_4,agent-mix,0.05,hybrid (corrected),100,3.8716788045790542
+Xam_withdraw_4,agent-mix,0.15,always TWAP,0,3.30119464711065
+Xam_withdraw_4,agent-mix,0.15,simulator (ensemble),0,4.664381386795746
+Xam_withdraw_4,agent-mix,0.15,simulator (corrected),0,2.1477515744293587
+Xam_withdraw_4,agent-mix,0.15,own data,2,3.056156821123314
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",2,3.2248119438492195
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),2,4.933704537612983
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),2,3.8622922155116646
+Xam_withdraw_4,agent-mix,0.15,own data,5,3.0229294411431407
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",5,3.325657676867619
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),5,4.935015268593189
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),5,3.7218647211468623
+Xam_withdraw_4,agent-mix,0.15,own data,10,2.7337359204295124
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",10,3.186434460242641
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),10,4.387841433727088
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),10,2.933707520350434
+Xam_withdraw_4,agent-mix,0.15,own data,20,1.9165637669055542
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",20,3.2857258708902295
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),20,3.9650095028552244
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),20,2.148377222292713
+Xam_withdraw_4,agent-mix,0.15,own data,50,1.8205208897002025
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",50,3.247253695731733
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),50,3.045071138323848
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),50,1.8888039552291986
+Xam_withdraw_4,agent-mix,0.15,own data,100,1.6373638840312923
+Xam_withdraw_4,agent-mix,0.15,"own data, gated",100,3.301194647110649
+Xam_withdraw_4,agent-mix,0.15,hybrid (ensemble),100,2.1387498490816874
+Xam_withdraw_4,agent-mix,0.15,hybrid (corrected),100,1.738079920040156
+Xam_withdraw_6,agent-mix,0.05,always TWAP,0,8.527366997224071
+Xam_withdraw_6,agent-mix,0.05,simulator (ensemble),0,0.7878243735976227
+Xam_withdraw_6,agent-mix,0.05,simulator (corrected),0,1.8500532895873851
+Xam_withdraw_6,agent-mix,0.05,own data,2,3.6505323899531983
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",2,7.222963375750689
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),2,1.7588004708606402
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),2,4.005033036495552
+Xam_withdraw_6,agent-mix,0.05,own data,5,3.314698534937995
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",5,7.816116688036584
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),5,1.4476769003917673
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),5,3.943082861605225
+Xam_withdraw_6,agent-mix,0.05,own data,10,2.8578614160561675
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",10,7.677529292340924
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),10,1.836348921231075
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),10,3.486199583964191
+Xam_withdraw_6,agent-mix,0.05,own data,20,3.229306272553225
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",20,8.141727435926715
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),20,2.2771161941487494
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),20,3.3233969599760886
+Xam_withdraw_6,agent-mix,0.05,own data,50,2.4416895415792865
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",50,8.181056715489081
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),50,2.556689048834739
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),50,2.96260495793489
+Xam_withdraw_6,agent-mix,0.05,own data,100,2.77157277616194
+Xam_withdraw_6,agent-mix,0.05,"own data, gated",100,8.527366997224073
+Xam_withdraw_6,agent-mix,0.05,hybrid (ensemble),100,2.836144365933273
+Xam_withdraw_6,agent-mix,0.05,hybrid (corrected),100,2.9466410754691488
+Xam_withdraw_6,agent-mix,0.15,always TWAP,0,0.2884682085946757
+Xam_withdraw_6,agent-mix,0.15,simulator (ensemble),0,8.187035601628448
+Xam_withdraw_6,agent-mix,0.15,simulator (corrected),0,2.361630882333765
+Xam_withdraw_6,agent-mix,0.15,own data,2,3.946841130784378
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",2,1.3328065776411133
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),2,7.586202549850677
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),2,3.670442038729011
+Xam_withdraw_6,agent-mix,0.15,own data,5,2.8426871104730105
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",5,0.6425090982347197
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),5,7.215333085023043
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),5,2.624598598268709
+Xam_withdraw_6,agent-mix,0.15,own data,10,2.542080154350732
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",10,0.5052221515570382
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),10,7.029583647108535
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),10,2.4214150219389676
+Xam_withdraw_6,agent-mix,0.15,own data,20,2.0661871069653346
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",20,0.3422906183982505
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),20,5.379179618750072
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),20,2.2042046894790004
+Xam_withdraw_6,agent-mix,0.15,own data,50,1.6310346131805533
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",50,0.31162825258068244
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),50,3.613836069453335
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),50,1.500678654053239
+Xam_withdraw_6,agent-mix,0.15,own data,100,1.005656856760595
+Xam_withdraw_6,agent-mix,0.15,"own data, gated",100,0.2884682085946757
+Xam_withdraw_6,agent-mix,0.15,hybrid (ensemble),100,2.0486766481912695
+Xam_withdraw_6,agent-mix,0.15,hybrid (corrected),100,1.0343276584225753
+Xam_trend_0.0125,agent-mix,0.05,always TWAP,0,3.4211597849193587
+Xam_trend_0.0125,agent-mix,0.05,simulator (ensemble),0,4.9620353884333905
+Xam_trend_0.0125,agent-mix,0.05,simulator (corrected),0,13.783941912055017
+Xam_trend_0.0125,agent-mix,0.05,own data,2,4.690608327791359
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",2,3.8380410113193695
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),2,6.06170211589233
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),2,10.430550147660336
+Xam_trend_0.0125,agent-mix,0.05,own data,5,4.90201147176
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",5,3.7079656085746295
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),5,5.464855340264247
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),5,10.548272376147706
+Xam_trend_0.0125,agent-mix,0.05,own data,10,4.335224050234021
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",10,3.5678061986340865
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),10,4.920545841169191
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),10,8.796821158232147
+Xam_trend_0.0125,agent-mix,0.05,own data,20,3.921552872181237
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",20,3.498619262329363
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),20,4.598001085216429
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),20,6.17952693744642
+Xam_trend_0.0125,agent-mix,0.05,own data,50,3.2911387113047197
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",50,3.381684190951814
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),50,3.6264739287006194
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),50,4.061536662117936
+Xam_trend_0.0125,agent-mix,0.05,own data,100,2.0359055015260803
+Xam_trend_0.0125,agent-mix,0.05,"own data, gated",100,3.383621444590075
+Xam_trend_0.0125,agent-mix,0.05,hybrid (ensemble),100,2.7075428692903007
+Xam_trend_0.0125,agent-mix,0.05,hybrid (corrected),100,2.545464259980813
+Xam_trend_0.0125,agent-mix,0.15,always TWAP,0,1.236297281211546
+Xam_trend_0.0125,agent-mix,0.15,simulator (ensemble),0,21.300531480850943
+Xam_trend_0.0125,agent-mix,0.15,simulator (corrected),0,21.300531480850943
+Xam_trend_0.0125,agent-mix,0.15,own data,2,4.111720789980917
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",2,2.152540444046921
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),2,8.006487102555433
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),2,13.280394273793286
+Xam_trend_0.0125,agent-mix,0.15,own data,5,3.2805481281157087
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",5,1.5115246302731344
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),5,4.890350710622254
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),5,9.863575367083621
+Xam_trend_0.0125,agent-mix,0.15,own data,10,3.1918553123986118
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",10,1.5349357053707946
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),10,3.8305015728791805
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),10,6.045894406671279
+Xam_trend_0.0125,agent-mix,0.15,own data,20,2.433889626927113
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",20,1.3207516081780404
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),20,2.4989624491255573
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),20,2.3680818321765
+Xam_trend_0.0125,agent-mix,0.15,own data,50,1.7944704937115352
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",50,1.2402558628948257
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),50,1.8985825683417317
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),50,1.6478473018662274
+Xam_trend_0.0125,agent-mix,0.15,own data,100,1.003830843782947
+Xam_trend_0.0125,agent-mix,0.15,"own data, gated",100,1.2475508900547836
+Xam_trend_0.0125,agent-mix,0.15,hybrid (ensemble),100,1.039757365838879
+Xam_trend_0.0125,agent-mix,0.15,hybrid (corrected),100,0.7955195174537047
+Xam_trend_0.025,agent-mix,0.05,always TWAP,0,2.9327089478661312
+Xam_trend_0.025,agent-mix,0.05,simulator (ensemble),0,4.160665252315075
+Xam_trend_0.025,agent-mix,0.05,simulator (corrected),0,13.552705846817659
+Xam_trend_0.025,agent-mix,0.05,own data,2,4.132331431031201
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",2,3.306228444270408
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),2,4.471448057486384
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),2,9.515456467887951
+Xam_trend_0.025,agent-mix,0.05,own data,5,4.685441931906029
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",5,3.3190043231949415
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),5,4.531086214248852
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),5,9.958286910964272
+Xam_trend_0.025,agent-mix,0.05,own data,10,3.9308552079485377
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",10,3.107551980784434
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),10,4.030800526126264
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),10,7.977970105341647
+Xam_trend_0.025,agent-mix,0.05,own data,20,3.3566538304234803
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",20,3.0276758559185892
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),20,3.3991018517327065
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),20,6.040508580080058
+Xam_trend_0.025,agent-mix,0.05,own data,50,3.31967450047616
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",50,2.935171953194587
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),50,3.1860199719280438
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),50,4.353950501688294
+Xam_trend_0.025,agent-mix,0.05,own data,100,2.034145634788693
+Xam_trend_0.025,agent-mix,0.05,"own data, gated",100,2.9180454031268006
+Xam_trend_0.025,agent-mix,0.05,hybrid (ensemble),100,2.055446588043017
+Xam_trend_0.025,agent-mix,0.05,hybrid (corrected),100,2.4801343631491743
+Xam_trend_0.025,agent-mix,0.15,always TWAP,0,0.6407805780194451
+Xam_trend_0.025,agent-mix,0.15,simulator (ensemble),0,20.893805208688544
+Xam_trend_0.025,agent-mix,0.15,simulator (corrected),0,20.893805208688544
+Xam_trend_0.025,agent-mix,0.15,own data,2,3.188548404930077
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",2,1.376383819694363
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),2,5.629888495420203
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),2,13.67745883461204
+Xam_trend_0.025,agent-mix,0.15,own data,5,2.584208074919376
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",5,0.8515114945956047
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),5,4.104153985777445
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),5,10.279928452821611
+Xam_trend_0.025,agent-mix,0.15,own data,10,2.4073931093198646
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",10,0.8075290238720122
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),10,3.1632559233608437
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),10,6.460285346152008
+Xam_trend_0.025,agent-mix,0.15,own data,20,2.120420889919319
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",20,0.7709452115792443
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),20,2.0436124919220258
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),20,2.5136058780881863
+Xam_trend_0.025,agent-mix,0.15,own data,50,1.6106871172055486
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",50,0.6272609717902449
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),50,1.6648072558981222
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),50,1.6746785890146898
+Xam_trend_0.025,agent-mix,0.15,own data,100,0.8019491805572584
+Xam_trend_0.025,agent-mix,0.15,"own data, gated",100,0.6375766751293479
+Xam_trend_0.025,agent-mix,0.15,hybrid (ensemble),100,0.8179364987492174
+Xam_trend_0.025,agent-mix,0.15,hybrid (corrected),100,0.8539728213907387
+Xam_trend_0.1,agent-mix,0.05,always TWAP,0,1.8610933669820584
+Xam_trend_0.1,agent-mix,0.05,simulator (ensemble),0,3.292265979829623
+Xam_trend_0.1,agent-mix,0.05,simulator (corrected),0,2.8834312764237287
+Xam_trend_0.1,agent-mix,0.05,own data,2,3.7394476432084094
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",2,2.613560221740052
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),2,3.520886984942889
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),2,4.068108610622265
+Xam_trend_0.1,agent-mix,0.05,own data,5,3.427927991695309
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",5,2.1141492194955607
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),5,3.147693561590707
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),5,3.9655272067714034
+Xam_trend_0.1,agent-mix,0.05,own data,10,3.471092133663612
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",10,2.0766639528448048
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),10,2.9726836305715563
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),10,3.523009749655896
+Xam_trend_0.1,agent-mix,0.05,own data,20,3.196229424629548
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",20,2.0858393331104184
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),20,2.9179386897994926
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),20,3.6223631401065206
+Xam_trend_0.1,agent-mix,0.05,own data,50,3.0620000506210636
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",50,1.9148471711178972
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),50,2.6997833734808854
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),50,3.346651504856804
+Xam_trend_0.1,agent-mix,0.05,own data,100,2.4283322345326503
+Xam_trend_0.1,agent-mix,0.05,"own data, gated",100,1.8610933669820577
+Xam_trend_0.1,agent-mix,0.05,hybrid (ensemble),100,2.420831991363829
+Xam_trend_0.1,agent-mix,0.05,hybrid (corrected),100,3.149843685909602
+Xam_trend_0.1,agent-mix,0.15,always TWAP,0,0.8369337443640523
+Xam_trend_0.1,agent-mix,0.15,simulator (ensemble),0,36.79269391690596
+Xam_trend_0.1,agent-mix,0.15,simulator (corrected),0,7.5508222219287235
+Xam_trend_0.1,agent-mix,0.15,own data,2,8.264076971133854
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",2,2.2977652882572013
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),2,25.803082774809162
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),2,10.451418896424448
+Xam_trend_0.1,agent-mix,0.15,own data,5,7.154357733383436
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",5,1.5114837276270707
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),5,25.4260901051617
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),5,7.146945689978836
+Xam_trend_0.1,agent-mix,0.15,own data,10,4.978664276489985
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",10,1.7534998905569688
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),10,22.798041330844026
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),10,5.400908504615483
+Xam_trend_0.1,agent-mix,0.15,own data,20,4.200045133888214
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",20,1.1172160606375832
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),20,19.1513921410009
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),20,4.276479878109327
+Xam_trend_0.1,agent-mix,0.15,own data,50,2.4087088739864155
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",50,0.9261632225124822
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),50,10.01802984963716
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),50,2.3348500090037487
+Xam_trend_0.1,agent-mix,0.15,own data,100,0.8774451037603079
+Xam_trend_0.1,agent-mix,0.15,"own data, gated",100,0.8243797381985917
+Xam_trend_0.1,agent-mix,0.15,hybrid (ensemble),100,4.303353942014507
+Xam_trend_0.1,agent-mix,0.15,hybrid (corrected),100,0.6258122965240849
+Xam_trend_0.2,agent-mix,0.05,always TWAP,0,3.6007375877268255
+Xam_trend_0.2,agent-mix,0.05,simulator (ensemble),0,3.6007375877268255
+Xam_trend_0.2,agent-mix,0.05,simulator (corrected),0,26.812887956383477
+Xam_trend_0.2,agent-mix,0.05,own data,2,9.345686727675345
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",2,4.345152757152093
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),2,5.613838232890737
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),2,16.02173864014086
+Xam_trend_0.2,agent-mix,0.05,own data,5,10.821247352017547
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",5,3.925371845487502
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),5,5.04965467356449
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),5,15.91727771200299
+Xam_trend_0.2,agent-mix,0.05,own data,10,11.097303453281592
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",10,3.6862763131416285
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),10,5.508498996520104
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),10,15.816588487206094
+Xam_trend_0.2,agent-mix,0.05,own data,20,11.688523111283873
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",20,3.7542102816499994
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),20,5.19773913084901
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),20,16.046700109022073
+Xam_trend_0.2,agent-mix,0.05,own data,50,11.913350455206583
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",50,3.666817919856328
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),50,5.667915924048507
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),50,16.431354342346317
+Xam_trend_0.2,agent-mix,0.05,own data,100,11.875425585264338
+Xam_trend_0.2,agent-mix,0.05,"own data, gated",100,3.6007375877268255
+Xam_trend_0.2,agent-mix,0.05,hybrid (ensemble),100,5.492669927764054
+Xam_trend_0.2,agent-mix,0.05,hybrid (corrected),100,14.928684419209363
+Xam_trend_0.2,agent-mix,0.15,always TWAP,0,10.5009296833707
+Xam_trend_0.2,agent-mix,0.15,simulator (ensemble),0,26.28026680438405
+Xam_trend_0.2,agent-mix,0.15,simulator (corrected),0,31.337789897252648
+Xam_trend_0.2,agent-mix,0.15,own data,2,15.062871299985368
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",2,11.566514304579862
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),2,23.707258481046164
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),2,19.22011590336379
+Xam_trend_0.2,agent-mix,0.15,own data,5,17.27625939780525
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",5,11.048958632328441
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),5,23.718090281510005
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),5,19.101223947756807
+Xam_trend_0.2,agent-mix,0.15,own data,10,16.594223407590782
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",10,10.617747438771836
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),10,22.910390773538293
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),10,18.10574096176476
+Xam_trend_0.2,agent-mix,0.15,own data,20,17.690510478411028
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",20,10.386890316398546
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),20,21.81897012334639
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),20,18.847101703986727
+Xam_trend_0.2,agent-mix,0.15,own data,50,14.43541711878188
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",50,10.81348258657893
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),50,20.04759440742156
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),50,17.38377676232125
+Xam_trend_0.2,agent-mix,0.15,own data,100,12.609955097643445
+Xam_trend_0.2,agent-mix,0.15,"own data, gated",100,10.448425034953848
+Xam_trend_0.2,agent-mix,0.15,hybrid (ensemble),100,18.593703391023624
+Xam_trend_0.2,agent-mix,0.15,hybrid (corrected),100,16.99586112435029
+Xam_flow_halflife_5,agent-mix,0.05,always TWAP,0,2.6082148308860287
+Xam_flow_halflife_5,agent-mix,0.05,simulator (ensemble),0,5.1552958872827865
+Xam_flow_halflife_5,agent-mix,0.05,simulator (corrected),0,5.7423244700175236
+Xam_flow_halflife_5,agent-mix,0.05,own data,2,5.766451535484316
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",2,3.4011716018311464
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),2,5.546865003722234
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),2,6.565639920892745
+Xam_flow_halflife_5,agent-mix,0.05,own data,5,5.00303623786264
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",5,3.152928843922435
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),5,4.700415407237499
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),5,5.626945035290704
+Xam_flow_halflife_5,agent-mix,0.05,own data,10,4.840661899105643
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",10,3.0486173693176384
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),10,4.437993484645799
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),10,5.375193370298629
+Xam_flow_halflife_5,agent-mix,0.05,own data,20,4.4552602658405736
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",20,2.941149956706121
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),20,4.087158036265378
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),20,5.038711849773109
+Xam_flow_halflife_5,agent-mix,0.05,own data,50,3.6756723462370076
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",50,2.6959192033769552
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),50,3.5401870832692635
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),50,3.8983359268581874
+Xam_flow_halflife_5,agent-mix,0.05,own data,100,2.8951391794528627
+Xam_flow_halflife_5,agent-mix,0.05,"own data, gated",100,2.6082148308860282
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (ensemble),100,2.9249986140407174
+Xam_flow_halflife_5,agent-mix,0.05,hybrid (corrected),100,3.393084805957431
+Xam_flow_halflife_5,agent-mix,0.15,always TWAP,0,1.1649759622816052
+Xam_flow_halflife_5,agent-mix,0.15,simulator (ensemble),0,30.473845054276417
+Xam_flow_halflife_5,agent-mix,0.15,simulator (corrected),0,1.771488420983271
+Xam_flow_halflife_5,agent-mix,0.15,own data,2,4.690239960792088
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",2,2.082194752210928
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),2,8.424268609884212
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),2,4.076676572445342
+Xam_flow_halflife_5,agent-mix,0.15,own data,5,4.257105623273423
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",5,1.9902821812746851
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),5,5.119946979673523
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),5,3.6715825089023144
+Xam_flow_halflife_5,agent-mix,0.15,own data,10,3.6401038543220388
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",10,1.6737565870606175
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),10,3.9112024254619437
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),10,2.994045262692471
+Xam_flow_halflife_5,agent-mix,0.15,own data,20,2.8503834872110825
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",20,1.3906703986858162
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),20,2.900271738363427
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),20,2.560061075697721
+Xam_flow_halflife_5,agent-mix,0.15,own data,50,1.9000581141984634
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",50,1.1686056239134373
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),50,1.8230443320965106
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),50,1.4247252295785977
+Xam_flow_halflife_5,agent-mix,0.15,own data,100,0.9816011453925941
+Xam_flow_halflife_5,agent-mix,0.15,"own data, gated",100,1.1475013228473814
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (ensemble),100,1.0052347695844281
+Xam_flow_halflife_5,agent-mix,0.15,hybrid (corrected),100,0.7859224523670051
+Xam_flow_halflife_10,agent-mix,0.05,always TWAP,0,2.437179363513218
+Xam_flow_halflife_10,agent-mix,0.05,simulator (ensemble),0,2.886685509843401
+Xam_flow_halflife_10,agent-mix,0.05,simulator (corrected),0,11.744671611619902
+Xam_flow_halflife_10,agent-mix,0.05,own data,2,4.547872911984748
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",2,3.090894017757745
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),2,4.267030859196662
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),2,10.646884596359552
+Xam_flow_halflife_10,agent-mix,0.05,own data,5,4.069227014180717
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",5,2.8242099706562285
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),5,3.871019613620815
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),5,10.785581945757608
+Xam_flow_halflife_10,agent-mix,0.05,own data,10,3.79143772607664
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",10,2.569689818141569
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),10,3.6523082866855026
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),10,10.976930587197312
+Xam_flow_halflife_10,agent-mix,0.05,own data,20,3.622228008460384
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",20,2.619726824583414
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),20,3.325513597199776
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),20,9.811191536591375
+Xam_flow_halflife_10,agent-mix,0.05,own data,50,3.0281351306526756
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",50,2.4854694503599326
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),50,3.2206500228829382
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),50,7.838121789263707
+Xam_flow_halflife_10,agent-mix,0.05,own data,100,2.4075395222970126
+Xam_flow_halflife_10,agent-mix,0.05,"own data, gated",100,2.4249934666956516
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (ensemble),100,2.7151827511908264
+Xam_flow_halflife_10,agent-mix,0.05,hybrid (corrected),100,5.515902229883502
+Xam_flow_halflife_10,agent-mix,0.15,always TWAP,0,0.0
+Xam_flow_halflife_10,agent-mix,0.15,simulator (ensemble),0,19.82009781196317
+Xam_flow_halflife_10,agent-mix,0.15,simulator (corrected),0,19.82009781196317
+Xam_flow_halflife_10,agent-mix,0.15,own data,2,2.7553217548637763
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",2,0.7904083430805396
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),2,5.874358682037289
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),2,15.516916095494025
+Xam_flow_halflife_10,agent-mix,0.15,own data,5,2.563256757191023
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",5,0.3087498682969134
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),5,3.4293473238537717
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),5,16.380100611816278
+Xam_flow_halflife_10,agent-mix,0.15,own data,10,2.445882378187144
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",10,0.17239240157976574
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),10,2.7051757196573387
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),10,12.023443625097247
+Xam_flow_halflife_10,agent-mix,0.15,own data,20,2.1393786285557024
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",20,0.10178775393396926
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),20,2.088379178594816
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),20,5.138199672605218
+Xam_flow_halflife_10,agent-mix,0.15,own data,50,1.3181478550392358
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",50,0.017367434103625085
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),50,1.306933213326982
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),50,1.778942935225193
+Xam_flow_halflife_10,agent-mix,0.15,own data,100,0.943057428808892
+Xam_flow_halflife_10,agent-mix,0.15,"own data, gated",100,0.0
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (ensemble),100,0.917005792495417
+Xam_flow_halflife_10,agent-mix,0.15,hybrid (corrected),100,0.7650147295560673
+Xam_flow_halflife_40,agent-mix,0.05,always TWAP,0,2.7266108285535102
+Xam_flow_halflife_40,agent-mix,0.05,simulator (ensemble),0,4.243197565762414
+Xam_flow_halflife_40,agent-mix,0.05,simulator (corrected),0,13.667247977859704
+Xam_flow_halflife_40,agent-mix,0.05,own data,2,4.194965315036417
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",2,3.36775820097267
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),2,4.902938974479
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),2,12.009502468219548
+Xam_flow_halflife_40,agent-mix,0.05,own data,5,4.6809908881588775
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",5,3.157075819517912
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),5,4.467417003868418
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),5,12.407289004565248
+Xam_flow_halflife_40,agent-mix,0.05,own data,10,4.2602677721478095
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",10,3.0434859863640145
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),10,4.326933227409468
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),10,11.701576146517937
+Xam_flow_halflife_40,agent-mix,0.05,own data,20,4.6090301650738805
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",20,2.8606498452439073
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),20,4.351692610374904
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),20,10.655045572362438
+Xam_flow_halflife_40,agent-mix,0.05,own data,50,3.7656600702473804
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",50,2.751152329021916
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),50,4.0401769577207185
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),50,7.751087590112918
+Xam_flow_halflife_40,agent-mix,0.05,own data,100,3.734924084679008
+Xam_flow_halflife_40,agent-mix,0.05,"own data, gated",100,2.782762832787887
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (ensemble),100,4.383207717704936
+Xam_flow_halflife_40,agent-mix,0.05,hybrid (corrected),100,6.575782083723286
+Xam_flow_halflife_40,agent-mix,0.15,always TWAP,0,0.0
+Xam_flow_halflife_40,agent-mix,0.15,simulator (ensemble),0,26.89690292581528
+Xam_flow_halflife_40,agent-mix,0.15,simulator (corrected),0,26.89690292581528
+Xam_flow_halflife_40,agent-mix,0.15,own data,2,3.204730946853481
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",2,0.9554138703291545
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),2,6.98321599135614
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),2,19.646378118922588
+Xam_flow_halflife_40,agent-mix,0.15,own data,5,3.2869435687910773
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",5,0.3900197942772219
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),5,4.912786193789904
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),5,18.762411721212505
+Xam_flow_halflife_40,agent-mix,0.15,own data,10,2.8548038236328717
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",10,0.17803698560576478
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),10,3.6763473567852145
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),10,14.293656998094457
+Xam_flow_halflife_40,agent-mix,0.15,own data,20,2.6646070319375985
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",20,0.14432512506432846
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),20,2.751840083706707
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),20,10.16639216377868
+Xam_flow_halflife_40,agent-mix,0.15,own data,50,2.0285986119387958
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",50,0.09602336247226248
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),50,1.9600327636660708
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),50,5.6996509172740435
+Xam_flow_halflife_40,agent-mix,0.15,own data,100,1.6961206378900278
+Xam_flow_halflife_40,agent-mix,0.15,"own data, gated",100,0.007859092743253422
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (ensemble),100,1.7276957216150628
+Xam_flow_halflife_40,agent-mix,0.15,hybrid (corrected),100,3.5268358624382152
+Xam_flow_halflife_80,agent-mix,0.05,always TWAP,0,2.29365474098852
+Xam_flow_halflife_80,agent-mix,0.05,simulator (ensemble),0,2.5520615496774117
+Xam_flow_halflife_80,agent-mix,0.05,simulator (corrected),0,2.5520615496774117
+Xam_flow_halflife_80,agent-mix,0.05,own data,2,3.7035030436996483
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",2,2.7100902188354206
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),2,3.066398043968753
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),2,3.491192889422353
+Xam_flow_halflife_80,agent-mix,0.05,own data,5,3.519910799363696
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",5,2.5342131348444084
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),5,2.6833211273456232
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),5,2.969806540180814
+Xam_flow_halflife_80,agent-mix,0.05,own data,10,3.3159866848823607
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",10,2.341578350881433
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),10,2.689364327004156
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),10,2.7855234037771495
+Xam_flow_halflife_80,agent-mix,0.05,own data,20,3.121972742238514
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",20,2.3268934330013353
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),20,2.8950142522277598
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),20,2.5127445683002425
+Xam_flow_halflife_80,agent-mix,0.05,own data,50,2.340862070766382
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",50,2.319255793225759
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),50,2.5334885625899224
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),50,2.0848353809790896
+Xam_flow_halflife_80,agent-mix,0.05,own data,100,1.2422835562076855
+Xam_flow_halflife_80,agent-mix,0.05,"own data, gated",100,2.282186467283577
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (ensemble),100,1.9500561281947908
+Xam_flow_halflife_80,agent-mix,0.05,hybrid (corrected),100,1.0904563110540093
+Xam_flow_halflife_80,agent-mix,0.15,always TWAP,0,2.0990993879861612
+Xam_flow_halflife_80,agent-mix,0.15,simulator (ensemble),0,8.519131368587264
+Xam_flow_halflife_80,agent-mix,0.15,simulator (corrected),0,8.519131368587264
+Xam_flow_halflife_80,agent-mix,0.15,own data,2,5.558939776222876
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",2,3.251186015719593
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),2,8.602854227765308
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),2,6.095599166868729
+Xam_flow_halflife_80,agent-mix,0.15,own data,5,4.9691591292513895
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",5,2.390599929035688
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),5,8.074865328982778
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),5,5.030184633710114
+Xam_flow_halflife_80,agent-mix,0.15,own data,10,4.140666772658444
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",10,2.2284517211898973
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),10,8.101566917774155
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),10,4.489281842806282
+Xam_flow_halflife_80,agent-mix,0.15,own data,20,3.0853120455936933
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",20,2.194660375332368
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),20,6.815893490926542
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),20,2.932868450473541
+Xam_flow_halflife_80,agent-mix,0.15,own data,50,2.611572978871078
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",50,2.1204278079249446
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),50,5.467014462788448
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),50,2.7912882236992185
+Xam_flow_halflife_80,agent-mix,0.15,own data,100,1.688778172627532
+Xam_flow_halflife_80,agent-mix,0.15,"own data, gated",100,2.0990993879861612
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (ensemble),100,3.7385086046332763
+Xam_flow_halflife_80,agent-mix,0.15,hybrid (corrected),100,1.3725322959892565
