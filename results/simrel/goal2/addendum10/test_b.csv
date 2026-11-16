@@ -1,0 +1,577 @@
+world,family,size,arm,chosen,departed,regret,regret_full
+TBq_d01,queue-reactive,0.05,always TWAP,P0_twap,,0.07087715117793447,0.07921667826268575
+TBq_d01,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.07918961987264339,0.0
+TBq_d01,queue-reactive,0.05,rule,P0_twap,False,0.07087715117793447,0.07921667826268575
+TBq_d01,queue-reactive,0.05,corrected,P6_signal_momentum,,0.02924802410379712,0.09379278605461927
+TBq_d01,queue-reactive,0.05,original h_c_f_m_k1,P0_twap,,0.07087715117793447,0.07921667826268575
+TBq_d01,queue-reactive,0.05,compound Hawkes,P7_risk_0.5,,0.0,0.024999985460467222
+TBq_d01,queue-reactive,0.15,always TWAP,P0_twap,,0.17102749835079134,0.16394188268795862
+TBq_d01,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.20268219788936204,0.13254353036680122
+TBq_d01,queue-reactive,0.15,rule,P0_twap,False,0.17102749835079134,0.16394188268795862
+TBq_d01,queue-reactive,0.15,corrected,P6_signal_momentum,,0.2791455143734449,0.1437192776802778
+TBq_d01,queue-reactive,0.15,original h_c_f_m_k1,P2_front_b4,,0.5014387577642836,0.32355161173177915
+TBq_d01,queue-reactive,0.15,compound Hawkes,P3_back_b-2,,0.0,0.0
+TBq_d02,queue-reactive,0.05,always TWAP,P0_twap,,0.04912285439658248,0.03510002632416942
+TBq_d02,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBq_d02,queue-reactive,0.05,rule,P0_twap,False,0.04912285439658248,0.03510002632416942
+TBq_d02,queue-reactive,0.05,corrected,P5_liquidity,,0.014049112305229094,0.04386053027388925
+TBq_d02,queue-reactive,0.05,original h_c_f_m_k1,P0_twap,,0.04912285439658248,0.03510002632416942
+TBq_d02,queue-reactive,0.05,compound Hawkes,P3_back_b-2,,-0.010500044688264154,0.010543841253457309
+TBq_d02,queue-reactive,0.15,always TWAP,P0_twap,,0.042257941598968785,0.09184191721334756
+TBq_d02,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.1640729696712402,0.188357488430813
+TBq_d02,queue-reactive,0.15,rule,P0_twap,False,0.042257941598968785,0.09184191721334756
+TBq_d02,queue-reactive,0.15,corrected,P6_signal_momentum,,0.08816608398309089,0.11189512215777064
+TBq_d02,queue-reactive,0.15,original h_c_f_m_k1,P5_liquidity,,0.08129021101352762,0.11133678754749532
+TBq_d02,queue-reactive,0.15,compound Hawkes,P5_liquidity,,0.08129021101352762,0.11133678754749532
+TBq_d03,queue-reactive,0.05,always TWAP,P0_twap,,0.0,0.0
+TBq_d03,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,8.881784197001252e-16
+TBq_d03,queue-reactive,0.05,rule,P0_twap,False,0.0,0.0
+TBq_d03,queue-reactive,0.05,corrected,P2_front_b4,,0.0,0.0
+TBq_d03,queue-reactive,0.05,original h_c_f_m_k1,P2_front_b4,,0.0,0.0
+TBq_d03,queue-reactive,0.05,compound Hawkes,P6_signal_momentum,,0.0,8.881784197001252e-16
+TBq_d03,queue-reactive,0.15,always TWAP,P0_twap,,0.0027389581315482303,0.002128723936436927
+TBq_d03,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.0015184897413247356,8.881784197001252e-16
+TBq_d03,queue-reactive,0.15,rule,P0_twap,False,0.0027389581315482303,0.002128723936436927
+TBq_d03,queue-reactive,0.15,corrected,P2_front_b2,,0.045313436860274336,0.02341596330079998
+TBq_d03,queue-reactive,0.15,original h_c_f_m_k1,P2_front_b2,,0.045313436860274336,0.02341596330079998
+TBq_d03,queue-reactive,0.15,compound Hawkes,P5_liquidity,,0.0,0.0007592448706637001
+TBq_d04,queue-reactive,0.05,always TWAP,P0_twap,,-0.1225844164111578,0.0632561142070438
+TBq_d04,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,0.034947433203525335
+TBq_d04,queue-reactive,0.05,rule,P0_twap,False,-0.1225844164111578,0.0632561142070438
+TBq_d04,queue-reactive,0.05,corrected,P5_liquidity,,-0.15436121820950888,0.045533467140370654
+TBq_d04,queue-reactive,0.05,original h_c_f_m_k1,P3_back_b-2,,-0.17181576271375842,0.003463253271918987
+TBq_d04,queue-reactive,0.05,compound Hawkes,P6_signal_reversal,,0.0,0.034947433203525335
+TBq_d04,queue-reactive,0.15,always TWAP,P0_twap,,-0.015537496669555395,0.21196119797825652
+TBq_d04,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.0,0.15349621072515074
+TBq_d04,queue-reactive,0.15,rule,P0_twap,False,-0.015537496669555395,0.21196119797825652
+TBq_d04,queue-reactive,0.15,corrected,P0_twap,,-0.015537496669555395,0.21196119797825652
+TBq_d04,queue-reactive,0.15,original h_c_f_m_k1,P6_signal_momentum,,-0.4581762167488437,0.0
+TBq_d04,queue-reactive,0.15,compound Hawkes,P5_liquidity,,0.031389884427358794,0.27650348899174126
+TBq_d05,queue-reactive,0.05,always TWAP,P0_twap,,-0.2575533047364642,0.06579540600094447
+TBq_d05,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.3099503469399103,0.0
+TBq_d05,queue-reactive,0.05,rule,P0_twap,False,-0.2575533047364642,0.06579540600094447
+TBq_d05,queue-reactive,0.05,corrected,P2_front_b2,,-0.22486610497303605,0.07471445194318616
+TBq_d05,queue-reactive,0.05,original h_c_f_m_k1,P4_pov_1x,,-0.23724319959649698,0.11756092308404487
+TBq_d05,queue-reactive,0.05,compound Hawkes,P6_signal_reversal,,-0.3099503469399103,0.0
+TBq_d05,queue-reactive,0.15,always TWAP,P0_twap,,-0.03769800391473499,0.12257871672456844
+TBq_d05,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.10850707713095442,0.1042674337015681
+TBq_d05,queue-reactive,0.15,rule,P0_twap,False,-0.03769800391473499,0.12257871672456844
+TBq_d05,queue-reactive,0.15,corrected,P5_liquidity,,-0.195667268419494,0.0
+TBq_d05,queue-reactive,0.15,original h_c_f_m_k1,P6_signal_momentum,,-0.25754408247900784,0.031822870464038644
+TBq_d05,queue-reactive,0.15,compound Hawkes,P6_signal_momentum,,-0.25754408247900784,0.031822870464038644
+TBq_d06,queue-reactive,0.05,always TWAP,P0_twap,,0.0,8.881784197001252e-16
+TBq_d06,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,8.881784197001252e-16
+TBq_d06,queue-reactive,0.05,rule,P0_twap,False,0.0,8.881784197001252e-16
+TBq_d06,queue-reactive,0.05,corrected,P5_liquidity,,-8.881784197001252e-16,0.0
+TBq_d06,queue-reactive,0.05,original h_c_f_m_k1,P6_signal_momentum,,0.0,8.881784197001252e-16
+TBq_d06,queue-reactive,0.05,compound Hawkes,P6_signal_reversal,,0.0,8.881784197001252e-16
+TBq_d06,queue-reactive,0.15,always TWAP,P0_twap,,0.0,0.0
+TBq_d06,queue-reactive,0.15,no-simulator,P6_signal_reversal,,8.881784197001252e-16,8.881784197001252e-16
+TBq_d06,queue-reactive,0.15,rule,P0_twap,False,0.0,0.0
+TBq_d06,queue-reactive,0.15,corrected,P5_liquidity,,0.0,0.0
+TBq_d06,queue-reactive,0.15,original h_c_f_m_k1,P3_back_b-2,,8.881784197001252e-16,8.881784197001252e-16
+TBq_d06,queue-reactive,0.15,compound Hawkes,P3_back_b-2,,8.881784197001252e-16,8.881784197001252e-16
+TBq_d07,queue-reactive,0.05,always TWAP,P0_twap,,0.058256804134681595,0.258233550265774
+TBq_d07,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.2137739911589822,0.05139672957567498
+TBq_d07,queue-reactive,0.05,rule,P0_twap,False,0.058256804134681595,0.258233550265774
+TBq_d07,queue-reactive,0.05,corrected,P5_liquidity,,-0.13612107767604797,0.08870288822635253
+TBq_d07,queue-reactive,0.05,original h_c_f_m_k1,P6_signal_momentum,,0.01671659909863532,0.18451478963289958
+TBq_d07,queue-reactive,0.05,compound Hawkes,P4_pov_2x,,0.16871056853019883,0.23593022975897426
+TBq_d07,queue-reactive,0.15,always TWAP,P0_twap,,0.06476733415198499,0.22378546003394284
+TBq_d07,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.11352705152353604,0.3064613317476157
+TBq_d07,queue-reactive,0.15,rule,P0_twap,False,0.06476733415198499,0.22378546003394284
+TBq_d07,queue-reactive,0.15,corrected,P3_back_b-2,,0.0,0.0
+TBq_d07,queue-reactive,0.15,original h_c_f_m_k1,P0_twap,,0.06476733415198499,0.22378546003394284
+TBq_d07,queue-reactive,0.15,compound Hawkes,P5_liquidity,,-0.07018487934664464,0.15880345061586354
+TBq_d08,queue-reactive,0.05,always TWAP,P0_twap,,0.41171058473534483,0.2986405811092512
+TBq_d08,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBq_d08,queue-reactive,0.05,rule,P0_twap,False,0.41171058473534483,0.2986405811092512
+TBq_d08,queue-reactive,0.05,corrected,P6_signal_momentum,,0.7061690534185203,0.5517021601492651
+TBq_d08,queue-reactive,0.05,original h_c_f_m_k1,P3_back_b-2,,0.20139132229426693,0.19491864435804196
+TBq_d08,queue-reactive,0.05,compound Hawkes,P2_front_b4,,0.7617569846637577,0.43156953390178465
+TBq_d08,queue-reactive,0.15,always TWAP,P0_twap,,0.0,0.0
+TBq_d08,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.15112491192469157,0.11886312537088273
+TBq_d08,queue-reactive,0.15,rule,P0_twap,False,0.0,0.0
+TBq_d08,queue-reactive,0.15,corrected,P5_liquidity,,0.27217805210153756,0.3647144967038649
+TBq_d08,queue-reactive,0.15,original h_c_f_m_k1,P5_liquidity,,0.27217805210153756,0.3647144967038649
+TBq_d08,queue-reactive,0.15,compound Hawkes,P2_front_b4,,0.02803383233853296,0.1845775149140927
+TBq_d09,queue-reactive,0.05,always TWAP,P0_twap,,0.0,0.011116669445834226
+TBq_d09,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.035573342226668636,0.02890334055916899
+TBq_d09,queue-reactive,0.05,rule,P0_twap,False,0.0,0.011116669445834226
+TBq_d09,queue-reactive,0.05,corrected,P2_front_b4,,0.03557334222666775,0.0289033405591681
+TBq_d09,queue-reactive,0.05,original h_c_f_m_k1,P4_pov_1x,,0.035573342226668636,0.02890334055916899
+TBq_d09,queue-reactive,0.05,compound Hawkes,P6_signal_momentum,,-0.022233338891668453,0.0
+TBq_d09,queue-reactive,0.15,always TWAP,P0_twap,,0.03831703085585403,0.024835112591757635
+TBq_d09,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.0028382985819161988,0.0070957464547882765
+TBq_d09,queue-reactive,0.15,rule,P0_twap,False,0.03831703085585403,0.024835112591757635
+TBq_d09,queue-reactive,0.15,corrected,P6_signal_momentum,,-0.0028382985819144224,0.004257447872873854
+TBq_d09,queue-reactive,0.15,original h_c_f_m_k1,P3_back_b-2,,-0.011353194327659466,0.0
+TBq_d09,queue-reactive,0.15,compound Hawkes,P6_signal_momentum,,-0.0028382985819144224,0.004257447872873854
+TBq_d10,queue-reactive,0.05,always TWAP,P0_twap,,-0.03334172931884094,0.06662703735870146
+TBq_d10,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.03327921256150734,0.09374272744608803
+TBq_d10,queue-reactive,0.05,rule,P0_twap,False,-0.03334172931884094,0.06662703735870146
+TBq_d10,queue-reactive,0.05,corrected,P6_signal_momentum,,-0.020764513411791974,0.10416254064272668
+TBq_d10,queue-reactive,0.05,original h_c_f_m_k1,P3_back_b-2,,-0.13745622176386707,0.0
+TBq_d10,queue-reactive,0.05,compound Hawkes,P6_signal_reversal,,-0.03327921256150734,0.09374272744608803
+TBq_d10,queue-reactive,0.15,always TWAP,P0_twap,,-0.10977004562973391,0.1950207429500992
+TBq_d10,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.09879238460642092,0.14012372720681654
+TBq_d10,queue-reactive,0.15,rule,P0_twap,False,-0.10977004562973391,0.1950207429500992
+TBq_d10,queue-reactive,0.15,corrected,P0_twap,,-0.10977004562973391,0.1950207429500992
+TBq_d10,queue-reactive,0.15,original h_c_f_m_k1,P6_signal_momentum,,-0.08060000505412734,0.12489881288828197
+TBq_d10,queue-reactive,0.15,compound Hawkes,P5_liquidity,,-0.21670134585290501,0.05964811544854598
+TBq_d11,queue-reactive,0.05,always TWAP,P0_twap,,0.01644616926531306,0.6502710789633079
+TBq_d11,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.05563892785682789,0.4752623016724611
+TBq_d11,queue-reactive,0.05,rule,P0_twap,False,0.01644616926531306,0.6502710789633079
+TBq_d11,queue-reactive,0.05,corrected,P5_liquidity,,-0.24591367654476493,0.4072275837815864
+TBq_d11,queue-reactive,0.05,original h_c_f_m_k1,P6_signal_reversal,,-0.05563892785682789,0.4752623016724611
+TBq_d11,queue-reactive,0.05,compound Hawkes,P1_immediate,,0.9945188594956438,1.914074529164437
+TBq_d11,queue-reactive,0.15,always TWAP,P0_twap,,-0.31370163969024034,0.0
+TBq_d11,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.0037391251273035664,0.8315046149026415
+TBq_d11,queue-reactive,0.15,rule,P0_twap,False,-0.31370163969024034,0.0
+TBq_d11,queue-reactive,0.15,corrected,P5_liquidity,,-0.33280570178690283,0.05946627993717968
+TBq_d11,queue-reactive,0.15,original h_c_f_m_k1,P5_liquidity,,-0.33280570178690283,0.05946627993717968
+TBq_d11,queue-reactive,0.15,compound Hawkes,P2_front_b4,,0.6637900263652554,2.2587172866700627
+TBq_d12,queue-reactive,0.05,always TWAP,P0_twap,,-0.08635191781770946,0.06920250383523285
+TBq_d12,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.1679828618601471,0.0
+TBq_d12,queue-reactive,0.05,rule,P0_twap,False,-0.08635191781770946,0.06920250383523285
+TBq_d12,queue-reactive,0.05,corrected,P5_liquidity,,-0.0345680333854963,0.14438826811426164
+TBq_d12,queue-reactive,0.05,original h_c_f_m_k1,P5_liquidity,,-0.0345680333854963,0.14438826811426164
+TBq_d12,queue-reactive,0.05,compound Hawkes,P3_back_b-2,,0.0,0.07782910837226353
+TBq_d12,queue-reactive,0.15,always TWAP,P0_twap,,0.0,0.09012374099032083
+TBq_d12,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.11172690341266911,0.22297670082670873
+TBq_d12,queue-reactive,0.15,rule,P0_twap,False,0.0,0.09012374099032083
+TBq_d12,queue-reactive,0.15,corrected,P5_liquidity,,-0.19167713248829976,0.0
+TBq_d12,queue-reactive,0.15,original h_c_f_m_k1,P5_liquidity,,-0.19167713248829976,0.0
+TBq_d12,queue-reactive,0.15,compound Hawkes,P5_liquidity,,-0.19167713248829976,0.0
+TBq_d13,queue-reactive,0.05,always TWAP,P0_twap,,0.0025627750226409063,0.10767436282751319
+TBq_d13,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.1384923781898415,0.01789229422816163
+TBq_d13,queue-reactive,0.05,rule,P0_twap,False,0.0025627750226409063,0.10767436282751319
+TBq_d13,queue-reactive,0.05,corrected,P6_signal_momentum,,-0.10771799614493016,0.08969616602145436
+TBq_d13,queue-reactive,0.05,original h_c_f_m_k1,P4_pov_2x,,-0.07205667695805928,0.09474092498251796
+TBq_d13,queue-reactive,0.05,compound Hawkes,P3_back_b-2,,0.0,0.0
+TBq_d13,queue-reactive,0.15,always TWAP,P0_twap,,-0.0793333700342238,0.047751729242555996
+TBq_d13,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.12485398481008314,0.19837600951465983
+TBq_d13,queue-reactive,0.15,rule,P0_twap,False,-0.0793333700342238,0.047751729242555996
+TBq_d13,queue-reactive,0.15,corrected,P2_front_b2,,0.05135653511597216,0.08344521356440193
+TBq_d13,queue-reactive,0.15,original h_c_f_m_k1,P6_signal_momentum,,0.0,0.0
+TBq_d13,queue-reactive,0.15,compound Hawkes,P3_back_b-2,,-0.06098584160195042,0.07792503879296664
+TBq_d14,queue-reactive,0.05,always TWAP,P0_twap,,0.1550413965691826,0.3040788954312097
+TBq_d14,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.2559276240939079,0.1444878408391359
+TBq_d14,queue-reactive,0.05,rule,P0_twap,False,0.1550413965691826,0.3040788954312097
+TBq_d14,queue-reactive,0.05,corrected,P2_front_b2,,0.20681896593246485,0.1781933644302809
+TBq_d14,queue-reactive,0.05,original h_c_f_m_k1,P6_signal_reversal,,-0.2559276240939079,0.1444878408391359
+TBq_d14,queue-reactive,0.05,compound Hawkes,P5_liquidity,,-0.34953805050484377,0.08282901621406324
+TBq_d14,queue-reactive,0.15,always TWAP,P0_twap,,-0.2051552826239229,0.11501005221931049
+TBq_d14,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.3953455443357736,0.09893344719922759
+TBq_d14,queue-reactive,0.15,rule,P0_twap,False,-0.2051552826239229,0.11501005221931049
+TBq_d14,queue-reactive,0.15,corrected,P5_liquidity,,-0.14866273658837237,0.11743378125346027
+TBq_d14,queue-reactive,0.15,original h_c_f_m_k1,P0_twap,,-0.2051552826239229,0.11501005221931049
+TBq_d14,queue-reactive,0.15,compound Hawkes,P3_back_b-2,,-0.316365219219354,0.18255238463899914
+TBq_d15,queue-reactive,0.05,always TWAP,P0_twap,,0.7383960583909204,0.5514059197357684
+TBq_d15,queue-reactive,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBq_d15,queue-reactive,0.05,rule,P0_twap,False,0.7383960583909204,0.5514059197357684
+TBq_d15,queue-reactive,0.05,corrected,P6_signal_momentum,,1.0253934196586734,0.7630944571847165
+TBq_d15,queue-reactive,0.05,original h_c_f_m_k1,P1_immediate,,0.8023718595524487,0.6609183385981643
+TBq_d15,queue-reactive,0.05,compound Hawkes,P2_front_b2,,0.4364074214407978,0.5535299470660258
+TBq_d15,queue-reactive,0.15,always TWAP,P0_twap,,-0.2365454703788341,0.3316932923096374
+TBq_d15,queue-reactive,0.15,no-simulator,P6_signal_reversal,,-0.35027050622317724,0.0
+TBq_d15,queue-reactive,0.15,rule,P0_twap,False,-0.2365454703788341,0.3316932923096374
+TBq_d15,queue-reactive,0.15,corrected,P0_twap,,-0.2365454703788341,0.3316932923096374
+TBq_d15,queue-reactive,0.15,original h_c_f_m_k1,P1_immediate,,5.025500608854676,5.007773182940557
+TBq_d15,queue-reactive,0.15,compound Hawkes,P2_front_b2,,0.2753042720640959,0.41927254838232386
+TBq_d16,queue-reactive,0.05,always TWAP,P0_twap,,-0.18332097397779634,0.0
+TBq_d16,queue-reactive,0.05,no-simulator,P6_signal_reversal,,-0.19928655749990565,0.04557517207184336
+TBq_d16,queue-reactive,0.05,rule,P0_twap,False,-0.18332097397779634,0.0
+TBq_d16,queue-reactive,0.05,corrected,P6_signal_momentum,,0.10854917117079754,0.18839723546957732
+TBq_d16,queue-reactive,0.05,original h_c_f_m_k1,P6_signal_momentum,,0.10854917117079754,0.18839723546957732
+TBq_d16,queue-reactive,0.05,compound Hawkes,P2_front_b4,,0.11927536438618969,0.29474592431808233
+TBq_d16,queue-reactive,0.15,always TWAP,P0_twap,,-0.11554813561036603,0.04520260535175602
+TBq_d16,queue-reactive,0.15,no-simulator,P6_signal_reversal,,0.11000183862525326,0.11165889746373558
+TBq_d16,queue-reactive,0.15,rule,P0_twap,False,-0.11554813561036603,0.04520260535175602
+TBq_d16,queue-reactive,0.15,corrected,P0_twap,,-0.11554813561036603,0.04520260535175602
+TBq_d16,queue-reactive,0.15,original h_c_f_m_k1,P1_immediate,,6.317207725115265,6.43537784840473
+TBq_d16,queue-reactive,0.15,compound Hawkes,P2_front_b4,,0.46715761103415687,0.6733896204252741
+TBa_d01,agent-mix,0.05,always TWAP,P0_twap,,2.552851116534442,2.1940188875782534
+TBa_d01,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d01,agent-mix,0.05,rule,P0_twap,False,2.552851116534442,2.1940188875782534
+TBa_d01,agent-mix,0.05,corrected,P1_immediate,,6.696267885743129,4.099397123155123
+TBa_d01,agent-mix,0.05,original h_c_f_m_k1,P6_signal_momentum,,4.710214044908511,4.837750633168411
+TBa_d01,agent-mix,0.05,compound Hawkes,P1_immediate,,6.696267885743129,4.099397123155123
+TBa_d01,agent-mix,0.15,always TWAP,P0_twap,,1.6481686580316937,1.690179957602843
+TBa_d01,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d01,agent-mix,0.15,rule,P5_liquidity,True,1.5666256002129688,1.986432250549413
+TBa_d01,agent-mix,0.15,corrected,P1_immediate,,12.56879105461808,10.110285829557432
+TBa_d01,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,1.5666256002129688,1.986432250549413
+TBa_d01,agent-mix,0.15,compound Hawkes,P6_signal_reversal,,0.0,0.0
+TBa_d02,agent-mix,0.05,always TWAP,P0_twap,,3.678060605669671,3.1152193676729683
+TBa_d02,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d02,agent-mix,0.05,rule,P5_liquidity,True,4.448670273196392,4.87326473924962
+TBa_d02,agent-mix,0.05,corrected,P5_liquidity,,4.448670273196392,4.87326473924962
+TBa_d02,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,4.448670273196392,4.87326473924962
+TBa_d02,agent-mix,0.05,compound Hawkes,P4_pov_2x,,9.281639701011468,7.471429440029421
+TBa_d02,agent-mix,0.15,always TWAP,P0_twap,,1.4599626215137613,1.2988011674919067
+TBa_d02,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d02,agent-mix,0.15,rule,P0_twap,False,1.4599626215137613,1.2988011674919067
+TBa_d02,agent-mix,0.15,corrected,P6_signal_momentum,,3.5714944857638136,3.582623605152457
+TBa_d02,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,3.257471483694487,2.8633427872761645
+TBa_d02,agent-mix,0.15,compound Hawkes,P4_pov_2x,,15.231706273643969,12.460772749222219
+TBa_d03,agent-mix,0.05,always TWAP,P0_twap,,3.367258890036749,4.058650883127672
+TBa_d03,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d03,agent-mix,0.05,rule,P0_twap,False,3.367258890036749,4.058650883127672
+TBa_d03,agent-mix,0.05,corrected,P6_signal_momentum,,5.027878750810849,6.848925809093112
+TBa_d03,agent-mix,0.05,original h_c_f_m_k1,P1_immediate,,19.268525447544544,13.157832030263949
+TBa_d03,agent-mix,0.05,compound Hawkes,P1_immediate,,19.268525447544544,13.157832030263949
+TBa_d03,agent-mix,0.15,always TWAP,P0_twap,,2.5759597647189354,2.6949954529883406
+TBa_d03,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d03,agent-mix,0.15,rule,P2_front_b4,True,11.000654181935158,9.192642397022688
+TBa_d03,agent-mix,0.15,corrected,P5_liquidity,,2.8593714227838154,3.4076436353311017
+TBa_d03,agent-mix,0.15,original h_c_f_m_k1,P7_risk_2,,25.612628227311692,23.06207469529319
+TBa_d03,agent-mix,0.15,compound Hawkes,P1_immediate,,26.1775469868905,21.56588274075839
+TBa_d04,agent-mix,0.05,always TWAP,P0_twap,,-1.8221033247406853,2.3175439261721316
+TBa_d04,agent-mix,0.05,no-simulator,P6_signal_reversal,,-4.6124742338029545,0.0
+TBa_d04,agent-mix,0.05,rule,P0_twap,False,-1.8221033247406853,2.3175439261721316
+TBa_d04,agent-mix,0.05,corrected,P1_immediate,,8.092328449514818,7.485022404918428
+TBa_d04,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,-0.5324212485478275,3.9900714768151637
+TBa_d04,agent-mix,0.05,compound Hawkes,P1_immediate,,8.092328449514818,7.485022404918428
+TBa_d04,agent-mix,0.15,always TWAP,P0_twap,,1.9022703125975284,2.0538631358669717
+TBa_d04,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d04,agent-mix,0.15,rule,P0_twap,False,1.9022703125975284,2.0538631358669717
+TBa_d04,agent-mix,0.15,corrected,P1_immediate,,18.496154419379298,14.908820070788206
+TBa_d04,agent-mix,0.15,original h_c_f_m_k1,P1_immediate,,18.496154419379298,14.908820070788206
+TBa_d04,agent-mix,0.15,compound Hawkes,P1_immediate,,18.496154419379298,14.908820070788206
+TBa_d05,agent-mix,0.05,always TWAP,P0_twap,,1.808473586506761,1.8005461478027809
+TBa_d05,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d05,agent-mix,0.05,rule,P0_twap,False,1.808473586506761,1.8005461478027809
+TBa_d05,agent-mix,0.05,corrected,P1_immediate,,5.424769596956945,2.866540823489751
+TBa_d05,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,2.218793198861138,2.7874467616559016
+TBa_d05,agent-mix,0.05,compound Hawkes,P2_front_b4,,3.029615486192501,1.6525036835985207
+TBa_d05,agent-mix,0.15,always TWAP,P0_twap,,1.3714063158789145,1.4909373462023705
+TBa_d05,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d05,agent-mix,0.15,rule,P1_immediate,True,11.18636168138247,8.90457354741901
+TBa_d05,agent-mix,0.15,corrected,P5_liquidity,,1.983214077216477,2.2230956877565875
+TBa_d05,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,1.983214077216477,2.2230956877565875
+TBa_d05,agent-mix,0.15,compound Hawkes,P4_pov_2x,,7.045524185324094,5.113305766867192
+TBa_d06,agent-mix,0.05,always TWAP,P0_twap,,2.6925835400465994,2.0171075297751733
+TBa_d06,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d06,agent-mix,0.05,rule,P5_liquidity,True,2.584690368881291,2.7138598379256873
+TBa_d06,agent-mix,0.05,corrected,P5_liquidity,,2.584690368881291,2.7138598379256873
+TBa_d06,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,2.584690368881291,2.7138598379256873
+TBa_d06,agent-mix,0.05,compound Hawkes,P2_front_b4,,4.437117856058145,2.3812330623034654
+TBa_d06,agent-mix,0.15,always TWAP,P0_twap,,-0.4506636845179939,0.0
+TBa_d06,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.15472310038483705
+TBa_d06,agent-mix,0.15,rule,P0_twap,False,-0.4506636845179939,0.0
+TBa_d06,agent-mix,0.15,corrected,P6_signal_reversal,,0.0,0.15472310038483705
+TBa_d06,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,1.1548413810179117,1.0992506807487992
+TBa_d06,agent-mix,0.15,compound Hawkes,P7_risk_0.5,,9.032351333281316,6.979566491065405
+TBa_d07,agent-mix,0.05,always TWAP,P0_twap,,0.9445626718263647,0.9676285223146683
+TBa_d07,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d07,agent-mix,0.05,rule,P0_twap,False,0.9445626718263647,0.9676285223146683
+TBa_d07,agent-mix,0.05,corrected,P5_liquidity,,1.722872110875998,2.2889842321115887
+TBa_d07,agent-mix,0.05,original h_c_f_m_k1,P1_immediate,,6.331576868543618,3.930677302652235
+TBa_d07,agent-mix,0.05,compound Hawkes,P1_immediate,,6.331576868543618,3.930677302652235
+TBa_d07,agent-mix,0.15,always TWAP,P0_twap,,3.5306936113086484,2.002259254655609
+TBa_d07,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d07,agent-mix,0.15,rule,P0_twap,False,3.5306936113086484,2.002259254655609
+TBa_d07,agent-mix,0.15,corrected,P1_immediate,,13.043804251391812,10.504452673186075
+TBa_d07,agent-mix,0.15,original h_c_f_m_k1,P1_immediate,,13.043804251391812,10.504452673186075
+TBa_d07,agent-mix,0.15,compound Hawkes,P2_front_b4,,3.461507051494226,2.3634850025126575
+TBa_d08,agent-mix,0.05,always TWAP,P0_twap,,-1.5123691971415432,0.807179202237851
+TBa_d08,agent-mix,0.05,no-simulator,P6_signal_reversal,,-2.3909798138136464,0.0
+TBa_d08,agent-mix,0.05,rule,P0_twap,False,-1.5123691971415432,0.807179202237851
+TBa_d08,agent-mix,0.05,corrected,P0_twap,,-1.5123691971415432,0.807179202237851
+TBa_d08,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,-1.3820495537235367,1.1983720103200834
+TBa_d08,agent-mix,0.05,compound Hawkes,P6_signal_reversal,,-2.3909798138136464,0.0
+TBa_d08,agent-mix,0.15,always TWAP,P0_twap,,0.27904907791815514,0.5721947560108402
+TBa_d08,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d08,agent-mix,0.15,rule,P0_twap,False,0.27904907791815514,0.5721947560108402
+TBa_d08,agent-mix,0.15,corrected,P0_twap,,0.27904907791815514,0.5721947560108402
+TBa_d08,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,0.23000150284631538,0.44220246244033223
+TBa_d08,agent-mix,0.15,compound Hawkes,P5_liquidity,,0.23000150284631538,0.44220246244033223
+TBa_d09,agent-mix,0.05,always TWAP,P0_twap,,-1.5562014586596034,3.5804764908873743
+TBa_d09,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.19117055598587918,1.4146288501669808
+TBa_d09,agent-mix,0.05,rule,P0_twap,False,-1.5562014586596034,3.5804764908873743
+TBa_d09,agent-mix,0.05,corrected,P1_immediate,,11.784605782674964,10.956531036426245
+TBa_d09,agent-mix,0.05,original h_c_f_m_k1,P6_signal_momentum,,-1.2610162010112944,4.40520217122938
+TBa_d09,agent-mix,0.05,compound Hawkes,P1_immediate,,11.784605782674964,10.956531036426245
+TBa_d09,agent-mix,0.15,always TWAP,P0_twap,,0.8366776528576683,2.2700463997525535
+TBa_d09,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d09,agent-mix,0.15,rule,P2_front_b4,True,6.690692206788189,3.972212387856855
+TBa_d09,agent-mix,0.15,corrected,P1_immediate,,23.657112968811163,18.187687200731
+TBa_d09,agent-mix,0.15,original h_c_f_m_k1,P7_risk_2,,21.808321048296992,18.79110317624595
+TBa_d09,agent-mix,0.15,compound Hawkes,P2_front_b4,,6.690692206788189,3.972212387856855
+TBa_d10,agent-mix,0.05,always TWAP,P0_twap,,0.4844784958300572,2.000965443832662
+TBa_d10,agent-mix,0.05,no-simulator,P6_signal_reversal,,5.014818264862299,3.5281030069794195
+TBa_d10,agent-mix,0.05,rule,P0_twap,False,0.4844784958300572,2.000965443832662
+TBa_d10,agent-mix,0.05,corrected,P3_back_b-2,,8.53550910376639,4.9304340642809255
+TBa_d10,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,11.666318095243177,7.368987657496968
+TBa_d10,agent-mix,0.05,compound Hawkes,P1_immediate,,14.716124306080705,12.694438402570638
+TBa_d10,agent-mix,0.15,always TWAP,P0_twap,,9.957527792144514,5.602370590225608
+TBa_d10,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d10,agent-mix,0.15,rule,P4_pov_1x,True,24.788336037376084,23.357379704274756
+TBa_d10,agent-mix,0.15,corrected,P4_pov_1x,,24.788336037376084,23.357379704274756
+TBa_d10,agent-mix,0.15,original h_c_f_m_k1,P7_risk_2,,15.2017959809303,12.54340050661014
+TBa_d10,agent-mix,0.15,compound Hawkes,P7_risk_2,,15.2017959809303,12.54340050661014
+TBa_d11,agent-mix,0.05,always TWAP,P0_twap,,5.382916545562607,5.469215166110349
+TBa_d11,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d11,agent-mix,0.05,rule,P0_twap,False,5.382916545562607,5.469215166110349
+TBa_d11,agent-mix,0.05,corrected,P6_signal_momentum,,10.832678554236622,12.129967224040398
+TBa_d11,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,6.635070588023597,7.972923035619067
+TBa_d11,agent-mix,0.05,compound Hawkes,P1_immediate,,20.442510909105035,13.020403310566806
+TBa_d11,agent-mix,0.15,always TWAP,P0_twap,,5.46630507697951,5.041741190549137
+TBa_d11,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d11,agent-mix,0.15,rule,P1_immediate,True,28.55087100258155,22.240555999899506
+TBa_d11,agent-mix,0.15,corrected,P3_back_b-2,,5.824789804163897,6.760784599436121
+TBa_d11,agent-mix,0.15,original h_c_f_m_k1,P6_signal_momentum,,9.907840161683698,10.109915487806498
+TBa_d11,agent-mix,0.15,compound Hawkes,P2_front_b2,,9.145456246501812,6.570681982798428
+TBa_d12,agent-mix,0.05,always TWAP,P0_twap,,-1.3101086713491346,0.8197264014729573
+TBa_d12,agent-mix,0.05,no-simulator,P6_signal_reversal,,-2.5497451616606317,0.0
+TBa_d12,agent-mix,0.05,rule,P0_twap,False,-1.3101086713491346,0.8197264014729573
+TBa_d12,agent-mix,0.05,corrected,P1_immediate,,6.3575413015649795,5.497434740622053
+TBa_d12,agent-mix,0.05,original h_c_f_m_k1,P1_immediate,,6.3575413015649795,5.497434740622053
+TBa_d12,agent-mix,0.05,compound Hawkes,P6_signal_momentum,,0.3059355287003518,2.785981255903047
+TBa_d12,agent-mix,0.15,always TWAP,P0_twap,,0.06215149872568215,0.4825698035821855
+TBa_d12,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d12,agent-mix,0.15,rule,P0_twap,False,0.06215149872568215,0.4825698035821855
+TBa_d12,agent-mix,0.15,corrected,P1_immediate,,16.918893456834255,14.252770096822033
+TBa_d12,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,1.3577826962870247,2.685589139214346
+TBa_d12,agent-mix,0.15,compound Hawkes,P2_front_b4,,3.479293064594133,2.927001075537734
+TBa_d13,agent-mix,0.05,always TWAP,P0_twap,,-1.9190383637529589,1.9790226887158866
+TBa_d13,agent-mix,0.05,no-simulator,P6_signal_reversal,,-2.8720609813606295,0.0
+TBa_d13,agent-mix,0.05,rule,P5_liquidity,True,-1.2592618663616628,1.6309408803937782
+TBa_d13,agent-mix,0.05,corrected,P2_front_b2,,-0.9690187044139664,1.1578337904620462
+TBa_d13,agent-mix,0.05,original h_c_f_m_k1,P5_liquidity,,-1.2592618663616628,1.6309408803937782
+TBa_d13,agent-mix,0.05,compound Hawkes,P1_immediate,,5.732878746035121,6.479739246188336
+TBa_d13,agent-mix,0.15,always TWAP,P0_twap,,-2.158224821574885,0.15739922965837927
+TBa_d13,agent-mix,0.15,no-simulator,P6_signal_reversal,,-2.7677818914642796,1.3889553468775038
+TBa_d13,agent-mix,0.15,rule,P0_twap,False,-2.158224821574885,0.15739922965837927
+TBa_d13,agent-mix,0.15,corrected,P5_liquidity,,-2.41697623220724,3.0012626279049606
+TBa_d13,agent-mix,0.15,original h_c_f_m_k1,P1_immediate,,9.981487767865715,12.627420922191408
+TBa_d13,agent-mix,0.15,compound Hawkes,P2_front_b4,,-2.497277986001084,1.3560607014518293
+TBa_d14,agent-mix,0.05,always TWAP,P0_twap,,-1.3571288644200514,5.419253171223671
+TBa_d14,agent-mix,0.05,no-simulator,P6_signal_reversal,,-2.96416317569242,6.538101854765058
+TBa_d14,agent-mix,0.05,rule,P0_twap,False,-1.3571288644200514,5.419253171223671
+TBa_d14,agent-mix,0.05,corrected,P5_liquidity,,-0.706132192896419,8.600880112062976
+TBa_d14,agent-mix,0.05,original h_c_f_m_k1,P1_immediate,,10.507091792497697,10.345348463282727
+TBa_d14,agent-mix,0.05,compound Hawkes,P1_immediate,,10.507091792497697,10.345348463282727
+TBa_d14,agent-mix,0.15,always TWAP,P0_twap,,-10.890991466683758,1.766832466837485
+TBa_d14,agent-mix,0.15,no-simulator,P6_signal_reversal,,-22.14699188007699,0.0
+TBa_d14,agent-mix,0.15,rule,P2_front_b4,True,2.9439372366006538,9.739931807985947
+TBa_d14,agent-mix,0.15,corrected,P6_signal_reversal,,-22.14699188007699,0.0
+TBa_d14,agent-mix,0.15,original h_c_f_m_k1,P7_risk_2,,-0.5196206897968239,15.123520408358132
+TBa_d14,agent-mix,0.15,compound Hawkes,P7_risk_2,,-0.5196206897968239,15.123520408358132
+TBa_d15,agent-mix,0.05,always TWAP,P0_twap,,2.219453518341642,1.8825544035998485
+TBa_d15,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d15,agent-mix,0.05,rule,P0_twap,False,2.219453518341642,1.8825544035998485
+TBa_d15,agent-mix,0.05,corrected,P6_signal_momentum,,3.6764930875771187,4.090942565741003
+TBa_d15,agent-mix,0.05,original h_c_f_m_k1,P1_immediate,,8.667344335594121,5.108213775648652
+TBa_d15,agent-mix,0.05,compound Hawkes,P1_immediate,,8.667344335594121,5.108213775648652
+TBa_d15,agent-mix,0.15,always TWAP,P0_twap,,1.580554509752863,1.4819386719114318
+TBa_d15,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d15,agent-mix,0.15,rule,P1_immediate,True,15.436418465801438,12.181522238577877
+TBa_d15,agent-mix,0.15,corrected,P1_immediate,,15.436418465801438,12.181522238577877
+TBa_d15,agent-mix,0.15,original h_c_f_m_k1,P1_immediate,,15.436418465801438,12.181522238577877
+TBa_d15,agent-mix,0.15,compound Hawkes,P1_immediate,,15.436418465801438,12.181522238577877
+TBa_d16,agent-mix,0.05,always TWAP,P0_twap,,0.5484336186526275,1.0741591652767335
+TBa_d16,agent-mix,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d16,agent-mix,0.05,rule,P0_twap,False,0.5484336186526275,1.0741591652767335
+TBa_d16,agent-mix,0.05,corrected,P4_pov_1x,,1.0000838339028078,2.2201148219328912
+TBa_d16,agent-mix,0.05,original h_c_f_m_k1,P0_twap,,0.5484336186526275,1.0741591652767335
+TBa_d16,agent-mix,0.05,compound Hawkes,P1_immediate,,10.791571452265782,7.36086966448338
+TBa_d16,agent-mix,0.15,always TWAP,P0_twap,,0.8433788354829481,0.8882489959124023
+TBa_d16,agent-mix,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBa_d16,agent-mix,0.15,rule,P0_twap,False,0.8433788354829481,0.8882489959124023
+TBa_d16,agent-mix,0.15,corrected,P6_signal_reversal,,0.0,0.0
+TBa_d16,agent-mix,0.15,original h_c_f_m_k1,P5_liquidity,,0.5083782423861614,0.5030085382694569
+TBa_d16,agent-mix,0.15,compound Hawkes,P1_immediate,,15.05910492905917,14.236099517273463
+TBl_d01,latent,0.05,always TWAP,P0_twap,,0.13685446222072883,0.1386342732656498
+TBl_d01,latent,0.05,no-simulator,P6_signal_reversal,,0.0,0.008783342588833953
+TBl_d01,latent,0.05,rule,P0_twap,False,0.13685446222072883,0.1386342732656498
+TBl_d01,latent,0.05,corrected,P5_liquidity,,0.09472459200748062,0.06315790699122381
+TBl_d01,latent,0.05,original h_c_f_m_k1,P5_liquidity,,0.09472459200748062,0.06315790699122381
+TBl_d01,latent,0.05,compound Hawkes,P1_immediate,,0.17191772700080055,0.25269316845251666
+TBl_d01,latent,0.15,always TWAP,P0_twap,,0.056142732136331475,0.1204567646452066
+TBl_d01,latent,0.15,no-simulator,P6_signal_reversal,,0.03044919133641244,0.0374719650323776
+TBl_d01,latent,0.15,rule,P0_twap,False,0.056142732136331475,0.1204567646452066
+TBl_d01,latent,0.15,corrected,P5_liquidity,,0.03508540054564602,0.0824459293939448
+TBl_d01,latent,0.15,original h_c_f_m_k1,P1_immediate,,0.6352032839123636,0.6965883333801441
+TBl_d01,latent,0.15,compound Hawkes,P1_immediate,,0.6352032839123636,0.6965883333801441
+TBl_d02,latent,0.05,always TWAP,P0_twap,,-0.0983870725283511,0.08883425685791657
+TBl_d02,latent,0.05,no-simulator,P6_signal_reversal,,-0.1682397311098276,0.0
+TBl_d02,latent,0.05,rule,P0_twap,False,-0.0983870725283511,0.08883425685791657
+TBl_d02,latent,0.05,corrected,P5_liquidity,,-0.022193415271127392,0.09845164070403012
+TBl_d02,latent,0.05,original h_c_f_m_k1,P5_liquidity,,-0.022193415271127392,0.09845164070403012
+TBl_d02,latent,0.05,compound Hawkes,P1_immediate,,-0.15890087116122764,0.5455166124296937
+TBl_d02,latent,0.15,always TWAP,P0_twap,,-0.21021393619494777,0.08200827696203117
+TBl_d02,latent,0.15,no-simulator,P6_signal_reversal,,-0.2993817739712732,0.0
+TBl_d02,latent,0.15,rule,P0_twap,False,-0.21021393619494777,0.08200827696203117
+TBl_d02,latent,0.15,corrected,P5_liquidity,,-0.1855221618614813,0.07850102083321087
+TBl_d02,latent,0.15,original h_c_f_m_k1,P5_liquidity,,-0.1855221618614813,0.07850102083321087
+TBl_d02,latent,0.15,compound Hawkes,P4_pov_1x,,-0.18855691814486697,0.10861451218457407
+TBl_d03,latent,0.05,always TWAP,P0_twap,,1.2647097671318637,1.2890090023373082
+TBl_d03,latent,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d03,latent,0.05,rule,P0_twap,False,1.2647097671318637,1.2890090023373082
+TBl_d03,latent,0.05,corrected,P1_immediate,,-0.06388049070060742,2.13419996828065
+TBl_d03,latent,0.05,original h_c_f_m_k1,P5_liquidity,,1.6253006302400985,1.106067241825805
+TBl_d03,latent,0.05,compound Hawkes,P1_immediate,,-0.06388049070060742,2.13419996828065
+TBl_d03,latent,0.15,always TWAP,P0_twap,,1.3597281253279183,1.275531589318664
+TBl_d03,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d03,latent,0.15,rule,P0_twap,False,1.3597281253279183,1.275531589318664
+TBl_d03,latent,0.15,corrected,P1_immediate,,2.4337930914162493,4.5497989639809004
+TBl_d03,latent,0.15,original h_c_f_m_k1,P7_risk_0.5,,0.3980813673957355,1.0153673143611694
+TBl_d03,latent,0.15,compound Hawkes,P1_immediate,,2.4337930914162493,4.5497989639809004
+TBl_d04,latent,0.05,always TWAP,P0_twap,,-0.043318066144884426,0.5864714215309705
+TBl_d04,latent,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d04,latent,0.05,rule,P0_twap,False,-0.043318066144884426,0.5864714215309705
+TBl_d04,latent,0.05,corrected,P6_signal_reversal,,0.0,0.0
+TBl_d04,latent,0.05,original h_c_f_m_k1,P1_immediate,,0.8822238668695519,2.4533653061506078
+TBl_d04,latent,0.05,compound Hawkes,P1_immediate,,0.8822238668695519,2.4533653061506078
+TBl_d04,latent,0.15,always TWAP,P0_twap,,0.08843769253067801,0.5104588433410031
+TBl_d04,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d04,latent,0.15,rule,P0_twap,False,0.08843769253067801,0.5104588433410031
+TBl_d04,latent,0.15,corrected,P6_signal_reversal,,0.0,0.0
+TBl_d04,latent,0.15,original h_c_f_m_k1,P1_immediate,,5.168925388120359,6.2814461815961735
+TBl_d04,latent,0.15,compound Hawkes,P1_immediate,,5.168925388120359,6.2814461815961735
+TBl_d05,latent,0.05,always TWAP,P0_twap,,-0.028068017256337008,0.06835153231775148
+TBl_d05,latent,0.05,no-simulator,P6_signal_reversal,,0.3964837537003616,0.20513486625210042
+TBl_d05,latent,0.05,rule,P0_twap,False,-0.028068017256337008,0.06835153231775148
+TBl_d05,latent,0.05,corrected,P7_risk_2,,0.42458045718713056,0.6611438968941634
+TBl_d05,latent,0.05,original h_c_f_m_k1,P6_signal_reversal,,0.3964837537003616,0.20513486625210042
+TBl_d05,latent,0.05,compound Hawkes,P1_immediate,,0.4022109551181119,0.8047573014246208
+TBl_d05,latent,0.15,always TWAP,P0_twap,,-0.24559030592291275,0.05494662529683758
+TBl_d05,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.12684675069319873
+TBl_d05,latent,0.15,rule,P0_twap,False,-0.24559030592291275,0.05494662529683758
+TBl_d05,latent,0.15,corrected,P7_risk_2,,0.7368946001615271,1.2454747173501515
+TBl_d05,latent,0.15,original h_c_f_m_k1,P1_immediate,,2.0027371430677086,2.8568199613411815
+TBl_d05,latent,0.15,compound Hawkes,P1_immediate,,2.0027371430677086,2.8568199613411815
+TBl_d06,latent,0.05,always TWAP,P0_twap,,-0.050293935677636625,0.07484457720546267
+TBl_d06,latent,0.05,no-simulator,P6_signal_reversal,,0.07915547379864929,0.23747244619608487
+TBl_d06,latent,0.05,rule,P0_twap,False,-0.050293935677636625,0.07484457720546267
+TBl_d06,latent,0.05,corrected,P6_signal_momentum,,0.0,0.004098264956690301
+TBl_d06,latent,0.05,original h_c_f_m_k1,P1_immediate,,0.45400390491321474,0.9890764590073733
+TBl_d06,latent,0.05,compound Hawkes,P1_immediate,,0.45400390491321474,0.9890764590073733
+TBl_d06,latent,0.15,always TWAP,P0_twap,,0.09818535265294326,0.09943967904418205
+TBl_d06,latent,0.15,no-simulator,P6_signal_reversal,,0.19766391237753123,0.23844327320514846
+TBl_d06,latent,0.15,rule,P0_twap,False,0.09818535265294326,0.09943967904418205
+TBl_d06,latent,0.15,corrected,P1_immediate,,4.334064858552762,4.589830750827961
+TBl_d06,latent,0.15,original h_c_f_m_k1,P1_immediate,,4.334064858552762,4.589830750827961
+TBl_d06,latent,0.15,compound Hawkes,P1_immediate,,4.334064858552762,4.589830750827961
+TBl_d07,latent,0.05,always TWAP,P0_twap,,-0.2502523672334265,0.0777964904921431
+TBl_d07,latent,0.05,no-simulator,P6_signal_reversal,,-0.26121926517755956,0.3362101263660078
+TBl_d07,latent,0.05,rule,P0_twap,False,-0.2502523672334265,0.0777964904921431
+TBl_d07,latent,0.05,corrected,P6_signal_reversal,,-0.26121926517755956,0.3362101263660078
+TBl_d07,latent,0.05,original h_c_f_m_k1,P6_signal_reversal,,-0.26121926517755956,0.3362101263660078
+TBl_d07,latent,0.05,compound Hawkes,P1_immediate,,0.0708025767248488,0.7170576534323168
+TBl_d07,latent,0.15,always TWAP,P0_twap,,-0.14103136886581424,0.09731561459951088
+TBl_d07,latent,0.15,no-simulator,P6_signal_reversal,,-0.08361738677846908,0.3028939278984186
+TBl_d07,latent,0.15,rule,P0_twap,False,-0.14103136886581424,0.09731561459951088
+TBl_d07,latent,0.15,corrected,P3_back_b-2,,0.022083609206613453,0.17603665758390985
+TBl_d07,latent,0.15,original h_c_f_m_k1,P3_back_b-2,,0.022083609206613453,0.17603665758390985
+TBl_d07,latent,0.15,compound Hawkes,P1_immediate,,2.1484909195170836,2.6410651637644653
+TBl_d08,latent,0.05,always TWAP,P0_twap,,0.2840523375452211,0.654137507468219
+TBl_d08,latent,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d08,latent,0.05,rule,P0_twap,False,0.2840523375452211,0.654137507468219
+TBl_d08,latent,0.05,corrected,P2_front_b4,,0.0062469609027200335,0.9040092621270546
+TBl_d08,latent,0.05,original h_c_f_m_k1,P1_immediate,,7.866250560050741,9.252616699470792
+TBl_d08,latent,0.05,compound Hawkes,P1_immediate,,7.866250560050741,9.252616699470792
+TBl_d08,latent,0.15,always TWAP,P0_twap,,-0.12966219894368436,0.059634075229784145
+TBl_d08,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d08,latent,0.15,rule,P0_twap,False,-0.12966219894368436,0.059634075229784145
+TBl_d08,latent,0.15,corrected,P3_back_b-2,,1.4456838770087472,1.7539855134751114
+TBl_d08,latent,0.15,original h_c_f_m_k1,P1_immediate,,9.72877306900449,11.71841509545159
+TBl_d08,latent,0.15,compound Hawkes,P1_immediate,,9.72877306900449,11.71841509545159
+TBl_d09,latent,0.05,always TWAP,P0_twap,,-0.23751730567460783,0.1396526564572076
+TBl_d09,latent,0.05,no-simulator,P6_signal_reversal,,0.22579809351584235,0.5273071745386604
+TBl_d09,latent,0.05,rule,P0_twap,False,-0.23751730567460783,0.1396526564572076
+TBl_d09,latent,0.05,corrected,P7_risk_0.5,,-0.09658421285487329,0.22471557140014653
+TBl_d09,latent,0.05,original h_c_f_m_k1,P6_signal_reversal,,0.22579809351584235,0.5273071745386604
+TBl_d09,latent,0.05,compound Hawkes,P4_pov_2x,,-0.31915889917064444,0.08959060589735213
+TBl_d09,latent,0.15,always TWAP,P0_twap,,-0.06702819724323916,0.11281264555193093
+TBl_d09,latent,0.15,no-simulator,P6_signal_reversal,,0.17999777010240692,0.363161549044297
+TBl_d09,latent,0.15,rule,P0_twap,False,-0.06702819724323916,0.11281264555193093
+TBl_d09,latent,0.15,corrected,P3_back_b-2,,0.19390745994455205,0.277311801079664
+TBl_d09,latent,0.15,original h_c_f_m_k1,P3_back_b-2,,0.19390745994455205,0.277311801079664
+TBl_d09,latent,0.15,compound Hawkes,P4_pov_2x,,-0.6462428833557832,0.006666117810950389
+TBl_d10,latent,0.05,always TWAP,P0_twap,,-0.18201157686751035,0.05164225534468869
+TBl_d10,latent,0.05,no-simulator,P6_signal_reversal,,0.1458062370064015,0.1909900433208609
+TBl_d10,latent,0.05,rule,P0_twap,False,-0.18201157686751035,0.05164225534468869
+TBl_d10,latent,0.05,corrected,P7_risk_0.5,,0.12030563769245362,0.1571827046240406
+TBl_d10,latent,0.05,original h_c_f_m_k1,P7_risk_2,,-0.01968678711088767,0.22936350846526032
+TBl_d10,latent,0.05,compound Hawkes,P1_immediate,,-0.4680631551225227,0.3941047103668289
+TBl_d10,latent,0.15,always TWAP,P0_twap,,0.0783844843903978,0.11203261560522115
+TBl_d10,latent,0.15,no-simulator,P6_signal_reversal,,0.1998070342381313,0.219003440657354
+TBl_d10,latent,0.15,rule,P0_twap,False,0.0783844843903978,0.11203261560522115
+TBl_d10,latent,0.15,corrected,P3_back_b-2,,0.2483415505289015,0.13947739638403522
+TBl_d10,latent,0.15,original h_c_f_m_k1,P7_risk_2,,0.1781459030600887,0.37077412703806445
+TBl_d10,latent,0.15,compound Hawkes,P1_immediate,,0.024857596936675108,0.6588468347224792
+TBl_d11,latent,0.05,always TWAP,P0_twap,,0.04735292827788218,0.2614907262361008
+TBl_d11,latent,0.05,no-simulator,P6_signal_reversal,,0.5783828966157056,0.6702004852308239
+TBl_d11,latent,0.05,rule,P0_twap,False,0.04735292827788218,0.2614907262361008
+TBl_d11,latent,0.05,corrected,P4_pov_2x,,0.7020362262169657,0.9095622849587182
+TBl_d11,latent,0.05,original h_c_f_m_k1,P1_immediate,,3.027908570563957,3.9900686068780207
+TBl_d11,latent,0.05,compound Hawkes,P1_immediate,,3.027908570563957,3.9900686068780207
+TBl_d11,latent,0.15,always TWAP,P0_twap,,0.24774861028970196,0.31224749393827356
+TBl_d11,latent,0.15,no-simulator,P6_signal_reversal,,0.5357492417423488,0.5615714612165492
+TBl_d11,latent,0.15,rule,P0_twap,False,0.24774861028970196,0.31224749393827356
+TBl_d11,latent,0.15,corrected,P1_immediate,,9.724213738856765,10.53316338979712
+TBl_d11,latent,0.15,original h_c_f_m_k1,P1_immediate,,9.724213738856765,10.53316338979712
+TBl_d11,latent,0.15,compound Hawkes,P1_immediate,,9.724213738856765,10.53316338979712
+TBl_d12,latent,0.05,always TWAP,P0_twap,,0.463089487489297,0.9627565090852945
+TBl_d12,latent,0.05,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d12,latent,0.05,rule,P0_twap,False,0.463089487489297,0.9627565090852945
+TBl_d12,latent,0.05,corrected,P5_liquidity,,0.39781347788376387,0.8052674953711483
+TBl_d12,latent,0.05,original h_c_f_m_k1,P1_immediate,,1.640988952734813,2.9864668712165185
+TBl_d12,latent,0.05,compound Hawkes,P1_immediate,,1.640988952734813,2.9864668712165185
+TBl_d12,latent,0.15,always TWAP,P0_twap,,0.35972667521433,0.904894245249463
+TBl_d12,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d12,latent,0.15,rule,P1_immediate,True,5.4995961568619585,7.145686375452911
+TBl_d12,latent,0.15,corrected,P6_signal_reversal,,0.0,0.0
+TBl_d12,latent,0.15,original h_c_f_m_k1,P1_immediate,,5.4995961568619585,7.145686375452911
+TBl_d12,latent,0.15,compound Hawkes,P1_immediate,,5.4995961568619585,7.145686375452911
+TBl_d13,latent,0.05,always TWAP,P0_twap,,-0.14617299915637538,0.3815240998626628
+TBl_d13,latent,0.05,no-simulator,P6_signal_reversal,,-0.5136013184607613,0.380830951669326
+TBl_d13,latent,0.05,rule,P0_twap,False,-0.14617299915637538,0.3815240998626628
+TBl_d13,latent,0.05,corrected,P6_signal_reversal,,-0.5136013184607613,0.380830951669326
+TBl_d13,latent,0.05,original h_c_f_m_k1,P3_back_b-2,,0.2927896692527838,0.6253845233335937
+TBl_d13,latent,0.05,compound Hawkes,P1_immediate,,-1.2279280388176907,0.8484138187742625
+TBl_d13,latent,0.15,always TWAP,P0_twap,,-0.006732530345980869,0.18661791641366232
+TBl_d13,latent,0.15,no-simulator,P6_signal_reversal,,-0.4560270509162372,0.11642327066090097
+TBl_d13,latent,0.15,rule,P0_twap,False,-0.006732530345980869,0.18661791641366232
+TBl_d13,latent,0.15,corrected,P6_signal_reversal,,-0.4560270509162372,0.11642327066090097
+TBl_d13,latent,0.15,original h_c_f_m_k1,P3_back_b-2,,0.486332578748069,0.498299987828549
+TBl_d13,latent,0.15,compound Hawkes,P1_immediate,,1.3781736352973049,2.9931861991733086
+TBl_d14,latent,0.05,always TWAP,P0_twap,,0.07602757542011229,0.23071263758332972
+TBl_d14,latent,0.05,no-simulator,P6_signal_reversal,,0.013919491541289908,0.15692079071591625
+TBl_d14,latent,0.05,rule,P0_twap,False,0.07602757542011229,0.23071263758332972
+TBl_d14,latent,0.05,corrected,P1_immediate,,0.41372698776587136,0.885251280407167
+TBl_d14,latent,0.05,original h_c_f_m_k1,P1_immediate,,0.41372698776587136,0.885251280407167
+TBl_d14,latent,0.05,compound Hawkes,P7_risk_2,,0.18560662345244427,0.5378813830063995
+TBl_d14,latent,0.15,always TWAP,P0_twap,,-0.05388095999548881,0.07065800245005338
+TBl_d14,latent,0.15,no-simulator,P6_signal_reversal,,-0.12691548784202045,0.0397412335337739
+TBl_d14,latent,0.15,rule,P0_twap,False,-0.05388095999548881,0.07065800245005338
+TBl_d14,latent,0.15,corrected,P6_signal_reversal,,-0.12691548784202045,0.0397412335337739
+TBl_d14,latent,0.15,original h_c_f_m_k1,P1_immediate,,1.6028657823894141,2.0855699983969567
+TBl_d14,latent,0.15,compound Hawkes,P2_front_b4,,-0.22850856271158637,0.23004767367227696
+TBl_d15,latent,0.05,always TWAP,P0_twap,,0.11088672762096952,0.26443724578173633
+TBl_d15,latent,0.05,no-simulator,P6_signal_reversal,,0.14214264881867944,0.1624167573917097
+TBl_d15,latent,0.05,rule,P0_twap,False,0.11088672762096952,0.26443724578173633
+TBl_d15,latent,0.05,corrected,P1_immediate,,-0.7559040175893212,0.08905029179117019
+TBl_d15,latent,0.05,original h_c_f_m_k1,P2_front_b2,,-0.08040492224690698,0.1844038024712038
+TBl_d15,latent,0.05,compound Hawkes,P5_liquidity,,0.35095831777223463,0.3177794120637447
+TBl_d15,latent,0.15,always TWAP,P0_twap,,0.0030694548287408807,0.034014960871598277
+TBl_d15,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d15,latent,0.15,rule,P0_twap,False,0.0030694548287408807,0.034014960871598277
+TBl_d15,latent,0.15,corrected,P2_front_b4,,-0.29783872403699796,0.01477166383509676
+TBl_d15,latent,0.15,original h_c_f_m_k1,P4_pov_1x,,-0.010141748689663999,0.0362294477524685
+TBl_d15,latent,0.15,compound Hawkes,P2_front_b4,,-0.29783872403699796,0.01477166383509676
+TBl_d16,latent,0.05,always TWAP,P0_twap,,-0.361331463083876,0.11263445695328667
+TBl_d16,latent,0.05,no-simulator,P6_signal_reversal,,-0.5668858161817898,0.0
+TBl_d16,latent,0.05,rule,P5_liquidity,True,0.0,0.24371691977297072
+TBl_d16,latent,0.05,corrected,P4_pov_2x,,-0.4752351382856732,0.2925306802502359
+TBl_d16,latent,0.05,original h_c_f_m_k1,P4_pov_2x,,-0.4752351382856732,0.2925306802502359
+TBl_d16,latent,0.05,compound Hawkes,P1_immediate,,-0.865196905124459,0.1474896516562625
+TBl_d16,latent,0.15,always TWAP,P0_twap,,0.42444224341238534,0.36240060299130494
+TBl_d16,latent,0.15,no-simulator,P6_signal_reversal,,0.0,0.0
+TBl_d16,latent,0.15,rule,P4_pov_1x,True,0.34974183243212753,0.2864586754769487
+TBl_d16,latent,0.15,corrected,P1_immediate,,0.9061597728908648,1.362587320970822
+TBl_d16,latent,0.15,original h_c_f_m_k1,P1_immediate,,0.9061597728908648,1.362587320970822
+TBl_d16,latent,0.15,compound Hawkes,P1_immediate,,0.9061597728908648,1.362587320970822

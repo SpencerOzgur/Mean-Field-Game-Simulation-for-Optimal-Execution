@@ -117,3 +117,12 @@ Running log. Each entry is dated and written before the results it concerns exis
     unfilled), so its 2,400 rows carry no cost value and the analysis failed. Such a design is now treated as unavailable
     in that market (simrel/experiments/goal2_reliability.py, _matrix), as the rule definition already does for missing
     designs: in TBa_d07 the agreement rule uses three designs. No other market or design is affected.
+
+## 16 November 2026, 07:53 EST, Test B-U read once (results/simrel/goal2/addendum10/test_b*.csv)
+
+22. Confirmatory result. No hypothesis is supported after the Holm adjustment. H10.1 rule minus always-TWAP +1.00 bp
+    [+0.24, +1.51] (the rule is worse); H10.2 rule minus no-simulator +1.75 [+0.70, +2.52]; H10.3 corrected minus
+    original h_c_f_m_k1 -0.82 [-2.00, +0.51], p = 0.153; H10.4 corrected minus compound Hawkes -1.34 [-2.61, +0.17],
+    p = 0.041 (threshold 0.006). The rule departed from TWAP in 15% of cells. The method-paper criterion is not met: by
+    section 10 the paper is the evaluation paper, with stages 1-3 reported as negative evidence (outcome I1 for
+    identifiability; gate 3 met on development markets but not replicated with confidence on Test B).
