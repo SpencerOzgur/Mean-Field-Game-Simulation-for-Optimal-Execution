@@ -106,3 +106,9 @@ Running log. Each entry is dated and written before the results it concerns exis
     the study's Hawkes designs. 26 of the 42 markets are ablation variants of two base markets, so the bootstrap,
     which treats markets as independent, is optimistic; the ordering is the same on the 16 core markets.
     Section 8 now applies: TRADES on six representative development markets, to be specified in a further addendum.
+
+## 16 November 2026, 07:48 EST, after the Test B freeze and before Test B is read
+
+20. The ABIDES decision seed of TBa_d09 that the Kaggle notebook did not finish (freeze file, last deviation) ran
+    locally for 9 hours without completing and was stopped. ABIDES in TBa_d09 uses the 99 completed seeds; the analysis
+    averages over available seeds. Nothing else changes; the freeze file is not edited.
