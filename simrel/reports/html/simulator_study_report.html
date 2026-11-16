@@ -114,6 +114,7 @@ section { scroll-margin-top: 20px; }
       <ol><li><a href="#g2-first">First markets</a></li><li><a href="#g2-conf">Confirmatory test</a></li><li><a href="#g2-markets">Market by market</a></li><li><a href="#g2-why">Why TWAP wins</a></li><li><a href="#g2-rules">Decision rules</a></li><li><a href="#g2-profile">Validation profile</a></li><li><a href="#g2-spec">Misspecification</a></li></ol></li>
     <li><a href="#explore">11 Literature checks</a></li>
     <li><a href="#a6">11b Oracle, ablation, transfer</a></li>
+    <li><a href="#trust">11c When can a simulator be trusted?</a></li>
     <li><a href="#claims">12 What we can claim</a></li>
     <li><a href="#limits">13 Limitations</a></li>
     <li><a href="#log">14 Deviations and corrections</a></li>
@@ -123,7 +124,7 @@ section { scroll-margin-top: 20px; }
 
 <main>
 <header class="top">
-  <div class="eyebrow">Full report · market simulators and execution decisions · updated 12 November 2026: an “in simple words” explanation in every section</div>
+  <div class="eyebrow">Full report · market simulators and execution decisions · updated 16 November 2026: when can a simulator be trusted? Addenda 10 and 11, final results</div>
   <h1>Do realistic market simulators give reliable execution advice?</h1>
   <p class="lede">A complete account of the study: data, simulators, measures, validation, every result table, the pre-registered tests and their outcomes, the checks prompted by the literature, and every deviation and correction made along the way.</p>
   <div class="meta"><span><b>Real data</b> Nasdaq TotalView-ITCH, INTC, CSCO, MSFT, 8 days, 2019–2020</span><span><b>Synthetic markets</b> 26 with known true costs</span><span><b>Candidate simulators</b> 29 per market (+1 exploratory)</span><span><b>Code</b> simrel/</span></div>
@@ -161,10 +162,13 @@ section { scroll-margin-top: 20px; }
 <li><b>A longer job raises the stakes but not the simulators' usefulness.</b> Over 30 minutes and 60 trading decisions, TWAP leaves 1–2.3 bp on the table (<b>$2,500–$5,750</b>) and the true model recovers most of it. No fitted simulator beat TWAP on average; on large orders the Hawkes simulators lost up to 25 bp in single markets (<b>about $62,500</b>).</li>
 <li><b>Careful rules avoid the losses only by never trusting the simulator.</b> Rules that depart from TWAP only when a simulator's predicted saving is large compared with its uncertainty avoided the losses, but in practice they almost always chose TWAP. That protects the trader; it does not make the simulator useful.</li>
 <li><b>When strategies are almost equivalent, nothing matters much.</b> In the queue-driven markets all strategies cost about the same (within 0.5 bp, about $1,250), so even poor simulators did no harm there.</li>
+<li><b>No trust rule could tell when to follow a simulator.</b> We tested rules that use only evidence a trader could see in real market data (whether simulators agree, whether their advice is stable, whether they reproduce the market's statistics). On 48 brand-new markets, the best rule frozen in advance did <i>worse</i> than plain TWAP by 1.0 bp (<b>about $2,500</b>) on average, and worse than simply reusing the strategy that had worked before.</li>
+<li><b>The missing ingredient can be seen in the data, but adding it to the simulator helped only a little.</b> Markets with different ingredients (for example, traders anchored to fair value) look clearly different in six half-hour samples, so the information is there. A simulator with anchoring added made about 0.8–1.3 bp (<b>$2,000–$3,250</b>) better choices than the uncorrected ones, but that gain was not statistically reliable on the new markets, and it was still worse than TWAP.</li>
+<li><b>A modern AI market generator did not help.</b> TRADES, a diffusion model trained on the market's data, recommended "sell at once" in every market, and its predicted savings were off by 30–34 bp (<b>$75,000–$85,000</b>), the least accurate of all simulators tested.</li>
 <li><b>Caveat: our synthetic markets are not Nasdaq.</b> They match real data on random-walk behaviour and short-term return patterns, but prices in them keep moving after a trade for much longer than on Nasdaq and impact grows faster with order size. The conclusions describe markets with those features.</li>
 </ul>
 <div class="answer">
-<p><b>Bottom line for the trader with 500,000 shares.</b> Today, the safest choice is TWAP, unless there is independent evidence that the simulator contains the mechanisms that drive the decision in this market (for example, whether prices are pulled back towards a fundamental value). A simulator's promised saving of, say, 8 bp ($20,000) is not evidence on its own: in our markets, promises of that size were mostly the simulator's own error. The next stage of the study (design addendum 10) tests whether checks that can be run on real market data can tell when a simulator's advice is safe to follow.</p>
+<p><b>Bottom line for the trader with 500,000 shares.</b> Today, the safest choice is TWAP, unless there is independent evidence that the simulator contains the mechanisms that drive the decision in this market (for example, whether prices are pulled back towards a fundamental value). A simulator's promised saving of, say, 8 bp ($20,000) is not evidence on its own: in our markets, promises of that size were mostly the simulator's own error. The final stage of the study (addenda 10 and 11) tested whether checks that can be run on real market data can tell when a simulator's advice is safe to follow: none could, on 48 markets that played no part in designing the checks.</p>
 </div>
 </section>
 
@@ -303,6 +307,8 @@ section { scroll-margin-top: 20px; }
 <h3>Done since the last update</h3>
 <div class="simple"><div class="slbl">In simple words</div><p>A progress list: what was finished most recently.</p></div>
 <ul>
+<li><b>16 November:</b> Test B read once after a checksummed freeze; no confirmatory hypothesis supported (section 11c). TRADES robustness comparison complete (addendum 11). The study is now an evaluation paper.</li>
+<li><b>12–15 November:</b> design addendum 10 locked after team sign-off; trust rules, mechanism diagnostics, identifiability grid, compound Hawkes, corrected and recalibrated Hawkes; addendum 11 for TRADES (section 11c).</li>
 <li>All Kaggle work finished and merged (8 November); every one of the 112,000 policy files checked for failed runs: none remain (64 that crashed because of a missing input file were rerun).</li>
 <li>Matched-mechanism and 30-minute-task results (above).</li>
 <li>Positive control, mechanism ablation and out-of-family rules (section 11b): the oracle failed at 30 seeds because the decisions are under-powered or flat, not because the pipeline is biased.</li>
@@ -314,7 +320,7 @@ section { scroll-margin-top: 20px; }
 <div class="tbl"><table><thead><tr><th>Item</th><th>Depends on</th></tr></thead><tbody>
 <tr><td>Draft the manuscript: "When Realistic Market Simulators Give Unreliable Execution Advice: Sampling Error, Misspecification, and Decision Regret" (agreement, reliability, validation)</td><td>Nothing: all experiments are in</td></tr>
 
-<tr><td>Design addendum 10 (when to trust a simulator; mechanism correction): review by the team, then lock it with a checksum before any analysis</td><td>Team review</td></tr>
+<tr><td>Optional, secondary: the opportunity-rich Test B family, the corrected model's wrong-mechanism test on the grid, Test B on the 30-minute task</td><td>Decision whether to run them</td></tr>
 </tbody></table></div>
 </section>
 
@@ -354,7 +360,9 @@ section { scroll-margin-top: 20px; }
 <div class="ev"><div class="when">5 Nov 2026</div><b>Addendum 6</b>: oracle positive control, mechanism ablation, out-of-family rules (section 11b). <b>Addendum 7</b>: every candidate rerun at 100 decision seeds.</div>
 <div class="ev"><div class="when">6 Nov 2026</div><b>Addendum 8</b>: separating bad luck from wrong models, a decision-aware measure, the held-out latent-liquidity family, matched mechanisms, the 30-minute task.</div>
 <div class="ev"><div class="when">7 Nov 2026</div><b>Addendum 9</b>: the true generator with one mechanism removed; regret against the number of runs.</div>
-<div class="ev"><div class="when">12 Nov 2026</div><b>Addendum 10</b> (draft, under team review, not yet locked): when a simulator can be trusted, and whether correcting the missing mechanism helps; novelty audit against recent papers.</div>
+<div class="ev"><div class="when">12 Nov 2026</div><b>Addendum 10</b> (locked after team sign-off; amendment 1 on diagnostic band levels): when a simulator can be trusted, and whether correcting the missing mechanism helps; novelty audit against recent papers.</div>
+<div class="ev"><div class="when">14 Nov 2026</div><b>Addendum 11</b>: reduced TRADES robustness comparison on three development markets, after a feasibility check.</div>
+<div class="ev"><div class="when">15 Nov 2026</div><b>Test B freeze</b>: hypotheses, inference, code checksums and deviations locked before the 48 test markets were read (16 November).</div>
 </div>
 </section>
 
@@ -748,6 +756,76 @@ section { scroll-margin-top: 20px; }
 <p>Only a rule that always picks TWAP generalises. The level of trust learned in one family is wrong in another, and nothing observable before optimisation says which family one is in.</p>
 </section>
 
+<section id="trust">
+<h2>11c When can a simulator be trusted? (addenda 10 and 11)</h2>
+<div class="simple"><div class="slbl">In simple words</div><p>After the main study, reviewers asked a more useful question: can we tell, from evidence a trader can actually see, <i>when</i> a simulator's advice is safe to follow, and can we fix the simulator where it is wrong? We wrote the whole plan down and locked it first. We developed everything on one set of markets, checked it once on a second set, and ran the final test once on 48 brand-new markets drawn at random. The answer is no on the first question and "a little, not reliably" on the second.</p></div>
+<h3>Design</h3>
+<div class="tbl"><table><thead><tr><th>Market set</th><th>Markets</th><th>Role</th></tr></thead><tbody>
+<tr><td>Development</td><td class="num">42</td><td>10 designed, 6 well-specified, 26 mechanism-ablation markets: all rules and models developed and tuned here</td></tr>
+<tr><td>Test A (secondary)</td><td class="num">16</td><td>10 drawn and 6 held-out markets, read once after the rule was frozen</td></tr>
+<tr><td>Test B (primary)</td><td class="num">48</td><td>New, unfiltered: 16 queue-reactive, 16 agent-mix, 16 latent-liquidity; size set by a power calculation; read once after a checksummed freeze</td></tr>
+</tbody></table></div>
+<div class="simple"><div class="slbl">In simple words</div><p>We kept the final exam sealed. Test B's markets were drawn from fixed random streams before any result existed, and the analysis code was fingerprinted before Test B was opened, so nothing could be tuned to it.</p></div>
+<h3>Stage 1: trust rules</h3>
+<p>Rules that decide, per market, whether to depart from TWAP using only observable evidence: agreement between the four fixed designs, stability across fitted variants, gated predicted gain, and mechanism diagnostics (whether a design reproduces the market's variance ratios, response to trades and depth response to one-sided flow). One rule was chosen on the development markets and frozen: <b>agreement</b> (depart when at least 75% of designs agree and the average predicted gain exceeds 2 bp).</p>
+<div class="tbl"><table><thead><tr><th>Mean regret (bp)</th><th class="num">Development (16 core)</th><th class="num">Test A (16)</th></tr></thead><tbody>
+<tr><td>True generator (oracle)</td><td class="num">1.18</td><td class="num">0.82</td></tr>
+<tr><td>No-simulator rule (reuse the best strategy from development)</td><td class="num ok">2.12</td><td class="num ok">0.46</td></tr>
+<tr class="sub"><td>Always TWAP</td><td class="num">2.72</td><td class="num">1.49</td></tr>
+<tr><td>Frozen agreement rule</td><td class="num">2.79</td><td class="num hi">2.32</td></tr>
+<tr><td>Diagnostic rule, best setting (departs too rarely to qualify)</td><td class="num">2.21</td><td class="num">1.71</td></tr>
+</tbody></table></div>
+<p class="note">Positive control: even the true generator fails its own diagnostic on 47% of its samples with 90% bands and 20% with 98.75% bands. With 50 simulated samples per design the bands are too blunt to separate good simulators from bad ones.</p>
+<div class="simple"><div class="slbl">In simple words</div><p>Rules that decide when to trust a simulator did not beat simply always using TWAP, even before the final test. The diagnostic check was blunt: it rejected the true model itself a fifth to a half of the time. The best-performing "rule" used no simulator at all; it reused the strategy that had worked before, which only works because our synthetic markets resemble each other.</p></div>
+<h3>Stage 2: can the missing mechanism be seen in the data?</h3>
+<p>81 agent-mix markets crossing four mechanisms at three levels (anchoring, trend following, withdrawal, replenishment; 73 viable). For every pair, a classifier tried to tell the two markets apart from observable features.</p>
+<div class="tbl"><table><thead><tr><th>Data per market</th><th class="num">Pairs needing different strategies</th><th class="num">Look alike</th><th class="num">Median AUC</th><th>Outcome</th></tr></thead><tbody>
+<tr><td>6 episodes (3 h)</td><td class="num">1,932</td><td class="num ok">1.0%</td><td class="num">0.99</td><td><span class="chip yes">I1 identifiable</span></td></tr>
+<tr><td>24 episodes (12 h)</td><td class="num">1,932</td><td class="num ok">0.9%</td><td class="num">1.00</td><td><span class="chip yes">I1 identifiable</span></td></tr>
+</tbody></table></div>
+<p class="note">Withdrawal is the hardest mechanism to see: 17% of pairs differing only in withdrawal look alike (median AUC 0.87).</p>
+<div class="simple"><div class="slbl">In simple words</div><p>The ingredient that matters most can be detected in ordinary market data: markets built with different ingredients look clearly different even in three hours of data. So the problem is not that the data hides the answer.</p></div>
+<h3>Stage 3: correcting the simulator</h3>
+<p>Four versions compared on the development markets: the original Hawkes designs; the same refitted on four times more data; a modern compound Hawkes baseline (Jain et al.); and a corrected Hawkes with fundamental anchoring and liquidity withdrawal added, its extra parameters estimated by simulated moments.</p>
+<div class="tbl"><table><thead><tr><th>Mean regret (bp)</th><th class="num">42 development markets</th></tr></thead><tbody>
+<tr class="sub"><td>Always TWAP</td><td class="num">2.10</td></tr>
+<tr><td>Corrected (anchoring and withdrawal)</td><td class="num ok">4.53</td></tr>
+<tr><td>Original h_k1</td><td class="num">5.29</td></tr>
+<tr><td>Recalibrated h_c_f_m_k1 (24 episodes)</td><td class="num">6.05</td></tr>
+<tr><td>Original h_c_f_m_k1</td><td class="num">6.13</td></tr>
+<tr><td>Compound Hawkes</td><td class="num hi">6.78</td></tr>
+</tbody></table></div>
+<p class="note">Gate 3 met: corrected minus original h_c_f_m_k1 −1.60 bp [−3.22, −0.05]; minus compound Hawkes −2.25 [−3.81, −0.55]. Parameter recovery on R2a: the corrected model's four extra parameters are not identified from six episodes; settings that look the same in the data imply costs differing twofold.</p>
+<div class="simple"><div class="slbl">In simple words</div><p>Adding the missing ingredient made the simulator's advice somewhat better than the uncorrected versions, but still worse than plain TWAP. More data did not help, and the modern Hawkes baseline was no better than ours. The corrected model's own settings could not be pinned down from the data: two settings that look the same can give different advice.</p></div>
+<h3>Final test: 48 untouched markets (Test B)</h3>
+<div class="tbl"><table><thead><tr><th>Mean regret (bp, cross-fitted)</th><th class="num">All 48</th><th class="num">Agent-mix</th><th class="num">Latent</th><th class="num">Queue-reactive</th></tr></thead><tbody>
+<tr><td>No-simulator rule</td><td class="num ok">−0.38</td><td class="num">−1.10</td><td class="num">0.01</td><td class="num">−0.04</td></tr>
+<tr class="sub"><td>Always TWAP</td><td class="num">0.37</td><td class="num">1.01</td><td class="num">0.09</td><td class="num">0.00</td></tr>
+<tr><td>Frozen agreement rule</td><td class="num hi">1.37</td><td class="num">3.85</td><td class="num">0.26</td><td class="num">0.00</td></tr>
+<tr><td>Corrected</td><td class="num">2.16</td><td class="num">5.87</td><td class="num">0.59</td><td class="num">0.02</td></tr>
+<tr><td>Original h_c_f_m_k1</td><td class="num">2.98</td><td class="num">6.83</td><td class="num">1.77</td><td class="num">0.35</td></tr>
+<tr><td>Compound Hawkes</td><td class="num">3.50</td><td class="num">8.73</td><td class="num">1.71</td><td class="num">0.07</td></tr>
+</tbody></table></div>
+<div class="tbl"><table><thead><tr><th>Confirmatory hypothesis</th><th class="num">Estimate [95%]</th><th class="num">One-sided p</th><th class="num">Holm threshold</th><th>Result</th></tr></thead><tbody>
+<tr><td>H10.1 the frozen rule beats always TWAP</td><td class="num hi">+1.00 [+0.24, +1.51]</td><td class="num">1.00</td><td class="num">0.0125</td><td><span class="chip no">not supported: significantly worse</span></td></tr>
+<tr><td>H10.2 the frozen rule beats the no-simulator rule</td><td class="num hi">+1.75 [+0.70, +2.52]</td><td class="num">1.00</td><td class="num">0.025</td><td><span class="chip no">not supported</span></td></tr>
+<tr><td>H10.3 corrected beats original Hawkes</td><td class="num">−0.82 [−2.00, +0.51]</td><td class="num">0.153</td><td class="num">0.0083</td><td><span class="chip mid">right direction, not significant</span></td></tr>
+<tr><td>H10.4 corrected beats compound Hawkes</td><td class="num">−1.34 [−2.61, +0.17]</td><td class="num">0.041</td><td class="num">0.0063</td><td><span class="chip mid">right direction, not significant</span></td></tr>
+</tbody></table></div>
+<div class="answer"><p><span class="chip no">Method-paper criterion not met</span> The frozen rule departed from TWAP in 15% of cases (25% on development) and those departures cost money, mostly in agent-mix markets. The corrected model is better than both Hawkes baselines in every family, but not significantly after adjustment, and remains worse than TWAP. Cross-fitted regrets can fall slightly below zero because the truth itself is estimated with noise. Deviations from the plan were recorded before the test was read (reduced design set on Test B, no own-execution or probe rules, opportunity-rich family deferred, one ABIDES seed of one market not completed, one queue-reactive fit with no trades treated as unavailable).</p></div>
+<div class="simple"><div class="slbl">In simple words</div><p>On the final, sealed test the trust rule lost money compared with plain TWAP, about $2,500 on the example order, and the corrected simulator's improvement was too small to be sure of. Plain TWAP, or reusing what worked before, remained the better choice in every kind of market where anything was at stake.</p></div>
+<h3>Robustness: a learned generator (TRADES, addendum 11)</h3>
+<p>TRADES trained on each of three development markets (24 episodes, more data than the other designs get), then 20 seeds of four schedules at 15% size, every design scored on the same four-schedule choice. Descriptive only.</p>
+<div class="tbl"><table><thead><tr><th>Regret (bp)</th><th class="num">R1a queue-reactive</th><th class="num">R2a agent-mix</th><th class="num">W6 well-specified</th><th class="num">Mean</th><th class="num">Error in predicted gains</th></tr></thead><tbody>
+<tr><td>True generator</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.00</td><td class="num">0.3–5.8</td></tr>
+<tr><td>Recalibrated h_k1</td><td class="num">0.05</td><td class="num">3.08</td><td class="num">0.00</td><td class="num ok">1.04</td><td class="num">1.5–29</td></tr>
+<tr class="sub"><td>Always TWAP</td><td class="num">0.05</td><td class="num">0.00</td><td class="num">16.52</td><td class="num">5.52</td><td class="num">—</td></tr>
+<tr><td>Corrected</td><td class="num">0.00</td><td class="num">1.56</td><td class="num">19.48</td><td class="num">7.01</td><td class="num">1.5–23</td></tr>
+<tr><td>TRADES</td><td class="num">5.50</td><td class="num">16.16</td><td class="num">0.00</td><td class="num">7.22</td><td class="num hi">30–34</td></tr>
+</tbody></table></div>
+<div class="simple"><div class="slbl">In simple words</div><p>The AI generator gave the same answer, "sell at once", in all three markets. It happened to be right in one. Its predicted savings were the least accurate of all simulators tested, so a modern learned generator does not solve the problem either.</p></div>
+</section>
+
 <section id="claims">
 <h2>12 What we can claim</h2>
 <div class="simple"><div class="slbl">In simple words</div><p>Green means strong evidence, amber weak or conditional, red not supported. The bottom three rows were added from the latest results (addenda 8 and 9); the statistics audit in section 0 gives the formal status of every claim.</p></div>
@@ -764,6 +842,10 @@ section { scroll-margin-top: 20px; }
 <tr><td>A decision rule tuned on one kind of market transfers to another</td><td>Out-of-family: only always-TWAP generalises</td><td><span class="chip no">not supported</span></td></tr>
 <tr><td>A missing mechanism causes regret that more simulation does not repair</td><td>Addendum 9: without anchoring, regret rises from 7.9 to 11.2 bps as runs grow from 10 to 300, in all four markets</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
 <tr><td>Fitted simulators follow the true optimum as the market changes</td><td>Matched mechanisms: true best picked at 2–10% of settings in agent-mix markets</td><td><span class="chip no">not supported</span></td></tr>
+<tr><td>Observable evidence can tell when to trust a simulator's execution advice</td><td>Test B (48 markets, frozen rule): rule minus TWAP +1.00 bp [+0.24, +1.51]</td><td><span class="chip no">not supported (worse)</span></td></tr>
+<tr><td>Decision-critical mechanisms are identifiable from observable data</td><td>Identifiability grid: 1% of decision-relevant pairs look alike at six episodes</td><td><span class="chip yes">strong (within the agent-mix family)</span></td></tr>
+<tr><td>Adding the missing mechanism to a fitted simulator improves its advice</td><td>Development: −1.60 bp [−3.22, −0.05]; Test B: −0.82 [−2.00, +0.51]; still worse than TWAP</td><td><span class="chip mid">weak, not replicated with confidence</span></td></tr>
+<tr><td>A learned generator (TRADES) gives better execution advice</td><td>Addendum 11, three markets: same answer everywhere, gain errors 30–34 bp</td><td><span class="chip no">not supported (descriptive)</span></td></tr>
 <tr><td>The findings hold in a never-used market family and for a longer task</td><td>Held-out family (6 markets) and the 30-minute task</td><td><span class="chip yes">strong (synthetic)</span></td></tr>
 </tbody></table></div>
 </section>
@@ -805,6 +887,10 @@ section { scroll-margin-top: 20px; }
 <tr><td>Diagnostic runs overwrote the exported CSVs; the scoring pattern could pick them up</td><td>First tool run used wrong files; no reported number affected</td><td>Exports regenerated from seeds; exact file patterns</td></tr>
 <tr><td>Two code paths broke an exact tie differently</td><td>Disagreeing regret in one cell</td><td>One tie rule everywhere</td></tr>
 <tr><td>CSCO real-stream records deleted during cleanup</td><td>None after regeneration</td><td>Regenerated from ITCH data</td></tr>
+<tr><td>A Kaggle CLI call hung for 10 hours (14 November)</td><td>The launcher stalled; most of a day of Test B lost</td><td>Every Kaggle call wrapped in a 3-minute timeout</td></tr>
+<tr><td>Notebook self-stop checked the clock only when a step printed output</td><td>One Test B notebook hit Kaggle's 12-hour limit and saved nothing</td><td>A watchdog timer stops the whole process at 11.3 h; markets rerun in smaller notebooks</td></tr>
+<tr><td>The first corrected-model fits used only scale-free features</td><td>Simulated markets 3.5 times too volatile</td><td>Volatility and spread added to the fitted features (during development, before any evaluation)</td></tr>
+<tr><td>A design with no cost values (a fitted market with no trades) crashed the Test B analysis</td><td>Analysis stopped before any output</td><td>Such a design treated as unavailable in that market, recorded before the rerun (note 21)</td></tr>
 <tr><td>A Kaggle bundle lacked the market-listing file (8 November)</td><td>64 true-generator runs of one 30-minute market crashed and were saved as failed runs</td><td>Deleted and rerun; all 112,116 run files checked: no failed runs remain</td></tr>
 </tbody></table></div>
 </section>
@@ -813,7 +899,7 @@ section { scroll-margin-top: 20px; }
 <h2>15 Files</h2>
 <div class="simple"><div class="slbl">In simple words</div><p>Where to find the plans, code and results in the repository.</p></div>
 <div class="tbl"><table><thead><tr><th>What</th><th>Where</th></tr></thead><tbody>
-<tr><td>Plans and checksums</td><td class="mono">simrel/reports/preregistration_confirmatory.md, goal2_design.md, lob_impact_design.md (+ addenda 1–10), *.sha256</td></tr>
+<tr><td>Plans and checksums</td><td class="mono">simrel/reports/preregistration_confirmatory.md, goal2_design.md, lob_impact_design.md (+ addenda 1–11), addendum10_notes.md, novelty_audit.md, *.sha256</td></tr>
 <tr><td>Validation and exploratory reports</td><td class="mono">simrel/reports/lob_impact_validation.md, exploratory_literature_checks.md, statistics_and_claims.md, novelty_audit.md</td></tr>
 <tr><td>Goal 1 pipeline</td><td class="mono">simrel/experiments/slice_01_run.py … slice_17_synthetic_metaorders.py, confirm_analyse.py</td></tr>
 <tr><td>LOB-Impact</td><td class="mono">simrel/metrics/lob_impact.py; experiments/impact_01_run.py … impact_05_unique_days.py</td></tr>
