@@ -38,3 +38,13 @@ Also reported: each design's predicted cost differences against TWAP for the thr
 
 With three markets and 20 seeds, results are descriptive: no hypothesis test, no claim of superiority either way. The
 paper reports them as a robustness comparison with a learned generator, alongside the Goal 1 TRADES case study.
+
+## 4. Results (15 November 2026; appended after the runs, results/simrel/goal2/addendum11/)
+
+All three models trained (best validation EMA loss 1.23, 1.12, 1.16 against first values 3.00, 2.29, 2.98); all 300
+episodes completed. TRADES recommended selling at once in every market: correct in W6 (the Hawkes-built market, where it
+is the cheapest of the four schedules), 5.50 bp of regret in R1a and 16.16 in R2a; mean 7.22 bp, against 5.52 for
+always-TWAP and 1.04-5.41 for the best fitted designs (recalibrated h_k1, compound Hawkes, h_k1, h_c_f_m_k1_r24). Its
+error in the predicted gain of each schedule over TWAP was 30-34 bp in every market, the largest of any design except
+ABIDES in W6 (57 bp). With three markets and 20 seeds this is descriptive: the learned generator gives no better
+execution advice than the Hawkes designs, and its single recommendation does not track the market.
