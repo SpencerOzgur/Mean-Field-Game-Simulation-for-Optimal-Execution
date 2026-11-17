@@ -1,0 +1,413 @@
+{
+  "R1a_qr_resilient": {
+    "family": "qr",
+    "source": "queue_reactive.regimes(): hand-built development market",
+    "params": {
+      "join": 1.2,
+      "q0": 2000.0,
+      "deep": 0.5,
+      "inside": 1.5,
+      "cancel": 0.6,
+      "q_ref": 8000.0,
+      "market": 0.12,
+      "theta": 1.2,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "deep_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R1b_qr_fragile": {
+    "family": "qr",
+    "source": "queue_reactive.regimes(): hand-built development market",
+    "params": {
+      "join": 0.8,
+      "q0": 1200.0,
+      "deep": 0.35,
+      "inside": 1.5,
+      "cancel": 0.6,
+      "q_ref": 5000.0,
+      "market": 0.14,
+      "theta": 2.2,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "deep_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 500
+    }
+  },
+  "R1c_qr_thin": {
+    "family": "qr",
+    "source": "queue_reactive.regimes(): hand-built development market",
+    "params": {
+      "join": 0.6,
+      "q0": 1000.0,
+      "deep": 0.3,
+      "inside": 1.5,
+      "cancel": 0.6,
+      "q_ref": 8000.0,
+      "market": 0.12,
+      "theta": 1.2,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "deep_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 400
+    }
+  },
+  "R1d_qr_momentum": {
+    "family": "qr",
+    "source": "queue_reactive.regimes(): hand-built development market",
+    "params": {
+      "join": 1.2,
+      "q0": 2000.0,
+      "deep": 0.5,
+      "inside": 1.5,
+      "cancel": 0.6,
+      "q_ref": 8000.0,
+      "market": 0.16,
+      "theta": 2.8,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "deep_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R1e_qr_deep": {
+    "family": "qr",
+    "source": "queue_reactive.regimes(): hand-built development market",
+    "params": {
+      "join": 2.5,
+      "q0": 4000.0,
+      "deep": 0.9,
+      "inside": 1.5,
+      "cancel": 0.4,
+      "q_ref": 8000.0,
+      "market": 0.12,
+      "theta": 1.2,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "deep_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 1500
+    }
+  },
+  "R2a_am_anchored": {
+    "family": "am",
+    "source": "agent_mix.regimes(): hand-built development market",
+    "params": {
+      "limit": 1.4,
+      "cancel": 0.7,
+      "q_ref": 8000.0,
+      "noise_market": 0.08,
+      "fund": 0.1,
+      "fund_power": 1.5,
+      "trend": 0.05,
+      "trend_boost": 5.0,
+      "regime_switch": 0.0025,
+      "return_halflife": 30.0,
+      "flow_halflife": 20.0,
+      "withdraw": 2.0,
+      "v_ref": 2000.0,
+      "fund_vol": 0.25,
+      "inside_prob": 0.4,
+      "level_p": 0.35,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R2b_am_trending": {
+    "family": "am",
+    "source": "agent_mix.regimes(): hand-built development market",
+    "params": {
+      "limit": 1.4,
+      "cancel": 0.7,
+      "q_ref": 8000.0,
+      "noise_market": 0.08,
+      "fund": 0.04,
+      "fund_power": 1.5,
+      "trend": 0.1,
+      "trend_boost": 6.0,
+      "regime_switch": 0.004,
+      "return_halflife": 30.0,
+      "flow_halflife": 20.0,
+      "withdraw": 3.5,
+      "v_ref": 2000.0,
+      "fund_vol": 0.25,
+      "inside_prob": 0.4,
+      "level_p": 0.35,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R2c_am_anchor": {
+    "family": "am",
+    "source": "agent_mix.regimes(): hand-built development market",
+    "params": {
+      "limit": 1.4,
+      "cancel": 0.7,
+      "q_ref": 8000.0,
+      "noise_market": 0.08,
+      "fund": 0.3,
+      "fund_power": 2.0,
+      "trend": 0.02,
+      "trend_boost": 5.0,
+      "regime_switch": 0.0025,
+      "return_halflife": 30.0,
+      "flow_halflife": 20.0,
+      "withdraw": 1.0,
+      "v_ref": 2000.0,
+      "fund_vol": 0.25,
+      "inside_prob": 0.4,
+      "level_p": 0.35,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R2d_am_toxic": {
+    "family": "am",
+    "source": "agent_mix.regimes(): hand-built development market",
+    "params": {
+      "limit": 1.0,
+      "cancel": 0.7,
+      "q_ref": 8000.0,
+      "noise_market": 0.08,
+      "fund": 0.1,
+      "fund_power": 1.5,
+      "trend": 0.05,
+      "trend_boost": 5.0,
+      "regime_switch": 0.0025,
+      "return_halflife": 30.0,
+      "flow_halflife": 20.0,
+      "withdraw": 5.0,
+      "v_ref": 1000.0,
+      "fund_vol": 0.25,
+      "inside_prob": 0.4,
+      "level_p": 0.35,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "R2e_am_calm": {
+    "family": "am",
+    "source": "agent_mix.regimes(): hand-built development market",
+    "params": {
+      "limit": 1.4,
+      "cancel": 0.7,
+      "q_ref": 8000.0,
+      "noise_market": 0.08,
+      "fund": 0.1,
+      "fund_power": 1.5,
+      "trend": 0.03,
+      "trend_boost": 3.0,
+      "regime_switch": 0.00125,
+      "return_halflife": 30.0,
+      "flow_halflife": 20.0,
+      "withdraw": 2.0,
+      "v_ref": 2000.0,
+      "fund_vol": 0.1,
+      "inside_prob": 0.4,
+      "level_p": 0.35,
+      "limit_size_p": 0.45,
+      "market_size_p": 0.35,
+      "init_levels": 10,
+      "init_qty": 800
+    }
+  },
+  "XRP_pilot_a01": {
+    "family": "am",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "fund": 0.16374052719169419,
+      "fund_power": 1.3498352523107278,
+      "trend": 0.08903560700480999,
+      "trend_boost": 4.950470871383054,
+      "regime_switch": 0.0029664268058309825,
+      "withdraw": 1.9394776470960517,
+      "limit": 1.708956195525906,
+      "fund_vol": 0.15503942111124477
+    }
+  },
+  "XRP_pilot_a02": {
+    "family": "am",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "fund": 0.03382647543514288,
+      "fund_power": 1.6564484233704473,
+      "trend": 0.03878215319203028,
+      "trend_boost": 4.036489998211437,
+      "regime_switch": 0.004042319122398092,
+      "withdraw": 1.4035854729163422,
+      "limit": 1.518155997942045,
+      "fund_vol": 0.12139794149746236
+    }
+  },
+  "XRP_pilot_a03": {
+    "family": "am",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "fund": 0.22219849486551918,
+      "fund_power": 2.006546622644488,
+      "trend": 0.07047441984336165,
+      "trend_boost": 2.0266362812851333,
+      "regime_switch": 0.0036454009576190605,
+      "withdraw": 4.6411750539597625,
+      "limit": 1.4251725871088752,
+      "fund_vol": 0.2637983346472513
+    }
+  },
+  "XRP_pilot_l01": {
+    "family": "latent",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "tau": 189.44184167988115,
+      "limit": 1.858473224344184,
+      "market": 0.1690194443715306,
+      "run_alpha": 2.2093377422192653,
+      "level_p": 0.3186227506783006,
+      "fund_vol": 0.24389663300396863
+    }
+  },
+  "XRP_pilot_l02": {
+    "family": "latent",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "tau": 269.73518290140686,
+      "limit": 0.8825085287018344,
+      "market": 0.11269314992127678,
+      "run_alpha": 2.0644301564784415,
+      "level_p": 0.5927554647631856,
+      "fund_vol": 0.08305747597419352
+    }
+  },
+  "XRP_pilot_l03": {
+    "family": "latent",
+    "source": "addendum 11 development pilot (stream 20261120), predator off; origin/reactive-family",
+    "params": {
+      "tau": 38.0102635468831,
+      "limit": 1.207534351301238,
+      "market": 0.16654494148674825,
+      "run_alpha": 1.9062034537511292,
+      "level_p": 0.4521434236617552,
+      "fund_vol": 0.27168883290814605
+    }
+  },
+  "XLP_pilot_a01": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.1356060160100485,
+      "fund_power": 1.5228180693553606,
+      "trend": 0.047413215947257316,
+      "trend_boost": 2.024693143685009,
+      "regime_switch": 0.0021414376194356555,
+      "withdraw": 2.102320791979333,
+      "limit": 1.2791430047980097,
+      "fund_vol": 0.2114510865641931
+    }
+  },
+  "XLP_pilot_a04": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.03639014869047259,
+      "fund_power": 1.3632151570996216,
+      "trend": 0.04027002414667609,
+      "trend_boost": 5.5701432871184,
+      "regime_switch": 0.003989028771072546,
+      "withdraw": 2.35520531802959,
+      "limit": 1.5751028586125,
+      "fund_vol": 0.25248967026882874
+    }
+  },
+  "XLP_pilot_a06": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.054270093880876114,
+      "fund_power": 1.9458173013532893,
+      "trend": 0.028077003303140686,
+      "trend_boost": 4.356780567488475,
+      "regime_switch": 0.00443329779814177,
+      "withdraw": 1.6639318126546654,
+      "limit": 1.490607662858944,
+      "fund_vol": 0.19910290428455116
+    }
+  },
+  "XLP_pilot_a09": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.033810683698291544,
+      "fund_power": 2.0712173829085705,
+      "trend": 0.02971785640561903,
+      "trend_boost": 5.252202352281466,
+      "regime_switch": 0.0014644541835248084,
+      "withdraw": 4.896594292347309,
+      "limit": 1.4414222239639949,
+      "fund_vol": 0.15785434608909504
+    }
+  },
+  "XLP_pilot_a11": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.2527069723003931,
+      "fund_power": 1.8648180578824705,
+      "trend": 0.03602500693786216,
+      "trend_boost": 5.2655658523429105,
+      "regime_switch": 0.002621116252500897,
+      "withdraw": 1.7486246167689765,
+      "limit": 1.419142300015728,
+      "fund_vol": 0.12030543015583905
+    }
+  },
+  "XLP_pilot_a15": {
+    "family": "am",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "fund": 0.0777989100186693,
+      "fund_power": 1.3627032980780218,
+      "trend": 0.03872953769436217,
+      "trend_boost": 6.866526383746188,
+      "regime_switch": 0.001970621369944219,
+      "withdraw": 1.426643918273155,
+      "limit": 1.3884201367087377,
+      "fund_vol": 0.19453011001112647
+    }
+  },
+  "XLP_pilot_l01": {
+    "family": "latent",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "tau": 21.34083040736454,
+      "limit": 0.8007696385026283,
+      "market": 0.09407341837323628,
+      "run_alpha": 1.7540896274978635,
+      "level_p": 0.3775415990787764,
+      "fund_vol": 0.12501779971505775
+    }
+  },
+  "XLP_pilot_l02": {
+    "family": "latent",
+    "source": "lambda development pilot (stream 20261130), lambda = 0; origin/lambda-family",
+    "params": {
+      "tau": 350.1982863726117,
+      "limit": 2.26322792523668,
+      "market": 0.0930522508205492,
+      "run_alpha": 1.6436057384241567,
+      "level_p": 0.27320478513874263,
+      "fund_vol": 0.29441153436487877
+    }
+  }
+}
