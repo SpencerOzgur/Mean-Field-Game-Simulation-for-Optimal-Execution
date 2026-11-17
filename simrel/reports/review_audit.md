@@ -114,3 +114,12 @@ sample files; no TODOs.
   log 3; viability = the study's rule applied to the 20 twins (failed share and share of twins moving more than 300 bp).
 - Acceptance: R(100)/R(1) in [1.0, 3.5], exponent in [0.25, 0.65], H in [0.45, 0.55], viable. The first 6 accepted
   draws per family in draw order are the markets. No strategy cost other than TWAP's impact is computed.
+
+## 7. Stage 0 result (17 November 2026; results/simrel/goal2/extvalid/stage0.json)
+
+400 draws screened (200 per family), 399 viable, 0 accepted; the stopping rule (fewer than 8 accepted) is met and
+Stage 1 is not run. Latent: 4 draws with R(100)/R(1) in [1.0, 3.5], 21 with the exponent in [0.25, 0.65], none with
+both; medians 19.1 and 0.85. Agent-mix: 1 and 24, none with both; medians 56.8 and 0.72. Concave impact is reachable in
+both families; a short-lived price response is essentially not, and never together with concave impact. The paper
+states that its synthetic families cannot reach Nasdaq's regime of transient response and concave impact, restricts its
+claims to persistent-impact regimes, and lists the empirical regime as open.

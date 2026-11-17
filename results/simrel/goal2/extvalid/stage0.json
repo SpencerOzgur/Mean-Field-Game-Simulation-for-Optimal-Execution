@@ -1,0 +1,30 @@
+{
+ "accepted": {
+  "EVl_d": [],
+  "EVa_d": []
+ },
+ "summary": {
+  "EVl_d": {
+   "screened": 200,
+   "accepted": 0,
+   "failed_probes": 0,
+   "viable": 199,
+   "in_R_box": 4,
+   "in_exponent_box": 21,
+   "median_R": 19.131499214300494,
+   "median_exponent": 0.8520191969606672
+  },
+  "EVa_d": {
+   "screened": 200,
+   "accepted": 0,
+   "failed_probes": 0,
+   "viable": 200,
+   "in_R_box": 1,
+   "in_exponent_box": 24,
+   "median_R": 56.775804767484566,
+   "median_exponent": 0.7181331787519155
+  }
+ },
+ "total_accepted": 0,
+ "stop_rule_met": true
+}
