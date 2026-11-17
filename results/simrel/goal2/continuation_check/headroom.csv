@@ -1,0 +1,5 @@
+source,regret,threshold,n_low,families,twap_regret_mean,twap_regret_median,headroom
+Test B,full-truth,-0.05,27,"{'queue-reactive': 16, 'latent': 11}",0.13321959978608902,0.12157928047532215,False
+Test B,full-truth,-0.1,32,"{'queue-reactive': 16, 'latent': 14, 'agent-mix': 2}",0.32415591902638285,0.13018470455491427,False
+development,development truth,-0.05,5,"{'queue-reactive': 4, 'agent-mix': 1}",2.1897356670792076,0.6076004488174247,True
+development,development truth,-0.1,5,"{'queue-reactive': 4, 'agent-mix': 1}",2.1897356670792076,0.6076004488174247,True

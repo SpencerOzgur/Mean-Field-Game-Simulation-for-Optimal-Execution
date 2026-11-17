@@ -310,8 +310,67 @@ def figure() -> None:
     print("figure written")
 
 
+def stopped() -> None:
+    """Outputs when the plan stops at feasibility or headroom (plan sections 5 and 7): no arm other than always TWAP is
+    read. Per-family headroom in the low subset, the ablation S4 table, and a figure of S4 and of the headroom quantity."""
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    T = load_classes()
+    tw = market_regret()[("Test B", "full-truth")]["always TWAP"]
+    rows = []
+    for col, th in (("low_005", THRESH), ("low_010", THRESH_SENS)):
+        low = T[(T["source"] == "Test B") & T[col]]
+        for fam, g in low.groupby("family"):
+            v = tw.loc[g.index]
+            rows.append({"threshold": th, "family": fam, "n_low": len(v), "twap_regret_mean": v.mean(), "twap_regret_max": v.max(),
+                         "n_at_least_0.5bp": int((v >= HEADROOM_BP).sum())})
+    pd.DataFrame(rows).to_csv(OUT / "headroom_by_family.csv", index=False)
+    print(pd.DataFrame(rows).round(3).to_string(index=False))
+
+    ab = T[T["source"] == "ablation (descriptive)"].copy()
+    meta = {k: (knob, lv) for k, (_, _, knob, lv) in ablation.markets().items()}
+    ab["knob"], ab["level"] = [meta[m][0] for m in ab.index], [meta[m][1] for m in ab.index]
+    ab = ab[["family", "knob", "level", "S4_ticks", "S4_lo_ticks", "S4_hi_ticks", "S3_slope_ticks", "S4_share_tie", "low_005"]]
+    ab.sort_values(["family", "knob", "level"]).to_csv(OUT / "ablation_s4.csv")
+    print(ab.sort_values(["family", "knob", "level"]).round(3).to_string())
+
+    col = {"queue-reactive": "#1b7837", "agent-mix": "#2166ac", "latent": "#b2182b"}
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(12, 5.0))
+    srcs = ["Test B", "development"]
+    for ax in (a1, a2):
+        ax.axvspan(-0.089, 0.058, color="0.85", zorder=0, label="real stocks' 95% intervals (union)")
+        ax.axvline(THRESH, color="k", lw=1, ls="--", label="threshold -0.05")
+        ax.axvline(THRESH_SENS, color="k", lw=1, ls=":", label="sensitivity -0.10")
+    rng = np.random.default_rng(1)
+    for i, src in enumerate(srcs):
+        for f, c in col.items():
+            g = T[(T["source"] == src) & (T["family"] == f)]
+            a1.scatter(g["S4_ticks"], i + 0.25 * rng.uniform(-1, 1, len(g)), s=22, color=c, label=f if i == 0 else None, zorder=3,
+                       marker="o" if src == "Test B" else "s")
+    a1.set_yticks([0, 1], srcs)
+    a1.set_xlabel("S4, impact-free P6 minus TWAP at 30 s (ticks)")
+    a1.set_title("Continuation by market (20 passive episodes each)")
+    a1.legend(fontsize=7, loc="upper center", bbox_to_anchor=(0.5, -0.17), ncol=3)
+    low = T[(T["source"] == "Test B") & T["low_010"]]
+    for f, c in col.items():
+        g = low[low["family"] == f]
+        a2.scatter(g["S4_ticks"], tw.loc[g.index], s=22, color=c, zorder=3)
+    a2.axhline(HEADROOM_BP, color="0.3", lw=1, ls="-.", label="headroom 0.5 bp")
+    a2.set_xlabel("S4 (ticks)")
+    a2.set_ylabel("always-TWAP full-truth regret (bp)")
+    a2.set_title("Test B markets with S4 >= -0.10: headroom")
+    a2.legend(fontsize=7)
+    fig.suptitle("Continuation check (exploratory): stopped at headroom; no simulator arm is shown")
+    fig.tight_layout()
+    fig.savefig(OUT / "fig_continuation_check.png", dpi=150)
+    print("figure written")
+
+
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     cmd = sys.argv[1]
     procs = int(sys.argv[2]) if len(sys.argv) > 2 else 8
-    {"timing": timing, "passive": lambda: passive(procs), "classify": classify, "headroom": headroom, "compare": compare, "figure": figure}[cmd]()
+    {"timing": timing, "passive": lambda: passive(procs), "classify": classify, "headroom": headroom, "compare": compare, "figure": figure, "stopped": stopped}[cmd]()
