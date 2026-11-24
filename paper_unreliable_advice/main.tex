@@ -1,314 +1,483 @@
-\documentclass[11pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amsmath,amssymb}
-\usepackage{booktabs}
-\usepackage{enumitem}
-\usepackage[round]{natbib}
-\usepackage[hidelinks]{hyperref}
-\usepackage{microtype}
-\usepackage{xcolor}
-\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\documentclass{ieeeaccess}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{url}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \newcommand{\bp}{\,bp}
 
-\title{When Realistic Market Simulators Give Unreliable Execution Advice:\\[4pt]
-\large Sampling Error, Misspecification, and Decision Regret}
-\author{Gaurav Chattree\thanks{Experiments, code and manuscript drafting were assisted by an AI coding agent (Claude Code). Every number in this draft is produced by scripts in the accompanying repository (branch \texttt{simulator-decision-study}). \todo{co-authors, affiliations, employer approval}}}
-\date{Draft, 16 November 2026}
-
 \begin{document}
-\maketitle
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+\doi{10.1109/ACCESS.2024.0429000}
+
+\title{When Realistic Market Simulators Give Unreliable Execution Advice: Sampling Error, Misspecification, and Decision Regret}
+\author{\uppercase{Gaurav Chattree}\authorrefmark{1}}
+\address[1]{AFFILIATION, CITY, COUNTRY (e-mail: EMAIL)}
+\tfootnote{FUNDING STATEMENT.}
+
+\markboth
+{Chattree: When Realistic Market Simulators Give Unreliable Execution Advice}
+{Chattree: When Realistic Market Simulators Give Unreliable Execution Advice}
+
+\corresp{Corresponding author: Gaurav Chattree (e-mail: EMAIL).}
 
 \begin{abstract}
-Limit-order-book simulators are increasingly used to choose how to execute large orders, and they are increasingly
-validated by how realistic they look. We ask whether realism, or any other evidence available before trading, tells a
-trader when a simulator's execution advice can be trusted. On Nasdaq data for three stocks, simulators of similar
-realism recommend opposite strategies, a disagreement of up to 7.6\bp{} replicated under pre-registration. In 26
-synthetic reference markets with known costs, no observational realism score from LOB-Bench or LOB-Impact predicts good
-advice, and optimising over a fitted simulator whose mechanisms differ from the market's is worse than always trading
-evenly (TWAP). Decomposing regret shows the excess is structural rather than sampling: removing a single mechanism
-(fundamental anchoring) from the true generator makes its advice worse as the simulation budget grows, from 7.9 to
-11.2\bp{} between 10 and 300 runs. A pre-registered second study then tests remedies on 48 untouched markets: trust rules
-using only observable evidence are significantly worse than TWAP (+1.00\bp{} [+0.24, +1.51]); a simulator with the
-missing mechanisms added improves on uncorrected baselines on development markets but not significantly on the test
-markets; a learned diffusion generator (TRADES) and a direct feature-to-decision estimator do not help either. The
-decision-relevant mechanisms are, however, identifiable from observable data within a model family: the obstacle is
-the candidate simulators' structure, not the information in the data. A desk's remaining evidence, its own past
-executions, is weak at realistic budgets (of the order of 1,200 trades or more to match TWAP in our agent-mix markets), and a
-misspecified simulator used as a prior makes it weaker. We release the reference markets, protocol and
-code as a benchmark for decision reliability.
+Limit order book simulators are increasingly used to choose how large orders are executed, and are usually validated
+by how realistic they look. We ask whether realism, or any other evidence available
+before trading, tells a trader when a simulator's execution advice can be trusted. On public Nasdaq data for three
+stocks, simulators of similar realism recommended opposite strategies in a pre-registered replication. In synthetic
+reference markets whose true trading costs are known, no realism score predicted good advice, and choosing the cheapest
+strategy predicted by a simulator whose mechanisms differed from the market's was worse than trading evenly over time.
+Removing a single mechanism from the true market generator made its advice worse as the simulation budget grew. A second
+pre-registered study on forty-eight untouched markets tested observable trust rules, a simulator with the missing
+mechanisms added and a learned diffusion generator; none improved on trading evenly. The mechanisms that matter for the decision were distinguishable in observable data, yet the
+fitted simulators did not convert that information into reliable cost predictions. A trader's own past executions were
+a weak substitute: up to one hundred executions of each of twelve strategies did not reliably beat trading evenly, and a
+misspecified simulator used as a prior made them weaker. The conclusions hold for markets with persistent price impact;
+our synthetic families could not reproduce the transient, concave impact measured on Nasdaq. We release the markets,
+protocols and code as a benchmark.
 \end{abstract}
 
+\begin{keywords}
+Agent-based simulation, decision making under uncertainty, Hawkes processes, limit order books, market impact, model
+validation, optimal execution, pre-registration, simulation.
+\end{keywords}
+
+\titlepgskip=-21pt
+
+\maketitle
+
 \section{Introduction}
+\label{sec:introduction}
+\PARstart{M}{arket} simulators are routinely proposed as testbeds for execution and trading algorithms, from agent-based
+platforms such as ABIDES \cite{byrd2019abides,amrouni2021abidesgym} to point-process models \cite{bacry2015hawkes},
+queue-reactive models \cite{huang2015queue} and learned generators \cite{coletta2021towards,berti2025trades}. Their
+validation has largely been observational: a simulator is judged by how closely the order flow and order book it
+generates match real data \cite{vyetrenko2020getreal,nagy2025lobbench}. Recent work adds interventional checks, notably
+the response of a generator to injected metaorders \cite{nigmatulin2026lobimpact}, and measures the value of simulated
+experimentation by decision regret \cite{lu2026crashgym}.
 
-Market simulators are now routinely proposed as testbeds for execution and trading algorithms, from agent-based
-platforms such as ABIDES \citep{byrd2019abides,amrouni2021abidesgym} to point-process models \citep{bacry2015hawkes},
-queue-reactive models \citep{huang2015queue} and learned generators \citep{coletta2021towards,berti2025trades}. Their
-validation has largely been observational: a simulator is judged by how closely the order flow and book it generates
-match real data \citep{vyetrenko2020getreal,nagy2025lobbench}. Recent work has added interventional checks, notably the
-response of a generator to injected metaorders \citep{nigmatulin2026lobimpact}, and has begun to measure the value of
-simulated experimentation by decision regret \citep{lu2026crashgym}.
-
-A trader who uses a simulator to choose an execution schedule needs something narrower: confidence that the strategy
-the simulator recommends is better than a simple default, in this market. We study that question directly, in three
-parts.
-\begin{enumerate}[leftmargin=*]
-\item \textbf{Agreement.} Do simulators that look equally realistic on real data agree on the execution decision?
-\item \textbf{Reliability.} In markets where the true cost of every strategy is known, which properties of a simulator
-predict good advice, and is its error sampling noise or structure?
-\item \textbf{Validation.} Can evidence available before trading tell when to trust a simulator's advice, and does
+A trader who uses a simulator to choose an execution schedule needs something narrower than realism: confidence that the
+strategy the simulator recommends is better than a simple default in the market at hand. This paper studies that
+question directly. It is organised around three questions:
+\begin{itemize}
+\item \emph{Agreement.} Do simulators that look equally realistic on real data agree on the execution decision?
+\item \emph{Reliability.} In markets where the true cost of every strategy is known, which properties of a simulator
+predict good advice, and is its error sampling noise or model error?
+\item \emph{Validation.} Can evidence available before trading tell when to trust a simulator's advice, and does
 correcting its missing mechanisms make the advice reliable?
-\end{enumerate}
+\end{itemize}
 
-\paragraph{Contributions.}
-(i) A pre-registered demonstration on Nasdaq data that similarly realistic simulators recommend opposite strategies,
-with a mechanism-level explanation (Section~\ref{sec:goal1}). (ii) A reference-market benchmark with known costs in
-which we show that neither observational realism nor LOB-Impact's free-run scores predict execution regret, that
-selecting the cheapest predicted strategy amplifies model error, and that the excess regret is structural
-(Section~\ref{sec:goal2}). (iii) A decisive single-mechanism experiment: the true generator with one mechanism removed
-becomes more confidently wrong with more simulation. (iv) A pre-registered test on 48 untouched markets of three
-remedies, trust rules, mechanism correction and a learned generator, all of which fail to beat TWAP, together with the
-finding that the decision-relevant mechanisms are nonetheless identifiable from observable data
-(Section~\ref{sec:trust}).
+The study makes the following contributions. First, a pre-registered replication on Nasdaq data shows that simulators of
+similar realism recommend opposite execution strategies, and traces the disagreement to two cost components that no
+simulator reproduces together (Section~\ref{sec:agreement}). Second, a benchmark of synthetic reference markets with
+known costs shows that neither observational realism scores nor the free-run statistics of a recent impact benchmark
+predict execution regret, that selecting the cheapest predicted strategy amplifies model error, and that the excess
+regret is model error rather than sampling noise (Section~\ref{sec:reliability}). Third, a single-mechanism experiment
+removes fundamental anchoring from the true generator and shows that its advice deteriorates as the simulation budget
+grows. Fourth, a second pre-registered study on forty-eight untouched markets finds that observable trust rules,
+mechanism correction and a learned generator do not improve on trading evenly, while the decision-relevant mechanisms
+remain distinguishable in observable data (Section~\ref{sec:validation}). Fifth, the trader's own executions are
+quantified as the remaining source of evidence (Section~\ref{sec:own}). Section~\ref{sec:discussion} separates what is new
+from demonstrations of established principles and states the limits of the evidence, including an external-validity
+check whose stopping rule restricts the conclusions to markets with persistent impact.
 
-\section{Related work}
+\section{Related Work}
 \label{sec:related}
 
-\paragraph{Simulator validation.} LOB-Bench \citep{nagy2025lobbench} standardises observational realism scores for
-generative order-book models; LOB-Impact \citep{nigmatulin2026lobimpact} measures emergent impact under injected
-metaorders. We use both as candidate validation measures and test whether they predict decision quality.
-\paragraph{Decision-focused evaluation.} CrashGym \citep{lu2026crashgym} scores LLM agents' crash interventions by
-regret against counterfactual outcomes on replayable synthetic markets, with a laboratory that is a copy of the true
-world. Our candidates are fitted, misspecified simulators, the task is optimal execution, and the object of study is
-the simulator and its validation rather than an agent's experimentation.
-\paragraph{Causal and generative impact models.} Causal foundation models estimate impact under hidden confounding
-\citep{thumm2026causal}; regime-conditioned diffusion generates counterfactual trajectories \citep{wang2026difflob};
-self-calibrating simulators track recorded data \citep{zhong2026evomarket}; compound Hawkes models add realistic order
-sizes and spread dependence \citep{jain2024compound}. We include compound Hawkes and TRADES as modern baselines.
-\paragraph{Identification of the response to one's own orders.} Models calibrated on public data reproduce order-flow
-statistics yet misdescribe metaorder price paths, because they misattribute the origin of order-flow autocorrelation
-\citep{naviglio2026metaorder}; impact decay is not statistically identifiable by propagator estimation when prices are
-diffusive and order flow has long memory \citep{fujiwara2026decay}; and the optimal liquidation schedule depends on the
-feedback of one's own trades on later order flow \citep{chen2025endogenous}. Together these imply that a simulator can
-match observational statistics while getting the execution decision wrong. Our contribution is to measure how often and
-how costly this is across simulator families, to show that no observable evidence we tested repairs it, and to quantify
-the remaining source of evidence, the trader's own executions. Policy-aware simulator learning
-\citep{dann2026policyaware} addresses the same gap with interaction data; it needs exactly the own-execution data whose
-scarcity we quantify.
-\paragraph{Robust execution and decisions under ambiguity.} Robust execution under misspecified dynamics
-\citep{schied2013robust}, decisions under partial identification \citep{manski2011choosing}, safe improvement over a
-baseline policy \citep{laroche2019spibb,joshi2024safe} and policy-specific model selection \citep{dong2023local} are
-established. We do not propose a new robust optimiser; we measure, in a setting with known answers, whether the
-evidence such methods rely on is informative for execution. \todo{verify Joshi et al.\ 2024, Dong et al.\ 2023; add
-partial-identification and confounded offline RL references from the novelty review after checking them}
+\subsection{Simulator Validation}
+LOB-Bench \cite{nagy2025lobbench} standardises observational realism scores for generative order book models, comparing
+distributions of spreads, volumes, order sizes, inter-arrival times and returns between real and generated data. The
+LOB-Impact benchmark \cite{nigmatulin2026lobimpact} injects standardised metaorders into generators and tests a ladder of
+claims about order-flow balance, the build-up of impact, its square-root shape and its relaxation; it shows that
+generators can look realistic while their impact dynamics are implausible. We use both as candidate validation measures
+and ask a different question: whether they identify the simulators that give good execution advice.
 
-\section{Setup}
-\label{sec:setup}
+\subsection{Decision-Focused Evaluation}
+CrashGym \cite{lu2026crashgym} scores language-model agents choosing crash interventions by their regret against
+counterfactual outcomes in replayable synthetic markets, and shows that experiments in a laboratory copy of the true
+market improve decisions. Our candidates are fitted, misspecified simulators rather than copies of the true world; the
+task is optimal execution; and the object of study is the simulator and its validation rather than an agent's use of
+experimentation.
 
-\paragraph{Task and strategies.} Sell a fixed quantity (5--15\% of a ten-minute volume in the synthetic markets; 10\%
-and 30\% on real data) over ten minutes in 20 decisions, using market orders. Twelve strategies span schedules (TWAP,
-selling at once, front- and back-loaded, risk-averse), participation and liquidity-aware rules, and signal rules that
-speed up or slow down with the last slice's price move and order-flow imbalance. Cost is implementation shortfall
-against the arrival mid, paired with an unperturbed twin run on the same seed.
-\paragraph{Regret.} For a market with true expected costs $C(\pi)$, a decision maker recommending $\hat\pi$ incurs
-regret $C(\hat\pi)-\min_\pi C(\pi)$. True costs come from 300 reference seeds; where noted, the best strategy is
-identified on seeds 0--149 and costs evaluated on 150--299 (cross-fitting).
-\paragraph{Candidates.} On real data: Hawkes models (original, queue-aware, refill) and ABIDES (original and
-calibrated), plus a TRADES case study. In synthetic markets: 29 candidates fitted to six 30-minute observable episodes
-of each market, 28 Hawkes variants (spread closing, gap filling, multi-timescale kernels, impact scaling, stability
-caps) and ABIDES calibrated by simulated moments; later, a queue-reactive candidate, compound Hawkes, a recalibrated
-Hawkes (24 episodes), a mechanism-corrected Hawkes and TRADES.
-\paragraph{Measures.} Observational: LOB-Bench order-book, price and impact scores; LOB-Impact free-run statistics
-(sign memory, Hurst exponent, response ratio). Interventional: LOB-Impact build-up exponent, peak and relaxation;
-the error in a simulator's own TWAP impact (``metaorder accuracy''); a decision-aware validation profile.
-\paragraph{Inference and pre-registration.} The unit of replication is the market. Intervals come from a three-level
-bootstrap (markets, designs shared across markets, seeds within market and design). Every confirmatory test was written
-and checksummed (SHA-256) before its data existed; eleven design addenda and all deviations are listed in
-Appendix~\ref{app:prereg}.
+\subsection{Identification of the Response to One's Own Orders}
+Models calibrated on public data reproduce order-flow statistics yet misdescribe metaorder price paths, because they
+misattribute the origin of order-flow autocorrelation \cite{naviglio2026metaorder}. Impact decay is not statistically
+identifiable by propagator estimation when prices are diffusive and order flow has long memory
+\cite{fujiwara2026decay}. The optimal liquidation schedule depends on how a trader's own orders feed back into later
+order flow \cite{chen2025endogenous}. Together these results imply that a simulator can match observational statistics
+while getting the execution decision wrong. We measure how often and how costly this is across simulator families, test
+whether observable evidence repairs it, and quantify the remaining source of evidence.
 
-\section{Agreement: realistic simulators disagree on real data}
-\label{sec:goal1}
+\subsection{Causal and Generative Impact Models}
+Causal foundation models estimate market impact under hidden confounding between order flow and prices
+\cite{thumm2026causal}; regime-conditioned diffusion models generate counterfactual trajectories
+\cite{wang2026difflob}; self-calibrating simulators track recorded data \cite{zhong2026evomarket}; compound Hawkes models
+add realistic order sizes and spread dependence \cite{jain2024compound}. We include compound Hawkes and the TRADES
+diffusion generator \cite{berti2025trades} as modern baselines.
 
-On Nasdaq TotalView-ITCH data (INTC for discovery; CSCO primary and MSFT secondary confirmation), the original Hawkes
-model recommends selling at once and the original ABIDES model recommends patience on all three stocks. The decision
-statistic $D=C(\mathrm{TWAP})-C(\mathrm{immediate})$ is $+3.53$, $+2.20$, $+2.23$\bp{} for Hawkes and $-4.10$, $-4.95$,
-$-2.36$\bp{} for ABIDES at 10\% size: pre-registered disagreement (opposite signs, gap at least 2\bp) held on all three
-stocks (gaps 7.63, 7.15, 4.59\bp). The hope that improved versions converge did not replicate.
+\subsection{Robust Execution and Decisions under Ambiguity}
+Optimal execution under impact \cite{almgren2001optimal} and its robust versions under misspecified price dynamics
+\cite{schied2013robust} are well studied, as are decisions under partial identification \cite{manski2011choosing}, safe
+improvement over a baseline policy \cite{laroche2019spibb,joshi2024safe}, policy-specific model accuracy in offline
+reinforcement learning \cite{dong2023local}, and policy-aware simulator learning with interaction data
+\cite{dann2026policyaware}. We do not propose a new robust optimiser; we measure, in a setting with known answers,
+whether the evidence such methods rely on is informative for execution.
 
-The disagreement has a measurable cause. The decision weighs the cost of selling at once (book depth) against the cost
-of selling gradually (the trader's own impact). ABIDES-original prices selling at once 1.3--3.1 times too high and so
-advises patience; Hawkes-original makes gradual selling move the price strongly (1.3--1.9 times impact measured with
-synthetic metaorders) and so advises selling at once. Which simulator ``gets impact right'' depends on the benchmark:
-against the literature square-root band, Hawkes-refill and ABIDES-original fall inside; against impact measured on
-public trades, Hawkes-original is closest. Better order-book realism went with more extreme advice (Spearman $-0.90$,
-$-1.00$, $-0.20$). Real data cannot say which advice is right, which motivates markets with known answers.
+\section{Study Design}
+\label{sec:design}
 
-\section{Reliability: markets with known costs}
-\label{sec:goal2}
+\subsection{Execution Task and Strategies}
+The trader sells a fixed quantity over ten minutes in twenty decisions using market orders. On real data the quantity is
+10\% (confirmatory) and 30\% (exploratory) of the slice's typical ten-minute volume; in the synthetic markets it is 5\%
+and 15\% of the market's mean ten-minute volume. Twelve strategies span fixed schedules (time-weighted average price,
+abbreviated TWAP, which sells equal quantities in every slice; selling everything at once; front- and back-loaded
+exponential schedules; two risk-averse schedules), participation and liquidity-aware rules, and two signal rules that
+speed up or slow down with the previous slice's price move and order-flow imbalance. The cost of an execution is its
+implementation shortfall against the arrival mid price, in basis points (bp), paired with an unperturbed twin run that
+shares the random seed.
 
-\subsection{Design}
-Twenty-six reference markets whose rules we wrote: queue-reactive markets (flow responds to queue sizes), agent-mix
-markets (noise traders, fundamentalists anchored to a latent value, trend followers with a hidden regime, liquidity
-providers who withdraw from one-sided flow), ten markets drawn at random for confirmation, and six well-specified
-markets built from the candidates' own Hawkes family. A held-out latent-liquidity family (six markets, liquidity
-revealed around a slowly relaxing reference price) was used only once, at the end of this stage.
+\subsection{Regret and Cross-Fitting}
+For a market with true expected strategy costs $C(\pi)$, a decision maker recommending $\hat\pi$ incurs regret
+\begin{equation}
+\mathcal{R}(\hat\pi)=C(\hat\pi)-\min_{\pi}C(\pi).
+\label{eq:regret}
+\end{equation}
+True costs are estimated from 300 reference runs per strategy and size. Where stated, regret is cross-fitted: the best
+strategy $\pi_a$ is identified on runs 0--149 and costs are evaluated on runs 150--299, giving
+$\tilde{\mathcal{R}}(\hat\pi)=\bar{C}_b(\hat\pi)-\bar{C}_b(\pi_a)$. Cross-fitted regret can be negative when a strategy
+beats the half-sample best on the other half. Because $\bar{C}_b(\pi_a)$ is common to all decision makers in a market,
+it cancels exactly in every comparison between decision makers; all hypotheses below are such comparisons.
 
-\subsection{Realism does not predict good advice}
-On the ten drawn markets (pre-registered, 30 seeds), no realism measure predicted low regret (C3 holds). Metaorder
-accuracy correlated positively but did not meet its confirmatory test (C1: $+0.15$ [$-0.03$, $0.28$]); choosing by it
-rather than by LOB-Bench order-book score lowered regret by $2.66$\bp{} [$-4.75$, $+0.03$] (C2). After a Holm
-adjustment neither directional hypothesis is significant (one-sided $p=0.056$ and $0.029$). In the held-out family,
-realism pointed the wrong way: the LOB-Bench order-book score correlated $-0.32$ [$-0.61$, $-0.02$] with good advice.
+\subsection{Simulators}
+On real data the candidates are a six-type marked Hawkes model in three versions (original; with cancellations that
+follow the best queue; with spread closing, gap filling and multi-timescale kernels) and ABIDES in two versions (the
+original agent configuration calibrated by simulated moments, and one with quoting agents fitted to the data), plus a
+TRADES case study. In the synthetic markets each of 29 candidate designs is fitted to six 30-minute observable episodes
+of the market (event log and quotes): 28 Hawkes variants combining spread closing, gap filling, multi-timescale kernels,
+impact scaling and stability caps, and ABIDES calibrated by simulated moments. The second study adds a queue-reactive
+candidate, a compound Hawkes baseline after \cite{jain2024compound}, Hawkes models refitted on 24 episodes, a
+mechanism-corrected Hawkes model, and TRADES.
 
-\subsection{Optimisation amplifies model error}
-Selecting the cheapest predicted strategy picks the most flattering error: the chosen strategy's predicted gain over
-TWAP is overstated by $10.4$\bp{} on average, against $1.6$\bp{} for a typical strategy, and only 23\% of non-TWAP
-picks beat TWAP \citep{smith2006optimizer}. Simulators judged selling at once about as cheap as TWAP; it was 8\bp{}
-worse and never optimal. Gating departures from TWAP on the predicted gain's uncertainty removes the damage but, tuned
-on misspecified markets, never leaves TWAP.
+\subsection{Reference Markets}
+Synthetic reference markets are simulators whose rules we wrote, so every strategy's true cost is known. Queue-reactive
+markets let order flow respond to the sizes of the best queues. Agent-mix markets combine noise traders, fundamentalists
+who trade towards a latent value, trend followers with a hidden regime, and liquidity providers who withdraw from
+one-sided flow. Latent-liquidity markets reveal liquidity around a reference price that relaxes towards the traded price,
+with persistent order-flow signs. Well-specified markets are built from the candidates' own Hawkes family.
+Table~\ref{tab:sets} lists the market sets and their roles.
 
-\subsection{The excess regret is structural}
-At 100 decision seeds, choosing by the candidates' ensemble was worse than TWAP in agent-mix markets by $6.12$\bp{}
-[$3.33$, $8.96$] and in the 20 misspecified markets by $3.02$ [$1.31$, $5.19$]; in the well-specified markets it tended
-to beat TWAP ($-2.43$ [$-5.66$, $+1.54$]). Comparing four decision makers (true generator or candidates, 30 or 100
-seeds) attributes almost all excess regret in agent-mix markets to structure, $+6.72$\bp{} [$4.23$, $7.83$] ($+9.11$
-cross-fitted), against $+0.41$ [$-0.39$, $1.37$] to sampling. Budget curves show the difference: the true generator's
-regret falls with more seeds (4.01, 2.31, 1.90\bp{} at 5, 30, 100 seeds) while a single candidate's rises (7.07, 8.15,
-8.62). The held-out family replicates every conclusion: TWAP 0.45\bp, true generator 0.06, candidates' ensemble
-$+1.78$ [$0.18$, $3.79$] worse than TWAP, structural share $+1.95$ [$0.59$, $3.04$].
-
-\subsection{One missing mechanism}
-To isolate structure from fitting, we take the true generator of four agent-mix markets and switch off exactly one
-mechanism. Without fundamental anchoring the generator's regret rises with the simulation budget (7.88, 8.73, 11.28,
-11.19\bp{} at 10, 30, 100, 300 seeds); at 300 seeds it never selects the true best strategy and its cost ranking is
-anti-correlated with the truth ($-0.14$); it overstates the gain from selling at once by 17.8\bp. Removing trend
-followers or liquidity withdrawal hardly matters. The full true generator converges in three of the four markets; in
-the fourth, heavy-tailed costs make even the truth's 300 seeds unable to separate the top strategies.
-
-\subsection{Further checks}
-Refitted to markets in which one mechanism is varied over five levels, the fixed designs picked the true optimum at
-2--10\% of levels in agent-mix markets and met a pre-stated decision-boundary test in 88--100\% of cases. Over a
-30-minute task with 60 decisions, more is at stake (TWAP leaves 1--2.3\bp) and the true generator captures most of it,
-but no fitted design beats TWAP on average. The synthetic families match Nasdaq on diffusion and short-horizon return
-dependence but show a far more persistent response to trades ($R(100)/R(1)$ of 9--17 against 1.9) and steeper impact
-(exponent 0.64--1.04 against 0.33--0.43); conclusions describe markets with these mechanisms.
-
-\section{Validation: can a trader tell when to trust a simulator?}
-\label{sec:trust}
-
-A second pre-registered study asks whether evidence available in real markets can tell when a simulator's advice is
-safe, and whether correcting its missing mechanisms helps. Rules and models were developed on 42 development markets,
-read once on 16 Test~A markets, and confirmed on 48 new markets drawn without any filter (Test~B; 16 per family; size
-set by a power calculation for a 0.5\bp{} improvement). Test~B was analysed once, after a checksummed freeze.
-
-\paragraph{Trust rules.} Candidate rules depart from TWAP only when the fixed designs agree, when their advice is stable
-across fitted variants, when the predicted gain exceeds its uncertainty, or when a design reproduces the market's
-mechanism diagnostics (variance ratios, response to trades, depth response to one-sided flow). One rule, agreement, was
-frozen on the development markets. Even the true generator fails its own diagnostic on 20--47\% of samples, so the
-diagnostics are too blunt to separate good simulators from bad ones.
-
-\paragraph{Identifiability.} In an 81-market grid crossing anchoring, trend following, withdrawal and replenishment,
-only 1.0\% of pairs of markets requiring different decisions were observationally indistinguishable from six episodes
-(median classifier AUC 0.99); withdrawal was the hardest mechanism to see. The information needed for the decision is
-present in observable data.
-
-\paragraph{Mechanism correction.} A Hawkes candidate with fundamental anchoring and liquidity withdrawal added, its
-extra parameters fitted by simulated moments, improved on the original design by $1.60$\bp{} [$-3.22$, $-0.05$] and on
-compound Hawkes by $2.25$ [$-3.81$, $-0.55$] on the development markets, but remained worse than TWAP ($+2.43$ [$1.18$,
-$3.72$]); recalibrating on four times more data did not help, and compound Hawkes was no better than the study's
-designs. The corrected model's own parameters are not identified from six episodes: settings with near-identical
-observable features predicted TWAP costs of 67 and 32\bp{} (true 7.2) and different best strategies.
-
-\paragraph{Test B.} Table~\ref{tab:testb} reports the confirmatory results. No hypothesis is supported. The frozen rule
-departed from TWAP in 15\% of cases and those departures cost money; the corrected model was better than both Hawkes
-baselines in every family but not significantly after adjustment.
-
-\begin{table}[t]
-\centering
-\caption{Test~B: 48 untouched markets, cross-fitted regret (bp). Hypotheses one-sided, market bootstrap with decision
-seeds resampled, Holm at family-wise 0.025.}
-\label{tab:testb}
-\begin{tabular}{lrrrr}
-\toprule
- & All 48 & Agent-mix & Latent & Queue-reactive \\
-\midrule
-No-simulator rule & $-0.38$ & $-1.10$ & $0.01$ & $-0.04$ \\
-Always TWAP & $0.37$ & $1.01$ & $0.09$ & $0.00$ \\
-Frozen trust rule & $1.37$ & $3.85$ & $0.26$ & $0.00$ \\
-Corrected Hawkes & $2.16$ & $5.87$ & $0.59$ & $0.02$ \\
-Original Hawkes & $2.98$ & $6.83$ & $1.77$ & $0.35$ \\
-Compound Hawkes & $3.50$ & $8.73$ & $1.71$ & $0.07$ \\
-\midrule
-\multicolumn{5}{l}{H10.1 rule $-$ TWAP: $+1.00$ [$+0.24$, $+1.51$]; H10.2 rule $-$ no-simulator: $+1.75$ [$+0.70$, $+2.52$]} \\
-\multicolumn{5}{l}{H10.3 corrected $-$ original: $-0.82$ [$-2.00$, $+0.51$], $p=0.153$; H10.4 corrected $-$ compound: $-1.34$ [$-2.61$, $+0.17$], $p=0.041$} \\
-\bottomrule
+\begin{table}
+\caption{\textbf{Market sets and their roles}}
+\label{tab:sets}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{62pt}|p{20pt}|p{140pt}|}
+\hline
+Set & $n$ & Role \\
+\hline
+Nasdaq stocks & 3 & INTC discovery; CSCO and MSFT pre-registered confirmation \\
+Designed & 10 & First study: development of measures and rules \\
+Drawn & 10 & First study: confirmatory tests C1--C4 \\
+Well-specified & 6 & Candidates' own family; isolates parameter error \\
+Held-out latent & 6 & Read once at the end of the first study \\
+Ablation & 26 & One mechanism varied over five levels \\
+Identifiability grid & 81 & Four mechanisms at three levels (73 viable) \\
+Test~B & 48 & Second study: untouched confirmation, 16 per family \\
+\hline
 \end{tabular}
 \end{table}
 
-\paragraph{A learned generator and a direct estimator.} TRADES, trained on each of three development markets with four
-times the data of the other candidates, recommended selling at once in every market; its predicted gains over TWAP were
-off by 30--34\bp, the least accurate of any candidate. A gradient-boosted estimator mapping observable features directly
-to strategy cost differences, evaluated leaving one market family out, beat TWAP on no family with headroom and was
-significantly worse than TWAP on the held-out queue-reactive family; the no-simulator rule, which reuses the strategy
-that won on the training families, also failed out of family (6.80\bp{} against TWAP's 4.22 on agent-mix markets).
+\subsection{Measures}
+Observational measures are the LOB-Bench order book, price and impact scores \cite{nagy2025lobbench} and the free-run
+statistics of LOB-Impact \cite{nigmatulin2026lobimpact} (sign memory, Hurst exponent, the ratio of the response to a
+trade after 100 trades to that after one). Interventional measures are LOB-Impact's build-up exponent, peak impact and
+relaxation, the error in a simulator's own TWAP impact (metaorder accuracy), and a decision-oriented validation profile.
 
-\paragraph{Own executions.} Using the reference runs as a desk's past executions (unpaired, a different day per
-execution), choosing the strategy with the lowest average realised cost first matches always-TWAP in agent-mix markets
-at about 100 executions per strategy (12 strategies, about 1,200 trades); requiring the saving to exceed two standard
-errors stays at TWAP. A Bayesian combination with the candidates' predictions as a prior, its variance set from the
-simulators' errors on the other markets, is worse than own data alone at every budget in agent-mix markets (7.17\bp{}
-at two executions per strategy, 3.56 at 100, against 2.88 for TWAP). Where the candidates are correctly specified (the
-Hawkes-built markets) the same prior reaches TWAP's regret with five executions per strategy against 20--50 for own data. On the 16 Test~A markets, with the prior variance fixed at its development value, the finding replicates and is
-stronger: in agent-mix markets own data does not reach TWAP's regret by 100 executions per strategy (3.77\bp{} against
-3.04) and the simulator prior is worse at every budget (4.53\bp{} at 100).
+\subsection{Inference and Pre-Registration}
+The unit of replication is the market: order sizes, candidate designs and simulation runs are never treated as
+independent replications. Intervals in the first study come from a three-level bootstrap (2,000 resamples) over markets,
+designs (one draw shared across markets) and decision runs within market and design, with the truth held fixed. In the
+second study the bootstrap resamples markets and decision runs; we additionally report intervals that include the
+truth's own sampling noise, estimated from paired per-run cost differences. Every confirmatory test was written and
+checksummed (SHA-256) before its data existed. Multiplicity is controlled by Holm's procedure within each confirmatory
+family. Eleven design addenda record every change of plan, each dated before the results it governs.
+
+\section{Agreement: Realistic Simulators Disagree on Real Data}
+\label{sec:agreement}
+We use public Nasdaq TotalView-ITCH sample days rebuilt into ten-level order books for INTC (discovery), CSCO
+(pre-registered primary confirmation) and MSFT (secondary confirmation). Simulators learn from five days and are scored
+for realism on three held-out days; ten-minute windows are grouped into slices by volatility, volume and trend.
+
+The decision statistic $D=C(\mathrm{TWAP})-C(\mathrm{immediate})$ is positive when a simulator advises selling at once.
+Figure~\ref{fig:agreement} shows that the original Hawkes model advises selling at once and the original ABIDES model
+advises patience on all three stocks. The pre-registered disagreement criterion (opposite signs and a gap of at least
+2\bp) held on all three stocks, with gaps of 7.63, 7.15 and 4.59\bp. The hypothesis that improved versions converge was
+not supported. Better order book realism went with more extreme advice (Spearman correlations $-0.90$, $-1.00$ and
+$-0.20$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig1_goal1.pdf}
+\caption{\textbf{Similarly realistic simulators disagree.} Decision statistic $D$ at 10\% size for five simulator
+versions on three stocks, with 95\% intervals (runs resampled within slices). Positive values advise selling at once.}
+\label{fig:agreement}
+\end{figure}
+
+The disagreement has a measurable cause. The decision weighs the cost of selling at once, set by book depth, against the
+cost of selling gradually, set by the trader's own impact. ABIDES-original prices selling at once 1.3 to 3.1 times higher
+than the real order book implies and therefore advises patience; Hawkes-original makes gradual selling move the price 1.3
+to 1.9 times more than impact measured on public trades with synthetic metaorders, and therefore advises selling at once.
+Which simulator reproduces impact best depends on the benchmark: against the literature's square-root band,
+Hawkes-refill and ABIDES-original fall inside; against impact measured on public trades, Hawkes-original is closest.
+Real data cannot say which advice is right, which motivates markets with known answers.
+
+\section{Reliability: Markets with Known Costs}
+\label{sec:reliability}
+
+\subsection{Realism Does Not Predict Good Advice}
+Table~\ref{tab:confirm} reports the first study's pre-registered tests on the ten drawn markets. No realism measure
+predicted low regret (C3). Metaorder accuracy correlated positively with good advice but did not meet its confirmatory
+test (C1), and choosing the simulator with the best metaorder accuracy rather than the best order book score lowered
+regret by 2.66\bp{} (C2); after Holm's adjustment neither directional hypothesis is significant. In the held-out
+latent-liquidity family the order book score correlated negatively with good advice ($-0.32$ [$-0.61$, $-0.02$]).
+
+\begin{table}
+\caption{\textbf{First study: confirmatory tests on ten drawn markets (30 decision runs)}}
+\label{tab:confirm}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{98pt}|p{70pt}|p{48pt}|}
+\hline
+Hypothesis & Estimate [95\%] & Result \\
+\hline
+C1 metaorder accuracy predicts good advice (rank correlation) & $+0.15$ [$-0.03$, $0.28$] & $p=0.056$; not supported \\
+C2 choosing by it beats choosing by order book score (bp) & $-2.66$ [$-4.75$, $+0.03$] & $p=0.029$; not significant after Holm \\
+C3 no realism measure predicts good advice & all estimates $\le 0$ & holds \\
+C4 choosing by metaorder accuracy against TWAP (bp) & $+0.64$ [$-0.20$, $+1.94$] & descriptive \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Optimisation Amplifies Model Error}
+Selecting the cheapest predicted strategy selects the most flattering error \cite{smith2006optimizer}. The chosen
+strategy's predicted gain over TWAP was overstated by 10.4\bp{} on average, against 1.6\bp{} for a typical strategy, and
+only 23\% of non-TWAP recommendations beat TWAP. Simulators judged selling at once to be about as cheap as TWAP; in truth
+it was about 8\bp{} worse and never optimal. Rules that depart from TWAP only when the predicted gain is large relative
+to its uncertainty removed the damage, but when tuned on misspecified markets they never left TWAP.
+
+\subsection{Excess Regret Is Model Error, Not Sampling Noise}
+At 100 decision runs per candidate, choosing by the candidates' ensemble was worse than TWAP in agent-mix markets by
+6.12\bp{} [3.33, 8.96] and in the 20 misspecified markets by 3.02\bp{} [1.31, 5.19]; in the well-specified markets it
+tended to beat TWAP ($-2.43$ [$-5.66$, $+1.54$]). Comparing four decision makers (the true generator or the candidates,
+each at 30 or 100 runs) attributes 6.72\bp{} [4.23, 7.83] of excess regret in agent-mix markets to the difference between
+candidates and true generator at the same budget, and 0.41\bp{} [$-0.39$, $1.37$] to sampling. We call the former
+\emph{model error}: it contains mechanism error, parameter estimation, calibration and model selection, which this
+comparison cannot separate. Figure~\ref{fig:budget}(a) shows the signature of model error: the true generator's regret
+falls with more runs while a fitted candidate's rises. The held-out family replicated these conclusions: TWAP's regret
+was 0.45\bp, the true generator's 0.06, and the candidates' ensemble was 1.78\bp{} [0.18, 3.79] worse than TWAP.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig2_budget.pdf}
+\caption{\textbf{More simulation repairs sampling error but not model error.} (a) Mean regret in ten agent-mix markets
+against the number of simulation runs behind each decision. (b) The true generator of four agent-mix markets with one
+mechanism switched off; mean over markets and two order sizes.}
+\label{fig:budget}
+\end{figure*}
+
+\subsection{Removing One Mechanism Isolates Mechanism Error}
+To isolate mechanism error from parameter estimation and model selection, we take the true generator of four agent-mix
+markets with distinct best strategies and switch off exactly one mechanism, keeping every parameter at its true value
+(Fig.~\ref{fig:budget}(b)). Without fundamental anchoring the generator's regret rises with the budget, from 7.88\bp{}
+at 10 runs to 11.19\bp{} at 300; at 300 runs it never selects the true best strategy, its cost ranking is
+anti-correlated with the truth ($-0.14$), and it overstates the gain from selling at once by 17.8\bp. Removing trend
+followers or liquidity withdrawal hardly matters in these markets. The full generator's regret falls towards zero in three
+of the four markets; in the fourth, heavy-tailed costs prevent even 300 reference runs from separating the best
+strategies.
+
+\subsection{Further Checks}
+Refitted to markets in which one mechanism is varied over five levels, four fixed designs picked the true optimum at
+only 2\% to 10\% of levels in agent-mix markets and met a pre-stated decision-boundary criterion in 88\% to 100\% of
+design--size cells. Over a 30-minute horizon with 60 decisions more is at stake (TWAP leaves 1.0 to 2.3\bp) and the true
+generator captures most of it, but no fitted design beat TWAP on average.
+
+\section{Validation: When Can a Simulator Be Trusted?}
+\label{sec:validation}
+A second pre-registered study asked whether evidence available in real markets can tell when a simulator's advice is
+safe, and whether correcting its missing mechanisms helps. Rules and models were developed on 42 development markets
+(Table~\ref{tab:sets}), read once on 16 secondary test markets (Test~A), and confirmed on 48 markets drawn without any
+filter from fixed random streams (Test~B, 16 per family). The size of Test~B was set by a power calculation for a
+0.5\bp{} improvement; Test~B was analysed once, after a checksummed freeze of hypotheses, inference and code.
+
+\subsection{Trust Rules}
+Candidate rules depart from TWAP only when the four fixed designs agree, when their advice is stable across fitted
+variants, when the predicted gain exceeds its uncertainty, or when a design reproduces the market's mechanism
+diagnostics: variance ratios of mid-price changes at 30, 120 and 600~s, the response to trades, and the depth response to
+one-sided flow. One rule, \emph{agreement}, was selected on the development markets and frozen: depart when at least 75\%
+of designs agree on a non-TWAP strategy and the average predicted gain exceeds 2\bp. As a positive control, the true
+generator failed its own diagnostic on 20\% to 47\% of samples, depending on the band width, so these diagnostics cannot
+separate good simulators from bad ones at this sample size.
+
+\subsection{Mechanism Distinguishability}
+In an 81-market grid crossing anchoring, trend following, withdrawal and replenishment at three levels, a cross-validated
+classifier separated pairs of markets from six episodes of observable features with median area under the curve 0.99;
+only 1.0\% of the 1,932 pairs that require different decisions were indistinguishable. This establishes \emph{mechanism
+distinguishability} within a family: markets with different decision-relevant mechanisms produce different observable
+statistics. It does not establish \emph{parameter identification} of any candidate model, which fails for the corrected
+model below, nor \emph{counterfactual identification}, that is, that the response to the trader's own orders is
+determined by passive data, which theory argues against \cite{naviglio2026metaorder,fujiwara2026decay}.
+
+\subsection{Mechanism Correction}
+A Hawkes candidate with fundamental anchoring and liquidity withdrawal added, its four extra parameters fitted by
+simulated moments to the six observable episodes, improved on the original design by 1.60\bp{} [$-3.22$, $-0.05$] and on
+compound Hawkes by 2.25\bp{} [$-3.81$, $-0.55$] across the 42 development markets, but remained 2.43\bp{} [1.18, 3.72]
+worse than TWAP. These development intervals are optimistic because 26 of the 42 markets are variants of two base
+markets. Refitting on four times more data did not help, and compound Hawkes was no better than the study's designs. In
+a recovery check the corrected model's extra parameters were not identified from six episodes: parameter settings with
+nearly identical observable features predicted TWAP costs of 67 and 32\bp{} (true cost 7.2\bp) and different best
+strategies.
+
+\subsection{Confirmation on Untouched Markets}
+Fig.~\ref{fig:testb} and Table~\ref{tab:testb} report Test~B. No confirmatory hypothesis was supported. The frozen rule
+departed from TWAP in 15\% of cases, and its regret exceeded TWAP's by 1.00\bp; that excess is a descriptive two-sided
+result, since the pre-registered test was for improvement. The corrected model was better than both Hawkes baselines in
+every family, but not significantly after adjustment, and remained worse than TWAP.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig3_testb.pdf}
+\caption{\textbf{Test~B: 48 untouched markets.} Cross-fitted regret by market family with 95\% market-bootstrap
+intervals. Cross-fitted regret can fall below zero because the reference best strategy is estimated on separate runs.}
+\label{fig:testb}
+\end{figure*}
+
+\begin{table}
+\caption{\textbf{Test~B confirmatory tests (bp; negative favours the first arm)}}
+\label{tab:testb}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|p{70pt}|p{38pt}|p{60pt}|p{40pt}|}
+\hline
+Hypothesis & Estimate & 95\% interval incl.\ truth noise & $p$ (Holm threshold) \\
+\hline
+H10.1 rule beats TWAP & $+1.00$ & [$+0.31$, $+1.69$] & 1.00 (0.0125) \\
+H10.2 rule beats no-simulator rule & $+1.75$ & [$+0.77$, $+2.73$] & 1.00 (0.025) \\
+H10.3 corrected beats original Hawkes & $-0.82$ & [$-2.16$, $+0.51$] & 0.153 (0.0083) \\
+H10.4 corrected beats compound Hawkes & $-1.34$ & [$-2.80$, $+0.12$] & 0.041 (0.0063) \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{A Learned Generator and a Direct Estimator}
+TRADES was trained on each of three development markets with four times the data of the six-episode candidates and
+scored on the same reduced choice among four schedules at 15\% size (20 runs per schedule). It recommended selling at
+once in every market, correctly only in the Hawkes-built market; its predicted gains over TWAP were off by 30 to 34\bp,
+the least accurate of any candidate. A gradient-boosted estimator mapping observable features directly to strategy cost
+differences, evaluated by leaving one market family out, did not beat TWAP on any family with headroom and was worse than
+TWAP on the held-out queue-reactive family (0.50\bp{} [0.09, 1.19]). Both analyses are descriptive.
+
+\section{The Remaining Evidence: Own Executions}
+\label{sec:own}
+A trader's own past executions are the remaining evidence about a decision. We used the reference runs as past
+executions: for each strategy, $n$ executions drawn from runs 0--149 on separate days (unpaired), with regret evaluated on
+runs 150--299. Three decision makers were compared. \emph{Own data} chooses the strategy with the lowest average realised
+cost. \emph{Gated own data} departs from TWAP only if the best alternative's estimated saving exceeds two standard
+errors. The \emph{hybrid} places a Gaussian prior on each strategy's cost difference to TWAP, $d_\pi$, centred on the
+four-design ensemble's prediction $m_\pi$ with variance $\tau^2$, and updates it with the own estimate
+$\hat d_\pi=\bar x_\pi-\bar x_{\mathrm{TWAP}}$ of variance $v_\pi=(s_\pi^2+s_{\mathrm{TWAP}}^2)/n$:
+\begin{equation}
+\mathrm{E}[d_\pi\mid\mathrm{data}]=\frac{m_\pi/\tau^2+\hat d_\pi/v_\pi}{1/\tau^2+1/v_\pi},
+\label{eq:posterior}
+\end{equation}
+choosing the strategy with the lowest posterior mean (zero for TWAP). The prior variance $\tau^2$ is the ensemble's mean
+squared error on the other development markets; it never uses the market being scored and was held at its development
+value on Test~A. Because it uses other markets' true costs, which a trader would not have, it favours the hybrid.
+
+Fig.~\ref{fig:own} shows the agent-mix markets. With up to 100 executions per strategy (1,200 in total), own data was not
+reliably below TWAP's regret: the difference at $n=100$ was $-0.09$\bp{} [$-0.98$, $+0.73$] on development markets and
+$+0.73$\bp{} [$-0.15$, $+1.64$] on Test~A, and own data reached TWAP's regret by $n=100$ in only 58\% and 6\% of market
+bootstrap resamples. The hybrid was worse than own data at every budget. Successive halving, a standard best-arm
+identification procedure without a simulator, reached 2.49\bp{} at 1,200 executions against TWAP's 2.88 on development
+markets but 4.20 against 3.04 on Test~A. Where the candidates were correctly specified, in the Hawkes-built markets, the
+same prior reached TWAP's regret with five executions per strategy against 20 to 50 for own data: a simulator prior helps
+exactly where the simulator's mechanisms are right.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig4_own.pdf}
+\caption{\textbf{Own executions are weak evidence and a misspecified simulator prior weakens them.} Mean regret in
+agent-mix markets against the number of own executions per strategy, with 95\% market-bootstrap bands; the grey band is
+always-TWAP.}
+\label{fig:own}
+\end{figure}
 
 \section{Discussion}
 \label{sec:discussion}
 
-The evidence points one way. Realism, interventional fidelity scores, agreement between candidates, stability, and
-mechanism diagnostics computed from observable data do not tell a trader when a misspecified simulator's execution
-advice is reliable, and optimisation turns the simulator's errors into confident recommendations. Because the
-decision-relevant mechanisms are identifiable from the same data, the obstacle is the candidate's structure: fitted
-families have directions along which the fit to observable data stays good while the decision changes. Adding the
-missing mechanism narrows the damage without making the simulator worth following. The results form an evidence triangle. Passive
-market data cannot identify the response to one's own orders \citep{naviglio2026metaorder,fujiwara2026decay}, and no
-observable check we tested tells when a fitted simulator's advice is safe; simulators fitted to those data are
-confidently wrong when misspecified; and the trader's own executions resolve the decision only at budgets of the order
-of a thousand trades, more slowly still with a misspecified simulator as a prior. Away from markets whose mechanisms are
-known, the execution decision is effectively not validated by any of the three. A practical reading: a simulator's
-promised saving over TWAP is not evidence on its own, and a simulator should be trusted for execution only where its
-mechanisms are known to match the market's, which is also the only case in which it makes a desk's own data go further.
+\subsection{An Evidence Triangle}
+A desk has three sources of evidence about an execution decision, and in our markets each failed unless the mechanisms
+were already known. Passive market data cannot identify the response to one's own orders
+\cite{naviglio2026metaorder,fujiwara2026decay}, and none of the observable checks we tested told when a fitted
+simulator's advice was safe. Simulators fitted to those data were confidently wrong when misspecified, and more
+simulation made them more so. The trader's own executions did not reliably resolve the decision with up to a thousand or
+more trades, and a misspecified simulator used as a prior slowed them further. Because the decision-relevant mechanisms
+were distinguishable in the data, the obstacle is the candidates' structure: fitted families have directions along which
+the fit to observable data stays good while the decision changes.
 
-\paragraph{Limitations.} Real-data results cover three large US stocks, eight public sample days and sell orders; real
-data cannot say which simulator is right. The synthetic markets are of our own design and differ from Nasdaq in their
-response to trades. Several comparisons rest on few markets; the TRADES comparison is descriptive (three markets, 20
-seeds). Test~B used a reduced set of candidate designs, no own-execution or probe-trade rules, and no opportunity-rich
-stress family; these and every other deviation were recorded before the data were read.
+\subsection{What Is New and What Is Established}
+New empirical evidence comprises the regret of execution advice across simulator families with known costs; the
+pre-registered failure of observational realism scores and of LOB-Impact's free-run statistics to predict that regret;
+the removed-mechanism experiment in which more simulation increases regret; the pre-registered failure of observable
+trust rules and of mechanism correction on untouched markets; and the comparison with own executions. Several findings
+demonstrate established principles in this setting: the optimizer's curse \cite{smith2006optimizer}; that observational
+fit does not imply interventional fidelity \cite{nigmatulin2026lobimpact,naviglio2026metaorder}; that decision regret is
+the appropriate yardstick for simulated experimentation \cite{lu2026crashgym}; and that a model need only be accurate
+where the policy goes \cite{dong2023local,dann2026policyaware}.
 
-\section{Reproducibility}
-All code, reference markets, pre-registrations with their checksums, and summary results are in the repository; raw
-simulation outputs can be regenerated from their seeds. \todo{public release, licence, data availability statement
-for the ITCH sample files}
+\subsection{Practical Implications}
+A simulator's promised saving over trading evenly is not evidence on its own. A simulator should be trusted for execution
+only where its mechanisms are known to match the market's, which is also the only case in which it makes a desk's own
+execution data go further.
 
-\bibliographystyle{plainnat}
+\subsection{Limitations}
+Real-data results cover three large US stocks, eight public sample days and sell orders, and real data cannot say which
+simulator is right. The synthetic markets are of our own design. Their price response to trades is far more persistent
+than Nasdaq's (the ratio of the response after 100 trades to that after one is 7 to 38 by family, against 1.9) and their
+impact is close to linear in size (exponent about 1.0, against 0.33 to 0.43). A pre-specified external-validity screen
+drew 400 parameter sets from widened ranges and accepted those whose observable statistics fell within the empirical
+ranges; none did, so the planned sensitivity study was not run and our conclusions are restricted to markets with
+persistent impact. Several comparisons rest on few markets; the TRADES comparison and the direct estimator are
+descriptive. Test~B used a reduced set of candidate designs and no rules based on probe trades; these and every other
+deviation were recorded before the data were read.
+
+\section{Conclusion}
+\label{sec:conclusion}
+Across real and synthetic markets, the realism of a limit order book simulator did not indicate whether its execution
+advice could be trusted, optimisation turned its model error into confident recommendations, and neither observable
+checks, mechanism correction, a learned generator nor a trader's own executions at realistic budgets repaired this in
+markets whose mechanisms the simulators lacked. The released benchmark measures simulators by the quality of the
+decisions they support rather than by how realistic they look.
+
+\section*{Data and Code Availability}
+The Nasdaq TotalView-ITCH sample files are publicly available from Nasdaq (\url{https://emi.nasdaq.com/ITCH/}) and are
+not redistributed. The code, the synthetic reference markets, the pre-registrations with their SHA-256 checksums and the
+summary results will be released at REPOSITORY-URL, the code under the MIT licence and the data under the Creative
+Commons Attribution 4.0 licence. Raw simulation outputs can be regenerated from their seeds.
+
+\section*{Acknowledgment}
+The author used Claude Code (Anthropic; Claude Opus models) throughout this work: to write and run the experiment and
+analysis code, to draft the text of all sections, and to produce the figures. All numerical results come from the
+released scripts, and every reference was checked against its published source. The author takes responsibility for the
+content of the article.
+
+\bibliographystyle{IEEEtran}
 \bibliography{refs}
 
-\appendix
-\section{Pre-registration timeline and deviations}
-\label{app:prereg}
-\begin{itemize}[leftmargin=*]
-\item 31 Oct: confirmatory replication on CSCO and MSFT (H1--H5). Goal~2 design.
-\item 1--3 Nov: LOB-Impact design; addenda 1--5 (ABIDES rollouts, validation against the reference tool, designed and
-drawn markets, confirmatory hypotheses C1--C4, decision rules, well-specified markets).
-\item 5--7 Nov: addenda 6--9 (positive control, mechanism ablation, 100-seed reruns, held-out family, matched
-mechanisms, 30-minute task, removed-mechanism experiment, budget curves).
-\item 12--15 Nov: addendum 10 (trust rules, identifiability, mechanism correction, Test~B) with amendment 1 (diagnostic
-band level); addendum 11 (TRADES); Test~B freeze.
-\item 16 Nov: Test~B read once; exploratory direct estimator and own-execution study (gates fixed and checksummed
-before running; neither met).
-\end{itemize}
-Deviations and corrected errors are listed in \texttt{simrel/reports/addendum10\_notes.md} and the study report.
-\todo{condense the deviations table into the appendix}
+\begin{IEEEbiographynophoto}{Gaurav Chattree}
+AUTHOR BIOGRAPHY.
+\end{IEEEbiographynophoto}
+
+\EOD
 
 \end{document}
